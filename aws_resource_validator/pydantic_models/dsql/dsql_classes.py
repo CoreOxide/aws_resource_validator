@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.dsql.dsql_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class ClusterSummaryTypeDef(BaseValidatorModel):
-    identifier: str
-    arn: str
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
+    arn: Annotated[str, _aws_pattern("Dsql", "ClusterArn")]
 
 
 class EncryptionDetailsTypeDef(BaseValidatorModel):
@@ -64,20 +66,20 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_cluster' function.
 class DeleteClusterInputTypeDef(BaseValidatorModel):
-    identifier: str
-    clientToken: Optional[str] = None
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Dsql", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_cluster_policy' function.
 class DeleteClusterPolicyInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
     expectedPolicyVersion: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Dsql", "ClientToken")]] = None
 
 
 # This class is the input for the 'get_cluster' function.
 class GetClusterInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -87,12 +89,12 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_cluster_policy' function.
 class GetClusterPolicyInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
 
 
 # This class is the input for the 'get_vpc_endpoint_service_name' function.
 class GetVpcEndpointServiceNameInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -109,52 +111,52 @@ class ListClustersInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Dsql", "Arn")]
 
 
 class MultiRegionPropertiesTypeDef(BaseValidatorModel):
     witnessRegion: Optional[str] = None
-    clusters: Optional[List[str]] = None
+    clusters: Optional[List[Annotated[str, _aws_pattern("Dsql", "ClusterArn")]]] = None
 
 
 # This class is the input for the 'put_cluster_policy' function.
 class PutClusterPolicyInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
     policy: str
     bypassPolicyLockoutSafetyCheck: Optional[bool] = None
     expectedPolicyVersion: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Dsql", "ClientToken")]] = None
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Dsql", "Arn")]
     tags: Dict[str, str]
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Dsql", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Dsql", "TagKey")]]
 
 
 # This class is the output for the 'create_cluster' function.
 class CreateClusterOutputTypeDef(BaseValidatorModel):
-    identifier: str
-    arn: str
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
+    arn: Annotated[str, _aws_pattern("Dsql", "ClusterArn")]
     status: ClusterStatusType
     creationTime: datetime
     multiRegionProperties: MultiRegionPropertiesOutputTypeDef
     encryptionDetails: EncryptionDetailsTypeDef
     deletionProtectionEnabled: bool
-    endpoint: str
+    endpoint: Annotated[str, _aws_pattern("Dsql", "Endpoint")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_cluster' function.
 class DeleteClusterOutputTypeDef(BaseValidatorModel):
-    identifier: str
-    arn: str
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
+    arn: Annotated[str, _aws_pattern("Dsql", "ClusterArn")]
     status: ClusterStatusType
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -173,15 +175,15 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_cluster' function.
 class GetClusterOutputTypeDef(BaseValidatorModel):
-    identifier: str
-    arn: str
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
+    arn: Annotated[str, _aws_pattern("Dsql", "ClusterArn")]
     status: ClusterStatusType
     creationTime: datetime
     deletionProtectionEnabled: bool
     multiRegionProperties: MultiRegionPropertiesOutputTypeDef
     tags: Dict[str, str]
     encryptionDetails: EncryptionDetailsTypeDef
-    endpoint: str
+    endpoint: Annotated[str, _aws_pattern("Dsql", "Endpoint")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -194,8 +196,8 @@ class GetClusterPolicyOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_vpc_endpoint_service_name' function.
 class GetVpcEndpointServiceNameOutputTypeDef(BaseValidatorModel):
-    serviceName: str
-    clusterVpcEndpoint: str
+    serviceName: Annotated[str, _aws_pattern("Dsql", "ServiceName")]
+    clusterVpcEndpoint: Annotated[str, _aws_pattern("Dsql", "ClusterVpcEndpoint")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -220,8 +222,8 @@ class PutClusterPolicyOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_cluster' function.
 class UpdateClusterOutputTypeDef(BaseValidatorModel):
-    identifier: str
-    arn: str
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
+    arn: Annotated[str, _aws_pattern("Dsql", "ClusterArn")]
     status: ClusterStatusType
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -247,9 +249,9 @@ MultiRegionPropertiesUnionTypeDef = Union[MultiRegionPropertiesOutputTypeDef, Mu
 # This class is the input for the 'create_cluster' function.
 class CreateClusterInputTypeDef(BaseValidatorModel):
     deletionProtectionEnabled: Optional[bool] = None
-    kmsEncryptionKey: Optional[str] = None
+    kmsEncryptionKey: Optional[Annotated[str, _aws_pattern("Dsql", "KmsEncryptionKey")]] = None
     tags: Optional[Dict[str, str]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Dsql", "ClientToken")]] = None
     multiRegionProperties: Optional[MultiRegionPropertiesUnionTypeDef] = None
     policy: Optional[str] = None
     bypassPolicyLockoutSafetyCheck: Optional[bool] = None
@@ -257,8 +259,8 @@ class CreateClusterInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_cluster' function.
 class UpdateClusterInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Dsql", "ClusterId")]
     deletionProtectionEnabled: Optional[bool] = None
-    kmsEncryptionKey: Optional[str] = None
-    clientToken: Optional[str] = None
+    kmsEncryptionKey: Optional[Annotated[str, _aws_pattern("Dsql", "KmsEncryptionKey")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Dsql", "ClientToken")]] = None
     multiRegionProperties: Optional[MultiRegionPropertiesUnionTypeDef] = None

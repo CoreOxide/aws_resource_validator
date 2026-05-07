@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.vpc_lattice.vpc_lattice_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,18 +41,18 @@ except ImportError:  # pragma: no cover
 
 
 class AccessLogSubscriptionSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    resourceId: str
-    resourceArn: str
-    destinationArn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "AccessLogSubscriptionId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "AccessLogSubscriptionArn")]
+    resourceId: Annotated[str, _aws_pattern("VpcLattice", "ResourceId")]
+    resourceArn: Annotated[str, _aws_pattern("VpcLattice", "ResourceArn")]
+    destinationArn: Annotated[str, _aws_pattern("VpcLattice", "AccessLogDestinationArn")]
     createdAt: datetime
     lastUpdatedAt: datetime
     serviceNetworkLogType: Optional[ServiceNetworkLogTypeType] = None
 
 
 class ArnResourceTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "WildcardArn")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -62,29 +64,30 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class RuleUpdateFailureTypeDef(BaseValidatorModel):
-    ruleIdentifier: Optional[str] = None
+    ruleIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "RuleIdentifier")]] = None
     failureCode: Optional[str] = None
     failureMessage: Optional[str] = None
 
 
 # This class is the input for the 'create_access_log_subscription' function.
 class CreateAccessLogSubscriptionRequestTypeDef(BaseValidatorModel):
-    resourceIdentifier: str
-    destinationArn: str
-    clientToken: Optional[str] = None
+    resourceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceIdentifier")]
+    destinationArn: Annotated[str, _aws_pattern("VpcLattice", "AccessLogDestinationArn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
     serviceNetworkLogType: Optional[ServiceNetworkLogTypeType] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_resource_gateway' function.
 class CreateResourceGatewayRequestTypeDef(BaseValidatorModel):
-    name: str
-    clientToken: Optional[str] = None
-    vpcIdentifier: Optional[str] = None
+    name: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
+    vpcIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "VpcId")]] = None
     subnetIds: Optional[List[str]] = None
-    securityGroupIds: Optional[List[str]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("VpcLattice", "SecurityGroupId")]]] = None
     ipAddressType: Optional[ResourceGatewayIpAddressTypeType] = None
     ipv4AddressesPerEni: Optional[int] = None
+    resourceConfigDnsResolution: Optional[ResourceConfigDnsResolutionType] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -94,18 +97,18 @@ class SharingConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_service_network_resource_association' function.
 class CreateServiceNetworkResourceAssociationRequestTypeDef(BaseValidatorModel):
-    resourceConfigurationIdentifier: str
+    resourceConfigurationIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationIdentifier")]
     serviceNetworkIdentifier: str
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
     privateDnsEnabled: Optional[bool] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_service_network_service_association' function.
 class CreateServiceNetworkServiceAssociationRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    serviceNetworkIdentifier: str
-    clientToken: Optional[str] = None
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    serviceNetworkIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkIdentifier")]
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -121,82 +124,90 @@ class DnsOptionsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_service' function.
 class CreateServiceRequestTypeDef(BaseValidatorModel):
-    name: str
-    clientToken: Optional[str] = None
+    name: Annotated[str, _aws_pattern("VpcLattice", "ServiceName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
     customDomainName: Optional[str] = None
-    certificateArn: Optional[str] = None
+    certificateArn: Optional[Annotated[str, _aws_pattern("VpcLattice", "CertificateArn")]] = None
     authType: Optional[AuthTypeType] = None
 
 
 class DeleteAccessLogSubscriptionRequestTypeDef(BaseValidatorModel):
-    accessLogSubscriptionIdentifier: str
+    accessLogSubscriptionIdentifier: Annotated[str, _aws_pattern("VpcLattice", "AccessLogSubscriptionIdentifier")]
 
 
 class DeleteAuthPolicyRequestTypeDef(BaseValidatorModel):
-    resourceIdentifier: str
+    resourceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceIdentifier")]
 
 
 class DeleteDomainVerificationRequestTypeDef(BaseValidatorModel):
-    domainVerificationIdentifier: str
+    domainVerificationIdentifier: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationIdentifier")]
 
 
 class DeleteListenerRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    listenerIdentifier: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    listenerIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ListenerIdentifier")]
 
 
 class DeleteResourceConfigurationRequestTypeDef(BaseValidatorModel):
-    resourceConfigurationIdentifier: str
+    resourceConfigurationIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationIdentifier")]
 
 
 # This class is the input for the 'delete_resource_endpoint_association' function.
 class DeleteResourceEndpointAssociationRequestTypeDef(BaseValidatorModel):
-    resourceEndpointAssociationIdentifier: str
+    resourceEndpointAssociationIdentifier: Annotated[
+        str, _aws_pattern("VpcLattice", "ResourceEndpointAssociationIdentifier")
+    ]
 
 
 # This class is the input for the 'delete_resource_gateway' function.
 class DeleteResourceGatewayRequestTypeDef(BaseValidatorModel):
-    resourceGatewayIdentifier: str
+    resourceGatewayIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayIdentifier")]
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("VpcLattice", "ResourceArn")]
 
 
 class DeleteRuleRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    listenerIdentifier: str
-    ruleIdentifier: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    listenerIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ListenerIdentifier")]
+    ruleIdentifier: Annotated[str, _aws_pattern("VpcLattice", "RuleIdentifier")]
 
 
 class DeleteServiceNetworkRequestTypeDef(BaseValidatorModel):
-    serviceNetworkIdentifier: str
+    serviceNetworkIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkIdentifier")]
 
 
 # This class is the input for the 'delete_service_network_resource_association' function.
 class DeleteServiceNetworkResourceAssociationRequestTypeDef(BaseValidatorModel):
-    serviceNetworkResourceAssociationIdentifier: str
+    serviceNetworkResourceAssociationIdentifier: Annotated[
+        str, _aws_pattern("VpcLattice", "ServiceNetworkResourceAssociationIdentifier")
+    ]
 
 
 # This class is the input for the 'delete_service_network_service_association' function.
 class DeleteServiceNetworkServiceAssociationRequestTypeDef(BaseValidatorModel):
-    serviceNetworkServiceAssociationIdentifier: str
+    serviceNetworkServiceAssociationIdentifier: Annotated[
+        str, _aws_pattern("VpcLattice", "ServiceNetworkServiceAssociationIdentifier")
+    ]
 
 
 # This class is the input for the 'delete_service_network_vpc_association' function.
 class DeleteServiceNetworkVpcAssociationRequestTypeDef(BaseValidatorModel):
-    serviceNetworkVpcAssociationIdentifier: str
+    serviceNetworkVpcAssociationIdentifier: Annotated[
+        str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationIdentifier")
+    ]
 
 
 # This class is the input for the 'delete_service' function.
 class DeleteServiceRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
 
 
 # This class is the input for the 'delete_target_group' function.
 class DeleteTargetGroupRequestTypeDef(BaseValidatorModel):
-    targetGroupIdentifier: str
+    targetGroupIdentifier: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupIdentifier")]
 
 
 class TargetTypeDef(BaseValidatorModel):
@@ -231,81 +242,87 @@ class FixedResponseActionTypeDef(BaseValidatorModel):
 
 
 class WeightedTargetGroupTypeDef(BaseValidatorModel):
-    targetGroupIdentifier: str
+    targetGroupIdentifier: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupIdentifier")]
     weight: Optional[int] = None
 
 
 # This class is the input for the 'get_access_log_subscription' function.
 class GetAccessLogSubscriptionRequestTypeDef(BaseValidatorModel):
-    accessLogSubscriptionIdentifier: str
+    accessLogSubscriptionIdentifier: Annotated[str, _aws_pattern("VpcLattice", "AccessLogSubscriptionIdentifier")]
 
 
 # This class is the input for the 'get_auth_policy' function.
 class GetAuthPolicyRequestTypeDef(BaseValidatorModel):
-    resourceIdentifier: str
+    resourceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceIdentifier")]
 
 
 # This class is the input for the 'get_domain_verification' function.
 class GetDomainVerificationRequestTypeDef(BaseValidatorModel):
-    domainVerificationIdentifier: str
+    domainVerificationIdentifier: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationIdentifier")]
 
 
 # This class is the input for the 'get_listener' function.
 class GetListenerRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    listenerIdentifier: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    listenerIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ListenerIdentifier")]
 
 
 # This class is the input for the 'get_resource_configuration' function.
 class GetResourceConfigurationRequestTypeDef(BaseValidatorModel):
-    resourceConfigurationIdentifier: str
+    resourceConfigurationIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationIdentifier")]
 
 
 # This class is the input for the 'get_resource_gateway' function.
 class GetResourceGatewayRequestTypeDef(BaseValidatorModel):
-    resourceGatewayIdentifier: str
+    resourceGatewayIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayIdentifier")]
 
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("VpcLattice", "ResourceArn")]
 
 
 # This class is the input for the 'get_rule' function.
 class GetRuleRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    listenerIdentifier: str
-    ruleIdentifier: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    listenerIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ListenerIdentifier")]
+    ruleIdentifier: Annotated[str, _aws_pattern("VpcLattice", "RuleIdentifier")]
 
 
 # This class is the input for the 'get_service_network' function.
 class GetServiceNetworkRequestTypeDef(BaseValidatorModel):
-    serviceNetworkIdentifier: str
+    serviceNetworkIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkIdentifier")]
 
 
 # This class is the input for the 'get_service_network_resource_association' function.
 class GetServiceNetworkResourceAssociationRequestTypeDef(BaseValidatorModel):
-    serviceNetworkResourceAssociationIdentifier: str
+    serviceNetworkResourceAssociationIdentifier: Annotated[
+        str, _aws_pattern("VpcLattice", "ServiceNetworkResourceAssociationIdentifier")
+    ]
 
 
 # This class is the input for the 'get_service_network_service_association' function.
 class GetServiceNetworkServiceAssociationRequestTypeDef(BaseValidatorModel):
-    serviceNetworkServiceAssociationIdentifier: str
+    serviceNetworkServiceAssociationIdentifier: Annotated[
+        str, _aws_pattern("VpcLattice", "ServiceNetworkServiceAssociationIdentifier")
+    ]
 
 
 # This class is the input for the 'get_service_network_vpc_association' function.
 class GetServiceNetworkVpcAssociationRequestTypeDef(BaseValidatorModel):
-    serviceNetworkVpcAssociationIdentifier: str
+    serviceNetworkVpcAssociationIdentifier: Annotated[
+        str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationIdentifier")
+    ]
 
 
 # This class is the input for the 'get_service' function.
 class GetServiceRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
 
 
 # This class is the input for the 'get_target_group' function.
 class GetTargetGroupRequestTypeDef(BaseValidatorModel):
-    targetGroupIdentifier: str
+    targetGroupIdentifier: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupIdentifier")]
 
 
 class HeaderMatchTypeTypeDef(BaseValidatorModel):
@@ -315,7 +332,7 @@ class HeaderMatchTypeTypeDef(BaseValidatorModel):
 
 
 class MatcherTypeDef(BaseValidatorModel):
-    httpCode: Optional[str] = None
+    httpCode: Optional[Annotated[str, _aws_pattern("VpcLattice", "HttpCodeMatcher")]] = None
 
 
 class IpResourceTypeDef(BaseValidatorModel):
@@ -330,7 +347,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_access_log_subscriptions' function.
 class ListAccessLogSubscriptionsRequestTypeDef(BaseValidatorModel):
-    resourceIdentifier: str
+    resourceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceIdentifier")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -343,15 +360,15 @@ class ListDomainVerificationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_listeners' function.
 class ListListenersRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ListenerSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ListenerArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "ListenerId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("VpcLattice", "ListenerName")]] = None
     protocol: Optional[ListenerProtocolType] = None
     port: Optional[int] = None
     createdAt: Optional[datetime] = None
@@ -360,48 +377,54 @@ class ListenerSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_resource_configurations' function.
 class ListResourceConfigurationsRequestTypeDef(BaseValidatorModel):
-    resourceGatewayIdentifier: Optional[str] = None
-    resourceConfigurationGroupIdentifier: Optional[str] = None
-    domainVerificationIdentifier: Optional[str] = None
+    resourceGatewayIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayIdentifier")]] = None
+    resourceConfigurationGroupIdentifier: Optional[
+        Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationIdentifier")]
+    ] = None
+    domainVerificationIdentifier: Optional[
+        Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationIdentifier")]
+    ] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ResourceConfigurationSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    arn: Optional[str] = None
-    resourceGatewayId: Optional[str] = None
-    resourceConfigurationGroupId: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationArn")]] = None
+    resourceGatewayId: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayId")]] = None
+    resourceConfigurationGroupId: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]] = None
     type: Optional[ResourceConfigurationTypeType] = None
     status: Optional[ResourceConfigurationStatusType] = None
     amazonManaged: Optional[bool] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
     customDomainName: Optional[str] = None
-    domainVerificationId: Optional[str] = None
+    domainVerificationId: Optional[Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationId")]] = None
     groupDomain: Optional[str] = None
 
 
 # This class is the input for the 'list_resource_endpoint_associations' function.
 class ListResourceEndpointAssociationsRequestTypeDef(BaseValidatorModel):
-    resourceConfigurationIdentifier: str
-    resourceEndpointAssociationIdentifier: Optional[str] = None
-    vpcEndpointId: Optional[str] = None
-    vpcEndpointOwner: Optional[str] = None
+    resourceConfigurationIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationIdentifier")]
+    resourceEndpointAssociationIdentifier: Optional[
+        Annotated[str, _aws_pattern("VpcLattice", "ResourceEndpointAssociationIdentifier")]
+    ] = None
+    vpcEndpointId: Optional[Annotated[str, _aws_pattern("VpcLattice", "VpcEndpointId")]] = None
+    vpcEndpointOwner: Optional[Annotated[str, _aws_pattern("VpcLattice", "VpcEndpointOwner")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ResourceEndpointAssociationSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    resourceConfigurationId: Optional[str] = None
-    resourceConfigurationArn: Optional[str] = None
-    resourceConfigurationName: Optional[str] = None
-    vpcEndpointId: Optional[str] = None
-    vpcEndpointOwner: Optional[str] = None
-    createdBy: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceEndpointAssociationId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceEndpointAssociationArn")]] = None
+    resourceConfigurationId: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]] = None
+    resourceConfigurationArn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationArn")]] = None
+    resourceConfigurationName: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationName")]] = None
+    vpcEndpointId: Optional[Annotated[str, _aws_pattern("VpcLattice", "VpcEndpointId")]] = None
+    vpcEndpointOwner: Optional[Annotated[str, _aws_pattern("VpcLattice", "VpcEndpointOwner")]] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("VpcLattice", "AccountId")]] = None
     createdAt: Optional[datetime] = None
 
 
@@ -412,31 +435,32 @@ class ListResourceGatewaysRequestTypeDef(BaseValidatorModel):
 
 
 class ResourceGatewaySummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    id: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayName")]] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayArn")]] = None
     status: Optional[ResourceGatewayStatusType] = None
-    vpcIdentifier: Optional[str] = None
+    vpcIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "VpcId")]] = None
     subnetIds: Optional[List[str]] = None
-    securityGroupIds: Optional[List[str]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("VpcLattice", "SecurityGroupId")]]] = None
     ipAddressType: Optional[ResourceGatewayIpAddressTypeType] = None
     ipv4AddressesPerEni: Optional[int] = None
+    resourceConfigDnsResolution: Optional[ResourceConfigDnsResolutionType] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'list_rules' function.
 class ListRulesRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    listenerIdentifier: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    listenerIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ListenerIdentifier")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class RuleSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "RuleArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "RuleId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("VpcLattice", "RuleName")]] = None
     isDefault: Optional[bool] = None
     priority: Optional[int] = None
     createdAt: Optional[datetime] = None
@@ -445,8 +469,10 @@ class RuleSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_service_network_resource_associations' function.
 class ListServiceNetworkResourceAssociationsRequestTypeDef(BaseValidatorModel):
-    serviceNetworkIdentifier: Optional[str] = None
-    resourceConfigurationIdentifier: Optional[str] = None
+    serviceNetworkIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkIdentifier")]] = None
+    resourceConfigurationIdentifier: Optional[
+        Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationIdentifier")]
+    ] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     includeChildren: Optional[bool] = None
@@ -454,23 +480,23 @@ class ListServiceNetworkResourceAssociationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_service_network_service_associations' function.
 class ListServiceNetworkServiceAssociationsRequestTypeDef(BaseValidatorModel):
-    serviceNetworkIdentifier: Optional[str] = None
-    serviceIdentifier: Optional[str] = None
+    serviceNetworkIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkIdentifier")]] = None
+    serviceIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_service_network_vpc_associations' function.
 class ListServiceNetworkVpcAssociationsRequestTypeDef(BaseValidatorModel):
-    serviceNetworkIdentifier: Optional[str] = None
-    vpcIdentifier: Optional[str] = None
+    serviceNetworkIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkIdentifier")]] = None
+    vpcIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "VpcId")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_service_network_vpc_endpoint_associations' function.
 class ListServiceNetworkVpcEndpointAssociationsRequestTypeDef(BaseValidatorModel):
-    serviceNetworkIdentifier: str
+    serviceNetworkIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkIdentifier")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -481,7 +507,7 @@ class ServiceNetworkEndpointAssociationTypeDef(BaseValidatorModel):
     vpcEndpointOwnerId: Optional[str] = None
     id: Optional[str] = None
     state: Optional[str] = None
-    serviceNetworkArn: Optional[str] = None
+    serviceNetworkArn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkArn")]] = None
     createdAt: Optional[datetime] = None
 
 
@@ -492,9 +518,9 @@ class ListServiceNetworksRequestTypeDef(BaseValidatorModel):
 
 
 class ServiceNetworkSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkArn")]] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
     numberOfAssociatedVPCs: Optional[int] = None
@@ -510,30 +536,30 @@ class ListServicesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("VpcLattice", "Arn")]
 
 
 # This class is the input for the 'list_target_groups' function.
 class ListTargetGroupsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    vpcIdentifier: Optional[str] = None
+    vpcIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "VpcId")]] = None
     targetGroupType: Optional[TargetGroupTypeType] = None
 
 
 class TargetGroupSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "TargetGroupId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "TargetGroupArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("VpcLattice", "TargetGroupName")]] = None
     type: Optional[TargetGroupTypeType] = None
     createdAt: Optional[datetime] = None
     port: Optional[int] = None
     protocol: Optional[TargetGroupProtocolType] = None
     ipAddressType: Optional[IpAddressTypeType] = None
-    vpcIdentifier: Optional[str] = None
+    vpcIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "VpcId")]] = None
     lastUpdatedAt: Optional[datetime] = None
     status: Optional[TargetGroupStatusType] = None
-    serviceArns: Optional[List[str]] = None
+    serviceArns: Optional[List[Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]]] = None
     lambdaEventStructureVersion: Optional[LambdaEventStructureVersionType] = None
 
 
@@ -545,171 +571,174 @@ class TargetSummaryTypeDef(BaseValidatorModel):
 
 
 class PathMatchTypeTypeDef(BaseValidatorModel):
-    exact: Optional[str] = None
-    prefix: Optional[str] = None
+    exact: Optional[Annotated[str, _aws_pattern("VpcLattice", "PathMatchExact")]] = None
+    prefix: Optional[Annotated[str, _aws_pattern("VpcLattice", "PathMatchPrefix")]] = None
 
 
 # This class is the input for the 'put_auth_policy' function.
 class PutAuthPolicyRequestTypeDef(BaseValidatorModel):
-    resourceIdentifier: str
+    resourceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceIdentifier")]
     policy: str
 
 
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    policy: str
+    resourceArn: Annotated[str, _aws_pattern("VpcLattice", "ResourceArn")]
+    policy: Annotated[str, _aws_pattern("VpcLattice", "PolicyString")]
 
 
 # This class is the input for the 'start_domain_verification' function.
 class StartDomainVerificationRequestTypeDef(BaseValidatorModel):
     domainName: str
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("VpcLattice", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("VpcLattice", "Arn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_access_log_subscription' function.
 class UpdateAccessLogSubscriptionRequestTypeDef(BaseValidatorModel):
-    accessLogSubscriptionIdentifier: str
-    destinationArn: str
+    accessLogSubscriptionIdentifier: Annotated[str, _aws_pattern("VpcLattice", "AccessLogSubscriptionIdentifier")]
+    destinationArn: Annotated[str, _aws_pattern("VpcLattice", "AccessLogDestinationArn")]
 
 
 # This class is the input for the 'update_resource_gateway' function.
 class UpdateResourceGatewayRequestTypeDef(BaseValidatorModel):
-    resourceGatewayIdentifier: str
-    securityGroupIds: Optional[List[str]] = None
+    resourceGatewayIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayIdentifier")]
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("VpcLattice", "SecurityGroupId")]]] = None
 
 
 # This class is the input for the 'update_service_network' function.
 class UpdateServiceNetworkRequestTypeDef(BaseValidatorModel):
-    serviceNetworkIdentifier: str
+    serviceNetworkIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkIdentifier")]
     authType: AuthTypeType
 
 
 # This class is the input for the 'update_service_network_vpc_association' function.
 class UpdateServiceNetworkVpcAssociationRequestTypeDef(BaseValidatorModel):
-    serviceNetworkVpcAssociationIdentifier: str
-    securityGroupIds: List[str]
+    serviceNetworkVpcAssociationIdentifier: Annotated[
+        str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationIdentifier")
+    ]
+    securityGroupIds: List[Annotated[str, _aws_pattern("VpcLattice", "SecurityGroupId")]]
 
 
 # This class is the input for the 'update_service' function.
 class UpdateServiceRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    certificateArn: Optional[str] = None
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    certificateArn: Optional[Annotated[str, _aws_pattern("VpcLattice", "CertificateArn")]] = None
     authType: Optional[AuthTypeType] = None
 
 
 # This class is the output for the 'create_access_log_subscription' function.
 class CreateAccessLogSubscriptionResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    resourceId: str
-    resourceArn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "AccessLogSubscriptionId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "AccessLogSubscriptionArn")]
+    resourceId: Annotated[str, _aws_pattern("VpcLattice", "ResourceId")]
+    resourceArn: Annotated[str, _aws_pattern("VpcLattice", "ResourceArn")]
     serviceNetworkLogType: ServiceNetworkLogTypeType
-    destinationArn: str
+    destinationArn: Annotated[str, _aws_pattern("VpcLattice", "AccessLogDestinationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_resource_gateway' function.
 class CreateResourceGatewayResponseTypeDef(BaseValidatorModel):
-    name: str
-    id: str
-    arn: str
+    name: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayName")]
+    id: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayArn")]
     status: ResourceGatewayStatusType
-    vpcIdentifier: str
+    vpcIdentifier: Annotated[str, _aws_pattern("VpcLattice", "VpcId")]
     subnetIds: List[str]
-    securityGroupIds: List[str]
+    securityGroupIds: List[Annotated[str, _aws_pattern("VpcLattice", "SecurityGroupId")]]
     ipAddressType: ResourceGatewayIpAddressTypeType
     ipv4AddressesPerEni: int
+    resourceConfigDnsResolution: ResourceConfigDnsResolutionType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_service_network_resource_association' function.
 class CreateServiceNetworkResourceAssociationResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkResourceAssociationId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkResourceAssociationArn")]
     status: ServiceNetworkResourceAssociationStatusType
-    createdBy: str
+    createdBy: Annotated[str, _aws_pattern("VpcLattice", "AccountId")]
     privateDnsEnabled: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_resource_endpoint_association' function.
 class DeleteResourceEndpointAssociationResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    resourceConfigurationId: str
-    resourceConfigurationArn: str
-    vpcEndpointId: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ResourceEndpointAssociationId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ResourceEndpointAssociationArn")]
+    resourceConfigurationId: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]
+    resourceConfigurationArn: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationArn")]
+    vpcEndpointId: Annotated[str, _aws_pattern("VpcLattice", "VpcEndpointId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_resource_gateway' function.
 class DeleteResourceGatewayResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayArn")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayName")]
     status: ResourceGatewayStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_service_network_resource_association' function.
 class DeleteServiceNetworkResourceAssociationResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkResourceAssociationId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkResourceAssociationArn")]
     status: ServiceNetworkResourceAssociationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_service_network_service_association' function.
 class DeleteServiceNetworkServiceAssociationResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkServiceAssociationIdentifier")]
     status: ServiceNetworkServiceAssociationStatusType
-    arn: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkServiceAssociationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_service_network_vpc_association' function.
 class DeleteServiceNetworkVpcAssociationResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationId")]
     status: ServiceNetworkVpcAssociationStatusType
-    arn: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_service' function.
 class DeleteServiceResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ServiceName")]
     status: ServiceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_target_group' function.
 class DeleteTargetGroupResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupArn")]
     status: TargetGroupStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_access_log_subscription' function.
 class GetAccessLogSubscriptionResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    resourceId: str
-    resourceArn: str
-    destinationArn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "AccessLogSubscriptionId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "AccessLogSubscriptionArn")]
+    resourceId: Annotated[str, _aws_pattern("VpcLattice", "ResourceId")]
+    resourceArn: Annotated[str, _aws_pattern("VpcLattice", "ResourceArn")]
+    destinationArn: Annotated[str, _aws_pattern("VpcLattice", "AccessLogDestinationArn")]
     serviceNetworkLogType: ServiceNetworkLogTypeType
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -727,15 +756,18 @@ class GetAuthPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_resource_gateway' function.
 class GetResourceGatewayResponseTypeDef(BaseValidatorModel):
-    name: str
-    id: str
-    arn: str
+    name: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayName")]
+    id: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayArn")]
     status: ResourceGatewayStatusType
-    vpcId: str
+    vpcId: Annotated[str, _aws_pattern("VpcLattice", "VpcId")]
     subnetIds: List[str]
-    securityGroupIds: List[str]
+    serviceManaged: bool
+    managedBy: str
+    securityGroupIds: List[Annotated[str, _aws_pattern("VpcLattice", "SecurityGroupId")]]
     ipAddressType: ResourceGatewayIpAddressTypeType
     ipv4AddressesPerEni: int
+    resourceConfigDnsResolution: ResourceConfigDnsResolutionType
     createdAt: datetime
     lastUpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -743,7 +775,7 @@ class GetResourceGatewayResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
-    policy: str
+    policy: Annotated[str, _aws_pattern("VpcLattice", "PolicyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -769,61 +801,61 @@ class PutAuthPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_access_log_subscription' function.
 class UpdateAccessLogSubscriptionResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    resourceId: str
-    resourceArn: str
-    destinationArn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "AccessLogSubscriptionId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "AccessLogSubscriptionArn")]
+    resourceId: Annotated[str, _aws_pattern("VpcLattice", "ResourceId")]
+    resourceArn: Annotated[str, _aws_pattern("VpcLattice", "ResourceArn")]
+    destinationArn: Annotated[str, _aws_pattern("VpcLattice", "AccessLogDestinationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_resource_gateway' function.
 class UpdateResourceGatewayResponseTypeDef(BaseValidatorModel):
-    name: str
-    id: str
-    arn: str
+    name: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayName")]
+    id: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayArn")]
     status: ResourceGatewayStatusType
-    vpcId: str
+    vpcId: Annotated[str, _aws_pattern("VpcLattice", "VpcId")]
     subnetIds: List[str]
-    securityGroupIds: List[str]
+    securityGroupIds: List[Annotated[str, _aws_pattern("VpcLattice", "SecurityGroupId")]]
     ipAddressType: IpAddressTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_service_network' function.
 class UpdateServiceNetworkResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkName")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkArn")]
     authType: AuthTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_service_network_vpc_association' function.
 class UpdateServiceNetworkVpcAssociationResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationArn")]
     status: ServiceNetworkVpcAssociationStatusType
-    createdBy: str
-    securityGroupIds: List[str]
+    createdBy: Annotated[str, _aws_pattern("VpcLattice", "AccountId")]
+    securityGroupIds: List[Annotated[str, _aws_pattern("VpcLattice", "SecurityGroupId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_service' function.
 class UpdateServiceResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ServiceName")]
     customDomainName: str
-    certificateArn: str
+    certificateArn: Annotated[str, _aws_pattern("VpcLattice", "CertificateArn")]
     authType: AuthTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_service_network' function.
 class CreateServiceNetworkRequestTypeDef(BaseValidatorModel):
-    name: str
-    clientToken: Optional[str] = None
+    name: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
     authType: Optional[AuthTypeType] = None
     tags: Optional[Dict[str, str]] = None
     sharingConfig: Optional[SharingConfigTypeDef] = None
@@ -831,9 +863,9 @@ class CreateServiceNetworkRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_service_network' function.
 class CreateServiceNetworkResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkName")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkArn")]
     sharingConfig: SharingConfigTypeDef
     authType: AuthTypeType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -841,11 +873,11 @@ class CreateServiceNetworkResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_service_network' function.
 class GetServiceNetworkResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkName")]
     createdAt: datetime
     lastUpdatedAt: datetime
-    arn: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkArn")]
     authType: AuthTypeType
     sharingConfig: SharingConfigTypeDef
     numberOfAssociatedVPCs: int
@@ -855,10 +887,10 @@ class GetServiceNetworkResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_service_network_service_association' function.
 class CreateServiceNetworkServiceAssociationResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkServiceAssociationIdentifier")]
     status: ServiceNetworkServiceAssociationStatusType
-    arn: str
-    createdBy: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkServiceAssociationArn")]
+    createdBy: Annotated[str, _aws_pattern("VpcLattice", "AccountId")]
     customDomainName: str
     dnsEntry: DnsEntryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -866,11 +898,11 @@ class CreateServiceNetworkServiceAssociationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_service' function.
 class CreateServiceResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ServiceName")]
     customDomainName: str
-    certificateArn: str
+    certificateArn: Annotated[str, _aws_pattern("VpcLattice", "CertificateArn")]
     status: ServiceStatusType
     authType: AuthTypeType
     dnsEntry: DnsEntryTypeDef
@@ -879,14 +911,14 @@ class CreateServiceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_service_network_resource_association' function.
 class GetServiceNetworkResourceAssociationResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkResourceAssociationId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkResourceAssociationArn")]
     status: ServiceNetworkResourceAssociationStatusType
-    createdBy: str
+    createdBy: Annotated[str, _aws_pattern("VpcLattice", "AccountId")]
     createdAt: datetime
-    resourceConfigurationId: str
-    resourceConfigurationArn: str
-    resourceConfigurationName: str
+    resourceConfigurationId: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]
+    resourceConfigurationArn: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationArn")]
+    resourceConfigurationName: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationName")]
     serviceNetworkId: str
     serviceNetworkArn: str
     serviceNetworkName: str
@@ -903,17 +935,17 @@ class GetServiceNetworkResourceAssociationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_service_network_service_association' function.
 class GetServiceNetworkServiceAssociationResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkServiceAssociationIdentifier")]
     status: ServiceNetworkServiceAssociationStatusType
-    arn: str
-    createdBy: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkServiceAssociationArn")]
+    createdBy: Annotated[str, _aws_pattern("VpcLattice", "AccountId")]
     createdAt: datetime
-    serviceId: str
-    serviceName: str
-    serviceArn: str
-    serviceNetworkId: str
-    serviceNetworkName: str
-    serviceNetworkArn: str
+    serviceId: Annotated[str, _aws_pattern("VpcLattice", "ServiceId")]
+    serviceName: Annotated[str, _aws_pattern("VpcLattice", "ServiceName")]
+    serviceArn: Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]
+    serviceNetworkId: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkId")]
+    serviceNetworkName: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkName")]
+    serviceNetworkArn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkArn")]
     dnsEntry: DnsEntryTypeDef
     customDomainName: str
     failureMessage: str
@@ -923,14 +955,14 @@ class GetServiceNetworkServiceAssociationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_service' function.
 class GetServiceResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ServiceName")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]
     createdAt: datetime
     lastUpdatedAt: datetime
     dnsEntry: DnsEntryTypeDef
     customDomainName: str
-    certificateArn: str
+    certificateArn: Annotated[str, _aws_pattern("VpcLattice", "CertificateArn")]
     status: ServiceStatusType
     authType: AuthTypeType
     failureCode: str
@@ -939,14 +971,14 @@ class GetServiceResponseTypeDef(BaseValidatorModel):
 
 
 class ServiceNetworkResourceAssociationSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkResourceAssociationId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkResourceAssociationArn")]] = None
     status: Optional[ServiceNetworkResourceAssociationStatusType] = None
-    createdBy: Optional[str] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("VpcLattice", "AccountId")]] = None
     createdAt: Optional[datetime] = None
-    resourceConfigurationId: Optional[str] = None
-    resourceConfigurationArn: Optional[str] = None
-    resourceConfigurationName: Optional[str] = None
+    resourceConfigurationId: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]] = None
+    resourceConfigurationArn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationArn")]] = None
+    resourceConfigurationName: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationName")]] = None
     serviceNetworkId: Optional[str] = None
     serviceNetworkArn: Optional[str] = None
     serviceNetworkName: Optional[str] = None
@@ -958,25 +990,25 @@ class ServiceNetworkResourceAssociationSummaryTypeDef(BaseValidatorModel):
 
 
 class ServiceNetworkServiceAssociationSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkServiceAssociationIdentifier")]] = None
     status: Optional[ServiceNetworkServiceAssociationStatusType] = None
-    arn: Optional[str] = None
-    createdBy: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkServiceAssociationArn")]] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("VpcLattice", "AccountId")]] = None
     createdAt: Optional[datetime] = None
-    serviceId: Optional[str] = None
-    serviceName: Optional[str] = None
-    serviceArn: Optional[str] = None
-    serviceNetworkId: Optional[str] = None
-    serviceNetworkName: Optional[str] = None
-    serviceNetworkArn: Optional[str] = None
+    serviceId: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceId")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceName")]] = None
+    serviceArn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]] = None
+    serviceNetworkId: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkId")]] = None
+    serviceNetworkName: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkName")]] = None
+    serviceNetworkArn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkArn")]] = None
     dnsEntry: Optional[DnsEntryTypeDef] = None
     customDomainName: Optional[str] = None
 
 
 class ServiceSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
     dnsEntry: Optional[DnsEntryTypeDef] = None
@@ -986,11 +1018,11 @@ class ServiceSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_service_network_vpc_association' function.
 class CreateServiceNetworkVpcAssociationResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationId")]
     status: ServiceNetworkVpcAssociationStatusType
-    arn: str
-    createdBy: str
-    securityGroupIds: List[str]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationArn")]
+    createdBy: Annotated[str, _aws_pattern("VpcLattice", "AccountId")]
+    securityGroupIds: List[Annotated[str, _aws_pattern("VpcLattice", "SecurityGroupId")]]
     privateDnsEnabled: bool
     dnsOptions: DnsOptionsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -998,16 +1030,16 @@ class CreateServiceNetworkVpcAssociationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_service_network_vpc_association' function.
 class GetServiceNetworkVpcAssociationResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationId")]
     status: ServiceNetworkVpcAssociationStatusType
-    arn: str
-    createdBy: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationArn")]
+    createdBy: Annotated[str, _aws_pattern("VpcLattice", "AccountId")]
     createdAt: datetime
-    serviceNetworkId: str
-    serviceNetworkName: str
-    serviceNetworkArn: str
-    vpcId: str
-    securityGroupIds: List[str]
+    serviceNetworkId: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkId")]
+    serviceNetworkName: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkName")]
+    serviceNetworkArn: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkArn")]
+    vpcId: Annotated[str, _aws_pattern("VpcLattice", "VpcId")]
+    securityGroupIds: List[Annotated[str, _aws_pattern("VpcLattice", "SecurityGroupId")]]
     privateDnsEnabled: bool
     failureMessage: str
     failureCode: str
@@ -1017,29 +1049,29 @@ class GetServiceNetworkVpcAssociationResponseTypeDef(BaseValidatorModel):
 
 
 class ServiceNetworkVpcAssociationSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkVpcAssociationArn")]] = None
     status: Optional[ServiceNetworkVpcAssociationStatusType] = None
-    createdBy: Optional[str] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("VpcLattice", "AccountId")]] = None
     createdAt: Optional[datetime] = None
-    serviceNetworkId: Optional[str] = None
-    serviceNetworkName: Optional[str] = None
-    serviceNetworkArn: Optional[str] = None
+    serviceNetworkId: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkId")]] = None
+    serviceNetworkName: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkName")]] = None
+    serviceNetworkArn: Optional[Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkArn")]] = None
     privateDnsEnabled: Optional[bool] = None
     dnsOptions: Optional[DnsOptionsOutputTypeDef] = None
-    vpcId: Optional[str] = None
+    vpcId: Optional[Annotated[str, _aws_pattern("VpcLattice", "VpcId")]] = None
     lastUpdatedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'deregister_targets' function.
 class DeregisterTargetsRequestTypeDef(BaseValidatorModel):
-    targetGroupIdentifier: str
+    targetGroupIdentifier: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupIdentifier")]
     targets: List[TargetTypeDef]
 
 
 # This class is the input for the 'list_targets' function.
 class ListTargetsRequestTypeDef(BaseValidatorModel):
-    targetGroupIdentifier: str
+    targetGroupIdentifier: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupIdentifier")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     targets: Optional[List[TargetTypeDef]] = None
@@ -1047,7 +1079,7 @@ class ListTargetsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_targets' function.
 class RegisterTargetsRequestTypeDef(BaseValidatorModel):
-    targetGroupIdentifier: str
+    targetGroupIdentifier: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupIdentifier")]
     targets: List[TargetTypeDef]
 
 
@@ -1069,8 +1101,8 @@ DnsOptionsUnionTypeDef = Union[DnsOptionsOutputTypeDef, DnsOptionsTypeDef]
 
 
 class DomainVerificationSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationArn")]
     domainName: str
     status: VerificationStatusType
     createdAt: datetime
@@ -1081,8 +1113,8 @@ class DomainVerificationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_domain_verification' function.
 class GetDomainVerificationResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationArn")]
     domainName: str
     status: VerificationStatusType
     txtMethodConfig: TxtMethodConfigTypeDef
@@ -1094,8 +1126,8 @@ class GetDomainVerificationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_domain_verification' function.
 class StartDomainVerificationResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationArn")]
     domainName: str
     status: VerificationStatusType
     txtMethodConfig: TxtMethodConfigTypeDef
@@ -1121,7 +1153,7 @@ class HealthCheckConfigTypeDef(BaseValidatorModel):
     protocol: Optional[TargetGroupProtocolType] = None
     protocolVersion: Optional[HealthCheckProtocolVersionType] = None
     port: Optional[int] = None
-    path: Optional[str] = None
+    path: Optional[Annotated[str, _aws_pattern("VpcLattice", "HealthCheckPath")]] = None
     healthCheckIntervalSeconds: Optional[int] = None
     healthCheckTimeoutSeconds: Optional[int] = None
     healthyThresholdCount: Optional[int] = None
@@ -1316,11 +1348,11 @@ class ListServiceNetworkVpcAssociationsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_service_network_vpc_association' function.
 class CreateServiceNetworkVpcAssociationRequestTypeDef(BaseValidatorModel):
-    serviceNetworkIdentifier: str
-    vpcIdentifier: str
-    clientToken: Optional[str] = None
+    serviceNetworkIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceNetworkIdentifier")]
+    vpcIdentifier: Annotated[str, _aws_pattern("VpcLattice", "VpcId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
     privateDnsEnabled: Optional[bool] = None
-    securityGroupIds: Optional[List[str]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("VpcLattice", "SecurityGroupId")]]] = None
     tags: Optional[Dict[str, str]] = None
     dnsOptions: Optional[DnsOptionsUnionTypeDef] = None
 
@@ -1345,43 +1377,47 @@ class TargetGroupConfigTypeDef(BaseValidatorModel):
     protocol: Optional[TargetGroupProtocolType] = None
     protocolVersion: Optional[TargetGroupProtocolVersionType] = None
     ipAddressType: Optional[IpAddressTypeType] = None
-    vpcIdentifier: Optional[str] = None
+    vpcIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "VpcId")]] = None
     healthCheck: Optional[HealthCheckConfigTypeDef] = None
     lambdaEventStructureVersion: Optional[LambdaEventStructureVersionType] = None
 
 
 # This class is the input for the 'update_target_group' function.
 class UpdateTargetGroupRequestTypeDef(BaseValidatorModel):
-    targetGroupIdentifier: str
+    targetGroupIdentifier: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupIdentifier")]
     healthCheck: HealthCheckConfigTypeDef
 
 
 # This class is the input for the 'create_resource_configuration' function.
 class CreateResourceConfigurationRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationName")]
     type: ResourceConfigurationTypeType
-    portRanges: Optional[List[str]] = None
+    portRanges: Optional[List[Annotated[str, _aws_pattern("VpcLattice", "PortRange")]]] = None
     protocol: Optional[Literal["TCP"]] = None
-    resourceGatewayIdentifier: Optional[str] = None
-    resourceConfigurationGroupIdentifier: Optional[str] = None
+    resourceGatewayIdentifier: Optional[Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayIdentifier")]] = None
+    resourceConfigurationGroupIdentifier: Optional[
+        Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationIdentifier")]
+    ] = None
     resourceConfigurationDefinition: Optional[ResourceConfigurationDefinitionTypeDef] = None
     allowAssociationToShareableServiceNetwork: Optional[bool] = None
     customDomainName: Optional[str] = None
     groupDomain: Optional[str] = None
-    domainVerificationIdentifier: Optional[str] = None
-    clientToken: Optional[str] = None
+    domainVerificationIdentifier: Optional[
+        Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationIdentifier")]
+    ] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'create_resource_configuration' function.
 class CreateResourceConfigurationResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    resourceGatewayId: str
-    resourceConfigurationGroupId: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationName")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationArn")]
+    resourceGatewayId: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayId")]
+    resourceConfigurationGroupId: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]
     type: ResourceConfigurationTypeType
-    portRanges: List[str]
+    portRanges: List[Annotated[str, _aws_pattern("VpcLattice", "PortRange")]]
     protocol: Literal["TCP"]
     status: ResourceConfigurationStatusType
     resourceConfigurationDefinition: ResourceConfigurationDefinitionTypeDef
@@ -1389,22 +1425,22 @@ class CreateResourceConfigurationResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
     failureReason: str
     customDomainName: str
-    domainVerificationId: str
+    domainVerificationId: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationId")]
     groupDomain: str
-    domainVerificationArn: str
+    domainVerificationArn: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_resource_configuration' function.
 class GetResourceConfigurationResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    resourceGatewayId: str
-    resourceConfigurationGroupId: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationName")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationArn")]
+    resourceGatewayId: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayId")]
+    resourceConfigurationGroupId: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]
     type: ResourceConfigurationTypeType
     allowAssociationToShareableServiceNetwork: bool
-    portRanges: List[str]
+    portRanges: List[Annotated[str, _aws_pattern("VpcLattice", "PortRange")]]
     protocol: Literal["TCP"]
     customDomainName: str
     status: ResourceConfigurationStatusType
@@ -1413,8 +1449,8 @@ class GetResourceConfigurationResponseTypeDef(BaseValidatorModel):
     amazonManaged: bool
     failureReason: str
     lastUpdatedAt: datetime
-    domainVerificationId: str
-    domainVerificationArn: str
+    domainVerificationId: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationId")]
+    domainVerificationArn: Annotated[str, _aws_pattern("VpcLattice", "DomainVerificationArn")]
     domainVerificationStatus: VerificationStatusType
     groupDomain: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1422,21 +1458,21 @@ class GetResourceConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_resource_configuration' function.
 class UpdateResourceConfigurationRequestTypeDef(BaseValidatorModel):
-    resourceConfigurationIdentifier: str
+    resourceConfigurationIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationIdentifier")]
     resourceConfigurationDefinition: Optional[ResourceConfigurationDefinitionTypeDef] = None
     allowAssociationToShareableServiceNetwork: Optional[bool] = None
-    portRanges: Optional[List[str]] = None
+    portRanges: Optional[List[Annotated[str, _aws_pattern("VpcLattice", "PortRange")]]] = None
 
 
 # This class is the output for the 'update_resource_configuration' function.
 class UpdateResourceConfigurationResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    resourceGatewayId: str
-    resourceConfigurationGroupId: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationName")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationArn")]
+    resourceGatewayId: Annotated[str, _aws_pattern("VpcLattice", "ResourceGatewayId")]
+    resourceConfigurationGroupId: Annotated[str, _aws_pattern("VpcLattice", "ResourceConfigurationId")]
     type: ResourceConfigurationTypeType
-    portRanges: List[str]
+    portRanges: List[Annotated[str, _aws_pattern("VpcLattice", "PortRange")]]
     allowAssociationToShareableServiceNetwork: bool
     protocol: Literal["TCP"]
     status: ResourceConfigurationStatusType
@@ -1458,26 +1494,26 @@ class HttpMatchTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_listener' function.
 class CreateListenerResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ListenerArn")]
+    id: Annotated[str, _aws_pattern("VpcLattice", "ListenerId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ListenerName")]
     protocol: ListenerProtocolType
     port: int
-    serviceArn: str
-    serviceId: str
+    serviceArn: Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]
+    serviceId: Annotated[str, _aws_pattern("VpcLattice", "ServiceId")]
     defaultAction: RuleActionOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_listener' function.
 class GetListenerResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ListenerArn")]
+    id: Annotated[str, _aws_pattern("VpcLattice", "ListenerId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ListenerName")]
     protocol: ListenerProtocolType
     port: int
-    serviceArn: str
-    serviceId: str
+    serviceArn: Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]
+    serviceId: Annotated[str, _aws_pattern("VpcLattice", "ServiceId")]
     defaultAction: RuleActionOutputTypeDef
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -1486,13 +1522,13 @@ class GetListenerResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_listener' function.
 class UpdateListenerResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "ListenerArn")]
+    id: Annotated[str, _aws_pattern("VpcLattice", "ListenerId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ListenerName")]
     protocol: ListenerProtocolType
     port: int
-    serviceArn: str
-    serviceId: str
+    serviceArn: Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]
+    serviceId: Annotated[str, _aws_pattern("VpcLattice", "ServiceId")]
     defaultAction: RuleActionOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1504,18 +1540,18 @@ class RuleActionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_target_group' function.
 class CreateTargetGroupRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupName")]
     type: TargetGroupTypeType
     config: Optional[TargetGroupConfigTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'create_target_group' function.
 class CreateTargetGroupResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupArn")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupName")]
     type: TargetGroupTypeType
     config: TargetGroupConfigTypeDef
     status: TargetGroupStatusType
@@ -1524,15 +1560,15 @@ class CreateTargetGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_target_group' function.
 class GetTargetGroupResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupArn")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupName")]
     type: TargetGroupTypeType
     config: TargetGroupConfigTypeDef
     createdAt: datetime
     lastUpdatedAt: datetime
     status: TargetGroupStatusType
-    serviceArns: List[str]
+    serviceArns: List[Annotated[str, _aws_pattern("VpcLattice", "ServiceArn")]]
     failureMessage: str
     failureCode: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1540,9 +1576,9 @@ class GetTargetGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_target_group' function.
 class UpdateTargetGroupResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupId")]
+    arn: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupArn")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "TargetGroupName")]
     type: TargetGroupTypeType
     config: TargetGroupConfigTypeDef
     status: TargetGroupStatusType
@@ -1560,9 +1596,9 @@ RuleActionUnionTypeDef = Union[RuleActionOutputTypeDef, RuleActionTypeDef]
 
 # This class is the output for the 'create_rule' function.
 class CreateRuleResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "RuleArn")]
+    id: Annotated[str, _aws_pattern("VpcLattice", "RuleId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "RuleName")]
     match_: RuleMatchOutputTypeDef = Field(..., alias="match")
     priority: int
     action: RuleActionOutputTypeDef
@@ -1571,9 +1607,9 @@ class CreateRuleResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_rule' function.
 class GetRuleResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "RuleArn")]
+    id: Annotated[str, _aws_pattern("VpcLattice", "RuleId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "RuleName")]
     isDefault: bool
     match_: RuleMatchOutputTypeDef = Field(..., alias="match")
     priority: int
@@ -1584,9 +1620,9 @@ class GetRuleResponseTypeDef(BaseValidatorModel):
 
 
 class RuleUpdateSuccessTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("VpcLattice", "RuleArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("VpcLattice", "RuleId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("VpcLattice", "RuleName")]] = None
     isDefault: Optional[bool] = None
     match_: Optional[RuleMatchOutputTypeDef] = Field(None, alias="match")
     priority: Optional[int] = None
@@ -1595,9 +1631,9 @@ class RuleUpdateSuccessTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_rule' function.
 class UpdateRuleResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
+    arn: Annotated[str, _aws_pattern("VpcLattice", "RuleArn")]
+    id: Annotated[str, _aws_pattern("VpcLattice", "RuleId")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "RuleName")]
     isDefault: bool
     match_: RuleMatchOutputTypeDef = Field(..., alias="match")
     priority: int
@@ -1611,19 +1647,19 @@ class RuleMatchTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_listener' function.
 class CreateListenerRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    name: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "ListenerName")]
     protocol: ListenerProtocolType
     defaultAction: RuleActionUnionTypeDef
     port: Optional[int] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_listener' function.
 class UpdateListenerRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    listenerIdentifier: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    listenerIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ListenerIdentifier")]
     defaultAction: RuleActionUnionTypeDef
 
 
@@ -1639,18 +1675,18 @@ RuleMatchUnionTypeDef = Union[RuleMatchOutputTypeDef, RuleMatchTypeDef]
 
 # This class is the input for the 'create_rule' function.
 class CreateRuleRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    listenerIdentifier: str
-    name: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    listenerIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ListenerIdentifier")]
+    name: Annotated[str, _aws_pattern("VpcLattice", "RuleName")]
     match_: RuleMatchUnionTypeDef = Field(..., alias="match")
     priority: int
     action: RuleActionUnionTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("VpcLattice", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class RuleUpdateTypeDef(BaseValidatorModel):
-    ruleIdentifier: str
+    ruleIdentifier: Annotated[str, _aws_pattern("VpcLattice", "RuleIdentifier")]
     match_: Optional[RuleMatchUnionTypeDef] = Field(None, alias="match")
     priority: Optional[int] = None
     action: Optional[RuleActionUnionTypeDef] = None
@@ -1658,9 +1694,9 @@ class RuleUpdateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_rule' function.
 class UpdateRuleRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    listenerIdentifier: str
-    ruleIdentifier: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    listenerIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ListenerIdentifier")]
+    ruleIdentifier: Annotated[str, _aws_pattern("VpcLattice", "RuleIdentifier")]
     match_: Optional[RuleMatchUnionTypeDef] = Field(None, alias="match")
     priority: Optional[int] = None
     action: Optional[RuleActionUnionTypeDef] = None
@@ -1668,6 +1704,6 @@ class UpdateRuleRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_update_rule' function.
 class BatchUpdateRuleRequestTypeDef(BaseValidatorModel):
-    serviceIdentifier: str
-    listenerIdentifier: str
+    serviceIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ServiceIdentifier")]
+    listenerIdentifier: Annotated[str, _aws_pattern("VpcLattice", "ListenerIdentifier")]
     rules: List[RuleUpdateTypeDef]

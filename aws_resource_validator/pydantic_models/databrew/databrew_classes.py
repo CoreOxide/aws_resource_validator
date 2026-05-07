@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.databrew.databrew_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -43,7 +45,7 @@ class AllowedStatisticsOutputTypeDef(BaseValidatorModel):
 
 
 class AllowedStatisticsTypeDef(BaseValidatorModel):
-    Statistics: List[str]
+    Statistics: List[Annotated[str, _aws_pattern("Databrew", "Statistic")]]
 
 
 # This class is the input for the 'batch_delete_recipe_version' function.
@@ -53,7 +55,7 @@ class BatchDeleteRecipeVersionRequestTypeDef(BaseValidatorModel):
 
 
 class RecipeVersionErrorDetailTypeDef(BaseValidatorModel):
-    ErrorCode: Optional[str] = None
+    ErrorCode: Optional[Annotated[str, _aws_pattern("Databrew", "ErrorCode")]] = None
     ErrorMessage: Optional[str] = None
     RecipeVersion: Optional[str] = None
 
@@ -72,7 +74,7 @@ class ColumnSelectorTypeDef(BaseValidatorModel):
 
 
 class ConditionExpressionTypeDef(BaseValidatorModel):
-    Condition: str
+    Condition: Annotated[str, _aws_pattern("Databrew", "Condition")]
     TargetColumn: str
     Value: Optional[str] = None
 
@@ -85,7 +87,7 @@ class JobSampleTypeDef(BaseValidatorModel):
 class S3LocationTypeDef(BaseValidatorModel):
     Bucket: str
     Key: Optional[str] = None
-    BucketOwner: Optional[str] = None
+    BucketOwner: Optional[Annotated[str, _aws_pattern("Databrew", "BucketOwner")]] = None
 
 
 class ValidationConfigurationTypeDef(BaseValidatorModel):
@@ -122,8 +124,8 @@ class CsvOutputOptionsTypeDef(BaseValidatorModel):
 
 class DatetimeOptionsTypeDef(BaseValidatorModel):
     Format: str
-    TimezoneOffset: Optional[str] = None
-    LocaleCode: Optional[str] = None
+    TimezoneOffset: Optional[Annotated[str, _aws_pattern("Databrew", "TimezoneOffset")]] = None
+    LocaleCode: Optional[Annotated[str, _aws_pattern("Databrew", "LocaleCode")]] = None
 
 
 class FilterExpressionOutputTypeDef(BaseValidatorModel):
@@ -132,7 +134,7 @@ class FilterExpressionOutputTypeDef(BaseValidatorModel):
 
 
 class FilterExpressionTypeDef(BaseValidatorModel):
-    Expression: str
+    Expression: Annotated[str, _aws_pattern("Databrew", "Expression")]
     ValuesMap: Dict[str, str]
 
 
@@ -335,7 +337,7 @@ class RecipeActionOutputTypeDef(BaseValidatorModel):
 
 
 class RecipeActionTypeDef(BaseValidatorModel):
-    Operation: str
+    Operation: Annotated[str, _aws_pattern("Databrew", "Operation")]
     Parameters: Optional[Dict[str, str]] = None
 
 
@@ -371,7 +373,7 @@ class StatisticOverrideOutputTypeDef(BaseValidatorModel):
 
 
 class StatisticOverrideTypeDef(BaseValidatorModel):
-    Statistic: str
+    Statistic: Annotated[str, _aws_pattern("Databrew", "Statistic")]
     Parameters: Dict[str, str]
 
 
@@ -404,7 +406,7 @@ class EntityDetectorConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class EntityDetectorConfigurationTypeDef(BaseValidatorModel):
-    EntityTypes: List[str]
+    EntityTypes: List[Annotated[str, _aws_pattern("Databrew", "EntityType")]]
     AllowedStatistics: Optional[List[AllowedStatisticsTypeDef]] = None
 
 
@@ -537,7 +539,7 @@ class StartJobRunResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'start_project_session' function.
 class StartProjectSessionResponseTypeDef(BaseValidatorModel):
     Name: str
-    ClientSessionId: str
+    ClientSessionId: Annotated[str, _aws_pattern("Databrew", "ClientSessionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -770,7 +772,7 @@ class RuleOutputTypeDef(BaseValidatorModel):
 
 class RuleTypeDef(BaseValidatorModel):
     Name: str
-    CheckExpression: str
+    CheckExpression: Annotated[str, _aws_pattern("Databrew", "Expression")]
     Disabled: Optional[bool] = None
     SubstitutionMap: Optional[Dict[str, str]] = None
     Threshold: Optional[ThresholdTypeDef] = None
@@ -783,7 +785,7 @@ class StatisticsConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class StatisticsConfigurationTypeDef(BaseValidatorModel):
-    IncludedStatistics: Optional[List[str]] = None
+    IncludedStatistics: Optional[List[Annotated[str, _aws_pattern("Databrew", "Statistic")]]] = None
     Overrides: Optional[List[StatisticOverrideTypeDef]] = None
 
 
@@ -1140,7 +1142,7 @@ class SendProjectSessionActionRequestTypeDef(BaseValidatorModel):
     Preview: Optional[bool] = None
     RecipeStep: Optional[RecipeStepUnionTypeDef] = None
     StepIndex: Optional[int] = None
-    ClientSessionId: Optional[str] = None
+    ClientSessionId: Optional[Annotated[str, _aws_pattern("Databrew", "ClientSessionId")]] = None
     ViewFrame: Optional[ViewFrameTypeDef] = None
 
 

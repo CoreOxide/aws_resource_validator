@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,8 +42,8 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'associate_gateway_to_server' function.
 class AssociateGatewayToServerInputTypeDef(BaseValidatorModel):
-    GatewayArn: str
-    ServerArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
+    ServerArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -71,23 +73,23 @@ class BandwidthRateLimitIntervalTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("BackupGateway", "TagKey")]
+    Value: Annotated[str, _aws_pattern("BackupGateway", "TagValue")]
 
 
 # This class is the input for the 'delete_gateway' function.
 class DeleteGatewayInputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
 
 
 # This class is the input for the 'delete_hypervisor' function.
 class DeleteHypervisorInputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
 
 
 # This class is the input for the 'disassociate_gateway_from_server' function.
 class DisassociateGatewayFromServerInputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
 
 
 class MaintenanceStartTimeTypeDef(BaseValidatorModel):
@@ -98,8 +100,8 @@ class MaintenanceStartTimeTypeDef(BaseValidatorModel):
 
 
 class GatewayTypeDef(BaseValidatorModel):
-    GatewayArn: Optional[str] = None
-    GatewayDisplayName: Optional[str] = None
+    GatewayArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]] = None
+    GatewayDisplayName: Optional[Annotated[str, _aws_pattern("BackupGateway", "Name")]] = None
     GatewayType: Optional[Literal["BACKUP_VM"]] = None
     HypervisorId: Optional[str] = None
     LastSeenTime: Optional[datetime] = None
@@ -107,25 +109,25 @@ class GatewayTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_bandwidth_rate_limit_schedule' function.
 class GetBandwidthRateLimitScheduleInputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
 
 
 # This class is the input for the 'get_gateway' function.
 class GetGatewayInputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
 
 
 # This class is the input for the 'get_hypervisor' function.
 class GetHypervisorInputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
 
 
 class HypervisorDetailsTypeDef(BaseValidatorModel):
-    Host: Optional[str] = None
-    HypervisorArn: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
-    Name: Optional[str] = None
-    LogGroupArn: Optional[str] = None
+    Host: Optional[Annotated[str, _aws_pattern("BackupGateway", "Host")]] = None
+    HypervisorArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "KmsKeyArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("BackupGateway", "Name")]] = None
+    LogGroupArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "LogGroupArn")]] = None
     State: Optional[HypervisorStateType] = None
     LastSuccessfulMetadataSyncTime: Optional[datetime] = None
     LatestMetadataSyncStatusMessage: Optional[str] = None
@@ -134,26 +136,26 @@ class HypervisorDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_hypervisor_property_mappings' function.
 class GetHypervisorPropertyMappingsInputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
 
 
 class VmwareToAwsTagMappingTypeDef(BaseValidatorModel):
     VmwareCategory: str
     VmwareTagName: str
-    AwsTagKey: str
-    AwsTagValue: str
+    AwsTagKey: Annotated[str, _aws_pattern("BackupGateway", "TagKey")]
+    AwsTagValue: Annotated[str, _aws_pattern("BackupGateway", "TagValue")]
 
 
 # This class is the input for the 'get_virtual_machine' function.
 class GetVirtualMachineInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("BackupGateway", "ResourceArn")]
 
 
 class HypervisorTypeDef(BaseValidatorModel):
-    Host: Optional[str] = None
-    HypervisorArn: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
-    Name: Optional[str] = None
+    Host: Optional[Annotated[str, _aws_pattern("BackupGateway", "Host")]] = None
+    HypervisorArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "KmsKeyArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("BackupGateway", "Name")]] = None
     State: Optional[HypervisorStateType] = None
 
 
@@ -166,39 +168,39 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_gateways' function.
 class ListGatewaysInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BackupGateway", "NextToken")]] = None
 
 
 # This class is the input for the 'list_hypervisors' function.
 class ListHypervisorsInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BackupGateway", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("BackupGateway", "ResourceArn")]
 
 
 # This class is the input for the 'list_virtual_machines' function.
 class ListVirtualMachinesInputTypeDef(BaseValidatorModel):
-    HypervisorArn: Optional[str] = None
+    HypervisorArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BackupGateway", "NextToken")]] = None
 
 
 class VirtualMachineTypeDef(BaseValidatorModel):
-    HostName: Optional[str] = None
+    HostName: Optional[Annotated[str, _aws_pattern("BackupGateway", "Name")]] = None
     HypervisorId: Optional[str] = None
-    Name: Optional[str] = None
-    Path: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("BackupGateway", "Name")]] = None
+    Path: Optional[Annotated[str, _aws_pattern("BackupGateway", "Path")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "ResourceArn")]] = None
     LastBackupDate: Optional[datetime] = None
 
 
 # This class is the input for the 'put_maintenance_start_time' function.
 class PutMaintenanceStartTimeInputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
     HourOfDay: int
     MinuteOfHour: int
     DayOfWeek: Optional[int] = None
@@ -207,41 +209,41 @@ class PutMaintenanceStartTimeInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_virtual_machines_metadata_sync' function.
 class StartVirtualMachinesMetadataSyncInputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
 
 
 class TestHypervisorConfigurationInputTypeDef(BaseValidatorModel):
-    GatewayArn: str
-    Host: str
-    Username: Optional[str] = None
-    Password: Optional[str] = None
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
+    Host: Annotated[str, _aws_pattern("BackupGateway", "Host")]
+    Username: Optional[Annotated[str, _aws_pattern("BackupGateway", "Username")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("BackupGateway", "Password")]] = None
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    TagKeys: List[str]
+    ResourceARN: Annotated[str, _aws_pattern("BackupGateway", "ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("BackupGateway", "TagKey")]]
 
 
 # This class is the input for the 'update_gateway_information' function.
 class UpdateGatewayInformationInputTypeDef(BaseValidatorModel):
-    GatewayArn: str
-    GatewayDisplayName: Optional[str] = None
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
+    GatewayDisplayName: Optional[Annotated[str, _aws_pattern("BackupGateway", "Name")]] = None
 
 
 # This class is the input for the 'update_gateway_software_now' function.
 class UpdateGatewaySoftwareNowInputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
 
 
 # This class is the input for the 'update_hypervisor' function.
 class UpdateHypervisorInputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
-    Host: Optional[str] = None
-    Username: Optional[str] = None
-    Password: Optional[str] = None
-    Name: Optional[str] = None
-    LogGroupArn: Optional[str] = None
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
+    Host: Optional[Annotated[str, _aws_pattern("BackupGateway", "Host")]] = None
+    Username: Optional[Annotated[str, _aws_pattern("BackupGateway", "Username")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("BackupGateway", "Password")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("BackupGateway", "Name")]] = None
+    LogGroupArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "LogGroupArn")]] = None
 
 
 class VmwareTagTypeDef(BaseValidatorModel):
@@ -252,97 +254,97 @@ class VmwareTagTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'associate_gateway_to_server' function.
 class AssociateGatewayToServerOutputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_gateway' function.
 class CreateGatewayOutputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_gateway' function.
 class DeleteGatewayOutputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_hypervisor' function.
 class DeleteHypervisorOutputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disassociate_gateway_from_server' function.
 class DisassociateGatewayFromServerOutputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'import_hypervisor_configuration' function.
 class ImportHypervisorConfigurationOutputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_bandwidth_rate_limit_schedule' function.
 class PutBandwidthRateLimitScheduleOutputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_hypervisor_property_mappings' function.
 class PutHypervisorPropertyMappingsOutputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_maintenance_start_time' function.
 class PutMaintenanceStartTimeOutputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_virtual_machines_metadata_sync' function.
 class StartVirtualMachinesMetadataSyncOutputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'tag_resource' function.
 class TagResourceOutputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("BackupGateway", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'untag_resource' function.
 class UntagResourceOutputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("BackupGateway", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_gateway_information' function.
 class UpdateGatewayInformationOutputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_gateway_software_now' function.
 class UpdateGatewaySoftwareNowOutputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_hypervisor' function.
 class UpdateHypervisorOutputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_bandwidth_rate_limit_schedule' function.
 class GetBandwidthRateLimitScheduleOutputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
     BandwidthRateLimitIntervals: List[BandwidthRateLimitIntervalOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -354,38 +356,38 @@ BandwidthRateLimitIntervalUnionTypeDef = Union[
 
 # This class is the input for the 'create_gateway' function.
 class CreateGatewayInputTypeDef(BaseValidatorModel):
-    ActivationKey: str
-    GatewayDisplayName: str
+    ActivationKey: Annotated[str, _aws_pattern("BackupGateway", "ActivationKey")]
+    GatewayDisplayName: Annotated[str, _aws_pattern("BackupGateway", "Name")]
     GatewayType: Literal["BACKUP_VM"]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'import_hypervisor_configuration' function.
 class ImportHypervisorConfigurationInputTypeDef(BaseValidatorModel):
-    Name: str
-    Host: str
-    Username: Optional[str] = None
-    Password: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("BackupGateway", "Name")]
+    Host: Annotated[str, _aws_pattern("BackupGateway", "Host")]
+    Username: Optional[Annotated[str, _aws_pattern("BackupGateway", "Username")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("BackupGateway", "Password")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "KmsKeyArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("BackupGateway", "ResourceArn")]
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("BackupGateway", "ResourceArn")]
     Tags: List[TagTypeDef]
 
 
 class GatewayDetailsTypeDef(BaseValidatorModel):
-    GatewayArn: Optional[str] = None
-    GatewayDisplayName: Optional[str] = None
+    GatewayArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]] = None
+    GatewayDisplayName: Optional[Annotated[str, _aws_pattern("BackupGateway", "Name")]] = None
     GatewayType: Optional[Literal["BACKUP_VM"]] = None
     HypervisorId: Optional[str] = None
     LastSeenTime: Optional[datetime] = None
@@ -393,14 +395,14 @@ class GatewayDetailsTypeDef(BaseValidatorModel):
     NextUpdateAvailabilityTime: Optional[datetime] = None
     VpcEndpoint: Optional[str] = None
     DeprecationDate: Optional[datetime] = None
-    SoftwareVersion: Optional[str] = None
+    SoftwareVersion: Optional[Annotated[str, _aws_pattern("BackupGateway", "Name")]] = None
 
 
 # This class is the output for the 'list_gateways' function.
 class ListGatewaysOutputTypeDef(BaseValidatorModel):
     Gateways: List[GatewayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BackupGateway", "NextToken")]] = None
 
 
 # This class is the output for the 'get_hypervisor' function.
@@ -411,24 +413,24 @@ class GetHypervisorOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_hypervisor_property_mappings' function.
 class GetHypervisorPropertyMappingsOutputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
     VmwareToAwsTagMappings: List[VmwareToAwsTagMappingTypeDef]
-    IamRoleArn: str
+    IamRoleArn: Annotated[str, _aws_pattern("BackupGateway", "IamRoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'put_hypervisor_property_mappings' function.
 class PutHypervisorPropertyMappingsInputTypeDef(BaseValidatorModel):
-    HypervisorArn: str
+    HypervisorArn: Annotated[str, _aws_pattern("BackupGateway", "ServerArn")]
     VmwareToAwsTagMappings: List[VmwareToAwsTagMappingTypeDef]
-    IamRoleArn: str
+    IamRoleArn: Annotated[str, _aws_pattern("BackupGateway", "IamRoleArn")]
 
 
 # This class is the output for the 'list_hypervisors' function.
 class ListHypervisorsOutputTypeDef(BaseValidatorModel):
     Hypervisors: List[HypervisorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BackupGateway", "NextToken")]] = None
 
 
 class ListGatewaysInputPaginateTypeDef(BaseValidatorModel):
@@ -448,22 +450,22 @@ class ListVirtualMachinesInputPaginateTypeDef(BaseValidatorModel):
 class ListVirtualMachinesOutputTypeDef(BaseValidatorModel):
     VirtualMachines: List[VirtualMachineTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BackupGateway", "NextToken")]] = None
 
 
 class VirtualMachineDetailsTypeDef(BaseValidatorModel):
-    HostName: Optional[str] = None
+    HostName: Optional[Annotated[str, _aws_pattern("BackupGateway", "Name")]] = None
     HypervisorId: Optional[str] = None
-    Name: Optional[str] = None
-    Path: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("BackupGateway", "Name")]] = None
+    Path: Optional[Annotated[str, _aws_pattern("BackupGateway", "Path")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("BackupGateway", "ResourceArn")]] = None
     LastBackupDate: Optional[datetime] = None
     VmwareTags: Optional[List[VmwareTagTypeDef]] = None
 
 
 # This class is the input for the 'put_bandwidth_rate_limit_schedule' function.
 class PutBandwidthRateLimitScheduleInputTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("BackupGateway", "GatewayArn")]
     BandwidthRateLimitIntervals: List[BandwidthRateLimitIntervalUnionTypeDef]
 
 

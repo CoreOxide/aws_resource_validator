@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.workspaces_web.workspaces_web_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,8 +42,8 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'associate_browser_settings' function.
 class AssociateBrowserSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
-    browserSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    browserSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -54,68 +56,78 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_data_protection_settings' function.
 class AssociateDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
-    dataProtectionSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    dataProtectionSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'associate_ip_access_settings' function.
 class AssociateIpAccessSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
-    ipAccessSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    ipAccessSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'associate_network_settings' function.
 class AssociateNetworkSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
-    networkSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    networkSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'associate_session_logger' function.
 class AssociateSessionLoggerRequestTypeDef(BaseValidatorModel):
-    portalArn: str
-    sessionLoggerArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    sessionLoggerArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'associate_trust_store' function.
 class AssociateTrustStoreRequestTypeDef(BaseValidatorModel):
-    portalArn: str
-    trustStoreArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'associate_user_access_logging_settings' function.
 class AssociateUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
-    userAccessLoggingSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    userAccessLoggingSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'associate_user_settings' function.
 class AssociateUserSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
-    userSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    userSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class LocalizedBrandingStringsTypeDef(BaseValidatorModel):
-    browserTabTitle: str
-    welcomeText: str
-    loginTitle: Optional[str] = None
-    loginDescription: Optional[str] = None
-    loginButtonText: Optional[str] = None
-    contactLink: Optional[str] = None
-    contactButtonText: Optional[str] = None
-    loadingText: Optional[str] = None
+    browserTabTitle: Annotated[str, _aws_pattern("WorkspacesWeb", "LocalizedBrandingStringsBrowserTabTitleString")]
+    welcomeText: Annotated[str, _aws_pattern("WorkspacesWeb", "LocalizedBrandingStringsWelcomeTextString")]
+    loginTitle: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "LocalizedBrandingStringsLoginTitleString")]] = (
+        None
+    )
+    loginDescription: Optional[
+        Annotated[str, _aws_pattern("WorkspacesWeb", "LocalizedBrandingStringsLoginDescriptionString")]
+    ] = None
+    loginButtonText: Optional[
+        Annotated[str, _aws_pattern("WorkspacesWeb", "LocalizedBrandingStringsLoginButtonTextString")]
+    ] = None
+    contactLink: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ContactLinkUrl")]] = None
+    contactButtonText: Optional[
+        Annotated[str, _aws_pattern("WorkspacesWeb", "LocalizedBrandingStringsContactButtonTextString")]
+    ] = None
+    loadingText: Optional[
+        Annotated[str, _aws_pattern("WorkspacesWeb", "LocalizedBrandingStringsLoadingTextString")]
+    ] = None
 
 
 class ImageMetadataTypeDef(BaseValidatorModel):
     mimeType: MimeTypeType
-    fileExtension: str
+    fileExtension: Annotated[str, _aws_pattern("WorkspacesWeb", "StringType")]
     lastUploadTimestamp: datetime
 
 
 class BrowserSettingsSummaryTypeDef(BaseValidatorModel):
-    browserSettingsArn: str
+    browserSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class WebContentFilteringPolicyOutputTypeDef(BaseValidatorModel):
@@ -125,122 +137,122 @@ class WebContentFilteringPolicyOutputTypeDef(BaseValidatorModel):
 
 
 class CertificateSummaryTypeDef(BaseValidatorModel):
-    thumbprint: Optional[str] = None
-    subject: Optional[str] = None
-    issuer: Optional[str] = None
+    thumbprint: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "CertificateThumbprint")]] = None
+    subject: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "CertificatePrincipal")]] = None
+    issuer: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "CertificatePrincipal")]] = None
     notValidBefore: Optional[datetime] = None
     notValidAfter: Optional[datetime] = None
 
 
 class CertificateTypeDef(BaseValidatorModel):
-    thumbprint: Optional[str] = None
-    subject: Optional[str] = None
-    issuer: Optional[str] = None
+    thumbprint: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "CertificateThumbprint")]] = None
+    subject: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "CertificatePrincipal")]] = None
+    issuer: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "CertificatePrincipal")]] = None
     notValidBefore: Optional[datetime] = None
     notValidAfter: Optional[datetime] = None
     body: Optional[bytes] = None
 
 
 class CookieSpecificationTypeDef(BaseValidatorModel):
-    domain: str
+    domain: Annotated[str, _aws_pattern("WorkspacesWeb", "CookieDomain")]
     name: Optional[str] = None
-    path: Optional[str] = None
+    path: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "CookiePath")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("WorkspacesWeb", "TagKey")]
+    Value: Annotated[str, _aws_pattern("WorkspacesWeb", "TagValue")]
 
 
 class IpRuleTypeDef(BaseValidatorModel):
     ipRange: str
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "Description")]] = None
 
 
 class CustomPatternTypeDef(BaseValidatorModel):
-    patternName: str
-    patternRegex: str
-    patternDescription: Optional[str] = None
-    keywordRegex: Optional[str] = None
+    patternName: Annotated[str, _aws_pattern("WorkspacesWeb", "PatternName")]
+    patternRegex: Annotated[str, _aws_pattern("WorkspacesWeb", "Regex")]
+    patternDescription: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DescriptionSafe")]] = None
+    keywordRegex: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "Regex")]] = None
 
 
 class DataProtectionSettingsSummaryTypeDef(BaseValidatorModel):
-    dataProtectionSettingsArn: str
-    displayName: Optional[str] = None
-    description: Optional[str] = None
+    dataProtectionSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayNameSafe")]] = None
+    description: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DescriptionSafe")]] = None
     creationDate: Optional[datetime] = None
 
 
 class DeleteBrowserSettingsRequestTypeDef(BaseValidatorModel):
-    browserSettingsArn: str
+    browserSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DeleteDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
-    dataProtectionSettingsArn: str
+    dataProtectionSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DeleteIdentityProviderRequestTypeDef(BaseValidatorModel):
-    identityProviderArn: str
+    identityProviderArn: Annotated[str, _aws_pattern("WorkspacesWeb", "SubresourceARN")]
 
 
 class DeleteIpAccessSettingsRequestTypeDef(BaseValidatorModel):
-    ipAccessSettingsArn: str
+    ipAccessSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DeleteNetworkSettingsRequestTypeDef(BaseValidatorModel):
-    networkSettingsArn: str
+    networkSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DeletePortalRequestTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DeleteSessionLoggerRequestTypeDef(BaseValidatorModel):
-    sessionLoggerArn: str
+    sessionLoggerArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DeleteTrustStoreRequestTypeDef(BaseValidatorModel):
-    trustStoreArn: str
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DeleteUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
-    userAccessLoggingSettingsArn: str
+    userAccessLoggingSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DeleteUserSettingsRequestTypeDef(BaseValidatorModel):
-    userSettingsArn: str
+    userSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DisassociateBrowserSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DisassociateDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DisassociateIpAccessSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DisassociateNetworkSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DisassociateSessionLoggerRequestTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DisassociateTrustStoreRequestTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DisassociateUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class DisassociateUserSettingsRequestTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class EventFilterOutputTypeDef(BaseValidatorModel):
@@ -254,101 +266,101 @@ class EventFilterTypeDef(BaseValidatorModel):
 
 
 class ExpireSessionRequestTypeDef(BaseValidatorModel):
-    portalId: str
-    sessionId: str
+    portalId: Annotated[str, _aws_pattern("WorkspacesWeb", "PortalId")]
+    sessionId: Annotated[str, _aws_pattern("WorkspacesWeb", "SessionId")]
 
 
 # This class is the input for the 'get_browser_settings' function.
 class GetBrowserSettingsRequestTypeDef(BaseValidatorModel):
-    browserSettingsArn: str
+    browserSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'get_data_protection_settings' function.
 class GetDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
-    dataProtectionSettingsArn: str
+    dataProtectionSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'get_identity_provider' function.
 class GetIdentityProviderRequestTypeDef(BaseValidatorModel):
-    identityProviderArn: str
+    identityProviderArn: Annotated[str, _aws_pattern("WorkspacesWeb", "SubresourceARN")]
 
 
 class IdentityProviderTypeDef(BaseValidatorModel):
-    identityProviderArn: str
-    identityProviderName: Optional[str] = None
+    identityProviderArn: Annotated[str, _aws_pattern("WorkspacesWeb", "SubresourceARN")]
+    identityProviderName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "IdentityProviderName")]] = None
     identityProviderType: Optional[IdentityProviderTypeType] = None
     identityProviderDetails: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'get_ip_access_settings' function.
 class GetIpAccessSettingsRequestTypeDef(BaseValidatorModel):
-    ipAccessSettingsArn: str
+    ipAccessSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'get_network_settings' function.
 class GetNetworkSettingsRequestTypeDef(BaseValidatorModel):
-    networkSettingsArn: str
+    networkSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class NetworkSettingsTypeDef(BaseValidatorModel):
-    networkSettingsArn: str
-    associatedPortalArns: Optional[List[str]] = None
-    vpcId: Optional[str] = None
-    subnetIds: Optional[List[str]] = None
-    securityGroupIds: Optional[List[str]] = None
+    networkSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    associatedPortalArns: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]]] = None
+    vpcId: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "VpcId")]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "SubnetId")]]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "SecurityGroupId")]]] = None
 
 
 # This class is the input for the 'get_portal' function.
 class GetPortalRequestTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class PortalTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     rendererType: Optional[Literal["AppStream"]] = None
     browserType: Optional[Literal["Chrome"]] = None
     portalStatus: Optional[PortalStatusType] = None
-    portalEndpoint: Optional[str] = None
-    displayName: Optional[str] = None
+    portalEndpoint: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PortalEndpoint")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayName")]] = None
     creationDate: Optional[datetime] = None
-    browserSettingsArn: Optional[str] = None
-    dataProtectionSettingsArn: Optional[str] = None
-    userSettingsArn: Optional[str] = None
-    networkSettingsArn: Optional[str] = None
-    sessionLoggerArn: Optional[str] = None
-    trustStoreArn: Optional[str] = None
-    statusReason: Optional[str] = None
-    userAccessLoggingSettingsArn: Optional[str] = None
+    browserSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    dataProtectionSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    userSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    networkSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    sessionLoggerArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    trustStoreArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    statusReason: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "StatusReason")]] = None
+    userAccessLoggingSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
     authenticationType: Optional[AuthenticationTypeType] = None
-    ipAccessSettingsArn: Optional[str] = None
-    customerManagedKey: Optional[str] = None
+    ipAccessSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     instanceType: Optional[InstanceTypeType] = None
     maxConcurrentSessions: Optional[int] = None
-    portalCustomDomain: Optional[str] = None
+    portalCustomDomain: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PortalCustomDomain")]] = None
 
 
 # This class is the input for the 'get_portal_service_provider_metadata' function.
 class GetPortalServiceProviderMetadataRequestTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'get_session_logger' function.
 class GetSessionLoggerRequestTypeDef(BaseValidatorModel):
-    sessionLoggerArn: str
+    sessionLoggerArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'get_session' function.
 class GetSessionRequestTypeDef(BaseValidatorModel):
-    portalId: str
-    sessionId: str
+    portalId: Annotated[str, _aws_pattern("WorkspacesWeb", "PortalId")]
+    sessionId: Annotated[str, _aws_pattern("WorkspacesWeb", "SessionId")]
 
 
 class SessionTypeDef(BaseValidatorModel):
-    portalArn: Optional[str] = None
-    sessionId: Optional[str] = None
-    username: Optional[str] = None
-    clientIpAddresses: Optional[List[str]] = None
+    portalArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "StringType")]] = None
+    username: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "Username")]] = None
+    clientIpAddresses: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "IpAddress")]]] = None
     status: Optional[SessionStatusType] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
@@ -356,57 +368,57 @@ class SessionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_trust_store_certificate' function.
 class GetTrustStoreCertificateRequestTypeDef(BaseValidatorModel):
-    trustStoreArn: str
-    thumbprint: str
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    thumbprint: Annotated[str, _aws_pattern("WorkspacesWeb", "CertificateThumbprint")]
 
 
 # This class is the input for the 'get_trust_store' function.
 class GetTrustStoreRequestTypeDef(BaseValidatorModel):
-    trustStoreArn: str
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class TrustStoreTypeDef(BaseValidatorModel):
-    trustStoreArn: str
-    associatedPortalArns: Optional[List[str]] = None
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    associatedPortalArns: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]]] = None
 
 
 # This class is the input for the 'get_user_access_logging_settings' function.
 class GetUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
-    userAccessLoggingSettingsArn: str
+    userAccessLoggingSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class UserAccessLoggingSettingsTypeDef(BaseValidatorModel):
-    userAccessLoggingSettingsArn: str
-    associatedPortalArns: Optional[List[str]] = None
-    kinesisStreamArn: Optional[str] = None
+    userAccessLoggingSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    associatedPortalArns: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]]] = None
+    kinesisStreamArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "KinesisStreamArn")]] = None
 
 
 # This class is the input for the 'get_user_settings' function.
 class GetUserSettingsRequestTypeDef(BaseValidatorModel):
-    userSettingsArn: str
+    userSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 class IdentityProviderSummaryTypeDef(BaseValidatorModel):
-    identityProviderArn: str
-    identityProviderName: Optional[str] = None
+    identityProviderArn: Annotated[str, _aws_pattern("WorkspacesWeb", "SubresourceARN")]
+    identityProviderName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "IdentityProviderName")]] = None
     identityProviderType: Optional[IdentityProviderTypeType] = None
 
 
 class RedactionPlaceHolderTypeDef(BaseValidatorModel):
     redactionPlaceHolderType: Literal["CustomText"]
-    redactionPlaceHolderText: Optional[str] = None
+    redactionPlaceHolderText: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "RedactionPlaceHolderText")]] = None
 
 
 class IpAccessSettingsSummaryTypeDef(BaseValidatorModel):
-    ipAccessSettingsArn: str
-    displayName: Optional[str] = None
-    description: Optional[str] = None
+    ipAccessSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "Description")]] = None
     creationDate: Optional[datetime] = None
 
 
 # This class is the input for the 'list_browser_settings' function.
 class ListBrowserSettingsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -418,83 +430,83 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_protection_settings' function.
 class ListDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_identity_providers' function.
 class ListIdentityProvidersRequestTypeDef(BaseValidatorModel):
-    portalArn: str
-    nextToken: Optional[str] = None
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_ip_access_settings' function.
 class ListIpAccessSettingsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_network_settings' function.
 class ListNetworkSettingsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class NetworkSettingsSummaryTypeDef(BaseValidatorModel):
-    networkSettingsArn: str
-    vpcId: Optional[str] = None
+    networkSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    vpcId: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "VpcId")]] = None
 
 
 # This class is the input for the 'list_portals' function.
 class ListPortalsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class PortalSummaryTypeDef(BaseValidatorModel):
-    portalArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     rendererType: Optional[Literal["AppStream"]] = None
     browserType: Optional[Literal["Chrome"]] = None
     portalStatus: Optional[PortalStatusType] = None
-    portalEndpoint: Optional[str] = None
-    displayName: Optional[str] = None
+    portalEndpoint: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PortalEndpoint")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayName")]] = None
     creationDate: Optional[datetime] = None
-    browserSettingsArn: Optional[str] = None
-    dataProtectionSettingsArn: Optional[str] = None
-    userSettingsArn: Optional[str] = None
-    networkSettingsArn: Optional[str] = None
-    sessionLoggerArn: Optional[str] = None
-    trustStoreArn: Optional[str] = None
-    userAccessLoggingSettingsArn: Optional[str] = None
+    browserSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    dataProtectionSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    userSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    networkSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    sessionLoggerArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    trustStoreArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    userAccessLoggingSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
     authenticationType: Optional[AuthenticationTypeType] = None
-    ipAccessSettingsArn: Optional[str] = None
+    ipAccessSettingsArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
     instanceType: Optional[InstanceTypeType] = None
     maxConcurrentSessions: Optional[int] = None
-    portalCustomDomain: Optional[str] = None
+    portalCustomDomain: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PortalCustomDomain")]] = None
 
 
 # This class is the input for the 'list_session_loggers' function.
 class ListSessionLoggersRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_sessions' function.
 class ListSessionsRequestTypeDef(BaseValidatorModel):
-    portalId: str
-    username: Optional[str] = None
-    sessionId: Optional[str] = None
+    portalId: Annotated[str, _aws_pattern("WorkspacesWeb", "PortalId")]
+    username: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "Username")]] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "SessionId")]] = None
     sortBy: Optional[SessionSortByType] = None
     status: Optional[SessionStatusType] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 class SessionSummaryTypeDef(BaseValidatorModel):
-    portalArn: Optional[str] = None
-    sessionId: Optional[str] = None
-    username: Optional[str] = None
+    portalArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "StringType")]] = None
+    username: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "Username")]] = None
     status: Optional[SessionStatusType] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
@@ -502,49 +514,49 @@ class SessionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
 
 
 # This class is the input for the 'list_trust_store_certificates' function.
 class ListTrustStoreCertificatesRequestTypeDef(BaseValidatorModel):
-    trustStoreArn: str
-    nextToken: Optional[str] = None
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_trust_stores' function.
 class ListTrustStoresRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class TrustStoreSummaryTypeDef(BaseValidatorModel):
-    trustStoreArn: Optional[str] = None
+    trustStoreArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]] = None
 
 
 # This class is the input for the 'list_user_access_logging_settings' function.
 class ListUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class UserAccessLoggingSettingsSummaryTypeDef(BaseValidatorModel):
-    userAccessLoggingSettingsArn: str
-    kinesisStreamArn: Optional[str] = None
+    userAccessLoggingSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    kinesisStreamArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "KinesisStreamArn")]] = None
 
 
 # This class is the input for the 'list_user_settings' function.
 class ListUserSettingsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class S3LogConfigurationTypeDef(BaseValidatorModel):
-    bucket: str
+    bucket: Annotated[str, _aws_pattern("WorkspacesWeb", "S3Bucket")]
     logFileFormat: LogFileFormatType
     folderStructure: FolderStructureType
-    keyPrefix: Optional[str] = None
-    bucketOwner: Optional[str] = None
+    keyPrefix: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "S3KeyPrefix")]] = None
+    bucketOwner: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "S3BucketOwner")]] = None
 
 
 class ToolbarConfigurationOutputTypeDef(BaseValidatorModel):
@@ -562,14 +574,14 @@ class ToolbarConfigurationTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    tagKeys: List[Annotated[str, _aws_pattern("WorkspacesWeb", "TagKey")]]
 
 
 # This class is the input for the 'update_identity_provider' function.
 class UpdateIdentityProviderRequestTypeDef(BaseValidatorModel):
-    identityProviderArn: str
-    identityProviderName: Optional[str] = None
+    identityProviderArn: Annotated[str, _aws_pattern("WorkspacesWeb", "SubresourceARN")]
+    identityProviderName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "IdentityProviderName")]] = None
     identityProviderType: Optional[IdentityProviderTypeType] = None
     identityProviderDetails: Optional[Dict[str, str]] = None
     clientToken: Optional[str] = None
@@ -577,182 +589,182 @@ class UpdateIdentityProviderRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_network_settings' function.
 class UpdateNetworkSettingsRequestTypeDef(BaseValidatorModel):
-    networkSettingsArn: str
-    vpcId: Optional[str] = None
-    subnetIds: Optional[List[str]] = None
-    securityGroupIds: Optional[List[str]] = None
+    networkSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    vpcId: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "VpcId")]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "SubnetId")]]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "SecurityGroupId")]]] = None
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'update_portal' function.
 class UpdatePortalRequestTypeDef(BaseValidatorModel):
-    portalArn: str
-    displayName: Optional[str] = None
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayName")]] = None
     authenticationType: Optional[AuthenticationTypeType] = None
     instanceType: Optional[InstanceTypeType] = None
     maxConcurrentSessions: Optional[int] = None
-    portalCustomDomain: Optional[str] = None
+    portalCustomDomain: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PortalCustomDomain")]] = None
 
 
 # This class is the input for the 'update_user_access_logging_settings' function.
 class UpdateUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
-    userAccessLoggingSettingsArn: str
-    kinesisStreamArn: Optional[str] = None
+    userAccessLoggingSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    kinesisStreamArn: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "KinesisStreamArn")]] = None
     clientToken: Optional[str] = None
 
 
 class WebContentFilteringPolicyTypeDef(BaseValidatorModel):
     blockedCategories: Optional[List[CategoryType]] = None
-    allowedUrls: Optional[List[str]] = None
-    blockedUrls: Optional[List[str]] = None
+    allowedUrls: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "UrlPattern")]]] = None
+    blockedUrls: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "UrlPattern")]]] = None
 
 
 # This class is the output for the 'associate_browser_settings' function.
 class AssociateBrowserSettingsResponseTypeDef(BaseValidatorModel):
-    portalArn: str
-    browserSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    browserSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_data_protection_settings' function.
 class AssociateDataProtectionSettingsResponseTypeDef(BaseValidatorModel):
-    portalArn: str
-    dataProtectionSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    dataProtectionSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_ip_access_settings' function.
 class AssociateIpAccessSettingsResponseTypeDef(BaseValidatorModel):
-    portalArn: str
-    ipAccessSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    ipAccessSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_network_settings' function.
 class AssociateNetworkSettingsResponseTypeDef(BaseValidatorModel):
-    portalArn: str
-    networkSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    networkSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_session_logger' function.
 class AssociateSessionLoggerResponseTypeDef(BaseValidatorModel):
-    portalArn: str
-    sessionLoggerArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    sessionLoggerArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_trust_store' function.
 class AssociateTrustStoreResponseTypeDef(BaseValidatorModel):
-    portalArn: str
-    trustStoreArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_user_access_logging_settings' function.
 class AssociateUserAccessLoggingSettingsResponseTypeDef(BaseValidatorModel):
-    portalArn: str
-    userAccessLoggingSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    userAccessLoggingSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_user_settings' function.
 class AssociateUserSettingsResponseTypeDef(BaseValidatorModel):
-    portalArn: str
-    userSettingsArn: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    userSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_browser_settings' function.
 class CreateBrowserSettingsResponseTypeDef(BaseValidatorModel):
-    browserSettingsArn: str
+    browserSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_protection_settings' function.
 class CreateDataProtectionSettingsResponseTypeDef(BaseValidatorModel):
-    dataProtectionSettingsArn: str
+    dataProtectionSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_identity_provider' function.
 class CreateIdentityProviderResponseTypeDef(BaseValidatorModel):
-    identityProviderArn: str
+    identityProviderArn: Annotated[str, _aws_pattern("WorkspacesWeb", "SubresourceARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ip_access_settings' function.
 class CreateIpAccessSettingsResponseTypeDef(BaseValidatorModel):
-    ipAccessSettingsArn: str
+    ipAccessSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_network_settings' function.
 class CreateNetworkSettingsResponseTypeDef(BaseValidatorModel):
-    networkSettingsArn: str
+    networkSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_portal' function.
 class CreatePortalResponseTypeDef(BaseValidatorModel):
-    portalArn: str
-    portalEndpoint: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    portalEndpoint: Annotated[str, _aws_pattern("WorkspacesWeb", "PortalEndpoint")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_session_logger' function.
 class CreateSessionLoggerResponseTypeDef(BaseValidatorModel):
-    sessionLoggerArn: str
+    sessionLoggerArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_trust_store' function.
 class CreateTrustStoreResponseTypeDef(BaseValidatorModel):
-    trustStoreArn: str
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_user_access_logging_settings' function.
 class CreateUserAccessLoggingSettingsResponseTypeDef(BaseValidatorModel):
-    userAccessLoggingSettingsArn: str
+    userAccessLoggingSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_user_settings' function.
 class CreateUserSettingsResponseTypeDef(BaseValidatorModel):
-    userSettingsArn: str
+    userSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_portal_service_provider_metadata' function.
 class GetPortalServiceProviderMetadataResponseTypeDef(BaseValidatorModel):
-    portalArn: str
-    serviceProviderSamlMetadata: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    serviceProviderSamlMetadata: Annotated[str, _aws_pattern("WorkspacesWeb", "SamlMetadata")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_trust_store' function.
 class UpdateTrustStoreResponseTypeDef(BaseValidatorModel):
-    trustStoreArn: str
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class IconImageInputTypeDef(BaseValidatorModel):
     blob: Optional[BlobTypeDef] = None
-    s3Uri: Optional[str] = None
+    s3Uri: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "S3Uri")]] = None
 
 
 # This class is the input for the 'update_trust_store' function.
 class UpdateTrustStoreRequestTypeDef(BaseValidatorModel):
-    trustStoreArn: str
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     certificatesToAdd: Optional[List[BlobTypeDef]] = None
-    certificatesToDelete: Optional[List[str]] = None
+    certificatesToDelete: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "CertificateThumbprint")]]] = None
     clientToken: Optional[str] = None
 
 
 class WallpaperImageInputTypeDef(BaseValidatorModel):
     blob: Optional[BlobTypeDef] = None
-    s3Uri: Optional[str] = None
+    s3Uri: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "S3Uri")]] = None
 
 
 class BrandingConfigurationTypeDef(BaseValidatorModel):
@@ -768,14 +780,14 @@ class BrandingConfigurationTypeDef(BaseValidatorModel):
 class ListBrowserSettingsResponseTypeDef(BaseValidatorModel):
     browserSettings: List[BrowserSettingsSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 class BrowserSettingsTypeDef(BaseValidatorModel):
-    browserSettingsArn: str
-    associatedPortalArns: Optional[List[str]] = None
-    browserPolicy: Optional[str] = None
-    customerManagedKey: Optional[str] = None
+    browserSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    associatedPortalArns: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]]] = None
+    browserPolicy: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "BrowserPolicy")]] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     webContentFilteringPolicy: Optional[WebContentFilteringPolicyOutputTypeDef] = None
 
@@ -783,14 +795,14 @@ class BrowserSettingsTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_trust_store_certificates' function.
 class ListTrustStoreCertificatesResponseTypeDef(BaseValidatorModel):
     certificateList: List[CertificateSummaryTypeDef]
-    trustStoreArn: str
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 # This class is the output for the 'get_trust_store_certificate' function.
 class GetTrustStoreCertificateResponseTypeDef(BaseValidatorModel):
-    trustStoreArn: str
+    trustStoreArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     certificate: CertificateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -807,8 +819,8 @@ class CookieSynchronizationConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_identity_provider' function.
 class CreateIdentityProviderRequestTypeDef(BaseValidatorModel):
-    portalArn: str
-    identityProviderName: str
+    portalArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    identityProviderName: Annotated[str, _aws_pattern("WorkspacesWeb", "IdentityProviderName")]
     identityProviderType: IdentityProviderTypeType
     identityProviderDetails: Dict[str, str]
     clientToken: Optional[str] = None
@@ -817,24 +829,24 @@ class CreateIdentityProviderRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_network_settings' function.
 class CreateNetworkSettingsRequestTypeDef(BaseValidatorModel):
-    vpcId: str
-    subnetIds: List[str]
-    securityGroupIds: List[str]
+    vpcId: Annotated[str, _aws_pattern("WorkspacesWeb", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("WorkspacesWeb", "SubnetId")]]
+    securityGroupIds: List[Annotated[str, _aws_pattern("WorkspacesWeb", "SecurityGroupId")]]
     tags: Optional[List[TagTypeDef]] = None
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'create_portal' function.
 class CreatePortalRequestTypeDef(BaseValidatorModel):
-    displayName: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayName")]] = None
     tags: Optional[List[TagTypeDef]] = None
-    customerManagedKey: Optional[str] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     clientToken: Optional[str] = None
     authenticationType: Optional[AuthenticationTypeType] = None
     instanceType: Optional[InstanceTypeType] = None
     maxConcurrentSessions: Optional[int] = None
-    portalCustomDomain: Optional[str] = None
+    portalCustomDomain: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PortalCustomDomain")]] = None
 
 
 # This class is the input for the 'create_trust_store' function.
@@ -846,7 +858,7 @@ class CreateTrustStoreRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user_access_logging_settings' function.
 class CreateUserAccessLoggingSettingsRequestTypeDef(BaseValidatorModel):
-    kinesisStreamArn: str
+    kinesisStreamArn: Annotated[str, _aws_pattern("WorkspacesWeb", "KinesisStreamArn")]
     tags: Optional[List[TagTypeDef]] = None
     clientToken: Optional[str] = None
 
@@ -858,7 +870,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     tags: List[TagTypeDef]
     clientToken: Optional[str] = None
 
@@ -866,30 +878,30 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_ip_access_settings' function.
 class CreateIpAccessSettingsRequestTypeDef(BaseValidatorModel):
     ipRules: List[IpRuleTypeDef]
-    displayName: Optional[str] = None
-    description: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "Description")]] = None
     tags: Optional[List[TagTypeDef]] = None
-    customerManagedKey: Optional[str] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     clientToken: Optional[str] = None
 
 
 class IpAccessSettingsTypeDef(BaseValidatorModel):
-    ipAccessSettingsArn: str
-    associatedPortalArns: Optional[List[str]] = None
+    ipAccessSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    associatedPortalArns: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]]] = None
     ipRules: Optional[List[IpRuleTypeDef]] = None
-    displayName: Optional[str] = None
-    description: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "Description")]] = None
     creationDate: Optional[datetime] = None
-    customerManagedKey: Optional[str] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_ip_access_settings' function.
 class UpdateIpAccessSettingsRequestTypeDef(BaseValidatorModel):
-    ipAccessSettingsArn: str
-    displayName: Optional[str] = None
-    description: Optional[str] = None
+    ipAccessSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "Description")]] = None
     ipRules: Optional[List[IpRuleTypeDef]] = None
     clientToken: Optional[str] = None
 
@@ -898,7 +910,7 @@ class UpdateIpAccessSettingsRequestTypeDef(BaseValidatorModel):
 class ListDataProtectionSettingsResponseTypeDef(BaseValidatorModel):
     dataProtectionSettings: List[DataProtectionSettingsSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 EventFilterUnionTypeDef = Union[EventFilterOutputTypeDef, EventFilterTypeDef]
@@ -968,7 +980,7 @@ class UpdateUserAccessLoggingSettingsResponseTypeDef(BaseValidatorModel):
 class ListIdentityProvidersResponseTypeDef(BaseValidatorModel):
     identityProviders: List[IdentityProviderSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 class InlineRedactionPatternOutputTypeDef(BaseValidatorModel):
@@ -982,10 +994,10 @@ class InlineRedactionPatternOutputTypeDef(BaseValidatorModel):
 
 class InlineRedactionPatternTypeDef(BaseValidatorModel):
     redactionPlaceHolder: RedactionPlaceHolderTypeDef
-    builtInPatternId: Optional[str] = None
+    builtInPatternId: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "BuiltInPatternId")]] = None
     customPattern: Optional[CustomPatternTypeDef] = None
-    enforcedUrls: Optional[List[str]] = None
-    exemptUrls: Optional[List[str]] = None
+    enforcedUrls: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "InlineRedactionUrl")]]] = None
+    exemptUrls: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "InlineRedactionUrl")]]] = None
     confidenceLevel: Optional[int] = None
 
 
@@ -993,7 +1005,7 @@ class InlineRedactionPatternTypeDef(BaseValidatorModel):
 class ListIpAccessSettingsResponseTypeDef(BaseValidatorModel):
     ipAccessSettings: List[IpAccessSettingsSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 class ListDataProtectionSettingsRequestPaginateTypeDef(BaseValidatorModel):
@@ -1017,35 +1029,35 @@ class ListSessionsRequestPaginateTypeDef(BaseValidatorModel):
 class ListNetworkSettingsResponseTypeDef(BaseValidatorModel):
     networkSettings: List[NetworkSettingsSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_portals' function.
 class ListPortalsResponseTypeDef(BaseValidatorModel):
     portals: List[PortalSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_sessions' function.
 class ListSessionsResponseTypeDef(BaseValidatorModel):
     sessions: List[SessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_trust_stores' function.
 class ListTrustStoresResponseTypeDef(BaseValidatorModel):
     trustStores: List[TrustStoreSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_user_access_logging_settings' function.
 class ListUserAccessLoggingSettingsResponseTypeDef(BaseValidatorModel):
     userAccessLoggingSettings: List[UserAccessLoggingSettingsSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 class LogConfigurationTypeDef(BaseValidatorModel):
@@ -1088,7 +1100,7 @@ class UpdateBrowserSettingsResponseTypeDef(BaseValidatorModel):
 
 
 class UserSettingsSummaryTypeDef(BaseValidatorModel):
-    userSettingsArn: str
+    userSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     copyAllowed: Optional[EnabledTypeType] = None
     pasteAllowed: Optional[EnabledTypeType] = None
     downloadAllowed: Optional[EnabledTypeType] = None
@@ -1104,8 +1116,8 @@ class UserSettingsSummaryTypeDef(BaseValidatorModel):
 
 
 class UserSettingsTypeDef(BaseValidatorModel):
-    userSettingsArn: str
-    associatedPortalArns: Optional[List[str]] = None
+    userSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    associatedPortalArns: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]]] = None
     copyAllowed: Optional[EnabledTypeType] = None
     pasteAllowed: Optional[EnabledTypeType] = None
     downloadAllowed: Optional[EnabledTypeType] = None
@@ -1114,7 +1126,7 @@ class UserSettingsTypeDef(BaseValidatorModel):
     disconnectTimeoutInMinutes: Optional[int] = None
     idleDisconnectTimeoutInMinutes: Optional[int] = None
     cookieSynchronizationConfiguration: Optional[CookieSynchronizationConfigurationOutputTypeDef] = None
-    customerManagedKey: Optional[str] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     deepLinkAllowed: Optional[EnabledTypeType] = None
     toolbarConfiguration: Optional[ToolbarConfigurationOutputTypeDef] = None
@@ -1148,8 +1160,8 @@ class InlineRedactionConfigurationOutputTypeDef(BaseValidatorModel):
 
 class InlineRedactionConfigurationTypeDef(BaseValidatorModel):
     inlineRedactionPatterns: List[InlineRedactionPatternTypeDef]
-    globalEnforcedUrls: Optional[List[str]] = None
-    globalExemptUrls: Optional[List[str]] = None
+    globalEnforcedUrls: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "InlineRedactionUrl")]]] = None
+    globalExemptUrls: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "InlineRedactionUrl")]]] = None
     globalConfidenceLevel: Optional[int] = None
 
 
@@ -1157,53 +1169,53 @@ class InlineRedactionConfigurationTypeDef(BaseValidatorModel):
 class CreateSessionLoggerRequestTypeDef(BaseValidatorModel):
     eventFilter: EventFilterUnionTypeDef
     logConfiguration: LogConfigurationTypeDef
-    displayName: Optional[str] = None
-    customerManagedKey: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayNameSafe")]] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     tags: Optional[List[TagTypeDef]] = None
     clientToken: Optional[str] = None
 
 
 class SessionLoggerSummaryTypeDef(BaseValidatorModel):
-    sessionLoggerArn: str
+    sessionLoggerArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     logConfiguration: Optional[LogConfigurationTypeDef] = None
-    displayName: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayNameSafe")]] = None
     creationDate: Optional[datetime] = None
 
 
 class SessionLoggerTypeDef(BaseValidatorModel):
-    sessionLoggerArn: str
+    sessionLoggerArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     eventFilter: Optional[EventFilterOutputTypeDef] = None
     logConfiguration: Optional[LogConfigurationTypeDef] = None
-    customerManagedKey: Optional[str] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
-    associatedPortalArns: Optional[List[str]] = None
-    displayName: Optional[str] = None
+    associatedPortalArns: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayNameSafe")]] = None
     creationDate: Optional[datetime] = None
 
 
 # This class is the input for the 'update_session_logger' function.
 class UpdateSessionLoggerRequestTypeDef(BaseValidatorModel):
-    sessionLoggerArn: str
+    sessionLoggerArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     eventFilter: Optional[EventFilterUnionTypeDef] = None
     logConfiguration: Optional[LogConfigurationTypeDef] = None
-    displayName: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayNameSafe")]] = None
 
 
 # This class is the input for the 'create_browser_settings' function.
 class CreateBrowserSettingsRequestTypeDef(BaseValidatorModel):
     tags: Optional[List[TagTypeDef]] = None
-    customerManagedKey: Optional[str] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
-    browserPolicy: Optional[str] = None
+    browserPolicy: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "BrowserPolicy")]] = None
     clientToken: Optional[str] = None
     webContentFilteringPolicy: Optional[WebContentFilteringPolicyUnionTypeDef] = None
 
 
 # This class is the input for the 'update_browser_settings' function.
 class UpdateBrowserSettingsRequestTypeDef(BaseValidatorModel):
-    browserSettingsArn: str
-    browserPolicy: Optional[str] = None
+    browserSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
+    browserPolicy: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "BrowserPolicy")]] = None
     clientToken: Optional[str] = None
     webContentFilteringPolicy: Optional[WebContentFilteringPolicyUnionTypeDef] = None
 
@@ -1212,7 +1224,7 @@ class UpdateBrowserSettingsRequestTypeDef(BaseValidatorModel):
 class ListUserSettingsResponseTypeDef(BaseValidatorModel):
     userSettings: List[UserSettingsSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 # This class is the output for the 'get_user_settings' function.
@@ -1239,7 +1251,7 @@ class CreateUserSettingsRequestTypeDef(BaseValidatorModel):
     idleDisconnectTimeoutInMinutes: Optional[int] = None
     clientToken: Optional[str] = None
     cookieSynchronizationConfiguration: Optional[CookieSynchronizationConfigurationUnionTypeDef] = None
-    customerManagedKey: Optional[str] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     deepLinkAllowed: Optional[EnabledTypeType] = None
     toolbarConfiguration: Optional[ToolbarConfigurationUnionTypeDef] = None
@@ -1249,7 +1261,7 @@ class CreateUserSettingsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_user_settings' function.
 class UpdateUserSettingsRequestTypeDef(BaseValidatorModel):
-    userSettingsArn: str
+    userSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     copyAllowed: Optional[EnabledTypeType] = None
     pasteAllowed: Optional[EnabledTypeType] = None
     downloadAllowed: Optional[EnabledTypeType] = None
@@ -1266,13 +1278,13 @@ class UpdateUserSettingsRequestTypeDef(BaseValidatorModel):
 
 
 class DataProtectionSettingsTypeDef(BaseValidatorModel):
-    dataProtectionSettingsArn: str
+    dataProtectionSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     inlineRedactionConfiguration: Optional[InlineRedactionConfigurationOutputTypeDef] = None
-    associatedPortalArns: Optional[List[str]] = None
-    displayName: Optional[str] = None
-    description: Optional[str] = None
+    associatedPortalArns: Optional[List[Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayNameSafe")]] = None
+    description: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DescriptionSafe")]] = None
     creationDate: Optional[datetime] = None
-    customerManagedKey: Optional[str] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
 
 
@@ -1285,7 +1297,7 @@ InlineRedactionConfigurationUnionTypeDef = Union[
 class ListSessionLoggersResponseTypeDef(BaseValidatorModel):
     sessionLoggers: List[SessionLoggerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "PaginationToken")]] = None
 
 
 # This class is the output for the 'get_session_logger' function.
@@ -1314,10 +1326,10 @@ class UpdateDataProtectionSettingsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_protection_settings' function.
 class CreateDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
-    displayName: Optional[str] = None
-    description: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayNameSafe")]] = None
+    description: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DescriptionSafe")]] = None
     tags: Optional[List[TagTypeDef]] = None
-    customerManagedKey: Optional[str] = None
+    customerManagedKey: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "keyArn")]] = None
     additionalEncryptionContext: Optional[Dict[str, str]] = None
     inlineRedactionConfiguration: Optional[InlineRedactionConfigurationUnionTypeDef] = None
     clientToken: Optional[str] = None
@@ -1325,8 +1337,8 @@ class CreateDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_data_protection_settings' function.
 class UpdateDataProtectionSettingsRequestTypeDef(BaseValidatorModel):
-    dataProtectionSettingsArn: str
+    dataProtectionSettingsArn: Annotated[str, _aws_pattern("WorkspacesWeb", "ARN")]
     inlineRedactionConfiguration: Optional[InlineRedactionConfigurationUnionTypeDef] = None
-    displayName: Optional[str] = None
-    description: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DisplayNameSafe")]] = None
+    description: Optional[Annotated[str, _aws_pattern("WorkspacesWeb", "DescriptionSafe")]] = None
     clientToken: Optional[str] = None

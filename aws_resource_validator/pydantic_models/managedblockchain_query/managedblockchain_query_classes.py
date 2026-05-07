@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,12 +41,12 @@ except ImportError:  # pragma: no cover
 
 
 class AddressIdentifierFilterTypeDef(BaseValidatorModel):
-    transactionEventToAddress: List[str]
+    transactionEventToAddress: List[Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]]
 
 
 class ContractIdentifierTypeDef(BaseValidatorModel):
     network: QueryNetworkType
-    contractAddress: str
+    contractAddress: Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]
 
 
 class BlockchainInstantOutputTypeDef(BaseValidatorModel):
@@ -52,13 +54,13 @@ class BlockchainInstantOutputTypeDef(BaseValidatorModel):
 
 
 class OwnerIdentifierTypeDef(BaseValidatorModel):
-    address: str
+    address: Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]
 
 
 class TokenIdentifierTypeDef(BaseValidatorModel):
     network: QueryNetworkType
-    contractAddress: Optional[str] = None
-    tokenId: Optional[str] = None
+    contractAddress: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]] = None
+    tokenId: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "QueryTokenId")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -79,7 +81,7 @@ class ConfirmationStatusFilterTypeDef(BaseValidatorModel):
 class ContractFilterTypeDef(BaseValidatorModel):
     network: QueryNetworkType
     tokenStandard: QueryTokenStandardType
-    deployerAddress: str
+    deployerAddress: Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]
 
 
 class ContractMetadataTypeDef(BaseValidatorModel):
@@ -91,21 +93,21 @@ class ContractMetadataTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_transaction' function.
 class GetTransactionInputTypeDef(BaseValidatorModel):
     network: QueryNetworkType
-    transactionHash: Optional[str] = None
-    transactionId: Optional[str] = None
+    transactionHash: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "QueryTransactionHash")]] = None
+    transactionId: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "QueryTransactionId")]] = None
 
 
 class TransactionTypeDef(BaseValidatorModel):
     network: QueryNetworkType
-    transactionHash: str
+    transactionHash: Annotated[str, _aws_pattern("ManagedblockchainQuery", "QueryTransactionHash")]
     transactionTimestamp: datetime
     transactionIndex: int
     numberOfTransactions: int
-    to: str
-    blockHash: Optional[str] = None
+    to: Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]
+    blockHash: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "BlockHash")]] = None
     blockNumber: Optional[str] = None
-    from_: Optional[str] = Field(None, alias="from")
-    contractAddress: Optional[str] = None
+    from_: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]] = Field(None, alias="from")
+    contractAddress: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]] = None
     gasUsed: Optional[str] = None
     cumulativeGasUsed: Optional[str] = None
     effectiveGasPrice: Optional[str] = None
@@ -134,20 +136,20 @@ class VoutFilterTypeDef(BaseValidatorModel):
 
 
 class OwnerFilterTypeDef(BaseValidatorModel):
-    address: str
+    address: Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]
 
 
 class TokenFilterTypeDef(BaseValidatorModel):
     network: QueryNetworkType
-    contractAddress: Optional[str] = None
-    tokenId: Optional[str] = None
+    contractAddress: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]] = None
+    tokenId: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "QueryTokenId")]] = None
 
 
 # This class is the input for the 'list_transaction_events' function.
 class ListTransactionEventsInputTypeDef(BaseValidatorModel):
     network: QueryNetworkType
-    transactionHash: Optional[str] = None
-    transactionId: Optional[str] = None
+    transactionHash: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "QueryTransactionHash")]] = None
+    transactionId: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "QueryTransactionId")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -158,17 +160,17 @@ class ListTransactionsSortTypeDef(BaseValidatorModel):
 
 
 class TransactionOutputItemTypeDef(BaseValidatorModel):
-    transactionHash: str
+    transactionHash: Annotated[str, _aws_pattern("ManagedblockchainQuery", "QueryTransactionHash")]
     network: QueryNetworkType
     transactionTimestamp: datetime
-    transactionId: Optional[str] = None
+    transactionId: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "QueryTransactionId")]] = None
     confirmationStatus: Optional[ConfirmationStatusType] = None
 
 
 class AssetContractTypeDef(BaseValidatorModel):
     contractIdentifier: ContractIdentifierTypeDef
     tokenStandard: QueryTokenStandardType
-    deployerAddress: str
+    deployerAddress: Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]
 
 
 # This class is the input for the 'get_asset_contract' function.
@@ -178,13 +180,13 @@ class GetAssetContractInputTypeDef(BaseValidatorModel):
 
 class TransactionEventTypeDef(BaseValidatorModel):
     network: QueryNetworkType
-    transactionHash: str
+    transactionHash: Annotated[str, _aws_pattern("ManagedblockchainQuery", "QueryTransactionHash")]
     eventType: QueryTransactionEventTypeType
-    from_: Optional[str] = Field(None, alias="from")
-    to: Optional[str] = None
+    from_: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]] = Field(None, alias="from")
+    to: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]] = None
     value: Optional[str] = None
-    contractAddress: Optional[str] = None
-    tokenId: Optional[str] = None
+    contractAddress: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]] = None
+    tokenId: Optional[Annotated[str, _aws_pattern("ManagedblockchainQuery", "QueryTokenId")]] = None
     transactionId: Optional[str] = None
     voutIndex: Optional[int] = None
     voutSpent: Optional[bool] = None
@@ -245,7 +247,7 @@ class ListAssetContractsInputTypeDef(BaseValidatorModel):
 class GetAssetContractOutputTypeDef(BaseValidatorModel):
     contractIdentifier: ContractIdentifierTypeDef
     tokenStandard: QueryTokenStandardType
-    deployerAddress: str
+    deployerAddress: Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]
     metadata: ContractMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -352,7 +354,7 @@ class ListTransactionsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_transactions' function.
 class ListTransactionsInputTypeDef(BaseValidatorModel):
-    address: str
+    address: Annotated[str, _aws_pattern("ManagedblockchainQuery", "ChainAddress")]
     network: QueryNetworkType
     fromBlockchainInstant: Optional[BlockchainInstantUnionTypeDef] = None
     toBlockchainInstant: Optional[BlockchainInstantUnionTypeDef] = None

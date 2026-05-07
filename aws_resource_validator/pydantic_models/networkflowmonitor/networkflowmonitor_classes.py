@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.networkflowmonitor.networkflowmonitor_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -57,7 +59,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteMonitorInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
 
 
 class DeleteScopeInputTypeDef(BaseValidatorModel):
@@ -66,7 +68,7 @@ class DeleteScopeInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_monitor' function.
 class GetMonitorInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -77,7 +79,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_query_results_monitor_top_contributors' function.
 class GetQueryResultsMonitorTopContributorsInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
     queryId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -106,10 +108,10 @@ class GetQueryResultsWorkloadInsightsTopContributorsInputTypeDef(BaseValidatorMo
 
 
 class WorkloadInsightsTopContributorsRowTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
-    localSubnetId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "AccountId")]] = None
+    localSubnetId: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "SubnetId")]] = None
     localAz: Optional[str] = None
-    localVpcId: Optional[str] = None
+    localVpcId: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "VpcId")]] = None
     localRegion: Optional[str] = None
     remoteIdentifier: Optional[str] = None
     value: Optional[int] = None
@@ -119,7 +121,7 @@ class WorkloadInsightsTopContributorsRowTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_query_status_monitor_top_contributors' function.
 class GetQueryStatusMonitorTopContributorsInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
     queryId: str
 
 
@@ -157,8 +159,8 @@ class ListMonitorsInputTypeDef(BaseValidatorModel):
 
 
 class MonitorSummaryTypeDef(BaseValidatorModel):
-    monitorArn: str
-    monitorName: str
+    monitorArn: Annotated[str, _aws_pattern("Networkflowmonitor", "MonitorArn")]
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
     monitorStatus: MonitorStatusType
 
 
@@ -171,18 +173,18 @@ class ListScopesInputTypeDef(BaseValidatorModel):
 class ScopeSummaryTypeDef(BaseValidatorModel):
     scopeId: str
     status: ScopeStatusType
-    scopeArn: str
+    scopeArn: Annotated[str, _aws_pattern("Networkflowmonitor", "Arn")]
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Networkflowmonitor", "Arn")]
 
 
 class TraversedComponentTypeDef(BaseValidatorModel):
     componentId: Optional[str] = None
     componentType: Optional[str] = None
-    componentArn: Optional[str] = None
+    componentArn: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "Arn")]] = None
     serviceName: Optional[str] = None
 
 
@@ -190,7 +192,7 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class StopQueryMonitorTopContributorsInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
     queryId: str
 
 
@@ -205,43 +207,43 @@ class StopQueryWorkloadInsightsTopContributorsInputTypeDef(BaseValidatorModel):
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Networkflowmonitor", "Arn")]
     tags: Dict[str, str]
 
 
 class TargetIdTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "AccountId")]] = None
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Networkflowmonitor", "Arn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'create_monitor' function.
 class CreateMonitorInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
     localResources: List[MonitorLocalResourceTypeDef]
-    scopeArn: str
+    scopeArn: Annotated[str, _aws_pattern("Networkflowmonitor", "Arn")]
     remoteResources: Optional[List[MonitorRemoteResourceTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "UuidString")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_monitor' function.
 class UpdateMonitorInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
     localResourcesToAdd: Optional[List[MonitorLocalResourceTypeDef]] = None
     localResourcesToRemove: Optional[List[MonitorLocalResourceTypeDef]] = None
     remoteResourcesToAdd: Optional[List[MonitorRemoteResourceTypeDef]] = None
     remoteResourcesToRemove: Optional[List[MonitorRemoteResourceTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "UuidString")]] = None
 
 
 # This class is the output for the 'create_monitor' function.
 class CreateMonitorOutputTypeDef(BaseValidatorModel):
-    monitorArn: str
-    monitorName: str
+    monitorArn: Annotated[str, _aws_pattern("Networkflowmonitor", "MonitorArn")]
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
     monitorStatus: MonitorStatusType
     localResources: List[MonitorLocalResourceTypeDef]
     remoteResources: List[MonitorRemoteResourceTypeDef]
@@ -255,15 +257,15 @@ class CreateMonitorOutputTypeDef(BaseValidatorModel):
 class CreateScopeOutputTypeDef(BaseValidatorModel):
     scopeId: str
     status: ScopeStatusType
-    scopeArn: str
+    scopeArn: Annotated[str, _aws_pattern("Networkflowmonitor", "Arn")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_monitor' function.
 class GetMonitorOutputTypeDef(BaseValidatorModel):
-    monitorArn: str
-    monitorName: str
+    monitorArn: Annotated[str, _aws_pattern("Networkflowmonitor", "MonitorArn")]
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
     monitorStatus: MonitorStatusType
     localResources: List[MonitorLocalResourceTypeDef]
     remoteResources: List[MonitorRemoteResourceTypeDef]
@@ -317,8 +319,8 @@ class StartQueryWorkloadInsightsTopContributorsOutputTypeDef(BaseValidatorModel)
 
 # This class is the output for the 'update_monitor' function.
 class UpdateMonitorOutputTypeDef(BaseValidatorModel):
-    monitorArn: str
-    monitorName: str
+    monitorArn: Annotated[str, _aws_pattern("Networkflowmonitor", "MonitorArn")]
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
     monitorStatus: MonitorStatusType
     localResources: List[MonitorLocalResourceTypeDef]
     remoteResources: List[MonitorRemoteResourceTypeDef]
@@ -332,7 +334,7 @@ class UpdateMonitorOutputTypeDef(BaseValidatorModel):
 class UpdateScopeOutputTypeDef(BaseValidatorModel):
     scopeId: str
     status: ScopeStatusType
-    scopeArn: str
+    scopeArn: Annotated[str, _aws_pattern("Networkflowmonitor", "Arn")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -396,18 +398,18 @@ class ListScopesOutputTypeDef(BaseValidatorModel):
 class MonitorTopContributorsRowTypeDef(BaseValidatorModel):
     localIp: Optional[str] = None
     snatIp: Optional[str] = None
-    localInstanceId: Optional[str] = None
-    localVpcId: Optional[str] = None
+    localInstanceId: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "InstanceId")]] = None
+    localVpcId: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "VpcId")]] = None
     localRegion: Optional[str] = None
     localAz: Optional[str] = None
-    localSubnetId: Optional[str] = None
+    localSubnetId: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "SubnetId")]] = None
     targetPort: Optional[int] = None
     destinationCategory: Optional[DestinationCategoryType] = None
-    remoteVpcId: Optional[str] = None
+    remoteVpcId: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "VpcId")]] = None
     remoteRegion: Optional[str] = None
     remoteAz: Optional[str] = None
-    remoteSubnetId: Optional[str] = None
-    remoteInstanceId: Optional[str] = None
+    remoteSubnetId: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "SubnetId")]] = None
+    remoteInstanceId: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "InstanceId")]] = None
     remoteIp: Optional[str] = None
     dnatIp: Optional[str] = None
     value: Optional[int] = None
@@ -423,7 +425,7 @@ class MonitorTopContributorsRowTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_query_monitor_top_contributors' function.
 class StartQueryMonitorTopContributorsInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkflowmonitor", "ResourceName")]
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     metricName: MonitorMetricType
@@ -471,7 +473,7 @@ class TargetResourceTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_scope' function.
 class CreateScopeInputTypeDef(BaseValidatorModel):
     targets: List[TargetResourceTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Networkflowmonitor", "UuidString")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -479,7 +481,7 @@ class CreateScopeInputTypeDef(BaseValidatorModel):
 class GetScopeOutputTypeDef(BaseValidatorModel):
     scopeId: str
     status: ScopeStatusType
-    scopeArn: str
+    scopeArn: Annotated[str, _aws_pattern("Networkflowmonitor", "Arn")]
     targets: List[TargetResourceTypeDef]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef

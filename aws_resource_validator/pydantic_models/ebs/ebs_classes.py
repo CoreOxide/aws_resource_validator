@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ebs.ebs_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -42,20 +44,20 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 class BlockTypeDef(BaseValidatorModel):
     BlockIndex: Optional[int] = None
-    BlockToken: Optional[str] = None
+    BlockToken: Optional[Annotated[str, _aws_pattern("Ebs", "BlockToken")]] = None
 
 
 class ChangedBlockTypeDef(BaseValidatorModel):
     BlockIndex: Optional[int] = None
-    FirstBlockToken: Optional[str] = None
-    SecondBlockToken: Optional[str] = None
+    FirstBlockToken: Optional[Annotated[str, _aws_pattern("Ebs", "BlockToken")]] = None
+    SecondBlockToken: Optional[Annotated[str, _aws_pattern("Ebs", "BlockToken")]] = None
 
 
 # This class is the input for the 'complete_snapshot' function.
 class CompleteSnapshotRequestTypeDef(BaseValidatorModel):
-    SnapshotId: str
+    SnapshotId: Annotated[str, _aws_pattern("Ebs", "SnapshotId")]
     ChangedBlocksCount: int
-    Checksum: Optional[str] = None
+    Checksum: Optional[Annotated[str, _aws_pattern("Ebs", "Checksum")]] = None
     ChecksumAlgorithm: Optional[Literal["SHA256"]] = None
     ChecksumAggregationMethod: Optional[Literal["LINEAR"]] = None
 
@@ -70,40 +72,40 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_snapshot_block' function.
 class GetSnapshotBlockRequestTypeDef(BaseValidatorModel):
-    SnapshotId: str
+    SnapshotId: Annotated[str, _aws_pattern("Ebs", "SnapshotId")]
     BlockIndex: int
-    BlockToken: str
+    BlockToken: Annotated[str, _aws_pattern("Ebs", "BlockToken")]
 
 
 # This class is the input for the 'list_changed_blocks' function.
 class ListChangedBlocksRequestTypeDef(BaseValidatorModel):
-    SecondSnapshotId: str
-    FirstSnapshotId: Optional[str] = None
-    NextToken: Optional[str] = None
+    SecondSnapshotId: Annotated[str, _aws_pattern("Ebs", "SnapshotId")]
+    FirstSnapshotId: Optional[Annotated[str, _aws_pattern("Ebs", "SnapshotId")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ebs", "PageToken")]] = None
     MaxResults: Optional[int] = None
     StartingBlockIndex: Optional[int] = None
 
 
 # This class is the input for the 'list_snapshot_blocks' function.
 class ListSnapshotBlocksRequestTypeDef(BaseValidatorModel):
-    SnapshotId: str
-    NextToken: Optional[str] = None
+    SnapshotId: Annotated[str, _aws_pattern("Ebs", "SnapshotId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Ebs", "PageToken")]] = None
     MaxResults: Optional[int] = None
     StartingBlockIndex: Optional[int] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Ebs", "TagKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Ebs", "TagValue")]] = None
 
 
 # This class is the input for the 'put_snapshot_block' function.
 class PutSnapshotBlockRequestTypeDef(BaseValidatorModel):
-    SnapshotId: str
+    SnapshotId: Annotated[str, _aws_pattern("Ebs", "SnapshotId")]
     BlockIndex: int
     BlockData: BlobTypeDef
     DataLength: int
-    Checksum: str
+    Checksum: Annotated[str, _aws_pattern("Ebs", "Checksum")]
     ChecksumAlgorithm: Literal["SHA256"]
     Progress: Optional[int] = None
 
@@ -118,7 +120,7 @@ class CompleteSnapshotResponseTypeDef(BaseValidatorModel):
 class GetSnapshotBlockResponseTypeDef(BaseValidatorModel):
     DataLength: int
     BlockData: StreamingBody
-    Checksum: str
+    Checksum: Annotated[str, _aws_pattern("Ebs", "Checksum")]
     ChecksumAlgorithm: Literal["SHA256"]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -130,7 +132,7 @@ class ListChangedBlocksResponseTypeDef(BaseValidatorModel):
     VolumeSize: int
     BlockSize: int
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ebs", "PageToken")]] = None
 
 
 # This class is the output for the 'list_snapshot_blocks' function.
@@ -140,12 +142,12 @@ class ListSnapshotBlocksResponseTypeDef(BaseValidatorModel):
     VolumeSize: int
     BlockSize: int
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ebs", "PageToken")]] = None
 
 
 # This class is the output for the 'put_snapshot_block' function.
 class PutSnapshotBlockResponseTypeDef(BaseValidatorModel):
-    Checksum: str
+    Checksum: Annotated[str, _aws_pattern("Ebs", "Checksum")]
     ChecksumAlgorithm: Literal["SHA256"]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -153,26 +155,26 @@ class PutSnapshotBlockResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_snapshot' function.
 class StartSnapshotRequestTypeDef(BaseValidatorModel):
     VolumeSize: int
-    ParentSnapshotId: Optional[str] = None
+    ParentSnapshotId: Optional[Annotated[str, _aws_pattern("Ebs", "SnapshotId")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    Description: Optional[str] = None
-    ClientToken: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Ebs", "Description")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Ebs", "IdempotencyToken")]] = None
     Encrypted: Optional[bool] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Ebs", "KmsKeyArn")]] = None
     Timeout: Optional[int] = None
 
 
 # This class is the output for the 'start_snapshot' function.
 class StartSnapshotResponseTypeDef(BaseValidatorModel):
-    Description: str
-    SnapshotId: str
-    OwnerId: str
+    Description: Annotated[str, _aws_pattern("Ebs", "Description")]
+    SnapshotId: Annotated[str, _aws_pattern("Ebs", "SnapshotId")]
+    OwnerId: Annotated[str, _aws_pattern("Ebs", "OwnerId")]
     Status: StatusType
     StartTime: datetime
     VolumeSize: int
     BlockSize: int
     Tags: List[TagTypeDef]
-    ParentSnapshotId: str
-    KmsKeyArn: str
+    ParentSnapshotId: Annotated[str, _aws_pattern("Ebs", "SnapshotId")]
+    KmsKeyArn: Annotated[str, _aws_pattern("Ebs", "KmsKeyArn")]
     SseType: SSETypeType
     ResponseMetadata: ResponseMetadataTypeDef

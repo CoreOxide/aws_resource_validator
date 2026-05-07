@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.bedrock_agent_runtime.bedrock_agent_runtime_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,17 +41,19 @@ except ImportError:  # pragma: no cover
 
 
 class S3IdentifierTypeDef(BaseValidatorModel):
-    s3BucketName: Optional[str] = None
-    s3ObjectKey: Optional[str] = None
+    s3BucketName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "S3BucketName")]] = None
+    s3ObjectKey: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "S3ObjectKey")]] = None
 
 
 class AccessDeniedExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
 
 
 class ActionGroupExecutorTypeDef(BaseValidatorModel):
     customControl: Optional[Literal["RETURN_CONTROL"]] = None
-    lambda_: Optional[str] = Field(None, alias="lambda")
+    lambda_: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "LambdaResourceArn")]] = Field(
+        None, alias="lambda"
+    )
 
 
 class ParameterTypeDef(BaseValidatorModel):
@@ -74,8 +78,8 @@ class AudioSegmentTypeDef(BaseValidatorModel):
 
 
 class BadGatewayExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
-    resourceName: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
+    resourceName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
 
 
 class PerformanceConfigurationTypeDef(BaseValidatorModel):
@@ -83,7 +87,7 @@ class PerformanceConfigurationTypeDef(BaseValidatorModel):
 
 
 class BedrockRerankingModelConfigurationTypeDef(BaseValidatorModel):
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "BedrockModelArn")]
     additionalModelRequestFields: Optional[Dict[str, Dict[str, Any]]] = None
 
 
@@ -91,7 +95,7 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class CallerTypeDef(BaseValidatorModel):
-    agentAliasArn: Optional[str] = None
+    agentAliasArn: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentAliasArn")]] = None
 
 
 class CodeInterpreterInvocationInputTypeDef(BaseValidatorModel):
@@ -101,14 +105,14 @@ class CodeInterpreterInvocationInputTypeDef(BaseValidatorModel):
 
 class CollaboratorConfigurationTypeDef(BaseValidatorModel):
     collaboratorInstruction: str
-    collaboratorName: str
-    agentAliasArn: Optional[str] = None
+    collaboratorName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Name")]
+    agentAliasArn: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentAliasArn")]] = None
     relayConversationHistory: Optional[RelayConversationHistoryType] = None
 
 
 class GuardrailConfigurationWithArnTypeDef(BaseValidatorModel):
-    guardrailIdentifier: str
-    guardrailVersion: str
+    guardrailIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "GuardrailIdentifierWithArn")]
+    guardrailVersion: Annotated[str, _aws_pattern("BedrockAgentRuntime", "GuardrailVersion")]
 
 
 class SatisfiedConditionTypeDef(BaseValidatorModel):
@@ -116,7 +120,7 @@ class SatisfiedConditionTypeDef(BaseValidatorModel):
 
 
 class ConflictExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
 
 
 class ContentBlockTypeDef(BaseValidatorModel):
@@ -125,9 +129,9 @@ class ContentBlockTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_invocation' function.
 class CreateInvocationRequestTypeDef(BaseValidatorModel):
-    sessionIdentifier: str
+    sessionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionIdentifier")]
     description: Optional[str] = None
-    invocationId: Optional[str] = None
+    invocationId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -140,7 +144,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_session' function.
 class CreateSessionRequestTypeDef(BaseValidatorModel):
-    encryptionKeyArn: Optional[str] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "KmsKeyArn")]] = None
     sessionMetadata: Optional[Dict[str, str]] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -154,33 +158,35 @@ class OrchestrationExecutorTypeDef(BaseValidatorModel):
 
 
 class DeleteAgentMemoryRequestTypeDef(BaseValidatorModel):
-    agentAliasId: str
-    agentId: str
-    memoryId: Optional[str] = None
-    sessionId: Optional[str] = None
+    agentAliasId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentAliasId")]
+    agentId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentId")]
+    memoryId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "MemoryId")]] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionId")]] = None
 
 
 class DeleteSessionRequestTypeDef(BaseValidatorModel):
-    sessionIdentifier: str
+    sessionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionIdentifier")]
 
 
 class DependencyFailedExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
-    resourceName: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
+    resourceName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
 
 
 # This class is the input for the 'end_session' function.
 class EndSessionRequestTypeDef(BaseValidatorModel):
-    sessionIdentifier: str
+    sessionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionIdentifier")]
 
 
 class S3ObjectDocTypeDef(BaseValidatorModel):
-    uri: str
+    uri: Annotated[str, _aws_pattern("BedrockAgentRuntime", "S3Uri")]
 
 
 class GuardrailConfigurationTypeDef(BaseValidatorModel):
-    guardrailId: str
-    guardrailVersion: str
+    guardrailId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "GuardrailConfigurationGuardrailIdString")]
+    guardrailVersion: Annotated[
+        str, _aws_pattern("BedrockAgentRuntime", "GuardrailConfigurationGuardrailVersionString")
+    ]
 
 
 class PromptTemplateTypeDef(BaseValidatorModel):
@@ -198,7 +204,7 @@ class OutputFileTypeDef(BaseValidatorModel):
 
 
 class S3ObjectFileTypeDef(BaseValidatorModel):
-    uri: str
+    uri: Annotated[str, _aws_pattern("BedrockAgentRuntime", "S3Uri")]
 
 
 class FilterAttributeTypeDef(BaseValidatorModel):
@@ -217,7 +223,7 @@ class FlowExecutionContentTypeDef(BaseValidatorModel):
 class FlowExecutionErrorTypeDef(BaseValidatorModel):
     error: Optional[Literal["ExecutionTimedOut"]] = None
     message: Optional[str] = None
-    nodeName: Optional[str] = None
+    nodeName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]] = None
 
 
 class FlowFailureEventTypeDef(BaseValidatorModel):
@@ -227,7 +233,7 @@ class FlowFailureEventTypeDef(BaseValidatorModel):
 
 
 class NodeActionEventTypeDef(BaseValidatorModel):
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     operationName: str
     requestId: str
     serviceName: str
@@ -239,16 +245,16 @@ class NodeActionEventTypeDef(BaseValidatorModel):
 class NodeFailureEventTypeDef(BaseValidatorModel):
     errorCode: NodeErrorCodeType
     errorMessage: str
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     timestamp: datetime
 
 
 class FlowExecutionSummaryTypeDef(BaseValidatorModel):
     createdAt: datetime
-    executionArn: str
-    flowAliasIdentifier: str
-    flowIdentifier: str
-    flowVersion: str
+    executionArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowExecutionIdentifier")]
+    flowAliasIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowAliasIdentifier")]
+    flowIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowIdentifier")]
+    flowVersion: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Version")]
     status: FlowExecutionStatusType
     endedAt: Optional[datetime] = None
 
@@ -266,24 +272,24 @@ class FlowOutputContentTypeDef(BaseValidatorModel):
 
 
 class InternalServerExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
     reason: Optional[str] = None
 
 
 class ResourceNotFoundExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
 
 
 class ServiceQuotaExceededExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
 
 
 class ThrottlingExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
 
 
 class ValidationExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
 
 
 class FlowTraceConditionTypeDef(BaseValidatorModel):
@@ -291,7 +297,7 @@ class FlowTraceConditionTypeDef(BaseValidatorModel):
 
 
 class FlowTraceNodeActionEventTypeDef(BaseValidatorModel):
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     operationName: str
     requestId: str
     serviceName: str
@@ -305,15 +311,15 @@ class FlowTraceNodeInputContentTypeDef(BaseValidatorModel):
 
 
 class FlowTraceNodeInputExecutionChainItemTypeDef(BaseValidatorModel):
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     type: FlowControlNodeTypeType
     index: Optional[int] = None
 
 
 class FlowTraceNodeInputSourceTypeDef(BaseValidatorModel):
     expression: str
-    nodeName: str
-    outputFieldName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
+    outputFieldName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowNodeOutputName")]
 
 
 class FlowTraceNodeOutputContentTypeDef(BaseValidatorModel):
@@ -321,8 +327,8 @@ class FlowTraceNodeOutputContentTypeDef(BaseValidatorModel):
 
 
 class FlowTraceNodeOutputNextTypeDef(BaseValidatorModel):
-    inputFieldName: str
-    nodeName: str
+    inputFieldName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowNodeInputName")]
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
 
 
 class ParameterDetailTypeDef(BaseValidatorModel):
@@ -355,38 +361,38 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_agent_memory' function.
 class GetAgentMemoryRequestTypeDef(BaseValidatorModel):
-    agentAliasId: str
-    agentId: str
-    memoryId: str
+    agentAliasId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentAliasId")]
+    agentId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentId")]
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "MemoryId")]
     memoryType: Literal["SESSION_SUMMARY"]
     maxItems: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 # This class is the input for the 'get_execution_flow_snapshot' function.
 class GetExecutionFlowSnapshotRequestTypeDef(BaseValidatorModel):
-    executionIdentifier: str
-    flowAliasIdentifier: str
-    flowIdentifier: str
+    executionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowExecutionIdentifier")]
+    flowAliasIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowAliasIdentifier")]
+    flowIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowIdentifier")]
 
 
 # This class is the input for the 'get_flow_execution' function.
 class GetFlowExecutionRequestTypeDef(BaseValidatorModel):
-    executionIdentifier: str
-    flowAliasIdentifier: str
-    flowIdentifier: str
+    executionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowExecutionIdentifier")]
+    flowAliasIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowAliasIdentifier")]
+    flowIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowIdentifier")]
 
 
 # This class is the input for the 'get_invocation_step' function.
 class GetInvocationStepRequestTypeDef(BaseValidatorModel):
-    invocationIdentifier: str
-    invocationStepId: str
-    sessionIdentifier: str
+    invocationIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "InvocationIdentifier")]
+    invocationStepId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
+    sessionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionIdentifier")]
 
 
 # This class is the input for the 'get_session' function.
 class GetSessionRequestTypeDef(BaseValidatorModel):
-    sessionIdentifier: str
+    sessionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionIdentifier")]
 
 
 class GuardrailContentFilterTypeDef(BaseValidatorModel):
@@ -434,12 +440,12 @@ class ImageInputSourceOutputTypeDef(BaseValidatorModel):
 
 
 class S3LocationTypeDef(BaseValidatorModel):
-    uri: str
+    uri: Annotated[str, _aws_pattern("BedrockAgentRuntime", "S3Uri")]
 
 
 class MetadataAttributeSchemaTypeDef(BaseValidatorModel):
-    description: str
-    key: str
+    description: Annotated[str, _aws_pattern("BedrockAgentRuntime", "MetadataAttributeSchemaDescriptionString")]
+    key: Annotated[str, _aws_pattern("BedrockAgentRuntime", "MetadataAttributeSchemaKeyString")]
     type: AttributeTypeType
 
 
@@ -476,16 +482,16 @@ class KnowledgeBaseLookupInputTypeDef(BaseValidatorModel):
 
 
 class InvocationStepSummaryTypeDef(BaseValidatorModel):
-    invocationId: str
-    invocationStepId: str
+    invocationId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
+    invocationStepId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
     invocationStepTime: datetime
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
 
 
 class InvocationSummaryTypeDef(BaseValidatorModel):
     createdAt: datetime
-    invocationId: str
-    sessionId: str
+    invocationId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
 
 
 class PromptCreationConfigurationsTypeDef(BaseValidatorModel):
@@ -501,59 +507,59 @@ class StreamingConfigurationsTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_flow_execution_events' function.
 class ListFlowExecutionEventsRequestTypeDef(BaseValidatorModel):
     eventType: FlowExecutionEventTypeType
-    executionIdentifier: str
-    flowAliasIdentifier: str
-    flowIdentifier: str
+    executionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowExecutionIdentifier")]
+    flowAliasIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowAliasIdentifier")]
+    flowIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowIdentifier")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 # This class is the input for the 'list_flow_executions' function.
 class ListFlowExecutionsRequestTypeDef(BaseValidatorModel):
-    flowIdentifier: str
-    flowAliasIdentifier: Optional[str] = None
+    flowIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowIdentifier")]
+    flowAliasIdentifier: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowAliasIdentifier")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 # This class is the input for the 'list_invocation_steps' function.
 class ListInvocationStepsRequestTypeDef(BaseValidatorModel):
-    sessionIdentifier: str
-    invocationIdentifier: Optional[str] = None
+    sessionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionIdentifier")]
+    invocationIdentifier: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "InvocationIdentifier")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 # This class is the input for the 'list_invocations' function.
 class ListInvocationsRequestTypeDef(BaseValidatorModel):
-    sessionIdentifier: str
+    sessionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionIdentifier")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 # This class is the input for the 'list_sessions' function.
 class ListSessionsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 class SessionSummaryTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastUpdatedAt: datetime
-    sessionArn: str
-    sessionId: str
+    sessionArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionArn")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
     sessionStatus: SessionStatusType
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "TaggableResourcesArn")]
 
 
 class MemorySessionSummaryTypeDef(BaseValidatorModel):
-    memoryId: Optional[str] = None
+    memoryId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "MemoryId")]] = None
     sessionExpiryTime: Optional[datetime] = None
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionId")]] = None
     sessionStartTime: Optional[datetime] = None
     summaryText: Optional[str] = None
 
@@ -564,7 +570,7 @@ class UsageTypeDef(BaseValidatorModel):
 
 
 class ModelNotReadyExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NonBlankString")]] = None
 
 
 class NodeExecutionContentTypeDef(BaseValidatorModel):
@@ -572,20 +578,20 @@ class NodeExecutionContentTypeDef(BaseValidatorModel):
 
 
 class NodeInputExecutionChainItemTypeDef(BaseValidatorModel):
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     type: FlowControlNodeTypeType
     index: Optional[int] = None
 
 
 class NodeInputSourceTypeDef(BaseValidatorModel):
     expression: str
-    nodeName: str
-    outputFieldName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
+    outputFieldName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowNodeOutputName")]
 
 
 class NodeOutputNextTypeDef(BaseValidatorModel):
-    inputFieldName: str
-    nodeName: str
+    inputFieldName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowNodeInputName")]
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
 
 
 class RepromptResponseTypeDef(BaseValidatorModel):
@@ -683,7 +689,7 @@ class RetrieveAndGenerateOutputTypeDef(BaseValidatorModel):
 
 
 class RetrieveAndGenerateSessionConfigurationTypeDef(BaseValidatorModel):
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "KmsKeyArn")]
 
 
 class SpanTypeDef(BaseValidatorModel):
@@ -693,33 +699,33 @@ class SpanTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'stop_flow_execution' function.
 class StopFlowExecutionRequestTypeDef(BaseValidatorModel):
-    executionIdentifier: str
-    flowAliasIdentifier: str
-    flowIdentifier: str
+    executionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowExecutionIdentifier")]
+    flowAliasIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowAliasIdentifier")]
+    flowIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowIdentifier")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "TaggableResourcesArn")]
     tags: Dict[str, str]
 
 
 class TextToSqlKnowledgeBaseConfigurationTypeDef(BaseValidatorModel):
-    knowledgeBaseArn: str
+    knowledgeBaseArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "KnowledgeBaseArn")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "TaggableResourcesArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("BedrockAgentRuntime", "TagKey")]]
 
 
 # This class is the input for the 'update_session' function.
 class UpdateSessionRequestTypeDef(BaseValidatorModel):
-    sessionIdentifier: str
+    sessionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionIdentifier")]
     sessionMetadata: Optional[Dict[str, str]] = None
 
 
 class VectorSearchBedrockRerankingModelConfigurationTypeDef(BaseValidatorModel):
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "BedrockRerankingModelArn")]
     additionalModelRequestFields: Optional[Dict[str, Dict[str, Any]]] = None
 
 
@@ -754,7 +760,7 @@ class BedrockRerankingConfigurationTypeDef(BaseValidatorModel):
 
 
 class ByteContentDocTypeDef(BaseValidatorModel):
-    contentType: str
+    contentType: Annotated[str, _aws_pattern("BedrockAgentRuntime", "ContentType")]
     data: BlobTypeDef
     identifier: str
 
@@ -774,7 +780,7 @@ class InputImageTypeDef(BaseValidatorModel):
 
 
 class ConditionResultEventTypeDef(BaseValidatorModel):
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     satisfiedConditions: List[SatisfiedConditionTypeDef]
     timestamp: datetime
 
@@ -787,46 +793,46 @@ class MessageTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_invocation' function.
 class CreateInvocationResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
-    invocationId: str
-    sessionId: str
+    invocationId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_session' function.
 class CreateSessionResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
-    sessionArn: str
-    sessionId: str
+    sessionArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionArn")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
     sessionStatus: SessionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'end_session' function.
 class EndSessionResponseTypeDef(BaseValidatorModel):
-    sessionArn: str
-    sessionId: str
+    sessionArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionArn")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
     sessionStatus: SessionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_execution_flow_snapshot' function.
 class GetExecutionFlowSnapshotResponseTypeDef(BaseValidatorModel):
-    customerEncryptionKeyArn: str
+    customerEncryptionKeyArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "KmsKeyArn")]
     definition: str
-    executionRoleArn: str
-    flowAliasIdentifier: str
-    flowIdentifier: str
-    flowVersion: str
+    executionRoleArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowExecutionRoleArn")]
+    flowAliasIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowAliasIdentifier")]
+    flowIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowIdentifier")]
+    flowVersion: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Version")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_session' function.
 class GetSessionResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
-    encryptionKeyArn: str
+    encryptionKeyArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "KmsKeyArn")]
     lastUpdatedAt: datetime
-    sessionArn: str
-    sessionId: str
+    sessionArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionArn")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
     sessionMetadata: Dict[str, str]
     sessionStatus: SessionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -840,19 +846,19 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_invocation_step' function.
 class PutInvocationStepResponseTypeDef(BaseValidatorModel):
-    invocationStepId: str
+    invocationStepId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_flow_execution' function.
 class StartFlowExecutionResponseTypeDef(BaseValidatorModel):
-    executionArn: str
+    executionArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowExecutionIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_flow_execution' function.
 class StopFlowExecutionResponseTypeDef(BaseValidatorModel):
-    executionArn: str
+    executionArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowExecutionIdentifier")]
     status: FlowExecutionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -861,8 +867,8 @@ class StopFlowExecutionResponseTypeDef(BaseValidatorModel):
 class UpdateSessionResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastUpdatedAt: datetime
-    sessionArn: str
-    sessionId: str
+    sessionArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionArn")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
     sessionStatus: SessionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -923,22 +929,22 @@ class RetrievalFilterTypeDef(BaseValidatorModel):
 
 class FlowInputFieldTypeDef(BaseValidatorModel):
     content: FlowExecutionContentTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeInputName")]
 
 
 class FlowOutputFieldTypeDef(BaseValidatorModel):
     content: FlowExecutionContentTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeOutputName")]
 
 
 # This class is the output for the 'get_flow_execution' function.
 class GetFlowExecutionResponseTypeDef(BaseValidatorModel):
     endedAt: datetime
     errors: List[FlowExecutionErrorTypeDef]
-    executionArn: str
-    flowAliasIdentifier: str
-    flowIdentifier: str
-    flowVersion: str
+    executionArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowExecutionIdentifier")]
+    flowAliasIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowAliasIdentifier")]
+    flowIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowIdentifier")]
+    flowVersion: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Version")]
     startedAt: datetime
     status: FlowExecutionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -948,37 +954,37 @@ class GetFlowExecutionResponseTypeDef(BaseValidatorModel):
 class ListFlowExecutionsResponseTypeDef(BaseValidatorModel):
     flowExecutionSummaries: List[FlowExecutionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 class FlowInputTypeDef(BaseValidatorModel):
     content: FlowInputContentTypeDef
-    nodeName: str
-    nodeInputName: Optional[str] = None
-    nodeOutputName: Optional[str] = None
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
+    nodeInputName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeInputName")]] = None
+    nodeOutputName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeOutputName")]] = None
 
 
 class FlowMultiTurnInputRequestEventTypeDef(BaseValidatorModel):
     content: FlowMultiTurnInputContentTypeDef
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     nodeType: NodeTypeType
 
 
 class FlowOutputEventTypeDef(BaseValidatorModel):
     content: FlowOutputContentTypeDef
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     nodeType: NodeTypeType
 
 
 class FlowTraceConditionNodeResultEventTypeDef(BaseValidatorModel):
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     satisfiedConditions: List[FlowTraceConditionTypeDef]
     timestamp: datetime
 
 
 class FlowTraceNodeInputFieldTypeDef(BaseValidatorModel):
     content: FlowTraceNodeInputContentTypeDef
-    nodeInputName: str
+    nodeInputName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeInputName")]
     category: Optional[FlowNodeInputCategoryType] = None
     executionChain: Optional[List[FlowTraceNodeInputExecutionChainItemTypeDef]] = None
     source: Optional[FlowTraceNodeInputSourceTypeDef] = None
@@ -987,13 +993,13 @@ class FlowTraceNodeInputFieldTypeDef(BaseValidatorModel):
 
 class FlowTraceNodeOutputFieldTypeDef(BaseValidatorModel):
     content: FlowTraceNodeOutputContentTypeDef
-    nodeOutputName: str
+    nodeOutputName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeOutputName")]
     next: Optional[List[FlowTraceNodeOutputNextTypeDef]] = None
     type: Optional[FlowNodeIODataTypeType] = None
 
 
 class FunctionDefinitionTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentRuntime", "ResourceName")]
     description: Optional[str] = None
     parameters: Optional[Dict[str, ParameterDetailTypeDef]] = None
     requireConfirmation: Optional[RequireConfirmationType] = None
@@ -1003,7 +1009,7 @@ class FunctionInvocationInputTypeDef(BaseValidatorModel):
     actionGroup: str
     actionInvocationType: Optional[ActionInvocationTypeType] = None
     agentId: Optional[str] = None
-    collaboratorName: Optional[str] = None
+    collaboratorName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "Name")]] = None
     function: Optional[str] = None
     parameters: Optional[List[FunctionParameterTypeDef]] = None
 
@@ -1086,7 +1092,7 @@ class ImageSourceTypeDef(BaseValidatorModel):
 
 class ImplicitFilterConfigurationTypeDef(BaseValidatorModel):
     metadataAttributes: List[MetadataAttributeSchemaTypeDef]
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "BedrockModelArn")]
 
 
 class InferenceConfigTypeDef(BaseValidatorModel):
@@ -1094,7 +1100,7 @@ class InferenceConfigTypeDef(BaseValidatorModel):
 
 
 class ModelInvocationInputTypeDef(BaseValidatorModel):
-    foundationModel: Optional[str] = None
+    foundationModel: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "ModelIdentifier")]] = None
     inferenceConfiguration: Optional[InferenceConfigurationOutputTypeDef] = None
     overrideLambda: Optional[str] = None
     parserMode: Optional[CreationModeType] = None
@@ -1119,21 +1125,21 @@ class OptimizedPromptTypeDef(BaseValidatorModel):
 class ListInvocationStepsResponseTypeDef(BaseValidatorModel):
     invocationStepSummaries: List[InvocationStepSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 # This class is the output for the 'list_invocations' function.
 class ListInvocationsResponseTypeDef(BaseValidatorModel):
     invocationSummaries: List[InvocationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 # This class is the output for the 'list_sessions' function.
 class ListSessionsResponseTypeDef(BaseValidatorModel):
     sessionSummaries: List[SessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 class MemoryTypeDef(BaseValidatorModel):
@@ -1151,7 +1157,7 @@ class MetadataTypeDef(BaseValidatorModel):
 
 class NodeInputFieldTypeDef(BaseValidatorModel):
     content: NodeExecutionContentTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeInputName")]
     category: Optional[FlowNodeInputCategoryType] = None
     executionChain: Optional[List[NodeInputExecutionChainItemTypeDef]] = None
     source: Optional[NodeInputSourceTypeDef] = None
@@ -1160,7 +1166,7 @@ class NodeInputFieldTypeDef(BaseValidatorModel):
 
 class NodeOutputFieldTypeDef(BaseValidatorModel):
     content: NodeExecutionContentTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeOutputName")]
     next: Optional[List[NodeOutputNextTypeDef]] = None
     type: Optional[FlowNodeIODataTypeType] = None
 
@@ -1270,44 +1276,44 @@ class MetadataConfigurationForRerankingTypeDef(BaseValidatorModel):
 
 class FlowExecutionInputEventTypeDef(BaseValidatorModel):
     fields: List[FlowInputFieldTypeDef]
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     timestamp: datetime
 
 
 class FlowExecutionOutputEventTypeDef(BaseValidatorModel):
     fields: List[FlowOutputFieldTypeDef]
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     timestamp: datetime
 
 
 # This class is the input for the 'invoke_flow' function.
 class InvokeFlowRequestTypeDef(BaseValidatorModel):
-    flowAliasIdentifier: str
-    flowIdentifier: str
+    flowAliasIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowAliasIdentifier")]
+    flowIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowIdentifier")]
     inputs: List[FlowInputTypeDef]
     enableTrace: Optional[bool] = None
-    executionId: Optional[str] = None
+    executionId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowExecutionId")]] = None
     modelPerformanceConfiguration: Optional[ModelPerformanceConfigurationTypeDef] = None
 
 
 # This class is the input for the 'start_flow_execution' function.
 class StartFlowExecutionRequestTypeDef(BaseValidatorModel):
-    flowAliasIdentifier: str
-    flowIdentifier: str
+    flowAliasIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowAliasIdentifier")]
+    flowIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowIdentifier")]
     inputs: List[FlowInputTypeDef]
-    flowExecutionName: Optional[str] = None
+    flowExecutionName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "FlowExecutionName")]] = None
     modelPerformanceConfiguration: Optional[ModelPerformanceConfigurationTypeDef] = None
 
 
 class FlowTraceNodeInputEventTypeDef(BaseValidatorModel):
     fields: List[FlowTraceNodeInputFieldTypeDef]
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     timestamp: datetime
 
 
 class FlowTraceNodeOutputEventTypeDef(BaseValidatorModel):
     fields: List[FlowTraceNodeOutputFieldTypeDef]
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     timestamp: datetime
 
 
@@ -1364,7 +1370,7 @@ class OrchestrationConfigurationTypeDef(BaseValidatorModel):
 class PromptConfigurationTypeDef(BaseValidatorModel):
     additionalModelRequestFields: Optional[Dict[str, Any]] = None
     basePromptTemplate: Optional[str] = None
-    foundationModel: Optional[str] = None
+    foundationModel: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "ModelIdentifier")]] = None
     inferenceConfiguration: Optional[InferenceConfigurationUnionTypeDef] = None
     parserMode: Optional[CreationModeType] = None
     promptCreationMode: Optional[CreationModeType] = None
@@ -1375,7 +1381,7 @@ class PromptConfigurationTypeDef(BaseValidatorModel):
 # This class is the input for the 'optimize_prompt' function.
 class OptimizePromptRequestTypeDef(BaseValidatorModel):
     input: InputPromptTypeDef
-    targetModelId: str
+    targetModelId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "OptimizePromptRequestTargetModelIdString")]
 
 
 class OptimizedPromptEventTypeDef(BaseValidatorModel):
@@ -1386,7 +1392,7 @@ class OptimizedPromptEventTypeDef(BaseValidatorModel):
 class GetAgentMemoryResponseTypeDef(BaseValidatorModel):
     memoryContents: List[MemoryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 class ActionGroupInvocationOutputTypeDef(BaseValidatorModel):
@@ -1422,13 +1428,13 @@ class RoutingClassifierModelInvocationOutputTypeDef(BaseValidatorModel):
 
 class NodeInputEventTypeDef(BaseValidatorModel):
     fields: List[NodeInputFieldTypeDef]
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     timestamp: datetime
 
 
 class NodeOutputEventTypeDef(BaseValidatorModel):
     fields: List[NodeOutputFieldTypeDef]
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     timestamp: datetime
 
 
@@ -1491,7 +1497,7 @@ class ApiInvocationInputTypeDef(BaseValidatorModel):
     actionInvocationType: Optional[ActionInvocationTypeType] = None
     agentId: Optional[str] = None
     apiPath: Optional[str] = None
-    collaboratorName: Optional[str] = None
+    collaboratorName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "Name")]] = None
     httpMethod: Optional[str] = None
     parameters: Optional[List[ApiParameterTypeDef]] = None
     requestBody: Optional[ApiRequestBodyTypeDef] = None
@@ -1515,7 +1521,7 @@ class VectorSearchBedrockRerankingConfigurationTypeDef(BaseValidatorModel):
 
 
 class AgentActionGroupTypeDef(BaseValidatorModel):
-    actionGroupName: str
+    actionGroupName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "ResourceName")]
     actionGroupExecutor: Optional[ActionGroupExecutorTypeDef] = None
     apiSchema: Optional[APISchemaTypeDef] = None
     description: Optional[str] = None
@@ -1563,14 +1569,14 @@ class BedrockSessionContentBlockTypeDef(BaseValidatorModel):
 
 
 class ExternalSourcesRetrieveAndGenerateConfigurationTypeDef(BaseValidatorModel):
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "BedrockModelArn")]
     sources: List[ExternalSourceTypeDef]
     generationConfiguration: Optional[ExternalSourcesGenerationConfigurationTypeDef] = None
 
 
 class PromptOverrideConfigurationTypeDef(BaseValidatorModel):
     promptConfigurations: List[PromptConfigurationTypeDef]
-    overrideLambda: Optional[str] = None
+    overrideLambda: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "LambdaResourceArn")]] = None
 
 
 class OptimizedPromptStreamTypeDef(BaseValidatorModel):
@@ -1598,7 +1604,7 @@ class PreProcessingTraceTypeDef(BaseValidatorModel):
 class RerankResponseTypeDef(BaseValidatorModel):
     results: List[RerankResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 class RerankSourceTypeDef(BaseValidatorModel):
@@ -1611,7 +1617,7 @@ class RetrieveResponseTypeDef(BaseValidatorModel):
     guardrailAction: GuadrailActionType
     retrievalResults: List[KnowledgeBaseRetrievalResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 class KnowledgeBaseLookupOutputTypeDef(BaseValidatorModel):
@@ -1673,7 +1679,7 @@ class RerankRequestTypeDef(BaseValidatorModel):
     queries: List[RerankQueryTypeDef]
     rerankingConfiguration: RerankingConfigurationTypeDef
     sources: List[RerankSourceTypeDef]
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 class AttributionTypeDef(BaseValidatorModel):
@@ -1691,7 +1697,7 @@ class RetrieveAndGenerateResponseTypeDef(BaseValidatorModel):
     citations: List[CitationTypeDef]
     guardrailAction: GuadrailActionType
     output: RetrieveAndGenerateOutputTypeDef
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1732,11 +1738,11 @@ class ReturnControlResultsTypeDef(BaseValidatorModel):
 
 
 class InvocationStepTypeDef(BaseValidatorModel):
-    invocationId: str
-    invocationStepId: str
+    invocationId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
+    invocationStepId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
     invocationStepTime: datetime
     payload: InvocationStepPayloadOutputTypeDef
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]
 
 
 InvocationStepPayloadUnionTypeDef = Union[InvocationStepPayloadOutputTypeDef, InvocationStepPayloadTypeDef]
@@ -1798,11 +1804,11 @@ class GetInvocationStepResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_invocation_step' function.
 class PutInvocationStepRequestTypeDef(BaseValidatorModel):
-    invocationIdentifier: str
+    invocationIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "InvocationIdentifier")]
     invocationStepTime: TimestampTypeDef
     payload: InvocationStepPayloadUnionTypeDef
-    sessionIdentifier: str
-    invocationStepId: Optional[str] = None
+    sessionIdentifier: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionIdentifier")]
+    invocationStepId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "Uuid")]] = None
 
 
 # This class is the output for the 'retrieve_and_generate_stream' function.
@@ -1811,7 +1817,7 @@ class RetrieveAndGenerateStreamResponseTypeDef(EventStream[RetrieveAndGenerateSt
 
 
 class AgentCollaboratorInvocationOutputTypeDef(BaseValidatorModel):
-    agentCollaboratorAliasArn: Optional[str] = None
+    agentCollaboratorAliasArn: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentAliasArn")]] = None
     agentCollaboratorName: Optional[str] = None
     metadata: Optional[MetadataTypeDef] = None
     output: Optional[AgentCollaboratorOutputPayloadTypeDef] = None
@@ -1846,13 +1852,13 @@ class RetrieveRequestPaginateTypeDef(BaseValidatorModel):
 
 
 class KnowledgeBaseConfigurationTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "KnowledgeBaseId")]
     retrievalConfiguration: KnowledgeBaseRetrievalConfigurationTypeDef
 
 
 class KnowledgeBaseRetrieveAndGenerateConfigurationTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    modelArn: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "KnowledgeBaseId")]
+    modelArn: Annotated[str, _aws_pattern("BedrockAgentRuntime", "BedrockModelArn")]
     generationConfiguration: Optional[GenerationConfigurationTypeDef] = None
     orchestrationConfiguration: Optional[OrchestrationConfigurationTypeDef] = None
     retrievalConfiguration: Optional[KnowledgeBaseRetrievalConfigurationTypeDef] = None
@@ -1860,21 +1866,21 @@ class KnowledgeBaseRetrieveAndGenerateConfigurationTypeDef(BaseValidatorModel):
 
 class KnowledgeBaseTypeDef(BaseValidatorModel):
     description: str
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "KnowledgeBaseId")]
     retrievalConfiguration: Optional[KnowledgeBaseRetrievalConfigurationTypeDef] = None
 
 
 # This class is the input for the 'retrieve' function.
 class RetrieveRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "KnowledgeBaseId")]
     retrievalQuery: KnowledgeBaseQueryTypeDef
     guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
     retrievalConfiguration: Optional[KnowledgeBaseRetrievalConfigurationTypeDef] = None
 
 
 class AgentCollaboratorInvocationInputTypeDef(BaseValidatorModel):
-    agentCollaboratorAliasArn: Optional[str] = None
+    agentCollaboratorAliasArn: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentAliasArn")]] = None
     agentCollaboratorName: Optional[str] = None
     input: Optional[AgentCollaboratorInputPayloadTypeDef] = None
 
@@ -1902,13 +1908,13 @@ class RetrieveAndGenerateConfigurationTypeDef(BaseValidatorModel):
 
 
 class CollaboratorTypeDef(BaseValidatorModel):
-    foundationModel: str
+    foundationModel: Annotated[str, _aws_pattern("BedrockAgentRuntime", "ModelIdentifier")]
     instruction: str
     actionGroups: Optional[List[AgentActionGroupTypeDef]] = None
     agentCollaboration: Optional[AgentCollaborationType] = None
-    agentName: Optional[str] = None
+    agentName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "Name")]] = None
     collaboratorConfigurations: Optional[List[CollaboratorConfigurationTypeDef]] = None
-    customerEncryptionKeyArn: Optional[str] = None
+    customerEncryptionKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "KmsKeyArn")]] = None
     guardrailConfiguration: Optional[GuardrailConfigurationWithArnTypeDef] = None
     idleSessionTTLInSeconds: Optional[int] = None
     knowledgeBases: Optional[List[KnowledgeBaseTypeDef]] = None
@@ -1934,7 +1940,7 @@ class RetrieveAndGenerateRequestTypeDef(BaseValidatorModel):
     input: RetrieveAndGenerateInputTypeDef
     retrieveAndGenerateConfiguration: Optional[RetrieveAndGenerateConfigurationTypeDef] = None
     sessionConfiguration: Optional[RetrieveAndGenerateSessionConfigurationTypeDef] = None
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionId")]] = None
 
 
 # This class is the input for the 'retrieve_and_generate_stream' function.
@@ -1942,7 +1948,7 @@ class RetrieveAndGenerateStreamRequestTypeDef(BaseValidatorModel):
     input: RetrieveAndGenerateInputTypeDef
     retrieveAndGenerateConfiguration: Optional[RetrieveAndGenerateConfigurationTypeDef] = None
     sessionConfiguration: Optional[RetrieveAndGenerateSessionConfigurationTypeDef] = None
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionId")]] = None
 
 
 class OrchestrationTraceTypeDef(BaseValidatorModel):
@@ -1994,36 +2000,36 @@ class SessionStateTypeDef(BaseValidatorModel):
 
 class InlineAgentTracePartTypeDef(BaseValidatorModel):
     callerChain: Optional[List[CallerTypeDef]] = None
-    collaboratorName: Optional[str] = None
+    collaboratorName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "Name")]] = None
     eventTime: Optional[datetime] = None
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionId")]] = None
     trace: Optional[TraceTypeDef] = None
 
 
 class TracePartTypeDef(BaseValidatorModel):
-    agentAliasId: Optional[str] = None
-    agentId: Optional[str] = None
-    agentVersion: Optional[str] = None
+    agentAliasId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentAliasId")]] = None
+    agentId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentId")]] = None
+    agentVersion: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentVersion")]] = None
     callerChain: Optional[List[CallerTypeDef]] = None
-    collaboratorName: Optional[str] = None
+    collaboratorName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "Name")]] = None
     eventTime: Optional[datetime] = None
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionId")]] = None
     trace: Optional[TraceTypeDef] = None
 
 
 # This class is the input for the 'invoke_inline_agent' function.
 class InvokeInlineAgentRequestTypeDef(BaseValidatorModel):
-    foundationModel: str
+    foundationModel: Annotated[str, _aws_pattern("BedrockAgentRuntime", "ModelIdentifier")]
     instruction: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionId")]
     actionGroups: Optional[List[AgentActionGroupTypeDef]] = None
     agentCollaboration: Optional[AgentCollaborationType] = None
-    agentName: Optional[str] = None
+    agentName: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "Name")]] = None
     bedrockModelConfigurations: Optional[InlineBedrockModelConfigurationsTypeDef] = None
     collaboratorConfigurations: Optional[List[CollaboratorConfigurationTypeDef]] = None
     collaborators: Optional[List[CollaboratorTypeDef]] = None
     customOrchestration: Optional[CustomOrchestrationTypeDef] = None
-    customerEncryptionKeyArn: Optional[str] = None
+    customerEncryptionKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "KmsKeyArn")]] = None
     enableTrace: Optional[bool] = None
     endSession: Optional[bool] = None
     guardrailConfiguration: Optional[GuardrailConfigurationWithArnTypeDef] = None
@@ -2039,17 +2045,17 @@ class InvokeInlineAgentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'invoke_agent' function.
 class InvokeAgentRequestTypeDef(BaseValidatorModel):
-    agentAliasId: str
-    agentId: str
-    sessionId: str
+    agentAliasId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentAliasId")]
+    agentId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "AgentId")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentRuntime", "SessionId")]
     bedrockModelConfigurations: Optional[BedrockModelConfigurationsTypeDef] = None
     enableTrace: Optional[bool] = None
     endSession: Optional[bool] = None
     inputText: Optional[str] = None
-    memoryId: Optional[str] = None
+    memoryId: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "MemoryId")]] = None
     promptCreationConfigurations: Optional[PromptCreationConfigurationsTypeDef] = None
     sessionState: Optional[SessionStateTypeDef] = None
-    sourceArn: Optional[str] = None
+    sourceArn: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "AWSResourceARN")]] = None
     streamingConfigurations: Optional[StreamingConfigurationsTypeDef] = None
 
 
@@ -2100,7 +2106,7 @@ class InvokeInlineAgentResponseTypeDef(EventStream[InlineAgentResponseStreamType
 
 
 class NodeDependencyEventTypeDef(BaseValidatorModel):
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     timestamp: datetime
     traceElements: NodeTraceElementsTypeDef
 
@@ -2111,7 +2117,7 @@ class InvokeAgentResponseTypeDef(EventStream[ResponseStreamTypeDef]):
 
 
 class FlowTraceDependencyEventTypeDef(BaseValidatorModel):
-    nodeName: str
+    nodeName: Annotated[str, _aws_pattern("BedrockAgentRuntime", "NodeName")]
     timestamp: datetime
     traceElements: TraceElementsTypeDef
 
@@ -2140,7 +2146,7 @@ class FlowTraceTypeDef(BaseValidatorModel):
 class ListFlowExecutionEventsResponseTypeDef(BaseValidatorModel):
     flowExecutionEvents: List[FlowExecutionEventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentRuntime", "NextToken")]] = None
 
 
 class FlowTraceEventTypeDef(BaseValidatorModel):

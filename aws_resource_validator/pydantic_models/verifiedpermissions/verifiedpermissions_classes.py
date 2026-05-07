@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.verifiedpermissions.verifiedpermissions_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,13 +41,13 @@ except ImportError:  # pragma: no cover
 
 
 class ActionIdentifierTypeDef(BaseValidatorModel):
-    actionType: str
-    actionId: str
+    actionType: Annotated[str, _aws_pattern("Verifiedpermissions", "ActionType")]
+    actionId: Annotated[str, _aws_pattern("Verifiedpermissions", "ActionId")]
 
 
 class EntityIdentifierTypeDef(BaseValidatorModel):
-    entityType: str
-    entityId: str
+    entityType: Annotated[str, _aws_pattern("Verifiedpermissions", "EntityType")]
+    entityId: Annotated[str, _aws_pattern("Verifiedpermissions", "EntityId")]
 
 
 class BatchGetPolicyErrorItemTypeDef(BaseValidatorModel):
@@ -56,8 +58,8 @@ class BatchGetPolicyErrorItemTypeDef(BaseValidatorModel):
 
 
 class BatchGetPolicyInputItemTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -69,7 +71,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeterminingPolicyItemTypeDef(BaseValidatorModel):
-    policyId: str
+    policyId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyId")]
 
 
 class EvaluationErrorItemTypeDef(BaseValidatorModel):
@@ -77,21 +79,21 @@ class EvaluationErrorItemTypeDef(BaseValidatorModel):
 
 
 class CognitoGroupConfigurationDetailTypeDef(BaseValidatorModel):
-    groupEntityType: Optional[str] = None
+    groupEntityType: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "GroupEntityType")]] = None
 
 
 class CognitoGroupConfigurationItemTypeDef(BaseValidatorModel):
-    groupEntityType: Optional[str] = None
+    groupEntityType: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "GroupEntityType")]] = None
 
 
 class CognitoGroupConfigurationTypeDef(BaseValidatorModel):
-    groupEntityType: str
+    groupEntityType: Annotated[str, _aws_pattern("Verifiedpermissions", "GroupEntityType")]
 
 
 # This class is the input for the 'create_policy_store_alias' function.
 class CreatePolicyStoreAliasInputTypeDef(BaseValidatorModel):
-    aliasName: str
-    policyStoreId: str
+    aliasName: Annotated[str, _aws_pattern("Verifiedpermissions", "Alias")]
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
 
 
 class ValidationSettingsTypeDef(BaseValidatorModel):
@@ -100,95 +102,95 @@ class ValidationSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_policy_template' function.
 class CreatePolicyTemplateInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     statement: str
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "IdempotencyToken")]] = None
     description: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateName")]] = None
 
 
 class DeleteIdentitySourceInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    identitySourceId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    identitySourceId: Annotated[str, _aws_pattern("Verifiedpermissions", "IdentitySourceId")]
 
 
 class DeletePolicyInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyId")]
 
 
 class DeletePolicyStoreAliasInputTypeDef(BaseValidatorModel):
-    aliasName: str
+    aliasName: Annotated[str, _aws_pattern("Verifiedpermissions", "Alias")]
 
 
 class DeletePolicyStoreInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
 
 
 class DeletePolicyTemplateInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyTemplateId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyTemplateId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateId")]
 
 
 class KmsEncryptionSettingsTypeDef(BaseValidatorModel):
-    key: str
+    key: Annotated[str, _aws_pattern("Verifiedpermissions", "KmsKey")]
     encryptionContext: Optional[Dict[str, str]] = None
 
 
 class KmsEncryptionStateTypeDef(BaseValidatorModel):
-    key: str
+    key: Annotated[str, _aws_pattern("Verifiedpermissions", "KmsKey")]
     encryptionContext: Dict[str, str]
 
 
 # This class is the input for the 'get_identity_source' function.
 class GetIdentitySourceInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    identitySourceId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    identitySourceId: Annotated[str, _aws_pattern("Verifiedpermissions", "IdentitySourceId")]
 
 
 class IdentitySourceDetailsTypeDef(BaseValidatorModel):
-    clientIds: Optional[List[str]] = None
-    userPoolArn: Optional[str] = None
-    discoveryUrl: Optional[str] = None
+    clientIds: Optional[List[Annotated[str, _aws_pattern("Verifiedpermissions", "ClientId")]]] = None
+    userPoolArn: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "UserPoolArn")]] = None
+    discoveryUrl: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "DiscoveryUrl")]] = None
     openIdIssuer: Optional[Literal["COGNITO"]] = None
 
 
 # This class is the input for the 'get_policy' function.
 class GetPolicyInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyId")]
 
 
 # This class is the input for the 'get_policy_store_alias' function.
 class GetPolicyStoreAliasInputTypeDef(BaseValidatorModel):
-    aliasName: str
+    aliasName: Annotated[str, _aws_pattern("Verifiedpermissions", "Alias")]
 
 
 # This class is the input for the 'get_policy_store' function.
 class GetPolicyStoreInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     tags: Optional[bool] = None
 
 
 # This class is the input for the 'get_policy_template' function.
 class GetPolicyTemplateInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyTemplateId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyTemplateId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateId")]
 
 
 # This class is the input for the 'get_schema' function.
 class GetSchemaInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
 
 
 class IdentitySourceFilterTypeDef(BaseValidatorModel):
-    principalEntityType: Optional[str] = None
+    principalEntityType: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PrincipalEntityType")]] = None
 
 
 class IdentitySourceItemDetailsTypeDef(BaseValidatorModel):
-    clientIds: Optional[List[str]] = None
-    userPoolArn: Optional[str] = None
-    discoveryUrl: Optional[str] = None
+    clientIds: Optional[List[Annotated[str, _aws_pattern("Verifiedpermissions", "ClientId")]]] = None
+    userPoolArn: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "UserPoolArn")]] = None
+    discoveryUrl: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "DiscoveryUrl")]] = None
     openIdIssuer: Optional[Literal["COGNITO"]] = None
 
 
@@ -199,26 +201,26 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 
 class PolicyStoreAliasFilterTypeDef(BaseValidatorModel):
-    policyStoreId: Optional[str] = None
+    policyStoreId: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]] = None
 
 
 class PolicyStoreAliasItemTypeDef(BaseValidatorModel):
-    aliasName: str
-    policyStoreId: str
-    aliasArn: str
+    aliasName: Annotated[str, _aws_pattern("Verifiedpermissions", "Alias")]
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    aliasArn: Annotated[str, _aws_pattern("Verifiedpermissions", "ResourceArn")]
     createdAt: datetime
     state: AliasStateType
 
 
 # This class is the input for the 'list_policy_stores' function.
 class ListPolicyStoresInputTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class PolicyStoreItemTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    arn: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    arn: Annotated[str, _aws_pattern("Verifiedpermissions", "ResourceArn")]
     createdDate: datetime
     lastUpdatedDate: Optional[datetime] = None
     description: Optional[str] = None
@@ -226,18 +228,18 @@ class PolicyStoreItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_policy_templates' function.
 class ListPolicyTemplatesInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    nextToken: Optional[str] = None
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class PolicyTemplateItemTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyTemplateId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyTemplateId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateId")]
     createdDate: datetime
     lastUpdatedDate: datetime
     description: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateName")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -262,32 +264,32 @@ class OpenIdConnectAccessTokenConfigurationTypeDef(BaseValidatorModel):
 
 class OpenIdConnectGroupConfigurationDetailTypeDef(BaseValidatorModel):
     groupClaim: str
-    groupEntityType: str
+    groupEntityType: Annotated[str, _aws_pattern("Verifiedpermissions", "GroupEntityType")]
 
 
 class OpenIdConnectGroupConfigurationItemTypeDef(BaseValidatorModel):
     groupClaim: str
-    groupEntityType: str
+    groupEntityType: Annotated[str, _aws_pattern("Verifiedpermissions", "GroupEntityType")]
 
 
 class OpenIdConnectGroupConfigurationTypeDef(BaseValidatorModel):
     groupClaim: str
-    groupEntityType: str
+    groupEntityType: Annotated[str, _aws_pattern("Verifiedpermissions", "GroupEntityType")]
 
 
 class OpenIdConnectIdentityTokenConfigurationDetailTypeDef(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
-    clientIds: Optional[List[str]] = None
+    clientIds: Optional[List[Annotated[str, _aws_pattern("Verifiedpermissions", "ClientId")]]] = None
 
 
 class OpenIdConnectIdentityTokenConfigurationItemTypeDef(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
-    clientIds: Optional[List[str]] = None
+    clientIds: Optional[List[Annotated[str, _aws_pattern("Verifiedpermissions", "ClientId")]]] = None
 
 
 class OpenIdConnectIdentityTokenConfigurationTypeDef(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
-    clientIds: Optional[List[str]] = None
+    clientIds: Optional[List[Annotated[str, _aws_pattern("Verifiedpermissions", "ClientId")]]] = None
 
 
 class StaticPolicyDefinitionDetailTypeDef(BaseValidatorModel):
@@ -319,7 +321,7 @@ class UntagResourceInputTypeDef(BaseValidatorModel):
 
 
 class UpdateCognitoGroupConfigurationTypeDef(BaseValidatorModel):
-    groupEntityType: str
+    groupEntityType: Annotated[str, _aws_pattern("Verifiedpermissions", "GroupEntityType")]
 
 
 class UpdateOpenIdConnectAccessTokenConfigurationTypeDef(BaseValidatorModel):
@@ -329,12 +331,12 @@ class UpdateOpenIdConnectAccessTokenConfigurationTypeDef(BaseValidatorModel):
 
 class UpdateOpenIdConnectGroupConfigurationTypeDef(BaseValidatorModel):
     groupClaim: str
-    groupEntityType: str
+    groupEntityType: Annotated[str, _aws_pattern("Verifiedpermissions", "GroupEntityType")]
 
 
 class UpdateOpenIdConnectIdentityTokenConfigurationTypeDef(BaseValidatorModel):
     principalIdClaim: Optional[str] = None
-    clientIds: Optional[List[str]] = None
+    clientIds: Optional[List[Annotated[str, _aws_pattern("Verifiedpermissions", "ClientId")]]] = None
 
 
 class UpdateStaticPolicyDefinitionTypeDef(BaseValidatorModel):
@@ -344,11 +346,11 @@ class UpdateStaticPolicyDefinitionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_policy_template' function.
 class UpdatePolicyTemplateInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyTemplateId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyTemplateId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateId")]
     statement: str
     description: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateName")]] = None
 
 
 class AttributeValueOutputTypeDef(BaseValidatorModel):
@@ -371,10 +373,10 @@ class AttributeValueTypeDef(BaseValidatorModel):
     string: Optional[str] = None
     set: Optional[List[Dict[str, Any]]] = None
     record: Optional[Dict[str, Dict[str, Any]]] = None
-    ipaddr: Optional[str] = None
-    decimal: Optional[str] = None
-    datetime: Optional[str] = None
-    duration: Optional[str] = None
+    ipaddr: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "IpAddr")]] = None
+    decimal: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "Decimal")]] = None
+    datetime: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "DatetimeAttribute")]] = None
+    duration: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "Duration")]] = None
 
 
 class CedarTagValueTypeDef(BaseValidatorModel):
@@ -384,10 +386,10 @@ class CedarTagValueTypeDef(BaseValidatorModel):
     string: Optional[str] = None
     set: Optional[List[Dict[str, Any]]] = None
     record: Optional[Dict[str, Dict[str, Any]]] = None
-    ipaddr: Optional[str] = None
-    decimal: Optional[str] = None
-    datetime: Optional[str] = None
-    duration: Optional[str] = None
+    ipaddr: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "IpAddr")]] = None
+    decimal: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "Decimal")]] = None
+    datetime: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "DatetimeAttribute")]] = None
+    duration: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "Duration")]] = None
 
 
 class EntityReferenceTypeDef(BaseValidatorModel):
@@ -396,19 +398,19 @@ class EntityReferenceTypeDef(BaseValidatorModel):
 
 
 class TemplateLinkedPolicyDefinitionDetailTypeDef(BaseValidatorModel):
-    policyTemplateId: str
+    policyTemplateId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateId")]
     principal: Optional[EntityIdentifierTypeDef] = None
     resource: Optional[EntityIdentifierTypeDef] = None
 
 
 class TemplateLinkedPolicyDefinitionItemTypeDef(BaseValidatorModel):
-    policyTemplateId: str
+    policyTemplateId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateId")]
     principal: Optional[EntityIdentifierTypeDef] = None
     resource: Optional[EntityIdentifierTypeDef] = None
 
 
 class TemplateLinkedPolicyDefinitionTypeDef(BaseValidatorModel):
-    policyTemplateId: str
+    policyTemplateId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateId")]
     principal: Optional[EntityIdentifierTypeDef] = None
     resource: Optional[EntityIdentifierTypeDef] = None
 
@@ -421,16 +423,16 @@ class BatchGetPolicyInputTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_identity_source' function.
 class CreateIdentitySourceOutputTypeDef(BaseValidatorModel):
     createdDate: datetime
-    identitySourceId: str
+    identitySourceId: Annotated[str, _aws_pattern("Verifiedpermissions", "IdentitySourceId")]
     lastUpdatedDate: datetime
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_policy' function.
 class CreatePolicyOutputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyId")]
     policyType: PolicyTypeType
     principal: EntityIdentifierTypeDef
     resource: EntityIdentifierTypeDef
@@ -443,17 +445,17 @@ class CreatePolicyOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_policy_store_alias' function.
 class CreatePolicyStoreAliasOutputTypeDef(BaseValidatorModel):
-    aliasName: str
-    policyStoreId: str
-    aliasArn: str
+    aliasName: Annotated[str, _aws_pattern("Verifiedpermissions", "Alias")]
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    aliasArn: Annotated[str, _aws_pattern("Verifiedpermissions", "ResourceArn")]
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_policy_store' function.
 class CreatePolicyStoreOutputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    arn: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    arn: Annotated[str, _aws_pattern("Verifiedpermissions", "ResourceArn")]
     createdDate: datetime
     lastUpdatedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -461,8 +463,8 @@ class CreatePolicyStoreOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_policy_template' function.
 class CreatePolicyTemplateOutputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyTemplateId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyTemplateId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateId")]
     createdDate: datetime
     lastUpdatedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -470,9 +472,9 @@ class CreatePolicyTemplateOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_policy_store_alias' function.
 class GetPolicyStoreAliasOutputTypeDef(BaseValidatorModel):
-    aliasName: str
-    policyStoreId: str
-    aliasArn: str
+    aliasName: Annotated[str, _aws_pattern("Verifiedpermissions", "Alias")]
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    aliasArn: Annotated[str, _aws_pattern("Verifiedpermissions", "ResourceArn")]
     createdAt: datetime
     state: AliasStateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -480,23 +482,23 @@ class GetPolicyStoreAliasOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_policy_template' function.
 class GetPolicyTemplateOutputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyTemplateId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyTemplateId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateId")]
     description: str
     statement: str
     createdDate: datetime
     lastUpdatedDate: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_schema' function.
 class GetSchemaOutputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     schema: str
     createdDate: datetime
     lastUpdatedDate: datetime
-    namespaces: List[str]
+    namespaces: List[Annotated[str, _aws_pattern("Verifiedpermissions", "Namespace")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -508,8 +510,8 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_schema' function.
 class PutSchemaOutputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    namespaces: List[str]
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    namespaces: List[Annotated[str, _aws_pattern("Verifiedpermissions", "Namespace")]]
     createdDate: datetime
     lastUpdatedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -518,16 +520,16 @@ class PutSchemaOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_identity_source' function.
 class UpdateIdentitySourceOutputTypeDef(BaseValidatorModel):
     createdDate: datetime
-    identitySourceId: str
+    identitySourceId: Annotated[str, _aws_pattern("Verifiedpermissions", "IdentitySourceId")]
     lastUpdatedDate: datetime
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_policy' function.
 class UpdatePolicyOutputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyId")]
     policyType: PolicyTypeType
     principal: EntityIdentifierTypeDef
     resource: EntityIdentifierTypeDef
@@ -540,8 +542,8 @@ class UpdatePolicyOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_policy_store' function.
 class UpdatePolicyStoreOutputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    arn: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    arn: Annotated[str, _aws_pattern("Verifiedpermissions", "ResourceArn")]
     createdDate: datetime
     lastUpdatedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -549,8 +551,8 @@ class UpdatePolicyStoreOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_policy_template' function.
 class UpdatePolicyTemplateOutputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyTemplateId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyTemplateId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateId")]
     createdDate: datetime
     lastUpdatedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -574,28 +576,28 @@ class IsAuthorizedWithTokenOutputTypeDef(BaseValidatorModel):
 
 
 class CognitoUserPoolConfigurationDetailTypeDef(BaseValidatorModel):
-    userPoolArn: str
-    clientIds: List[str]
-    issuer: str
+    userPoolArn: Annotated[str, _aws_pattern("Verifiedpermissions", "UserPoolArn")]
+    clientIds: List[Annotated[str, _aws_pattern("Verifiedpermissions", "ClientId")]]
+    issuer: Annotated[str, _aws_pattern("Verifiedpermissions", "Issuer")]
     groupConfiguration: Optional[CognitoGroupConfigurationDetailTypeDef] = None
 
 
 class CognitoUserPoolConfigurationItemTypeDef(BaseValidatorModel):
-    userPoolArn: str
-    clientIds: List[str]
-    issuer: str
+    userPoolArn: Annotated[str, _aws_pattern("Verifiedpermissions", "UserPoolArn")]
+    clientIds: List[Annotated[str, _aws_pattern("Verifiedpermissions", "ClientId")]]
+    issuer: Annotated[str, _aws_pattern("Verifiedpermissions", "Issuer")]
     groupConfiguration: Optional[CognitoGroupConfigurationItemTypeDef] = None
 
 
 class CognitoUserPoolConfigurationTypeDef(BaseValidatorModel):
-    userPoolArn: str
-    clientIds: Optional[List[str]] = None
+    userPoolArn: Annotated[str, _aws_pattern("Verifiedpermissions", "UserPoolArn")]
+    clientIds: Optional[List[Annotated[str, _aws_pattern("Verifiedpermissions", "ClientId")]]] = None
     groupConfiguration: Optional[CognitoGroupConfigurationTypeDef] = None
 
 
 # This class is the input for the 'update_policy_store' function.
 class UpdatePolicyStoreInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     validationSettings: ValidationSettingsTypeDef
     deletionProtection: Optional[DeletionProtectionType] = None
     description: Optional[str] = None
@@ -613,8 +615,8 @@ class EncryptionStateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_identity_sources' function.
 class ListIdentitySourcesInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    nextToken: Optional[str] = None
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "NextToken")]] = None
     maxResults: Optional[int] = None
     filters: Optional[List[IdentitySourceFilterTypeDef]] = None
 
@@ -641,7 +643,7 @@ class ListPolicyStoreAliasesInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_policy_store_aliases' function.
 class ListPolicyStoreAliasesInputTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "NextToken")]] = None
     maxResults: Optional[int] = None
     filter: Optional[PolicyStoreAliasFilterTypeDef] = None
 
@@ -650,21 +652,21 @@ class ListPolicyStoreAliasesInputTypeDef(BaseValidatorModel):
 class ListPolicyStoreAliasesOutputTypeDef(BaseValidatorModel):
     policyStoreAliases: List[PolicyStoreAliasItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "NextToken")]] = None
 
 
 # This class is the output for the 'list_policy_stores' function.
 class ListPolicyStoresOutputTypeDef(BaseValidatorModel):
     policyStores: List[PolicyStoreItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "NextToken")]] = None
 
 
 # This class is the output for the 'list_policy_templates' function.
 class ListPolicyTemplatesOutputTypeDef(BaseValidatorModel):
     policyTemplates: List[PolicyTemplateItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "NextToken")]] = None
 
 
 class OpenIdConnectTokenSelectionDetailTypeDef(BaseValidatorModel):
@@ -684,13 +686,13 @@ class OpenIdConnectTokenSelectionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_schema' function.
 class PutSchemaInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     definition: SchemaDefinitionTypeDef
 
 
 class UpdateCognitoUserPoolConfigurationTypeDef(BaseValidatorModel):
-    userPoolArn: str
-    clientIds: Optional[List[str]] = None
+    userPoolArn: Annotated[str, _aws_pattern("Verifiedpermissions", "UserPoolArn")]
+    clientIds: Optional[List[Annotated[str, _aws_pattern("Verifiedpermissions", "ClientId")]]] = None
     groupConfiguration: Optional[UpdateCognitoGroupConfigurationTypeDef] = None
 
 
@@ -715,7 +717,7 @@ class PolicyFilterTypeDef(BaseValidatorModel):
     principal: Optional[EntityReferenceTypeDef] = None
     resource: Optional[EntityReferenceTypeDef] = None
     policyType: Optional[PolicyTypeType] = None
-    policyTemplateId: Optional[str] = None
+    policyTemplateId: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyTemplateId")]] = None
 
 
 class PolicyDefinitionDetailTypeDef(BaseValidatorModel):
@@ -736,7 +738,7 @@ class PolicyDefinitionTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_policy_store' function.
 class CreatePolicyStoreInputTypeDef(BaseValidatorModel):
     validationSettings: ValidationSettingsTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "IdempotencyToken")]] = None
     description: Optional[str] = None
     deletionProtection: Optional[DeletionProtectionType] = None
     encryptionSettings: Optional[EncryptionSettingsTypeDef] = None
@@ -745,8 +747,8 @@ class CreatePolicyStoreInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_policy_store' function.
 class GetPolicyStoreOutputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    arn: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    arn: Annotated[str, _aws_pattern("Verifiedpermissions", "ResourceArn")]
     validationSettings: ValidationSettingsTypeDef
     createdDate: datetime
     lastUpdatedDate: datetime
@@ -759,28 +761,28 @@ class GetPolicyStoreOutputTypeDef(BaseValidatorModel):
 
 
 class OpenIdConnectConfigurationDetailTypeDef(BaseValidatorModel):
-    issuer: str
+    issuer: Annotated[str, _aws_pattern("Verifiedpermissions", "Issuer")]
     tokenSelection: OpenIdConnectTokenSelectionDetailTypeDef
     entityIdPrefix: Optional[str] = None
     groupConfiguration: Optional[OpenIdConnectGroupConfigurationDetailTypeDef] = None
 
 
 class OpenIdConnectConfigurationItemTypeDef(BaseValidatorModel):
-    issuer: str
+    issuer: Annotated[str, _aws_pattern("Verifiedpermissions", "Issuer")]
     tokenSelection: OpenIdConnectTokenSelectionItemTypeDef
     entityIdPrefix: Optional[str] = None
     groupConfiguration: Optional[OpenIdConnectGroupConfigurationItemTypeDef] = None
 
 
 class OpenIdConnectConfigurationTypeDef(BaseValidatorModel):
-    issuer: str
+    issuer: Annotated[str, _aws_pattern("Verifiedpermissions", "Issuer")]
     tokenSelection: OpenIdConnectTokenSelectionTypeDef
     entityIdPrefix: Optional[str] = None
     groupConfiguration: Optional[OpenIdConnectGroupConfigurationTypeDef] = None
 
 
 class UpdateOpenIdConnectConfigurationTypeDef(BaseValidatorModel):
-    issuer: str
+    issuer: Annotated[str, _aws_pattern("Verifiedpermissions", "Issuer")]
     tokenSelection: UpdateOpenIdConnectTokenSelectionTypeDef
     entityIdPrefix: Optional[str] = None
     groupConfiguration: Optional[UpdateOpenIdConnectGroupConfigurationTypeDef] = None
@@ -788,10 +790,10 @@ class UpdateOpenIdConnectConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_policy' function.
 class UpdatePolicyInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyId")]
     definition: Optional[UpdatePolicyDefinitionTypeDef] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyName")]] = None
 
 
 class BatchIsAuthorizedInputItemOutputTypeDef(BaseValidatorModel):
@@ -827,26 +829,26 @@ class ListPoliciesInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_policies' function.
 class ListPoliciesInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    nextToken: Optional[str] = None
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "NextToken")]] = None
     maxResults: Optional[int] = None
     filter: Optional[PolicyFilterTypeDef] = None
 
 
 class BatchGetPolicyOutputItemTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyId")]
     policyType: PolicyTypeType
     definition: PolicyDefinitionDetailTypeDef
     createdDate: datetime
     lastUpdatedDate: datetime
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyName")]] = None
 
 
 # This class is the output for the 'get_policy' function.
 class GetPolicyOutputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyId")]
     policyType: PolicyTypeType
     principal: EntityIdentifierTypeDef
     resource: EntityIdentifierTypeDef
@@ -855,13 +857,13 @@ class GetPolicyOutputTypeDef(BaseValidatorModel):
     createdDate: datetime
     lastUpdatedDate: datetime
     effect: PolicyEffectType
-    name: str
+    name: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class PolicyItemTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    policyId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    policyId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyId")]
     policyType: PolicyTypeType
     definition: PolicyDefinitionItemTypeDef
     createdDate: datetime
@@ -870,15 +872,15 @@ class PolicyItemTypeDef(BaseValidatorModel):
     resource: Optional[EntityIdentifierTypeDef] = None
     actions: Optional[List[ActionIdentifierTypeDef]] = None
     effect: Optional[PolicyEffectType] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyName")]] = None
 
 
 # This class is the input for the 'create_policy' function.
 class CreatePolicyInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     definition: PolicyDefinitionTypeDef
-    clientToken: Optional[str] = None
-    name: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "IdempotencyToken")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyName")]] = None
 
 
 class ConfigurationDetailTypeDef(BaseValidatorModel):
@@ -934,45 +936,45 @@ class BatchGetPolicyOutputTypeDef(BaseValidatorModel):
 class ListPoliciesOutputTypeDef(BaseValidatorModel):
     policies: List[PolicyItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "NextToken")]] = None
 
 
 # This class is the output for the 'get_identity_source' function.
 class GetIdentitySourceOutputTypeDef(BaseValidatorModel):
     createdDate: datetime
     details: IdentitySourceDetailsTypeDef
-    identitySourceId: str
+    identitySourceId: Annotated[str, _aws_pattern("Verifiedpermissions", "IdentitySourceId")]
     lastUpdatedDate: datetime
-    policyStoreId: str
-    principalEntityType: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    principalEntityType: Annotated[str, _aws_pattern("Verifiedpermissions", "PrincipalEntityType")]
     configuration: ConfigurationDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class IdentitySourceItemTypeDef(BaseValidatorModel):
     createdDate: datetime
-    identitySourceId: str
+    identitySourceId: Annotated[str, _aws_pattern("Verifiedpermissions", "IdentitySourceId")]
     lastUpdatedDate: datetime
-    policyStoreId: str
-    principalEntityType: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    principalEntityType: Annotated[str, _aws_pattern("Verifiedpermissions", "PrincipalEntityType")]
     details: Optional[IdentitySourceItemDetailsTypeDef] = None
     configuration: Optional[ConfigurationItemTypeDef] = None
 
 
 # This class is the input for the 'create_identity_source' function.
 class CreateIdentitySourceInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     configuration: ConfigurationTypeDef
-    clientToken: Optional[str] = None
-    principalEntityType: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "IdempotencyToken")]] = None
+    principalEntityType: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PrincipalEntityType")]] = None
 
 
 # This class is the input for the 'update_identity_source' function.
 class UpdateIdentitySourceInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    identitySourceId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    identitySourceId: Annotated[str, _aws_pattern("Verifiedpermissions", "IdentitySourceId")]
     updateConfiguration: UpdateConfigurationTypeDef
-    principalEntityType: Optional[str] = None
+    principalEntityType: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "PrincipalEntityType")]] = None
 
 
 # This class is the output for the 'batch_is_authorized' function.
@@ -1003,7 +1005,7 @@ class BatchIsAuthorizedWithTokenInputItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'is_authorized' function.
 class IsAuthorizedInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     principal: Optional[EntityIdentifierTypeDef] = None
     action: Optional[ActionIdentifierTypeDef] = None
     resource: Optional[EntityIdentifierTypeDef] = None
@@ -1013,9 +1015,9 @@ class IsAuthorizedInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'is_authorized_with_token' function.
 class IsAuthorizedWithTokenInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
-    identityToken: Optional[str] = None
-    accessToken: Optional[str] = None
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
+    identityToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "Token")]] = None
+    accessToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "Token")]] = None
     action: Optional[ActionIdentifierTypeDef] = None
     resource: Optional[EntityIdentifierTypeDef] = None
     context: Optional[ContextDefinitionUnionTypeDef] = None
@@ -1026,7 +1028,7 @@ class IsAuthorizedWithTokenInputTypeDef(BaseValidatorModel):
 class ListIdentitySourcesOutputTypeDef(BaseValidatorModel):
     identitySources: List[IdentitySourceItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "NextToken")]] = None
 
 
 BatchIsAuthorizedInputItemUnionTypeDef = Union[
@@ -1040,15 +1042,15 @@ BatchIsAuthorizedWithTokenInputItemUnionTypeDef = Union[
 
 # This class is the input for the 'batch_is_authorized' function.
 class BatchIsAuthorizedInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     requests: List[BatchIsAuthorizedInputItemUnionTypeDef]
     entities: Optional[EntitiesDefinitionTypeDef] = None
 
 
 # This class is the input for the 'batch_is_authorized_with_token' function.
 class BatchIsAuthorizedWithTokenInputTypeDef(BaseValidatorModel):
-    policyStoreId: str
+    policyStoreId: Annotated[str, _aws_pattern("Verifiedpermissions", "PolicyStoreId")]
     requests: List[BatchIsAuthorizedWithTokenInputItemUnionTypeDef]
-    identityToken: Optional[str] = None
-    accessToken: Optional[str] = None
+    identityToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "Token")]] = None
+    accessToken: Optional[Annotated[str, _aws_pattern("Verifiedpermissions", "Token")]] = None
     entities: Optional[EntitiesDefinitionTypeDef] = None

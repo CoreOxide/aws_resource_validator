@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cur.cur_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'delete_report_definition' function.
 class DeleteReportDefinitionRequestTypeDef(BaseValidatorModel):
-    ReportName: str
+    ReportName: Annotated[str, _aws_pattern("Cur", "ReportName")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -60,27 +62,27 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_report_definitions' function.
 class DescribeReportDefinitionsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cur", "GenericString")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ReportName: str
+    ReportName: Annotated[str, _aws_pattern("Cur", "ReportName")]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Cur", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Cur", "TagValue")]
 
 
 class ReportStatusTypeDef(BaseValidatorModel):
-    lastDelivery: Optional[str] = None
+    lastDelivery: Optional[Annotated[str, _aws_pattern("Cur", "LastDelivery")]] = None
     lastStatus: Optional[LastStatusType] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ReportName: str
-    TagKeys: List[str]
+    ReportName: Annotated[str, _aws_pattern("Cur", "ReportName")]
+    TagKeys: List[Annotated[str, _aws_pattern("Cur", "TagKey")]]
 
 
 # This class is the output for the 'delete_report_definition' function.
@@ -100,7 +102,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ReportName: str
+    ReportName: Annotated[str, _aws_pattern("Cur", "ReportName")]
     Tags: List[TagTypeDef]
 
 
@@ -121,18 +123,18 @@ class ReportDefinitionOutputTypeDef(BaseValidatorModel):
 
 
 class ReportDefinitionTypeDef(BaseValidatorModel):
-    ReportName: str
+    ReportName: Annotated[str, _aws_pattern("Cur", "ReportName")]
     TimeUnit: TimeUnitType
     Format: ReportFormatType
     Compression: CompressionFormatType
     AdditionalSchemaElements: List[SchemaElementType]
-    S3Bucket: str
-    S3Prefix: str
+    S3Bucket: Annotated[str, _aws_pattern("Cur", "S3Bucket")]
+    S3Prefix: Annotated[str, _aws_pattern("Cur", "S3Prefix")]
     S3Region: AWSRegionType
     AdditionalArtifacts: Optional[List[AdditionalArtifactType]] = None
     RefreshClosedReports: Optional[bool] = None
     ReportVersioning: Optional[ReportVersioningType] = None
-    BillingViewArn: Optional[str] = None
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Cur", "BillingViewArn")]] = None
     ReportStatus: Optional[ReportStatusTypeDef] = None
 
 
@@ -140,14 +142,14 @@ class ReportDefinitionTypeDef(BaseValidatorModel):
 class DescribeReportDefinitionsResponseTypeDef(BaseValidatorModel):
     ReportDefinitions: List[ReportDefinitionOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cur", "GenericString")]] = None
 
 
 ReportDefinitionUnionTypeDef = Union[ReportDefinitionOutputTypeDef, ReportDefinitionTypeDef]
 
 
 class ModifyReportDefinitionRequestTypeDef(BaseValidatorModel):
-    ReportName: str
+    ReportName: Annotated[str, _aws_pattern("Cur", "ReportName")]
     ReportDefinition: ReportDefinitionUnionTypeDef
 
 

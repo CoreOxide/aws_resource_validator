@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -49,7 +51,7 @@ class AttendeeFeaturesTypeDef(BaseValidatorModel):
 
 
 class AttendeeIdItemTypeDef(BaseValidatorModel):
-    AttendeeId: str
+    AttendeeId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
 
 
 class AudioFeaturesTypeDef(BaseValidatorModel):
@@ -75,25 +77,25 @@ class ContentFeaturesTypeDef(BaseValidatorModel):
 
 
 class NotificationsConfigurationTypeDef(BaseValidatorModel):
-    LambdaFunctionArn: Optional[str] = None
-    SnsTopicArn: Optional[str] = None
-    SqsQueueArn: Optional[str] = None
+    LambdaFunctionArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMeetings", "Arn")]] = None
+    SnsTopicArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMeetings", "Arn")]] = None
+    SqsQueueArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMeetings", "Arn")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("ChimeSdkMeetings", "TagKey")]
+    Value: Annotated[str, _aws_pattern("ChimeSdkMeetings", "TagValue")]
 
 
 # This class is the input for the 'delete_attendee' function.
 class DeleteAttendeeRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
-    AttendeeId: str
+    MeetingId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
+    AttendeeId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
 
 
 # This class is the input for the 'delete_meeting' function.
 class DeleteMeetingRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
+    MeetingId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
 
 
 class EngineTranscribeMedicalSettingsTypeDef(BaseValidatorModel):
@@ -115,36 +117,40 @@ class EngineTranscribeSettingsTypeDef(BaseValidatorModel):
     PartialResultsStability: Optional[TranscribePartialResultsStabilityType] = None
     ContentIdentificationType: Optional[Literal["PII"]] = None
     ContentRedactionType: Optional[Literal["PII"]] = None
-    PiiEntityTypes: Optional[str] = None
-    LanguageModelName: Optional[str] = None
+    PiiEntityTypes: Optional[Annotated[str, _aws_pattern("ChimeSdkMeetings", "TranscribePiiEntityTypes")]] = None
+    LanguageModelName: Optional[Annotated[str, _aws_pattern("ChimeSdkMeetings", "TranscribeLanguageModelName")]] = None
     IdentifyLanguage: Optional[bool] = None
-    LanguageOptions: Optional[str] = None
+    LanguageOptions: Optional[Annotated[str, _aws_pattern("ChimeSdkMeetings", "TranscribeLanguageOptions")]] = None
     PreferredLanguage: Optional[TranscribeLanguageCodeType] = None
-    VocabularyNames: Optional[str] = None
-    VocabularyFilterNames: Optional[str] = None
+    VocabularyNames: Optional[
+        Annotated[str, _aws_pattern("ChimeSdkMeetings", "TranscribeVocabularyNamesOrFilterNamesString")]
+    ] = None
+    VocabularyFilterNames: Optional[
+        Annotated[str, _aws_pattern("ChimeSdkMeetings", "TranscribeVocabularyNamesOrFilterNamesString")]
+    ] = None
 
 
 # This class is the input for the 'get_attendee' function.
 class GetAttendeeRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
-    AttendeeId: str
+    MeetingId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
+    AttendeeId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
 
 
 # This class is the input for the 'get_meeting' function.
 class GetMeetingRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
+    MeetingId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
 
 
 # This class is the input for the 'list_attendees' function.
 class ListAttendeesRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
+    MeetingId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkMeetings", "AmazonResourceName")]
 
 
 class MediaPlacementTypeDef(BaseValidatorModel):
@@ -164,17 +170,17 @@ class VideoFeaturesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'stop_meeting_transcription' function.
 class StopMeetingTranscriptionRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
+    MeetingId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    TagKeys: List[str]
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkMeetings", "AmazonResourceName")]
+    TagKeys: List[Annotated[str, _aws_pattern("ChimeSdkMeetings", "TagKey")]]
 
 
 class AttendeeTypeDef(BaseValidatorModel):
     ExternalUserId: Optional[str] = None
-    AttendeeId: Optional[str] = None
+    AttendeeId: Optional[Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]] = None
     JoinToken: Optional[str] = None
     Capabilities: Optional[AttendeeCapabilitiesTypeDef] = None
 
@@ -186,21 +192,21 @@ class CreateAttendeeRequestItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_attendee' function.
 class CreateAttendeeRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
+    MeetingId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
     ExternalUserId: str
     Capabilities: Optional[AttendeeCapabilitiesTypeDef] = None
 
 
 # This class is the input for the 'update_attendee_capabilities' function.
 class UpdateAttendeeCapabilitiesRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
-    AttendeeId: str
+    MeetingId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
+    AttendeeId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
     Capabilities: AttendeeCapabilitiesTypeDef
 
 
 # This class is the input for the 'batch_update_attendee_capabilities_except' function.
 class BatchUpdateAttendeeCapabilitiesExceptRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
+    MeetingId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
     ExcludedAttendeeIds: List[AttendeeIdItemTypeDef]
     Capabilities: AttendeeCapabilitiesTypeDef
 
@@ -217,7 +223,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkMeetings", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
@@ -267,33 +273,33 @@ class UpdateAttendeeCapabilitiesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_create_attendee' function.
 class BatchCreateAttendeeRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
+    MeetingId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
     Attendees: List[CreateAttendeeRequestItemTypeDef]
 
 
 # This class is the input for the 'start_meeting_transcription' function.
 class StartMeetingTranscriptionRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
+    MeetingId: Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]
     TranscriptionConfiguration: TranscriptionConfigurationTypeDef
 
 
 # This class is the input for the 'create_meeting' function.
 class CreateMeetingRequestTypeDef(BaseValidatorModel):
-    ClientRequestToken: str
+    ClientRequestToken: Annotated[str, _aws_pattern("ChimeSdkMeetings", "ClientRequestToken")]
     MediaRegion: str
     ExternalMeetingId: str
     MeetingHostId: Optional[str] = None
     NotificationsConfiguration: Optional[NotificationsConfigurationTypeDef] = None
     MeetingFeatures: Optional[MeetingFeaturesConfigurationTypeDef] = None
     PrimaryMeetingId: Optional[str] = None
-    TenantIds: Optional[List[str]] = None
+    TenantIds: Optional[List[Annotated[str, _aws_pattern("ChimeSdkMeetings", "TenantId")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
     MediaPlacementNetworkType: Optional[MediaPlacementNetworkTypeType] = None
 
 
 # This class is the input for the 'create_meeting_with_attendees' function.
 class CreateMeetingWithAttendeesRequestTypeDef(BaseValidatorModel):
-    ClientRequestToken: str
+    ClientRequestToken: Annotated[str, _aws_pattern("ChimeSdkMeetings", "ClientRequestToken")]
     MediaRegion: str
     ExternalMeetingId: str
     Attendees: List[CreateAttendeeRequestItemTypeDef]
@@ -301,21 +307,21 @@ class CreateMeetingWithAttendeesRequestTypeDef(BaseValidatorModel):
     MeetingFeatures: Optional[MeetingFeaturesConfigurationTypeDef] = None
     NotificationsConfiguration: Optional[NotificationsConfigurationTypeDef] = None
     PrimaryMeetingId: Optional[str] = None
-    TenantIds: Optional[List[str]] = None
+    TenantIds: Optional[List[Annotated[str, _aws_pattern("ChimeSdkMeetings", "TenantId")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
     MediaPlacementNetworkType: Optional[MediaPlacementNetworkTypeType] = None
 
 
 class MeetingTypeDef(BaseValidatorModel):
-    MeetingId: Optional[str] = None
+    MeetingId: Optional[Annotated[str, _aws_pattern("ChimeSdkMeetings", "GuidString")]] = None
     MeetingHostId: Optional[str] = None
     ExternalMeetingId: Optional[str] = None
     MediaRegion: Optional[str] = None
     MediaPlacement: Optional[MediaPlacementTypeDef] = None
     MeetingFeatures: Optional[MeetingFeaturesConfigurationTypeDef] = None
     PrimaryMeetingId: Optional[str] = None
-    TenantIds: Optional[List[str]] = None
-    MeetingArn: Optional[str] = None
+    TenantIds: Optional[List[Annotated[str, _aws_pattern("ChimeSdkMeetings", "TenantId")]]] = None
+    MeetingArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMeetings", "AmazonResourceName")]] = None
 
 
 # This class is the output for the 'create_meeting' function.

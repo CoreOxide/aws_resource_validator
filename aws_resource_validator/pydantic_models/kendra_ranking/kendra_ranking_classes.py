@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -57,12 +59,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_rescore_execution_plan' function.
 class DeleteRescoreExecutionPlanRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanId")]
 
 
 # This class is the input for the 'describe_rescore_execution_plan' function.
 class DescribeRescoreExecutionPlanRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanId")]
 
 
 class DocumentTypeDef(BaseValidatorModel):
@@ -70,20 +72,20 @@ class DocumentTypeDef(BaseValidatorModel):
     OriginalScore: float
     GroupId: Optional[str] = None
     Title: Optional[str] = None
-    Body: Optional[str] = None
+    Body: Optional[Annotated[str, _aws_pattern("KendraRanking", "DocumentBody")]] = None
     TokenizedTitle: Optional[List[str]] = None
     TokenizedBody: Optional[List[str]] = None
 
 
 # This class is the input for the 'list_rescore_execution_plans' function.
 class ListRescoreExecutionPlansRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("KendraRanking", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class RescoreExecutionPlanSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Id: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanId")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
     Status: Optional[RescoreExecutionPlanStatusType] = None
@@ -106,19 +108,19 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_rescore_execution_plan' function.
 class UpdateRescoreExecutionPlanRequestTypeDef(BaseValidatorModel):
-    Id: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanId")]
+    Name: Optional[Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("KendraRanking", "Description")]] = None
     CapacityUnits: Optional[CapacityUnitsConfigurationTypeDef] = None
 
 
 # This class is the input for the 'create_rescore_execution_plan' function.
 class CreateRescoreExecutionPlanRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanName")]
+    Description: Optional[Annotated[str, _aws_pattern("KendraRanking", "Description")]] = None
     CapacityUnits: Optional[CapacityUnitsConfigurationTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("KendraRanking", "ClientTokenName")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
@@ -128,22 +130,22 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_rescore_execution_plan' function.
 class CreateRescoreExecutionPlanResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
+    Id: Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanId")]
+    Arn: Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_rescore_execution_plan' function.
 class DescribeRescoreExecutionPlanResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
-    Name: str
-    Description: str
+    Id: Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanId")]
+    Arn: Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanArn")]
+    Name: Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanName")]
+    Description: Annotated[str, _aws_pattern("KendraRanking", "Description")]
     CapacityUnits: CapacityUnitsConfigurationTypeDef
     CreatedAt: datetime
     UpdatedAt: datetime
     Status: RescoreExecutionPlanStatusType
-    ErrorMessage: str
+    ErrorMessage: Annotated[str, _aws_pattern("KendraRanking", "ErrorMessage")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -160,7 +162,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'rescore' function.
 class RescoreRequestTypeDef(BaseValidatorModel):
-    RescoreExecutionPlanId: str
+    RescoreExecutionPlanId: Annotated[str, _aws_pattern("KendraRanking", "RescoreExecutionPlanId")]
     SearchQuery: str
     Documents: List[DocumentTypeDef]
 
@@ -169,11 +171,11 @@ class RescoreRequestTypeDef(BaseValidatorModel):
 class ListRescoreExecutionPlansResponseTypeDef(BaseValidatorModel):
     SummaryItems: List[RescoreExecutionPlanSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("KendraRanking", "NextToken")]] = None
 
 
 # This class is the output for the 'rescore' function.
 class RescoreResultTypeDef(BaseValidatorModel):
-    RescoreId: str
+    RescoreId: Annotated[str, _aws_pattern("KendraRanking", "RescoreId")]
     ResultItems: List[RescoreResultItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

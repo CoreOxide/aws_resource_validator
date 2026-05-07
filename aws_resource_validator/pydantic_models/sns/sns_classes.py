@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.sns.sns_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -115,7 +117,7 @@ class CreatePlatformEndpointInputTypeDef(BaseValidatorModel):
 
 
 class CreateSMSSandboxPhoneNumberInputTypeDef(BaseValidatorModel):
-    PhoneNumber: str
+    PhoneNumber: Annotated[str, _aws_pattern("Sns", "PhoneNumberString")]
     LanguageCode: Optional[LanguageCodeStringType] = None
 
 
@@ -135,7 +137,7 @@ class DeletePlatformApplicationInputTypeDef(BaseValidatorModel):
 
 
 class DeleteSMSSandboxPhoneNumberInputTypeDef(BaseValidatorModel):
-    PhoneNumber: str
+    PhoneNumber: Annotated[str, _aws_pattern("Sns", "PhoneNumberString")]
 
 
 # This class is the input for the 'delete_topic' function.
@@ -200,7 +202,7 @@ class PhoneNumberInformationTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     PhoneNumber: Optional[str] = None
     Status: Optional[str] = None
-    Iso2CountryCode: Optional[str] = None
+    Iso2CountryCode: Optional[Annotated[str, _aws_pattern("Sns", "Iso2CountryCode")]] = None
     RouteType: Optional[RouteTypeType] = None
     NumberCapabilities: Optional[List[NumberCapabilityType]] = None
 
@@ -227,7 +229,7 @@ class ListSMSSandboxPhoneNumbersInputTypeDef(BaseValidatorModel):
 
 
 class SMSSandboxPhoneNumberTypeDef(BaseValidatorModel):
-    PhoneNumber: Optional[str] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("Sns", "PhoneNumberString")]] = None
     Status: Optional[SMSSandboxPhoneNumberVerificationStatusType] = None
 
 
@@ -365,8 +367,8 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 
 class VerifySMSSandboxPhoneNumberInputTypeDef(BaseValidatorModel):
-    PhoneNumber: str
-    OneTimePassword: str
+    PhoneNumber: Annotated[str, _aws_pattern("Sns", "PhoneNumberString")]
+    OneTimePassword: Annotated[str, _aws_pattern("Sns", "OTPCode")]
 
 
 class MessageAttributeValueTypeDef(BaseValidatorModel):

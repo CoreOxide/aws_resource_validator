@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.geo_places.geo_places_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -60,8 +62,8 @@ class PhonemeTranscriptionTypeDef(BaseValidatorModel):
 
 
 class CountryTypeDef(BaseValidatorModel):
-    Code2: Optional[str] = None
-    Code3: Optional[str] = None
+    Code2: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode2")]] = None
+    Code3: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode3")]] = None
     Name: Optional[str] = None
 
 
@@ -79,7 +81,7 @@ class StreetComponentsTypeDef(BaseValidatorModel):
     BaseName: Optional[str] = None
     Type: Optional[str] = None
     TypePlacement: Optional[TypePlacementType] = None
-    TypeSeparator: Optional[str] = None
+    TypeSeparator: Optional[Annotated[str, _aws_pattern("GeoPlaces", "TypeSeparator")]] = None
     Prefix: Optional[str] = None
     Suffix: Optional[str] = None
     Direction: Optional[str] = None
@@ -122,7 +124,7 @@ class FoodTypeTypeDef(BaseValidatorModel):
 
 
 class GeocodeFilterTypeDef(BaseValidatorModel):
-    IncludeCountries: Optional[List[str]] = None
+    IncludeCountries: Optional[List[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]]] = None
     IncludePlaceTypes: Optional[List[GeocodeFilterPlaceTypeType]] = None
 
 
@@ -142,14 +144,16 @@ class ParsedQuerySecondaryAddressComponentTypeDef(BaseValidatorModel):
 
 
 class GeocodeQueryComponentsTypeDef(BaseValidatorModel):
-    Country: Optional[str] = None
-    Region: Optional[str] = None
-    SubRegion: Optional[str] = None
-    Locality: Optional[str] = None
-    District: Optional[str] = None
-    Street: Optional[str] = None
-    AddressNumber: Optional[str] = None
-    PostalCode: Optional[str] = None
+    Country: Optional[Annotated[str, _aws_pattern("GeoPlaces", "GeocodeQueryComponentsCountryString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("GeoPlaces", "GeocodeQueryComponentsRegionString")]] = None
+    SubRegion: Optional[Annotated[str, _aws_pattern("GeoPlaces", "GeocodeQueryComponentsSubRegionString")]] = None
+    Locality: Optional[Annotated[str, _aws_pattern("GeoPlaces", "GeocodeQueryComponentsLocalityString")]] = None
+    District: Optional[Annotated[str, _aws_pattern("GeoPlaces", "GeocodeQueryComponentsDistrictString")]] = None
+    Street: Optional[Annotated[str, _aws_pattern("GeoPlaces", "GeocodeQueryComponentsStreetString")]] = None
+    AddressNumber: Optional[Annotated[str, _aws_pattern("GeoPlaces", "GeocodeQueryComponentsAddressNumberString")]] = (
+        None
+    )
+    PostalCode: Optional[Annotated[str, _aws_pattern("GeoPlaces", "GeocodeQueryComponentsPostalCodeString")]] = None
 
 
 class TimeZoneTypeDef(BaseValidatorModel):
@@ -163,7 +167,7 @@ class GetPlaceRequestTypeDef(BaseValidatorModel):
     PlaceId: str
     AdditionalFeatures: Optional[List[GetPlaceAdditionalFeatureType]] = None
     Language: Optional[str] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]] = None
     IntendedUse: Optional[GetPlaceIntendedUseType] = None
     Key: Optional[str] = None
 
@@ -195,7 +199,7 @@ class ReverseGeocodeFilterTypeDef(BaseValidatorModel):
 
 class SearchNearbyFilterTypeDef(BaseValidatorModel):
     BoundingBox: Optional[List[float]] = None
-    IncludeCountries: Optional[List[str]] = None
+    IncludeCountries: Optional[List[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]]] = None
     IncludeCategories: Optional[List[str]] = None
     ExcludeCategories: Optional[List[str]] = None
     IncludeBusinessChains: Optional[List[str]] = None
@@ -289,20 +293,20 @@ class SuggestAddressHighlightsTypeDef(BaseValidatorModel):
 class AutocompleteFilterTypeDef(BaseValidatorModel):
     BoundingBox: Optional[List[float]] = None
     Circle: Optional[FilterCircleTypeDef] = None
-    IncludeCountries: Optional[List[str]] = None
+    IncludeCountries: Optional[List[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]]] = None
     IncludePlaceTypes: Optional[List[AutocompleteFilterPlaceTypeType]] = None
 
 
 class SearchTextFilterTypeDef(BaseValidatorModel):
     BoundingBox: Optional[List[float]] = None
     Circle: Optional[FilterCircleTypeDef] = None
-    IncludeCountries: Optional[List[str]] = None
+    IncludeCountries: Optional[List[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]]] = None
 
 
 class SuggestFilterTypeDef(BaseValidatorModel):
     BoundingBox: Optional[List[float]] = None
     Circle: Optional[FilterCircleTypeDef] = None
-    IncludeCountries: Optional[List[str]] = None
+    IncludeCountries: Optional[List[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]]] = None
 
 
 class GeocodeParsedQueryAddressComponentsTypeDef(BaseValidatorModel):
@@ -330,7 +334,7 @@ class GeocodeRequestTypeDef(BaseValidatorModel):
     Filter: Optional[GeocodeFilterTypeDef] = None
     AdditionalFeatures: Optional[List[GeocodeAdditionalFeatureType]] = None
     Language: Optional[str] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]] = None
     IntendedUse: Optional[GeocodeIntendedUseType] = None
     Key: Optional[str] = None
 
@@ -358,7 +362,7 @@ class ReverseGeocodeRequestTypeDef(BaseValidatorModel):
     Filter: Optional[ReverseGeocodeFilterTypeDef] = None
     AdditionalFeatures: Optional[List[ReverseGeocodeAdditionalFeatureType]] = None
     Language: Optional[str] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]] = None
     IntendedUse: Optional[ReverseGeocodeIntendedUseType] = None
     Key: Optional[str] = None
     Heading: Optional[float] = None
@@ -372,7 +376,7 @@ class SearchNearbyRequestTypeDef(BaseValidatorModel):
     Filter: Optional[SearchNearbyFilterTypeDef] = None
     AdditionalFeatures: Optional[List[SearchNearbyAdditionalFeatureType]] = None
     Language: Optional[str] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]] = None
     IntendedUse: Optional[SearchNearbyIntendedUseType] = None
     NextToken: Optional[str] = None
     Key: Optional[str] = None
@@ -446,7 +450,7 @@ class AutocompleteRequestTypeDef(BaseValidatorModel):
     PostalCodeMode: Optional[PostalCodeModeType] = None
     AdditionalFeatures: Optional[List[Literal["Core"]]] = None
     Language: Optional[str] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]] = None
     IntendedUse: Optional[Literal["SingleUse"]] = None
     Key: Optional[str] = None
 
@@ -460,7 +464,7 @@ class SearchTextRequestTypeDef(BaseValidatorModel):
     Filter: Optional[SearchTextFilterTypeDef] = None
     AdditionalFeatures: Optional[List[SearchTextAdditionalFeatureType]] = None
     Language: Optional[str] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]] = None
     IntendedUse: Optional[SearchTextIntendedUseType] = None
     NextToken: Optional[str] = None
     Key: Optional[str] = None
@@ -475,7 +479,7 @@ class SuggestRequestTypeDef(BaseValidatorModel):
     Filter: Optional[SuggestFilterTypeDef] = None
     AdditionalFeatures: Optional[List[SuggestAdditionalFeatureType]] = None
     Language: Optional[str] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode")]] = None
     IntendedUse: Optional[Literal["SingleUse"]] = None
     Key: Optional[str] = None
 
@@ -507,7 +511,7 @@ class SearchNearbyResultItemTypeDef(BaseValidatorModel):
     AccessPoints: Optional[List[AccessPointTypeDef]] = None
     AccessRestrictions: Optional[List[AccessRestrictionTypeDef]] = None
     TimeZone: Optional[TimeZoneTypeDef] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode3")]] = None
     Phonemes: Optional[PhonemeDetailsTypeDef] = None
 
 
@@ -528,7 +532,7 @@ class SearchTextResultItemTypeDef(BaseValidatorModel):
     AccessPoints: Optional[List[AccessPointTypeDef]] = None
     AccessRestrictions: Optional[List[AccessRestrictionTypeDef]] = None
     TimeZone: Optional[TimeZoneTypeDef] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode3")]] = None
     Phonemes: Optional[PhonemeDetailsTypeDef] = None
 
 
@@ -545,7 +549,7 @@ class SuggestPlaceResultTypeDef(BaseValidatorModel):
     AccessPoints: Optional[List[AccessPointTypeDef]] = None
     AccessRestrictions: Optional[List[AccessRestrictionTypeDef]] = None
     TimeZone: Optional[TimeZoneTypeDef] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode3")]] = None
     Phonemes: Optional[PhonemeDetailsTypeDef] = None
 
 
@@ -563,7 +567,7 @@ class ReverseGeocodeResultItemTypeDef(BaseValidatorModel):
     FoodTypes: Optional[List[FoodTypeTypeDef]] = None
     AccessPoints: Optional[List[AccessPointTypeDef]] = None
     TimeZone: Optional[TimeZoneTypeDef] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode3")]] = None
     Intersections: Optional[List[IntersectionTypeDef]] = None
 
 
@@ -586,7 +590,7 @@ class GetPlaceResponseTypeDef(BaseValidatorModel):
     AccessPoints: List[AccessPointTypeDef]
     AccessRestrictions: List[AccessRestrictionTypeDef]
     TimeZone: TimeZoneTypeDef
-    PoliticalView: str
+    PoliticalView: Annotated[str, _aws_pattern("GeoPlaces", "CountryCode3")]
     Phonemes: PhonemeDetailsTypeDef
     MainAddress: RelatedPlaceTypeDef
     SecondaryAddresses: List[RelatedPlaceTypeDef]
@@ -612,7 +616,7 @@ class GeocodeResultItemTypeDef(BaseValidatorModel):
     FoodTypes: Optional[List[FoodTypeTypeDef]] = None
     AccessPoints: Optional[List[AccessPointTypeDef]] = None
     TimeZone: Optional[TimeZoneTypeDef] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode3")]] = None
     MatchScores: Optional[MatchScoreDetailsTypeDef] = None
     ParsedQuery: Optional[GeocodeParsedQueryTypeDef] = None
     Intersections: Optional[List[IntersectionTypeDef]] = None
@@ -658,7 +662,7 @@ class AutocompleteResultItemTypeDef(BaseValidatorModel):
     Address: Optional[AddressTypeDef] = None
     Distance: Optional[int] = None
     Language: Optional[str] = None
-    PoliticalView: Optional[str] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("GeoPlaces", "CountryCode3")]] = None
     Highlights: Optional[AutocompleteHighlightsTypeDef] = None
 
 

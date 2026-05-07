@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.artifact.artifact_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -43,18 +45,18 @@ class AccountSettingsTypeDef(BaseValidatorModel):
 
 
 class CustomerAgreementSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
-    id: Optional[str] = None
-    agreementArn: Optional[str] = None
-    awsAccountId: Optional[str] = None
-    organizationArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Artifact", "CustomerAgreementIdAttribute")]] = None
+    agreementArn: Optional[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]] = None
+    organizationArn: Optional[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]] = None
     effectiveStart: Optional[datetime] = None
     effectiveEnd: Optional[datetime] = None
     state: Optional[CustomerAgreementStateType] = None
-    description: Optional[str] = None
-    acceptanceTerms: Optional[List[str]] = None
-    terminateTerms: Optional[List[str]] = None
+    description: Optional[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]] = None
+    acceptanceTerms: Optional[List[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]]] = None
+    terminateTerms: Optional[List[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]]] = None
     type: Optional[AgreementTypeType] = None
 
 
@@ -68,26 +70,26 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_report_metadata' function.
 class GetReportMetadataRequestTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Artifact", "ReportId")]
     reportVersion: Optional[int] = None
 
 
 class ReportDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Artifact", "ReportId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]] = None
     periodStart: Optional[datetime] = None
     periodEnd: Optional[datetime] = None
     createdAt: Optional[datetime] = None
     lastModifiedAt: Optional[datetime] = None
     deletedAt: Optional[datetime] = None
     state: Optional[PublishedStateType] = None
-    arn: Optional[str] = None
-    series: Optional[str] = None
-    category: Optional[str] = None
-    companyName: Optional[str] = None
-    productName: Optional[str] = None
-    termArn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]] = None
+    series: Optional[Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]] = None
+    category: Optional[Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]] = None
+    companyName: Optional[Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]] = None
+    productName: Optional[Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]] = None
+    termArn: Optional[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]] = None
     version: Optional[int] = None
     acceptanceType: Optional[AcceptanceTypeType] = None
     sequenceNumber: Optional[int] = None
@@ -97,14 +99,14 @@ class ReportDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_report' function.
 class GetReportRequestTypeDef(BaseValidatorModel):
-    reportId: str
-    termToken: str
+    reportId: Annotated[str, _aws_pattern("Artifact", "ReportId")]
+    termToken: Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]
     reportVersion: Optional[int] = None
 
 
 # This class is the input for the 'get_term_for_report' function.
 class GetTermForReportRequestTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Artifact", "ReportId")]
     reportVersion: Optional[int] = None
 
 
@@ -122,25 +124,25 @@ class ListCustomerAgreementsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_report_versions' function.
 class ListReportVersionsRequestTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Artifact", "ReportId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ReportSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Artifact", "ReportId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]] = None
     state: Optional[PublishedStateType] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]] = None
     version: Optional[int] = None
     uploadState: Optional[UploadStateType] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Artifact", "LongStringAttribute")]] = None
     periodStart: Optional[datetime] = None
     periodEnd: Optional[datetime] = None
-    series: Optional[str] = None
-    category: Optional[str] = None
-    companyName: Optional[str] = None
-    productName: Optional[str] = None
+    series: Optional[Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]] = None
+    category: Optional[Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]] = None
+    companyName: Optional[Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]] = None
+    productName: Optional[Annotated[str, _aws_pattern("Artifact", "ShortStringAttribute")]] = None
     statusMessage: Optional[str] = None
     acceptanceType: Optional[AcceptanceTypeType] = None
 

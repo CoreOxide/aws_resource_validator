@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.nova_act.nova_act_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,7 +47,7 @@ class ActErrorTypeDef(BaseValidatorModel):
 
 class TraceLocationTypeDef(BaseValidatorModel):
     locationType: Literal["S3"]
-    location: str
+    location: Annotated[str, _aws_pattern("NovaAct", "NonBlankString")]
 
 
 class CallResultContentTypeDef(BaseValidatorModel):
@@ -60,13 +62,13 @@ class CallTypeDef(BaseValidatorModel):
 
 class ClientInfoTypeDef(BaseValidatorModel):
     compatibilityVersion: int
-    sdkVersion: Optional[str] = None
+    sdkVersion: Optional[Annotated[str, _aws_pattern("NovaAct", "NonBlankString")]] = None
 
 
 class CompatibilityInformationTypeDef(BaseValidatorModel):
     clientCompatibilityVersion: int
     supportedModelIds: List[str]
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("NovaAct", "NonBlankString")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -79,36 +81,36 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_session' function.
 class CreateSessionRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
-    workflowRunId: str
-    clientToken: Optional[str] = None
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
+    clientToken: Optional[Annotated[str, _aws_pattern("NovaAct", "ClientToken")]] = None
 
 
 class WorkflowExportConfigTypeDef(BaseValidatorModel):
-    s3BucketName: str
-    s3KeyPrefix: Optional[str] = None
+    s3BucketName: Annotated[str, _aws_pattern("NovaAct", "S3BucketName")]
+    s3KeyPrefix: Optional[Annotated[str, _aws_pattern("NovaAct", "S3KeyPrefix")]] = None
 
 
 # This class is the input for the 'delete_workflow_definition' function.
 class DeleteWorkflowDefinitionRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
 
 
 # This class is the input for the 'delete_workflow_run' function.
 class DeleteWorkflowRunRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
-    workflowRunId: str
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
 
 
 # This class is the input for the 'get_workflow_definition' function.
 class GetWorkflowDefinitionRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
 
 
 # This class is the input for the 'get_workflow_run' function.
 class GetWorkflowRunRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
-    workflowRunId: str
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -119,11 +121,11 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_acts' function.
 class ListActsRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
-    workflowRunId: Optional[str] = None
-    sessionId: Optional[str] = None
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
+    workflowRunId: Optional[Annotated[str, _aws_pattern("NovaAct", "UuidString")]] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("NovaAct", "UuidString")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("NovaAct", "NextToken")]] = None
     sortOrder: Optional[SortOrderType] = None
 
 
@@ -140,36 +142,36 @@ class ModelAliasTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_sessions' function.
 class ListSessionsRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
-    workflowRunId: str
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("NovaAct", "NextToken")]] = None
     sortOrder: Optional[SortOrderType] = None
 
 
 class SessionSummaryTypeDef(BaseValidatorModel):
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
 
 
 # This class is the input for the 'list_workflow_definitions' function.
 class ListWorkflowDefinitionsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("NovaAct", "NextToken")]] = None
     sortOrder: Optional[SortOrderType] = None
 
 
 class WorkflowDefinitionSummaryTypeDef(BaseValidatorModel):
-    workflowDefinitionArn: str
-    workflowDefinitionName: str
+    workflowDefinitionArn: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionArn")]
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
     createdAt: datetime
     status: WorkflowDefinitionStatusType
 
 
 # This class is the input for the 'list_workflow_runs' function.
 class ListWorkflowRunsRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("NovaAct", "NextToken")]] = None
     sortOrder: Optional[SortOrderType] = None
 
 
@@ -182,24 +184,24 @@ class ToolInputSchemaTypeDef(BaseValidatorModel):
 
 
 class UpdateWorkflowRunRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
-    workflowRunId: str
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     status: WorkflowRunStatusType
 
 
 class UpdateActRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
-    workflowRunId: str
-    sessionId: str
-    actId: str
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
+    sessionId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
+    actId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     status: ActStatusType
     error: Optional[ActErrorTypeDef] = None
 
 
 class ActSummaryTypeDef(BaseValidatorModel):
-    workflowRunId: str
-    sessionId: str
-    actId: str
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
+    sessionId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
+    actId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     status: ActStatusType
     startedAt: datetime
     endedAt: Optional[datetime] = None
@@ -207,8 +209,8 @@ class ActSummaryTypeDef(BaseValidatorModel):
 
 
 class WorkflowRunSummaryTypeDef(BaseValidatorModel):
-    workflowRunArn: str
-    workflowRunId: str
+    workflowRunArn: Annotated[str, _aws_pattern("NovaAct", "WorkflowRunArn")]
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     status: WorkflowRunStatusType
     startedAt: datetime
     endedAt: Optional[datetime] = None
@@ -222,23 +224,23 @@ class CallResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_workflow_run' function.
 class CreateWorkflowRunRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
     modelId: str
     clientInfo: ClientInfoTypeDef
-    clientToken: Optional[str] = None
-    logGroupName: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("NovaAct", "ClientToken")]] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("NovaAct", "CloudWatchLogGroupName")]] = None
 
 
 # This class is the output for the 'create_act' function.
 class CreateActResponseTypeDef(BaseValidatorModel):
-    actId: str
+    actId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     status: ActStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_session' function.
 class CreateSessionResponseTypeDef(BaseValidatorModel):
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -250,7 +252,7 @@ class CreateWorkflowDefinitionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_workflow_run' function.
 class CreateWorkflowRunResponseTypeDef(BaseValidatorModel):
-    workflowRunId: str
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     status: WorkflowRunStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -269,35 +271,35 @@ class DeleteWorkflowRunResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_workflow_run' function.
 class GetWorkflowRunResponseTypeDef(BaseValidatorModel):
-    workflowRunArn: str
-    workflowRunId: str
+    workflowRunArn: Annotated[str, _aws_pattern("NovaAct", "WorkflowRunArn")]
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     status: WorkflowRunStatusType
     startedAt: datetime
     endedAt: datetime
     modelId: str
-    logGroupName: str
+    logGroupName: Annotated[str, _aws_pattern("NovaAct", "CloudWatchLogGroupName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'invoke_act_step' function.
 class InvokeActStepResponseTypeDef(BaseValidatorModel):
     calls: List[CallTypeDef]
-    stepId: str
+    stepId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_workflow_definition' function.
 class CreateWorkflowDefinitionRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
     description: Optional[str] = None
     exportConfig: Optional[WorkflowExportConfigTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("NovaAct", "ClientToken")]] = None
 
 
 # This class is the output for the 'get_workflow_definition' function.
 class GetWorkflowDefinitionResponseTypeDef(BaseValidatorModel):
-    name: str
-    arn: str
+    name: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
+    arn: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionArn")]
     createdAt: datetime
     description: str
     exportConfig: WorkflowExportConfigTypeDef
@@ -335,14 +337,14 @@ class ListWorkflowRunsRequestPaginateTypeDef(BaseValidatorModel):
 class ListSessionsResponseTypeDef(BaseValidatorModel):
     sessionSummaries: List[SessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("NovaAct", "NextToken")]] = None
 
 
 # This class is the output for the 'list_workflow_definitions' function.
 class ListWorkflowDefinitionsResponseTypeDef(BaseValidatorModel):
     workflowDefinitionSummaries: List[WorkflowDefinitionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("NovaAct", "NextToken")]] = None
 
 
 class ModelSummaryTypeDef(BaseValidatorModel):
@@ -352,7 +354,7 @@ class ModelSummaryTypeDef(BaseValidatorModel):
 
 
 class ToolSpecTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("NovaAct", "ToolName")]
     description: str
     inputSchema: ToolInputSchemaTypeDef
 
@@ -361,24 +363,24 @@ class ToolSpecTypeDef(BaseValidatorModel):
 class ListActsResponseTypeDef(BaseValidatorModel):
     actSummaries: List[ActSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("NovaAct", "NextToken")]] = None
 
 
 # This class is the output for the 'list_workflow_runs' function.
 class ListWorkflowRunsResponseTypeDef(BaseValidatorModel):
     workflowRunSummaries: List[WorkflowRunSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("NovaAct", "NextToken")]] = None
 
 
 # This class is the input for the 'invoke_act_step' function.
 class InvokeActStepRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
-    workflowRunId: str
-    sessionId: str
-    actId: str
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
+    sessionId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
+    actId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     callResults: List[CallResultTypeDef]
-    previousStepId: Optional[str] = None
+    previousStepId: Optional[Annotated[str, _aws_pattern("NovaAct", "UuidString")]] = None
 
 
 # This class is the output for the 'list_models' function.
@@ -391,9 +393,9 @@ class ListModelsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_act' function.
 class CreateActRequestTypeDef(BaseValidatorModel):
-    workflowDefinitionName: str
-    workflowRunId: str
-    sessionId: str
+    workflowDefinitionName: Annotated[str, _aws_pattern("NovaAct", "WorkflowDefinitionName")]
+    workflowRunId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
+    sessionId: Annotated[str, _aws_pattern("NovaAct", "UuidString")]
     task: str
     toolSpecs: Optional[List[ToolSpecTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("NovaAct", "ClientToken")]] = None

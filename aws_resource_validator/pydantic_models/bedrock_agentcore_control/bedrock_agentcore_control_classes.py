@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.bedrock_agentcore_control.bedrock_agentcore_control_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,27 +46,27 @@ class AgentCardDefinitionTypeDef(BaseValidatorModel):
 
 
 class ContainerConfigurationTypeDef(BaseValidatorModel):
-    containerUri: str
+    containerUri: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RuntimeContainerUri")]
 
 
 class AgentRuntimeEndpointTypeDef(BaseValidatorModel):
-    name: str
-    agentRuntimeEndpointArn: str
-    agentRuntimeArn: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EndpointName")]
+    agentRuntimeEndpointArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeEndpointArn")]
+    agentRuntimeArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeArn")]
     status: AgentRuntimeEndpointStatusType
-    id: str
+    id: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeEndpointId")]
     createdAt: datetime
     lastUpdatedAt: datetime
-    liveVersion: Optional[str] = None
-    targetVersion: Optional[str] = None
+    liveVersion: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]] = None
+    targetVersion: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]] = None
     description: Optional[str] = None
 
 
 class AgentRuntimeTypeDef(BaseValidatorModel):
-    agentRuntimeArn: str
-    agentRuntimeId: str
-    agentRuntimeVersion: str
-    agentRuntimeName: str
+    agentRuntimeArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeArn")]
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
+    agentRuntimeVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]
+    agentRuntimeName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeName")]
     description: str
     lastUpdatedAt: datetime
     status: AgentRuntimeStatusType
@@ -97,22 +99,22 @@ class ApiGatewayToolFilterTypeDef(BaseValidatorModel):
 
 
 class ApiKeyCredentialProviderItemTypeDef(BaseValidatorModel):
-    name: str
-    credentialProviderArn: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
+    credentialProviderArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ApiKeyCredentialProviderArnType")]
     createdTime: datetime
     lastUpdatedTime: datetime
 
 
 class ApiKeyCredentialProviderTypeDef(BaseValidatorModel):
-    providerArn: str
+    providerArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ApiKeyCredentialProviderArn")]
     credentialParameterName: Optional[str] = None
     credentialPrefix: Optional[str] = None
     credentialLocation: Optional[ApiKeyCredentialLocationType] = None
 
 
 class S3ConfigurationTypeDef(BaseValidatorModel):
-    uri: Optional[str] = None
-    bucketOwnerAccountId: Optional[str] = None
+    uri: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "S3BucketUri")]] = None
+    bucketOwnerAccountId: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AwsAccountId")]] = None
 
 
 class ApprovalConfigurationTypeDef(BaseValidatorModel):
@@ -154,21 +156,23 @@ class VpcConfigOutputTypeDef(BaseValidatorModel):
 
 
 class VpcConfigTypeDef(BaseValidatorModel):
-    securityGroups: List[str]
-    subnets: List[str]
+    securityGroups: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "SecurityGroupId")]]
+    subnets: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "SubnetId")]]
 
 
 class BrowserProfileSummaryTypeDef(BaseValidatorModel):
-    profileId: str
-    profileArn: str
-    name: str
+    profileId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileId")]
+    profileArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileArn")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileName")]
     status: BrowserProfileStatusType
     createdAt: datetime
     lastUpdatedAt: datetime
     description: Optional[str] = None
     lastSavedAt: Optional[datetime] = None
-    lastSavedBrowserSessionId: Optional[str] = None
-    lastSavedBrowserId: Optional[str] = None
+    lastSavedBrowserSessionId: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserSessionId")]] = (
+        None
+    )
+    lastSavedBrowserId: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserId")]] = None
 
 
 class BrowserSigningConfigInputTypeDef(BaseValidatorModel):
@@ -180,11 +184,11 @@ class BrowserSigningConfigOutputTypeDef(BaseValidatorModel):
 
 
 class BrowserSummaryTypeDef(BaseValidatorModel):
-    browserId: str
-    browserArn: str
+    browserId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserId")]
+    browserArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserArn")]
     status: BrowserStatusType
     createdAt: datetime
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "SandboxName")]] = None
     description: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
 
@@ -199,12 +203,14 @@ class CedarPolicyTypeDef(BaseValidatorModel):
 
 
 class SecretsManagerLocationTypeDef(BaseValidatorModel):
-    secretArn: str
+    secretArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ToolSecretArn")]
 
 
 class ClaimMatchValueTypeTypeDef(BaseValidatorModel):
-    matchValueString: Optional[str] = None
-    matchValueStringList: Optional[List[str]] = None
+    matchValueString: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MatchValueString")]] = None
+    matchValueStringList: Optional[
+        List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MatchValueString")]]
+    ] = None
 
 
 class CloudWatchLogsInputConfigOutputTypeDef(BaseValidatorModel):
@@ -213,33 +219,66 @@ class CloudWatchLogsInputConfigOutputTypeDef(BaseValidatorModel):
 
 
 class CloudWatchLogsInputConfigTypeDef(BaseValidatorModel):
-    logGroupNames: List[str]
-    serviceNames: List[str]
+    logGroupNames: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "LogGroupName")]]
+    serviceNames: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ServiceName")]]
 
 
 class CloudWatchOutputConfigTypeDef(BaseValidatorModel):
-    logGroupName: str
+    logGroupName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "LogGroupName")]
 
 
 class LambdaEvaluatorConfigTypeDef(BaseValidatorModel):
-    lambdaArn: str
+    lambdaArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "LambdaArn")]
     lambdaTimeoutInSeconds: Optional[int] = None
 
 
 class CodeInterpreterSummaryTypeDef(BaseValidatorModel):
-    codeInterpreterId: str
-    codeInterpreterArn: str
+    codeInterpreterId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CodeInterpreterId")]
+    codeInterpreterArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CodeInterpreterArn")]
     status: CodeInterpreterStatusType
     createdAt: datetime
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "SandboxName")]] = None
     description: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
 
 
 class S3LocationTypeDef(BaseValidatorModel):
-    bucket: str
+    bucket: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "S3LocationBucketString")]
     prefix: str
     versionId: Optional[str] = None
+
+
+class ComponentConfigurationOutputTypeDef(BaseValidatorModel):
+    configuration: Dict[str, Any]
+
+
+class ComponentConfigurationTypeDef(BaseValidatorModel):
+    configuration: Dict[str, Any]
+
+
+class MatchPathsOutputTypeDef(BaseValidatorModel):
+    anyOf: List[str]
+
+
+class StaticOverrideTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayConfigurationBundleArn")]
+    bundleVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "StaticOverrideBundleVersionString")]
+
+
+class ConfigurationBundleReferenceTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayConfigurationBundleArn")]
+    bundleVersion: Annotated[
+        str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleReferenceBundleVersionString")
+    ]
+
+
+class ConfigurationBundleSummaryTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleArn")]
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
+    bundleName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleName")]
+    description: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleDescription")]] = (
+        None
+    )
 
 
 class ContentConfigurationTypeDef(BaseValidatorModel):
@@ -253,11 +292,11 @@ class ContentTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_agent_runtime_endpoint' function.
 class CreateAgentRuntimeEndpointRequestTypeDef(BaseValidatorModel):
-    agentRuntimeId: str
-    name: str
-    agentRuntimeVersion: Optional[str] = None
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EndpointName")]
+    agentRuntimeVersion: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]] = None
     description: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -284,32 +323,43 @@ class WorkloadIdentityDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_api_key_credential_provider' function.
 class CreateApiKeyCredentialProviderRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
     apiKey: str
     tags: Optional[Dict[str, str]] = None
 
 
 class SecretTypeDef(BaseValidatorModel):
-    secretArn: str
+    secretArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "SecretArn")]
 
 
 # This class is the input for the 'create_browser_profile' function.
 class CreateBrowserProfileRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileName")]
     description: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
+class VersionCreatedBySourceTypeDef(BaseValidatorModel):
+    name: str
+    arn: Optional[str] = None
+
+
 class GatewayPolicyEngineConfigurationTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayPolicyEngineArn")]
     mode: GatewayPolicyEngineModeType
+
+
+class SystemManagedBlockTypeDef(BaseValidatorModel):
+    managedBy: str
 
 
 class ManagedResourceDetailsTypeDef(BaseValidatorModel):
     domain: Optional[str] = None
-    resourceGatewayArn: Optional[str] = None
-    resourceAssociationArn: Optional[str] = None
+    resourceGatewayArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceGatewayArn")]] = None
+    resourceAssociationArn: Optional[
+        Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceAssociationArn")]
+    ] = None
 
 
 class MetadataConfigurationOutputTypeDef(BaseValidatorModel):
@@ -326,29 +376,38 @@ class HarnessSystemContentBlockTypeDef(BaseValidatorModel):
     text: Optional[str] = None
 
 
+class IndexedKeyTypeDef(BaseValidatorModel):
+    key: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MetadataKey")]
+    type: MetadataValueTypeType
+
+
 class EvaluatorReferenceTypeDef(BaseValidatorModel):
-    evaluatorId: Optional[str] = None
+    evaluatorId: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorId")]] = None
 
 
 # This class is the input for the 'create_policy_engine' function.
 class CreatePolicyEngineRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyEngineName")]
     description: Optional[str] = None
-    clientToken: Optional[str] = None
-    encryptionKeyArn: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_workload_identity' function.
 class CreateWorkloadIdentityRequestTypeDef(BaseValidatorModel):
-    name: str
-    allowedResourceOauth2ReturnUrls: Optional[List[str]] = None
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "WorkloadIdentityNameType")]
+    allowedResourceOauth2ReturnUrls: Optional[
+        List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceOauth2ReturnUrlType")]]
+    ] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class IamCredentialProviderTypeDef(BaseValidatorModel):
-    service: str
-    region: Optional[str] = None
+    service: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "IamCredentialProviderServiceString")]
+    region: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "IamCredentialProviderRegionString")]] = (
+        None
+    )
 
 
 class OAuthCredentialProviderOutputTypeDef(BaseValidatorModel):
@@ -433,80 +492,77 @@ class UserPreferenceExtractionOverrideTypeDef(BaseValidatorModel):
     modelId: str
 
 
-class EpisodicOverrideReflectionConfigurationInputTypeDef(BaseValidatorModel):
-    appendToPrompt: str
-    modelId: str
-    namespaces: Optional[List[str]] = None
-    namespaceTemplates: Optional[List[str]] = None
-
-
-class EpisodicReflectionOverrideTypeDef(BaseValidatorModel):
-    appendToPrompt: str
-    modelId: str
-    namespaces: Optional[List[str]] = None
-    namespaceTemplates: Optional[List[str]] = None
-
-
 # This class is the input for the 'delete_agent_runtime_endpoint' function.
 class DeleteAgentRuntimeEndpointRequestTypeDef(BaseValidatorModel):
-    agentRuntimeId: str
-    endpointName: str
-    clientToken: Optional[str] = None
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
+    endpointName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EndpointName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_agent_runtime' function.
 class DeleteAgentRuntimeRequestTypeDef(BaseValidatorModel):
-    agentRuntimeId: str
-    clientToken: Optional[str] = None
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
 
 
 class DeleteApiKeyCredentialProviderRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
 
 
 # This class is the input for the 'delete_browser_profile' function.
 class DeleteBrowserProfileRequestTypeDef(BaseValidatorModel):
-    profileId: str
-    clientToken: Optional[str] = None
+    profileId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_browser' function.
 class DeleteBrowserRequestTypeDef(BaseValidatorModel):
-    browserId: str
-    clientToken: Optional[str] = None
+    browserId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_code_interpreter' function.
 class DeleteCodeInterpreterRequestTypeDef(BaseValidatorModel):
-    codeInterpreterId: str
-    clientToken: Optional[str] = None
+    codeInterpreterId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CodeInterpreterId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
+
+
+# This class is the input for the 'delete_configuration_bundle' function.
+class DeleteConfigurationBundleRequestTypeDef(BaseValidatorModel):
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
 
 
 # This class is the input for the 'delete_evaluator' function.
 class DeleteEvaluatorRequestTypeDef(BaseValidatorModel):
-    evaluatorId: str
+    evaluatorId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorId")]
 
 
 # This class is the input for the 'delete_gateway' function.
 class DeleteGatewayRequestTypeDef(BaseValidatorModel):
-    gatewayIdentifier: str
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+
+
+# This class is the input for the 'delete_gateway_rule' function.
+class DeleteGatewayRuleRequestTypeDef(BaseValidatorModel):
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+    ruleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayRuleId")]
 
 
 # This class is the input for the 'delete_gateway_target' function.
 class DeleteGatewayTargetRequestTypeDef(BaseValidatorModel):
-    gatewayIdentifier: str
-    targetId: str
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+    targetId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetId")]
 
 
 # This class is the input for the 'delete_harness' function.
 class DeleteHarnessRequestTypeDef(BaseValidatorModel):
-    harnessId: str
-    clientToken: Optional[str] = None
+    harnessId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_memory' function.
 class DeleteMemoryInputTypeDef(BaseValidatorModel):
-    memoryId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MemoryId")]
     clientToken: Optional[str] = None
 
 
@@ -515,33 +571,33 @@ class DeleteMemoryStrategyInputTypeDef(BaseValidatorModel):
 
 
 class DeleteOauth2CredentialProviderRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
 
 
 # This class is the input for the 'delete_online_evaluation_config' function.
 class DeleteOnlineEvaluationConfigRequestTypeDef(BaseValidatorModel):
-    onlineEvaluationConfigId: str
+    onlineEvaluationConfigId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigId")]
 
 
 # This class is the input for the 'delete_policy_engine' function.
 class DeletePolicyEngineRequestTypeDef(BaseValidatorModel):
-    policyEngineId: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
 
 
 # This class is the input for the 'delete_policy' function.
 class DeletePolicyRequestTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    policyId: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    policyId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
 
 
 class DeleteRegistryRecordRequestTypeDef(BaseValidatorModel):
-    registryId: str
-    recordId: str
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryIdentifier")]
+    recordId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RecordIdentifier")]
 
 
 # This class is the input for the 'delete_registry' function.
 class DeleteRegistryRequestTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryIdentifier")]
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
@@ -549,23 +605,18 @@ class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteWorkloadIdentityRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "WorkloadIdentityNameType")]
 
 
-class EpisodicReflectionConfigurationInputTypeDef(BaseValidatorModel):
-    namespaces: Optional[List[str]] = None
-    namespaceTemplates: Optional[List[str]] = None
-
-
-class EpisodicReflectionConfigurationTypeDef(BaseValidatorModel):
-    namespaces: Optional[List[str]] = None
-    namespaceTemplates: Optional[List[str]] = None
+class EfsAccessPointConfigurationTypeDef(BaseValidatorModel):
+    accessPointArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EfsAccessPointArn")]
+    mountPath: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MountPath")]
 
 
 class EvaluatorSummaryTypeDef(BaseValidatorModel):
-    evaluatorArn: str
-    evaluatorId: str
-    evaluatorName: str
+    evaluatorArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorArn")]
+    evaluatorId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorId")]
+    evaluatorName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorName")]
     evaluatorType: EvaluatorTypeType
     status: EvaluatorStatusType
     createdAt: datetime
@@ -573,10 +624,16 @@ class EvaluatorSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     level: Optional[EvaluatorLevelType] = None
     lockedForModification: Optional[bool] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]] = None
+
+
+class S3FilesAccessPointConfigurationTypeDef(BaseValidatorModel):
+    accessPointArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "S3FilesAccessPointArn")]
+    mountPath: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MountPath")]
 
 
 class SessionStorageConfigurationTypeDef(BaseValidatorModel):
-    mountPath: str
+    mountPath: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MountPath")]
 
 
 class FilterValueTypeDef(BaseValidatorModel):
@@ -594,39 +651,27 @@ class InterceptorInputConfigurationTypeDef(BaseValidatorModel):
     passRequestHeaders: bool
 
 
-class MCPGatewayConfigurationOutputTypeDef(BaseValidatorModel):
-    supportedVersions: Optional[List[str]] = None
-    instructions: Optional[str] = None
-    searchType: Optional[Literal["SEMANTIC"]] = None
-
-
-class MCPGatewayConfigurationTypeDef(BaseValidatorModel):
-    supportedVersions: Optional[List[str]] = None
-    instructions: Optional[str] = None
-    searchType: Optional[Literal["SEMANTIC"]] = None
-
-
 class GatewaySummaryTypeDef(BaseValidatorModel):
-    gatewayId: str
-    name: str
+    gatewayId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayName")]
     status: GatewayStatusType
     createdAt: datetime
     updatedAt: datetime
     authorizerType: AuthorizerTypeType
-    protocolType: Literal["MCP"]
     description: Optional[str] = None
+    protocolType: Optional[Literal["MCP"]] = None
 
 
 # This class is the input for the 'get_agent_runtime_endpoint' function.
 class GetAgentRuntimeEndpointRequestTypeDef(BaseValidatorModel):
-    agentRuntimeId: str
-    endpointName: str
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
+    endpointName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EndpointName")]
 
 
 # This class is the input for the 'get_agent_runtime' function.
 class GetAgentRuntimeRequestTypeDef(BaseValidatorModel):
-    agentRuntimeId: str
-    agentRuntimeVersion: Optional[str] = None
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
+    agentRuntimeVersion: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]] = None
 
 
 class RequestHeaderConfigurationOutputTypeDef(BaseValidatorModel):
@@ -639,48 +684,67 @@ class RuntimeMetadataConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_api_key_credential_provider' function.
 class GetApiKeyCredentialProviderRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
 
 
 # This class is the input for the 'get_browser_profile' function.
 class GetBrowserProfileRequestTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileId")]
 
 
 # This class is the input for the 'get_browser' function.
 class GetBrowserRequestTypeDef(BaseValidatorModel):
-    browserId: str
+    browserId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserId")]
 
 
 # This class is the input for the 'get_code_interpreter' function.
 class GetCodeInterpreterRequestTypeDef(BaseValidatorModel):
-    codeInterpreterId: str
+    codeInterpreterId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CodeInterpreterId")]
+
+
+# This class is the input for the 'get_configuration_bundle' function.
+class GetConfigurationBundleRequestTypeDef(BaseValidatorModel):
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
+    branchName: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BranchName")]] = None
+
+
+# This class is the input for the 'get_configuration_bundle_version' function.
+class GetConfigurationBundleVersionRequestTypeDef(BaseValidatorModel):
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
+    versionId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleVersion")]
 
 
 # This class is the input for the 'get_evaluator' function.
 class GetEvaluatorRequestTypeDef(BaseValidatorModel):
-    evaluatorId: str
+    evaluatorId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorId")]
+    includedData: Optional[IncludedDataType] = None
 
 
 # This class is the input for the 'get_gateway' function.
 class GetGatewayRequestTypeDef(BaseValidatorModel):
-    gatewayIdentifier: str
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+
+
+# This class is the input for the 'get_gateway_rule' function.
+class GetGatewayRuleRequestTypeDef(BaseValidatorModel):
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+    ruleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayRuleId")]
 
 
 # This class is the input for the 'get_gateway_target' function.
 class GetGatewayTargetRequestTypeDef(BaseValidatorModel):
-    gatewayIdentifier: str
-    targetId: str
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+    targetId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetId")]
 
 
 # This class is the input for the 'get_harness' function.
 class GetHarnessRequestTypeDef(BaseValidatorModel):
-    harnessId: str
+    harnessId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessId")]
 
 
 # This class is the input for the 'get_memory' function.
 class GetMemoryInputTypeDef(BaseValidatorModel):
-    memoryId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MemoryId")]
     view: Optional[MemoryViewType] = None
 
 
@@ -691,23 +755,23 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_oauth2_credential_provider' function.
 class GetOauth2CredentialProviderRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
 
 
 # This class is the input for the 'get_online_evaluation_config' function.
 class GetOnlineEvaluationConfigRequestTypeDef(BaseValidatorModel):
-    onlineEvaluationConfigId: str
+    onlineEvaluationConfigId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigId")]
 
 
 # This class is the input for the 'get_policy_engine' function.
 class GetPolicyEngineRequestTypeDef(BaseValidatorModel):
-    policyEngineId: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
 
 
 # This class is the input for the 'get_policy_generation' function.
 class GetPolicyGenerationRequestTypeDef(BaseValidatorModel):
-    policyGenerationId: str
-    policyEngineId: str
+    policyGenerationId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
 
 
 class ResourceTypeDef(BaseValidatorModel):
@@ -716,19 +780,19 @@ class ResourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_policy' function.
 class GetPolicyRequestTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    policyId: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    policyId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
 
 
 # This class is the input for the 'get_registry_record' function.
 class GetRegistryRecordRequestTypeDef(BaseValidatorModel):
-    registryId: str
-    recordId: str
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryIdentifier")]
+    recordId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RecordIdentifier")]
 
 
 # This class is the input for the 'get_registry' function.
 class GetRegistryRequestTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryIdentifier")]
 
 
 # This class is the input for the 'get_resource_policy' function.
@@ -738,17 +802,17 @@ class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_token_vault' function.
 class GetTokenVaultRequestTypeDef(BaseValidatorModel):
-    tokenVaultId: Optional[str] = None
+    tokenVaultId: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TokenVaultIdType")]] = None
 
 
 class KmsConfigurationTypeDef(BaseValidatorModel):
     keyType: KeyTypeType
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]] = None
 
 
 # This class is the input for the 'get_workload_identity' function.
 class GetWorkloadIdentityRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "WorkloadIdentityNameType")]
 
 
 class GithubOauth2ProviderConfigInputTypeDef(BaseValidatorModel):
@@ -762,11 +826,11 @@ class GoogleOauth2ProviderConfigInputTypeDef(BaseValidatorModel):
 
 
 class HarnessAgentCoreBrowserConfigTypeDef(BaseValidatorModel):
-    browserArn: Optional[str] = None
+    browserArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserArn")]] = None
 
 
 class HarnessAgentCoreCodeInterpreterConfigTypeDef(BaseValidatorModel):
-    codeInterpreterArn: Optional[str] = None
+    codeInterpreterArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CodeInterpreterArn")]] = None
 
 
 class HarnessAgentCoreMemoryRetrievalConfigTypeDef(BaseValidatorModel):
@@ -784,7 +848,7 @@ class HarnessBedrockModelConfigTypeDef(BaseValidatorModel):
 
 class HarnessGeminiModelConfigTypeDef(BaseValidatorModel):
     modelId: str
-    apiKeyArn: str
+    apiKeyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ApiKeyArn")]
     maxTokens: Optional[int] = None
     temperature: Optional[float] = None
     topP: Optional[float] = None
@@ -803,7 +867,7 @@ class HarnessInlineFunctionConfigTypeDef(BaseValidatorModel):
 
 class HarnessOpenAiModelConfigTypeDef(BaseValidatorModel):
     modelId: str
-    apiKeyArn: str
+    apiKeyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ApiKeyArn")]
     maxTokens: Optional[int] = None
     temperature: Optional[float] = None
     topP: Optional[float] = None
@@ -830,12 +894,22 @@ class HarnessSummarizationConfigurationTypeDef(BaseValidatorModel):
 
 
 class HarnessSummaryTypeDef(BaseValidatorModel):
-    harnessId: str
-    harnessName: str
-    arn: str
+    harnessId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessId")]
+    harnessName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessName")]
+    arn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessArn")]
     status: HarnessStatusType
     createdAt: datetime
     updatedAt: datetime
+
+
+class RuntimeTargetConfigurationTypeDef(BaseValidatorModel):
+    arn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RuntimeArn")]
+    qualifier: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RuntimeQualifier")]] = None
+
+
+class IamPrincipalTypeDef(BaseValidatorModel):
+    arn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "IamPrincipalArn")]
+    operator: Optional[PrincipalMatchOperatorType] = None
 
 
 class IncludedOauth2ProviderConfigInputTypeDef(BaseValidatorModel):
@@ -847,16 +921,18 @@ class IncludedOauth2ProviderConfigInputTypeDef(BaseValidatorModel):
 
 
 class LambdaInterceptorConfigurationTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "LambdaFunctionArn")]
 
 
 class InvocationConfigurationInputTypeDef(BaseValidatorModel):
-    topicArn: str
-    payloadDeliveryBucketName: str
+    topicArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Arn")]
+    payloadDeliveryBucketName: Annotated[
+        str, _aws_pattern("BedrockAgentcoreControl", "InvocationConfigurationInputPayloadDeliveryBucketNameString")
+    ]
 
 
 class InvocationConfigurationTypeDef(BaseValidatorModel):
-    topicArn: str
+    topicArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Arn")]
     payloadDeliveryBucketName: str
 
 
@@ -873,22 +949,22 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_agent_runtime_endpoints' function.
 class ListAgentRuntimeEndpointsRequestTypeDef(BaseValidatorModel):
-    agentRuntimeId: str
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the input for the 'list_agent_runtime_versions' function.
 class ListAgentRuntimeVersionsRequestTypeDef(BaseValidatorModel):
-    agentRuntimeId: str
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the input for the 'list_agent_runtimes' function.
 class ListAgentRuntimesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the input for the 'list_api_key_credential_providers' function.
@@ -900,22 +976,34 @@ class ListApiKeyCredentialProvidersRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_browser_profiles' function.
 class ListBrowserProfilesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    name: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
+    name: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileName")]] = None
 
 
 # This class is the input for the 'list_browsers' function.
 class ListBrowsersRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
     type: Optional[ResourceTypeType] = None
 
 
 # This class is the input for the 'list_code_interpreters' function.
 class ListCodeInterpretersRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
     type: Optional[ResourceTypeType] = None
+
+
+class VersionFilterTypeDef(BaseValidatorModel):
+    branchName: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BranchName")]] = None
+    createdByName: Optional[str] = None
+    latestPerBranch: Optional[bool] = None
+
+
+# This class is the input for the 'list_configuration_bundles' function.
+class ListConfigurationBundlesRequestTypeDef(BaseValidatorModel):
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_evaluators' function.
@@ -924,16 +1012,23 @@ class ListEvaluatorsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_gateway_rules' function.
+class ListGatewayRulesRequestTypeDef(BaseValidatorModel):
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+    maxResults: Optional[int] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayRuleNextToken")]] = None
+
+
 # This class is the input for the 'list_gateway_targets' function.
 class ListGatewayTargetsRequestTypeDef(BaseValidatorModel):
-    gatewayIdentifier: str
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetNextToken")]] = None
 
 
 class TargetSummaryTypeDef(BaseValidatorModel):
-    targetId: str
-    name: str
+    targetId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetName")]
     status: TargetStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -944,13 +1039,13 @@ class TargetSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_gateways' function.
 class ListGatewaysRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayNextToken")]] = None
 
 
 # This class is the input for the 'list_harnesses' function.
 class ListHarnessesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the input for the 'list_memories' function.
@@ -962,8 +1057,8 @@ class ListMemoriesInputTypeDef(BaseValidatorModel):
 class MemorySummaryTypeDef(BaseValidatorModel):
     createdAt: datetime
     updatedAt: datetime
-    arn: Optional[str] = None
-    id: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MemoryArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MemoryId")]] = None
     status: Optional[MemoryStatusType] = None
 
 
@@ -974,9 +1069,9 @@ class ListOauth2CredentialProvidersRequestTypeDef(BaseValidatorModel):
 
 
 class Oauth2CredentialProviderItemTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
     credentialProviderVendor: CredentialProviderVendorTypeType
-    credentialProviderArn: str
+    credentialProviderArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderArnType")]
     createdTime: datetime
     lastUpdatedTime: datetime
 
@@ -988,69 +1083,69 @@ class ListOnlineEvaluationConfigsRequestTypeDef(BaseValidatorModel):
 
 
 class OnlineEvaluationConfigSummaryTypeDef(BaseValidatorModel):
-    onlineEvaluationConfigArn: str
-    onlineEvaluationConfigId: str
-    onlineEvaluationConfigName: str
+    onlineEvaluationConfigArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigArn")]
+    onlineEvaluationConfigId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigId")]
+    onlineEvaluationConfigName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluationConfigName")]
     status: OnlineEvaluationConfigStatusType
     executionStatus: OnlineEvaluationExecutionStatusType
     createdAt: datetime
     updatedAt: datetime
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluationConfigDescription")]] = None
     failureReason: Optional[str] = None
 
 
 # This class is the input for the 'list_policies' function.
 class ListPoliciesRequestTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    nextToken: Optional[str] = None
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
     maxResults: Optional[int] = None
     targetResourceScope: Optional[str] = None
 
 
 # This class is the input for the 'list_policy_engines' function.
 class ListPolicyEnginesRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class PolicyEngineTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    name: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyEngineName")]
     createdAt: datetime
     updatedAt: datetime
-    policyEngineArn: str
+    policyEngineArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyEngineArn")]
     status: PolicyEngineStatusType
     statusReasons: List[str]
     description: Optional[str] = None
-    encryptionKeyArn: Optional[str] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]] = None
 
 
 # This class is the input for the 'list_policy_generation_assets' function.
 class ListPolicyGenerationAssetsRequestTypeDef(BaseValidatorModel):
-    policyGenerationId: str
-    policyEngineId: str
-    nextToken: Optional[str] = None
+    policyGenerationId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_policy_generations' function.
 class ListPolicyGenerationsRequestTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    nextToken: Optional[str] = None
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_registries' function.
 class ListRegistriesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
     status: Optional[RegistryStatusType] = None
 
 
 class RegistrySummaryTypeDef(BaseValidatorModel):
-    name: str
-    registryId: str
-    registryArn: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryName")]
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryId")]
+    registryArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryArn")]
     status: RegistryStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -1061,21 +1156,21 @@ class RegistrySummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_registry_records' function.
 class ListRegistryRecordsRequestTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryIdentifier")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    name: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
+    name: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordName")]] = None
     status: Optional[RegistryRecordStatusType] = None
     descriptorType: Optional[DescriptorTypeType] = None
 
 
 class RegistryRecordSummaryTypeDef(BaseValidatorModel):
-    registryArn: str
-    recordArn: str
-    recordId: str
-    name: str
+    registryArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryArn")]
+    recordArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordArn")]
+    recordId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordName")]
     descriptorType: DescriptorTypeType
-    recordVersion: str
+    recordVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordVersion")]
     status: RegistryRecordStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -1084,7 +1179,7 @@ class RegistryRecordSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TaggableResourcesArn")]
 
 
 # This class is the input for the 'list_workload_identities' function.
@@ -1094,8 +1189,16 @@ class ListWorkloadIdentitiesRequestTypeDef(BaseValidatorModel):
 
 
 class WorkloadIdentityTypeTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "WorkloadIdentityNameType")]
     workloadIdentityArn: str
+
+
+class SessionConfigurationTypeDef(BaseValidatorModel):
+    sessionTimeoutInSeconds: Optional[int] = None
+
+
+class StreamingConfigurationTypeDef(BaseValidatorModel):
+    enableResponseStreaming: Optional[bool] = None
 
 
 class ManagedVpcResourceOutputTypeDef(BaseValidatorModel):
@@ -1108,12 +1211,18 @@ class ManagedVpcResourceOutputTypeDef(BaseValidatorModel):
 
 
 class ManagedVpcResourceTypeDef(BaseValidatorModel):
-    vpcIdentifier: str
-    subnetIds: List[str]
+    vpcIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "VpcIdentifier")]
+    subnetIds: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "SubnetId")]]
     endpointIpAddressType: EndpointIpAddressTypeType
-    securityGroupIds: Optional[List[str]] = None
+    securityGroupIds: Optional[
+        List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "SecurityGroupIdentifier")]]
+    ] = None
     tags: Optional[Dict[str, str]] = None
     routingDomain: Optional[str] = None
+
+
+class MatchPathsTypeDef(BaseValidatorModel):
+    anyOf: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MatchPathPattern")]]
 
 
 class ServerDefinitionTypeDef(BaseValidatorModel):
@@ -1124,27 +1233,6 @@ class ServerDefinitionTypeDef(BaseValidatorModel):
 class ToolsDefinitionTypeDef(BaseValidatorModel):
     protocolVersion: Optional[str] = None
     inlineContent: Optional[str] = None
-
-
-class SemanticMemoryStrategyInputTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    namespaces: Optional[List[str]] = None
-    namespaceTemplates: Optional[List[str]] = None
-
-
-class SummaryMemoryStrategyInputTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    namespaces: Optional[List[str]] = None
-    namespaceTemplates: Optional[List[str]] = None
-
-
-class UserPreferenceMemoryStrategyInputTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    namespaces: Optional[List[str]] = None
-    namespaceTemplates: Optional[List[str]] = None
 
 
 class MessageBasedTriggerInputTypeDef(BaseValidatorModel):
@@ -1168,8 +1256,20 @@ class MicrosoftOauth2ProviderConfigInputTypeDef(BaseValidatorModel):
 
 
 class ModifyInvocationConfigurationInputTypeDef(BaseValidatorModel):
-    topicArn: Optional[str] = None
-    payloadDeliveryBucketName: Optional[str] = None
+    topicArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Arn")]] = None
+    payloadDeliveryBucketName: Optional[
+        Annotated[
+            str,
+            _aws_pattern(
+                "BedrockAgentcoreControl", "ModifyInvocationConfigurationInputPayloadDeliveryBucketNameString"
+            ),
+        ]
+    ] = None
+
+
+class NumberValidationTypeDef(BaseValidatorModel):
+    minValue: Optional[float] = None
+    maxValue: Optional[float] = None
 
 
 class NumericalScaleDefinitionTypeDef(BaseValidatorModel):
@@ -1179,11 +1279,11 @@ class NumericalScaleDefinitionTypeDef(BaseValidatorModel):
 
 
 class OAuthCredentialProviderTypeDef(BaseValidatorModel):
-    providerArn: str
+    providerArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OAuthCredentialProviderArn")]
     scopes: List[str]
     customParameters: Optional[Dict[str, str]] = None
     grantType: Optional[OAuthGrantTypeType] = None
-    defaultReturnUrl: Optional[str] = None
+    defaultReturnUrl: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OAuthDefaultReturnUrl")]] = None
 
 
 class Oauth2AuthorizationServerMetadataOutputTypeDef(BaseValidatorModel):
@@ -1199,7 +1299,9 @@ class Oauth2AuthorizationServerMetadataTypeDef(BaseValidatorModel):
     authorizationEndpoint: str
     tokenEndpoint: str
     responseTypes: Optional[List[str]] = None
-    tokenEndpointAuthMethods: Optional[List[str]] = None
+    tokenEndpointAuthMethods: Optional[
+        List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TokenAuthMethod")]]
+    ] = None
 
 
 class SalesforceOauth2ProviderConfigInputTypeDef(BaseValidatorModel):
@@ -1212,13 +1314,20 @@ class SlackOauth2ProviderConfigInputTypeDef(BaseValidatorModel):
     clientSecret: str
 
 
+class TokenExchangeGrantTypeConfigTypeOutputTypeDef(BaseValidatorModel):
+    actorTokenContent: ActorTokenContentTypeType
+    actorTokenScopes: Optional[List[str]] = None
+
+
 class PolicyGenerationDetailsTypeDef(BaseValidatorModel):
-    policyGenerationId: str
-    policyGenerationAssetId: str
+    policyGenerationId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    policyGenerationAssetId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
 
 
 class SelfManagedLatticeResourceTypeDef(BaseValidatorModel):
-    resourceConfigurationIdentifier: Optional[str] = None
+    resourceConfigurationIdentifier: Optional[
+        Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceConfigurationIdentifier")]
+    ] = None
 
 
 # This class is the input for the 'put_resource_policy' function.
@@ -1228,9 +1337,9 @@ class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 
 class RegistryRecordIamCredentialProviderTypeDef(BaseValidatorModel):
-    roleArn: Optional[str] = None
-    service: Optional[str] = None
-    region: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "IamRoleArn")]] = None
+    service: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "IamSigningServiceName")]] = None
+    region: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "IamSigningRegion")]] = None
 
 
 class RegistryRecordOAuthCredentialProviderOutputTypeDef(BaseValidatorModel):
@@ -1241,14 +1350,18 @@ class RegistryRecordOAuthCredentialProviderOutputTypeDef(BaseValidatorModel):
 
 
 class RegistryRecordOAuthCredentialProviderTypeDef(BaseValidatorModel):
-    providerArn: str
+    providerArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderArn")]
     grantType: Optional[Literal["CLIENT_CREDENTIALS"]] = None
     scopes: Optional[List[str]] = None
     customParameters: Optional[Dict[str, str]] = None
 
 
 class RequestHeaderConfigurationTypeDef(BaseValidatorModel):
-    requestHeaderAllowlist: Optional[List[str]] = None
+    requestHeaderAllowlist: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HeaderName")]]] = None
+
+
+class StaticRouteTypeDef(BaseValidatorModel):
+    targetName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetName")]
 
 
 class SamplingConfigTypeDef(BaseValidatorModel):
@@ -1275,21 +1388,57 @@ class SchemaDefinitionTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
+class StringListValidationOutputTypeDef(BaseValidatorModel):
+    allowedValues: Optional[List[str]] = None
+    maxItems: Optional[int] = None
+
+
+class StringListValidationTypeDef(BaseValidatorModel):
+    allowedValues: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AllowedStringListValue")]]] = (
+        None
+    )
+    maxItems: Optional[int] = None
+
+
+class StringValidationOutputTypeDef(BaseValidatorModel):
+    allowedValues: List[str]
+
+
+class StringValidationTypeDef(BaseValidatorModel):
+    allowedValues: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AllowedStringValue")]]
+
+
 # This class is the input for the 'submit_registry_record_for_approval' function.
 class SubmitRegistryRecordForApprovalRequestTypeDef(BaseValidatorModel):
-    registryId: str
-    recordId: str
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryIdentifier")]
+    recordId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RecordIdentifier")]
 
 
 # This class is the input for the 'synchronize_gateway_targets' function.
 class SynchronizeGatewayTargetsRequestTypeDef(BaseValidatorModel):
-    gatewayIdentifier: str
-    targetIdList: List[str]
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+    targetIdList: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetId")]]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TaggableResourcesArn")]
     tags: Dict[str, str]
+
+
+class TargetTrafficSplitEntryOutputTypeDef(BaseValidatorModel):
+    name: str
+    weight: int
+    targetName: str
+    description: Optional[str] = None
+    metadata: Optional[Dict[str, str]] = None
+
+
+class TargetTrafficSplitEntryTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetTrafficSplitEntryNameString")]
+    weight: int
+    targetName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetName")]
+    description: Optional[str] = None
+    metadata: Optional[Dict[str, str]] = None
 
 
 class TimeBasedTriggerInputTypeDef(BaseValidatorModel):
@@ -1308,23 +1457,28 @@ class TokenBasedTriggerTypeDef(BaseValidatorModel):
     tokenCount: Optional[int] = None
 
 
+class TokenExchangeGrantTypeConfigTypeTypeDef(BaseValidatorModel):
+    actorTokenContent: ActorTokenContentTypeType
+    actorTokenScopes: Optional[List[str]] = None
+
+
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TaggableResourcesArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TagKey")]]
 
 
 # This class is the input for the 'update_agent_runtime_endpoint' function.
 class UpdateAgentRuntimeEndpointRequestTypeDef(BaseValidatorModel):
-    agentRuntimeId: str
-    endpointName: str
-    agentRuntimeVersion: Optional[str] = None
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
+    endpointName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EndpointName")]
+    agentRuntimeVersion: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]] = None
     description: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_api_key_credential_provider' function.
 class UpdateApiKeyCredentialProviderRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
     apiKey: str
 
 
@@ -1338,16 +1492,18 @@ class UpdatedSynchronizationTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_registry_record_status' function.
 class UpdateRegistryRecordStatusRequestTypeDef(BaseValidatorModel):
-    registryId: str
-    recordId: str
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryIdentifier")]
+    recordId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RecordIdentifier")]
     status: RegistryRecordStatusType
     statusReason: str
 
 
 # This class is the input for the 'update_workload_identity' function.
 class UpdateWorkloadIdentityRequestTypeDef(BaseValidatorModel):
-    name: str
-    allowedResourceOauth2ReturnUrls: Optional[List[str]] = None
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "WorkloadIdentityNameType")]
+    allowedResourceOauth2ReturnUrls: Optional[
+        List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceOauth2ReturnUrlType")]]
+    ] = None
 
 
 class A2aDescriptorTypeDef(BaseValidatorModel):
@@ -1480,23 +1636,42 @@ class ResourceLocationTypeDef(BaseValidatorModel):
     s3: Optional[S3LocationTypeDef] = None
 
 
+ComponentConfigurationUnionTypeDef = Union[ComponentConfigurationOutputTypeDef, ComponentConfigurationTypeDef]
+
+
+class TrafficSplitEntryOutputTypeDef(BaseValidatorModel):
+    name: str
+    weight: int
+    configurationBundle: ConfigurationBundleReferenceTypeDef
+    description: Optional[str] = None
+    metadata: Optional[Dict[str, str]] = None
+
+
+class TrafficSplitEntryTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TrafficSplitEntryNameString")]
+    weight: int
+    configurationBundle: ConfigurationBundleReferenceTypeDef
+    description: Optional[str] = None
+    metadata: Optional[Dict[str, str]] = None
+
+
 class KinesisResourceOutputTypeDef(BaseValidatorModel):
     dataStreamArn: str
     contentConfigurations: List[ContentConfigurationTypeDef]
 
 
 class KinesisResourceTypeDef(BaseValidatorModel):
-    dataStreamArn: str
+    dataStreamArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Arn")]
     contentConfigurations: List[ContentConfigurationTypeDef]
 
 
 # This class is the output for the 'create_agent_runtime_endpoint' function.
 class CreateAgentRuntimeEndpointResponseTypeDef(BaseValidatorModel):
-    targetVersion: str
-    agentRuntimeEndpointArn: str
-    agentRuntimeArn: str
-    agentRuntimeId: str
-    endpointName: str
+    targetVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]
+    agentRuntimeEndpointArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeEndpointArn")]
+    agentRuntimeArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeArn")]
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
+    endpointName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EndpointName")]
     status: AgentRuntimeEndpointStatusType
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1504,8 +1679,8 @@ class CreateAgentRuntimeEndpointResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_browser_profile' function.
 class CreateBrowserProfileResponseTypeDef(BaseValidatorModel):
-    profileId: str
-    profileArn: str
+    profileId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileId")]
+    profileArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileArn")]
     createdAt: datetime
     status: BrowserProfileStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1513,8 +1688,8 @@ class CreateBrowserProfileResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_browser' function.
 class CreateBrowserResponseTypeDef(BaseValidatorModel):
-    browserId: str
-    browserArn: str
+    browserId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserId")]
+    browserArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserArn")]
     createdAt: datetime
     status: BrowserStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1522,17 +1697,26 @@ class CreateBrowserResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_code_interpreter' function.
 class CreateCodeInterpreterResponseTypeDef(BaseValidatorModel):
-    codeInterpreterId: str
-    codeInterpreterArn: str
+    codeInterpreterId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CodeInterpreterId")]
+    codeInterpreterArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CodeInterpreterArn")]
     createdAt: datetime
     status: CodeInterpreterStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
+# This class is the output for the 'create_configuration_bundle' function.
+class CreateConfigurationBundleResponseTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleArn")]
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
+    versionId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleVersion")]
+    createdAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 # This class is the output for the 'create_evaluator' function.
 class CreateEvaluatorResponseTypeDef(BaseValidatorModel):
-    evaluatorArn: str
-    evaluatorId: str
+    evaluatorArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CustomEvaluatorArn")]
+    evaluatorId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorId")]
     createdAt: datetime
     status: EvaluatorStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1540,58 +1724,60 @@ class CreateEvaluatorResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_policy_engine' function.
 class CreatePolicyEngineResponseTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    name: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyEngineName")]
     description: str
     createdAt: datetime
     updatedAt: datetime
-    policyEngineArn: str
+    policyEngineArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyEngineArn")]
     status: PolicyEngineStatusType
     statusReasons: List[str]
-    encryptionKeyArn: str
+    encryptionKeyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_registry_record' function.
 class CreateRegistryRecordResponseTypeDef(BaseValidatorModel):
-    recordArn: str
+    recordArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordArn")]
     status: RegistryRecordStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_registry' function.
 class CreateRegistryResponseTypeDef(BaseValidatorModel):
-    registryArn: str
+    registryArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_workload_identity' function.
 class CreateWorkloadIdentityResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "WorkloadIdentityNameType")]
     workloadIdentityArn: str
-    allowedResourceOauth2ReturnUrls: List[str]
+    allowedResourceOauth2ReturnUrls: List[
+        Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceOauth2ReturnUrlType")]
+    ]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_agent_runtime_endpoint' function.
 class DeleteAgentRuntimeEndpointResponseTypeDef(BaseValidatorModel):
     status: AgentRuntimeEndpointStatusType
-    agentRuntimeId: str
-    endpointName: str
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
+    endpointName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EndpointName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_agent_runtime' function.
 class DeleteAgentRuntimeResponseTypeDef(BaseValidatorModel):
     status: AgentRuntimeStatusType
-    agentRuntimeId: str
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_browser_profile' function.
 class DeleteBrowserProfileResponseTypeDef(BaseValidatorModel):
-    profileId: str
-    profileArn: str
+    profileId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileId")]
+    profileArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileArn")]
     status: BrowserProfileStatusType
     lastUpdatedAt: datetime
     lastSavedAt: datetime
@@ -1600,7 +1786,7 @@ class DeleteBrowserProfileResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_browser' function.
 class DeleteBrowserResponseTypeDef(BaseValidatorModel):
-    browserId: str
+    browserId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserId")]
     status: BrowserStatusType
     lastUpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1608,32 +1794,46 @@ class DeleteBrowserResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_code_interpreter' function.
 class DeleteCodeInterpreterResponseTypeDef(BaseValidatorModel):
-    codeInterpreterId: str
+    codeInterpreterId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CodeInterpreterId")]
     status: CodeInterpreterStatusType
     lastUpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
+# This class is the output for the 'delete_configuration_bundle' function.
+class DeleteConfigurationBundleResponseTypeDef(BaseValidatorModel):
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
+    status: ConfigurationBundleStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 # This class is the output for the 'delete_evaluator' function.
 class DeleteEvaluatorResponseTypeDef(BaseValidatorModel):
-    evaluatorArn: str
-    evaluatorId: str
+    evaluatorArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorArn")]
+    evaluatorId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorId")]
     status: EvaluatorStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_gateway' function.
 class DeleteGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayId")]
     status: GatewayStatusType
     statusReasons: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
+# This class is the output for the 'delete_gateway_rule' function.
+class DeleteGatewayRuleResponseTypeDef(BaseValidatorModel):
+    ruleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayRuleId")]
+    status: GatewayRuleStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 # This class is the output for the 'delete_gateway_target' function.
 class DeleteGatewayTargetResponseTypeDef(BaseValidatorModel):
-    gatewayArn: str
-    targetId: str
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    targetId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetId")]
     status: TargetStatusType
     statusReasons: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1641,30 +1841,30 @@ class DeleteGatewayTargetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_memory' function.
 class DeleteMemoryOutputTypeDef(BaseValidatorModel):
-    memoryId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MemoryId")]
     status: MemoryStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_online_evaluation_config' function.
 class DeleteOnlineEvaluationConfigResponseTypeDef(BaseValidatorModel):
-    onlineEvaluationConfigArn: str
-    onlineEvaluationConfigId: str
+    onlineEvaluationConfigArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigArn")]
+    onlineEvaluationConfigId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigId")]
     status: OnlineEvaluationConfigStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_policy_engine' function.
 class DeletePolicyEngineResponseTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    name: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyEngineName")]
     description: str
     createdAt: datetime
     updatedAt: datetime
-    policyEngineArn: str
+    policyEngineArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyEngineArn")]
     status: PolicyEngineStatusType
     statusReasons: List[str]
-    encryptionKeyArn: str
+    encryptionKeyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1676,46 +1876,46 @@ class DeleteRegistryResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_agent_runtime_endpoint' function.
 class GetAgentRuntimeEndpointResponseTypeDef(BaseValidatorModel):
-    liveVersion: str
-    targetVersion: str
-    agentRuntimeEndpointArn: str
-    agentRuntimeArn: str
+    liveVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]
+    targetVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]
+    agentRuntimeEndpointArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeEndpointArn")]
+    agentRuntimeArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeArn")]
     description: str
     status: AgentRuntimeEndpointStatusType
     createdAt: datetime
     lastUpdatedAt: datetime
     failureReason: str
-    name: str
-    id: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EndpointName")]
+    id: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeEndpointId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_browser_profile' function.
 class GetBrowserProfileResponseTypeDef(BaseValidatorModel):
-    profileId: str
-    profileArn: str
-    name: str
+    profileId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileId")]
+    profileArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileArn")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserProfileName")]
     description: str
     status: BrowserProfileStatusType
     createdAt: datetime
     lastUpdatedAt: datetime
     lastSavedAt: datetime
-    lastSavedBrowserSessionId: str
-    lastSavedBrowserId: str
+    lastSavedBrowserSessionId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserSessionId")]
+    lastSavedBrowserId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_policy_engine' function.
 class GetPolicyEngineResponseTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    name: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyEngineName")]
     description: str
     createdAt: datetime
     updatedAt: datetime
-    policyEngineArn: str
+    policyEngineArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyEngineArn")]
     status: PolicyEngineStatusType
     statusReasons: List[str]
-    encryptionKeyArn: str
+    encryptionKeyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1727,9 +1927,11 @@ class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_workload_identity' function.
 class GetWorkloadIdentityResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "WorkloadIdentityNameType")]
     workloadIdentityArn: str
-    allowedResourceOauth2ReturnUrls: List[str]
+    allowedResourceOauth2ReturnUrls: List[
+        Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceOauth2ReturnUrlType")]
+    ]
     createdTime: datetime
     lastUpdatedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1739,21 +1941,21 @@ class GetWorkloadIdentityResponseTypeDef(BaseValidatorModel):
 class ListAgentRuntimeEndpointsResponseTypeDef(BaseValidatorModel):
     runtimeEndpoints: List[AgentRuntimeEndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the output for the 'list_agent_runtime_versions' function.
 class ListAgentRuntimeVersionsResponseTypeDef(BaseValidatorModel):
     agentRuntimes: List[AgentRuntimeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the output for the 'list_agent_runtimes' function.
 class ListAgentRuntimesResponseTypeDef(BaseValidatorModel):
     agentRuntimes: List[AgentRuntimeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the output for the 'list_api_key_credential_providers' function.
@@ -1767,19 +1969,26 @@ class ListApiKeyCredentialProvidersResponseTypeDef(BaseValidatorModel):
 class ListBrowserProfilesResponseTypeDef(BaseValidatorModel):
     profileSummaries: List[BrowserProfileSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the output for the 'list_browsers' function.
 class ListBrowsersResponseTypeDef(BaseValidatorModel):
     browserSummaries: List[BrowserSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the output for the 'list_code_interpreters' function.
 class ListCodeInterpretersResponseTypeDef(BaseValidatorModel):
     codeInterpreterSummaries: List[CodeInterpreterSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
+
+
+# This class is the output for the 'list_configuration_bundles' function.
+class ListConfigurationBundlesResponseTypeDef(BaseValidatorModel):
+    bundles: List[ConfigurationBundleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -1798,9 +2007,9 @@ class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'submit_registry_record_for_approval' function.
 class SubmitRegistryRecordForApprovalResponseTypeDef(BaseValidatorModel):
-    registryArn: str
-    recordArn: str
-    recordId: str
+    registryArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryArn")]
+    recordArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordArn")]
+    recordId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordId")]
     status: RegistryRecordStatusType
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1808,20 +2017,29 @@ class SubmitRegistryRecordForApprovalResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_agent_runtime_endpoint' function.
 class UpdateAgentRuntimeEndpointResponseTypeDef(BaseValidatorModel):
-    liveVersion: str
-    targetVersion: str
-    agentRuntimeEndpointArn: str
-    agentRuntimeArn: str
+    liveVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]
+    targetVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]
+    agentRuntimeEndpointArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeEndpointArn")]
+    agentRuntimeArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeArn")]
     status: AgentRuntimeEndpointStatusType
     createdAt: datetime
     lastUpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
+# This class is the output for the 'update_configuration_bundle' function.
+class UpdateConfigurationBundleResponseTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleArn")]
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
+    versionId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleVersion")]
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 # This class is the output for the 'update_evaluator' function.
 class UpdateEvaluatorResponseTypeDef(BaseValidatorModel):
-    evaluatorArn: str
-    evaluatorId: str
+    evaluatorArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorArn")]
+    evaluatorId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorId")]
     updatedAt: datetime
     status: EvaluatorStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1829,8 +2047,8 @@ class UpdateEvaluatorResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_online_evaluation_config' function.
 class UpdateOnlineEvaluationConfigResponseTypeDef(BaseValidatorModel):
-    onlineEvaluationConfigArn: str
-    onlineEvaluationConfigId: str
+    onlineEvaluationConfigArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigArn")]
+    onlineEvaluationConfigId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigId")]
     updatedAt: datetime
     status: OnlineEvaluationConfigStatusType
     executionStatus: OnlineEvaluationExecutionStatusType
@@ -1840,23 +2058,23 @@ class UpdateOnlineEvaluationConfigResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_policy_engine' function.
 class UpdatePolicyEngineResponseTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    name: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyEngineName")]
     description: str
     createdAt: datetime
     updatedAt: datetime
-    policyEngineArn: str
+    policyEngineArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyEngineArn")]
     status: PolicyEngineStatusType
     statusReasons: List[str]
-    encryptionKeyArn: str
+    encryptionKeyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_registry_record_status' function.
 class UpdateRegistryRecordStatusResponseTypeDef(BaseValidatorModel):
-    registryArn: str
-    recordArn: str
-    recordId: str
+    registryArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryArn")]
+    recordArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordArn")]
+    recordId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordId")]
     status: RegistryRecordStatusType
     statusReason: str
     updatedAt: datetime
@@ -1865,9 +2083,11 @@ class UpdateRegistryRecordStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_workload_identity' function.
 class UpdateWorkloadIdentityResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "WorkloadIdentityNameType")]
     workloadIdentityArn: str
-    allowedResourceOauth2ReturnUrls: List[str]
+    allowedResourceOauth2ReturnUrls: List[
+        Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceOauth2ReturnUrlType")]
+    ]
     createdTime: datetime
     lastUpdatedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1875,10 +2095,10 @@ class UpdateWorkloadIdentityResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_agent_runtime' function.
 class CreateAgentRuntimeResponseTypeDef(BaseValidatorModel):
-    agentRuntimeArn: str
+    agentRuntimeArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeArn")]
     workloadIdentityDetails: WorkloadIdentityDetailsTypeDef
-    agentRuntimeId: str
-    agentRuntimeVersion: str
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
+    agentRuntimeVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]
     createdAt: datetime
     status: AgentRuntimeStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1886,10 +2106,10 @@ class CreateAgentRuntimeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_agent_runtime' function.
 class UpdateAgentRuntimeResponseTypeDef(BaseValidatorModel):
-    agentRuntimeArn: str
-    agentRuntimeId: str
+    agentRuntimeArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeArn")]
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
     workloadIdentityDetails: WorkloadIdentityDetailsTypeDef
-    agentRuntimeVersion: str
+    agentRuntimeVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]
     createdAt: datetime
     lastUpdatedAt: datetime
     status: AgentRuntimeStatusType
@@ -1899,16 +2119,16 @@ class UpdateAgentRuntimeResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_api_key_credential_provider' function.
 class CreateApiKeyCredentialProviderResponseTypeDef(BaseValidatorModel):
     apiKeySecretArn: SecretTypeDef
-    name: str
-    credentialProviderArn: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
+    credentialProviderArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ApiKeyCredentialProviderArnType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_api_key_credential_provider' function.
 class GetApiKeyCredentialProviderResponseTypeDef(BaseValidatorModel):
     apiKeySecretArn: SecretTypeDef
-    name: str
-    credentialProviderArn: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
+    credentialProviderArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ApiKeyCredentialProviderArnType")]
     createdTime: datetime
     lastUpdatedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1917,11 +2137,20 @@ class GetApiKeyCredentialProviderResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_api_key_credential_provider' function.
 class UpdateApiKeyCredentialProviderResponseTypeDef(BaseValidatorModel):
     apiKeySecretArn: SecretTypeDef
-    name: str
-    credentialProviderArn: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
+    credentialProviderArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ApiKeyCredentialProviderArnType")]
     createdTime: datetime
     lastUpdatedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class VersionLineageMetadataTypeDef(BaseValidatorModel):
+    parentVersionIds: Optional[
+        List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleVersion")]]
+    ] = None
+    branchName: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BranchName")]] = None
+    createdBy: Optional[VersionCreatedBySourceTypeDef] = None
+    commitMessage: Optional[str] = None
 
 
 class CredentialProviderOutputTypeDef(BaseValidatorModel):
@@ -1980,28 +2209,6 @@ class CustomExtractionConfigurationTypeDef(BaseValidatorModel):
     episodicExtractionOverride: Optional[EpisodicExtractionOverrideTypeDef] = None
 
 
-class CustomReflectionConfigurationInputTypeDef(BaseValidatorModel):
-    episodicReflectionOverride: Optional[EpisodicOverrideReflectionConfigurationInputTypeDef] = None
-
-
-class EpisodicOverrideConfigurationInputTypeDef(BaseValidatorModel):
-    extraction: Optional[EpisodicOverrideExtractionConfigurationInputTypeDef] = None
-    consolidation: Optional[EpisodicOverrideConsolidationConfigurationInputTypeDef] = None
-    reflection: Optional[EpisodicOverrideReflectionConfigurationInputTypeDef] = None
-
-
-class CustomReflectionConfigurationTypeDef(BaseValidatorModel):
-    episodicReflectionOverride: Optional[EpisodicReflectionOverrideTypeDef] = None
-
-
-class EpisodicMemoryStrategyInputTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    namespaces: Optional[List[str]] = None
-    namespaceTemplates: Optional[List[str]] = None
-    reflectionConfiguration: Optional[EpisodicReflectionConfigurationInputTypeDef] = None
-
-
 # This class is the output for the 'list_evaluators' function.
 class ListEvaluatorsResponseTypeDef(BaseValidatorModel):
     evaluators: List[EvaluatorSummaryTypeDef]
@@ -2011,27 +2218,21 @@ class ListEvaluatorsResponseTypeDef(BaseValidatorModel):
 
 class FilesystemConfigurationTypeDef(BaseValidatorModel):
     sessionStorage: Optional[SessionStorageConfigurationTypeDef] = None
+    s3FilesAccessPoint: Optional[S3FilesAccessPointConfigurationTypeDef] = None
+    efsAccessPoint: Optional[EfsAccessPointConfigurationTypeDef] = None
 
 
 class FilterTypeDef(BaseValidatorModel):
-    key: str
+    key: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "FilterKeyString")]
     operator: FilterOperatorType
     value: FilterValueTypeDef
-
-
-class GatewayProtocolConfigurationOutputTypeDef(BaseValidatorModel):
-    mcp: Optional[MCPGatewayConfigurationOutputTypeDef] = None
-
-
-class GatewayProtocolConfigurationTypeDef(BaseValidatorModel):
-    mcp: Optional[MCPGatewayConfigurationTypeDef] = None
 
 
 # This class is the output for the 'list_gateways' function.
 class ListGatewaysResponseTypeDef(BaseValidatorModel):
     items: List[GatewaySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayNextToken")]] = None
 
 
 class GetMemoryInputWaitTypeDef(BaseValidatorModel):
@@ -2070,10 +2271,10 @@ class GetPolicyRequestWaitTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_policy_generation' function.
 class GetPolicyGenerationResponseTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    policyGenerationId: str
-    name: str
-    policyGenerationArn: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    policyGenerationId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyGenerationName")]
+    policyGenerationArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyGenerationArn")]
     resource: ResourceTypeDef
     createdAt: datetime
     updatedAt: datetime
@@ -2084,10 +2285,10 @@ class GetPolicyGenerationResponseTypeDef(BaseValidatorModel):
 
 
 class PolicyGenerationTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    policyGenerationId: str
-    name: str
-    policyGenerationArn: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    policyGenerationId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyGenerationName")]
+    policyGenerationArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyGenerationArn")]
     resource: ResourceTypeDef
     createdAt: datetime
     updatedAt: datetime
@@ -2098,19 +2299,19 @@ class PolicyGenerationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_policy_generation' function.
 class StartPolicyGenerationRequestTypeDef(BaseValidatorModel):
-    policyEngineId: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
     resource: ResourceTypeDef
     content: ContentTypeDef
-    name: str
-    clientToken: Optional[str] = None
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyGenerationName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
 
 
 # This class is the output for the 'start_policy_generation' function.
 class StartPolicyGenerationResponseTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    policyGenerationId: str
-    name: str
-    policyGenerationArn: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    policyGenerationId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyGenerationName")]
+    policyGenerationArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyGenerationArn")]
     resource: ResourceTypeDef
     createdAt: datetime
     updatedAt: datetime
@@ -2122,7 +2323,7 @@ class StartPolicyGenerationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_token_vault' function.
 class GetTokenVaultResponseTypeDef(BaseValidatorModel):
-    tokenVaultId: str
+    tokenVaultId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TokenVaultIdType")]
     kmsConfiguration: KmsConfigurationTypeDef
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2131,12 +2332,12 @@ class GetTokenVaultResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'set_token_vault_cmk' function.
 class SetTokenVaultCMKRequestTypeDef(BaseValidatorModel):
     kmsConfiguration: KmsConfigurationTypeDef
-    tokenVaultId: Optional[str] = None
+    tokenVaultId: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TokenVaultIdType")]] = None
 
 
 # This class is the output for the 'set_token_vault_cmk' function.
 class SetTokenVaultCMKResponseTypeDef(BaseValidatorModel):
-    tokenVaultId: str
+    tokenVaultId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TokenVaultIdType")]
     kmsConfiguration: KmsConfigurationTypeDef
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2150,7 +2351,7 @@ class HarnessAgentCoreMemoryConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class HarnessAgentCoreMemoryConfigurationTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MemoryArn")]
     actorId: Optional[str] = None
     messagesCount: Optional[int] = None
     retrievalConfig: Optional[Dict[str, HarnessAgentCoreMemoryRetrievalConfigTypeDef]] = None
@@ -2179,7 +2380,15 @@ class HarnessTruncationStrategyConfigurationTypeDef(BaseValidatorModel):
 class ListHarnessesResponseTypeDef(BaseValidatorModel):
     harnesses: List[HarnessSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
+
+
+class HttpTargetConfigurationTypeDef(BaseValidatorModel):
+    agentcoreRuntime: Optional[RuntimeTargetConfigurationTypeDef] = None
+
+
+class MatchPrincipalEntryTypeDef(BaseValidatorModel):
+    iamPrincipal: Optional[IamPrincipalTypeDef] = None
 
 
 class InterceptorConfigurationTypeDef(BaseValidatorModel):
@@ -2219,7 +2428,16 @@ class ListCodeInterpretersRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
+class ListConfigurationBundlesRequestPaginateTypeDef(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
 class ListEvaluatorsRequestPaginateTypeDef(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListGatewayRulesRequestPaginateTypeDef(BaseValidatorModel):
+    gatewayIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
@@ -2286,11 +2504,25 @@ class ListWorkloadIdentitiesRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
+class ListConfigurationBundleVersionsRequestPaginateTypeDef(BaseValidatorModel):
+    bundleId: str
+    filter: Optional[VersionFilterTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+# This class is the input for the 'list_configuration_bundle_versions' function.
+class ListConfigurationBundleVersionsRequestTypeDef(BaseValidatorModel):
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+    filter: Optional[VersionFilterTypeDef] = None
+
+
 # This class is the output for the 'list_gateway_targets' function.
 class ListGatewayTargetsResponseTypeDef(BaseValidatorModel):
     items: List[TargetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetNextToken")]] = None
 
 
 # This class is the output for the 'list_memories' function.
@@ -2318,21 +2550,21 @@ class ListOnlineEvaluationConfigsResponseTypeDef(BaseValidatorModel):
 class ListPolicyEnginesResponseTypeDef(BaseValidatorModel):
     policyEngines: List[PolicyEngineTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the output for the 'list_registries' function.
 class ListRegistriesResponseTypeDef(BaseValidatorModel):
     registries: List[RegistrySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the output for the 'list_registry_records' function.
 class ListRegistryRecordsResponseTypeDef(BaseValidatorModel):
     registryRecords: List[RegistryRecordSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the output for the 'list_workload_identities' function.
@@ -2342,7 +2574,25 @@ class ListWorkloadIdentitiesResponseTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+class MCPGatewayConfigurationOutputTypeDef(BaseValidatorModel):
+    supportedVersions: Optional[List[str]] = None
+    instructions: Optional[str] = None
+    searchType: Optional[Literal["SEMANTIC"]] = None
+    sessionConfiguration: Optional[SessionConfigurationTypeDef] = None
+    streamingConfiguration: Optional[StreamingConfigurationTypeDef] = None
+
+
+class MCPGatewayConfigurationTypeDef(BaseValidatorModel):
+    supportedVersions: Optional[List[str]] = None
+    instructions: Optional[str] = None
+    searchType: Optional[Literal["SEMANTIC"]] = None
+    sessionConfiguration: Optional[SessionConfigurationTypeDef] = None
+    streamingConfiguration: Optional[StreamingConfigurationTypeDef] = None
+
+
 ManagedVpcResourceUnionTypeDef = Union[ManagedVpcResourceOutputTypeDef, ManagedVpcResourceTypeDef]
+
+MatchPathsUnionTypeDef = Union[MatchPathsOutputTypeDef, MatchPathsTypeDef]
 
 
 class UpdatedServerDefinitionTypeDef(BaseValidatorModel):
@@ -2384,6 +2634,11 @@ Oauth2AuthorizationServerMetadataUnionTypeDef = Union[
 ]
 
 
+class OnBehalfOfTokenExchangeConfigTypeOutputTypeDef(BaseValidatorModel):
+    grantType: OnBehalfOfTokenExchangeGrantTypeTypeType
+    tokenExchangeGrantTypeConfig: Optional[TokenExchangeGrantTypeConfigTypeOutputTypeDef] = None
+
+
 class PolicyDefinitionTypeDef(BaseValidatorModel):
     cedar: Optional[CedarPolicyTypeDef] = None
     policyGeneration: Optional[PolicyGenerationDetailsTypeDef] = None
@@ -2422,6 +2677,25 @@ class ToolDefinitionTypeDef(BaseValidatorModel):
     outputSchema: Optional[SchemaDefinitionTypeDef] = None
 
 
+StringListValidationUnionTypeDef = Union[StringListValidationOutputTypeDef, StringListValidationTypeDef]
+
+
+class ValidationOutputTypeDef(BaseValidatorModel):
+    stringValidation: Optional[StringValidationOutputTypeDef] = None
+    stringListValidation: Optional[StringListValidationOutputTypeDef] = None
+    numberValidation: Optional[NumberValidationTypeDef] = None
+
+
+StringValidationUnionTypeDef = Union[StringValidationOutputTypeDef, StringValidationTypeDef]
+
+
+class WeightedRouteOutputTypeDef(BaseValidatorModel):
+    trafficSplit: List[TargetTrafficSplitEntryOutputTypeDef]
+
+
+TargetTrafficSplitEntryUnionTypeDef = Union[TargetTrafficSplitEntryOutputTypeDef, TargetTrafficSplitEntryTypeDef]
+
+
 class TriggerConditionInputTypeDef(BaseValidatorModel):
     messageBasedTrigger: Optional[MessageBasedTriggerInputTypeDef] = None
     tokenBasedTrigger: Optional[TokenBasedTriggerInputTypeDef] = None
@@ -2434,9 +2708,14 @@ class TriggerConditionTypeDef(BaseValidatorModel):
     timeBasedTrigger: Optional[TimeBasedTriggerTypeDef] = None
 
 
+TokenExchangeGrantTypeConfigTypeUnionTypeDef = Union[
+    TokenExchangeGrantTypeConfigTypeOutputTypeDef, TokenExchangeGrantTypeConfigTypeTypeDef
+]
+
+
 # This class is the input for the 'update_policy_engine' function.
 class UpdatePolicyEngineRequestTypeDef(BaseValidatorModel):
-    policyEngineId: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
     description: Optional[UpdatedDescriptionTypeDef] = None
 
 
@@ -2466,10 +2745,10 @@ class ApiGatewayTargetConfigurationTypeDef(BaseValidatorModel):
 
 
 class McpServerTargetConfigurationTypeDef(BaseValidatorModel):
-    endpoint: str
+    endpoint: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "McpServerTargetConfigurationEndpointString")]
     mcpToolSchema: Optional[McpToolSchemaConfigurationTypeDef] = None
-    resourcePriority: Optional[int] = None
     listingMode: Optional[ListingModeType] = None
+    resourcePriority: Optional[int] = None
 
 
 class CustomClaimValidationTypeOutputTypeDef(BaseValidatorModel):
@@ -2514,8 +2793,8 @@ DataSourceConfigUnionTypeDef = Union[DataSourceConfigOutputTypeDef, DataSourceCo
 
 # This class is the output for the 'create_online_evaluation_config' function.
 class CreateOnlineEvaluationConfigResponseTypeDef(BaseValidatorModel):
-    onlineEvaluationConfigArn: str
-    onlineEvaluationConfigId: str
+    onlineEvaluationConfigArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigArn")]
+    onlineEvaluationConfigId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigId")]
     createdAt: datetime
     outputConfig: OutputConfigTypeDef
     status: OnlineEvaluationConfigStatusType
@@ -2541,12 +2820,86 @@ class BrowserEnterprisePolicyTypeDef(BaseValidatorModel):
     type: Optional[BrowserEnterprisePolicyTypeType] = None
 
 
+# This class is the input for the 'create_configuration_bundle' function.
+class CreateConfigurationBundleRequestTypeDef(BaseValidatorModel):
+    bundleName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleName")]
+    components: Dict[str, ComponentConfigurationUnionTypeDef]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
+    description: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleDescription")]] = (
+        None
+    )
+    branchName: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BranchName")]] = None
+    commitMessage: Optional[str] = None
+    createdBy: Optional[VersionCreatedBySourceTypeDef] = None
+    tags: Optional[Dict[str, str]] = None
+
+
+# This class is the input for the 'update_configuration_bundle' function.
+class UpdateConfigurationBundleRequestTypeDef(BaseValidatorModel):
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
+    bundleName: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleDescription")]] = (
+        None
+    )
+    components: Optional[Dict[str, ComponentConfigurationUnionTypeDef]] = None
+    parentVersionIds: Optional[
+        List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleVersion")]]
+    ] = None
+    branchName: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BranchName")]] = None
+    commitMessage: Optional[str] = None
+    createdBy: Optional[VersionCreatedBySourceTypeDef] = None
+
+
+class WeightedOverrideOutputTypeDef(BaseValidatorModel):
+    trafficSplit: List[TrafficSplitEntryOutputTypeDef]
+
+
+TrafficSplitEntryUnionTypeDef = Union[TrafficSplitEntryOutputTypeDef, TrafficSplitEntryTypeDef]
+
+
 class StreamDeliveryResourceOutputTypeDef(BaseValidatorModel):
     kinesis: Optional[KinesisResourceOutputTypeDef] = None
 
 
 class StreamDeliveryResourceTypeDef(BaseValidatorModel):
     kinesis: Optional[KinesisResourceTypeDef] = None
+
+
+class ConfigurationBundleVersionSummaryTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleArn")]
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
+    versionId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleVersion")]
+    versionCreatedAt: datetime
+    lineageMetadata: Optional[VersionLineageMetadataTypeDef] = None
+
+
+# This class is the output for the 'get_configuration_bundle' function.
+class GetConfigurationBundleResponseTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleArn")]
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
+    bundleName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleName")]
+    description: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleDescription")]
+    versionId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleVersion")]
+    components: Dict[str, ComponentConfigurationOutputTypeDef]
+    lineageMetadata: VersionLineageMetadataTypeDef
+    createdAt: datetime
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'get_configuration_bundle_version' function.
+class GetConfigurationBundleVersionResponseTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleArn")]
+    bundleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleId")]
+    bundleName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleName")]
+    description: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleDescription")]
+    versionId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ConfigurationBundleVersion")]
+    components: Dict[str, ComponentConfigurationOutputTypeDef]
+    lineageMetadata: VersionLineageMetadataTypeDef
+    createdAt: datetime
+    versionCreatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
 
 class CredentialProviderConfigurationOutputTypeDef(BaseValidatorModel):
@@ -2575,16 +2928,6 @@ class ExtractionConfigurationTypeDef(BaseValidatorModel):
     customExtractionConfiguration: Optional[CustomExtractionConfigurationTypeDef] = None
 
 
-class ModifyReflectionConfigurationTypeDef(BaseValidatorModel):
-    episodicReflectionConfiguration: Optional[EpisodicReflectionConfigurationInputTypeDef] = None
-    customReflectionConfiguration: Optional[CustomReflectionConfigurationInputTypeDef] = None
-
-
-class ReflectionConfigurationTypeDef(BaseValidatorModel):
-    customReflectionConfiguration: Optional[CustomReflectionConfigurationTypeDef] = None
-    episodicReflectionConfiguration: Optional[EpisodicReflectionConfigurationTypeDef] = None
-
-
 class HarnessAgentCoreRuntimeEnvironmentTypeDef(BaseValidatorModel):
     agentRuntimeArn: str
     agentRuntimeName: str
@@ -2606,16 +2949,11 @@ class RuleTypeDef(BaseValidatorModel):
     sessionConfig: Optional[SessionConfigTypeDef] = None
 
 
-GatewayProtocolConfigurationUnionTypeDef = Union[
-    GatewayProtocolConfigurationOutputTypeDef, GatewayProtocolConfigurationTypeDef
-]
-
-
 # This class is the output for the 'list_policy_generations' function.
 class ListPolicyGenerationsResponseTypeDef(BaseValidatorModel):
     policyGenerations: List[PolicyGenerationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 class HarnessMemoryConfigurationOutputTypeDef(BaseValidatorModel):
@@ -2632,6 +2970,14 @@ class HarnessTruncationConfigurationTypeDef(BaseValidatorModel):
     config: Optional[HarnessTruncationStrategyConfigurationTypeDef] = None
 
 
+class MatchPrincipalsOutputTypeDef(BaseValidatorModel):
+    anyOf: List[MatchPrincipalEntryTypeDef]
+
+
+class MatchPrincipalsTypeDef(BaseValidatorModel):
+    anyOf: List[MatchPrincipalEntryTypeDef]
+
+
 class GatewayInterceptorConfigurationOutputTypeDef(BaseValidatorModel):
     interceptor: InterceptorConfigurationTypeDef
     interceptionPoints: List[GatewayInterceptionPointType]
@@ -2642,6 +2988,14 @@ class GatewayInterceptorConfigurationTypeDef(BaseValidatorModel):
     interceptor: InterceptorConfigurationTypeDef
     interceptionPoints: List[GatewayInterceptionPointType]
     inputConfiguration: Optional[InterceptorInputConfigurationTypeDef] = None
+
+
+class GatewayProtocolConfigurationOutputTypeDef(BaseValidatorModel):
+    mcp: Optional[MCPGatewayConfigurationOutputTypeDef] = None
+
+
+class GatewayProtocolConfigurationTypeDef(BaseValidatorModel):
+    mcp: Optional[MCPGatewayConfigurationTypeDef] = None
 
 
 class PrivateEndpointTypeDef(BaseValidatorModel):
@@ -2714,30 +3068,30 @@ class SlackOauth2ProviderConfigOutputTypeDef(BaseValidatorModel):
 
 
 class Oauth2DiscoveryTypeDef(BaseValidatorModel):
-    discoveryUrl: Optional[str] = None
+    discoveryUrl: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "DiscoveryUrlType")]] = None
     authorizationServerMetadata: Optional[Oauth2AuthorizationServerMetadataUnionTypeDef] = None
 
 
 # This class is the input for the 'create_policy' function.
 class CreatePolicyRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyName")]
     definition: PolicyDefinitionTypeDef
-    policyEngineId: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
     description: Optional[str] = None
     validationMode: Optional[PolicyValidationModeType] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_policy' function.
 class CreatePolicyResponseTypeDef(BaseValidatorModel):
-    policyId: str
-    name: str
-    policyEngineId: str
+    policyId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyName")]
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
     definition: PolicyDefinitionTypeDef
     description: str
     createdAt: datetime
     updatedAt: datetime
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyArn")]
     status: PolicyStatusType
     statusReasons: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2745,14 +3099,14 @@ class CreatePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_policy' function.
 class DeletePolicyResponseTypeDef(BaseValidatorModel):
-    policyId: str
-    name: str
-    policyEngineId: str
+    policyId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyName")]
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
     definition: PolicyDefinitionTypeDef
     description: str
     createdAt: datetime
     updatedAt: datetime
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyArn")]
     status: PolicyStatusType
     statusReasons: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2760,34 +3114,34 @@ class DeletePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_policy' function.
 class GetPolicyResponseTypeDef(BaseValidatorModel):
-    policyId: str
-    name: str
-    policyEngineId: str
+    policyId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyName")]
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
     definition: PolicyDefinitionTypeDef
     description: str
     createdAt: datetime
     updatedAt: datetime
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyArn")]
     status: PolicyStatusType
     statusReasons: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class PolicyGenerationAssetTypeDef(BaseValidatorModel):
-    policyGenerationAssetId: str
+    policyGenerationAssetId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
     rawTextFragment: str
     findings: List[FindingTypeDef]
     definition: Optional[PolicyDefinitionTypeDef] = None
 
 
 class PolicyTypeDef(BaseValidatorModel):
-    policyId: str
-    name: str
-    policyEngineId: str
+    policyId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyName")]
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
     definition: PolicyDefinitionTypeDef
     createdAt: datetime
     updatedAt: datetime
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyArn")]
     status: PolicyStatusType
     statusReasons: List[str]
     description: Optional[str] = None
@@ -2795,8 +3149,8 @@ class PolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_policy' function.
 class UpdatePolicyRequestTypeDef(BaseValidatorModel):
-    policyEngineId: str
-    policyId: str
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    policyId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
     description: Optional[UpdatedDescriptionTypeDef] = None
     definition: Optional[PolicyDefinitionTypeDef] = None
     validationMode: Optional[PolicyValidationModeType] = None
@@ -2804,14 +3158,14 @@ class UpdatePolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_policy' function.
 class UpdatePolicyResponseTypeDef(BaseValidatorModel):
-    policyId: str
-    name: str
-    policyEngineId: str
+    policyId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyName")]
+    policyEngineId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ResourceId")]
     definition: PolicyDefinitionTypeDef
     description: str
     createdAt: datetime
     updatedAt: datetime
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "PolicyArn")]
     status: PolicyStatusType
     statusReasons: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2842,6 +3196,27 @@ class ToolSchemaTypeDef(BaseValidatorModel):
     inlinePayload: Optional[List[ToolDefinitionTypeDef]] = None
 
 
+class LlmExtractionConfigOutputTypeDef(BaseValidatorModel):
+    definition: str
+    llmExtractionInstruction: Optional[str] = None
+    validation: Optional[ValidationOutputTypeDef] = None
+
+
+class ValidationTypeDef(BaseValidatorModel):
+    stringValidation: Optional[StringValidationUnionTypeDef] = None
+    stringListValidation: Optional[StringListValidationUnionTypeDef] = None
+    numberValidation: Optional[NumberValidationTypeDef] = None
+
+
+class RouteToTargetActionOutputTypeDef(BaseValidatorModel):
+    staticRoute: Optional[StaticRouteTypeDef] = None
+    weightedRoute: Optional[WeightedRouteOutputTypeDef] = None
+
+
+class WeightedRouteTypeDef(BaseValidatorModel):
+    trafficSplit: List[TargetTrafficSplitEntryUnionTypeDef]
+
+
 class ModifySelfManagedConfigurationTypeDef(BaseValidatorModel):
     triggerConditions: Optional[List[TriggerConditionInputTypeDef]] = None
     invocationConfiguration: Optional[ModifyInvocationConfigurationInputTypeDef] = None
@@ -2858,6 +3233,11 @@ class SelfManagedConfigurationTypeDef(BaseValidatorModel):
     triggerConditions: List[TriggerConditionTypeDef]
     invocationConfiguration: InvocationConfigurationTypeDef
     historicalContextWindowSize: int
+
+
+class OnBehalfOfTokenExchangeConfigTypeTypeDef(BaseValidatorModel):
+    grantType: OnBehalfOfTokenExchangeGrantTypeTypeType
+    tokenExchangeGrantTypeConfig: Optional[TokenExchangeGrantTypeConfigTypeUnionTypeDef] = None
 
 
 class UpdatedAgentSkillsDescriptorTypeDef(BaseValidatorModel):
@@ -2881,22 +3261,22 @@ NetworkConfigurationUnionTypeDef = Union[NetworkConfigurationOutputTypeDef, Netw
 
 # This class is the input for the 'create_code_interpreter' function.
 class CreateCodeInterpreterRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "SandboxName")]
     networkConfiguration: CodeInterpreterNetworkConfigurationUnionTypeDef
     description: Optional[str] = None
-    executionRoleArn: Optional[str] = None
+    executionRoleArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]] = None
     certificates: Optional[List[CertificateTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'get_code_interpreter' function.
 class GetCodeInterpreterResponseTypeDef(BaseValidatorModel):
-    codeInterpreterId: str
-    codeInterpreterArn: str
-    name: str
+    codeInterpreterId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CodeInterpreterId")]
+    codeInterpreterArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CodeInterpreterArn")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "SandboxName")]
     description: str
-    executionRoleArn: str
+    executionRoleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     networkConfiguration: CodeInterpreterNetworkConfigurationOutputTypeDef
     status: CodeInterpreterStatusType
     certificates: List[CertificateTypeDef]
@@ -2923,25 +3303,25 @@ class AgentRuntimeArtifactTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_browser' function.
 class CreateBrowserRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "SandboxName")]
     networkConfiguration: BrowserNetworkConfigurationUnionTypeDef
     description: Optional[str] = None
-    executionRoleArn: Optional[str] = None
+    executionRoleArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]] = None
     recording: Optional[RecordingConfigTypeDef] = None
     browserSigning: Optional[BrowserSigningConfigInputTypeDef] = None
     enterprisePolicies: Optional[List[BrowserEnterprisePolicyTypeDef]] = None
     certificates: Optional[List[CertificateTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'get_browser' function.
 class GetBrowserResponseTypeDef(BaseValidatorModel):
-    browserId: str
-    browserArn: str
-    name: str
+    browserId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserId")]
+    browserArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "BrowserArn")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "SandboxName")]
     description: str
-    executionRoleArn: str
+    executionRoleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     networkConfiguration: BrowserNetworkConfigurationOutputTypeDef
     recording: RecordingConfigTypeDef
     browserSigning: BrowserSigningConfigOutputTypeDef
@@ -2954,12 +3334,28 @@ class GetBrowserResponseTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
 
+class ConfigurationBundleActionOutputTypeDef(BaseValidatorModel):
+    staticOverride: Optional[StaticOverrideTypeDef] = None
+    weightedOverride: Optional[WeightedOverrideOutputTypeDef] = None
+
+
+class WeightedOverrideTypeDef(BaseValidatorModel):
+    trafficSplit: List[TrafficSplitEntryUnionTypeDef]
+
+
 class StreamDeliveryResourcesOutputTypeDef(BaseValidatorModel):
     resources: List[StreamDeliveryResourceOutputTypeDef]
 
 
 class StreamDeliveryResourcesTypeDef(BaseValidatorModel):
     resources: List[StreamDeliveryResourceTypeDef]
+
+
+# This class is the output for the 'list_configuration_bundle_versions' function.
+class ListConfigurationBundleVersionsResponseTypeDef(BaseValidatorModel):
+    versions: List[ConfigurationBundleVersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
 
 class HarnessToolConfigurationOutputTypeDef(BaseValidatorModel):
@@ -2976,15 +3372,15 @@ class HarnessEnvironmentProviderTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_online_evaluation_config' function.
 class GetOnlineEvaluationConfigResponseTypeDef(BaseValidatorModel):
-    onlineEvaluationConfigArn: str
-    onlineEvaluationConfigId: str
-    onlineEvaluationConfigName: str
-    description: str
+    onlineEvaluationConfigArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigArn")]
+    onlineEvaluationConfigId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigId")]
+    onlineEvaluationConfigName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluationConfigName")]
+    description: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluationConfigDescription")]
     rule: RuleOutputTypeDef
     dataSourceConfig: DataSourceConfigOutputTypeDef
     evaluators: List[EvaluatorReferenceTypeDef]
     outputConfig: OutputConfigTypeDef
-    evaluationExecutionRoleArn: str
+    evaluationExecutionRoleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     status: OnlineEvaluationConfigStatusType
     executionStatus: OnlineEvaluationExecutionStatusType
     createdAt: datetime
@@ -3000,8 +3396,19 @@ class HarnessMemoryConfigurationTypeDef(BaseValidatorModel):
     agentCoreMemoryConfiguration: Optional[HarnessAgentCoreMemoryConfigurationUnionTypeDef] = None
 
 
+class ConditionOutputTypeDef(BaseValidatorModel):
+    matchPrincipals: Optional[MatchPrincipalsOutputTypeDef] = None
+    matchPaths: Optional[MatchPathsOutputTypeDef] = None
+
+
+MatchPrincipalsUnionTypeDef = Union[MatchPrincipalsOutputTypeDef, MatchPrincipalsTypeDef]
+
 GatewayInterceptorConfigurationUnionTypeDef = Union[
     GatewayInterceptorConfigurationOutputTypeDef, GatewayInterceptorConfigurationTypeDef
+]
+
+GatewayProtocolConfigurationUnionTypeDef = Union[
+    GatewayProtocolConfigurationOutputTypeDef, GatewayProtocolConfigurationTypeDef
 ]
 
 PrivateEndpointUnionTypeDef = Union[PrivateEndpointOutputTypeDef, PrivateEndpointTypeDef]
@@ -3024,14 +3431,14 @@ Oauth2DiscoveryUnionTypeDef = Union[Oauth2DiscoveryOutputTypeDef, Oauth2Discover
 class ListPolicyGenerationAssetsResponseTypeDef(BaseValidatorModel):
     policyGenerationAssets: List[PolicyGenerationAssetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 # This class is the output for the 'list_policies' function.
 class ListPoliciesResponseTypeDef(BaseValidatorModel):
     policies: List[PolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "NextToken")]] = None
 
 
 class CustomJWTAuthorizerConfigurationOutputTypeDef(BaseValidatorModel):
@@ -3049,6 +3456,8 @@ class CustomOauth2ProviderConfigOutputTypeDef(BaseValidatorModel):
     clientId: Optional[str] = None
     privateEndpoint: Optional[PrivateEndpointOutputTypeDef] = None
     privateEndpointOverrides: Optional[List[PrivateEndpointOverrideOutputTypeDef]] = None
+    onBehalfOfTokenExchangeConfig: Optional[OnBehalfOfTokenExchangeConfigTypeOutputTypeDef] = None
+    clientAuthenticationMethod: Optional[ClientAuthenticationMethodTypeType] = None
 
 
 class FromUrlSynchronizationConfigurationOutputTypeDef(BaseValidatorModel):
@@ -3067,31 +3476,21 @@ class McpLambdaTargetConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class McpLambdaTargetConfigurationTypeDef(BaseValidatorModel):
-    lambdaArn: str
+    lambdaArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "LambdaFunctionArn")]
     toolSchema: ToolSchemaTypeDef
 
 
-class ModifyStrategyConfigurationTypeDef(BaseValidatorModel):
-    extraction: Optional[ModifyExtractionConfigurationTypeDef] = None
-    consolidation: Optional[ModifyConsolidationConfigurationTypeDef] = None
-    reflection: Optional[ModifyReflectionConfigurationTypeDef] = None
-    selfManagedConfiguration: Optional[ModifySelfManagedConfigurationTypeDef] = None
+class ExtractionConfigOutputTypeDef(BaseValidatorModel):
+    llmExtractionConfig: Optional[LlmExtractionConfigOutputTypeDef] = None
 
 
-class CustomConfigurationInputTypeDef(BaseValidatorModel):
-    semanticOverride: Optional[SemanticOverrideConfigurationInputTypeDef] = None
-    summaryOverride: Optional[SummaryOverrideConfigurationInputTypeDef] = None
-    userPreferenceOverride: Optional[UserPreferenceOverrideConfigurationInputTypeDef] = None
-    episodicOverride: Optional[EpisodicOverrideConfigurationInputTypeDef] = None
-    selfManagedConfiguration: Optional[SelfManagedConfigurationInputTypeDef] = None
+ValidationUnionTypeDef = Union[ValidationOutputTypeDef, ValidationTypeDef]
 
+WeightedRouteUnionTypeDef = Union[WeightedRouteOutputTypeDef, WeightedRouteTypeDef]
 
-class StrategyConfigurationTypeDef(BaseValidatorModel):
-    type: Optional[OverrideTypeType] = None
-    extraction: Optional[ExtractionConfigurationTypeDef] = None
-    consolidation: Optional[ConsolidationConfigurationTypeDef] = None
-    reflection: Optional[ReflectionConfigurationTypeDef] = None
-    selfManagedConfiguration: Optional[SelfManagedConfigurationTypeDef] = None
+OnBehalfOfTokenExchangeConfigTypeUnionTypeDef = Union[
+    OnBehalfOfTokenExchangeConfigTypeOutputTypeDef, OnBehalfOfTokenExchangeConfigTypeTypeDef
+]
 
 
 class EvaluatorConfigOutputTypeDef(BaseValidatorModel):
@@ -3111,12 +3510,20 @@ class HarnessAgentCoreRuntimeEnvironmentRequestTypeDef(BaseValidatorModel):
 
 
 class CustomClaimValidationTypeTypeDef(BaseValidatorModel):
-    inboundTokenClaimName: str
+    inboundTokenClaimName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "InboundTokenClaimNameType")]
     inboundTokenClaimValueType: InboundTokenClaimValueTypeType
     authorizingClaimMatchValue: AuthorizingClaimMatchValueTypeUnionTypeDef
 
 
 AgentRuntimeArtifactUnionTypeDef = Union[AgentRuntimeArtifactOutputTypeDef, AgentRuntimeArtifactTypeDef]
+
+
+class ActionOutputTypeDef(BaseValidatorModel):
+    configurationBundle: Optional[ConfigurationBundleActionOutputTypeDef] = None
+    routeToTarget: Optional[RouteToTargetActionOutputTypeDef] = None
+
+
+WeightedOverrideUnionTypeDef = Union[WeightedOverrideOutputTypeDef, WeightedOverrideTypeDef]
 
 StreamDeliveryResourcesUnionTypeDef = Union[StreamDeliveryResourcesOutputTypeDef, StreamDeliveryResourcesTypeDef]
 
@@ -3129,32 +3536,37 @@ class HarnessToolOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_online_evaluation_config' function.
 class CreateOnlineEvaluationConfigRequestTypeDef(BaseValidatorModel):
-    onlineEvaluationConfigName: str
+    onlineEvaluationConfigName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluationConfigName")]
     rule: RuleUnionTypeDef
     dataSourceConfig: DataSourceConfigUnionTypeDef
     evaluators: List[EvaluatorReferenceTypeDef]
-    evaluationExecutionRoleArn: str
+    evaluationExecutionRoleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     enableOnCreate: bool
-    clientToken: Optional[str] = None
-    description: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
+    description: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluationConfigDescription")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_online_evaluation_config' function.
 class UpdateOnlineEvaluationConfigRequestTypeDef(BaseValidatorModel):
-    onlineEvaluationConfigId: str
-    clientToken: Optional[str] = None
-    description: Optional[str] = None
+    onlineEvaluationConfigId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "OnlineEvaluationConfigId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
+    description: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluationConfigDescription")]] = None
     rule: Optional[RuleUnionTypeDef] = None
     dataSourceConfig: Optional[DataSourceConfigUnionTypeDef] = None
     evaluators: Optional[List[EvaluatorReferenceTypeDef]] = None
-    evaluationExecutionRoleArn: Optional[str] = None
+    evaluationExecutionRoleArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]] = None
     executionStatus: Optional[OnlineEvaluationExecutionStatusType] = None
 
 
 HarnessMemoryConfigurationUnionTypeDef = Union[
     HarnessMemoryConfigurationOutputTypeDef, HarnessMemoryConfigurationTypeDef
 ]
+
+
+class ConditionTypeDef(BaseValidatorModel):
+    matchPrincipals: Optional[MatchPrincipalsUnionTypeDef] = None
+    matchPaths: Optional[MatchPathsUnionTypeDef] = None
 
 
 class PrivateEndpointOverrideTypeDef(BaseValidatorModel):
@@ -3175,7 +3587,7 @@ class CredentialProviderConfigurationTypeDef(BaseValidatorModel):
 
 
 class HarnessAgentCoreGatewayConfigTypeDef(BaseValidatorModel):
-    gatewayArn: str
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
     outboundAuth: Optional[HarnessGatewayOutboundAuthUnionTypeDef] = None
 
 
@@ -3220,40 +3632,28 @@ class McpTargetConfigurationTypeDef(BaseValidatorModel):
     apiGateway: Optional[ApiGatewayTargetConfigurationTypeDef] = None
 
 
-class ModifyMemoryStrategyInputTypeDef(BaseValidatorModel):
-    memoryStrategyId: str
-    description: Optional[str] = None
-    namespaces: Optional[List[str]] = None
-    namespaceTemplates: Optional[List[str]] = None
-    configuration: Optional[ModifyStrategyConfigurationTypeDef] = None
+class MetadataSchemaEntryOutputTypeDef(BaseValidatorModel):
+    key: str
+    type: Optional[MetadataValueTypeType] = None
+    extractionConfig: Optional[ExtractionConfigOutputTypeDef] = None
 
 
-class CustomMemoryStrategyInputTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    namespaces: Optional[List[str]] = None
-    namespaceTemplates: Optional[List[str]] = None
-    configuration: Optional[CustomConfigurationInputTypeDef] = None
+class LlmExtractionConfigTypeDef(BaseValidatorModel):
+    definition: str
+    llmExtractionInstruction: Optional[str] = None
+    validation: Optional[ValidationUnionTypeDef] = None
 
 
-class MemoryStrategyTypeDef(BaseValidatorModel):
-    strategyId: str
-    name: str
-    type: MemoryStrategyTypeType
-    namespaces: List[str]
-    namespaceTemplates: List[str]
-    description: Optional[str] = None
-    configuration: Optional[StrategyConfigurationTypeDef] = None
-    createdAt: Optional[datetime] = None
-    updatedAt: Optional[datetime] = None
-    status: Optional[MemoryStrategyStatusType] = None
+class RouteToTargetActionTypeDef(BaseValidatorModel):
+    staticRoute: Optional[StaticRouteTypeDef] = None
+    weightedRoute: Optional[WeightedRouteUnionTypeDef] = None
 
 
 # This class is the output for the 'get_evaluator' function.
 class GetEvaluatorResponseTypeDef(BaseValidatorModel):
-    evaluatorArn: str
-    evaluatorId: str
-    evaluatorName: str
+    evaluatorArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorArn")]
+    evaluatorId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorId")]
+    evaluatorName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorName")]
     description: str
     evaluatorConfig: EvaluatorConfigOutputTypeDef
     level: EvaluatorLevelType
@@ -3261,6 +3661,7 @@ class GetEvaluatorResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
     updatedAt: datetime
     lockedForModification: bool
+    kmsKeyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3274,9 +3675,73 @@ class HarnessEnvironmentProviderRequestTypeDef(BaseValidatorModel):
 CustomClaimValidationTypeUnionTypeDef = Union[CustomClaimValidationTypeOutputTypeDef, CustomClaimValidationTypeTypeDef]
 
 
+# This class is the output for the 'create_gateway_rule' function.
+class CreateGatewayRuleResponseTypeDef(BaseValidatorModel):
+    ruleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayRuleId")]
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    priority: int
+    conditions: List[ConditionOutputTypeDef]
+    actions: List[ActionOutputTypeDef]
+    description: str
+    createdAt: datetime
+    status: GatewayRuleStatusType
+    system: SystemManagedBlockTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class GatewayRuleDetailTypeDef(BaseValidatorModel):
+    ruleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayRuleId")]
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    priority: int
+    actions: List[ActionOutputTypeDef]
+    createdAt: datetime
+    status: GatewayRuleStatusType
+    conditions: Optional[List[ConditionOutputTypeDef]] = None
+    description: Optional[str] = None
+    system: Optional[SystemManagedBlockTypeDef] = None
+    updatedAt: Optional[datetime] = None
+
+
+# This class is the output for the 'get_gateway_rule' function.
+class GetGatewayRuleResponseTypeDef(BaseValidatorModel):
+    ruleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayRuleId")]
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    priority: int
+    conditions: List[ConditionOutputTypeDef]
+    actions: List[ActionOutputTypeDef]
+    description: str
+    createdAt: datetime
+    status: GatewayRuleStatusType
+    system: SystemManagedBlockTypeDef
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'update_gateway_rule' function.
+class UpdateGatewayRuleResponseTypeDef(BaseValidatorModel):
+    ruleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayRuleId")]
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    priority: int
+    conditions: List[ConditionOutputTypeDef]
+    actions: List[ActionOutputTypeDef]
+    description: str
+    createdAt: datetime
+    status: GatewayRuleStatusType
+    system: SystemManagedBlockTypeDef
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ConfigurationBundleActionTypeDef(BaseValidatorModel):
+    staticOverride: Optional[StaticOverrideTypeDef] = None
+    weightedOverride: Optional[WeightedOverrideUnionTypeDef] = None
+
+
 class UpdatedHarnessMemoryConfigurationTypeDef(BaseValidatorModel):
     optionalValue: Optional[HarnessMemoryConfigurationUnionTypeDef] = None
 
+
+ConditionUnionTypeDef = Union[ConditionOutputTypeDef, ConditionTypeDef]
 
 PrivateEndpointOverrideUnionTypeDef = Union[PrivateEndpointOverrideOutputTypeDef, PrivateEndpointOverrideTypeDef]
 
@@ -3296,21 +3761,21 @@ HarnessAgentCoreGatewayConfigUnionTypeDef = Union[
 
 # This class is the output for the 'create_gateway' function.
 class CreateGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayArn: str
-    gatewayId: str
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    gatewayId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayId")]
     gatewayUrl: str
     createdAt: datetime
     updatedAt: datetime
     status: GatewayStatusType
     statusReasons: List[str]
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayName")]
     description: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     protocolType: Literal["MCP"]
     protocolConfiguration: GatewayProtocolConfigurationOutputTypeDef
     authorizerType: AuthorizerTypeType
     authorizerConfiguration: AuthorizerConfigurationOutputTypeDef
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]
     interceptorConfigurations: List[GatewayInterceptorConfigurationOutputTypeDef]
     policyEngineConfiguration: GatewayPolicyEngineConfigurationTypeDef
     workloadIdentityDetails: WorkloadIdentityDetailsTypeDef
@@ -3320,13 +3785,13 @@ class CreateGatewayResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_agent_runtime' function.
 class GetAgentRuntimeResponseTypeDef(BaseValidatorModel):
-    agentRuntimeArn: str
-    agentRuntimeName: str
-    agentRuntimeId: str
-    agentRuntimeVersion: str
+    agentRuntimeArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeArn")]
+    agentRuntimeName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeName")]
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
+    agentRuntimeVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeVersion")]
     createdAt: datetime
     lastUpdatedAt: datetime
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     networkConfiguration: NetworkConfigurationOutputTypeDef
     status: AgentRuntimeStatusType
     lifecycleConfiguration: LifecycleConfigurationTypeDef
@@ -3345,21 +3810,21 @@ class GetAgentRuntimeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_gateway' function.
 class GetGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayArn: str
-    gatewayId: str
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    gatewayId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayId")]
     gatewayUrl: str
     createdAt: datetime
     updatedAt: datetime
     status: GatewayStatusType
     statusReasons: List[str]
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayName")]
     description: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     protocolType: Literal["MCP"]
     protocolConfiguration: GatewayProtocolConfigurationOutputTypeDef
     authorizerType: AuthorizerTypeType
     authorizerConfiguration: AuthorizerConfigurationOutputTypeDef
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]
     interceptorConfigurations: List[GatewayInterceptorConfigurationOutputTypeDef]
     policyEngineConfiguration: GatewayPolicyEngineConfigurationTypeDef
     workloadIdentityDetails: WorkloadIdentityDetailsTypeDef
@@ -3369,10 +3834,10 @@ class GetGatewayResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_registry' function.
 class GetRegistryResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryName")]
     description: str
-    registryId: str
-    registryArn: str
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryId")]
+    registryArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryArn")]
     authorizerType: RegistryAuthorizerTypeType
     authorizerConfiguration: AuthorizerConfigurationOutputTypeDef
     approvalConfiguration: ApprovalConfigurationTypeDef
@@ -3384,18 +3849,18 @@ class GetRegistryResponseTypeDef(BaseValidatorModel):
 
 
 class HarnessTypeDef(BaseValidatorModel):
-    harnessId: str
-    harnessName: str
-    arn: str
+    harnessId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessId")]
+    harnessName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessName")]
+    arn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessArn")]
     status: HarnessStatusType
-    executionRoleArn: str
+    executionRoleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     createdAt: datetime
     updatedAt: datetime
     model: HarnessModelConfigurationTypeDef
     systemPrompt: List[HarnessSystemContentBlockTypeDef]
     tools: List[HarnessToolOutputTypeDef]
     skills: List[HarnessSkillTypeDef]
-    allowedTools: List[str]
+    allowedTools: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessAllowedTool")]]
     truncation: HarnessTruncationConfigurationTypeDef
     environment: HarnessEnvironmentProviderTypeDef
     environmentArtifact: Optional[HarnessEnvironmentArtifactTypeDef] = None
@@ -3410,21 +3875,21 @@ class HarnessTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_gateway' function.
 class UpdateGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayArn: str
-    gatewayId: str
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    gatewayId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayId")]
     gatewayUrl: str
     createdAt: datetime
     updatedAt: datetime
     status: GatewayStatusType
     statusReasons: List[str]
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayName")]
     description: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     protocolType: Literal["MCP"]
     protocolConfiguration: GatewayProtocolConfigurationOutputTypeDef
     authorizerType: AuthorizerTypeType
     authorizerConfiguration: AuthorizerConfigurationOutputTypeDef
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]
     interceptorConfigurations: List[GatewayInterceptorConfigurationOutputTypeDef]
     policyEngineConfiguration: GatewayPolicyEngineConfigurationTypeDef
     workloadIdentityDetails: WorkloadIdentityDetailsTypeDef
@@ -3434,10 +3899,10 @@ class UpdateGatewayResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_registry' function.
 class UpdateRegistryResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryName")]
     description: str
-    registryId: str
-    registryArn: str
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryId")]
+    registryArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryArn")]
     authorizerType: RegistryAuthorizerTypeType
     authorizerConfiguration: AuthorizerConfigurationOutputTypeDef
     approvalConfiguration: ApprovalConfigurationTypeDef
@@ -3451,8 +3916,8 @@ class UpdateRegistryResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_oauth2_credential_provider' function.
 class CreateOauth2CredentialProviderResponseTypeDef(BaseValidatorModel):
     clientSecretArn: SecretTypeDef
-    name: str
-    credentialProviderArn: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
+    credentialProviderArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderArnType")]
     callbackUrl: str
     oauth2ProviderConfigOutput: Oauth2ProviderConfigOutputTypeDef
     status: StatusType
@@ -3462,8 +3927,8 @@ class CreateOauth2CredentialProviderResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_oauth2_credential_provider' function.
 class GetOauth2CredentialProviderResponseTypeDef(BaseValidatorModel):
     clientSecretArn: SecretTypeDef
-    name: str
-    credentialProviderArn: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
+    credentialProviderArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderArnType")]
     credentialProviderVendor: CredentialProviderVendorTypeType
     callbackUrl: str
     oauth2ProviderConfigOutput: Oauth2ProviderConfigOutputTypeDef
@@ -3477,9 +3942,9 @@ class GetOauth2CredentialProviderResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_oauth2_credential_provider' function.
 class UpdateOauth2CredentialProviderResponseTypeDef(BaseValidatorModel):
     clientSecretArn: SecretTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
     credentialProviderVendor: CredentialProviderVendorTypeType
-    credentialProviderArn: str
+    credentialProviderArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderArnType")]
     callbackUrl: str
     oauth2ProviderConfigOutput: Oauth2ProviderConfigOutputTypeDef
     createdTime: datetime
@@ -3490,14 +3955,14 @@ class UpdateOauth2CredentialProviderResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_registry_record' function.
 class GetRegistryRecordResponseTypeDef(BaseValidatorModel):
-    registryArn: str
-    recordArn: str
-    recordId: str
-    name: str
+    registryArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryArn")]
+    recordArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordArn")]
+    recordId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordName")]
     description: str
     descriptorType: DescriptorTypeType
     descriptors: DescriptorsTypeDef
-    recordVersion: str
+    recordVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordVersion")]
     status: RegistryRecordStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -3509,14 +3974,14 @@ class GetRegistryRecordResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_registry_record' function.
 class UpdateRegistryRecordResponseTypeDef(BaseValidatorModel):
-    registryArn: str
-    recordArn: str
-    recordId: str
-    name: str
+    registryArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryArn")]
+    recordArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordArn")]
+    recordId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordName")]
     description: str
     descriptorType: DescriptorTypeType
     descriptors: DescriptorsTypeDef
-    recordVersion: str
+    recordVersion: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordVersion")]
     status: RegistryRecordStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -3533,60 +3998,59 @@ RegistryRecordCredentialProviderConfigurationUnionTypeDef = Union[
 
 class TargetConfigurationOutputTypeDef(BaseValidatorModel):
     mcp: Optional[McpTargetConfigurationOutputTypeDef] = None
+    http: Optional[HttpTargetConfigurationTypeDef] = None
 
 
 class TargetConfigurationTypeDef(BaseValidatorModel):
     mcp: Optional[McpTargetConfigurationTypeDef] = None
+    http: Optional[HttpTargetConfigurationTypeDef] = None
 
 
-class MemoryStrategyInputTypeDef(BaseValidatorModel):
-    semanticMemoryStrategy: Optional[SemanticMemoryStrategyInputTypeDef] = None
-    summaryMemoryStrategy: Optional[SummaryMemoryStrategyInputTypeDef] = None
-    userPreferenceMemoryStrategy: Optional[UserPreferenceMemoryStrategyInputTypeDef] = None
-    customMemoryStrategy: Optional[CustomMemoryStrategyInputTypeDef] = None
-    episodicMemoryStrategy: Optional[EpisodicMemoryStrategyInputTypeDef] = None
+class MemoryRecordSchemaOutputTypeDef(BaseValidatorModel):
+    metadataSchema: Optional[List[MetadataSchemaEntryOutputTypeDef]] = None
 
 
-class MemoryTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
-    eventExpiryDuration: int
-    status: MemoryStatusType
-    createdAt: datetime
-    updatedAt: datetime
-    description: Optional[str] = None
-    encryptionKeyArn: Optional[str] = None
-    memoryExecutionRoleArn: Optional[str] = None
-    failureReason: Optional[str] = None
-    strategies: Optional[List[MemoryStrategyTypeDef]] = None
-    streamDeliveryResources: Optional[StreamDeliveryResourcesOutputTypeDef] = None
+LlmExtractionConfigUnionTypeDef = Union[LlmExtractionConfigOutputTypeDef, LlmExtractionConfigTypeDef]
+
+RouteToTargetActionUnionTypeDef = Union[RouteToTargetActionOutputTypeDef, RouteToTargetActionTypeDef]
 
 
 # This class is the input for the 'create_evaluator' function.
 class CreateEvaluatorRequestTypeDef(BaseValidatorModel):
-    evaluatorName: str
+    evaluatorName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CustomEvaluatorName")]
     evaluatorConfig: EvaluatorConfigUnionTypeDef
     level: EvaluatorLevelType
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
     description: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_evaluator' function.
 class UpdateEvaluatorRequestTypeDef(BaseValidatorModel):
-    evaluatorId: str
-    clientToken: Optional[str] = None
+    evaluatorId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "EvaluatorId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
     description: Optional[str] = None
     evaluatorConfig: Optional[EvaluatorConfigUnionTypeDef] = None
     level: Optional[EvaluatorLevelType] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]] = None
+
+
+# This class is the output for the 'list_gateway_rules' function.
+class ListGatewayRulesResponseTypeDef(BaseValidatorModel):
+    gatewayRules: List[GatewayRuleDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayRuleNextToken")]] = None
+
+
+ConfigurationBundleActionUnionTypeDef = Union[ConfigurationBundleActionOutputTypeDef, ConfigurationBundleActionTypeDef]
 
 
 class CustomJWTAuthorizerConfigurationTypeDef(BaseValidatorModel):
-    discoveryUrl: str
+    discoveryUrl: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "DiscoveryUrl")]
     allowedAudience: Optional[List[str]] = None
     allowedClients: Optional[List[str]] = None
-    allowedScopes: Optional[List[str]] = None
+    allowedScopes: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AllowedScopeType")]]] = None
     customClaims: Optional[List[CustomClaimValidationTypeUnionTypeDef]] = None
     privateEndpoint: Optional[PrivateEndpointUnionTypeDef] = None
     privateEndpointOverrides: Optional[List[PrivateEndpointOverrideUnionTypeDef]] = None
@@ -3594,10 +4058,12 @@ class CustomJWTAuthorizerConfigurationTypeDef(BaseValidatorModel):
 
 class CustomOauth2ProviderConfigInputTypeDef(BaseValidatorModel):
     oauthDiscovery: Oauth2DiscoveryUnionTypeDef
-    clientId: str
-    clientSecret: str
+    clientId: Optional[str] = None
+    clientSecret: Optional[str] = None
     privateEndpoint: Optional[PrivateEndpointUnionTypeDef] = None
     privateEndpointOverrides: Optional[List[PrivateEndpointOverrideUnionTypeDef]] = None
+    onBehalfOfTokenExchangeConfig: Optional[OnBehalfOfTokenExchangeConfigTypeUnionTypeDef] = None
+    clientAuthenticationMethod: Optional[ClientAuthenticationMethodTypeType] = None
 
 
 class HarnessToolConfigurationTypeDef(BaseValidatorModel):
@@ -3633,19 +4099,19 @@ class UpdateHarnessResponseTypeDef(BaseValidatorModel):
 
 
 class FromUrlSynchronizationConfigurationTypeDef(BaseValidatorModel):
-    url: str
+    url: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "McpServerUrl")]
     credentialProviderConfigurations: Optional[List[RegistryRecordCredentialProviderConfigurationUnionTypeDef]] = None
 
 
 # This class is the output for the 'create_gateway_target' function.
 class CreateGatewayTargetResponseTypeDef(BaseValidatorModel):
-    gatewayArn: str
-    targetId: str
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    targetId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetId")]
     createdAt: datetime
     updatedAt: datetime
     status: TargetStatusType
     statusReasons: List[str]
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetName")]
     description: str
     targetConfiguration: TargetConfigurationOutputTypeDef
     credentialProviderConfigurations: List[CredentialProviderConfigurationOutputTypeDef]
@@ -3654,16 +4120,17 @@ class CreateGatewayTargetResponseTypeDef(BaseValidatorModel):
     privateEndpoint: PrivateEndpointOutputTypeDef
     privateEndpointManagedResources: List[ManagedResourceDetailsTypeDef]
     authorizationData: AuthorizationDataTypeDef
+    protocolType: TargetProtocolTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class GatewayTargetTypeDef(BaseValidatorModel):
-    gatewayArn: str
-    targetId: str
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    targetId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetId")]
     createdAt: datetime
     updatedAt: datetime
     status: TargetStatusType
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetName")]
     targetConfiguration: TargetConfigurationOutputTypeDef
     credentialProviderConfigurations: List[CredentialProviderConfigurationOutputTypeDef]
     statusReasons: Optional[List[str]] = None
@@ -3673,17 +4140,18 @@ class GatewayTargetTypeDef(BaseValidatorModel):
     privateEndpoint: Optional[PrivateEndpointOutputTypeDef] = None
     privateEndpointManagedResources: Optional[List[ManagedResourceDetailsTypeDef]] = None
     authorizationData: Optional[AuthorizationDataTypeDef] = None
+    protocolType: Optional[TargetProtocolTypeType] = None
 
 
 # This class is the output for the 'get_gateway_target' function.
 class GetGatewayTargetResponseTypeDef(BaseValidatorModel):
-    gatewayArn: str
-    targetId: str
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    targetId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetId")]
     createdAt: datetime
     updatedAt: datetime
     status: TargetStatusType
     statusReasons: List[str]
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetName")]
     description: str
     targetConfiguration: TargetConfigurationOutputTypeDef
     credentialProviderConfigurations: List[CredentialProviderConfigurationOutputTypeDef]
@@ -3692,18 +4160,19 @@ class GetGatewayTargetResponseTypeDef(BaseValidatorModel):
     privateEndpoint: PrivateEndpointOutputTypeDef
     privateEndpointManagedResources: List[ManagedResourceDetailsTypeDef]
     authorizationData: AuthorizationDataTypeDef
+    protocolType: TargetProtocolTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_gateway_target' function.
 class UpdateGatewayTargetResponseTypeDef(BaseValidatorModel):
-    gatewayArn: str
-    targetId: str
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayArn")]
+    targetId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetId")]
     createdAt: datetime
     updatedAt: datetime
     status: TargetStatusType
     statusReasons: List[str]
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetName")]
     description: str
     targetConfiguration: TargetConfigurationOutputTypeDef
     credentialProviderConfigurations: List[CredentialProviderConfigurationOutputTypeDef]
@@ -3712,47 +4181,34 @@ class UpdateGatewayTargetResponseTypeDef(BaseValidatorModel):
     privateEndpoint: PrivateEndpointOutputTypeDef
     privateEndpointManagedResources: List[ManagedResourceDetailsTypeDef]
     authorizationData: AuthorizationDataTypeDef
+    protocolType: TargetProtocolTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 TargetConfigurationUnionTypeDef = Union[TargetConfigurationOutputTypeDef, TargetConfigurationTypeDef]
 
 
-# This class is the input for the 'create_memory' function.
-class CreateMemoryInputTypeDef(BaseValidatorModel):
-    name: str
-    eventExpiryDuration: int
-    clientToken: Optional[str] = None
-    description: Optional[str] = None
-    encryptionKeyArn: Optional[str] = None
-    memoryExecutionRoleArn: Optional[str] = None
-    memoryStrategies: Optional[List[MemoryStrategyInputTypeDef]] = None
-    streamDeliveryResources: Optional[StreamDeliveryResourcesUnionTypeDef] = None
-    tags: Optional[Dict[str, str]] = None
+class EpisodicReflectionConfigurationTypeDef(BaseValidatorModel):
+    namespaces: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    namespaceTemplates: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    memoryRecordSchema: Optional[MemoryRecordSchemaOutputTypeDef] = None
 
 
-class ModifyMemoryStrategiesTypeDef(BaseValidatorModel):
-    addMemoryStrategies: Optional[List[MemoryStrategyInputTypeDef]] = None
-    modifyMemoryStrategies: Optional[List[ModifyMemoryStrategyInputTypeDef]] = None
-    deleteMemoryStrategies: Optional[List[DeleteMemoryStrategyInputTypeDef]] = None
+class EpisodicReflectionOverrideTypeDef(BaseValidatorModel):
+    appendToPrompt: str
+    modelId: str
+    namespaces: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    namespaceTemplates: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    memoryRecordSchema: Optional[MemoryRecordSchemaOutputTypeDef] = None
 
 
-# This class is the output for the 'create_memory' function.
-class CreateMemoryOutputTypeDef(BaseValidatorModel):
-    memory: MemoryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExtractionConfigTypeDef(BaseValidatorModel):
+    llmExtractionConfig: Optional[LlmExtractionConfigUnionTypeDef] = None
 
 
-# This class is the output for the 'get_memory' function.
-class GetMemoryOutputTypeDef(BaseValidatorModel):
-    memory: MemoryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-# This class is the output for the 'update_memory' function.
-class UpdateMemoryOutputTypeDef(BaseValidatorModel):
-    memory: MemoryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ActionTypeDef(BaseValidatorModel):
+    configurationBundle: Optional[ConfigurationBundleActionUnionTypeDef] = None
+    routeToTarget: Optional[RouteToTargetActionUnionTypeDef] = None
 
 
 CustomJWTAuthorizerConfigurationUnionTypeDef = Union[
@@ -3787,11 +4243,11 @@ class SynchronizeGatewayTargetsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_gateway_target' function.
 class CreateGatewayTargetRequestTypeDef(BaseValidatorModel):
-    gatewayIdentifier: str
-    name: str
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetName")]
     targetConfiguration: TargetConfigurationUnionTypeDef
     description: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
     credentialProviderConfigurations: Optional[List[CredentialProviderConfigurationUnionTypeDef]] = None
     metadataConfiguration: Optional[MetadataConfigurationUnionTypeDef] = None
     privateEndpoint: Optional[PrivateEndpointUnionTypeDef] = None
@@ -3799,9 +4255,9 @@ class CreateGatewayTargetRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_gateway_target' function.
 class UpdateGatewayTargetRequestTypeDef(BaseValidatorModel):
-    gatewayIdentifier: str
-    targetId: str
-    name: str
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+    targetId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "TargetName")]
     targetConfiguration: TargetConfigurationUnionTypeDef
     description: Optional[str] = None
     credentialProviderConfigurations: Optional[List[CredentialProviderConfigurationUnionTypeDef]] = None
@@ -3809,15 +4265,13 @@ class UpdateGatewayTargetRequestTypeDef(BaseValidatorModel):
     privateEndpoint: Optional[PrivateEndpointUnionTypeDef] = None
 
 
-# This class is the input for the 'update_memory' function.
-class UpdateMemoryInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    clientToken: Optional[str] = None
-    description: Optional[str] = None
-    eventExpiryDuration: Optional[int] = None
-    memoryExecutionRoleArn: Optional[str] = None
-    memoryStrategies: Optional[ModifyMemoryStrategiesTypeDef] = None
-    streamDeliveryResources: Optional[StreamDeliveryResourcesUnionTypeDef] = None
+class CustomReflectionConfigurationTypeDef(BaseValidatorModel):
+    episodicReflectionOverride: Optional[EpisodicReflectionOverrideTypeDef] = None
+
+
+ExtractionConfigUnionTypeDef = Union[ExtractionConfigOutputTypeDef, ExtractionConfigTypeDef]
+
+ActionUnionTypeDef = Union[ActionOutputTypeDef, ActionTypeDef]
 
 
 class AuthorizerConfigurationTypeDef(BaseValidatorModel):
@@ -3826,7 +4280,7 @@ class AuthorizerConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_oauth2_credential_provider' function.
 class CreateOauth2CredentialProviderRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
     credentialProviderVendor: CredentialProviderVendorTypeType
     oauth2ProviderConfigInput: Oauth2ProviderConfigInputTypeDef
     tags: Optional[Dict[str, str]] = None
@@ -3834,19 +4288,50 @@ class CreateOauth2CredentialProviderRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_oauth2_credential_provider' function.
 class UpdateOauth2CredentialProviderRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "CredentialProviderName")]
     credentialProviderVendor: CredentialProviderVendorTypeType
     oauth2ProviderConfigInput: Oauth2ProviderConfigInputTypeDef
 
 
 class HarnessToolTypeDef(BaseValidatorModel):
     type: HarnessToolTypeType
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessToolName")]] = None
     config: Optional[HarnessToolConfigurationUnionTypeDef] = None
 
 
 class SynchronizationConfigurationTypeDef(BaseValidatorModel):
     fromUrl: Optional[FromUrlSynchronizationConfigurationUnionTypeDef] = None
+
+
+class ReflectionConfigurationTypeDef(BaseValidatorModel):
+    customReflectionConfiguration: Optional[CustomReflectionConfigurationTypeDef] = None
+    episodicReflectionConfiguration: Optional[EpisodicReflectionConfigurationTypeDef] = None
+
+
+class MetadataSchemaEntryTypeDef(BaseValidatorModel):
+    key: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MetadataKey")]
+    type: Optional[MetadataValueTypeType] = None
+    extractionConfig: Optional[ExtractionConfigUnionTypeDef] = None
+
+
+# This class is the input for the 'create_gateway_rule' function.
+class CreateGatewayRuleRequestTypeDef(BaseValidatorModel):
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+    priority: int
+    actions: List[ActionUnionTypeDef]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
+    conditions: Optional[List[ConditionUnionTypeDef]] = None
+    description: Optional[str] = None
+
+
+# This class is the input for the 'update_gateway_rule' function.
+class UpdateGatewayRuleRequestTypeDef(BaseValidatorModel):
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+    ruleId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayRuleId")]
+    priority: Optional[int] = None
+    conditions: Optional[List[ConditionUnionTypeDef]] = None
+    actions: Optional[List[ActionUnionTypeDef]] = None
+    description: Optional[str] = None
 
 
 AuthorizerConfigurationUnionTypeDef = Union[AuthorizerConfigurationOutputTypeDef, AuthorizerConfigurationTypeDef]
@@ -3858,13 +4343,24 @@ SynchronizationConfigurationUnionTypeDef = Union[
 ]
 
 
+class StrategyConfigurationTypeDef(BaseValidatorModel):
+    type: Optional[OverrideTypeType] = None
+    extraction: Optional[ExtractionConfigurationTypeDef] = None
+    consolidation: Optional[ConsolidationConfigurationTypeDef] = None
+    reflection: Optional[ReflectionConfigurationTypeDef] = None
+    selfManagedConfiguration: Optional[SelfManagedConfigurationTypeDef] = None
+
+
+MetadataSchemaEntryUnionTypeDef = Union[MetadataSchemaEntryOutputTypeDef, MetadataSchemaEntryTypeDef]
+
+
 # This class is the input for the 'create_agent_runtime' function.
 class CreateAgentRuntimeRequestTypeDef(BaseValidatorModel):
-    agentRuntimeName: str
+    agentRuntimeName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeName")]
     agentRuntimeArtifact: AgentRuntimeArtifactUnionTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     networkConfiguration: NetworkConfigurationUnionTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
     description: Optional[str] = None
     authorizerConfiguration: Optional[AuthorizerConfigurationUnionTypeDef] = None
     requestHeaderConfiguration: Optional[RequestHeaderConfigurationUnionTypeDef] = None
@@ -3877,15 +4373,15 @@ class CreateAgentRuntimeRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_gateway' function.
 class CreateGatewayRequestTypeDef(BaseValidatorModel):
-    name: str
-    roleArn: str
-    protocolType: Literal["MCP"]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayName")]
+    roleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     authorizerType: AuthorizerTypeType
     description: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
+    protocolType: Optional[Literal["MCP"]] = None
     protocolConfiguration: Optional[GatewayProtocolConfigurationUnionTypeDef] = None
     authorizerConfiguration: Optional[AuthorizerConfigurationUnionTypeDef] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]] = None
     interceptorConfigurations: Optional[List[GatewayInterceptorConfigurationUnionTypeDef]] = None
     policyEngineConfiguration: Optional[GatewayPolicyEngineConfigurationTypeDef] = None
     exceptionLevel: Optional[Literal["DEBUG"]] = None
@@ -3894,19 +4390,19 @@ class CreateGatewayRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_registry' function.
 class CreateRegistryRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryName")]
     description: Optional[str] = None
     authorizerType: Optional[RegistryAuthorizerTypeType] = None
     authorizerConfiguration: Optional[AuthorizerConfigurationUnionTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
     approvalConfiguration: Optional[ApprovalConfigurationTypeDef] = None
 
 
 # This class is the input for the 'update_agent_runtime' function.
 class UpdateAgentRuntimeRequestTypeDef(BaseValidatorModel):
-    agentRuntimeId: str
+    agentRuntimeId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "AgentRuntimeId")]
     agentRuntimeArtifact: AgentRuntimeArtifactUnionTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     networkConfiguration: NetworkConfigurationUnionTypeDef
     description: Optional[str] = None
     authorizerConfiguration: Optional[AuthorizerConfigurationUnionTypeDef] = None
@@ -3916,20 +4412,20 @@ class UpdateAgentRuntimeRequestTypeDef(BaseValidatorModel):
     metadataConfiguration: Optional[RuntimeMetadataConfigurationTypeDef] = None
     environmentVariables: Optional[Dict[str, str]] = None
     filesystemConfigurations: Optional[List[FilesystemConfigurationTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_gateway' function.
 class UpdateGatewayRequestTypeDef(BaseValidatorModel):
-    gatewayIdentifier: str
-    name: str
-    roleArn: str
-    protocolType: Literal["MCP"]
+    gatewayIdentifier: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayIdentifier")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "GatewayName")]
+    roleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
     authorizerType: AuthorizerTypeType
     description: Optional[str] = None
+    protocolType: Optional[Literal["MCP"]] = None
     protocolConfiguration: Optional[GatewayProtocolConfigurationUnionTypeDef] = None
     authorizerConfiguration: Optional[AuthorizerConfigurationUnionTypeDef] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "KmsKeyArn")]] = None
     interceptorConfigurations: Optional[List[GatewayInterceptorConfigurationUnionTypeDef]] = None
     policyEngineConfiguration: Optional[GatewayPolicyEngineConfigurationTypeDef] = None
     exceptionLevel: Optional[Literal["DEBUG"]] = None
@@ -3941,9 +4437,9 @@ class UpdatedAuthorizerConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_harness' function.
 class CreateHarnessRequestTypeDef(BaseValidatorModel):
-    harnessName: str
-    executionRoleArn: str
-    clientToken: Optional[str] = None
+    harnessName: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessName")]
+    executionRoleArn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
     environment: Optional[HarnessEnvironmentProviderRequestTypeDef] = None
     environmentArtifact: Optional[HarnessEnvironmentArtifactTypeDef] = None
     environmentVariables: Optional[Dict[str, str]] = None
@@ -3952,7 +4448,7 @@ class CreateHarnessRequestTypeDef(BaseValidatorModel):
     systemPrompt: Optional[List[HarnessSystemContentBlockTypeDef]] = None
     tools: Optional[List[HarnessToolUnionTypeDef]] = None
     skills: Optional[List[HarnessSkillTypeDef]] = None
-    allowedTools: Optional[List[str]] = None
+    allowedTools: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessAllowedTool")]]] = None
     memory: Optional[HarnessMemoryConfigurationUnionTypeDef] = None
     truncation: Optional[HarnessTruncationConfigurationTypeDef] = None
     maxIterations: Optional[int] = None
@@ -3963,26 +4459,44 @@ class CreateHarnessRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_registry_record' function.
 class CreateRegistryRecordRequestTypeDef(BaseValidatorModel):
-    registryId: str
-    name: str
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryIdentifier")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordName")]
     descriptorType: DescriptorTypeType
     description: Optional[str] = None
     descriptors: Optional[DescriptorsTypeDef] = None
-    recordVersion: Optional[str] = None
+    recordVersion: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordVersion")]] = None
     synchronizationType: Optional[Literal["URL"]] = None
     synchronizationConfiguration: Optional[SynchronizationConfigurationUnionTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
 
 
 class UpdatedSynchronizationConfigurationTypeDef(BaseValidatorModel):
     optionalValue: Optional[SynchronizationConfigurationUnionTypeDef] = None
 
 
+class MemoryStrategyTypeDef(BaseValidatorModel):
+    strategyId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MemoryStrategyId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Name")]
+    type: MemoryStrategyTypeType
+    namespaces: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]
+    namespaceTemplates: List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]
+    description: Optional[str] = None
+    configuration: Optional[StrategyConfigurationTypeDef] = None
+    createdAt: Optional[datetime] = None
+    updatedAt: Optional[datetime] = None
+    status: Optional[MemoryStrategyStatusType] = None
+    memoryRecordSchema: Optional[MemoryRecordSchemaOutputTypeDef] = None
+
+
+class MemoryRecordSchemaTypeDef(BaseValidatorModel):
+    metadataSchema: Optional[List[MetadataSchemaEntryUnionTypeDef]] = None
+
+
 # This class is the input for the 'update_harness' function.
 class UpdateHarnessRequestTypeDef(BaseValidatorModel):
-    harnessId: str
-    clientToken: Optional[str] = None
-    executionRoleArn: Optional[str] = None
+    harnessId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "ClientToken")]] = None
+    executionRoleArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RoleArn")]] = None
     environment: Optional[HarnessEnvironmentProviderRequestTypeDef] = None
     environmentArtifact: Optional[UpdatedHarnessEnvironmentArtifactTypeDef] = None
     environmentVariables: Optional[Dict[str, str]] = None
@@ -3991,7 +4505,7 @@ class UpdateHarnessRequestTypeDef(BaseValidatorModel):
     systemPrompt: Optional[List[HarnessSystemContentBlockTypeDef]] = None
     tools: Optional[List[HarnessToolUnionTypeDef]] = None
     skills: Optional[List[HarnessSkillTypeDef]] = None
-    allowedTools: Optional[List[str]] = None
+    allowedTools: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "HarnessAllowedTool")]]] = None
     memory: Optional[UpdatedHarnessMemoryConfigurationTypeDef] = None
     truncation: Optional[HarnessTruncationConfigurationTypeDef] = None
     maxIterations: Optional[int] = None
@@ -4001,8 +4515,8 @@ class UpdateHarnessRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_registry' function.
 class UpdateRegistryRequestTypeDef(BaseValidatorModel):
-    registryId: str
-    name: Optional[str] = None
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryIdentifier")]
+    name: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryName")]] = None
     description: Optional[UpdatedDescriptionTypeDef] = None
     authorizerConfiguration: Optional[UpdatedAuthorizerConfigurationTypeDef] = None
     approvalConfiguration: Optional[UpdatedApprovalConfigurationTypeDef] = None
@@ -4010,13 +4524,186 @@ class UpdateRegistryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_registry_record' function.
 class UpdateRegistryRecordRequestTypeDef(BaseValidatorModel):
-    registryId: str
-    recordId: str
-    name: Optional[str] = None
+    registryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryIdentifier")]
+    recordId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RecordIdentifier")]
+    name: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordName")]] = None
     description: Optional[UpdatedDescriptionTypeDef] = None
     descriptorType: Optional[DescriptorTypeType] = None
     descriptors: Optional[UpdatedDescriptorsTypeDef] = None
-    recordVersion: Optional[str] = None
+    recordVersion: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "RegistryRecordVersion")]] = None
     synchronizationType: Optional[UpdatedSynchronizationTypeTypeDef] = None
     synchronizationConfiguration: Optional[UpdatedSynchronizationConfigurationTypeDef] = None
     triggerSynchronization: Optional[bool] = None
+
+
+class MemoryTypeDef(BaseValidatorModel):
+    arn: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MemoryArn")]
+    id: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MemoryId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Name")]
+    eventExpiryDuration: int
+    status: MemoryStatusType
+    createdAt: datetime
+    updatedAt: datetime
+    description: Optional[str] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Arn")]] = None
+    memoryExecutionRoleArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Arn")]] = None
+    failureReason: Optional[str] = None
+    strategies: Optional[List[MemoryStrategyTypeDef]] = None
+    indexedKeys: Optional[List[IndexedKeyTypeDef]] = None
+    streamDeliveryResources: Optional[StreamDeliveryResourcesOutputTypeDef] = None
+
+
+MemoryRecordSchemaUnionTypeDef = Union[MemoryRecordSchemaOutputTypeDef, MemoryRecordSchemaTypeDef]
+
+
+# This class is the output for the 'create_memory' function.
+class CreateMemoryOutputTypeDef(BaseValidatorModel):
+    memory: MemoryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'get_memory' function.
+class GetMemoryOutputTypeDef(BaseValidatorModel):
+    memory: MemoryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'update_memory' function.
+class UpdateMemoryOutputTypeDef(BaseValidatorModel):
+    memory: MemoryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class EpisodicOverrideReflectionConfigurationInputTypeDef(BaseValidatorModel):
+    appendToPrompt: str
+    modelId: str
+    namespaces: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    namespaceTemplates: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    memoryRecordSchema: Optional[MemoryRecordSchemaUnionTypeDef] = None
+
+
+class EpisodicReflectionConfigurationInputTypeDef(BaseValidatorModel):
+    namespaces: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    namespaceTemplates: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    memoryRecordSchema: Optional[MemoryRecordSchemaUnionTypeDef] = None
+
+
+class SemanticMemoryStrategyInputTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Name")]
+    description: Optional[str] = None
+    namespaces: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    namespaceTemplates: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    memoryRecordSchema: Optional[MemoryRecordSchemaUnionTypeDef] = None
+
+
+class SummaryMemoryStrategyInputTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Name")]
+    description: Optional[str] = None
+    namespaces: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    namespaceTemplates: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    memoryRecordSchema: Optional[MemoryRecordSchemaUnionTypeDef] = None
+
+
+class UserPreferenceMemoryStrategyInputTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Name")]
+    description: Optional[str] = None
+    namespaces: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    namespaceTemplates: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    memoryRecordSchema: Optional[MemoryRecordSchemaUnionTypeDef] = None
+
+
+class CustomReflectionConfigurationInputTypeDef(BaseValidatorModel):
+    episodicReflectionOverride: Optional[EpisodicOverrideReflectionConfigurationInputTypeDef] = None
+
+
+class EpisodicOverrideConfigurationInputTypeDef(BaseValidatorModel):
+    extraction: Optional[EpisodicOverrideExtractionConfigurationInputTypeDef] = None
+    consolidation: Optional[EpisodicOverrideConsolidationConfigurationInputTypeDef] = None
+    reflection: Optional[EpisodicOverrideReflectionConfigurationInputTypeDef] = None
+
+
+class EpisodicMemoryStrategyInputTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Name")]
+    description: Optional[str] = None
+    namespaces: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    namespaceTemplates: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    reflectionConfiguration: Optional[EpisodicReflectionConfigurationInputTypeDef] = None
+    memoryRecordSchema: Optional[MemoryRecordSchemaUnionTypeDef] = None
+
+
+class ModifyReflectionConfigurationTypeDef(BaseValidatorModel):
+    episodicReflectionConfiguration: Optional[EpisodicReflectionConfigurationInputTypeDef] = None
+    customReflectionConfiguration: Optional[CustomReflectionConfigurationInputTypeDef] = None
+
+
+class CustomConfigurationInputTypeDef(BaseValidatorModel):
+    semanticOverride: Optional[SemanticOverrideConfigurationInputTypeDef] = None
+    summaryOverride: Optional[SummaryOverrideConfigurationInputTypeDef] = None
+    userPreferenceOverride: Optional[UserPreferenceOverrideConfigurationInputTypeDef] = None
+    episodicOverride: Optional[EpisodicOverrideConfigurationInputTypeDef] = None
+    selfManagedConfiguration: Optional[SelfManagedConfigurationInputTypeDef] = None
+
+
+class ModifyStrategyConfigurationTypeDef(BaseValidatorModel):
+    extraction: Optional[ModifyExtractionConfigurationTypeDef] = None
+    consolidation: Optional[ModifyConsolidationConfigurationTypeDef] = None
+    reflection: Optional[ModifyReflectionConfigurationTypeDef] = None
+    selfManagedConfiguration: Optional[ModifySelfManagedConfigurationTypeDef] = None
+
+
+class CustomMemoryStrategyInputTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Name")]
+    description: Optional[str] = None
+    namespaces: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    namespaceTemplates: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    configuration: Optional[CustomConfigurationInputTypeDef] = None
+    memoryRecordSchema: Optional[MemoryRecordSchemaUnionTypeDef] = None
+
+
+class ModifyMemoryStrategyInputTypeDef(BaseValidatorModel):
+    memoryStrategyId: str
+    description: Optional[str] = None
+    namespaces: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    namespaceTemplates: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Namespace")]]] = None
+    configuration: Optional[ModifyStrategyConfigurationTypeDef] = None
+    memoryRecordSchema: Optional[MemoryRecordSchemaUnionTypeDef] = None
+
+
+class MemoryStrategyInputTypeDef(BaseValidatorModel):
+    semanticMemoryStrategy: Optional[SemanticMemoryStrategyInputTypeDef] = None
+    summaryMemoryStrategy: Optional[SummaryMemoryStrategyInputTypeDef] = None
+    userPreferenceMemoryStrategy: Optional[UserPreferenceMemoryStrategyInputTypeDef] = None
+    customMemoryStrategy: Optional[CustomMemoryStrategyInputTypeDef] = None
+    episodicMemoryStrategy: Optional[EpisodicMemoryStrategyInputTypeDef] = None
+
+
+# This class is the input for the 'create_memory' function.
+class CreateMemoryInputTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Name")]
+    eventExpiryDuration: int
+    clientToken: Optional[str] = None
+    description: Optional[str] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Arn")]] = None
+    memoryExecutionRoleArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Arn")]] = None
+    memoryStrategies: Optional[List[MemoryStrategyInputTypeDef]] = None
+    indexedKeys: Optional[List[IndexedKeyTypeDef]] = None
+    streamDeliveryResources: Optional[StreamDeliveryResourcesUnionTypeDef] = None
+    tags: Optional[Dict[str, str]] = None
+
+
+class ModifyMemoryStrategiesTypeDef(BaseValidatorModel):
+    addMemoryStrategies: Optional[List[MemoryStrategyInputTypeDef]] = None
+    modifyMemoryStrategies: Optional[List[ModifyMemoryStrategyInputTypeDef]] = None
+    deleteMemoryStrategies: Optional[List[DeleteMemoryStrategyInputTypeDef]] = None
+
+
+# This class is the input for the 'update_memory' function.
+class UpdateMemoryInputTypeDef(BaseValidatorModel):
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcoreControl", "MemoryId")]
+    clientToken: Optional[str] = None
+    description: Optional[str] = None
+    eventExpiryDuration: Optional[int] = None
+    memoryExecutionRoleArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcoreControl", "Arn")]] = None
+    memoryStrategies: Optional[ModifyMemoryStrategiesTypeDef] = None
+    addIndexedKeys: Optional[List[IndexedKeyTypeDef]] = None
+    streamDeliveryResources: Optional[StreamDeliveryResourcesUnionTypeDef] = None

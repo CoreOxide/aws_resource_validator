@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.bcm_recommended_actions.bcm_recommended_actions_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -41,7 +43,7 @@ except ImportError:  # pragma: no cover
 class ActionFilterTypeDef(BaseValidatorModel):
     key: FilterNameType
     matchOption: MatchOptionType
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("BcmRecommendedActions", "FilterValue")]]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -53,7 +55,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 class RecommendedActionTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     type: Optional[ActionTypeType] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("BcmRecommendedActions", "AccountId")]] = None
     severity: Optional[SeverityType] = None
     feature: Optional[FeatureType] = None
     context: Optional[Dict[str, str]] = None
@@ -77,7 +79,7 @@ class RequestFilterTypeDef(BaseValidatorModel):
 class ListRecommendedActionsResponseTypeDef(BaseValidatorModel):
     recommendedActions: List[RecommendedActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmRecommendedActions", "NextToken")]] = None
 
 
 class ListRecommendedActionsRequestPaginateTypeDef(BaseValidatorModel):
@@ -89,4 +91,4 @@ class ListRecommendedActionsRequestPaginateTypeDef(BaseValidatorModel):
 class ListRecommendedActionsRequestTypeDef(BaseValidatorModel):
     filter: Optional[RequestFilterTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmRecommendedActions", "NextToken")]] = None

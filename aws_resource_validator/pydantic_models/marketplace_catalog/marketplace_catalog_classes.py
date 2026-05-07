@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.marketplace_catalog.marketplace_catalog_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,12 +41,12 @@ except ImportError:  # pragma: no cover
 
 
 class AmiProductEntityIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "AmiProductEntityIdString")]]] = None
 
 
 class AmiProductTitleFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "AmiProductTitleString")]]] = None
+    WildCardValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "AmiProductTitleString")]] = None
 
 
 class AmiProductVisibilityFilterTypeDef(BaseValidatorModel):
@@ -52,8 +54,8 @@ class AmiProductVisibilityFilterTypeDef(BaseValidatorModel):
 
 
 class AmiProductLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class AmiProductSortTypeDef(BaseValidatorModel):
@@ -62,25 +64,27 @@ class AmiProductSortTypeDef(BaseValidatorModel):
 
 
 class AmiProductSummaryTypeDef(BaseValidatorModel):
-    ProductTitle: Optional[str] = None
+    ProductTitle: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "AmiProductTitleString")]] = None
     Visibility: Optional[AmiProductVisibilityStringType] = None
 
 
 class EntityRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    EntityId: str
+    Catalog: Annotated[str, _aws_pattern("MarketplaceCatalog", "Catalog")]
+    EntityId: Annotated[str, _aws_pattern("MarketplaceCatalog", "EntityId")]
 
 
 class BatchDescribeErrorDetailTypeDef(BaseValidatorModel):
-    ErrorCode: Optional[str] = None
-    ErrorMessage: Optional[str] = None
+    ErrorCode: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "BatchDescribeErrorCodeString")]] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "BatchDescribeErrorMessageContent")]] = (
+        None
+    )
 
 
 class EntityDetailTypeDef(BaseValidatorModel):
-    EntityType: Optional[str] = None
-    EntityArn: Optional[str] = None
-    EntityIdentifier: Optional[str] = None
-    LastModifiedDate: Optional[str] = None
+    EntityType: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "EntityType")]] = None
+    EntityArn: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ARN")]] = None
+    EntityIdentifier: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "Identifier")]] = None
+    LastModifiedDate: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
     DetailsDocument: Optional[Dict[str, Any]] = None
 
 
@@ -94,43 +98,45 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_change_set' function.
 class CancelChangeSetRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ChangeSetId: str
+    Catalog: Annotated[str, _aws_pattern("MarketplaceCatalog", "Catalog")]
+    ChangeSetId: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceId")]
 
 
 class ChangeSetSummaryListItemTypeDef(BaseValidatorModel):
-    ChangeSetId: Optional[str] = None
-    ChangeSetArn: Optional[str] = None
-    ChangeSetName: Optional[str] = None
-    StartTime: Optional[str] = None
-    EndTime: Optional[str] = None
+    ChangeSetId: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceId")]] = None
+    ChangeSetArn: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ARN")]] = None
+    ChangeSetName: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ChangeSetName")]] = None
+    StartTime: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    EndTime: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
     Status: Optional[ChangeStatusType] = None
-    EntityIdList: Optional[List[str]] = None
+    EntityIdList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceId")]]] = None
     FailureCode: Optional[FailureCodeType] = None
 
 
 class EntityTypeDef(BaseValidatorModel):
-    Type: str
-    Identifier: Optional[str] = None
+    Type: Annotated[str, _aws_pattern("MarketplaceCatalog", "EntityType")]
+    Identifier: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "Identifier")]] = None
 
 
 class ErrorDetailTypeDef(BaseValidatorModel):
-    ErrorCode: Optional[str] = None
-    ErrorMessage: Optional[str] = None
+    ErrorCode: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ErrorCodeString")]] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ExceptionMessageContent")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("MarketplaceCatalog", "TagKey")]
+    Value: Annotated[str, _aws_pattern("MarketplaceCatalog", "TagValue")]
 
 
 class ContainerProductEntityIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ContainerProductEntityIdString")]]] = (
+        None
+    )
 
 
 class ContainerProductTitleFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ContainerProductTitleString")]]] = None
+    WildCardValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ContainerProductTitleString")]] = None
 
 
 class ContainerProductVisibilityFilterTypeDef(BaseValidatorModel):
@@ -138,8 +144,8 @@ class ContainerProductVisibilityFilterTypeDef(BaseValidatorModel):
 
 
 class ContainerProductLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class ContainerProductSortTypeDef(BaseValidatorModel):
@@ -148,17 +154,17 @@ class ContainerProductSortTypeDef(BaseValidatorModel):
 
 
 class ContainerProductSummaryTypeDef(BaseValidatorModel):
-    ProductTitle: Optional[str] = None
+    ProductTitle: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ContainerProductTitleString")]] = None
     Visibility: Optional[ContainerProductVisibilityStringType] = None
 
 
 class DataProductEntityIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "DataProductEntityIdString")]]] = None
 
 
 class DataProductTitleFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "DataProductTitleString")]]] = None
+    WildCardValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DataProductTitleString")]] = None
 
 
 class DataProductVisibilityFilterTypeDef(BaseValidatorModel):
@@ -166,8 +172,8 @@ class DataProductVisibilityFilterTypeDef(BaseValidatorModel):
 
 
 class DataProductLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class DataProductSortTypeDef(BaseValidatorModel):
@@ -176,67 +182,85 @@ class DataProductSortTypeDef(BaseValidatorModel):
 
 
 class DataProductSummaryTypeDef(BaseValidatorModel):
-    ProductTitle: Optional[str] = None
+    ProductTitle: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DataProductTitleString")]] = None
     Visibility: Optional[DataProductVisibilityStringType] = None
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceARN")]
 
 
 # This class is the input for the 'describe_change_set' function.
 class DescribeChangeSetRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ChangeSetId: str
+    Catalog: Annotated[str, _aws_pattern("MarketplaceCatalog", "Catalog")]
+    ChangeSetId: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceId")]
 
 
 # This class is the input for the 'describe_entity' function.
 class DescribeEntityRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    EntityId: str
+    Catalog: Annotated[str, _aws_pattern("MarketplaceCatalog", "Catalog")]
+    EntityId: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceId")]
 
 
 class MachineLearningProductSummaryTypeDef(BaseValidatorModel):
-    ProductTitle: Optional[str] = None
+    ProductTitle: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "MachineLearningProductTitleString")]] = (
+        None
+    )
     Visibility: Optional[MachineLearningProductVisibilityStringType] = None
 
 
 class OfferSetSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferSetNameString")]] = None
     State: Optional[OfferSetStateStringType] = None
-    ReleaseDate: Optional[str] = None
-    AssociatedOfferIds: Optional[List[str]] = None
-    SolutionId: Optional[str] = None
+    ReleaseDate: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    AssociatedOfferIds: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferSetAssociatedOfferIdsString")]]
+    ] = None
+    SolutionId: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferSetSolutionIdString")]] = None
 
 
 class OfferSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ProductId: Optional[str] = None
-    ResaleAuthorizationId: Optional[str] = None
-    ReleaseDate: Optional[str] = None
-    AvailabilityEndDate: Optional[str] = None
-    BuyerAccounts: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferNameString")]] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferProductIdString")]] = None
+    ResaleAuthorizationId: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferResaleAuthorizationIdString")]
+    ] = None
+    ReleaseDate: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    AvailabilityEndDate: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BuyerAccounts: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferBuyerAccountsString")]]] = None
     State: Optional[OfferStateStringType] = None
     Targeting: Optional[List[OfferTargetingStringType]] = None
-    OfferSetId: Optional[str] = None
+    OfferSetId: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferSetIdString")]] = None
 
 
 class ResaleAuthorizationSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ProductId: Optional[str] = None
-    ProductName: Optional[str] = None
-    ManufacturerAccountId: Optional[str] = None
-    ManufacturerLegalName: Optional[str] = None
-    ResellerAccountID: Optional[str] = None
-    ResellerLegalName: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationNameString")]] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationProductIdString")]] = None
+    ProductName: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationProductNameString")]
+    ] = None
+    ManufacturerAccountId: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationManufacturerAccountIdString")]
+    ] = None
+    ManufacturerLegalName: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationManufacturerLegalNameString")]
+    ] = None
+    ResellerAccountID: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationResellerAccountIDString")]
+    ] = None
+    ResellerLegalName: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationResellerLegalNameString")]
+    ] = None
     Status: Optional[ResaleAuthorizationStatusStringType] = None
-    OfferExtendedStatus: Optional[str] = None
-    CreatedDate: Optional[str] = None
-    AvailabilityEndDate: Optional[str] = None
+    OfferExtendedStatus: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationOfferExtendedStatusString")]
+    ] = None
+    CreatedDate: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    AvailabilityEndDate: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class SaaSProductSummaryTypeDef(BaseValidatorModel):
-    ProductTitle: Optional[str] = None
+    ProductTitle: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "SaaSProductTitleString")]] = None
     Visibility: Optional[SaaSProductVisibilityStringType] = None
 
 
@@ -266,13 +290,13 @@ class SaaSProductSortTypeDef(BaseValidatorModel):
 
 
 class FilterTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ValueList: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "FilterName")]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "FilterValueContent")]]] = None
 
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceARN")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -282,22 +306,28 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 
 class SortTypeDef(BaseValidatorModel):
-    SortBy: Optional[str] = None
+    SortBy: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "SortBy")]] = None
     SortOrder: Optional[SortOrderType] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceARN")]
 
 
 class MachineLearningProductEntityIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "MachineLearningProductEntityIdString")]]
+    ] = None
 
 
 class MachineLearningProductTitleFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "MachineLearningProductTitleString")]]
+    ] = None
+    WildCardValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "MachineLearningProductTitleString")]] = (
+        None
+    )
 
 
 class MachineLearningProductVisibilityFilterTypeDef(BaseValidatorModel):
@@ -305,38 +335,42 @@ class MachineLearningProductVisibilityFilterTypeDef(BaseValidatorModel):
 
 
 class MachineLearningProductLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class OfferAvailabilityEndDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class OfferBuyerAccountsFilterTypeDef(BaseValidatorModel):
-    WildCardValue: Optional[str] = None
+    WildCardValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferBuyerAccountsFilterWildcard")]] = (
+        None
+    )
 
 
 class OfferEntityIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferEntityIdString")]]] = None
 
 
 class OfferNameFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferNameString")]]] = None
+    WildCardValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferNameString")]] = None
 
 
 class OfferProductIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferProductIdString")]]] = None
 
 
 class OfferResaleAuthorizationIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferResaleAuthorizationIdString")]]
+    ] = None
 
 
 class OfferSetIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferSetIdString")]]] = None
 
 
 class OfferStateFilterTypeDef(BaseValidatorModel):
@@ -348,29 +382,31 @@ class OfferTargetingFilterTypeDef(BaseValidatorModel):
 
 
 class OfferLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class OfferReleaseDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class OfferSetAssociatedOfferIdsFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferSetAssociatedOfferIdsString")]]
+    ] = None
 
 
 class OfferSetEntityIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferSetEntityIdString")]]] = None
 
 
 class OfferSetNameFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferSetNameString")]]] = None
 
 
 class OfferSetSolutionIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "OfferSetSolutionIdString")]]] = None
 
 
 class OfferSetStateFilterTypeDef(BaseValidatorModel):
@@ -378,71 +414,103 @@ class OfferSetStateFilterTypeDef(BaseValidatorModel):
 
 
 class OfferSetLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class OfferSetReleaseDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    Policy: str
+    ResourceArn: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceARN")]
+    Policy: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourcePolicyJson")]
 
 
 class ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class ResaleAuthorizationCreatedDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class ResaleAuthorizationEntityIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationEntityIdString")]]
+    ] = None
 
 
 class ResaleAuthorizationManufacturerAccountIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationManufacturerAccountIdString")]]
+    ] = None
+    WildCardValue: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationManufacturerAccountIdFilterWildcard")]
+    ] = None
 
 
 class ResaleAuthorizationManufacturerLegalNameFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationManufacturerLegalNameString")]]
+    ] = None
+    WildCardValue: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationManufacturerLegalNameFilterWildcard")]
+    ] = None
 
 
 class ResaleAuthorizationNameFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationNameString")]]] = (
+        None
+    )
+    WildCardValue: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationNameFilterWildcard")]
+    ] = None
 
 
 class ResaleAuthorizationOfferExtendedStatusFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationOfferExtendedStatusString")]]
+    ] = None
 
 
 class ResaleAuthorizationProductIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationProductIdString")]]
+    ] = None
+    WildCardValue: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationProductIdFilterWildcard")]
+    ] = None
 
 
 class ResaleAuthorizationProductNameFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationProductNameString")]]
+    ] = None
+    WildCardValue: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationProductNameFilterWildcard")]
+    ] = None
 
 
 class ResaleAuthorizationResellerAccountIDFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationResellerAccountIDString")]]
+    ] = None
+    WildCardValue: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationResellerAccountIDFilterWildcard")]
+    ] = None
 
 
 class ResaleAuthorizationResellerLegalNameFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[
+        List[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationResellerLegalNameString")]]
+    ] = None
+    WildCardValue: Optional[
+        Annotated[str, _aws_pattern("MarketplaceCatalog", "ResaleAuthorizationResellerLegalNameFilterWildcard")]
+    ] = None
 
 
 class ResaleAuthorizationStatusFilterTypeDef(BaseValidatorModel):
@@ -450,17 +518,17 @@ class ResaleAuthorizationStatusFilterTypeDef(BaseValidatorModel):
 
 
 class ResaleAuthorizationLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class SaaSProductEntityIdFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "SaaSProductEntityIdString")]]] = None
 
 
 class SaaSProductTitleFilterTypeDef(BaseValidatorModel):
-    ValueList: Optional[List[str]] = None
-    WildCardValue: Optional[str] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "SaaSProductTitleString")]]] = None
+    WildCardValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "SaaSProductTitleString")]] = None
 
 
 class SaaSProductVisibilityFilterTypeDef(BaseValidatorModel):
@@ -468,13 +536,13 @@ class SaaSProductVisibilityFilterTypeDef(BaseValidatorModel):
 
 
 class SaaSProductLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
-    AfterValue: Optional[str] = None
-    BeforeValue: Optional[str] = None
+    AfterValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    BeforeValue: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceARN")]
+    TagKeys: List[Annotated[str, _aws_pattern("MarketplaceCatalog", "TagKey")]]
 
 
 class AmiProductLastModifiedDateFilterTypeDef(BaseValidatorModel):
@@ -495,32 +563,32 @@ class BatchDescribeEntitiesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_change_set' function.
 class CancelChangeSetResponseTypeDef(BaseValidatorModel):
-    ChangeSetId: str
-    ChangeSetArn: str
+    ChangeSetId: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceId")]
+    ChangeSetArn: Annotated[str, _aws_pattern("MarketplaceCatalog", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_entity' function.
 class DescribeEntityResponseTypeDef(BaseValidatorModel):
-    EntityType: str
-    EntityIdentifier: str
-    EntityArn: str
-    LastModifiedDate: str
-    Details: str
+    EntityType: Annotated[str, _aws_pattern("MarketplaceCatalog", "EntityType")]
+    EntityIdentifier: Annotated[str, _aws_pattern("MarketplaceCatalog", "Identifier")]
+    EntityArn: Annotated[str, _aws_pattern("MarketplaceCatalog", "ARN")]
+    LastModifiedDate: Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]
+    Details: Annotated[str, _aws_pattern("MarketplaceCatalog", "Json")]
     DetailsDocument: Dict[str, Any]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
-    Policy: str
+    Policy: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourcePolicyJson")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_change_set' function.
 class StartChangeSetResponseTypeDef(BaseValidatorModel):
-    ChangeSetId: str
-    ChangeSetArn: str
+    ChangeSetId: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceId")]
+    ChangeSetArn: Annotated[str, _aws_pattern("MarketplaceCatalog", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -528,36 +596,36 @@ class StartChangeSetResponseTypeDef(BaseValidatorModel):
 class ListChangeSetsResponseTypeDef(BaseValidatorModel):
     ChangeSetSummaryList: List[ChangeSetSummaryListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "NextToken")]] = None
 
 
 class ChangeSummaryTypeDef(BaseValidatorModel):
-    ChangeType: Optional[str] = None
+    ChangeType: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ChangeType")]] = None
     Entity: Optional[EntityTypeDef] = None
-    Details: Optional[str] = None
+    Details: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "Json")]] = None
     DetailsDocument: Optional[Dict[str, Any]] = None
     ErrorDetailList: Optional[List[ErrorDetailTypeDef]] = None
-    ChangeName: Optional[str] = None
+    ChangeName: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ChangeName")]] = None
 
 
 class ChangeTypeDef(BaseValidatorModel):
-    ChangeType: str
+    ChangeType: Annotated[str, _aws_pattern("MarketplaceCatalog", "ChangeType")]
     Entity: EntityTypeDef
     EntityTags: Optional[List[TagTypeDef]] = None
-    Details: Optional[str] = None
+    Details: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "Json")]] = None
     DetailsDocument: Optional[Dict[str, Any]] = None
-    ChangeName: Optional[str] = None
+    ChangeName: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ChangeName")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceARN")]
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceARN")]
     Tags: List[TagTypeDef]
 
 
@@ -570,12 +638,12 @@ class DataProductLastModifiedDateFilterTypeDef(BaseValidatorModel):
 
 
 class EntitySummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    EntityType: Optional[str] = None
-    EntityId: Optional[str] = None
-    EntityArn: Optional[str] = None
-    LastModifiedDate: Optional[str] = None
-    Visibility: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "EntityNameString")]] = None
+    EntityType: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "EntityType")]] = None
+    EntityId: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceId")]] = None
+    EntityArn: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ARN")]] = None
+    LastModifiedDate: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]] = None
+    Visibility: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "VisibilityValue")]] = None
     AmiProductSummary: Optional[AmiProductSummaryTypeDef] = None
     ContainerProductSummary: Optional[ContainerProductSummaryTypeDef] = None
     DataProductSummary: Optional[DataProductSummaryTypeDef] = None
@@ -606,11 +674,11 @@ class ListChangeSetsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_change_sets' function.
 class ListChangeSetsRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("MarketplaceCatalog", "Catalog")]
     FilterList: Optional[List[FilterTypeDef]] = None
     Sort: Optional[SortTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "NextToken")]] = None
 
 
 class MachineLearningProductLastModifiedDateFilterTypeDef(BaseValidatorModel):
@@ -639,12 +707,12 @@ class OfferSetReleaseDateFilterTypeDef(BaseValidatorModel):
 
 class ResaleAuthorizationAvailabilityEndDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef] = None
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]]] = None
 
 
 class ResaleAuthorizationCreatedDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[ResaleAuthorizationCreatedDateFilterDateRangeTypeDef] = None
-    ValueList: Optional[List[str]] = None
+    ValueList: Optional[List[Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]]] = None
 
 
 class ResaleAuthorizationLastModifiedDateFilterTypeDef(BaseValidatorModel):
@@ -664,25 +732,25 @@ class AmiProductFiltersTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_change_set' function.
 class DescribeChangeSetResponseTypeDef(BaseValidatorModel):
-    ChangeSetId: str
-    ChangeSetArn: str
-    ChangeSetName: str
+    ChangeSetId: Annotated[str, _aws_pattern("MarketplaceCatalog", "ResourceId")]
+    ChangeSetArn: Annotated[str, _aws_pattern("MarketplaceCatalog", "ARN")]
+    ChangeSetName: Annotated[str, _aws_pattern("MarketplaceCatalog", "ChangeSetName")]
     Intent: IntentType
-    StartTime: str
-    EndTime: str
+    StartTime: Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]
+    EndTime: Annotated[str, _aws_pattern("MarketplaceCatalog", "DateTimeISO8601")]
     Status: ChangeStatusType
     FailureCode: FailureCodeType
-    FailureDescription: str
+    FailureDescription: Annotated[str, _aws_pattern("MarketplaceCatalog", "ExceptionMessageContent")]
     ChangeSet: List[ChangeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'start_change_set' function.
 class StartChangeSetRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("MarketplaceCatalog", "Catalog")]
     ChangeSet: List[ChangeTypeDef]
-    ChangeSetName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ChangeSetName: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ChangeSetName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "ClientRequestToken")]] = None
     ChangeSetTags: Optional[List[TagTypeDef]] = None
     Intent: Optional[IntentType] = None
 
@@ -705,7 +773,7 @@ class DataProductFiltersTypeDef(BaseValidatorModel):
 class ListEntitiesResponseTypeDef(BaseValidatorModel):
     EntitySummaryList: List[EntitySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "NextToken")]] = None
 
 
 class MachineLearningProductFiltersTypeDef(BaseValidatorModel):
@@ -786,11 +854,11 @@ class ListEntitiesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_entities' function.
 class ListEntitiesRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    EntityType: str
+    Catalog: Annotated[str, _aws_pattern("MarketplaceCatalog", "Catalog")]
+    EntityType: Annotated[str, _aws_pattern("MarketplaceCatalog", "EntityType")]
     FilterList: Optional[List[FilterTypeDef]] = None
     Sort: Optional[SortTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MarketplaceCatalog", "NextToken")]] = None
     MaxResults: Optional[int] = None
     OwnershipType: Optional[OwnershipTypeType] = None
     EntityTypeFilters: Optional[EntityTypeFiltersTypeDef] = None

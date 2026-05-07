@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.lexv2_models.lexv2_models_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class ActiveContextTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Lexv2Models", "ActiveContextName")]
 
 
 class AdvancedRecognitionSettingTypeDef(BaseValidatorModel):
@@ -57,7 +59,7 @@ class AgentTurnSpecificationTypeDef(BaseValidatorModel):
 
 class AggregatedUtterancesFilterTypeDef(BaseValidatorModel):
     name: Literal["Utterance"]
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("Lexv2Models", "FilterValue")]]
     operator: AggregatedUtterancesFilterOperatorType
 
 
@@ -119,7 +121,7 @@ class AnalyticsIntentMetricTypeDef(BaseValidatorModel):
 
 
 class AnalyticsIntentNodeSummaryTypeDef(BaseValidatorModel):
-    intentName: Optional[str] = None
+    intentName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     intentPath: Optional[str] = None
     intentCount: Optional[int] = None
     intentLevel: Optional[int] = None
@@ -187,7 +189,7 @@ class AnalyticsSessionMetricTypeDef(BaseValidatorModel):
 
 
 class AnalyticsUtteranceAttributeResultTypeDef(BaseValidatorModel):
-    lastUsedIntent: Optional[str] = None
+    lastUsedIntent: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
 
 
 class AnalyticsUtteranceAttributeTypeDef(BaseValidatorModel):
@@ -223,11 +225,11 @@ class AnalyticsUtteranceMetricTypeDef(BaseValidatorModel):
 
 class AssociatedTranscriptFilterTypeDef(BaseValidatorModel):
     name: AssociatedTranscriptFilterNameType
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("Lexv2Models", "FilterValue")]]
 
 
 class AssociatedTranscriptTypeDef(BaseValidatorModel):
-    transcript: Optional[str] = None
+    transcript: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Transcript")]] = None
 
 
 class AudioSpecificationTypeDef(BaseValidatorModel):
@@ -238,14 +240,22 @@ class AudioSpecificationTypeDef(BaseValidatorModel):
 class DTMFSpecificationTypeDef(BaseValidatorModel):
     maxLength: int
     endTimeoutMs: int
-    deletionCharacter: str
-    endCharacter: str
+    deletionCharacter: Annotated[str, _aws_pattern("Lexv2Models", "DTMFCharacter")]
+    endCharacter: Annotated[str, _aws_pattern("Lexv2Models", "DTMFCharacter")]
+
+
+class AudioFillerSettingsTypeDef(BaseValidatorModel):
+    enabled: Optional[bool] = None
+    audioType: Optional[AudioFillerTypeType] = None
+    startDelayInMilliseconds: Optional[int] = None
+    minimumPlayDurationInMilliseconds: Optional[int] = None
+    responseDeliveryDelayInMilliseconds: Optional[int] = None
 
 
 class S3BucketLogDestinationTypeDef(BaseValidatorModel):
-    s3BucketArn: str
+    s3BucketArn: Annotated[str, _aws_pattern("Lexv2Models", "S3BucketArn")]
     logPrefix: str
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Lexv2Models", "KmsKeyArn")]] = None
 
 
 class NewCustomVocabularyItemTypeDef(BaseValidatorModel):
@@ -280,8 +290,8 @@ class CustomVocabularyEntryIdTypeDef(BaseValidatorModel):
 
 
 class BedrockGuardrailConfigurationTypeDef(BaseValidatorModel):
-    identifier: str
-    version: str
+    identifier: Annotated[str, _aws_pattern("Lexv2Models", "BedrockGuardrailIdentifier")]
+    version: Annotated[str, _aws_pattern("Lexv2Models", "BedrockGuardrailVersion")]
 
 
 class BedrockKnowledgeStoreExactResponseFieldsTypeDef(BaseValidatorModel):
@@ -289,56 +299,56 @@ class BedrockKnowledgeStoreExactResponseFieldsTypeDef(BaseValidatorModel):
 
 
 class BotAliasHistoryEventTypeDef(BaseValidatorModel):
-    botVersion: Optional[str] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]] = None
     startDate: Optional[datetime] = None
     endDate: Optional[datetime] = None
 
 
 class BotAliasReplicaSummaryTypeDef(BaseValidatorModel):
-    botAliasId: Optional[str] = None
+    botAliasId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]] = None
     botAliasReplicationStatus: Optional[BotAliasReplicationStatusType] = None
-    botVersion: Optional[str] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
     failureReasons: Optional[List[str]] = None
 
 
 class BotAliasSummaryTypeDef(BaseValidatorModel):
-    botAliasId: Optional[str] = None
-    botAliasName: Optional[str] = None
+    botAliasId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]] = None
+    botAliasName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     description: Optional[str] = None
-    botVersion: Optional[str] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]] = None
     botAliasStatus: Optional[BotAliasStatusType] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
 
 class BotAliasTestExecutionTargetTypeDef(BaseValidatorModel):
-    botId: str
-    botAliasId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
     localeId: str
 
 
 class BotAnalyzerHistorySummaryTypeDef(BaseValidatorModel):
     botAnalyzerStatus: BotAnalyzerStatusType
-    botAnalyzerRequestId: str
+    botAnalyzerRequestId: Annotated[str, _aws_pattern("Lexv2Models", "UUID")]
     creationDateTime: Optional[datetime] = None
 
 
 class IssueLocationTypeDef(BaseValidatorModel):
     botLocale: Optional[str] = None
-    intentId: Optional[str] = None
-    slotId: Optional[str] = None
+    intentId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
+    slotId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
 
 
 class BotExportSpecificationTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
 
 
 class BotFilterTypeDef(BaseValidatorModel):
     name: BotFilterNameType
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("Lexv2Models", "FilterValue")]]
     operator: BotFilterOperatorType
 
 
@@ -351,14 +361,14 @@ class ErrorLogSettingsTypeDef(BaseValidatorModel):
 
 
 class BotLocaleExportSpecificationTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
 
 
 class BotLocaleFilterTypeDef(BaseValidatorModel):
     name: Literal["BotLocaleName"]
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("Lexv2Models", "FilterValue")]]
     operator: BotLocaleFilterOperatorType
 
 
@@ -387,11 +397,11 @@ class BotLocaleSummaryTypeDef(BaseValidatorModel):
 
 
 class BotMemberTypeDef(BaseValidatorModel):
-    botMemberId: str
-    botMemberName: str
-    botMemberAliasId: str
-    botMemberAliasName: str
-    botMemberVersion: str
+    botMemberId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botMemberName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    botMemberAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
+    botMemberAliasName: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasName")]
+    botMemberVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
 
 
 class IntentStatisticsTypeDef(BaseValidatorModel):
@@ -404,7 +414,7 @@ class SlotTypeStatisticsTypeDef(BaseValidatorModel):
 
 class BotRecommendationSummaryTypeDef(BaseValidatorModel):
     botRecommendationStatus: BotRecommendationStatusType
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
@@ -422,17 +432,17 @@ class BotSortByTypeDef(BaseValidatorModel):
 
 
 class BotSummaryTypeDef(BaseValidatorModel):
-    botId: Optional[str] = None
-    botName: Optional[str] = None
+    botId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
+    botName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     description: Optional[str] = None
     botStatus: Optional[BotStatusType] = None
-    latestBotVersion: Optional[str] = None
+    latestBotVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "NumericalBotVersion")]] = None
     lastUpdatedDateTime: Optional[datetime] = None
     botType: Optional[BotTypeType] = None
 
 
 class BotVersionLocaleDetailsTypeDef(BaseValidatorModel):
-    sourceBotVersion: str
+    sourceBotVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
 
 
 class BotVersionReplicaSortByTypeDef(BaseValidatorModel):
@@ -441,7 +451,7 @@ class BotVersionReplicaSortByTypeDef(BaseValidatorModel):
 
 
 class BotVersionReplicaSummaryTypeDef(BaseValidatorModel):
-    botVersion: Optional[str] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]] = None
     botVersionReplicationStatus: Optional[BotVersionReplicationStatusType] = None
     creationDateTime: Optional[datetime] = None
     failureReasons: Optional[List[str]] = None
@@ -453,8 +463,8 @@ class BotVersionSortByTypeDef(BaseValidatorModel):
 
 
 class BotVersionSummaryTypeDef(BaseValidatorModel):
-    botName: Optional[str] = None
-    botVersion: Optional[str] = None
+    botName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]] = None
     description: Optional[str] = None
     botStatus: Optional[BotStatusType] = None
     creationDateTime: Optional[datetime] = None
@@ -462,8 +472,8 @@ class BotVersionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'build_bot_locale' function.
 class BuildBotLocaleRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
 
 
@@ -493,18 +503,18 @@ class ButtonTypeDef(BaseValidatorModel):
 
 
 class CloudWatchLogGroupLogDestinationTypeDef(BaseValidatorModel):
-    cloudWatchLogGroupArn: str
+    cloudWatchLogGroupArn: Annotated[str, _aws_pattern("Lexv2Models", "CloudWatchLogGroupArn")]
     logPrefix: str
 
 
 class LambdaCodeHookTypeDef(BaseValidatorModel):
-    lambdaARN: str
+    lambdaARN: Annotated[str, _aws_pattern("Lexv2Models", "LambdaARN")]
     codeHookInterfaceVersion: str
 
 
 class SubSlotTypeCompositionTypeDef(BaseValidatorModel):
-    name: str
-    slotTypeId: str
+    name: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    slotTypeId: Annotated[str, _aws_pattern("Lexv2Models", "BuiltInOrCustomSlotTypeId")]
 
 
 class ConditionTypeDef(BaseValidatorModel):
@@ -512,7 +522,7 @@ class ConditionTypeDef(BaseValidatorModel):
 
 
 class ConversationLevelIntentClassificationResultItemTypeDef(BaseValidatorModel):
-    intentName: str
+    intentName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     matchResult: TestResultMatchStatusType
 
 
@@ -522,8 +532,8 @@ class ConversationLevelResultDetailTypeDef(BaseValidatorModel):
 
 
 class ConversationLevelSlotResolutionResultItemTypeDef(BaseValidatorModel):
-    intentName: str
-    slotName: str
+    intentName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    slotName: Annotated[str, _aws_pattern("Lexv2Models", "TestResultSlotName")]
     matchResult: TestResultMatchStatusType
 
 
@@ -546,7 +556,7 @@ class SentimentAnalysisSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_bot_replica' function.
 class CreateBotReplicaRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     replicaRegion: str
 
 
@@ -555,17 +565,17 @@ class DialogCodeHookSettingsTypeDef(BaseValidatorModel):
 
 
 class InputContextTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
 
 
 class KendraConfigurationTypeDef(BaseValidatorModel):
-    kendraIndex: str
+    kendraIndex: Annotated[str, _aws_pattern("Lexv2Models", "KendraIndexArn")]
     queryFilterStringEnabled: Optional[bool] = None
     queryFilterString: Optional[str] = None
 
 
 class OutputContextTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     timeToLiveInSeconds: int
     turnsToLive: int
 
@@ -581,8 +591,8 @@ class CreateResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 
 class PrincipalTypeDef(BaseValidatorModel):
-    service: Optional[str] = None
-    arn: Optional[str] = None
+    service: Optional[Annotated[str, _aws_pattern("Lexv2Models", "ServicePrincipal")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lexv2Models", "PrincipalArn")]] = None
 
 
 class MultipleValuesSettingTypeDef(BaseValidatorModel):
@@ -598,19 +608,19 @@ class CustomPayloadTypeDef(BaseValidatorModel):
 
 
 class CustomVocabularyExportSpecificationTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
 
 
 class CustomVocabularyImportSpecificationTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
 
 
 class QnAKendraConfigurationTypeDef(BaseValidatorModel):
-    kendraIndex: str
+    kendraIndex: Annotated[str, _aws_pattern("Lexv2Models", "KendraIndexArn")]
     queryFilterStringEnabled: Optional[bool] = None
     queryFilterString: Optional[str] = None
     exactResponse: Optional[bool] = None
@@ -622,119 +632,119 @@ class DateRangeFilterOutputTypeDef(BaseValidatorModel):
 
 
 class DeepgramSpeechModelConfigTypeDef(BaseValidatorModel):
-    apiTokenSecretArn: str
-    modelId: Optional[str] = None
+    apiTokenSecretArn: Annotated[str, _aws_pattern("Lexv2Models", "SecretsManagerSecretArn")]
+    modelId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "DeepgramModelId")]] = None
 
 
 # This class is the input for the 'delete_bot_alias' function.
 class DeleteBotAliasRequestTypeDef(BaseValidatorModel):
-    botAliasId: str
-    botId: str
+    botAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     skipResourceInUseCheck: Optional[bool] = None
 
 
 class DeleteBotAnalyzerRecommendationRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botAnalyzerRequestId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botAnalyzerRequestId: Annotated[str, _aws_pattern("Lexv2Models", "UUID")]
 
 
 # This class is the input for the 'delete_bot_locale' function.
 class DeleteBotLocaleRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
 
 
 # This class is the input for the 'delete_bot_replica' function.
 class DeleteBotReplicaRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     replicaRegion: str
 
 
 # This class is the input for the 'delete_bot' function.
 class DeleteBotRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     skipResourceInUseCheck: Optional[bool] = None
 
 
 # This class is the input for the 'delete_bot_version' function.
 class DeleteBotVersionRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "NumericalBotVersion")]
     skipResourceInUseCheck: Optional[bool] = None
 
 
 # This class is the input for the 'delete_custom_vocabulary' function.
 class DeleteCustomVocabularyRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
 
 
 # This class is the input for the 'delete_export' function.
 class DeleteExportRequestTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'delete_import' function.
 class DeleteImportRequestTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'delete_intent' function.
 class DeleteIntentRequestTypeDef(BaseValidatorModel):
-    intentId: str
-    botId: str
-    botVersion: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
 
 
 # This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    expectedRevisionId: Optional[str] = None
+    expectedRevisionId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "RevisionId")]] = None
 
 
 # This class is the input for the 'delete_resource_policy_statement' function.
 class DeleteResourcePolicyStatementRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    statementId: str
-    expectedRevisionId: Optional[str] = None
+    statementId: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    expectedRevisionId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "RevisionId")]] = None
 
 
 # This class is the input for the 'delete_slot' function.
 class DeleteSlotRequestTypeDef(BaseValidatorModel):
-    slotId: str
-    botId: str
-    botVersion: str
+    slotId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'delete_slot_type' function.
 class DeleteSlotTypeRequestTypeDef(BaseValidatorModel):
-    slotTypeId: str
-    botId: str
-    botVersion: str
+    slotTypeId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
 # This class is the input for the 'delete_test_set' function.
 class DeleteTestSetRequestTypeDef(BaseValidatorModel):
-    testSetId: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 class DeleteUtterancesRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     localeId: Optional[str] = None
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "SessionId")]] = None
 
 
 # This class is the input for the 'describe_bot_alias' function.
 class DescribeBotAliasRequestTypeDef(BaseValidatorModel):
-    botAliasId: str
-    botId: str
+    botAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -743,8 +753,8 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 
 class ParentBotNetworkTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -755,86 +765,86 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_bot_analyzer_recommendation' function.
 class DescribeBotAnalyzerRecommendationRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botAnalyzerRequestId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botAnalyzerRequestId: Annotated[str, _aws_pattern("Lexv2Models", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_bot_locale' function.
 class DescribeBotLocaleRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
 
 
 # This class is the input for the 'describe_bot_recommendation' function.
 class DescribeBotRecommendationRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 class EncryptionSettingTypeDef(BaseValidatorModel):
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Lexv2Models", "KmsKeyArn")]] = None
     botLocaleExportPassword: Optional[str] = None
     associatedTranscriptsPassword: Optional[str] = None
 
 
 # This class is the input for the 'describe_bot_replica' function.
 class DescribeBotReplicaRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     replicaRegion: str
 
 
 # This class is the input for the 'describe_bot' function.
 class DescribeBotRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'describe_bot_resource_generation' function.
 class DescribeBotResourceGenerationRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
-    generationId: str
+    generationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'describe_bot_version' function.
 class DescribeBotVersionRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "NumericalBotVersion")]
 
 
 # This class is the input for the 'describe_custom_vocabulary_metadata' function.
 class DescribeCustomVocabularyMetadataRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
 
 
 # This class is the input for the 'describe_export' function.
 class DescribeExportRequestTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'describe_import' function.
 class DescribeImportRequestTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'describe_intent' function.
 class DescribeIntentRequestTypeDef(BaseValidatorModel):
-    intentId: str
-    botId: str
-    botVersion: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
 
 
 class SlotPriorityTypeDef(BaseValidatorModel):
     priority: int
-    slotId: str
+    slotId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'describe_resource_policy' function.
@@ -844,56 +854,56 @@ class DescribeResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_slot' function.
 class DescribeSlotRequestTypeDef(BaseValidatorModel):
-    slotId: str
-    botId: str
-    botVersion: str
+    slotId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'describe_slot_type' function.
 class DescribeSlotTypeRequestTypeDef(BaseValidatorModel):
-    slotTypeId: str
-    botId: str
-    botVersion: str
+    slotTypeId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
 
 
 # This class is the input for the 'describe_test_execution' function.
 class DescribeTestExecutionRequestTypeDef(BaseValidatorModel):
-    testExecutionId: str
+    testExecutionId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'describe_test_set_discrepancy_report' function.
 class DescribeTestSetDiscrepancyReportRequestTypeDef(BaseValidatorModel):
-    testSetDiscrepancyReportId: str
+    testSetDiscrepancyReportId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'describe_test_set_generation' function.
 class DescribeTestSetGenerationRequestTypeDef(BaseValidatorModel):
-    testSetGenerationId: str
+    testSetGenerationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 class TestSetStorageLocationTypeDef(BaseValidatorModel):
-    s3BucketName: str
-    s3Path: str
-    kmsKeyArn: Optional[str] = None
+    s3BucketName: Annotated[str, _aws_pattern("Lexv2Models", "S3BucketName")]
+    s3Path: Annotated[str, _aws_pattern("Lexv2Models", "S3ObjectPath")]
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Lexv2Models", "KmsKeyArn")]] = None
 
 
 # This class is the input for the 'describe_test_set' function.
 class DescribeTestSetRequestTypeDef(BaseValidatorModel):
-    testSetId: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 class DialogActionTypeDef(BaseValidatorModel):
     type: DialogActionTypeType
-    slotToElicit: Optional[str] = None
+    slotToElicit: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     suppressNextMessage: Optional[bool] = None
 
 
 class ElicitationCodeHookInvocationSettingTypeDef(BaseValidatorModel):
     enableCodeHookInvocation: bool
-    invocationLabel: Optional[str] = None
+    invocationLabel: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
 
 
 class ExactResponseFieldsTypeDef(BaseValidatorModel):
@@ -903,12 +913,12 @@ class ExactResponseFieldsTypeDef(BaseValidatorModel):
 
 class ExportFilterTypeDef(BaseValidatorModel):
     name: Literal["ExportResourceType"]
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("Lexv2Models", "FilterValue")]]
     operator: ExportFilterOperatorType
 
 
 class TestSetExportSpecificationTypeDef(BaseValidatorModel):
-    testSetId: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 class ExportSortByTypeDef(BaseValidatorModel):
@@ -918,9 +928,9 @@ class ExportSortByTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'generate_bot_element' function.
 class GenerateBotElementRequestTypeDef(BaseValidatorModel):
-    intentId: str
-    botId: str
-    botVersion: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
 
 
@@ -930,7 +940,7 @@ class GenerationSortByTypeDef(BaseValidatorModel):
 
 
 class GenerationSummaryTypeDef(BaseValidatorModel):
-    generationId: Optional[str] = None
+    generationId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
     generationStatus: Optional[GenerationStatusType] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -938,18 +948,18 @@ class GenerationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_test_execution_artifacts_url' function.
 class GetTestExecutionArtifactsUrlRequestTypeDef(BaseValidatorModel):
-    testExecutionId: str
+    testExecutionId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 class GrammarSlotTypeSourceTypeDef(BaseValidatorModel):
-    s3BucketName: str
-    s3ObjectKey: str
-    kmsKeyArn: Optional[str] = None
+    s3BucketName: Annotated[str, _aws_pattern("Lexv2Models", "S3BucketName")]
+    s3ObjectKey: Annotated[str, _aws_pattern("Lexv2Models", "S3ObjectPath")]
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Lexv2Models", "KmsKeyArn")]] = None
 
 
 class ImportFilterTypeDef(BaseValidatorModel):
     name: Literal["ImportResourceType"]
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("Lexv2Models", "FilterValue")]]
     operator: ImportFilterOperatorType
 
 
@@ -959,9 +969,9 @@ class ImportSortByTypeDef(BaseValidatorModel):
 
 
 class ImportSummaryTypeDef(BaseValidatorModel):
-    importId: Optional[str] = None
-    importedResourceId: Optional[str] = None
-    importedResourceName: Optional[str] = None
+    importId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
+    importedResourceId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "ImportedResourceId")]] = None
+    importedResourceName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     importStatus: Optional[ImportStatusType] = None
     mergeStrategy: Optional[MergeStrategyType] = None
     creationDateTime: Optional[datetime] = None
@@ -983,7 +993,7 @@ class IntentDisambiguationSettingsTypeDef(BaseValidatorModel):
 
 class IntentFilterTypeDef(BaseValidatorModel):
     name: Literal["IntentName"]
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("Lexv2Models", "FilterValue")]]
     operator: IntentFilterOperatorType
 
 
@@ -993,12 +1003,12 @@ class IntentSortByTypeDef(BaseValidatorModel):
 
 
 class InvokedIntentSampleTypeDef(BaseValidatorModel):
-    intentName: Optional[str] = None
+    intentName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
 
 
 # This class is the input for the 'list_bot_alias_replicas' function.
 class ListBotAliasReplicasRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     replicaRegion: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1006,24 +1016,24 @@ class ListBotAliasReplicasRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_bot_aliases' function.
 class ListBotAliasesRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_bot_analyzer_history' function.
 class ListBotAnalyzerHistoryRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     localeId: Optional[str] = None
-    botVersion: Optional[str] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_bot_recommendations' function.
 class ListBotRecommendationsRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1031,13 +1041,13 @@ class ListBotRecommendationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_bot_replicas' function.
 class ListBotReplicasRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 # This class is the input for the 'list_custom_vocabulary_items' function.
 class ListCustomVocabularyItemsRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1045,17 +1055,17 @@ class ListCustomVocabularyItemsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_recommended_intents' function.
 class ListRecommendedIntentsRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class RecommendedIntentSummaryTypeDef(BaseValidatorModel):
-    intentId: Optional[str] = None
-    intentName: Optional[str] = None
+    intentId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
+    intentName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     sampleUtterancesCount: Optional[int] = None
 
 
@@ -1066,7 +1076,7 @@ class SessionDataSortByTypeDef(BaseValidatorModel):
 
 class SlotTypeFilterTypeDef(BaseValidatorModel):
     name: SlotTypeFilterNameType
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("Lexv2Models", "FilterValue")]]
     operator: SlotTypeFilterOperatorType
 
 
@@ -1076,8 +1086,8 @@ class SlotTypeSortByTypeDef(BaseValidatorModel):
 
 
 class SlotTypeSummaryTypeDef(BaseValidatorModel):
-    slotTypeId: Optional[str] = None
-    slotTypeName: Optional[str] = None
+    slotTypeId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
+    slotTypeName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     description: Optional[str] = None
     parentSlotTypeSignature: Optional[str] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -1086,7 +1096,7 @@ class SlotTypeSummaryTypeDef(BaseValidatorModel):
 
 class SlotFilterTypeDef(BaseValidatorModel):
     name: Literal["SlotName"]
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("Lexv2Models", "FilterValue")]]
     operator: SlotFilterOperatorType
 
 
@@ -1107,7 +1117,7 @@ class TestExecutionSortByTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_test_set_records' function.
 class ListTestSetRecordsRequestTypeDef(BaseValidatorModel):
-    testSetId: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -1142,7 +1152,7 @@ class PathFormatOutputTypeDef(BaseValidatorModel):
 
 
 class PathFormatTypeDef(BaseValidatorModel):
-    objectPrefixes: Optional[List[str]] = None
+    objectPrefixes: Optional[List[Annotated[str, _aws_pattern("Lexv2Models", "ObjectPrefix")]]] = None
 
 
 class TextInputSpecificationTypeDef(BaseValidatorModel):
@@ -1150,7 +1160,7 @@ class TextInputSpecificationTypeDef(BaseValidatorModel):
 
 
 class QInConnectAssistantConfigurationTypeDef(BaseValidatorModel):
-    assistantArn: str
+    assistantArn: Annotated[str, _aws_pattern("Lexv2Models", "QInConnectAssistantARN")]
 
 
 class RelativeAggregationDurationTypeDef(BaseValidatorModel):
@@ -1189,38 +1199,38 @@ class SlotValueRegexFilterTypeDef(BaseValidatorModel):
 
 
 class SpeechFoundationModelTypeDef(BaseValidatorModel):
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("Lexv2Models", "BedrockModelArn")]
     voiceId: Optional[str] = None
 
 
 # This class is the input for the 'start_bot_analyzer' function.
 class StartBotAnalyzerRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     analysisScope: Literal["BotLocale"]
     localeId: Optional[str] = None
-    botVersion: Optional[str] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]] = None
 
 
 # This class is the input for the 'start_bot_resource_generation' function.
 class StartBotResourceGenerationRequestTypeDef(BaseValidatorModel):
     generationInputPrompt: str
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
 
 
 # This class is the input for the 'stop_bot_analyzer' function.
 class StopBotAnalyzerRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botAnalyzerRequestId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botAnalyzerRequestId: Annotated[str, _aws_pattern("Lexv2Models", "UUID")]
 
 
 # This class is the input for the 'stop_bot_recommendation' function.
 class StopBotRecommendationRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
@@ -1229,25 +1239,25 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 
 class TestSetIntentDiscrepancyItemTypeDef(BaseValidatorModel):
-    intentName: str
+    intentName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     errorMessage: str
 
 
 class TestSetSlotDiscrepancyItemTypeDef(BaseValidatorModel):
-    intentName: str
-    slotName: str
+    intentName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    slotName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     errorMessage: str
 
 
 class TestSetDiscrepancyReportBotAliasTargetTypeDef(BaseValidatorModel):
-    botId: str
-    botAliasId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
     localeId: str
 
 
 class TestSetImportInputLocationTypeDef(BaseValidatorModel):
-    s3BucketName: str
-    s3Path: str
+    s3BucketName: Annotated[str, _aws_pattern("Lexv2Models", "S3BucketName")]
+    s3Path: Annotated[str, _aws_pattern("Lexv2Models", "S3ObjectPath")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
@@ -1257,7 +1267,7 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_export' function.
 class UpdateExportRequestTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     filePassword: Optional[str] = None
 
 
@@ -1265,13 +1275,13 @@ class UpdateExportRequestTypeDef(BaseValidatorModel):
 class UpdateResourcePolicyRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     policy: str
-    expectedRevisionId: Optional[str] = None
+    expectedRevisionId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "RevisionId")]] = None
 
 
 # This class is the input for the 'update_test_set' function.
 class UpdateTestSetRequestTypeDef(BaseValidatorModel):
-    testSetId: str
-    testSetName: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    testSetName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: Optional[str] = None
 
 
@@ -1282,15 +1292,15 @@ class UserTurnSlotOutputTypeDef(BaseValidatorModel):
 
 
 class UtteranceAudioInputSpecificationTypeDef(BaseValidatorModel):
-    audioFileS3Location: str
+    audioFileS3Location: Annotated[str, _aws_pattern("Lexv2Models", "AudioFileS3Location")]
 
 
 class AgentTurnResultTypeDef(BaseValidatorModel):
     expectedAgentPrompt: str
     actualAgentPrompt: Optional[str] = None
     errorDetails: Optional[ExecutionErrorDetailsTypeDef] = None
-    actualElicitedSlot: Optional[str] = None
-    actualIntent: Optional[str] = None
+    actualElicitedSlot: Optional[Annotated[str, _aws_pattern("Lexv2Models", "TestResultSlotName")]] = None
+    actualIntent: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
 
 
 class AnalyticsIntentResultTypeDef(BaseValidatorModel):
@@ -1320,10 +1330,10 @@ class AnalyticsUtteranceResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_associated_transcripts' function.
 class SearchAssociatedTranscriptsRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     filters: List[AssociatedTranscriptFilterTypeDef]
     searchOrder: Optional[SearchOrderType] = None
     maxResults: Optional[int] = None
@@ -1342,24 +1352,24 @@ class AudioLogDestinationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_create_custom_vocabulary_item' function.
 class BatchCreateCustomVocabularyItemRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     customVocabularyItemList: List[NewCustomVocabularyItemTypeDef]
 
 
 # This class is the input for the 'batch_update_custom_vocabulary_item' function.
 class BatchUpdateCustomVocabularyItemRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     customVocabularyItemList: List[CustomVocabularyItemTypeDef]
 
 
 # This class is the output for the 'batch_create_custom_vocabulary_item' function.
 class BatchCreateCustomVocabularyItemResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     errors: List[FailedCustomVocabularyItemTypeDef]
     resources: List[CustomVocabularyItemTypeDef]
@@ -1368,8 +1378,8 @@ class BatchCreateCustomVocabularyItemResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'batch_delete_custom_vocabulary_item' function.
 class BatchDeleteCustomVocabularyItemResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     errors: List[FailedCustomVocabularyItemTypeDef]
     resources: List[CustomVocabularyItemTypeDef]
@@ -1378,8 +1388,8 @@ class BatchDeleteCustomVocabularyItemResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'batch_update_custom_vocabulary_item' function.
 class BatchUpdateCustomVocabularyItemResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     errors: List[FailedCustomVocabularyItemTypeDef]
     resources: List[CustomVocabularyItemTypeDef]
@@ -1388,8 +1398,8 @@ class BatchUpdateCustomVocabularyItemResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'build_bot_locale' function.
 class BuildBotLocaleResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     botLocaleStatus: BotLocaleStatusType
     lastBuildSubmittedDateTime: datetime
@@ -1398,7 +1408,7 @@ class BuildBotLocaleResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_bot_replica' function.
 class CreateBotReplicaResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     replicaRegion: str
     sourceRegion: str
     creationDateTime: datetime
@@ -1409,35 +1419,35 @@ class CreateBotReplicaResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_resource_policy' function.
 class CreateResourcePolicyResponseTypeDef(BaseValidatorModel):
     resourceArn: str
-    revisionId: str
+    revisionId: Annotated[str, _aws_pattern("Lexv2Models", "RevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_resource_policy_statement' function.
 class CreateResourcePolicyStatementResponseTypeDef(BaseValidatorModel):
     resourceArn: str
-    revisionId: str
+    revisionId: Annotated[str, _aws_pattern("Lexv2Models", "RevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class CreateUploadUrlResponseTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     uploadUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_bot_alias' function.
 class DeleteBotAliasResponseTypeDef(BaseValidatorModel):
-    botAliasId: str
-    botId: str
+    botAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     botAliasStatus: BotAliasStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_bot_locale' function.
 class DeleteBotLocaleResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     botLocaleStatus: BotLocaleStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1445,7 +1455,7 @@ class DeleteBotLocaleResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_bot_replica' function.
 class DeleteBotReplicaResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     replicaRegion: str
     botReplicaStatus: BotReplicaStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1453,23 +1463,23 @@ class DeleteBotReplicaResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_bot' function.
 class DeleteBotResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     botStatus: BotStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_bot_version' function.
 class DeleteBotVersionResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "NumericalBotVersion")]
     botStatus: BotStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_custom_vocabulary' function.
 class DeleteCustomVocabularyResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     customVocabularyStatus: CustomVocabularyStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1477,14 +1487,14 @@ class DeleteCustomVocabularyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_export' function.
 class DeleteExportResponseTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     exportStatus: ExportStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_import' function.
 class DeleteImportResponseTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     importStatus: ImportStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1492,20 +1502,20 @@ class DeleteImportResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'delete_resource_policy' function.
 class DeleteResourcePolicyResponseTypeDef(BaseValidatorModel):
     resourceArn: str
-    revisionId: str
+    revisionId: Annotated[str, _aws_pattern("Lexv2Models", "RevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_resource_policy_statement' function.
 class DeleteResourcePolicyStatementResponseTypeDef(BaseValidatorModel):
     resourceArn: str
-    revisionId: str
+    revisionId: Annotated[str, _aws_pattern("Lexv2Models", "RevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_bot_replica' function.
 class DescribeBotReplicaResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     replicaRegion: str
     sourceRegion: str
     creationDateTime: datetime
@@ -1516,24 +1526,24 @@ class DescribeBotReplicaResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_bot_resource_generation' function.
 class DescribeBotResourceGenerationResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
-    generationId: str
+    generationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     failureReasons: List[str]
     generationStatus: GenerationStatusType
     generationInputPrompt: str
     generatedBotLocaleUrl: str
     creationDateTime: datetime
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("Lexv2Models", "BedrockModelArn")]
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_custom_vocabulary_metadata' function.
 class DescribeCustomVocabularyMetadataResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     customVocabularyStatus: CustomVocabularyStatusType
     creationDateTime: datetime
@@ -1545,7 +1555,7 @@ class DescribeCustomVocabularyMetadataResponseTypeDef(BaseValidatorModel):
 class DescribeResourcePolicyResponseTypeDef(BaseValidatorModel):
     resourceArn: str
     policy: str
-    revisionId: str
+    revisionId: Annotated[str, _aws_pattern("Lexv2Models", "RevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1556,15 +1566,15 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_test_execution_artifacts_url' function.
 class GetTestExecutionArtifactsUrlResponseTypeDef(BaseValidatorModel):
-    testExecutionId: str
+    testExecutionId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     downloadArtifactsUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_custom_vocabulary_items' function.
 class ListCustomVocabularyItemsResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     customVocabularyItems: List[CustomVocabularyItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1585,10 +1595,10 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'search_associated_transcripts' function.
 class SearchAssociatedTranscriptsResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     nextIndex: int
     associatedTranscripts: List[AssociatedTranscriptTypeDef]
     totalResults: int
@@ -1597,11 +1607,11 @@ class SearchAssociatedTranscriptsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_bot_analyzer' function.
 class StartBotAnalyzerResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     botAnalyzerStatus: BotAnalyzerStatusType
-    botAnalyzerRequestId: str
+    botAnalyzerRequestId: Annotated[str, _aws_pattern("Lexv2Models", "UUID")]
     creationDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1609,9 +1619,9 @@ class StartBotAnalyzerResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'start_bot_resource_generation' function.
 class StartBotResourceGenerationResponseTypeDef(BaseValidatorModel):
     generationInputPrompt: str
-    generationId: str
-    botId: str
-    botVersion: str
+    generationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     generationStatus: GenerationStatusType
     creationDateTime: datetime
@@ -1620,55 +1630,55 @@ class StartBotResourceGenerationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'stop_bot_analyzer' function.
 class StopBotAnalyzerResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     botAnalyzerStatus: BotAnalyzerStatusType
-    botAnalyzerRequestId: str
+    botAnalyzerRequestId: Annotated[str, _aws_pattern("Lexv2Models", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_bot_recommendation' function.
 class StopBotRecommendationResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     botRecommendationStatus: BotRecommendationStatusType
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_resource_policy' function.
 class UpdateResourcePolicyResponseTypeDef(BaseValidatorModel):
     resourceArn: str
-    revisionId: str
+    revisionId: Annotated[str, _aws_pattern("Lexv2Models", "RevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'batch_delete_custom_vocabulary_item' function.
 class BatchDeleteCustomVocabularyItemRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     customVocabularyItemList: List[CustomVocabularyEntryIdTypeDef]
 
 
 class BedrockModelSpecificationTypeDef(BaseValidatorModel):
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("Lexv2Models", "BedrockModelArn")]
     guardrail: Optional[BedrockGuardrailConfigurationTypeDef] = None
     traceStatus: Optional[BedrockTraceStatusType] = None
     customPrompt: Optional[str] = None
 
 
 class BedrockKnowledgeStoreConfigurationTypeDef(BaseValidatorModel):
-    bedrockKnowledgeBaseArn: str
+    bedrockKnowledgeBaseArn: Annotated[str, _aws_pattern("Lexv2Models", "BedrockKnowledgeBaseArn")]
     exactResponse: Optional[bool] = None
     exactResponseFields: Optional[BedrockKnowledgeStoreExactResponseFieldsTypeDef] = None
 
 
 # This class is the output for the 'list_bot_alias_replicas' function.
 class ListBotAliasReplicasResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     sourceRegion: str
     replicaRegion: str
     botAliasReplicaSummaries: List[BotAliasReplicaSummaryTypeDef]
@@ -1679,7 +1689,7 @@ class ListBotAliasReplicasResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_bot_aliases' function.
 class ListBotAliasesResponseTypeDef(BaseValidatorModel):
     botAliasSummaries: List[BotAliasSummaryTypeDef]
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -1690,9 +1700,9 @@ class TestExecutionTargetTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_bot_analyzer_history' function.
 class ListBotAnalyzerHistoryResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     localeId: str
-    botVersion: str
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     botAnalyzerHistoryList: List[BotAnalyzerHistorySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -1716,8 +1726,8 @@ class BotImportSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class BotImportSpecificationTypeDef(BaseValidatorModel):
-    botName: str
-    roleArn: str
+    botName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     dataPrivacy: DataPrivacyTypeDef
     errorLogSettings: Optional[ErrorLogSettingsTypeDef] = None
     idleSessionTTLInSeconds: Optional[int] = None
@@ -1727,8 +1737,8 @@ class BotImportSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_bot_locales' function.
 class ListBotLocalesRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     sortBy: Optional[BotLocaleSortByTypeDef] = None
     filters: Optional[List[BotLocaleFilterTypeDef]] = None
     maxResults: Optional[int] = None
@@ -1737,8 +1747,8 @@ class ListBotLocalesRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_bot_locales' function.
 class ListBotLocalesResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     botLocaleSummaries: List[BotLocaleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -1746,8 +1756,8 @@ class ListBotLocalesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_bot' function.
 class CreateBotRequestTypeDef(BaseValidatorModel):
-    botName: str
-    roleArn: str
+    botName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     dataPrivacy: DataPrivacyTypeDef
     idleSessionTTLInSeconds: int
     description: Optional[str] = None
@@ -1760,10 +1770,10 @@ class CreateBotRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_bot' function.
 class CreateBotResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botName: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     dataPrivacy: DataPrivacyTypeDef
     idleSessionTTLInSeconds: int
     botStatus: BotStatusType
@@ -1778,10 +1788,10 @@ class CreateBotResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_bot' function.
 class DescribeBotResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botName: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     dataPrivacy: DataPrivacyTypeDef
     idleSessionTTLInSeconds: int
     botStatus: BotStatusType
@@ -1796,9 +1806,9 @@ class DescribeBotResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_bot' function.
 class UpdateBotRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botName: str
-    roleArn: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     dataPrivacy: DataPrivacyTypeDef
     idleSessionTTLInSeconds: int
     description: Optional[str] = None
@@ -1809,10 +1819,10 @@ class UpdateBotRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_bot' function.
 class UpdateBotResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botName: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     dataPrivacy: DataPrivacyTypeDef
     idleSessionTTLInSeconds: int
     botStatus: BotStatusType
@@ -1831,8 +1841,8 @@ class BotRecommendationResultStatisticsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_bot_recommendations' function.
 class ListBotRecommendationsResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     botRecommendationSummaries: List[BotRecommendationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1841,7 +1851,7 @@ class ListBotRecommendationsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_bot_replicas' function.
 class ListBotReplicasResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     sourceRegion: str
     botReplicaSummaries: List[BotReplicaSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1864,16 +1874,16 @@ class ListBotsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_bot_version' function.
 class CreateBotVersionRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     botVersionLocaleSpecification: Dict[str, BotVersionLocaleDetailsTypeDef]
     description: Optional[str] = None
 
 
 # This class is the output for the 'create_bot_version' function.
 class CreateBotVersionResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     description: str
-    botVersion: str
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "NumericalBotVersion")]
     botVersionLocaleSpecification: Dict[str, BotVersionLocaleDetailsTypeDef]
     botStatus: BotStatusType
     creationDateTime: datetime
@@ -1882,7 +1892,7 @@ class CreateBotVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_bot_version_replicas' function.
 class ListBotVersionReplicasRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     replicaRegion: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1891,7 +1901,7 @@ class ListBotVersionReplicasRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_bot_version_replicas' function.
 class ListBotVersionReplicasResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     sourceRegion: str
     replicaRegion: str
     botVersionReplicaSummaries: List[BotVersionReplicaSummaryTypeDef]
@@ -1901,7 +1911,7 @@ class ListBotVersionReplicasResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_bot_versions' function.
 class ListBotVersionsRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     sortBy: Optional[BotVersionSortByTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1909,7 +1919,7 @@ class ListBotVersionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_bot_versions' function.
 class ListBotVersionsResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     botVersionSummaries: List[BotVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -1978,7 +1988,7 @@ class CompositeSlotTypeSettingTypeDef(BaseValidatorModel):
 
 
 class ConversationLevelTestResultItemTypeDef(BaseValidatorModel):
-    conversationId: str
+    conversationId: Annotated[str, _aws_pattern("Lexv2Models", "TestSetConversationId")]
     endToEndResult: TestResultMatchStatusType
     intentClassificationResults: List[ConversationLevelIntentClassificationResultItemTypeDef]
     slotResolutionResults: List[ConversationLevelSlotResolutionResultItemTypeDef]
@@ -2010,7 +2020,7 @@ class DateRangeFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_intent_metrics' function.
 class ListIntentMetricsRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
     metrics: List[AnalyticsIntentMetricTypeDef]
@@ -2023,7 +2033,7 @@ class ListIntentMetricsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_intent_paths' function.
 class ListIntentPathsRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
     intentPath: str
@@ -2032,7 +2042,7 @@ class ListIntentPathsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_intent_stage_metrics' function.
 class ListIntentStageMetricsRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
     metrics: List[AnalyticsIntentStageMetricTypeDef]
@@ -2045,7 +2055,7 @@ class ListIntentStageMetricsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_session_metrics' function.
 class ListSessionMetricsRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
     metrics: List[AnalyticsSessionMetricTypeDef]
@@ -2058,7 +2068,7 @@ class ListSessionMetricsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_utterance_metrics' function.
 class ListUtteranceMetricsRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
     metrics: List[AnalyticsUtteranceMetricTypeDef]
@@ -2071,8 +2081,8 @@ class ListUtteranceMetricsRequestTypeDef(BaseValidatorModel):
 
 
 class IntentSummaryTypeDef(BaseValidatorModel):
-    intentId: Optional[str] = None
-    intentName: Optional[str] = None
+    intentId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
+    intentName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     intentDisplayName: Optional[str] = None
     description: Optional[str] = None
     parentIntentSignature: Optional[str] = None
@@ -2083,10 +2093,10 @@ class IntentSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'generate_bot_element' function.
 class GenerateBotElementResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     sampleUtterances: List[SampleUtteranceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2094,12 +2104,12 @@ class GenerateBotElementResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_resource_policy_statement' function.
 class CreateResourcePolicyStatementRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    statementId: str
+    statementId: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     effect: EffectType
     principal: List[PrincipalTypeDef]
-    action: List[str]
+    action: List[Annotated[str, _aws_pattern("Lexv2Models", "Operation")]]
     condition: Optional[Dict[str, Dict[str, str]]] = None
-    expectedRevisionId: Optional[str] = None
+    expectedRevisionId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "RevisionId")]] = None
 
 
 class LexTranscriptFilterOutputTypeDef(BaseValidatorModel):
@@ -2160,11 +2170,11 @@ class DescribeImportRequestWaitTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_bot_version' function.
 class DescribeBotVersionResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botName: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "NumericalBotVersion")]
     description: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     dataPrivacy: DataPrivacyTypeDef
     idleSessionTTLInSeconds: int
     botStatus: BotStatusType
@@ -2191,21 +2201,21 @@ class ListBotAnalyzerHistoryRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_bot_recommendation' function.
 class UpdateBotRecommendationRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     encryptionSetting: EncryptionSettingTypeDef
 
 
 # This class is the output for the 'describe_test_set' function.
 class DescribeTestSetResponseTypeDef(BaseValidatorModel):
-    testSetId: str
-    testSetName: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    testSetName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
     modality: TestSetModalityType
     status: TestSetStatusType
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     numTurns: int
     storageLocation: TestSetStorageLocationTypeDef
     creationDateTime: datetime
@@ -2214,12 +2224,12 @@ class DescribeTestSetResponseTypeDef(BaseValidatorModel):
 
 
 class TestSetSummaryTypeDef(BaseValidatorModel):
-    testSetId: Optional[str] = None
-    testSetName: Optional[str] = None
+    testSetId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
+    testSetName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     description: Optional[str] = None
     modality: Optional[TestSetModalityType] = None
     status: Optional[TestSetStatusType] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]] = None
     numTurns: Optional[int] = None
     storageLocation: Optional[TestSetStorageLocationTypeDef] = None
     creationDateTime: Optional[datetime] = None
@@ -2228,12 +2238,12 @@ class TestSetSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_test_set' function.
 class UpdateTestSetResponseTypeDef(BaseValidatorModel):
-    testSetId: str
-    testSetName: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    testSetName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
     modality: TestSetModalityType
     status: TestSetStatusType
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     numTurns: int
     storageLocation: TestSetStorageLocationTypeDef
     creationDateTime: datetime
@@ -2250,8 +2260,8 @@ class OpensearchConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class OpensearchConfigurationTypeDef(BaseValidatorModel):
-    domainEndpoint: str
-    indexName: str
+    domainEndpoint: Annotated[str, _aws_pattern("Lexv2Models", "DomainEndpoint")]
+    indexName: Annotated[str, _aws_pattern("Lexv2Models", "OSIndexName")]
     exactResponse: Optional[bool] = None
     exactResponseFields: Optional[ExactResponseFieldsTypeDef] = None
     includeFields: Optional[List[str]] = None
@@ -2266,8 +2276,8 @@ class ExportResourceSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_exports' function.
 class ListExportsRequestTypeDef(BaseValidatorModel):
-    botId: Optional[str] = None
-    botVersion: Optional[str] = None
+    botId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]] = None
     sortBy: Optional[ExportSortByTypeDef] = None
     filters: Optional[List[ExportFilterTypeDef]] = None
     maxResults: Optional[int] = None
@@ -2277,8 +2287,8 @@ class ListExportsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_bot_resource_generations' function.
 class ListBotResourceGenerationsRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     sortBy: Optional[GenerationSortByTypeDef] = None
     maxResults: Optional[int] = None
@@ -2287,8 +2297,8 @@ class ListBotResourceGenerationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_bot_resource_generations' function.
 class ListBotResourceGenerationsResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     generationSummaries: List[GenerationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2301,8 +2311,8 @@ class GrammarSlotTypeSettingTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_imports' function.
 class ListImportsRequestTypeDef(BaseValidatorModel):
-    botId: Optional[str] = None
-    botVersion: Optional[str] = None
+    botId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]] = None
     sortBy: Optional[ImportSortByTypeDef] = None
     filters: Optional[List[ImportFilterTypeDef]] = None
     maxResults: Optional[int] = None
@@ -2312,8 +2322,8 @@ class ListImportsRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_imports' function.
 class ListImportsResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     importSummaries: List[ImportSummaryTypeDef]
     localeId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2321,7 +2331,7 @@ class ListImportsResponseTypeDef(BaseValidatorModel):
 
 
 class IntentClassificationTestResultItemTypeDef(BaseValidatorModel):
-    intentName: str
+    intentName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     multiTurnConversation: bool
     resultCounts: IntentClassificationTestResultItemCountsTypeDef
 
@@ -2334,8 +2344,8 @@ class NluImprovementSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_intents' function.
 class ListIntentsRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     sortBy: Optional[IntentSortByTypeDef] = None
     filters: Optional[List[IntentFilterTypeDef]] = None
@@ -2344,11 +2354,11 @@ class ListIntentsRequestTypeDef(BaseValidatorModel):
 
 
 class SessionSpecificationTypeDef(BaseValidatorModel):
-    botAliasId: Optional[str] = None
-    botVersion: Optional[str] = None
+    botAliasId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "NumericalBotVersion")]] = None
     localeId: Optional[str] = None
     channel: Optional[str] = None
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "AnalyticsSessionId")]] = None
     conversationStartTime: Optional[datetime] = None
     conversationEndTime: Optional[datetime] = None
     conversationDurationSeconds: Optional[int] = None
@@ -2361,10 +2371,10 @@ class SessionSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_recommended_intents' function.
 class ListRecommendedIntentsResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     summaryList: List[RecommendedIntentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -2372,7 +2382,7 @@ class ListRecommendedIntentsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_session_analytics_data' function.
 class ListSessionAnalyticsDataRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
     sortBy: Optional[SessionDataSortByTypeDef] = None
@@ -2383,8 +2393,8 @@ class ListSessionAnalyticsDataRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_slot_types' function.
 class ListSlotTypesRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     sortBy: Optional[SlotTypeSortByTypeDef] = None
     filters: Optional[List[SlotTypeFilterTypeDef]] = None
@@ -2394,8 +2404,8 @@ class ListSlotTypesRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_slot_types' function.
 class ListSlotTypesResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     slotTypeSummaries: List[SlotTypeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2404,10 +2414,10 @@ class ListSlotTypesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_slots' function.
 class ListSlotsRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     sortBy: Optional[SlotSortByTypeDef] = None
     filters: Optional[List[SlotFilterTypeDef]] = None
     maxResults: Optional[int] = None
@@ -2430,7 +2440,7 @@ class ListTestSetsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_utterance_analytics_data' function.
 class ListUtteranceAnalyticsDataRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
     sortBy: Optional[UtteranceDataSortByTypeDef] = None
@@ -2475,7 +2485,7 @@ class SlotDefaultValueSpecificationTypeDef(BaseValidatorModel):
 
 
 class SlotResolutionTestResultItemTypeDef(BaseValidatorModel):
-    slotName: str
+    slotName: Annotated[str, _aws_pattern("Lexv2Models", "TestResultSlotName")]
     resultCounts: SlotResolutionTestResultItemCountsTypeDef
 
 
@@ -2521,8 +2531,8 @@ class TestSetImportResourceSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class TestSetImportResourceSpecificationTypeDef(BaseValidatorModel):
-    testSetName: str
-    roleArn: str
+    testSetName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     storageLocation: TestSetStorageLocationTypeDef
     importInputLocation: TestSetImportInputLocationTypeDef
     modality: TestSetModalityType
@@ -2531,7 +2541,7 @@ class TestSetImportResourceSpecificationTypeDef(BaseValidatorModel):
 
 
 class UserTurnIntentOutputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     slots: Optional[Dict[str, UserTurnSlotOutputTypeDef]] = None
 
 
@@ -2542,7 +2552,7 @@ class UtteranceInputSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_intent_metrics' function.
 class ListIntentMetricsResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     results: List[AnalyticsIntentResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -2550,7 +2560,7 @@ class ListIntentMetricsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_intent_stage_metrics' function.
 class ListIntentStageMetricsResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     results: List[AnalyticsIntentStageResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -2558,7 +2568,7 @@ class ListIntentStageMetricsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_session_metrics' function.
 class ListSessionMetricsResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     results: List[AnalyticsSessionResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -2566,7 +2576,7 @@ class ListSessionMetricsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_utterance_metrics' function.
 class ListUtteranceMetricsResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     results: List[AnalyticsUtteranceResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -2602,12 +2612,12 @@ class SlotResolutionImprovementSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_test_execution' function.
 class DescribeTestExecutionResponseTypeDef(BaseValidatorModel):
-    testExecutionId: str
+    testExecutionId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
     testExecutionStatus: TestExecutionStatusType
-    testSetId: str
-    testSetName: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    testSetName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     target: TestExecutionTargetTypeDef
     apiMode: TestExecutionApiModeType
     testExecutionModality: TestExecutionModalityType
@@ -2617,7 +2627,7 @@ class DescribeTestExecutionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_test_execution' function.
 class StartTestExecutionRequestTypeDef(BaseValidatorModel):
-    testSetId: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     target: TestExecutionTargetTypeDef
     apiMode: TestExecutionApiModeType
     testExecutionModality: Optional[TestExecutionModalityType] = None
@@ -2625,9 +2635,9 @@ class StartTestExecutionRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_test_execution' function.
 class StartTestExecutionResponseTypeDef(BaseValidatorModel):
-    testExecutionId: str
+    testExecutionId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
-    testSetId: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     target: TestExecutionTargetTypeDef
     apiMode: TestExecutionApiModeType
     testExecutionModality: TestExecutionModalityType
@@ -2635,12 +2645,12 @@ class StartTestExecutionResponseTypeDef(BaseValidatorModel):
 
 
 class TestExecutionSummaryTypeDef(BaseValidatorModel):
-    testExecutionId: Optional[str] = None
+    testExecutionId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
     testExecutionStatus: Optional[TestExecutionStatusType] = None
-    testSetId: Optional[str] = None
-    testSetName: Optional[str] = None
+    testSetId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
+    testSetName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     target: Optional[TestExecutionTargetTypeDef] = None
     apiMode: Optional[TestExecutionApiModeType] = None
     testExecutionModality: Optional[TestExecutionModalityType] = None
@@ -2648,8 +2658,8 @@ class TestExecutionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_bot_analyzer_recommendation' function.
 class DescribeBotAnalyzerRecommendationResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     botAnalyzerStatus: BotAnalyzerStatusType
     creationDateTime: datetime
@@ -2704,7 +2714,7 @@ class ConversationLevelTestResultsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_test_execution_result_items' function.
 class ListTestExecutionResultItemsRequestTypeDef(BaseValidatorModel):
-    testExecutionId: str
+    testExecutionId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     resultFilterBy: TestExecutionResultFilterByTypeDef
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -2715,8 +2725,8 @@ class TestSetGenerationDataSourceOutputTypeDef(BaseValidatorModel):
 
 
 class ConversationLogsDataSourceTypeDef(BaseValidatorModel):
-    botId: str
-    botAliasId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
     localeId: str
     filter: ConversationLogsDataSourceFilterByTypeDef
 
@@ -2727,8 +2737,8 @@ class LexTranscriptFilterTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_intents' function.
 class ListIntentsResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     intentSummaries: List[IntentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2772,7 +2782,7 @@ class CreateExportRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_export' function.
 class CreateExportResponseTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     resourceSpecification: ExportResourceSpecificationTypeDef
     fileFormat: ImportExportFileFormatType
     exportStatus: ExportStatusType
@@ -2782,7 +2792,7 @@ class CreateExportResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_export' function.
 class DescribeExportResponseTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     resourceSpecification: ExportResourceSpecificationTypeDef
     fileFormat: ImportExportFileFormatType
     exportStatus: ExportStatusType
@@ -2794,7 +2804,7 @@ class DescribeExportResponseTypeDef(BaseValidatorModel):
 
 
 class ExportSummaryTypeDef(BaseValidatorModel):
-    exportId: Optional[str] = None
+    exportId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
     resourceSpecification: Optional[ExportResourceSpecificationTypeDef] = None
     fileFormat: Optional[ImportExportFileFormatType] = None
     exportStatus: Optional[ExportStatusType] = None
@@ -2804,7 +2814,7 @@ class ExportSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_export' function.
 class UpdateExportResponseTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     resourceSpecification: ExportResourceSpecificationTypeDef
     fileFormat: ImportExportFileFormatType
     exportStatus: ExportStatusType
@@ -2823,7 +2833,7 @@ class IntentClassificationTestResultsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_session_analytics_data' function.
 class ListSessionAnalyticsDataResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     sessions: List[SessionSpecificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -2831,11 +2841,11 @@ class ListSessionAnalyticsDataResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_aggregated_utterances' function.
 class ListAggregatedUtterancesRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     localeId: str
     aggregationDuration: UtteranceAggregationDurationTypeDef
-    botAliasId: Optional[str] = None
-    botVersion: Optional[str] = None
+    botAliasId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]] = None
     sortBy: Optional[AggregatedUtterancesSortByTypeDef] = None
     filters: Optional[List[AggregatedUtterancesFilterTypeDef]] = None
     maxResults: Optional[int] = None
@@ -2844,9 +2854,9 @@ class ListAggregatedUtterancesRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_aggregated_utterances' function.
 class ListAggregatedUtterancesResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botAliasId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     aggregationDuration: UtteranceAggregationDurationTypeDef
     aggregationWindowStartTime: datetime
@@ -2865,7 +2875,7 @@ SlotTypeValueUnionTypeDef = Union[SlotTypeValueOutputTypeDef, SlotTypeValueTypeD
 
 
 class IntentLevelSlotResolutionTestResultItemTypeDef(BaseValidatorModel):
-    intentName: str
+    intentName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     multiTurnConversation: bool
     slotResolutionResults: List[SlotResolutionTestResultItemTypeDef]
 
@@ -2876,29 +2886,29 @@ class IntentOverrideOutputTypeDef(BaseValidatorModel):
 
 
 class IntentOverrideTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     slots: Optional[Dict[str, SlotValueOverrideTypeDef]] = None
 
 
 # This class is the input for the 'create_test_set_discrepancy_report' function.
 class CreateTestSetDiscrepancyReportRequestTypeDef(BaseValidatorModel):
-    testSetId: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     target: TestSetDiscrepancyReportResourceTargetTypeDef
 
 
 # This class is the output for the 'create_test_set_discrepancy_report' function.
 class CreateTestSetDiscrepancyReportResponseTypeDef(BaseValidatorModel):
-    testSetDiscrepancyReportId: str
+    testSetDiscrepancyReportId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
-    testSetId: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     target: TestSetDiscrepancyReportResourceTargetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_test_set_discrepancy_report' function.
 class DescribeTestSetDiscrepancyReportResponseTypeDef(BaseValidatorModel):
-    testSetDiscrepancyReportId: str
-    testSetId: str
+    testSetDiscrepancyReportId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
     target: TestSetDiscrepancyReportResourceTargetTypeDef
     testSetDiscrepancyReportStatus: TestSetDiscrepancyReportStatusType
@@ -2938,10 +2948,10 @@ class MessageGroupOutputTypeDef(BaseValidatorModel):
 
 
 class UtteranceSpecificationTypeDef(BaseValidatorModel):
-    botAliasId: Optional[str] = None
-    botVersion: Optional[str] = None
+    botAliasId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "NumericalBotVersion")]] = None
     localeId: Optional[str] = None
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "AnalyticsSessionId")]] = None
     channel: Optional[str] = None
     mode: Optional[AnalyticsModalityType] = None
     conversationStartTime: Optional[datetime] = None
@@ -2952,13 +2962,13 @@ class UtteranceSpecificationTypeDef(BaseValidatorModel):
     utteranceUnderstood: Optional[bool] = None
     inputType: Optional[str] = None
     outputType: Optional[str] = None
-    associatedIntentName: Optional[str] = None
-    associatedSlotName: Optional[str] = None
+    associatedIntentName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
+    associatedSlotName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     intentState: Optional[IntentStateType] = None
     dialogActionType: Optional[str] = None
     botResponseAudioVoiceId: Optional[str] = None
     slotsFilledInSession: Optional[str] = None
-    utteranceRequestId: Optional[str] = None
+    utteranceRequestId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
     botResponses: Optional[List[UtteranceBotResponseTypeDef]] = None
 
 
@@ -2979,15 +2989,15 @@ class ConversationLogSettingsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_test_set_generation' function.
 class DescribeTestSetGenerationResponseTypeDef(BaseValidatorModel):
-    testSetGenerationId: str
+    testSetGenerationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     testSetGenerationStatus: TestSetGenerationStatusType
     failureReasons: List[str]
-    testSetId: str
-    testSetName: str
+    testSetId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    testSetName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
     storageLocation: TestSetStorageLocationTypeDef
     generationDataSource: TestSetGenerationDataSourceOutputTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2995,14 +3005,14 @@ class DescribeTestSetGenerationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_test_set_generation' function.
 class StartTestSetGenerationResponseTypeDef(BaseValidatorModel):
-    testSetGenerationId: str
+    testSetGenerationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
     testSetGenerationStatus: TestSetGenerationStatusType
-    testSetName: str
+    testSetName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
     storageLocation: TestSetStorageLocationTypeDef
     generationDataSource: TestSetGenerationDataSourceOutputTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     testSetTags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -3024,14 +3034,15 @@ class S3BucketTranscriptSourceOutputTypeDef(BaseValidatorModel):
 
 
 class BotLocaleImportSpecificationTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     nluIntentConfidenceThreshold: Optional[float] = None
     voiceSettings: Optional[VoiceSettingsTypeDef] = None
     speechRecognitionSettings: Optional[SpeechRecognitionSettingsTypeDef] = None
     speechDetectionSensitivity: Optional[SpeechDetectionSensitivityType] = None
     unifiedSpeechSettings: Optional[UnifiedSpeechSettingsTypeDef] = None
+    audioFillerSettings: Optional[AudioFillerSettingsTypeDef] = None
 
 
 class QnAIntentConfigurationOutputTypeDef(BaseValidatorModel):
@@ -3046,8 +3057,8 @@ class QnAIntentConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_exports' function.
 class ListExportsResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     exportSummaries: List[ExportSummaryTypeDef]
     localeId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3056,14 +3067,14 @@ class ListExportsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_slot_type' function.
 class CreateSlotTypeResponseTypeDef(BaseValidatorModel):
-    slotTypeId: str
-    slotTypeName: str
+    slotTypeId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    slotTypeName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
     slotTypeValues: List[SlotTypeValueOutputTypeDef]
     valueSelectionSetting: SlotValueSelectionSettingTypeDef
     parentSlotTypeSignature: str
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     creationDateTime: datetime
     externalSourceSetting: ExternalSourceSettingTypeDef
@@ -3073,14 +3084,14 @@ class CreateSlotTypeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_slot_type' function.
 class DescribeSlotTypeResponseTypeDef(BaseValidatorModel):
-    slotTypeId: str
-    slotTypeName: str
+    slotTypeId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    slotTypeName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
     slotTypeValues: List[SlotTypeValueOutputTypeDef]
     valueSelectionSetting: SlotValueSelectionSettingTypeDef
     parentSlotTypeSignature: str
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
@@ -3091,14 +3102,14 @@ class DescribeSlotTypeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_slot_type' function.
 class UpdateSlotTypeResponseTypeDef(BaseValidatorModel):
-    slotTypeId: str
-    slotTypeName: str
+    slotTypeId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    slotTypeName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
     slotTypeValues: List[SlotTypeValueOutputTypeDef]
     valueSelectionSetting: SlotValueSelectionSettingTypeDef
     parentSlotTypeSignature: str
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
@@ -3115,9 +3126,9 @@ class InputSessionStateSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_slot_type' function.
 class CreateSlotTypeRequestTypeDef(BaseValidatorModel):
-    slotTypeName: str
-    botId: str
-    botVersion: str
+    slotTypeName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     description: Optional[str] = None
     slotTypeValues: Optional[List[SlotTypeValueUnionTypeDef]] = None
@@ -3129,10 +3140,10 @@ class CreateSlotTypeRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_slot_type' function.
 class UpdateSlotTypeRequestTypeDef(BaseValidatorModel):
-    slotTypeId: str
-    slotTypeName: str
-    botId: str
-    botVersion: str
+    slotTypeId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    slotTypeName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     description: Optional[str] = None
     slotTypeValues: Optional[List[SlotTypeValueUnionTypeDef]] = None
@@ -3197,7 +3208,7 @@ class StillWaitingResponseSpecificationOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_utterance_analytics_data' function.
 class ListUtteranceAnalyticsDataResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     utterances: List[UtteranceSpecificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -3237,15 +3248,15 @@ class StillWaitingResponseSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_bot_alias' function.
 class CreateBotAliasResponseTypeDef(BaseValidatorModel):
-    botAliasId: str
-    botAliasName: str
+    botAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
+    botAliasName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
-    botVersion: str
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "NumericalBotVersion")]
     botAliasLocaleSettings: Dict[str, BotAliasLocaleSettingsTypeDef]
     conversationLogSettings: ConversationLogSettingsOutputTypeDef
     sentimentAnalysisSettings: SentimentAnalysisSettingsTypeDef
     botAliasStatus: BotAliasStatusType
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3253,16 +3264,16 @@ class CreateBotAliasResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_bot_alias' function.
 class DescribeBotAliasResponseTypeDef(BaseValidatorModel):
-    botAliasId: str
-    botAliasName: str
+    botAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
+    botAliasName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
-    botVersion: str
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     botAliasLocaleSettings: Dict[str, BotAliasLocaleSettingsTypeDef]
     conversationLogSettings: ConversationLogSettingsOutputTypeDef
     sentimentAnalysisSettings: SentimentAnalysisSettingsTypeDef
     botAliasHistoryEvents: List[BotAliasHistoryEventTypeDef]
     botAliasStatus: BotAliasStatusType
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
     parentBotNetworks: List[ParentBotNetworkTypeDef]
@@ -3271,15 +3282,15 @@ class DescribeBotAliasResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_bot_alias' function.
 class UpdateBotAliasResponseTypeDef(BaseValidatorModel):
-    botAliasId: str
-    botAliasName: str
+    botAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
+    botAliasName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
-    botVersion: str
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     botAliasLocaleSettings: Dict[str, BotAliasLocaleSettingsTypeDef]
     conversationLogSettings: ConversationLogSettingsOutputTypeDef
     sentimentAnalysisSettings: SentimentAnalysisSettingsTypeDef
     botAliasStatus: BotAliasStatusType
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3293,11 +3304,11 @@ TestSetGenerationDataSourceUnionTypeDef = Union[
 
 
 class S3BucketTranscriptSourceTypeDef(BaseValidatorModel):
-    s3BucketName: str
+    s3BucketName: Annotated[str, _aws_pattern("Lexv2Models", "S3BucketName")]
     transcriptFormat: Literal["Lex"]
     pathFormat: Optional[PathFormatTypeDef] = None
     transcriptFilter: Optional[TranscriptFilterTypeDef] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Lexv2Models", "KmsKeyArn")]] = None
 
 
 class TranscriptSourceSettingOutputTypeDef(BaseValidatorModel):
@@ -3329,13 +3340,14 @@ class UserTurnInputSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_bot_locale' function.
 class CreateBotLocaleRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     nluIntentConfidenceThreshold: float
     description: Optional[str] = None
     voiceSettings: Optional[VoiceSettingsTypeDef] = None
     unifiedSpeechSettings: Optional[UnifiedSpeechSettingsTypeDef] = None
+    audioFillerSettings: Optional[AudioFillerSettingsTypeDef] = None
     speechRecognitionSettings: Optional[SpeechRecognitionSettingsTypeDef] = None
     generativeAISettings: Optional[GenerativeAISettingsTypeDef] = None
     speechDetectionSensitivity: Optional[SpeechDetectionSensitivityType] = None
@@ -3343,14 +3355,15 @@ class CreateBotLocaleRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_bot_locale' function.
 class CreateBotLocaleResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeName: str
     localeId: str
     description: str
     nluIntentConfidenceThreshold: float
     voiceSettings: VoiceSettingsTypeDef
     unifiedSpeechSettings: UnifiedSpeechSettingsTypeDef
+    audioFillerSettings: AudioFillerSettingsTypeDef
     speechRecognitionSettings: SpeechRecognitionSettingsTypeDef
     botLocaleStatus: BotLocaleStatusType
     creationDateTime: datetime
@@ -3361,14 +3374,15 @@ class CreateBotLocaleResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_bot_locale' function.
 class DescribeBotLocaleResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
     localeName: str
     description: str
     nluIntentConfidenceThreshold: float
     voiceSettings: VoiceSettingsTypeDef
     unifiedSpeechSettings: UnifiedSpeechSettingsTypeDef
+    audioFillerSettings: AudioFillerSettingsTypeDef
     speechRecognitionSettings: SpeechRecognitionSettingsTypeDef
     intentsCount: int
     slotTypesCount: int
@@ -3386,13 +3400,14 @@ class DescribeBotLocaleResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_bot_locale' function.
 class UpdateBotLocaleRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     nluIntentConfidenceThreshold: float
     description: Optional[str] = None
     voiceSettings: Optional[VoiceSettingsTypeDef] = None
     unifiedSpeechSettings: Optional[UnifiedSpeechSettingsTypeDef] = None
+    audioFillerSettings: Optional[AudioFillerSettingsTypeDef] = None
     speechRecognitionSettings: Optional[SpeechRecognitionSettingsTypeDef] = None
     generativeAISettings: Optional[GenerativeAISettingsTypeDef] = None
     speechDetectionSensitivity: Optional[SpeechDetectionSensitivityType] = None
@@ -3400,14 +3415,15 @@ class UpdateBotLocaleRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_bot_locale' function.
 class UpdateBotLocaleResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     localeName: str
     description: str
     nluIntentConfidenceThreshold: float
     voiceSettings: VoiceSettingsTypeDef
     unifiedSpeechSettings: UnifiedSpeechSettingsTypeDef
+    audioFillerSettings: AudioFillerSettingsTypeDef
     speechRecognitionSettings: SpeechRecognitionSettingsTypeDef
     botLocaleStatus: BotLocaleStatusType
     failureReasons: List[str]
@@ -3427,11 +3443,11 @@ class FulfillmentUpdatesSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class SlotSummaryTypeDef(BaseValidatorModel):
-    slotId: Optional[str] = None
-    slotName: Optional[str] = None
+    slotId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Id")]] = None
+    slotName: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
     description: Optional[str] = None
     slotConstraint: Optional[SlotConstraintType] = None
-    slotTypeId: Optional[str] = None
+    slotTypeId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BuiltInOrCustomSlotTypeId")]] = None
     valueElicitationPromptSpecification: Optional[PromptSpecificationOutputTypeDef] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
@@ -3463,7 +3479,7 @@ class FulfillmentUpdatesSpecificationTypeDef(BaseValidatorModel):
 
 
 class ConditionalBranchTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     condition: ConditionTypeDef
     nextStep: DialogStateTypeDef
     response: Optional[ResponseSpecificationTypeDef] = None
@@ -3483,10 +3499,10 @@ class WaitAndContinueSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_bot_alias' function.
 class CreateBotAliasRequestTypeDef(BaseValidatorModel):
-    botAliasName: str
-    botId: str
+    botAliasName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     description: Optional[str] = None
-    botVersion: Optional[str] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "NumericalBotVersion")]] = None
     botAliasLocaleSettings: Optional[Dict[str, BotAliasLocaleSettingsTypeDef]] = None
     conversationLogSettings: Optional[ConversationLogSettingsUnionTypeDef] = None
     sentimentAnalysisSettings: Optional[SentimentAnalysisSettingsTypeDef] = None
@@ -3495,11 +3511,11 @@ class CreateBotAliasRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_bot_alias' function.
 class UpdateBotAliasRequestTypeDef(BaseValidatorModel):
-    botAliasId: str
-    botAliasName: str
-    botId: str
+    botAliasId: Annotated[str, _aws_pattern("Lexv2Models", "BotAliasId")]
+    botAliasName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     description: Optional[str] = None
-    botVersion: Optional[str] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]] = None
     botAliasLocaleSettings: Optional[Dict[str, BotAliasLocaleSettingsTypeDef]] = None
     conversationLogSettings: Optional[ConversationLogSettingsUnionTypeDef] = None
     sentimentAnalysisSettings: Optional[SentimentAnalysisSettingsTypeDef] = None
@@ -3507,10 +3523,10 @@ class UpdateBotAliasRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_test_set_generation' function.
 class StartTestSetGenerationRequestTypeDef(BaseValidatorModel):
-    testSetName: str
+    testSetName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     storageLocation: TestSetStorageLocationTypeDef
     generationDataSource: TestSetGenerationDataSourceUnionTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Lexv2Models", "RoleArn")]
     description: Optional[str] = None
     testSetTags: Optional[Dict[str, str]] = None
 
@@ -3521,11 +3537,11 @@ class TranscriptSourceSettingTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_bot_recommendation' function.
 class DescribeBotRecommendationResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     botRecommendationStatus: BotRecommendationStatusType
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     failureReasons: List[str]
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
@@ -3537,11 +3553,11 @@ class DescribeBotRecommendationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_bot_recommendation' function.
 class StartBotRecommendationResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     botRecommendationStatus: BotRecommendationStatusType
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
     transcriptSourceSetting: TranscriptSourceSettingOutputTypeDef
     encryptionSetting: EncryptionSettingTypeDef
@@ -3550,11 +3566,11 @@ class StartBotRecommendationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_bot_recommendation' function.
 class UpdateBotRecommendationResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     botRecommendationStatus: BotRecommendationStatusType
-    botRecommendationId: str
+    botRecommendationId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
     transcriptSourceSetting: TranscriptSourceSettingOutputTypeDef
@@ -3564,10 +3580,10 @@ class UpdateBotRecommendationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_import' function.
 class DescribeImportResponseTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     resourceSpecification: ImportResourceSpecificationOutputTypeDef
-    importedResourceId: str
-    importedResourceName: str
+    importedResourceId: Annotated[str, _aws_pattern("Lexv2Models", "ImportedResourceId")]
+    importedResourceName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     mergeStrategy: MergeStrategyType
     importStatus: ImportStatusType
     failureReasons: List[str]
@@ -3578,7 +3594,7 @@ class DescribeImportResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_import' function.
 class StartImportResponseTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     resourceSpecification: ImportResourceSpecificationOutputTypeDef
     mergeStrategy: MergeStrategyType
     importStatus: ImportStatusType
@@ -3610,10 +3626,10 @@ class UserTurnSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_slots' function.
 class ListSlotsResponseTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     slotSummaries: List[SlotSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -3650,7 +3666,7 @@ TranscriptSourceSettingUnionTypeDef = Union[TranscriptSourceSettingOutputTypeDef
 
 # This class is the input for the 'start_import' function.
 class StartImportRequestTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     resourceSpecification: ImportResourceSpecificationUnionTypeDef
     mergeStrategy: MergeStrategyType
     filePassword: Optional[str] = None
@@ -3734,14 +3750,14 @@ class PostFulfillmentStatusSpecificationTypeDef(BaseValidatorModel):
 
 
 class SpecificationsTypeDef(BaseValidatorModel):
-    slotTypeId: str
+    slotTypeId: Annotated[str, _aws_pattern("Lexv2Models", "BuiltInOrCustomSlotTypeId")]
     valueElicitationSetting: SubSlotValueElicitationSettingTypeDef
 
 
 # This class is the input for the 'start_bot_recommendation' function.
 class StartBotRecommendationRequestTypeDef(BaseValidatorModel):
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     transcriptSourceSetting: TranscriptSourceSettingUnionTypeDef
     encryptionSetting: Optional[EncryptionSettingTypeDef] = None
@@ -3750,13 +3766,13 @@ class StartBotRecommendationRequestTypeDef(BaseValidatorModel):
 class UtteranceLevelTestResultItemTypeDef(BaseValidatorModel):
     recordNumber: int
     turnResult: TestSetTurnResultTypeDef
-    conversationId: Optional[str] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "TestSetConversationId")]] = None
 
 
 class TestSetTurnRecordTypeDef(BaseValidatorModel):
     recordNumber: int
     turnSpecification: TurnSpecificationTypeDef
-    conversationId: Optional[str] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "TestSetConversationId")]] = None
     turnNumber: Optional[int] = None
 
 
@@ -3786,7 +3802,7 @@ class DialogCodeHookInvocationSettingTypeDef(BaseValidatorModel):
     enableCodeHookInvocation: bool
     active: bool
     postCodeHookSpecification: PostDialogCodeHookInvocationSpecificationTypeDef
-    invocationLabel: Optional[str] = None
+    invocationLabel: Optional[Annotated[str, _aws_pattern("Lexv2Models", "Name")]] = None
 
 
 class FulfillmentCodeHookSettingsTypeDef(BaseValidatorModel):
@@ -3797,7 +3813,7 @@ class FulfillmentCodeHookSettingsTypeDef(BaseValidatorModel):
 
 
 class SubSlotSettingTypeDef(BaseValidatorModel):
-    expression: Optional[str] = None
+    expression: Optional[Annotated[str, _aws_pattern("Lexv2Models", "SubSlotExpression")]] = None
     slotSpecifications: Optional[Dict[str, SpecificationsTypeDef]] = None
 
 
@@ -3897,8 +3913,8 @@ class TestExecutionResultItemsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_intent' function.
 class CreateIntentResponseTypeDef(BaseValidatorModel):
-    intentId: str
-    intentName: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    intentName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     intentDisplayName: str
     description: str
     parentIntentSignature: str
@@ -3910,8 +3926,8 @@ class CreateIntentResponseTypeDef(BaseValidatorModel):
     inputContexts: List[InputContextTypeDef]
     outputContexts: List[OutputContextTypeDef]
     kendraConfiguration: KendraConfigurationTypeDef
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     creationDateTime: datetime
     initialResponseSetting: InitialResponseSettingOutputTypeDef
@@ -3922,8 +3938,8 @@ class CreateIntentResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_intent' function.
 class DescribeIntentResponseTypeDef(BaseValidatorModel):
-    intentId: str
-    intentName: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    intentName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     intentDisplayName: str
     description: str
     parentIntentSignature: str
@@ -3936,8 +3952,8 @@ class DescribeIntentResponseTypeDef(BaseValidatorModel):
     inputContexts: List[InputContextTypeDef]
     outputContexts: List[OutputContextTypeDef]
     kendraConfiguration: KendraConfigurationTypeDef
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
@@ -3949,8 +3965,8 @@ class DescribeIntentResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_intent' function.
 class UpdateIntentResponseTypeDef(BaseValidatorModel):
-    intentId: str
-    intentName: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    intentName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     intentDisplayName: str
     description: str
     parentIntentSignature: str
@@ -3963,8 +3979,8 @@ class UpdateIntentResponseTypeDef(BaseValidatorModel):
     inputContexts: List[InputContextTypeDef]
     outputContexts: List[OutputContextTypeDef]
     kendraConfiguration: KendraConfigurationTypeDef
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
@@ -4008,16 +4024,16 @@ class ListTestExecutionResultItemsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_slot' function.
 class CreateSlotResponseTypeDef(BaseValidatorModel):
-    slotId: str
-    slotName: str
+    slotId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    slotName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
-    slotTypeId: str
+    slotTypeId: Annotated[str, _aws_pattern("Lexv2Models", "BuiltInOrCustomSlotTypeId")]
     valueElicitationSetting: SlotValueElicitationSettingOutputTypeDef
     obfuscationSetting: ObfuscationSettingTypeDef
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
     multipleValuesSetting: MultipleValuesSettingTypeDef
     subSlotSetting: SubSlotSettingOutputTypeDef
@@ -4026,16 +4042,16 @@ class CreateSlotResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_slot' function.
 class DescribeSlotResponseTypeDef(BaseValidatorModel):
-    slotId: str
-    slotName: str
+    slotId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    slotName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
-    slotTypeId: str
+    slotTypeId: Annotated[str, _aws_pattern("Lexv2Models", "BuiltInOrCustomSlotTypeId")]
     valueElicitationSetting: SlotValueElicitationSettingOutputTypeDef
     obfuscationSetting: ObfuscationSettingTypeDef
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "BotVersion")]
     localeId: str
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
     multipleValuesSetting: MultipleValuesSettingTypeDef
@@ -4045,16 +4061,16 @@ class DescribeSlotResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_slot' function.
 class UpdateSlotResponseTypeDef(BaseValidatorModel):
-    slotId: str
-    slotName: str
+    slotId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    slotName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     description: str
-    slotTypeId: str
+    slotTypeId: Annotated[str, _aws_pattern("Lexv2Models", "BuiltInOrCustomSlotTypeId")]
     valueElicitationSetting: SlotValueElicitationSettingOutputTypeDef
     obfuscationSetting: ObfuscationSettingTypeDef
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
     multipleValuesSetting: MultipleValuesSettingTypeDef
@@ -4064,9 +4080,9 @@ class UpdateSlotResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_intent' function.
 class CreateIntentRequestTypeDef(BaseValidatorModel):
-    intentName: str
-    botId: str
-    botVersion: str
+    intentName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     intentDisplayName: Optional[str] = None
     description: Optional[str] = None
@@ -4086,10 +4102,10 @@ class CreateIntentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_intent' function.
 class UpdateIntentRequestTypeDef(BaseValidatorModel):
-    intentId: str
-    intentName: str
-    botId: str
-    botVersion: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    intentName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
     intentDisplayName: Optional[str] = None
     description: Optional[str] = None
@@ -4115,14 +4131,14 @@ SlotValueElicitationSettingUnionTypeDef = Union[
 
 # This class is the input for the 'create_slot' function.
 class CreateSlotRequestTypeDef(BaseValidatorModel):
-    slotName: str
+    slotName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     valueElicitationSetting: SlotValueElicitationSettingUnionTypeDef
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     description: Optional[str] = None
-    slotTypeId: Optional[str] = None
+    slotTypeId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BuiltInOrCustomSlotTypeId")]] = None
     obfuscationSetting: Optional[ObfuscationSettingTypeDef] = None
     multipleValuesSetting: Optional[MultipleValuesSettingTypeDef] = None
     subSlotSetting: Optional[SubSlotSettingUnionTypeDef] = None
@@ -4130,15 +4146,15 @@ class CreateSlotRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_slot' function.
 class UpdateSlotRequestTypeDef(BaseValidatorModel):
-    slotId: str
-    slotName: str
+    slotId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    slotName: Annotated[str, _aws_pattern("Lexv2Models", "Name")]
     valueElicitationSetting: SlotValueElicitationSettingUnionTypeDef
-    botId: str
-    botVersion: str
+    botId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
+    botVersion: Annotated[str, _aws_pattern("Lexv2Models", "DraftBotVersion")]
     localeId: str
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Lexv2Models", "Id")]
     description: Optional[str] = None
-    slotTypeId: Optional[str] = None
+    slotTypeId: Optional[Annotated[str, _aws_pattern("Lexv2Models", "BuiltInOrCustomSlotTypeId")]] = None
     obfuscationSetting: Optional[ObfuscationSettingTypeDef] = None
     multipleValuesSetting: Optional[MultipleValuesSettingTypeDef] = None
     subSlotSetting: Optional[SubSlotSettingUnionTypeDef] = None

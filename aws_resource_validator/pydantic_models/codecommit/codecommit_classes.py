@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.codecommit.codecommit_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -78,11 +80,11 @@ class ApprovalTypeDef(BaseValidatorModel):
 # This class is the input for the 'associate_approval_rule_template_with_repository' function.
 class AssociateApprovalRuleTemplateWithRepositoryInputTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
 
 
 class BatchAssociateApprovalRuleTemplateWithRepositoriesErrorTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
@@ -90,7 +92,7 @@ class BatchAssociateApprovalRuleTemplateWithRepositoriesErrorTypeDef(BaseValidat
 # This class is the input for the 'batch_associate_approval_rule_template_with_repositories' function.
 class BatchAssociateApprovalRuleTemplateWithRepositoriesInputTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
-    repositoryNames: List[str]
+    repositoryNames: List[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -109,7 +111,7 @@ class BatchDescribeMergeConflictsErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_describe_merge_conflicts' function.
 class BatchDescribeMergeConflictsInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     destinationCommitSpecifier: str
     sourceCommitSpecifier: str
     mergeOption: MergeOptionTypeEnumType
@@ -122,7 +124,7 @@ class BatchDescribeMergeConflictsInputTypeDef(BaseValidatorModel):
 
 
 class BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
@@ -130,7 +132,7 @@ class BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorTypeDef(BaseVali
 # This class is the input for the 'batch_disassociate_approval_rule_template_from_repositories' function.
 class BatchDisassociateApprovalRuleTemplateFromRepositoriesInputTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
-    repositoryNames: List[str]
+    repositoryNames: List[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]]
 
 
 class BatchGetCommitsErrorTypeDef(BaseValidatorModel):
@@ -142,25 +144,25 @@ class BatchGetCommitsErrorTypeDef(BaseValidatorModel):
 # This class is the input for the 'batch_get_commits' function.
 class BatchGetCommitsInputTypeDef(BaseValidatorModel):
     commitIds: List[str]
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
 
 
 class BatchGetRepositoriesErrorTypeDef(BaseValidatorModel):
     repositoryId: Optional[str] = None
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     errorCode: Optional[BatchGetRepositoriesErrorCodeEnumType] = None
     errorMessage: Optional[str] = None
 
 
 # This class is the input for the 'batch_get_repositories' function.
 class BatchGetRepositoriesInputTypeDef(BaseValidatorModel):
-    repositoryNames: List[str]
+    repositoryNames: List[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]]
 
 
 class RepositoryMetadataTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
     repositoryId: Optional[str] = None
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     repositoryDescription: Optional[str] = None
     defaultBranch: Optional[str] = None
     lastModifiedDate: Optional[datetime] = None
@@ -168,7 +170,7 @@ class RepositoryMetadataTypeDef(BaseValidatorModel):
     cloneUrlHttp: Optional[str] = None
     cloneUrlSsh: Optional[str] = None
     Arn: Optional[str] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Codecommit", "KmsKeyId")]] = None
 
 
 class BlobMetadataTypeDef(BaseValidatorModel):
@@ -257,7 +259,7 @@ class CreateApprovalRuleTemplateInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_branch' function.
 class CreateBranchInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     branchName: str
     commitId: str
 
@@ -276,17 +278,17 @@ class CreatePullRequestApprovalRuleInputTypeDef(BaseValidatorModel):
 
 
 class TargetTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     sourceReference: str
     destinationReference: Optional[str] = None
 
 
 # This class is the input for the 'create_repository' function.
 class CreateRepositoryInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     repositoryDescription: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Codecommit", "KmsKeyId")]] = None
 
 
 # This class is the input for the 'delete_approval_rule_template' function.
@@ -296,7 +298,7 @@ class DeleteApprovalRuleTemplateInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_branch' function.
 class DeleteBranchInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     branchName: str
 
 
@@ -307,7 +309,7 @@ class DeleteCommentContentInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_file' function.
 class DeleteFileInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     branchName: str
     filePath: str
     parentCommitId: str
@@ -325,12 +327,12 @@ class DeletePullRequestApprovalRuleInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_repository' function.
 class DeleteRepositoryInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
 
 
 # This class is the input for the 'describe_merge_conflicts' function.
 class DescribeMergeConflictsInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     destinationCommitSpecifier: str
     sourceCommitSpecifier: str
     mergeOption: MergeOptionTypeEnumType
@@ -359,7 +361,7 @@ class DescribePullRequestEventsInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'disassociate_approval_rule_template_from_repository' function.
 class DisassociateApprovalRuleTemplateFromRepositoryInputTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
 
 
 # This class is the input for the 'evaluate_pull_request_approval_rules' function.
@@ -395,13 +397,13 @@ class GetApprovalRuleTemplateInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_blob' function.
 class GetBlobInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     blobId: str
 
 
 # This class is the input for the 'get_branch' function.
 class GetBranchInputTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     branchName: Optional[str] = None
 
 
@@ -420,7 +422,7 @@ class GetCommentReactionsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_comments_for_compared_commit' function.
 class GetCommentsForComparedCommitInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     afterCommitId: str
     beforeCommitId: Optional[str] = None
     nextToken: Optional[str] = None
@@ -430,7 +432,7 @@ class GetCommentsForComparedCommitInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_comments_for_pull_request' function.
 class GetCommentsForPullRequestInputTypeDef(BaseValidatorModel):
     pullRequestId: str
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     beforeCommitId: Optional[str] = None
     afterCommitId: Optional[str] = None
     nextToken: Optional[str] = None
@@ -439,13 +441,13 @@ class GetCommentsForPullRequestInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_commit' function.
 class GetCommitInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     commitId: str
 
 
 # This class is the input for the 'get_differences' function.
 class GetDifferencesInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     afterCommitSpecifier: str
     beforeCommitSpecifier: Optional[str] = None
     beforePath: Optional[str] = None
@@ -456,14 +458,14 @@ class GetDifferencesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_file' function.
 class GetFileInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     filePath: str
     commitSpecifier: Optional[str] = None
 
 
 # This class is the input for the 'get_folder' function.
 class GetFolderInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     folderPath: str
     commitSpecifier: Optional[str] = None
 
@@ -483,7 +485,7 @@ class SymbolicLinkTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_merge_commit' function.
 class GetMergeCommitInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
     conflictDetailLevel: Optional[ConflictDetailLevelTypeEnumType] = None
@@ -492,7 +494,7 @@ class GetMergeCommitInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_merge_conflicts' function.
 class GetMergeConflictsInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     destinationCommitSpecifier: str
     sourceCommitSpecifier: str
     mergeOption: MergeOptionTypeEnumType
@@ -504,7 +506,7 @@ class GetMergeConflictsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_merge_options' function.
 class GetMergeOptionsInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
     conflictDetailLevel: Optional[ConflictDetailLevelTypeEnumType] = None
@@ -530,12 +532,12 @@ class GetPullRequestOverrideStateInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_repository' function.
 class GetRepositoryInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
 
 
 # This class is the input for the 'get_repository_triggers' function.
 class GetRepositoryTriggersInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
 
 
 class RepositoryTriggerOutputTypeDef(BaseValidatorModel):
@@ -554,20 +556,20 @@ class ListApprovalRuleTemplatesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_associated_approval_rule_templates_for_repository' function.
 class ListAssociatedApprovalRuleTemplatesForRepositoryInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_branches' function.
 class ListBranchesInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_file_commit_history' function.
 class ListFileCommitHistoryRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     filePath: str
     commitSpecifier: Optional[str] = None
     maxResults: Optional[int] = None
@@ -576,7 +578,7 @@ class ListFileCommitHistoryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pull_requests' function.
 class ListPullRequestsInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     authorArn: Optional[str] = None
     pullRequestStatus: Optional[PullRequestStatusEnumType] = None
     nextToken: Optional[str] = None
@@ -598,7 +600,7 @@ class ListRepositoriesInputTypeDef(BaseValidatorModel):
 
 
 class RepositoryNameIdPairTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     repositoryId: Optional[str] = None
 
 
@@ -610,7 +612,7 @@ class ListTagsForResourceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'merge_branches_by_fast_forward' function.
 class MergeBranchesByFastForwardInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
     targetBranch: Optional[str] = None
@@ -632,7 +634,7 @@ class MergeMetadataTypeDef(BaseValidatorModel):
 # This class is the input for the 'merge_pull_request_by_fast_forward' function.
 class MergePullRequestByFastForwardInputTypeDef(BaseValidatorModel):
     pullRequestId: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     sourceCommitId: Optional[str] = None
 
 
@@ -651,14 +653,14 @@ class PostCommentReplyInputTypeDef(BaseValidatorModel):
 
 
 class PullRequestCreatedEventMetadataTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     sourceCommitId: Optional[str] = None
     destinationCommitId: Optional[str] = None
     mergeBase: Optional[str] = None
 
 
 class PullRequestSourceReferenceUpdatedEventMetadataTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     beforeCommitId: Optional[str] = None
     afterCommitId: Optional[str] = None
     mergeBase: Optional[str] = None
@@ -737,7 +739,7 @@ class UpdateCommentInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_default_branch' function.
 class UpdateDefaultBranchInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     defaultBranchName: str
 
 
@@ -776,20 +778,20 @@ class UpdatePullRequestTitleInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_repository_description' function.
 class UpdateRepositoryDescriptionInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     repositoryDescription: Optional[str] = None
 
 
 # This class is the input for the 'update_repository_encryption_key' function.
 class UpdateRepositoryEncryptionKeyInputTypeDef(BaseValidatorModel):
-    repositoryName: str
-    kmsKeyId: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
+    kmsKeyId: Annotated[str, _aws_pattern("Codecommit", "KmsKeyId")]
 
 
 # This class is the input for the 'update_repository_name' function.
 class UpdateRepositoryNameInputTypeDef(BaseValidatorModel):
-    oldName: str
-    newName: str
+    oldName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
+    newName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
 
 
 class ApprovalRuleTypeDef(BaseValidatorModel):
@@ -805,7 +807,7 @@ class ApprovalRuleTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'batch_associate_approval_rule_template_with_repositories' function.
 class BatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef(BaseValidatorModel):
-    associatedRepositoryNames: List[str]
+    associatedRepositoryNames: List[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]]
     errors: List[BatchAssociateApprovalRuleTemplateWithRepositoriesErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -939,7 +941,7 @@ class ListPullRequestsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_repositories_for_approval_rule_template' function.
 class ListRepositoriesForApprovalRuleTemplateOutputTypeDef(BaseValidatorModel):
-    repositoryNames: List[str]
+    repositoryNames: List[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -1007,14 +1009,14 @@ class UpdateApprovalRuleTemplateNameOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_repository_encryption_key' function.
 class UpdateRepositoryEncryptionKeyOutputTypeDef(BaseValidatorModel):
     repositoryId: str
-    kmsKeyId: str
-    originalKmsKeyId: str
+    kmsKeyId: Annotated[str, _aws_pattern("Codecommit", "KmsKeyId")]
+    originalKmsKeyId: Annotated[str, _aws_pattern("Codecommit", "KmsKeyId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'batch_disassociate_approval_rule_template_from_repositories' function.
 class BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef(BaseValidatorModel):
-    disassociatedRepositoryNames: List[str]
+    disassociatedRepositoryNames: List[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]]
     errors: List[BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1022,7 +1024,7 @@ class BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef(BaseVal
 # This class is the output for the 'batch_get_repositories' function.
 class BatchGetRepositoriesOutputTypeDef(BaseValidatorModel):
     repositories: List[RepositoryMetadataTypeDef]
-    repositoriesNotFound: List[str]
+    repositoriesNotFound: List[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]]
     errors: List[BatchGetRepositoriesErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1047,7 +1049,7 @@ class DifferenceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_file' function.
 class PutFileInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     branchName: str
     fileContent: BlobTypeDef
     filePath: str
@@ -1102,7 +1104,7 @@ class UpdateCommentOutputTypeDef(BaseValidatorModel):
 
 
 class CommentsForComparedCommitTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     beforeCommitId: Optional[str] = None
     afterCommitId: Optional[str] = None
     beforeBlobId: Optional[str] = None
@@ -1113,7 +1115,7 @@ class CommentsForComparedCommitTypeDef(BaseValidatorModel):
 
 class CommentsForPullRequestTypeDef(BaseValidatorModel):
     pullRequestId: Optional[str] = None
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     beforeCommitId: Optional[str] = None
     afterCommitId: Optional[str] = None
     beforeBlobId: Optional[str] = None
@@ -1124,7 +1126,7 @@ class CommentsForPullRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'post_comment_for_compared_commit' function.
 class PostCommentForComparedCommitInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     afterCommitId: str
     content: str
     beforeCommitId: Optional[str] = None
@@ -1134,7 +1136,7 @@ class PostCommentForComparedCommitInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'post_comment_for_compared_commit' function.
 class PostCommentForComparedCommitOutputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     beforeCommitId: str
     afterCommitId: str
     beforeBlobId: str
@@ -1147,7 +1149,7 @@ class PostCommentForComparedCommitOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'post_comment_for_pull_request' function.
 class PostCommentForPullRequestInputTypeDef(BaseValidatorModel):
     pullRequestId: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     beforeCommitId: str
     afterCommitId: str
     content: str
@@ -1157,7 +1159,7 @@ class PostCommentForPullRequestInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'post_comment_for_pull_request' function.
 class PostCommentForPullRequestOutputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     pullRequestId: str
     beforeCommitId: str
     afterCommitId: str
@@ -1298,13 +1300,13 @@ class MergeHunkTypeDef(BaseValidatorModel):
 
 
 class PullRequestMergedStateChangedEventMetadataTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     destinationReference: Optional[str] = None
     mergeMetadata: Optional[MergeMetadataTypeDef] = None
 
 
 class PullRequestTargetTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]] = None
     sourceReference: Optional[str] = None
     destinationReference: Optional[str] = None
     destinationCommit: Optional[str] = None
@@ -1454,7 +1456,7 @@ class PullRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_commit' function.
 class CreateCommitInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     branchName: str
     parentCommitId: Optional[str] = None
     authorName: Optional[str] = None
@@ -1475,19 +1477,19 @@ class GetCommentReactionsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_repository_triggers' function.
 class PutRepositoryTriggersInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     triggers: List[RepositoryTriggerUnionTypeDef]
 
 
 # This class is the input for the 'test_repository_triggers' function.
 class TestRepositoryTriggersInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     triggers: List[RepositoryTriggerUnionTypeDef]
 
 
 # This class is the input for the 'create_unreferenced_merge_commit' function.
 class CreateUnreferencedMergeCommitInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
     mergeOption: MergeOptionTypeEnumType
@@ -1502,7 +1504,7 @@ class CreateUnreferencedMergeCommitInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'merge_branches_by_squash' function.
 class MergeBranchesBySquashInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
     targetBranch: Optional[str] = None
@@ -1517,7 +1519,7 @@ class MergeBranchesBySquashInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'merge_branches_by_three_way' function.
 class MergeBranchesByThreeWayInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
     targetBranch: Optional[str] = None
@@ -1533,7 +1535,7 @@ class MergeBranchesByThreeWayInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'merge_pull_request_by_squash' function.
 class MergePullRequestBySquashInputTypeDef(BaseValidatorModel):
     pullRequestId: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     sourceCommitId: Optional[str] = None
     conflictDetailLevel: Optional[ConflictDetailLevelTypeEnumType] = None
     conflictResolutionStrategy: Optional[ConflictResolutionStrategyTypeEnumType] = None
@@ -1547,7 +1549,7 @@ class MergePullRequestBySquashInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'merge_pull_request_by_three_way' function.
 class MergePullRequestByThreeWayInputTypeDef(BaseValidatorModel):
     pullRequestId: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecommit", "RepositoryName")]
     sourceCommitId: Optional[str] = None
     conflictDetailLevel: Optional[ConflictDetailLevelTypeEnumType] = None
     conflictResolutionStrategy: Optional[ConflictResolutionStrategyTypeEnumType] = None

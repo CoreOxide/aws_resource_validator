@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.polly.polly_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -43,7 +45,7 @@ class AudioEventTypeDef(BaseValidatorModel):
 
 
 class DeleteLexiconInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Polly", "LexiconName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -84,7 +86,7 @@ class FlushStreamConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_lexicon' function.
 class GetLexiconInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Polly", "LexiconName")]
 
 
 class LexiconAttributesTypeDef(BaseValidatorModel):
@@ -98,24 +100,24 @@ class LexiconAttributesTypeDef(BaseValidatorModel):
 
 class LexiconTypeDef(BaseValidatorModel):
     Content: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Polly", "LexiconName")]] = None
 
 
 # This class is the input for the 'get_speech_synthesis_task' function.
 class GetSpeechSynthesisTaskInputTypeDef(BaseValidatorModel):
-    TaskId: str
+    TaskId: Annotated[str, _aws_pattern("Polly", "TaskId")]
 
 
 class SynthesisTaskTypeDef(BaseValidatorModel):
     Engine: Optional[EngineType] = None
-    TaskId: Optional[str] = None
+    TaskId: Optional[Annotated[str, _aws_pattern("Polly", "TaskId")]] = None
     TaskStatus: Optional[TaskStatusType] = None
     TaskStatusReason: Optional[str] = None
     OutputUri: Optional[str] = None
     CreationTime: Optional[datetime] = None
     RequestCharacters: Optional[int] = None
-    SnsTopicArn: Optional[str] = None
-    LexiconNames: Optional[List[str]] = None
+    SnsTopicArn: Optional[Annotated[str, _aws_pattern("Polly", "SnsTopicArn")]] = None
+    LexiconNames: Optional[List[Annotated[str, _aws_pattern("Polly", "LexiconName")]]] = None
     OutputFormat: Optional[OutputFormatType] = None
     SampleRate: Optional[str] = None
     SpeechMarkTypes: Optional[List[SpeechMarkTypeType]] = None
@@ -137,7 +139,7 @@ class ListSpeechSynthesisTasksInputTypeDef(BaseValidatorModel):
 
 
 class PutLexiconInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Polly", "LexiconName")]
     Content: str
 
 
@@ -158,15 +160,15 @@ class StreamClosedEventTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_speech_synthesis_task' function.
 class StartSpeechSynthesisTaskInputTypeDef(BaseValidatorModel):
     OutputFormat: OutputFormatType
-    OutputS3BucketName: str
+    OutputS3BucketName: Annotated[str, _aws_pattern("Polly", "OutputS3BucketName")]
     Text: str
     VoiceId: VoiceIdType
     Engine: Optional[EngineType] = None
     LanguageCode: Optional[LanguageCodeType] = None
-    LexiconNames: Optional[List[str]] = None
-    OutputS3KeyPrefix: Optional[str] = None
+    LexiconNames: Optional[List[Annotated[str, _aws_pattern("Polly", "LexiconName")]]] = None
+    OutputS3KeyPrefix: Optional[Annotated[str, _aws_pattern("Polly", "OutputS3KeyPrefix")]] = None
     SampleRate: Optional[str] = None
-    SnsTopicArn: Optional[str] = None
+    SnsTopicArn: Optional[Annotated[str, _aws_pattern("Polly", "SnsTopicArn")]] = None
     SpeechMarkTypes: Optional[List[SpeechMarkTypeType]] = None
     TextType: Optional[TextTypeType] = None
 
@@ -178,7 +180,7 @@ class SynthesizeSpeechInputTypeDef(BaseValidatorModel):
     VoiceId: VoiceIdType
     Engine: Optional[EngineType] = None
     LanguageCode: Optional[LanguageCodeType] = None
-    LexiconNames: Optional[List[str]] = None
+    LexiconNames: Optional[List[Annotated[str, _aws_pattern("Polly", "LexiconName")]]] = None
     SampleRate: Optional[str] = None
     SpeechMarkTypes: Optional[List[SpeechMarkTypeType]] = None
     TextType: Optional[TextTypeType] = None
@@ -232,7 +234,7 @@ class TextEventTypeDef(BaseValidatorModel):
 
 
 class LexiconDescriptionTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Polly", "LexiconName")]] = None
     Attributes: Optional[LexiconAttributesTypeDef] = None
 
 
@@ -300,7 +302,7 @@ class StartSpeechSynthesisStreamInputTypeDef(BaseValidatorModel):
     OutputFormat: OutputFormatType
     VoiceId: VoiceIdType
     LanguageCode: Optional[LanguageCodeType] = None
-    LexiconNames: Optional[List[str]] = None
+    LexiconNames: Optional[List[Annotated[str, _aws_pattern("Polly", "LexiconName")]]] = None
     SampleRate: Optional[str] = None
     ActionStream: Optional[EventStream[StartSpeechSynthesisStreamActionStreamTypeDef]] = None
 

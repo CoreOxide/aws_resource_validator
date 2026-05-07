@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.arc_region_switch.arc_region_switch_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class AbbreviatedExecutionTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     executionId: str
     startTime: datetime
     mode: ExecutionModeType
@@ -51,16 +53,16 @@ class AbbreviatedExecutionTypeDef(BaseValidatorModel):
     comment: Optional[str] = None
     endTime: Optional[datetime] = None
     recoveryExecutionId: Optional[str] = None
-    actualRecoveryTime: Optional[str] = None
+    actualRecoveryTime: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "Duration")]] = None
 
 
 class AbbreviatedPlanTypeDef(BaseValidatorModel):
-    arn: str
-    owner: str
-    name: str
-    regions: List[str]
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
+    owner: Annotated[str, _aws_pattern("ArcRegionSwitch", "AccountId")]
+    name: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanName")]
+    regions: List[Annotated[str, _aws_pattern("ArcRegionSwitch", "Region")]]
     recoveryApproach: RecoveryApproachType
-    primaryRegion: Optional[str] = None
+    primaryRegion: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "Region")]] = None
     version: Optional[str] = None
     updatedAt: Optional[datetime] = None
     description: Optional[str] = None
@@ -70,7 +72,7 @@ class AbbreviatedPlanTypeDef(BaseValidatorModel):
 
 
 class ApprovePlanExecutionStepRequestTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     executionId: str
     stepName: str
     approval: ApprovalType
@@ -83,20 +85,20 @@ class ArcRoutingControlStateTypeDef(BaseValidatorModel):
 
 
 class AsgTypeDef(BaseValidatorModel):
-    crossAccountRole: Optional[str] = None
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "AsgArn")]] = None
 
 
 class AssociatedAlarmTypeDef(BaseValidatorModel):
     resourceIdentifier: str
     alarmType: AlarmTypeType
-    crossAccountRole: Optional[str] = None
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
 
 
 class CancelPlanExecutionRequestTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     executionId: str
     comment: Optional[str] = None
 
@@ -114,13 +116,13 @@ class LambdaUngracefulTypeDef(BaseValidatorModel):
 
 
 class LambdasTypeDef(BaseValidatorModel):
-    crossAccountRole: Optional[str] = None
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
     arn: Optional[str] = None
 
 
 class DeletePlanRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
 
 
 class DocumentDbUngracefulTypeDef(BaseValidatorModel):
@@ -136,15 +138,15 @@ class EcsUngracefulTypeDef(BaseValidatorModel):
 
 
 class ServiceTypeDef(BaseValidatorModel):
-    crossAccountRole: Optional[str] = None
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
-    clusterArn: Optional[str] = None
-    serviceArn: Optional[str] = None
+    clusterArn: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "EcsClusterArn")]] = None
+    serviceArn: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "EcsServiceArn")]] = None
 
 
 class EksClusterTypeDef(BaseValidatorModel):
-    clusterArn: str
-    crossAccountRole: Optional[str] = None
+    clusterArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "EksClusterArn")]
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
 
 
@@ -158,7 +160,7 @@ class KubernetesResourceTypeTypeDef(BaseValidatorModel):
 
 
 class KubernetesScalingResourceTypeDef(BaseValidatorModel):
-    namespace: str
+    namespace: Annotated[str, _aws_pattern("ArcRegionSwitch", "KubernetesNamespace")]
     name: str
     hpaName: Optional[str] = None
 
@@ -187,8 +189,8 @@ class RdsPromoteReadReplicaConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class RegionSwitchPlanConfigurationTypeDef(BaseValidatorModel):
-    arn: str
-    crossAccountRole: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
 
 
@@ -221,7 +223,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_plan_evaluation_status' function.
 class GetPlanEvaluationStatusRequestTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -233,7 +235,7 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_plan_execution' function.
 class GetPlanExecutionRequestTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     executionId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -249,12 +251,12 @@ class StepStateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_plan_in_region' function.
 class GetPlanInRegionRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
 
 
 # This class is the input for the 'get_plan' function.
 class GetPlanRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
 
 
 class GlobalAuroraUngracefulTypeDef(BaseValidatorModel):
@@ -263,7 +265,7 @@ class GlobalAuroraUngracefulTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_plan_execution_events' function.
 class ListPlanExecutionEventsRequestTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     executionId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -272,7 +274,7 @@ class ListPlanExecutionEventsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_plan_executions' function.
 class ListPlanExecutionsRequestTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     state: Optional[ExecutionStateType] = None
@@ -292,7 +294,7 @@ class ListPlansRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_route53_health_checks_in_region' function.
 class ListRoute53HealthChecksInRegionRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     hostedZoneId: Optional[str] = None
     recordName: Optional[str] = None
     maxResults: Optional[int] = None
@@ -302,14 +304,14 @@ class ListRoute53HealthChecksInRegionRequestTypeDef(BaseValidatorModel):
 class Route53HealthCheckTypeDef(BaseValidatorModel):
     hostedZoneId: str
     recordName: str
-    region: str
+    region: Annotated[str, _aws_pattern("ArcRegionSwitch", "Region")]
     healthCheckId: Optional[str] = None
     status: Optional[Route53HealthCheckStatusType] = None
 
 
 # This class is the input for the 'list_route53_health_checks' function.
 class ListRoute53HealthChecksRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     hostedZoneId: Optional[str] = None
     recordName: Optional[str] = None
     maxResults: Optional[int] = None
@@ -318,7 +320,7 @@ class ListRoute53HealthChecksRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
 
 
 class MinimalWorkflowTypeDef(BaseValidatorModel):
@@ -333,20 +335,22 @@ class ParallelExecutionBlockConfigurationTypeDef(BaseValidatorModel):
 class RdsCreateCrossRegionReplicaConfigurationTypeDef(BaseValidatorModel):
     dbInstanceArnMap: Dict[str, str]
     timeoutMinutes: Optional[int] = None
-    crossAccountRole: Optional[str] = None
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
 
 
 class RdsPromoteReadReplicaConfigurationTypeDef(BaseValidatorModel):
     dbInstanceArnMap: Dict[str, str]
     timeoutMinutes: Optional[int] = None
-    crossAccountRole: Optional[str] = None
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
 
 
 class S3ReportOutputConfigurationTypeDef(BaseValidatorModel):
-    bucketPath: Optional[str] = None
-    bucketOwner: Optional[str] = None
+    bucketPath: Optional[
+        Annotated[str, _aws_pattern("ArcRegionSwitch", "S3ReportOutputConfigurationBucketPathString")]
+    ] = None
+    bucketOwner: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "AccountId")]] = None
 
 
 class S3ReportOutputTypeDef(BaseValidatorModel):
@@ -355,22 +359,22 @@ class S3ReportOutputTypeDef(BaseValidatorModel):
 
 class Route53ResourceRecordSetTypeDef(BaseValidatorModel):
     recordSetIdentifier: Optional[str] = None
-    region: Optional[str] = None
+    region: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "Region")]] = None
 
 
 # This class is the input for the 'start_plan_execution' function.
 class StartPlanExecutionRequestTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     targetRegion: str
     action: ExecutionActionType
     mode: Optional[ExecutionModeType] = None
     comment: Optional[str] = None
     latestVersion: Optional[str] = None
-    recoveryExecutionId: Optional[str] = None
+    recoveryExecutionId: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "RecoveryExecutionId")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     tags: Dict[str, str]
 
 
@@ -380,19 +384,19 @@ class TriggerConditionTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     resourceTagKeys: List[str]
 
 
 class UpdatePlanExecutionRequestTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     executionId: str
     action: UpdatePlanExecutionActionType
     comment: Optional[str] = None
 
 
 class UpdatePlanExecutionStepRequestTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     executionId: str
     comment: str
     stepName: str
@@ -409,7 +413,7 @@ class ArcRoutingControlConfigurationOutputTypeDef(BaseValidatorModel):
 class ArcRoutingControlConfigurationTypeDef(BaseValidatorModel):
     regionAndRoutingControls: Dict[str, List[ArcRoutingControlStateTypeDef]]
     timeoutMinutes: Optional[int] = None
-    crossAccountRole: Optional[str] = None
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
 
 
@@ -443,7 +447,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'start_plan_execution' function.
 class StartPlanExecutionResponseTypeDef(BaseValidatorModel):
     executionId: str
-    plan: str
+    plan: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     planVersion: str
     activateRegion: str
     deactivateRegion: str
@@ -478,10 +482,10 @@ class DocumentDbConfigurationOutputTypeDef(BaseValidatorModel):
 
 class DocumentDbConfigurationTypeDef(BaseValidatorModel):
     behavior: DocumentDbDefaultBehaviorType
-    globalClusterIdentifier: str
-    databaseClusterArns: List[str]
+    globalClusterIdentifier: Annotated[str, _aws_pattern("ArcRegionSwitch", "DocumentDbGlobalClusterIdentifier")]
+    databaseClusterArns: List[Annotated[str, _aws_pattern("ArcRegionSwitch", "DocumentDbClusterArn")]]
     timeoutMinutes: Optional[int] = None
-    crossAccountRole: Optional[str] = None
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
     ungraceful: Optional[DocumentDbUngracefulTypeDef] = None
 
@@ -618,10 +622,10 @@ class GlobalAuroraConfigurationOutputTypeDef(BaseValidatorModel):
 
 class GlobalAuroraConfigurationTypeDef(BaseValidatorModel):
     behavior: GlobalAuroraDefaultBehaviorType
-    globalClusterIdentifier: str
-    databaseClusterArns: List[str]
+    globalClusterIdentifier: Annotated[str, _aws_pattern("ArcRegionSwitch", "GlobalClusterIdentifier")]
+    databaseClusterArns: List[Annotated[str, _aws_pattern("ArcRegionSwitch", "AuroraClusterArn")]]
     timeoutMinutes: Optional[int] = None
-    crossAccountRole: Optional[str] = None
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
     ungraceful: Optional[GlobalAuroraUngracefulTypeDef] = None
 
@@ -685,7 +689,7 @@ class Route53HealthCheckConfigurationTypeDef(BaseValidatorModel):
     hostedZoneId: str
     recordName: str
     timeoutMinutes: Optional[int] = None
-    crossAccountRole: Optional[str] = None
+    crossAccountRole: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]] = None
     externalId: Optional[str] = None
     recordSets: Optional[List[Route53ResourceRecordSetTypeDef]] = None
 
@@ -699,7 +703,7 @@ class TriggerOutputTypeDef(BaseValidatorModel):
 
 
 class TriggerTypeDef(BaseValidatorModel):
-    targetRegion: str
+    targetRegion: Annotated[str, _aws_pattern("ArcRegionSwitch", "Region")]
     action: WorkflowTargetActionType
     conditions: List[TriggerConditionTypeDef]
     minDelayMinutesBetweenExecutions: int
@@ -733,10 +737,10 @@ GlobalAuroraConfigurationUnionTypeDef = Union[GlobalAuroraConfigurationOutputTyp
 
 # This class is the output for the 'get_plan_evaluation_status' function.
 class GetPlanEvaluationStatusResponseTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     lastEvaluationTime: datetime
     lastEvaluatedVersion: str
-    region: str
+    region: Annotated[str, _aws_pattern("ArcRegionSwitch", "Region")]
     evaluationState: EvaluationStatusType
     warnings: List[ResourceWarningTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -847,19 +851,19 @@ ExecutionBlockConfigurationUnionTypeDef = Union[
 
 
 class PlanTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     workflows: List[WorkflowOutputTypeDef]
-    executionRole: str
-    name: str
-    regions: List[str]
+    executionRole: Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]
+    name: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanName")]
+    regions: List[Annotated[str, _aws_pattern("ArcRegionSwitch", "Region")]]
     recoveryApproach: RecoveryApproachType
-    owner: str
+    owner: Annotated[str, _aws_pattern("ArcRegionSwitch", "AccountId")]
     description: Optional[str] = None
     recoveryTimeObjectiveMinutes: Optional[int] = None
     associatedAlarms: Optional[Dict[str, AssociatedAlarmTypeDef]] = None
     triggers: Optional[List[TriggerOutputTypeDef]] = None
     reportConfiguration: Optional[ReportConfigurationOutputTypeDef] = None
-    primaryRegion: Optional[str] = None
+    primaryRegion: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "Region")]] = None
     version: Optional[str] = None
     updatedAt: Optional[datetime] = None
 
@@ -897,7 +901,7 @@ class CreatePlanResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_plan_execution' function.
 class GetPlanExecutionResponseTypeDef(BaseValidatorModel):
-    planArn: str
+    planArn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     executionId: str
     version: str
     updatedAt: datetime
@@ -911,7 +915,7 @@ class GetPlanExecutionResponseTypeDef(BaseValidatorModel):
     recoveryExecutionId: str
     stepStates: List[StepStateTypeDef]
     plan: PlanTypeDef
-    actualRecoveryTime: str
+    actualRecoveryTime: Annotated[str, _aws_pattern("ArcRegionSwitch", "Duration")]
     generatedReportDetails: List[GeneratedReportTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -962,7 +966,7 @@ StepUnionTypeDef = Union[StepOutputTypeDef, StepTypeDef]
 class WorkflowTypeDef(BaseValidatorModel):
     workflowTargetAction: WorkflowTargetActionType
     steps: Optional[List[StepUnionTypeDef]] = None
-    workflowTargetRegion: Optional[str] = None
+    workflowTargetRegion: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "Region")]] = None
     workflowDescription: Optional[str] = None
 
 
@@ -972,24 +976,24 @@ WorkflowUnionTypeDef = Union[WorkflowOutputTypeDef, WorkflowTypeDef]
 # This class is the input for the 'create_plan' function.
 class CreatePlanRequestTypeDef(BaseValidatorModel):
     workflows: List[WorkflowUnionTypeDef]
-    executionRole: str
-    name: str
-    regions: List[str]
+    executionRole: Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]
+    name: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanName")]
+    regions: List[Annotated[str, _aws_pattern("ArcRegionSwitch", "Region")]]
     recoveryApproach: RecoveryApproachType
     description: Optional[str] = None
     recoveryTimeObjectiveMinutes: Optional[int] = None
     associatedAlarms: Optional[Dict[str, AssociatedAlarmTypeDef]] = None
     triggers: Optional[List[TriggerUnionTypeDef]] = None
     reportConfiguration: Optional[ReportConfigurationUnionTypeDef] = None
-    primaryRegion: Optional[str] = None
+    primaryRegion: Optional[Annotated[str, _aws_pattern("ArcRegionSwitch", "Region")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_plan' function.
 class UpdatePlanRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcRegionSwitch", "PlanArn")]
     workflows: List[WorkflowUnionTypeDef]
-    executionRole: str
+    executionRole: Annotated[str, _aws_pattern("ArcRegionSwitch", "IamRoleArn")]
     description: Optional[str] = None
     recoveryTimeObjectiveMinutes: Optional[int] = None
     associatedAlarms: Optional[Dict[str, AssociatedAlarmTypeDef]] = None

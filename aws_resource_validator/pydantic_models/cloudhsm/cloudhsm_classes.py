@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cloudhsm.cloudhsm_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -53,64 +55,64 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_hapg' function.
 class CreateHapgRequestTypeDef(BaseValidatorModel):
-    Label: str
+    Label: Annotated[str, _aws_pattern("Cloudhsm", "Label")]
 
 
 # This class is the input for the 'create_hsm' function.
 class CreateHsmRequestTypeDef(BaseValidatorModel):
-    SubnetId: str
-    SshKey: str
-    IamRoleArn: str
+    SubnetId: Annotated[str, _aws_pattern("Cloudhsm", "SubnetId")]
+    SshKey: Annotated[str, _aws_pattern("Cloudhsm", "SshKey")]
+    IamRoleArn: Annotated[str, _aws_pattern("Cloudhsm", "IamRoleArn")]
     SubscriptionType: Literal["PRODUCTION"]
-    EniIp: Optional[str] = None
-    ExternalId: Optional[str] = None
-    ClientToken: Optional[str] = None
-    SyslogIp: Optional[str] = None
+    EniIp: Optional[Annotated[str, _aws_pattern("Cloudhsm", "IpAddress")]] = None
+    ExternalId: Optional[Annotated[str, _aws_pattern("Cloudhsm", "ExternalId")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Cloudhsm", "ClientToken")]] = None
+    SyslogIp: Optional[Annotated[str, _aws_pattern("Cloudhsm", "IpAddress")]] = None
 
 
 # This class is the input for the 'create_luna_client' function.
 class CreateLunaClientRequestTypeDef(BaseValidatorModel):
-    Certificate: str
-    Label: Optional[str] = None
+    Certificate: Annotated[str, _aws_pattern("Cloudhsm", "Certificate")]
+    Label: Optional[Annotated[str, _aws_pattern("Cloudhsm", "ClientLabel")]] = None
 
 
 # This class is the input for the 'delete_hapg' function.
 class DeleteHapgRequestTypeDef(BaseValidatorModel):
-    HapgArn: str
+    HapgArn: Annotated[str, _aws_pattern("Cloudhsm", "HapgArn")]
 
 
 # This class is the input for the 'delete_hsm' function.
 class DeleteHsmRequestTypeDef(BaseValidatorModel):
-    HsmArn: str
+    HsmArn: Annotated[str, _aws_pattern("Cloudhsm", "HsmArn")]
 
 
 # This class is the input for the 'delete_luna_client' function.
 class DeleteLunaClientRequestTypeDef(BaseValidatorModel):
-    ClientArn: str
+    ClientArn: Annotated[str, _aws_pattern("Cloudhsm", "ClientArn")]
 
 
 # This class is the input for the 'describe_hapg' function.
 class DescribeHapgRequestTypeDef(BaseValidatorModel):
-    HapgArn: str
+    HapgArn: Annotated[str, _aws_pattern("Cloudhsm", "HapgArn")]
 
 
 # This class is the input for the 'describe_hsm' function.
 class DescribeHsmRequestTypeDef(BaseValidatorModel):
-    HsmArn: Optional[str] = None
-    HsmSerialNumber: Optional[str] = None
+    HsmArn: Optional[Annotated[str, _aws_pattern("Cloudhsm", "HsmArn")]] = None
+    HsmSerialNumber: Optional[Annotated[str, _aws_pattern("Cloudhsm", "HsmSerialNumber")]] = None
 
 
 # This class is the input for the 'describe_luna_client' function.
 class DescribeLunaClientRequestTypeDef(BaseValidatorModel):
-    ClientArn: Optional[str] = None
-    CertificateFingerprint: Optional[str] = None
+    ClientArn: Optional[Annotated[str, _aws_pattern("Cloudhsm", "ClientArn")]] = None
+    CertificateFingerprint: Optional[Annotated[str, _aws_pattern("Cloudhsm", "CertificateFingerprint")]] = None
 
 
 # This class is the input for the 'get_config' function.
 class GetConfigRequestTypeDef(BaseValidatorModel):
-    ClientArn: str
+    ClientArn: Annotated[str, _aws_pattern("Cloudhsm", "ClientArn")]
     ClientVersion: ClientVersionType
-    HapgList: List[str]
+    HapgList: List[Annotated[str, _aws_pattern("Cloudhsm", "HapgArn")]]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -121,183 +123,183 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_hapgs' function.
 class ListHapgsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsm", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_hsms' function.
 class ListHsmsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsm", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_luna_clients' function.
 class ListLunaClientsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsm", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Cloudhsm", "String")]
 
 
 # This class is the input for the 'modify_hapg' function.
 class ModifyHapgRequestTypeDef(BaseValidatorModel):
-    HapgArn: str
-    Label: Optional[str] = None
-    PartitionSerialList: Optional[List[str]] = None
+    HapgArn: Annotated[str, _aws_pattern("Cloudhsm", "HapgArn")]
+    Label: Optional[Annotated[str, _aws_pattern("Cloudhsm", "Label")]] = None
+    PartitionSerialList: Optional[List[Annotated[str, _aws_pattern("Cloudhsm", "PartitionSerial")]]] = None
 
 
 # This class is the input for the 'modify_hsm' function.
 class ModifyHsmRequestTypeDef(BaseValidatorModel):
-    HsmArn: str
-    SubnetId: Optional[str] = None
-    EniIp: Optional[str] = None
-    IamRoleArn: Optional[str] = None
-    ExternalId: Optional[str] = None
-    SyslogIp: Optional[str] = None
+    HsmArn: Annotated[str, _aws_pattern("Cloudhsm", "HsmArn")]
+    SubnetId: Optional[Annotated[str, _aws_pattern("Cloudhsm", "SubnetId")]] = None
+    EniIp: Optional[Annotated[str, _aws_pattern("Cloudhsm", "IpAddress")]] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Cloudhsm", "IamRoleArn")]] = None
+    ExternalId: Optional[Annotated[str, _aws_pattern("Cloudhsm", "ExternalId")]] = None
+    SyslogIp: Optional[Annotated[str, _aws_pattern("Cloudhsm", "IpAddress")]] = None
 
 
 # This class is the input for the 'modify_luna_client' function.
 class ModifyLunaClientRequestTypeDef(BaseValidatorModel):
-    ClientArn: str
-    Certificate: str
+    ClientArn: Annotated[str, _aws_pattern("Cloudhsm", "ClientArn")]
+    Certificate: Annotated[str, _aws_pattern("Cloudhsm", "Certificate")]
 
 
 # This class is the input for the 'remove_tags_from_resource' function.
 class RemoveTagsFromResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Cloudhsm", "String")]
     TagKeyList: List[str]
 
 
 # This class is the input for the 'add_tags_to_resource' function.
 class AddTagsToResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Cloudhsm", "String")]
     TagList: List[TagTypeDef]
 
 
 # This class is the output for the 'add_tags_to_resource' function.
 class AddTagsToResourceResponseTypeDef(BaseValidatorModel):
-    Status: str
+    Status: Annotated[str, _aws_pattern("Cloudhsm", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_hapg' function.
 class CreateHapgResponseTypeDef(BaseValidatorModel):
-    HapgArn: str
+    HapgArn: Annotated[str, _aws_pattern("Cloudhsm", "HapgArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_hsm' function.
 class CreateHsmResponseTypeDef(BaseValidatorModel):
-    HsmArn: str
+    HsmArn: Annotated[str, _aws_pattern("Cloudhsm", "HsmArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_luna_client' function.
 class CreateLunaClientResponseTypeDef(BaseValidatorModel):
-    ClientArn: str
+    ClientArn: Annotated[str, _aws_pattern("Cloudhsm", "ClientArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_hapg' function.
 class DeleteHapgResponseTypeDef(BaseValidatorModel):
-    Status: str
+    Status: Annotated[str, _aws_pattern("Cloudhsm", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_hsm' function.
 class DeleteHsmResponseTypeDef(BaseValidatorModel):
-    Status: str
+    Status: Annotated[str, _aws_pattern("Cloudhsm", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_luna_client' function.
 class DeleteLunaClientResponseTypeDef(BaseValidatorModel):
-    Status: str
+    Status: Annotated[str, _aws_pattern("Cloudhsm", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_hapg' function.
 class DescribeHapgResponseTypeDef(BaseValidatorModel):
-    HapgArn: str
-    HapgSerial: str
-    HsmsLastActionFailed: List[str]
-    HsmsPendingDeletion: List[str]
-    HsmsPendingRegistration: List[str]
-    Label: str
-    LastModifiedTimestamp: str
-    PartitionSerialList: List[str]
+    HapgArn: Annotated[str, _aws_pattern("Cloudhsm", "HapgArn")]
+    HapgSerial: Annotated[str, _aws_pattern("Cloudhsm", "String")]
+    HsmsLastActionFailed: List[Annotated[str, _aws_pattern("Cloudhsm", "HsmArn")]]
+    HsmsPendingDeletion: List[Annotated[str, _aws_pattern("Cloudhsm", "HsmArn")]]
+    HsmsPendingRegistration: List[Annotated[str, _aws_pattern("Cloudhsm", "HsmArn")]]
+    Label: Annotated[str, _aws_pattern("Cloudhsm", "Label")]
+    LastModifiedTimestamp: Annotated[str, _aws_pattern("Cloudhsm", "Timestamp")]
+    PartitionSerialList: List[Annotated[str, _aws_pattern("Cloudhsm", "PartitionSerial")]]
     State: CloudHsmObjectStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_hsm' function.
 class DescribeHsmResponseTypeDef(BaseValidatorModel):
-    HsmArn: str
+    HsmArn: Annotated[str, _aws_pattern("Cloudhsm", "HsmArn")]
     Status: HsmStatusType
-    StatusDetails: str
-    AvailabilityZone: str
-    EniId: str
-    EniIp: str
+    StatusDetails: Annotated[str, _aws_pattern("Cloudhsm", "String")]
+    AvailabilityZone: Annotated[str, _aws_pattern("Cloudhsm", "AZ")]
+    EniId: Annotated[str, _aws_pattern("Cloudhsm", "EniId")]
+    EniIp: Annotated[str, _aws_pattern("Cloudhsm", "IpAddress")]
     SubscriptionType: Literal["PRODUCTION"]
-    SubscriptionStartDate: str
-    SubscriptionEndDate: str
-    VpcId: str
-    SubnetId: str
-    IamRoleArn: str
-    SerialNumber: str
-    VendorName: str
-    HsmType: str
-    SoftwareVersion: str
-    SshPublicKey: str
-    SshKeyLastUpdated: str
-    ServerCertUri: str
-    ServerCertLastUpdated: str
-    Partitions: List[str]
+    SubscriptionStartDate: Annotated[str, _aws_pattern("Cloudhsm", "Timestamp")]
+    SubscriptionEndDate: Annotated[str, _aws_pattern("Cloudhsm", "Timestamp")]
+    VpcId: Annotated[str, _aws_pattern("Cloudhsm", "VpcId")]
+    SubnetId: Annotated[str, _aws_pattern("Cloudhsm", "SubnetId")]
+    IamRoleArn: Annotated[str, _aws_pattern("Cloudhsm", "IamRoleArn")]
+    SerialNumber: Annotated[str, _aws_pattern("Cloudhsm", "HsmSerialNumber")]
+    VendorName: Annotated[str, _aws_pattern("Cloudhsm", "String")]
+    HsmType: Annotated[str, _aws_pattern("Cloudhsm", "String")]
+    SoftwareVersion: Annotated[str, _aws_pattern("Cloudhsm", "String")]
+    SshPublicKey: Annotated[str, _aws_pattern("Cloudhsm", "SshKey")]
+    SshKeyLastUpdated: Annotated[str, _aws_pattern("Cloudhsm", "Timestamp")]
+    ServerCertUri: Annotated[str, _aws_pattern("Cloudhsm", "String")]
+    ServerCertLastUpdated: Annotated[str, _aws_pattern("Cloudhsm", "Timestamp")]
+    Partitions: List[Annotated[str, _aws_pattern("Cloudhsm", "PartitionArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_luna_client' function.
 class DescribeLunaClientResponseTypeDef(BaseValidatorModel):
-    ClientArn: str
-    Certificate: str
-    CertificateFingerprint: str
-    LastModifiedTimestamp: str
-    Label: str
+    ClientArn: Annotated[str, _aws_pattern("Cloudhsm", "ClientArn")]
+    Certificate: Annotated[str, _aws_pattern("Cloudhsm", "Certificate")]
+    CertificateFingerprint: Annotated[str, _aws_pattern("Cloudhsm", "CertificateFingerprint")]
+    LastModifiedTimestamp: Annotated[str, _aws_pattern("Cloudhsm", "Timestamp")]
+    Label: Annotated[str, _aws_pattern("Cloudhsm", "Label")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_config' function.
 class GetConfigResponseTypeDef(BaseValidatorModel):
-    ConfigType: str
-    ConfigFile: str
-    ConfigCred: str
+    ConfigType: Annotated[str, _aws_pattern("Cloudhsm", "String")]
+    ConfigFile: Annotated[str, _aws_pattern("Cloudhsm", "String")]
+    ConfigCred: Annotated[str, _aws_pattern("Cloudhsm", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ListAvailableZonesResponseTypeDef(BaseValidatorModel):
-    AZList: List[str]
+    AZList: List[Annotated[str, _aws_pattern("Cloudhsm", "AZ")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_hapgs' function.
 class ListHapgsResponseTypeDef(BaseValidatorModel):
-    HapgList: List[str]
+    HapgList: List[Annotated[str, _aws_pattern("Cloudhsm", "HapgArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsm", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_hsms' function.
 class ListHsmsResponseTypeDef(BaseValidatorModel):
-    HsmList: List[str]
+    HsmList: List[Annotated[str, _aws_pattern("Cloudhsm", "HsmArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsm", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_luna_clients' function.
 class ListLunaClientsResponseTypeDef(BaseValidatorModel):
-    ClientList: List[str]
+    ClientList: List[Annotated[str, _aws_pattern("Cloudhsm", "ClientArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsm", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -308,25 +310,25 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'modify_hapg' function.
 class ModifyHapgResponseTypeDef(BaseValidatorModel):
-    HapgArn: str
+    HapgArn: Annotated[str, _aws_pattern("Cloudhsm", "HapgArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'modify_hsm' function.
 class ModifyHsmResponseTypeDef(BaseValidatorModel):
-    HsmArn: str
+    HsmArn: Annotated[str, _aws_pattern("Cloudhsm", "HsmArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'modify_luna_client' function.
 class ModifyLunaClientResponseTypeDef(BaseValidatorModel):
-    ClientArn: str
+    ClientArn: Annotated[str, _aws_pattern("Cloudhsm", "ClientArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'remove_tags_from_resource' function.
 class RemoveTagsFromResourceResponseTypeDef(BaseValidatorModel):
-    Status: str
+    Status: Annotated[str, _aws_pattern("Cloudhsm", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 

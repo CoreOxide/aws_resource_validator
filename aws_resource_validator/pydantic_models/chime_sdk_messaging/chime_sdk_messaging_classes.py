@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.chime_sdk_messaging.chime_sdk_messaging_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -41,34 +43,34 @@ except ImportError:  # pragma: no cover
 class AppInstanceUserMembershipSummaryTypeDef(BaseValidatorModel):
     Type: Optional[ChannelMembershipTypeType] = None
     ReadMarkerTimestamp: Optional[datetime] = None
-    SubChannelId: Optional[str] = None
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 # This class is the input for the 'associate_channel_flow' function.
 class AssociateChannelFlowRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChannelFlowArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChannelFlowArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 class IdentityTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ResourceName")]] = None
 
 
 class BatchCreateChannelMembershipErrorTypeDef(BaseValidatorModel):
-    MemberArn: Optional[str] = None
+    MemberArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
 # This class is the input for the 'batch_create_channel_membership' function.
 class BatchCreateChannelMembershipRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MemberArns: List[str]
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MemberArns: List[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Type: Optional[ChannelMembershipTypeType] = None
-    SubChannelId: Optional[str] = None
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -80,36 +82,36 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ChannelAssociatedWithFlowSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ChannelArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyResourceName")]] = None
+    ChannelArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     Mode: Optional[ChannelModeType] = None
     Privacy: Optional[ChannelPrivacyType] = None
-    Metadata: Optional[str] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Metadata")]] = None
 
 
 class ChannelSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ChannelArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyResourceName")]] = None
+    ChannelArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     Mode: Optional[ChannelModeType] = None
     Privacy: Optional[ChannelPrivacyType] = None
-    Metadata: Optional[str] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Metadata")]] = None
     LastMessageTimestamp: Optional[datetime] = None
 
 
 class PushNotificationPreferencesTypeDef(BaseValidatorModel):
     AllowNotifications: AllowNotificationsType
-    FilterRule: Optional[str] = None
+    FilterRule: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "FilterRule")]] = None
 
 
 class PushNotificationConfigurationTypeDef(BaseValidatorModel):
-    Title: Optional[str] = None
-    Body: Optional[str] = None
+    Title: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "PushNotificationTitle")]] = None
+    Body: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "PushNotificationBody")]] = None
     Type: Optional[PushNotificationTypeType] = None
 
 
 class ChannelMessageStatusStructureTypeDef(BaseValidatorModel):
     Value: Optional[ChannelMessageStatusType] = None
-    Detail: Optional[str] = None
+    Detail: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "StatusDetail")]] = None
 
 
 class MessageAttributeValueOutputTypeDef(BaseValidatorModel):
@@ -117,7 +119,7 @@ class MessageAttributeValueOutputTypeDef(BaseValidatorModel):
 
 
 class TargetTypeDef(BaseValidatorModel):
-    MemberArn: Optional[str] = None
+    MemberArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
 
 
 class ElasticChannelConfigurationTypeDef(BaseValidatorModel):
@@ -133,9 +135,9 @@ class ExpirationSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_channel_ban' function.
 class CreateChannelBanRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MemberArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MemberArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -145,141 +147,141 @@ class TagTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_channel_membership' function.
 class CreateChannelMembershipRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MemberArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MemberArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Type: ChannelMembershipTypeType
-    ChimeBearer: str
-    SubChannelId: Optional[str] = None
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 # This class is the input for the 'create_channel_moderator' function.
 class CreateChannelModeratorRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChannelModeratorArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChannelModeratorArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'delete_channel_ban' function.
 class DeleteChannelBanRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MemberArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MemberArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'delete_channel_flow' function.
 class DeleteChannelFlowRequestTypeDef(BaseValidatorModel):
-    ChannelFlowArn: str
+    ChannelFlowArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'delete_channel_membership' function.
 class DeleteChannelMembershipRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MemberArn: str
-    ChimeBearer: str
-    SubChannelId: Optional[str] = None
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MemberArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 # This class is the input for the 'delete_channel_message' function.
 class DeleteChannelMessageRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MessageId: str
-    ChimeBearer: str
-    SubChannelId: Optional[str] = None
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MessageId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageId")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 # This class is the input for the 'delete_channel_moderator' function.
 class DeleteChannelModeratorRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChannelModeratorArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChannelModeratorArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'delete_channel' function.
 class DeleteChannelRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'delete_messaging_streaming_configurations' function.
 class DeleteMessagingStreamingConfigurationsRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'describe_channel_ban' function.
 class DescribeChannelBanRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MemberArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MemberArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'describe_channel_flow' function.
 class DescribeChannelFlowRequestTypeDef(BaseValidatorModel):
-    ChannelFlowArn: str
+    ChannelFlowArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'describe_channel_membership_for_app_instance_user' function.
 class DescribeChannelMembershipForAppInstanceUserRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    AppInstanceUserArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'describe_channel_membership' function.
 class DescribeChannelMembershipRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MemberArn: str
-    ChimeBearer: str
-    SubChannelId: Optional[str] = None
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MemberArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 # This class is the input for the 'describe_channel_moderated_by_app_instance_user' function.
 class DescribeChannelModeratedByAppInstanceUserRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    AppInstanceUserArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'describe_channel_moderator' function.
 class DescribeChannelModeratorRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChannelModeratorArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChannelModeratorArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'describe_channel' function.
 class DescribeChannelRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'disassociate_channel_flow' function.
 class DisassociateChannelFlowRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChannelFlowArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChannelFlowArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'get_channel_membership_preferences' function.
 class GetChannelMembershipPreferencesRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MemberArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MemberArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'get_channel_message' function.
 class GetChannelMessageRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MessageId: str
-    ChimeBearer: str
-    SubChannelId: Optional[str] = None
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MessageId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageId")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 # This class is the input for the 'get_channel_message_status' function.
 class GetChannelMessageStatusRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MessageId: str
-    ChimeBearer: str
-    SubChannelId: Optional[str] = None
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MessageId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageId")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 # This class is the input for the 'get_messaging_session_endpoint' function.
@@ -293,50 +295,50 @@ class MessagingSessionEndpointTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_messaging_streaming_configurations' function.
 class GetMessagingStreamingConfigurationsRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 class StreamingConfigurationTypeDef(BaseValidatorModel):
     DataType: MessagingDataTypeType
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 class LambdaConfigurationTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "LambdaFunctionArn")]
     InvocationType: Literal["ASYNC"]
 
 
 # This class is the input for the 'list_channel_bans' function.
 class ListChannelBansRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the input for the 'list_channel_flows' function.
 class ListChannelFlowsRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the input for the 'list_channel_memberships_for_app_instance_user' function.
 class ListChannelMembershipsForAppInstanceUserRequestTypeDef(BaseValidatorModel):
-    ChimeBearer: str
-    AppInstanceUserArn: Optional[str] = None
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    AppInstanceUserArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the input for the 'list_channel_memberships' function.
 class ListChannelMembershipsRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Type: Optional[ChannelMembershipTypeType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    SubChannelId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -344,110 +346,112 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'list_channel_moderators' function.
 class ListChannelModeratorsRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the input for the 'list_channels_associated_with_channel_flow' function.
 class ListChannelsAssociatedWithChannelFlowRequestTypeDef(BaseValidatorModel):
-    ChannelFlowArn: str
+    ChannelFlowArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the input for the 'list_channels_moderated_by_app_instance_user' function.
 class ListChannelsModeratedByAppInstanceUserRequestTypeDef(BaseValidatorModel):
-    ChimeBearer: str
-    AppInstanceUserArn: Optional[str] = None
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    AppInstanceUserArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the input for the 'list_channels' function.
 class ListChannelsRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
-    ChimeBearer: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Privacy: Optional[ChannelPrivacyType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the input for the 'list_sub_channels' function.
 class ListSubChannelsRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 class SubChannelSummaryTypeDef(BaseValidatorModel):
-    SubChannelId: Optional[str] = None
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
     MembershipCount: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 class MessageAttributeValueTypeDef(BaseValidatorModel):
-    StringValues: Optional[List[str]] = None
+    StringValues: Optional[List[Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageAttributeStringValue")]]] = (
+        None
+    )
 
 
 # This class is the input for the 'redact_channel_message' function.
 class RedactChannelMessageRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MessageId: str
-    ChimeBearer: str
-    SubChannelId: Optional[str] = None
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MessageId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageId")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 class SearchFieldTypeDef(BaseValidatorModel):
     Key: Literal["MEMBERS"]
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SearchFieldValue")]]
     Operator: SearchFieldOperatorType
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_channel_message' function.
 class UpdateChannelMessageRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MessageId: str
-    Content: str
-    ChimeBearer: str
-    Metadata: Optional[str] = None
-    SubChannelId: Optional[str] = None
-    ContentType: Optional[str] = None
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MessageId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageId")]
+    Content: Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyContent")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Metadata")]] = None
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ContentType")]] = None
 
 
 # This class is the input for the 'update_channel_read_marker' function.
 class UpdateChannelReadMarkerRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
 
 
 # This class is the input for the 'update_channel' function.
 class UpdateChannelRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChimeBearer: str
-    Name: Optional[str] = None
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyResourceName")]] = None
     Mode: Optional[ChannelModeType] = None
-    Metadata: Optional[str] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Metadata")]] = None
 
 
 class BatchChannelMembershipsTypeDef(BaseValidatorModel):
     InvitedBy: Optional[IdentityTypeDef] = None
     Type: Optional[ChannelMembershipTypeType] = None
     Members: Optional[List[IdentityTypeDef]] = None
-    ChannelArn: Optional[str] = None
-    SubChannelId: Optional[str] = None
+    ChannelArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 class ChannelBanSummaryTypeDef(BaseValidatorModel):
@@ -456,7 +460,7 @@ class ChannelBanSummaryTypeDef(BaseValidatorModel):
 
 class ChannelBanTypeDef(BaseValidatorModel):
     Member: Optional[IdentityTypeDef] = None
-    ChannelArn: Optional[str] = None
+    ChannelArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     CreatedTimestamp: Optional[datetime] = None
     CreatedBy: Optional[IdentityTypeDef] = None
 
@@ -469,10 +473,10 @@ class ChannelMembershipTypeDef(BaseValidatorModel):
     InvitedBy: Optional[IdentityTypeDef] = None
     Type: Optional[ChannelMembershipTypeType] = None
     Member: Optional[IdentityTypeDef] = None
-    ChannelArn: Optional[str] = None
+    ChannelArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     CreatedTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
-    SubChannelId: Optional[str] = None
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 class ChannelModeratorSummaryTypeDef(BaseValidatorModel):
@@ -481,49 +485,49 @@ class ChannelModeratorSummaryTypeDef(BaseValidatorModel):
 
 class ChannelModeratorTypeDef(BaseValidatorModel):
     Moderator: Optional[IdentityTypeDef] = None
-    ChannelArn: Optional[str] = None
+    ChannelArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     CreatedTimestamp: Optional[datetime] = None
     CreatedBy: Optional[IdentityTypeDef] = None
 
 
 # This class is the output for the 'channel_flow_callback' function.
 class ChannelFlowCallbackResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     CallbackId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_channel_ban' function.
 class CreateChannelBanResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Member: IdentityTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_channel_flow' function.
 class CreateChannelFlowResponseTypeDef(BaseValidatorModel):
-    ChannelFlowArn: str
+    ChannelFlowArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_channel_membership' function.
 class CreateChannelMembershipResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Member: IdentityTypeDef
-    SubChannelId: str
+    SubChannelId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_channel_moderator' function.
 class CreateChannelModeratorResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ChannelModerator: IdentityTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_channel' function.
 class CreateChannelResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -534,27 +538,27 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'redact_channel_message' function.
 class RedactChannelMessageResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MessageId: str
-    SubChannelId: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MessageId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageId")]
+    SubChannelId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_channel_flow' function.
 class UpdateChannelFlowResponseTypeDef(BaseValidatorModel):
-    ChannelFlowArn: str
+    ChannelFlowArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_channel_read_marker' function.
 class UpdateChannelReadMarkerResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_channel' function.
 class UpdateChannelResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -562,7 +566,7 @@ class UpdateChannelResponseTypeDef(BaseValidatorModel):
 class ListChannelsAssociatedWithChannelFlowResponseTypeDef(BaseValidatorModel):
     Channels: List[ChannelAssociatedWithFlowSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 class ChannelMembershipForAppInstanceUserSummaryTypeDef(BaseValidatorModel):
@@ -578,14 +582,14 @@ class ChannelModeratedByAppInstanceUserSummaryTypeDef(BaseValidatorModel):
 class ListChannelsResponseTypeDef(BaseValidatorModel):
     Channels: List[ChannelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the output for the 'search_channels' function.
 class SearchChannelsResponseTypeDef(BaseValidatorModel):
     Channels: List[ChannelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 class ChannelMembershipPreferencesTypeDef(BaseValidatorModel):
@@ -600,26 +604,26 @@ class GetChannelMessageStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'send_channel_message' function.
 class SendChannelMessageResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MessageId: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MessageId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageId")]
     Status: ChannelMessageStatusStructureTypeDef
-    SubChannelId: str
+    SubChannelId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_channel_message' function.
 class UpdateChannelMessageResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MessageId: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MessageId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageId")]
     Status: ChannelMessageStatusStructureTypeDef
-    SubChannelId: str
+    SubChannelId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ChannelMessageSummaryTypeDef(BaseValidatorModel):
-    MessageId: Optional[str] = None
-    Content: Optional[str] = None
-    Metadata: Optional[str] = None
+    MessageId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageId")]] = None
+    Content: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Content")]] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Metadata")]] = None
     Type: Optional[ChannelMessageTypeType] = None
     CreatedTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
@@ -628,15 +632,15 @@ class ChannelMessageSummaryTypeDef(BaseValidatorModel):
     Redacted: Optional[bool] = None
     Status: Optional[ChannelMessageStatusStructureTypeDef] = None
     MessageAttributes: Optional[Dict[str, MessageAttributeValueOutputTypeDef]] = None
-    ContentType: Optional[str] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ContentType")]] = None
     Target: Optional[List[TargetTypeDef]] = None
 
 
 class ChannelMessageTypeDef(BaseValidatorModel):
-    ChannelArn: Optional[str] = None
-    MessageId: Optional[str] = None
-    Content: Optional[str] = None
-    Metadata: Optional[str] = None
+    ChannelArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
+    MessageId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageId")]] = None
+    Content: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Content")]] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Metadata")]] = None
     Type: Optional[ChannelMessageTypeType] = None
     CreatedTimestamp: Optional[datetime] = None
     LastEditedTimestamp: Optional[datetime] = None
@@ -646,53 +650,53 @@ class ChannelMessageTypeDef(BaseValidatorModel):
     Persistence: Optional[ChannelMessagePersistenceTypeType] = None
     Status: Optional[ChannelMessageStatusStructureTypeDef] = None
     MessageAttributes: Optional[Dict[str, MessageAttributeValueOutputTypeDef]] = None
-    SubChannelId: Optional[str] = None
-    ContentType: Optional[str] = None
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ContentType")]] = None
     Target: Optional[List[TargetTypeDef]] = None
 
 
 class ChannelTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ChannelArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyResourceName")]] = None
+    ChannelArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     Mode: Optional[ChannelModeType] = None
     Privacy: Optional[ChannelPrivacyType] = None
-    Metadata: Optional[str] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Metadata")]] = None
     CreatedBy: Optional[IdentityTypeDef] = None
     CreatedTimestamp: Optional[datetime] = None
     LastMessageTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
-    ChannelFlowArn: Optional[str] = None
+    ChannelFlowArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     ElasticChannelConfiguration: Optional[ElasticChannelConfigurationTypeDef] = None
     ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
 
 
 # This class is the input for the 'put_channel_expiration_settings' function.
 class PutChannelExpirationSettingsRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChimeBearer: Optional[str] = None
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
 
 
 # This class is the output for the 'put_channel_expiration_settings' function.
 class PutChannelExpirationSettingsResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ExpirationSettings: ExpirationSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_channel' function.
 class CreateChannelRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
-    Name: str
-    ClientRequestToken: str
-    ChimeBearer: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    Name: Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyResourceName")]
+    ClientRequestToken: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ClientRequestToken")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Mode: Optional[ChannelModeType] = None
     Privacy: Optional[ChannelPrivacyType] = None
-    Metadata: Optional[str] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Metadata")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ChannelId: Optional[str] = None
-    MemberArns: Optional[List[str]] = None
-    ModeratorArns: Optional[List[str]] = None
+    ChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChannelId")]] = None
+    MemberArns: Optional[List[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]]] = None
+    ModeratorArns: Optional[List[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]]] = None
     ElasticChannelConfiguration: Optional[ElasticChannelConfigurationTypeDef] = None
     ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
 
@@ -705,7 +709,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Tags: List[TagTypeDef]
 
 
@@ -723,7 +727,7 @@ class GetMessagingStreamingConfigurationsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_messaging_streaming_configurations' function.
 class PutMessagingStreamingConfigurationsRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     StreamingConfigurations: List[StreamingConfigurationTypeDef]
 
 
@@ -739,22 +743,22 @@ class ProcessorConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_channel_messages' function.
 class ListChannelMessagesRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     SortOrder: Optional[SortOrderType] = None
     NotBefore: Optional[TimestampTypeDef] = None
     NotAfter: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    SubChannelId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
 
 
 # This class is the output for the 'list_sub_channels' function.
 class ListSubChannelsResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     SubChannels: List[SubChannelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 MessageAttributeValueUnionTypeDef = Union[MessageAttributeValueOutputTypeDef, MessageAttributeValueTypeDef]
@@ -763,9 +767,9 @@ MessageAttributeValueUnionTypeDef = Union[MessageAttributeValueOutputTypeDef, Me
 # This class is the input for the 'search_channels' function.
 class SearchChannelsRequestTypeDef(BaseValidatorModel):
     Fields: List[SearchFieldTypeDef]
-    ChimeBearer: Optional[str] = None
+    ChimeBearer: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the output for the 'batch_create_channel_membership' function.
@@ -777,10 +781,10 @@ class BatchCreateChannelMembershipResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_channel_bans' function.
 class ListChannelBansResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ChannelBans: List[ChannelBanSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_channel_ban' function.
@@ -791,10 +795,10 @@ class DescribeChannelBanResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_channel_memberships' function.
 class ListChannelMembershipsResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ChannelMemberships: List[ChannelMembershipSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_channel_membership' function.
@@ -805,10 +809,10 @@ class DescribeChannelMembershipResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_channel_moderators' function.
 class ListChannelModeratorsResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ChannelModerators: List[ChannelModeratorSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_channel_moderator' function.
@@ -827,7 +831,7 @@ class DescribeChannelMembershipForAppInstanceUserResponseTypeDef(BaseValidatorMo
 class ListChannelMembershipsForAppInstanceUserResponseTypeDef(BaseValidatorModel):
     ChannelMemberships: List[ChannelMembershipForAppInstanceUserSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_channel_moderated_by_app_instance_user' function.
@@ -840,12 +844,12 @@ class DescribeChannelModeratedByAppInstanceUserResponseTypeDef(BaseValidatorMode
 class ListChannelsModeratedByAppInstanceUserResponseTypeDef(BaseValidatorModel):
     Channels: List[ChannelModeratedByAppInstanceUserSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the output for the 'get_channel_membership_preferences' function.
 class GetChannelMembershipPreferencesResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Member: IdentityTypeDef
     Preferences: ChannelMembershipPreferencesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -853,15 +857,15 @@ class GetChannelMembershipPreferencesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_channel_membership_preferences' function.
 class PutChannelMembershipPreferencesRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    MemberArn: str
-    ChimeBearer: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    MemberArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Preferences: ChannelMembershipPreferencesTypeDef
 
 
 # This class is the output for the 'put_channel_membership_preferences' function.
 class PutChannelMembershipPreferencesResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Member: IdentityTypeDef
     Preferences: ChannelMembershipPreferencesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -869,11 +873,11 @@ class PutChannelMembershipPreferencesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_channel_messages' function.
 class ListChannelMessagesResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ChannelMessages: List[ChannelMessageSummaryTypeDef]
-    SubChannelId: str
+    SubChannelId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the output for the 'get_channel_message' function.
@@ -889,72 +893,72 @@ class DescribeChannelResponseTypeDef(BaseValidatorModel):
 
 
 class ProcessorTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyResourceName")]
     Configuration: ProcessorConfigurationTypeDef
     ExecutionOrder: int
     FallbackAction: FallbackActionType
 
 
 class ChannelMessageCallbackTypeDef(BaseValidatorModel):
-    MessageId: str
-    Content: Optional[str] = None
-    Metadata: Optional[str] = None
+    MessageId: Annotated[str, _aws_pattern("ChimeSdkMessaging", "MessageId")]
+    Content: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyContent")]] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Metadata")]] = None
     PushNotification: Optional[PushNotificationConfigurationTypeDef] = None
     MessageAttributes: Optional[Dict[str, MessageAttributeValueUnionTypeDef]] = None
-    SubChannelId: Optional[str] = None
-    ContentType: Optional[str] = None
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ContentType")]] = None
 
 
 # This class is the input for the 'send_channel_message' function.
 class SendChannelMessageRequestTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    Content: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    Content: Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyContent")]
     Type: ChannelMessageTypeType
     Persistence: ChannelMessagePersistenceTypeType
-    ClientRequestToken: str
-    ChimeBearer: str
-    Metadata: Optional[str] = None
+    ClientRequestToken: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ClientRequestToken")]
+    ChimeBearer: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "Metadata")]] = None
     PushNotification: Optional[PushNotificationConfigurationTypeDef] = None
     MessageAttributes: Optional[Dict[str, MessageAttributeValueUnionTypeDef]] = None
-    SubChannelId: Optional[str] = None
-    ContentType: Optional[str] = None
+    SubChannelId: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "SubChannelId")]] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ContentType")]] = None
     Target: Optional[List[TargetTypeDef]] = None
 
 
 class ChannelFlowSummaryTypeDef(BaseValidatorModel):
-    ChannelFlowArn: Optional[str] = None
-    Name: Optional[str] = None
+    ChannelFlowArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyResourceName")]] = None
     Processors: Optional[List[ProcessorTypeDef]] = None
 
 
 class ChannelFlowTypeDef(BaseValidatorModel):
-    ChannelFlowArn: Optional[str] = None
+    ChannelFlowArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]] = None
     Processors: Optional[List[ProcessorTypeDef]] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyResourceName")]] = None
     CreatedTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
 
 
 # This class is the input for the 'create_channel_flow' function.
 class CreateChannelFlowRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Processors: List[ProcessorTypeDef]
-    Name: str
-    ClientRequestToken: str
+    Name: Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyResourceName")]
+    ClientRequestToken: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ClientRequestToken")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_channel_flow' function.
 class UpdateChannelFlowRequestTypeDef(BaseValidatorModel):
-    ChannelFlowArn: str
+    ChannelFlowArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     Processors: List[ProcessorTypeDef]
-    Name: str
+    Name: Annotated[str, _aws_pattern("ChimeSdkMessaging", "NonEmptyResourceName")]
 
 
 # This class is the input for the 'channel_flow_callback' function.
 class ChannelFlowCallbackRequestTypeDef(BaseValidatorModel):
     CallbackId: str
-    ChannelArn: str
+    ChannelArn: Annotated[str, _aws_pattern("ChimeSdkMessaging", "ChimeArn")]
     ChannelMessage: ChannelMessageCallbackTypeDef
     DeleteResource: Optional[bool] = None
 
@@ -963,7 +967,7 @@ class ChannelFlowCallbackRequestTypeDef(BaseValidatorModel):
 class ListChannelFlowsResponseTypeDef(BaseValidatorModel):
     ChannelFlows: List[ChannelFlowSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMessaging", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_channel_flow' function.

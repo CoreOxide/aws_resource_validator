@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.license_manager.license_manager_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'accept_grant' function.
 class AcceptGrantRequestTypeDef(BaseValidatorModel):
-    GrantArn: str
+    GrantArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -125,8 +127,8 @@ class ReportFrequencyTypeDef(BaseValidatorModel):
 
 
 class DatetimeRangeTypeDef(BaseValidatorModel):
-    Begin: str
-    End: Optional[str] = None
+    Begin: Annotated[str, _aws_pattern("LicenseManager", "ISO8601DateTime")]
+    End: Optional[Annotated[str, _aws_pattern("LicenseManager", "ISO8601DateTime")]] = None
 
 
 class EntitlementTypeDef(BaseValidatorModel):
@@ -145,9 +147,9 @@ class IssuerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_token' function.
 class CreateTokenRequestTypeDef(BaseValidatorModel):
-    LicenseArn: str
-    ClientToken: str
-    RoleArns: Optional[List[str]] = None
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
+    ClientToken: Annotated[str, _aws_pattern("LicenseManager", "ClientToken")]
+    RoleArns: Optional[List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]] = None
     ExpirationInDays: Optional[int] = None
     TokenProperties: Optional[List[str]] = None
 
@@ -162,18 +164,18 @@ class RegionStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_grant' function.
 class DeleteGrantRequestTypeDef(BaseValidatorModel):
-    GrantArn: str
+    GrantArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Version: str
-    StatusReason: Optional[str] = None
+    StatusReason: Optional[Annotated[str, _aws_pattern("LicenseManager", "StatusReasonMessage")]] = None
 
 
 # This class is the input for the 'delete_license_asset_group' function.
 class DeleteLicenseAssetGroupRequestTypeDef(BaseValidatorModel):
-    LicenseAssetGroupArn: str
+    LicenseAssetGroupArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
 
 
 class DeleteLicenseAssetRulesetRequestTypeDef(BaseValidatorModel):
-    LicenseAssetRulesetArn: str
+    LicenseAssetRulesetArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
 
 
 class DeleteLicenseConfigurationRequestTypeDef(BaseValidatorModel):
@@ -186,7 +188,7 @@ class DeleteLicenseManagerReportGeneratorRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_license' function.
 class DeleteLicenseRequestTypeDef(BaseValidatorModel):
-    LicenseArn: str
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     SourceVersion: str
 
 
@@ -214,24 +216,24 @@ class FilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_access_token' function.
 class GetAccessTokenRequestTypeDef(BaseValidatorModel):
-    Token: str
+    Token: Annotated[str, _aws_pattern("LicenseManager", "TokenString")]
     TokenProperties: Optional[List[str]] = None
 
 
 # This class is the input for the 'get_grant' function.
 class GetGrantRequestTypeDef(BaseValidatorModel):
-    GrantArn: str
+    GrantArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Version: Optional[str] = None
 
 
 # This class is the input for the 'get_license_asset_group' function.
 class GetLicenseAssetGroupRequestTypeDef(BaseValidatorModel):
-    LicenseAssetGroupArn: str
+    LicenseAssetGroupArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
 
 
 # This class is the input for the 'get_license_asset_ruleset' function.
 class GetLicenseAssetRulesetRequestTypeDef(BaseValidatorModel):
-    LicenseAssetRulesetArn: str
+    LicenseAssetRulesetArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
 
 
 # This class is the input for the 'get_license_configuration' function.
@@ -246,7 +248,7 @@ class ManagedResourceSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_license_conversion_task' function.
 class GetLicenseConversionTaskRequestTypeDef(BaseValidatorModel):
-    LicenseConversionTaskId: str
+    LicenseConversionTaskId: Annotated[str, _aws_pattern("LicenseManager", "LicenseConversionTaskId")]
 
 
 # This class is the input for the 'get_license_manager_report_generator' function.
@@ -256,13 +258,13 @@ class GetLicenseManagerReportGeneratorRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_license' function.
 class GetLicenseRequestTypeDef(BaseValidatorModel):
-    LicenseArn: str
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Version: Optional[str] = None
 
 
 # This class is the input for the 'get_license_usage' function.
 class GetLicenseUsageRequestTypeDef(BaseValidatorModel):
-    LicenseArn: str
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
 
 
 class OrganizationConfigurationTypeDef(BaseValidatorModel):
@@ -277,7 +279,7 @@ class IssuerDetailsTypeDef(BaseValidatorModel):
 
 class ReceivedMetadataTypeDef(BaseValidatorModel):
     ReceivedStatus: Optional[ReceivedStatusType] = None
-    ReceivedStatusReason: Optional[str] = None
+    ReceivedStatusReason: Optional[Annotated[str, _aws_pattern("LicenseManager", "StatusReasonMessage")]] = None
     AllowedOperations: Optional[List[AllowedOperationType]] = None
 
 
@@ -305,7 +307,7 @@ class LicenseConfigurationUsageTypeDef(BaseValidatorModel):
 
 
 class ProductCodeListItemTypeDef(BaseValidatorModel):
-    ProductCodeId: str
+    ProductCodeId: Annotated[str, _aws_pattern("LicenseManager", "ProductCodeId")]
     ProductCodeType: Literal["marketplace"]
 
 
@@ -351,7 +353,7 @@ class ListLicenseSpecificationsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_license_versions' function.
 class ListLicenseVersionsRequestTypeDef(BaseValidatorModel):
-    LicenseArn: str
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -380,9 +382,9 @@ class TokenDataTypeDef(BaseValidatorModel):
     TokenId: Optional[str] = None
     TokenType: Optional[str] = None
     LicenseArn: Optional[str] = None
-    ExpirationTime: Optional[str] = None
+    ExpirationTime: Optional[Annotated[str, _aws_pattern("LicenseManager", "ISO8601DateTime")]] = None
     TokenProperties: Optional[List[str]] = None
-    RoleArns: Optional[List[str]] = None
+    RoleArns: Optional[List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]] = None
     Status: Optional[str] = None
 
 
@@ -406,7 +408,7 @@ class ProductInformationFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reject_grant' function.
 class RejectGrantRequestTypeDef(BaseValidatorModel):
-    GrantArn: str
+    GrantArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
 
 
 class ReportContextOutputTypeDef(BaseValidatorModel):
@@ -431,7 +433,7 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'accept_grant' function.
 class AcceptGrantResponseTypeDef(BaseValidatorModel):
-    GrantArn: str
+    GrantArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Status: GrantStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -439,7 +441,7 @@ class AcceptGrantResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_grant' function.
 class CreateGrantResponseTypeDef(BaseValidatorModel):
-    GrantArn: str
+    GrantArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Status: GrantStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -447,7 +449,7 @@ class CreateGrantResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_grant_version' function.
 class CreateGrantVersionResponseTypeDef(BaseValidatorModel):
-    GrantArn: str
+    GrantArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Status: GrantStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -474,7 +476,7 @@ class CreateLicenseConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_license_conversion_task_for_resource' function.
 class CreateLicenseConversionTaskForResourceResponseTypeDef(BaseValidatorModel):
-    LicenseConversionTaskId: str
+    LicenseConversionTaskId: Annotated[str, _aws_pattern("LicenseManager", "LicenseConversionTaskId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -486,7 +488,7 @@ class CreateLicenseManagerReportGeneratorResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_license' function.
 class CreateLicenseResponseTypeDef(BaseValidatorModel):
-    LicenseArn: str
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Status: LicenseStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -494,7 +496,7 @@ class CreateLicenseResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_license_version' function.
 class CreateLicenseVersionResponseTypeDef(BaseValidatorModel):
-    LicenseArn: str
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Version: str
     Status: LicenseStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -504,13 +506,13 @@ class CreateLicenseVersionResponseTypeDef(BaseValidatorModel):
 class CreateTokenResponseTypeDef(BaseValidatorModel):
     TokenId: str
     TokenType: Literal["REFRESH_TOKEN"]
-    Token: str
+    Token: Annotated[str, _aws_pattern("LicenseManager", "TokenString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_grant' function.
 class DeleteGrantResponseTypeDef(BaseValidatorModel):
-    GrantArn: str
+    GrantArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Status: GrantStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -525,26 +527,26 @@ class DeleteLicenseAssetGroupResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'delete_license' function.
 class DeleteLicenseResponseTypeDef(BaseValidatorModel):
     Status: LicenseDeletionStatusType
-    DeletionDate: str
+    DeletionDate: Annotated[str, _aws_pattern("LicenseManager", "ISO8601DateTime")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'extend_license_consumption' function.
 class ExtendLicenseConsumptionResponseTypeDef(BaseValidatorModel):
     LicenseConsumptionToken: str
-    Expiration: str
+    Expiration: Annotated[str, _aws_pattern("LicenseManager", "ISO8601DateTime")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_access_token' function.
 class GetAccessTokenResponseTypeDef(BaseValidatorModel):
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("LicenseManager", "TokenString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'reject_grant' function.
 class RejectGrantResponseTypeDef(BaseValidatorModel):
-    GrantArn: str
+    GrantArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Status: GrantStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -586,7 +588,7 @@ class CheckoutLicenseRequestTypeDef(BaseValidatorModel):
     CheckoutType: CheckoutTypeType
     KeyFingerprint: str
     Entitlements: List[EntitlementDataTypeDef]
-    ClientToken: str
+    ClientToken: Annotated[str, _aws_pattern("LicenseManager", "ClientToken")]
     Beneficiary: Optional[str] = None
     NodeId: Optional[str] = None
 
@@ -598,31 +600,31 @@ class CheckoutLicenseResponseTypeDef(BaseValidatorModel):
     EntitlementsAllowed: List[EntitlementDataTypeDef]
     SignedToken: str
     NodeId: str
-    IssuedAt: str
-    Expiration: str
+    IssuedAt: Annotated[str, _aws_pattern("LicenseManager", "ISO8601DateTime")]
+    Expiration: Annotated[str, _aws_pattern("LicenseManager", "ISO8601DateTime")]
     LicenseArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'checkout_borrow_license' function.
 class CheckoutBorrowLicenseRequestTypeDef(BaseValidatorModel):
-    LicenseArn: str
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Entitlements: List[EntitlementDataTypeDef]
     DigitalSignatureMethod: Literal["JWT_PS384"]
-    ClientToken: str
+    ClientToken: Annotated[str, _aws_pattern("LicenseManager", "ClientToken")]
     NodeId: Optional[str] = None
     CheckoutMetadata: Optional[List[MetadataTypeDef]] = None
 
 
 # This class is the output for the 'checkout_borrow_license' function.
 class CheckoutBorrowLicenseResponseTypeDef(BaseValidatorModel):
-    LicenseArn: str
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     LicenseConsumptionToken: str
     EntitlementsAllowed: List[EntitlementDataTypeDef]
     NodeId: str
     SignedToken: str
-    IssuedAt: str
-    Expiration: str
+    IssuedAt: Annotated[str, _aws_pattern("LicenseManager", "ISO8601DateTime")]
+    Expiration: Annotated[str, _aws_pattern("LicenseManager", "ISO8601DateTime")]
     CheckoutMetadata: List[MetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -646,10 +648,10 @@ class ConsumptionConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_grant' function.
 class CreateGrantRequestTypeDef(BaseValidatorModel):
-    ClientToken: str
+    ClientToken: Annotated[str, _aws_pattern("LicenseManager", "ClientToken")]
     GrantName: str
-    LicenseArn: str
-    Principals: List[str]
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
+    Principals: List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]
     HomeRegion: str
     AllowedOperations: List[AllowedOperationType]
     Tags: Optional[List[TagTypeDef]] = None
@@ -668,27 +670,27 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_grant_version' function.
 class CreateGrantVersionRequestTypeDef(BaseValidatorModel):
-    ClientToken: str
-    GrantArn: str
+    ClientToken: Annotated[str, _aws_pattern("LicenseManager", "ClientToken")]
+    GrantArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     GrantName: Optional[str] = None
     AllowedOperations: Optional[List[AllowedOperationType]] = None
     Status: Optional[GrantStatusType] = None
-    StatusReason: Optional[str] = None
+    StatusReason: Optional[Annotated[str, _aws_pattern("LicenseManager", "StatusReasonMessage")]] = None
     SourceVersion: Optional[str] = None
     Options: Optional[OptionsTypeDef] = None
 
 
 class GrantTypeDef(BaseValidatorModel):
-    GrantArn: str
+    GrantArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     GrantName: str
-    ParentArn: str
-    LicenseArn: str
-    GranteePrincipalArn: str
+    ParentArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
+    GranteePrincipalArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     HomeRegion: str
     GrantStatus: GrantStatusType
     Version: str
     GrantedOperations: List[AllowedOperationType]
-    StatusReason: Optional[str] = None
+    StatusReason: Optional[Annotated[str, _aws_pattern("LicenseManager", "StatusReasonMessage")]] = None
     Options: Optional[OptionsTypeDef] = None
 
 
@@ -696,7 +698,7 @@ class GrantTypeDef(BaseValidatorModel):
 class CreateLicenseAssetGroupRequestTypeDef(BaseValidatorModel):
     Name: str
     LicenseAssetGroupConfigurations: List[LicenseAssetGroupConfigurationTypeDef]
-    AssociatedLicenseAssetRulesetARNs: List[str]
+    AssociatedLicenseAssetRulesetARNs: List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]
     ClientToken: str
     Description: Optional[str] = None
     Properties: Optional[List[LicenseAssetGroupPropertyTypeDef]] = None
@@ -705,8 +707,8 @@ class CreateLicenseAssetGroupRequestTypeDef(BaseValidatorModel):
 
 class LicenseAssetGroupTypeDef(BaseValidatorModel):
     Name: str
-    AssociatedLicenseAssetRulesetARNs: List[str]
-    LicenseAssetGroupArn: str
+    AssociatedLicenseAssetRulesetARNs: List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]
+    LicenseAssetGroupArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Status: LicenseAssetGroupStatusType
     Description: Optional[str] = None
     LicenseAssetGroupConfigurations: Optional[List[LicenseAssetGroupConfigurationTypeDef]] = None
@@ -718,8 +720,8 @@ class LicenseAssetGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_license_asset_group' function.
 class UpdateLicenseAssetGroupRequestTypeDef(BaseValidatorModel):
-    AssociatedLicenseAssetRulesetARNs: List[str]
-    LicenseAssetGroupArn: str
+    AssociatedLicenseAssetRulesetARNs: List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]
+    LicenseAssetGroupArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     ClientToken: str
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -738,7 +740,7 @@ class LicenseUsageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_distributed_grants' function.
 class ListDistributedGrantsRequestTypeDef(BaseValidatorModel):
-    GrantArns: Optional[List[str]] = None
+    GrantArns: Optional[List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -791,7 +793,7 @@ class ListLicenseManagerReportGeneratorsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_licenses' function.
 class ListLicensesRequestTypeDef(BaseValidatorModel):
-    LicenseArns: Optional[List[str]] = None
+    LicenseArns: Optional[List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -799,7 +801,7 @@ class ListLicensesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_received_grants_for_organization' function.
 class ListReceivedGrantsForOrganizationRequestTypeDef(BaseValidatorModel):
-    LicenseArn: str
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Filters: Optional[List[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -807,7 +809,7 @@ class ListReceivedGrantsForOrganizationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_received_grants' function.
 class ListReceivedGrantsRequestTypeDef(BaseValidatorModel):
-    GrantArns: Optional[List[str]] = None
+    GrantArns: Optional[List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -822,7 +824,7 @@ class ListReceivedLicensesForOrganizationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_received_licenses' function.
 class ListReceivedLicensesRequestTypeDef(BaseValidatorModel):
-    LicenseArns: Optional[List[str]] = None
+    LicenseArns: Optional[List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -949,8 +951,8 @@ ProductInformationFilterUnionTypeDef = Union[ProductInformationFilterOutputTypeD
 
 
 class ReportContextTypeDef(BaseValidatorModel):
-    licenseConfigurationArns: Optional[List[str]] = None
-    licenseAssetGroupArns: Optional[List[str]] = None
+    licenseConfigurationArns: Optional[List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]] = None
+    licenseAssetGroupArns: Optional[List[Annotated[str, _aws_pattern("LicenseManager", "Arn")]]] = None
     reportStartDate: Optional[TimestampTypeDef] = None
     reportEndDate: Optional[TimestampTypeDef] = None
 
@@ -1008,14 +1010,14 @@ class CreateLicenseRequestTypeDef(BaseValidatorModel):
     Entitlements: List[EntitlementTypeDef]
     Beneficiary: str
     ConsumptionConfiguration: ConsumptionConfigurationTypeDef
-    ClientToken: str
+    ClientToken: Annotated[str, _aws_pattern("LicenseManager", "ClientToken")]
     LicenseMetadata: Optional[List[MetadataTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_license_version' function.
 class CreateLicenseVersionRequestTypeDef(BaseValidatorModel):
-    LicenseArn: str
+    LicenseArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     LicenseName: str
     ProductName: str
     Issuer: IssuerTypeDef
@@ -1024,13 +1026,13 @@ class CreateLicenseVersionRequestTypeDef(BaseValidatorModel):
     Entitlements: List[EntitlementTypeDef]
     ConsumptionConfiguration: ConsumptionConfigurationTypeDef
     Status: LicenseStatusType
-    ClientToken: str
+    ClientToken: Annotated[str, _aws_pattern("LicenseManager", "ClientToken")]
     LicenseMetadata: Optional[List[MetadataTypeDef]] = None
     SourceVersion: Optional[str] = None
 
 
 class GrantedLicenseTypeDef(BaseValidatorModel):
-    LicenseArn: Optional[str] = None
+    LicenseArn: Optional[Annotated[str, _aws_pattern("LicenseManager", "Arn")]] = None
     LicenseName: Optional[str] = None
     ProductName: Optional[str] = None
     ProductSKU: Optional[str] = None
@@ -1042,13 +1044,13 @@ class GrantedLicenseTypeDef(BaseValidatorModel):
     Entitlements: Optional[List[EntitlementTypeDef]] = None
     ConsumptionConfiguration: Optional[ConsumptionConfigurationTypeDef] = None
     LicenseMetadata: Optional[List[MetadataTypeDef]] = None
-    CreateTime: Optional[str] = None
+    CreateTime: Optional[Annotated[str, _aws_pattern("LicenseManager", "ISO8601DateTime")]] = None
     Version: Optional[str] = None
     ReceivedMetadata: Optional[ReceivedMetadataTypeDef] = None
 
 
 class LicenseTypeDef(BaseValidatorModel):
-    LicenseArn: Optional[str] = None
+    LicenseArn: Optional[Annotated[str, _aws_pattern("LicenseManager", "Arn")]] = None
     LicenseName: Optional[str] = None
     ProductName: Optional[str] = None
     ProductSKU: Optional[str] = None
@@ -1060,7 +1062,7 @@ class LicenseTypeDef(BaseValidatorModel):
     Entitlements: Optional[List[EntitlementTypeDef]] = None
     ConsumptionConfiguration: Optional[ConsumptionConfigurationTypeDef] = None
     LicenseMetadata: Optional[List[MetadataTypeDef]] = None
-    CreateTime: Optional[str] = None
+    CreateTime: Optional[Annotated[str, _aws_pattern("LicenseManager", "ISO8601DateTime")]] = None
     Version: Optional[str] = None
 
 
@@ -1117,7 +1119,7 @@ class GetLicenseUsageResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_license_conversion_task' function.
 class GetLicenseConversionTaskResponseTypeDef(BaseValidatorModel):
-    LicenseConversionTaskId: str
+    LicenseConversionTaskId: Annotated[str, _aws_pattern("LicenseManager", "LicenseConversionTaskId")]
     ResourceArn: str
     SourceLicenseContext: LicenseConversionContextOutputTypeDef
     DestinationLicenseContext: LicenseConversionContextOutputTypeDef
@@ -1130,7 +1132,7 @@ class GetLicenseConversionTaskResponseTypeDef(BaseValidatorModel):
 
 
 class LicenseConversionTaskTypeDef(BaseValidatorModel):
-    LicenseConversionTaskId: Optional[str] = None
+    LicenseConversionTaskId: Optional[Annotated[str, _aws_pattern("LicenseManager", "LicenseConversionTaskId")]] = None
     ResourceArn: Optional[str] = None
     SourceLicenseContext: Optional[LicenseConversionContextOutputTypeDef] = None
     DestinationLicenseContext: Optional[LicenseConversionContextOutputTypeDef] = None
@@ -1279,7 +1281,7 @@ class ListLicenseConversionTasksResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_license_conversion_task_for_resource' function.
 class CreateLicenseConversionTaskForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     SourceLicenseContext: LicenseConversionContextUnionTypeDef
     DestinationLicenseContext: LicenseConversionContextUnionTypeDef
 
@@ -1380,7 +1382,7 @@ class UpdateLicenseConfigurationRequestTypeDef(BaseValidatorModel):
 class LicenseAssetRulesetTypeDef(BaseValidatorModel):
     Name: str
     Rules: List[LicenseAssetRuleOutputTypeDef]
-    LicenseAssetRulesetArn: str
+    LicenseAssetRulesetArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     Description: Optional[str] = None
 
 
@@ -1434,7 +1436,7 @@ class CreateLicenseAssetRulesetRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_license_asset_ruleset' function.
 class UpdateLicenseAssetRulesetRequestTypeDef(BaseValidatorModel):
     Rules: List[LicenseAssetRuleUnionTypeDef]
-    LicenseAssetRulesetArn: str
+    LicenseAssetRulesetArn: Annotated[str, _aws_pattern("LicenseManager", "Arn")]
     ClientToken: str
     Name: Optional[str] = None
     Description: Optional[str] = None

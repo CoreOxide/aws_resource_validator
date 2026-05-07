@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -47,7 +49,7 @@ class FindingMetricsValuePerSeverityTypeDef(BaseValidatorModel):
 
 
 class BatchGetFindingsErrorTypeDef(BaseValidatorModel):
-    scanName: str
+    scanName: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanName")]
     findingId: str
     errorCode: ErrorCodeType
     message: str
@@ -77,16 +79,16 @@ class CodeLineTypeDef(BaseValidatorModel):
 
 
 class ResourceIdTypeDef(BaseValidatorModel):
-    codeArtifactId: Optional[str] = None
+    codeArtifactId: Optional[Annotated[str, _aws_pattern("CodeguruSecurity", "Uuid")]] = None
 
 
 # This class is the input for the 'create_upload_url' function.
 class CreateUploadUrlRequestTypeDef(BaseValidatorModel):
-    scanName: str
+    scanName: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanName")]
 
 
 class EncryptionConfigTypeDef(BaseValidatorModel):
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("CodeguruSecurity", "KmsKeyArn")]] = None
 
 
 class ResourceTypeDef(BaseValidatorModel):
@@ -102,8 +104,8 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_findings' function.
 class GetFindingsRequestTypeDef(BaseValidatorModel):
-    scanName: str
-    nextToken: Optional[str] = None
+    scanName: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanName")]
+    nextToken: Optional[Annotated[str, _aws_pattern("CodeguruSecurity", "NextToken")]] = None
     maxResults: Optional[int] = None
     status: Optional[StatusType] = None
 
@@ -113,28 +115,28 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'get_scan' function.
 class GetScanRequestTypeDef(BaseValidatorModel):
-    scanName: str
-    runId: Optional[str] = None
+    scanName: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanName")]
+    runId: Optional[Annotated[str, _aws_pattern("CodeguruSecurity", "Uuid")]] = None
 
 
 # This class is the input for the 'list_scans' function.
 class ListScansRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("CodeguruSecurity", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class ScanSummaryTypeDef(BaseValidatorModel):
     scanState: ScanStateType
     createdAt: datetime
-    scanName: str
-    runId: str
+    scanName: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanName")]
+    runId: Annotated[str, _aws_pattern("CodeguruSecurity", "Uuid")]
     updatedAt: Optional[datetime] = None
-    scanNameArn: Optional[str] = None
+    scanNameArn: Optional[Annotated[str, _aws_pattern("CodeguruSecurity", "ScanNameArn")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanNameArn")]
 
 
 class ScanNameWithFindingNumTypeDef(BaseValidatorModel):
@@ -153,12 +155,12 @@ class SuggestedFixTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanNameArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanNameArn")]
     tagKeys: List[str]
 
 
@@ -179,20 +181,20 @@ class BatchGetFindingsRequestTypeDef(BaseValidatorModel):
 class CreateUploadUrlResponseTypeDef(BaseValidatorModel):
     s3Url: str
     requestHeaders: Dict[str, str]
-    codeArtifactId: str
+    codeArtifactId: Annotated[str, _aws_pattern("CodeguruSecurity", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_scan' function.
 class GetScanResponseTypeDef(BaseValidatorModel):
-    scanName: str
-    runId: str
+    scanName: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanName")]
+    runId: Annotated[str, _aws_pattern("CodeguruSecurity", "Uuid")]
     scanState: ScanStateType
     createdAt: datetime
     analysisType: AnalysisTypeType
     updatedAt: datetime
     numberOfRevisions: int
-    scanNameArn: str
+    scanNameArn: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanNameArn")]
     errorMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -214,8 +216,8 @@ class FilePathTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_scan' function.
 class CreateScanRequestTypeDef(BaseValidatorModel):
     resourceId: ResourceIdTypeDef
-    scanName: str
-    clientToken: Optional[str] = None
+    scanName: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("CodeguruSecurity", "ClientToken")]] = None
     scanType: Optional[ScanTypeType] = None
     analysisType: Optional[AnalysisTypeType] = None
     tags: Optional[Dict[str, str]] = None
@@ -223,11 +225,11 @@ class CreateScanRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_scan' function.
 class CreateScanResponseTypeDef(BaseValidatorModel):
-    scanName: str
-    runId: str
+    scanName: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanName")]
+    runId: Annotated[str, _aws_pattern("CodeguruSecurity", "Uuid")]
     resourceId: ResourceIdTypeDef
     scanState: ScanStateType
-    scanNameArn: str
+    scanNameArn: Annotated[str, _aws_pattern("CodeguruSecurity", "ScanNameArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -272,7 +274,7 @@ class ListFindingsMetricsRequestPaginateTypeDef(BaseValidatorModel):
 class ListFindingsMetricsRequestTypeDef(BaseValidatorModel):
     startDate: TimestampTypeDef
     endDate: TimestampTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("CodeguruSecurity", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -280,7 +282,7 @@ class ListFindingsMetricsRequestTypeDef(BaseValidatorModel):
 class ListScansResponseTypeDef(BaseValidatorModel):
     summaries: List[ScanSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("CodeguruSecurity", "NextToken")]] = None
 
 
 class MetricsSummaryTypeDef(BaseValidatorModel):
@@ -300,7 +302,7 @@ class RemediationTypeDef(BaseValidatorModel):
 class ListFindingsMetricsResponseTypeDef(BaseValidatorModel):
     findingsMetrics: List[AccountFindingsMetricTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("CodeguruSecurity", "NextToken")]] = None
 
 
 class VulnerabilityTypeDef(BaseValidatorModel):
@@ -347,4 +349,4 @@ class BatchGetFindingsResponseTypeDef(BaseValidatorModel):
 class GetFindingsResponseTypeDef(BaseValidatorModel):
     findings: List[FindingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("CodeguruSecurity", "NextToken")]] = None

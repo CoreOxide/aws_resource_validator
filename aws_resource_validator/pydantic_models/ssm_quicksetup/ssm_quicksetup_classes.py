@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ssm_quicksetup.ssm_quicksetup_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,9 +42,13 @@ except ImportError:  # pragma: no cover
 
 class ConfigurationDefinitionInputTypeDef(BaseValidatorModel):
     Parameters: Dict[str, str]
-    Type: str
+    Type: Annotated[str, _aws_pattern("SsmQuicksetup", "ConfigurationDefinitionInputTypeString")]
     LocalDeploymentAdministrationRoleArn: Optional[str] = None
-    LocalDeploymentExecutionRoleName: Optional[str] = None
+    LocalDeploymentExecutionRoleName: Optional[
+        Annotated[
+            str, _aws_pattern("SsmQuicksetup", "ConfigurationDefinitionInputLocalDeploymentExecutionRoleNameString")
+        ]
+    ] = None
     TypeVersion: Optional[str] = None
 
 
@@ -55,10 +61,12 @@ class ConfigurationDefinitionSummaryTypeDef(BaseValidatorModel):
 
 class ConfigurationDefinitionTypeDef(BaseValidatorModel):
     Parameters: Dict[str, str]
-    Type: str
+    Type: Annotated[str, _aws_pattern("SsmQuicksetup", "ConfigurationDefinitionTypeString")]
     Id: Optional[str] = None
     LocalDeploymentAdministrationRoleArn: Optional[str] = None
-    LocalDeploymentExecutionRoleName: Optional[str] = None
+    LocalDeploymentExecutionRoleName: Optional[
+        Annotated[str, _aws_pattern("SsmQuicksetup", "ConfigurationDefinitionLocalDeploymentExecutionRoleNameString")]
+    ] = None
     TypeVersion: Optional[str] = None
 
 
@@ -80,22 +88,22 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_configuration_manager' function.
 class DeleteConfigurationManagerInputTypeDef(BaseValidatorModel):
-    ManagerArn: str
+    ManagerArn: Annotated[str, _aws_pattern("SsmQuicksetup", "DeleteConfigurationManagerInputManagerArnString")]
 
 
 class FilterTypeDef(BaseValidatorModel):
-    Key: str
-    Values: List[str]
+    Key: Annotated[str, _aws_pattern("SsmQuicksetup", "FilterKeyString")]
+    Values: List[Annotated[str, _aws_pattern("SsmQuicksetup", "FilterValuesMemberString")]]
 
 
 # This class is the input for the 'get_configuration' function.
 class GetConfigurationInputTypeDef(BaseValidatorModel):
-    ConfigurationId: str
+    ConfigurationId: Annotated[str, _aws_pattern("SsmQuicksetup", "GetConfigurationInputConfigurationIdString")]
 
 
 # This class is the input for the 'get_configuration_manager' function.
 class GetConfigurationManagerInputTypeDef(BaseValidatorModel):
-    ManagerArn: str
+    ManagerArn: Annotated[str, _aws_pattern("SsmQuicksetup", "GetConfigurationManagerInputManagerArnString")]
 
 
 class ServiceSettingsTypeDef(BaseValidatorModel):
@@ -119,8 +127,8 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 
 class TagEntryTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("SsmQuicksetup", "TagEntryKeyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("SsmQuicksetup", "TagEntryValueString")]] = None
 
 
 # This class is the input for the 'tag_resource' function.
@@ -137,19 +145,28 @@ class UntagResourceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_configuration_definition' function.
 class UpdateConfigurationDefinitionInputTypeDef(BaseValidatorModel):
-    Id: str
-    ManagerArn: str
+    Id: Annotated[str, _aws_pattern("SsmQuicksetup", "UpdateConfigurationDefinitionInputIdString")]
+    ManagerArn: Annotated[str, _aws_pattern("SsmQuicksetup", "UpdateConfigurationDefinitionInputManagerArnString")]
     LocalDeploymentAdministrationRoleArn: Optional[str] = None
-    LocalDeploymentExecutionRoleName: Optional[str] = None
+    LocalDeploymentExecutionRoleName: Optional[
+        Annotated[
+            str,
+            _aws_pattern("SsmQuicksetup", "UpdateConfigurationDefinitionInputLocalDeploymentExecutionRoleNameString"),
+        ]
+    ] = None
     Parameters: Optional[Dict[str, str]] = None
-    TypeVersion: Optional[str] = None
+    TypeVersion: Optional[
+        Annotated[str, _aws_pattern("SsmQuicksetup", "UpdateConfigurationDefinitionInputTypeVersionString")]
+    ] = None
 
 
 # This class is the input for the 'update_configuration_manager' function.
 class UpdateConfigurationManagerInputTypeDef(BaseValidatorModel):
-    ManagerArn: str
-    Description: Optional[str] = None
-    Name: Optional[str] = None
+    ManagerArn: Annotated[str, _aws_pattern("SsmQuicksetup", "UpdateConfigurationManagerInputManagerArnString")]
+    Description: Optional[
+        Annotated[str, _aws_pattern("SsmQuicksetup", "UpdateConfigurationManagerInputDescriptionString")]
+    ] = None
+    Name: Optional[Annotated[str, _aws_pattern("SsmQuicksetup", "UpdateConfigurationManagerInputNameString")]] = None
 
 
 # This class is the input for the 'update_service_settings' function.
@@ -160,8 +177,10 @@ class UpdateServiceSettingsInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_configuration_manager' function.
 class CreateConfigurationManagerInputTypeDef(BaseValidatorModel):
     ConfigurationDefinitions: List[ConfigurationDefinitionInputTypeDef]
-    Description: Optional[str] = None
-    Name: Optional[str] = None
+    Description: Optional[
+        Annotated[str, _aws_pattern("SsmQuicksetup", "CreateConfigurationManagerInputDescriptionString")]
+    ] = None
+    Name: Optional[Annotated[str, _aws_pattern("SsmQuicksetup", "CreateConfigurationManagerInputNameString")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -230,16 +249,24 @@ class GetConfigurationOutputTypeDef(BaseValidatorModel):
 class ListConfigurationManagersInputTypeDef(BaseValidatorModel):
     Filters: Optional[List[FilterTypeDef]] = None
     MaxItems: Optional[int] = None
-    StartingToken: Optional[str] = None
+    StartingToken: Optional[
+        Annotated[str, _aws_pattern("SsmQuicksetup", "ListConfigurationManagersInputStartingTokenString")]
+    ] = None
 
 
 # This class is the input for the 'list_configurations' function.
 class ListConfigurationsInputTypeDef(BaseValidatorModel):
-    ConfigurationDefinitionId: Optional[str] = None
+    ConfigurationDefinitionId: Optional[
+        Annotated[str, _aws_pattern("SsmQuicksetup", "ListConfigurationsInputConfigurationDefinitionIdString")]
+    ] = None
     Filters: Optional[List[FilterTypeDef]] = None
-    ManagerArn: Optional[str] = None
+    ManagerArn: Optional[Annotated[str, _aws_pattern("SsmQuicksetup", "ListConfigurationsInputManagerArnString")]] = (
+        None
+    )
     MaxItems: Optional[int] = None
-    StartingToken: Optional[str] = None
+    StartingToken: Optional[
+        Annotated[str, _aws_pattern("SsmQuicksetup", "ListConfigurationsInputStartingTokenString")]
+    ] = None
 
 
 class GetServiceSettingsOutputTypeDef(BaseValidatorModel):

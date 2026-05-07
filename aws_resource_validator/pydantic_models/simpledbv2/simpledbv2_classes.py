@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.simpledbv2.simpledbv2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -79,12 +81,12 @@ class ListExportsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_domain_export' function.
 class StartDomainExportRequestTypeDef(BaseValidatorModel):
     domainName: str
-    s3Bucket: str
+    s3Bucket: Annotated[str, _aws_pattern("Simpledbv2", "S3BucketName")]
     clientToken: Optional[str] = None
     s3KeyPrefix: Optional[str] = None
     s3SseAlgorithm: Optional[S3SseAlgorithmType] = None
     s3SseKmsKeyId: Optional[str] = None
-    s3BucketOwner: Optional[str] = None
+    s3BucketOwner: Optional[Annotated[str, _aws_pattern("Simpledbv2", "AwsAccountId")]] = None
 
 
 class GetExportRequestWaitTypeDef(BaseValidatorModel):
@@ -99,12 +101,12 @@ class GetExportResponseTypeDef(BaseValidatorModel):
     exportStatus: ExportStatusType
     domainName: str
     requestedAt: datetime
-    s3Bucket: str
+    s3Bucket: Annotated[str, _aws_pattern("Simpledbv2", "S3BucketName")]
     s3KeyPrefix: str
     s3SseAlgorithm: S3SseAlgorithmType
     s3SseKmsKeyId: str
-    s3BucketOwner: str
-    failureCode: str
+    s3BucketOwner: Annotated[str, _aws_pattern("Simpledbv2", "AwsAccountId")]
+    failureCode: Annotated[str, _aws_pattern("Simpledbv2", "FailureCode")]
     failureMessage: str
     exportManifest: str
     itemsCount: int

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.bedrock_data_automation.bedrock_data_automation_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -65,33 +67,33 @@ class AudioStandardGenerativeFieldTypeDef(BaseValidatorModel):
 
 
 class BlueprintFilterTypeDef(BaseValidatorModel):
-    blueprintArn: str
-    blueprintVersion: Optional[str] = None
+    blueprintArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintArn")]
+    blueprintVersion: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintVersion")]] = None
     blueprintStage: Optional[BlueprintStageType] = None
 
 
 class BlueprintItemTypeDef(BaseValidatorModel):
-    blueprintArn: str
-    blueprintVersion: Optional[str] = None
+    blueprintArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintArn")]
+    blueprintVersion: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintVersion")]] = None
     blueprintStage: Optional[BlueprintStageType] = None
 
 
 class BlueprintOptimizationObjectTypeDef(BaseValidatorModel):
-    blueprintArn: str
+    blueprintArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintArn")]
     stage: Optional[BlueprintStageType] = None
 
 
 class S3ObjectTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("BedrockDataAutomation", "S3Uri")]
     version: Optional[str] = None
 
 
 class BlueprintSummaryTypeDef(BaseValidatorModel):
-    blueprintArn: str
+    blueprintArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintArn")]
     creationTime: datetime
-    blueprintVersion: Optional[str] = None
+    blueprintVersion: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintVersion")]] = None
     blueprintStage: Optional[BlueprintStageType] = None
-    blueprintName: Optional[str] = None
+    blueprintName: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintName")]] = None
     lastModifiedTime: Optional[datetime] = None
 
 
@@ -100,14 +102,14 @@ class ChannelLabelingConfigurationTypeDef(BaseValidatorModel):
 
 
 class CopyBlueprintStageRequestTypeDef(BaseValidatorModel):
-    blueprintArn: str
+    blueprintArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintArn")]
     sourceStage: BlueprintStageType
     targetStage: BlueprintStageType
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "ClientToken")]] = None
 
 
 class EncryptionConfigurationTypeDef(BaseValidatorModel):
-    kmsKeyId: str
+    kmsKeyId: Annotated[str, _aws_pattern("BedrockDataAutomation", "KmsKeyId")]
     kmsEncryptionContext: Optional[Dict[str, str]] = None
 
 
@@ -126,28 +128,28 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_blueprint_version' function.
 class CreateBlueprintVersionRequestTypeDef(BaseValidatorModel):
-    blueprintArn: str
-    clientToken: Optional[str] = None
+    blueprintArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintArn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "ClientToken")]] = None
 
 
 class DataAutomationLibraryItemTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
 
 
 class VocabularyEntitySummaryTypeDef(BaseValidatorModel):
-    entityId: Optional[str] = None
-    description: Optional[str] = None
+    entityId: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "EntityId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "EntityDescription")]] = None
     language: Optional[LanguageType] = None
     numOfPhrases: Optional[int] = None
     lastModifiedTime: Optional[datetime] = None
 
 
 class DataAutomationLibraryFilterTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
 
 
 class DataAutomationLibraryIngestionJobSummaryTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryIngestionJobArn")]
     jobStatus: LibraryIngestionJobStatusType
     entityType: Literal["VOCABULARY"]
     operationType: LibraryIngestionJobOperationTypeType
@@ -156,13 +158,13 @@ class DataAutomationLibraryIngestionJobSummaryTypeDef(BaseValidatorModel):
 
 
 class OutputConfigurationTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("BedrockDataAutomation", "S3Uri")]
 
 
 class DataAutomationLibrarySummaryTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
     creationTime: datetime
-    libraryName: Optional[str] = None
+    libraryName: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryName")]] = None
 
 
 class EntityTypeInfoTypeDef(BaseValidatorModel):
@@ -171,35 +173,35 @@ class EntityTypeInfoTypeDef(BaseValidatorModel):
 
 
 class DataAutomationProjectFilterTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectArn")]
     projectStage: Optional[DataAutomationProjectStageType] = None
 
 
 class DataAutomationProjectSummaryTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectArn")]
     creationTime: datetime
     projectStage: Optional[DataAutomationProjectStageType] = None
     projectType: Optional[DataAutomationProjectTypeType] = None
-    projectName: Optional[str] = None
+    projectName: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectName")]] = None
 
 
 class DeleteBlueprintRequestTypeDef(BaseValidatorModel):
-    blueprintArn: str
-    blueprintVersion: Optional[str] = None
+    blueprintArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintArn")]
+    blueprintVersion: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintVersion")]] = None
 
 
 # This class is the input for the 'delete_data_automation_library' function.
 class DeleteDataAutomationLibraryRequestTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
 
 
 # This class is the input for the 'delete_data_automation_project' function.
 class DeleteDataAutomationProjectRequestTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectArn")]
 
 
 class DeleteEntitiesInfoTypeDef(BaseValidatorModel):
-    entityIds: List[str]
+    entityIds: List[Annotated[str, _aws_pattern("BedrockDataAutomation", "EntityId")]]
 
 
 class DocumentBoundingBoxTypeDef(BaseValidatorModel):
@@ -240,37 +242,37 @@ class EventBridgeConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_blueprint_optimization_status' function.
 class GetBlueprintOptimizationStatusRequestTypeDef(BaseValidatorModel):
-    invocationArn: str
+    invocationArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintOptimizationInvocationArn")]
 
 
 # This class is the input for the 'get_blueprint' function.
 class GetBlueprintRequestTypeDef(BaseValidatorModel):
-    blueprintArn: str
-    blueprintVersion: Optional[str] = None
+    blueprintArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintArn")]
+    blueprintVersion: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintVersion")]] = None
     blueprintStage: Optional[BlueprintStageType] = None
 
 
 # This class is the input for the 'get_data_automation_library_entity' function.
 class GetDataAutomationLibraryEntityRequestTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
     entityType: Literal["VOCABULARY"]
-    entityId: str
+    entityId: Annotated[str, _aws_pattern("BedrockDataAutomation", "EntityId")]
 
 
 # This class is the input for the 'get_data_automation_library_ingestion_job' function.
 class GetDataAutomationLibraryIngestionJobRequestTypeDef(BaseValidatorModel):
-    libraryArn: str
-    jobArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
+    jobArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryIngestionJobArn")]
 
 
 # This class is the input for the 'get_data_automation_library' function.
 class GetDataAutomationLibraryRequestTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
 
 
 # This class is the input for the 'get_data_automation_project' function.
 class GetDataAutomationProjectRequestTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectArn")]
     projectStage: Optional[DataAutomationProjectStageType] = None
 
 
@@ -306,22 +308,22 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_automation_library_entities' function.
 class ListDataAutomationLibraryEntitiesRequestTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
     entityType: Literal["VOCABULARY"]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "NextToken")]] = None
 
 
 # This class is the input for the 'list_data_automation_library_ingestion_jobs' function.
 class ListDataAutomationLibraryIngestionJobsRequestTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
+    resourceARN: Annotated[str, _aws_pattern("BedrockDataAutomation", "TaggableResourceArn")]
 
 
 class ModalityRoutingConfigurationTypeDef(BaseValidatorModel):
@@ -342,8 +344,8 @@ class PIIEntitiesConfigurationTypeDef(BaseValidatorModel):
 
 
 class PhraseTypeDef(BaseValidatorModel):
-    text: str
-    displayAsText: Optional[str] = None
+    text: Annotated[str, _aws_pattern("BedrockDataAutomation", "PhraseText")]
+    displayAsText: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "PhraseDisplayAsText")]] = None
 
 
 class SpeakerLabelingConfigurationTypeDef(BaseValidatorModel):
@@ -351,15 +353,17 @@ class SpeakerLabelingConfigurationTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
+    resourceARN: Annotated[str, _aws_pattern("BedrockDataAutomation", "TaggableResourceArn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_data_automation_library' function.
 class UpdateDataAutomationLibraryRequestTypeDef(BaseValidatorModel):
-    libraryArn: str
-    libraryDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
+    libraryDescription: Optional[
+        Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryDescription")]
+    ] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "ClientToken")]] = None
 
 
 class VideoBoundingBoxTypeDef(BaseValidatorModel):
@@ -405,7 +409,7 @@ class BlueprintOptimizationSampleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_blueprint' function.
 class UpdateBlueprintRequestTypeDef(BaseValidatorModel):
-    blueprintArn: str
+    blueprintArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintArn")]
     schema: str
     blueprintStage: Optional[BlueprintStageType] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
@@ -413,39 +417,41 @@ class UpdateBlueprintRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_blueprint' function.
 class CreateBlueprintRequestTypeDef(BaseValidatorModel):
-    blueprintName: str
+    blueprintName: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintName")]
     type: TypeType
     schema: str
     blueprintStage: Optional[BlueprintStageType] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "ClientToken")]] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_data_automation_library' function.
 class CreateDataAutomationLibraryRequestTypeDef(BaseValidatorModel):
-    libraryName: str
-    libraryDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    libraryName: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryName")]
+    libraryDescription: Optional[
+        Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryDescription")]
+    ] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "ClientToken")]] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
+    resourceARN: Annotated[str, _aws_pattern("BedrockDataAutomation", "TaggableResourceArn")]
     tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_data_automation_library' function.
 class CreateDataAutomationLibraryResponseTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
     status: DataAutomationLibraryStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_automation_project' function.
 class CreateDataAutomationProjectResponseTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectArn")]
     projectStage: DataAutomationProjectStageType
     status: DataAutomationProjectStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -453,27 +459,27 @@ class CreateDataAutomationProjectResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_data_automation_library' function.
 class DeleteDataAutomationLibraryResponseTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
     status: DataAutomationLibraryStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_data_automation_project' function.
 class DeleteDataAutomationProjectResponseTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectArn")]
     status: DataAutomationProjectStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'invoke_blueprint_optimization_async' function.
 class InvokeBlueprintOptimizationAsyncResponseTypeDef(BaseValidatorModel):
-    invocationArn: str
+    invocationArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintOptimizationInvocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'invoke_data_automation_library_ingestion_job' function.
 class InvokeDataAutomationLibraryIngestionJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryIngestionJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -481,7 +487,7 @@ class InvokeDataAutomationLibraryIngestionJobResponseTypeDef(BaseValidatorModel)
 class ListBlueprintsResponseTypeDef(BaseValidatorModel):
     blueprints: List[BlueprintSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -492,14 +498,14 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_data_automation_library' function.
 class UpdateDataAutomationLibraryResponseTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
     status: DataAutomationLibraryStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_data_automation_project' function.
 class UpdateDataAutomationProjectResponseTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectArn")]
     projectStage: DataAutomationProjectStageType
     status: DataAutomationProjectStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -520,7 +526,7 @@ class DataAutomationLibraryEntitySummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_data_automation_projects' function.
 class ListDataAutomationProjectsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "NextToken")]] = None
     projectStageFilter: Optional[DataAutomationProjectStageFilterType] = None
     blueprintFilter: Optional[BlueprintFilterTypeDef] = None
     resourceOwner: Optional[ResourceOwnerType] = None
@@ -531,11 +537,11 @@ class ListDataAutomationProjectsRequestTypeDef(BaseValidatorModel):
 class ListDataAutomationLibraryIngestionJobsResponseTypeDef(BaseValidatorModel):
     jobs: List[DataAutomationLibraryIngestionJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "NextToken")]] = None
 
 
 class DataAutomationLibraryIngestionJobTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryIngestionJobArn")]
     creationTime: datetime
     entityType: Literal["VOCABULARY"]
     operationType: LibraryIngestionJobOperationTypeType
@@ -550,34 +556,36 @@ class DataAutomationLibraryIngestionJobTypeDef(BaseValidatorModel):
 class ListDataAutomationLibrariesResponseTypeDef(BaseValidatorModel):
     libraries: List[DataAutomationLibrarySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "NextToken")]] = None
 
 
 class DataAutomationLibraryTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
     creationTime: datetime
-    libraryName: str
+    libraryName: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryName")]
     status: DataAutomationLibraryStatusType
-    libraryDescription: Optional[str] = None
+    libraryDescription: Optional[
+        Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryDescription")]
+    ] = None
     entityTypes: Optional[List[EntityTypeInfoTypeDef]] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "KmsKeyId")]] = None
     kmsEncryptionContext: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'list_blueprints' function.
 class ListBlueprintsRequestTypeDef(BaseValidatorModel):
-    blueprintArn: Optional[str] = None
+    blueprintArn: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintArn")]] = None
     resourceOwner: Optional[ResourceOwnerType] = None
     blueprintStageFilter: Optional[BlueprintStageFilterType] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "NextToken")]] = None
     projectFilter: Optional[DataAutomationProjectFilterTypeDef] = None
 
 
 # This class is the input for the 'list_data_automation_libraries' function.
 class ListDataAutomationLibrariesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "NextToken")]] = None
     projectFilter: Optional[DataAutomationProjectFilterTypeDef] = None
 
 
@@ -585,7 +593,7 @@ class ListDataAutomationLibrariesRequestTypeDef(BaseValidatorModel):
 class ListDataAutomationProjectsResponseTypeDef(BaseValidatorModel):
     projects: List[DataAutomationProjectSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "NextToken")]] = None
 
 
 class DocumentStandardExtractionOutputTypeDef(BaseValidatorModel):
@@ -669,13 +677,13 @@ class SensitiveDataConfigurationTypeDef(BaseValidatorModel):
 class VocabularyEntityInfoTypeDef(BaseValidatorModel):
     language: LanguageType
     phrases: List[PhraseTypeDef]
-    entityId: Optional[str] = None
-    description: Optional[str] = None
+    entityId: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "EntityId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "EntityDescription")]] = None
 
 
 class VocabularyEntityTypeDef(BaseValidatorModel):
-    entityId: Optional[str] = None
-    description: Optional[str] = None
+    entityId: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "EntityId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "EntityDescription")]] = None
     language: Optional[LanguageType] = None
     phrases: Optional[List[PhraseTypeDef]] = None
     lastModifiedTime: Optional[datetime] = None
@@ -709,15 +717,15 @@ class GetBlueprintOptimizationStatusResponseTypeDef(BaseValidatorModel):
 
 
 class BlueprintTypeDef(BaseValidatorModel):
-    blueprintArn: str
+    blueprintArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintArn")]
     schema: str
     type: TypeType
     creationTime: datetime
     lastModifiedTime: datetime
-    blueprintName: str
-    blueprintVersion: Optional[str] = None
+    blueprintName: Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintName")]
+    blueprintVersion: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "BlueprintVersion")]] = None
     blueprintStage: Optional[BlueprintStageType] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "KmsKeyId")]] = None
     kmsEncryptionContext: Optional[Dict[str, str]] = None
     optimizationSamples: Optional[List[BlueprintOptimizationSampleTypeDef]] = None
     optimizationTime: Optional[datetime] = None
@@ -728,7 +736,7 @@ class InvokeBlueprintOptimizationAsyncRequestTypeDef(BaseValidatorModel):
     blueprint: BlueprintOptimizationObjectTypeDef
     samples: List[BlueprintOptimizationSampleTypeDef]
     outputConfiguration: BlueprintOptimizationOutputConfigurationTypeDef
-    dataAutomationProfileArn: str
+    dataAutomationProfileArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProfileArn")]
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
@@ -742,7 +750,7 @@ DataAutomationLibraryConfigurationUnionTypeDef = Union[
 class ListDataAutomationLibraryEntitiesResponseTypeDef(BaseValidatorModel):
     entities: List[DataAutomationLibraryEntitySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "NextToken")]] = None
 
 
 # This class is the output for the 'get_data_automation_library_ingestion_job' function.
@@ -926,12 +934,12 @@ class AudioStandardExtractionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'invoke_data_automation_library_ingestion_job' function.
 class InvokeDataAutomationLibraryIngestionJobRequestTypeDef(BaseValidatorModel):
-    libraryArn: str
+    libraryArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationLibraryArn")]
     inputConfiguration: InputConfigurationTypeDef
     entityType: Literal["VOCABULARY"]
     operationType: LibraryIngestionJobOperationTypeType
     outputConfiguration: OutputConfigurationTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "ClientToken")]] = None
     notificationConfiguration: Optional[NotificationConfigurationTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
@@ -961,10 +969,10 @@ class StandardOutputConfigurationTypeDef(BaseValidatorModel):
 
 
 class DataAutomationProjectTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectArn")]
     creationTime: datetime
     lastModifiedTime: datetime
-    projectName: str
+    projectName: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectName")]
     status: DataAutomationProjectStatusType
     projectStage: Optional[DataAutomationProjectStageType] = None
     projectType: Optional[DataAutomationProjectTypeType] = None
@@ -973,7 +981,7 @@ class DataAutomationProjectTypeDef(BaseValidatorModel):
     customOutputConfiguration: Optional[CustomOutputConfigurationOutputTypeDef] = None
     overrideConfiguration: Optional[OverrideConfigurationOutputTypeDef] = None
     dataAutomationLibraryConfiguration: Optional[DataAutomationLibraryConfigurationOutputTypeDef] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "KmsKeyId")]] = None
     kmsEncryptionContext: Optional[Dict[str, str]] = None
 
 
@@ -990,7 +998,7 @@ class GetDataAutomationProjectResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_automation_project' function.
 class CreateDataAutomationProjectRequestTypeDef(BaseValidatorModel):
-    projectName: str
+    projectName: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectName")]
     standardOutputConfiguration: StandardOutputConfigurationUnionTypeDef
     projectDescription: Optional[str] = None
     projectStage: Optional[DataAutomationProjectStageType] = None
@@ -998,14 +1006,14 @@ class CreateDataAutomationProjectRequestTypeDef(BaseValidatorModel):
     customOutputConfiguration: Optional[CustomOutputConfigurationUnionTypeDef] = None
     overrideConfiguration: Optional[OverrideConfigurationUnionTypeDef] = None
     dataAutomationLibraryConfiguration: Optional[DataAutomationLibraryConfigurationUnionTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomation", "ClientToken")]] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_data_automation_project' function.
 class UpdateDataAutomationProjectRequestTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("BedrockDataAutomation", "DataAutomationProjectArn")]
     standardOutputConfiguration: StandardOutputConfigurationUnionTypeDef
     projectStage: Optional[DataAutomationProjectStageType] = None
     projectDescription: Optional[str] = None

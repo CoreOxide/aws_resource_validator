@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.chatbot.chatbot_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,12 +46,12 @@ class AccountPreferencesTypeDef(BaseValidatorModel):
 
 
 class AssociateToConfigurationRequestTypeDef(BaseValidatorModel):
-    Resource: str
-    ChatConfiguration: str
+    Resource: Annotated[str, _aws_pattern("Chatbot", "ResourceIdentifier")]
+    ChatConfiguration: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
 
 
 class AssociationListingTypeDef(BaseValidatorModel):
-    Resource: str
+    Resource: Annotated[str, _aws_pattern("Chatbot", "Arn")]
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -58,10 +60,10 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class ConfiguredTeamTypeDef(BaseValidatorModel):
-    TenantId: str
-    TeamId: str
-    TeamName: Optional[str] = None
-    State: Optional[str] = None
+    TenantId: Annotated[str, _aws_pattern("Chatbot", "UUID")]
+    TeamId: Annotated[str, _aws_pattern("Chatbot", "UUID")]
+    TeamName: Optional[Annotated[str, _aws_pattern("Chatbot", "UUID")]] = None
+    State: Optional[Annotated[str, _aws_pattern("Chatbot", "ResourceState")]] = None
     StateReason: Optional[str] = None
 
 
@@ -74,48 +76,48 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class CustomActionDefinitionTypeDef(BaseValidatorModel):
-    CommandText: str
+    CommandText: Annotated[str, _aws_pattern("Chatbot", "CustomActionDefinitionCommandTextString")]
 
 
 class CustomActionAttachmentCriteriaTypeDef(BaseValidatorModel):
     Operator: CustomActionAttachmentCriteriaOperatorType
-    VariableName: str
-    Value: Optional[str] = None
+    VariableName: Annotated[str, _aws_pattern("Chatbot", "CustomActionAttachmentCriteriaVariableNameString")]
+    Value: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomActionAttachmentCriteriaValueString")]] = None
 
 
 class DeleteChimeWebhookConfigurationRequestTypeDef(BaseValidatorModel):
-    ChatConfigurationArn: str
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
 
 
 class DeleteCustomActionRequestTypeDef(BaseValidatorModel):
-    CustomActionArn: str
+    CustomActionArn: Annotated[str, _aws_pattern("Chatbot", "CustomActionArn")]
 
 
 class DeleteMicrosoftTeamsUserIdentityRequestTypeDef(BaseValidatorModel):
-    ChatConfigurationArn: str
-    UserId: str
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
+    UserId: Annotated[str, _aws_pattern("Chatbot", "UUID")]
 
 
 class DeleteSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
-    ChatConfigurationArn: str
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
 
 
 class DeleteSlackUserIdentityRequestTypeDef(BaseValidatorModel):
-    ChatConfigurationArn: str
-    SlackTeamId: str
-    SlackUserId: str
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
+    SlackTeamId: Annotated[str, _aws_pattern("Chatbot", "SlackTeamId")]
+    SlackUserId: Annotated[str, _aws_pattern("Chatbot", "SlackUserId")]
 
 
 class DeleteSlackWorkspaceAuthorizationRequestTypeDef(BaseValidatorModel):
-    SlackTeamId: str
+    SlackTeamId: Annotated[str, _aws_pattern("Chatbot", "SlackTeamId")]
 
 
 class DeleteTeamsChannelConfigurationRequestTypeDef(BaseValidatorModel):
-    ChatConfigurationArn: str
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
 
 
 class DeleteTeamsConfiguredTeamRequestTypeDef(BaseValidatorModel):
-    TeamId: str
+    TeamId: Annotated[str, _aws_pattern("Chatbot", "UUID")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -127,110 +129,110 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_chime_webhook_configurations' function.
 class DescribeChimeWebhookConfigurationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    ChatConfigurationArn: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
+    ChatConfigurationArn: Optional[Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]] = None
 
 
 # This class is the input for the 'describe_slack_channel_configurations' function.
 class DescribeSlackChannelConfigurationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    ChatConfigurationArn: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
+    ChatConfigurationArn: Optional[Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]] = None
 
 
 # This class is the input for the 'describe_slack_user_identities' function.
 class DescribeSlackUserIdentitiesRequestTypeDef(BaseValidatorModel):
-    ChatConfigurationArn: Optional[str] = None
-    NextToken: Optional[str] = None
+    ChatConfigurationArn: Optional[Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class SlackUserIdentityTypeDef(BaseValidatorModel):
-    IamRoleArn: str
-    ChatConfigurationArn: str
-    SlackTeamId: str
-    SlackUserId: str
-    AwsUserIdentity: Optional[str] = None
+    IamRoleArn: Annotated[str, _aws_pattern("Chatbot", "Arn")]
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
+    SlackTeamId: Annotated[str, _aws_pattern("Chatbot", "SlackTeamId")]
+    SlackUserId: Annotated[str, _aws_pattern("Chatbot", "SlackUserId")]
+    AwsUserIdentity: Optional[Annotated[str, _aws_pattern("Chatbot", "AwsUserIdentity")]] = None
 
 
 # This class is the input for the 'describe_slack_workspaces' function.
 class DescribeSlackWorkspacesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
 
 
 class SlackWorkspaceTypeDef(BaseValidatorModel):
-    SlackTeamId: str
+    SlackTeamId: Annotated[str, _aws_pattern("Chatbot", "SlackTeamId")]
     SlackTeamName: str
-    State: Optional[str] = None
+    State: Optional[Annotated[str, _aws_pattern("Chatbot", "ResourceState")]] = None
     StateReason: Optional[str] = None
 
 
 class DisassociateFromConfigurationRequestTypeDef(BaseValidatorModel):
-    Resource: str
-    ChatConfiguration: str
+    Resource: Annotated[str, _aws_pattern("Chatbot", "ResourceIdentifier")]
+    ChatConfiguration: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
 
 
 # This class is the input for the 'get_custom_action' function.
 class GetCustomActionRequestTypeDef(BaseValidatorModel):
-    CustomActionArn: str
+    CustomActionArn: Annotated[str, _aws_pattern("Chatbot", "CustomActionArn")]
 
 
 # This class is the input for the 'get_microsoft_teams_channel_configuration' function.
 class GetTeamsChannelConfigurationRequestTypeDef(BaseValidatorModel):
-    ChatConfigurationArn: str
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
 
 
 # This class is the input for the 'list_associations' function.
 class ListAssociationsRequestTypeDef(BaseValidatorModel):
-    ChatConfiguration: str
+    ChatConfiguration: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "ListAssociationsRequestNextTokenString")]] = None
 
 
 # This class is the input for the 'list_custom_actions' function.
 class ListCustomActionsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "ListCustomActionsRequestNextTokenString")]] = None
 
 
 # This class is the input for the 'list_microsoft_teams_configured_teams' function.
 class ListMicrosoftTeamsConfiguredTeamsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_microsoft_teams_user_identities' function.
 class ListMicrosoftTeamsUserIdentitiesRequestTypeDef(BaseValidatorModel):
-    ChatConfigurationArn: Optional[str] = None
-    NextToken: Optional[str] = None
+    ChatConfigurationArn: Optional[Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class TeamsUserIdentityTypeDef(BaseValidatorModel):
-    IamRoleArn: str
-    ChatConfigurationArn: str
-    TeamId: str
-    UserId: Optional[str] = None
-    AwsUserIdentity: Optional[str] = None
-    TeamsChannelId: Optional[str] = None
-    TeamsTenantId: Optional[str] = None
+    IamRoleArn: Annotated[str, _aws_pattern("Chatbot", "Arn")]
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
+    TeamId: Annotated[str, _aws_pattern("Chatbot", "UUID")]
+    UserId: Optional[Annotated[str, _aws_pattern("Chatbot", "UUID")]] = None
+    AwsUserIdentity: Optional[Annotated[str, _aws_pattern("Chatbot", "AwsUserIdentity")]] = None
+    TeamsChannelId: Optional[Annotated[str, _aws_pattern("Chatbot", "TeamsChannelId")]] = None
+    TeamsTenantId: Optional[Annotated[str, _aws_pattern("Chatbot", "UUID")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Chatbot", "AmazonResourceName")]
 
 
 # This class is the input for the 'list_microsoft_teams_channel_configurations' function.
 class ListTeamsChannelConfigurationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    TeamId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
+    TeamId: Optional[Annotated[str, _aws_pattern("Chatbot", "UUID")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Chatbot", "AmazonResourceName")]
     TagKeys: List[str]
 
 
@@ -242,134 +244,134 @@ class UpdateAccountPreferencesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_chime_webhook_configuration' function.
 class UpdateChimeWebhookConfigurationRequestTypeDef(BaseValidatorModel):
-    ChatConfigurationArn: str
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
     WebhookDescription: Optional[str] = None
-    WebhookUrl: Optional[str] = None
-    SnsTopicArns: Optional[List[str]] = None
-    IamRoleArn: Optional[str] = None
-    LoggingLevel: Optional[str] = None
+    WebhookUrl: Optional[Annotated[str, _aws_pattern("Chatbot", "ChimeWebhookUrl")]] = None
+    SnsTopicArns: Optional[List[Annotated[str, _aws_pattern("Chatbot", "Arn")]]] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Chatbot", "Arn")]] = None
+    LoggingLevel: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomerCwLogLevel")]] = None
 
 
 # This class is the input for the 'update_slack_channel_configuration' function.
 class UpdateSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
-    ChatConfigurationArn: str
-    SlackChannelId: str
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
+    SlackChannelId: Annotated[str, _aws_pattern("Chatbot", "SlackChannelId")]
     SlackChannelName: Optional[str] = None
-    SnsTopicArns: Optional[List[str]] = None
-    IamRoleArn: Optional[str] = None
-    LoggingLevel: Optional[str] = None
-    GuardrailPolicyArns: Optional[List[str]] = None
+    SnsTopicArns: Optional[List[Annotated[str, _aws_pattern("Chatbot", "Arn")]]] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Chatbot", "Arn")]] = None
+    LoggingLevel: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomerCwLogLevel")]] = None
+    GuardrailPolicyArns: Optional[List[Annotated[str, _aws_pattern("Chatbot", "GuardrailPolicyArn")]]] = None
     UserAuthorizationRequired: Optional[bool] = None
 
 
 # This class is the input for the 'update_microsoft_teams_channel_configuration' function.
 class UpdateTeamsChannelConfigurationRequestTypeDef(BaseValidatorModel):
-    ChatConfigurationArn: str
-    ChannelId: str
-    ChannelName: Optional[str] = None
-    SnsTopicArns: Optional[List[str]] = None
-    IamRoleArn: Optional[str] = None
-    LoggingLevel: Optional[str] = None
-    GuardrailPolicyArns: Optional[List[str]] = None
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
+    ChannelId: Annotated[str, _aws_pattern("Chatbot", "TeamsChannelId")]
+    ChannelName: Optional[Annotated[str, _aws_pattern("Chatbot", "TeamsChannelName")]] = None
+    SnsTopicArns: Optional[List[Annotated[str, _aws_pattern("Chatbot", "Arn")]]] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Chatbot", "Arn")]] = None
+    LoggingLevel: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomerCwLogLevel")]] = None
+    GuardrailPolicyArns: Optional[List[Annotated[str, _aws_pattern("Chatbot", "GuardrailPolicyArn")]]] = None
     UserAuthorizationRequired: Optional[bool] = None
 
 
 class ChimeWebhookConfigurationTypeDef(BaseValidatorModel):
     WebhookDescription: str
-    ChatConfigurationArn: str
-    IamRoleArn: str
-    SnsTopicArns: List[str]
-    ConfigurationName: Optional[str] = None
-    LoggingLevel: Optional[str] = None
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
+    IamRoleArn: Annotated[str, _aws_pattern("Chatbot", "Arn")]
+    SnsTopicArns: List[Annotated[str, _aws_pattern("Chatbot", "Arn")]]
+    ConfigurationName: Optional[Annotated[str, _aws_pattern("Chatbot", "ConfigurationName")]] = None
+    LoggingLevel: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomerCwLogLevel")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    State: Optional[str] = None
+    State: Optional[Annotated[str, _aws_pattern("Chatbot", "ResourceState")]] = None
     StateReason: Optional[str] = None
 
 
 # This class is the input for the 'create_chime_webhook_configuration' function.
 class CreateChimeWebhookConfigurationRequestTypeDef(BaseValidatorModel):
     WebhookDescription: str
-    WebhookUrl: str
-    SnsTopicArns: List[str]
-    IamRoleArn: str
-    ConfigurationName: str
-    LoggingLevel: Optional[str] = None
+    WebhookUrl: Annotated[str, _aws_pattern("Chatbot", "ChimeWebhookUrl")]
+    SnsTopicArns: List[Annotated[str, _aws_pattern("Chatbot", "Arn")]]
+    IamRoleArn: Annotated[str, _aws_pattern("Chatbot", "Arn")]
+    ConfigurationName: Annotated[str, _aws_pattern("Chatbot", "ConfigurationName")]
+    LoggingLevel: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomerCwLogLevel")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_slack_channel_configuration' function.
 class CreateSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
-    SlackTeamId: str
-    SlackChannelId: str
-    IamRoleArn: str
-    ConfigurationName: str
+    SlackTeamId: Annotated[str, _aws_pattern("Chatbot", "SlackTeamId")]
+    SlackChannelId: Annotated[str, _aws_pattern("Chatbot", "SlackChannelId")]
+    IamRoleArn: Annotated[str, _aws_pattern("Chatbot", "Arn")]
+    ConfigurationName: Annotated[str, _aws_pattern("Chatbot", "ConfigurationName")]
     SlackChannelName: Optional[str] = None
-    SnsTopicArns: Optional[List[str]] = None
-    LoggingLevel: Optional[str] = None
-    GuardrailPolicyArns: Optional[List[str]] = None
+    SnsTopicArns: Optional[List[Annotated[str, _aws_pattern("Chatbot", "Arn")]]] = None
+    LoggingLevel: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomerCwLogLevel")]] = None
+    GuardrailPolicyArns: Optional[List[Annotated[str, _aws_pattern("Chatbot", "GuardrailPolicyArn")]]] = None
     UserAuthorizationRequired: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_microsoft_teams_channel_configuration' function.
 class CreateTeamsChannelConfigurationRequestTypeDef(BaseValidatorModel):
-    ChannelId: str
-    TeamId: str
-    TenantId: str
-    IamRoleArn: str
-    ConfigurationName: str
-    ChannelName: Optional[str] = None
-    TeamName: Optional[str] = None
-    SnsTopicArns: Optional[List[str]] = None
-    LoggingLevel: Optional[str] = None
-    GuardrailPolicyArns: Optional[List[str]] = None
+    ChannelId: Annotated[str, _aws_pattern("Chatbot", "TeamsChannelId")]
+    TeamId: Annotated[str, _aws_pattern("Chatbot", "UUID")]
+    TenantId: Annotated[str, _aws_pattern("Chatbot", "UUID")]
+    IamRoleArn: Annotated[str, _aws_pattern("Chatbot", "Arn")]
+    ConfigurationName: Annotated[str, _aws_pattern("Chatbot", "ConfigurationName")]
+    ChannelName: Optional[Annotated[str, _aws_pattern("Chatbot", "TeamsChannelName")]] = None
+    TeamName: Optional[Annotated[str, _aws_pattern("Chatbot", "TeamName")]] = None
+    SnsTopicArns: Optional[List[Annotated[str, _aws_pattern("Chatbot", "Arn")]]] = None
+    LoggingLevel: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomerCwLogLevel")]] = None
+    GuardrailPolicyArns: Optional[List[Annotated[str, _aws_pattern("Chatbot", "GuardrailPolicyArn")]]] = None
     UserAuthorizationRequired: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class SlackChannelConfigurationTypeDef(BaseValidatorModel):
     SlackTeamName: str
-    SlackTeamId: str
-    SlackChannelId: str
+    SlackTeamId: Annotated[str, _aws_pattern("Chatbot", "SlackTeamId")]
+    SlackChannelId: Annotated[str, _aws_pattern("Chatbot", "SlackChannelId")]
     SlackChannelName: str
-    ChatConfigurationArn: str
-    IamRoleArn: str
-    SnsTopicArns: List[str]
-    ConfigurationName: Optional[str] = None
-    LoggingLevel: Optional[str] = None
-    GuardrailPolicyArns: Optional[List[str]] = None
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
+    IamRoleArn: Annotated[str, _aws_pattern("Chatbot", "Arn")]
+    SnsTopicArns: List[Annotated[str, _aws_pattern("Chatbot", "Arn")]]
+    ConfigurationName: Optional[Annotated[str, _aws_pattern("Chatbot", "ConfigurationName")]] = None
+    LoggingLevel: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomerCwLogLevel")]] = None
+    GuardrailPolicyArns: Optional[List[Annotated[str, _aws_pattern("Chatbot", "GuardrailPolicyArn")]]] = None
     UserAuthorizationRequired: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
-    State: Optional[str] = None
+    State: Optional[Annotated[str, _aws_pattern("Chatbot", "ResourceState")]] = None
     StateReason: Optional[str] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Chatbot", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
 class TeamsChannelConfigurationTypeDef(BaseValidatorModel):
-    ChannelId: str
-    TeamId: str
-    TenantId: str
-    ChatConfigurationArn: str
-    IamRoleArn: str
-    SnsTopicArns: List[str]
-    ChannelName: Optional[str] = None
-    TeamName: Optional[str] = None
-    ConfigurationName: Optional[str] = None
-    LoggingLevel: Optional[str] = None
-    GuardrailPolicyArns: Optional[List[str]] = None
+    ChannelId: Annotated[str, _aws_pattern("Chatbot", "TeamsChannelId")]
+    TeamId: Annotated[str, _aws_pattern("Chatbot", "UUID")]
+    TenantId: Annotated[str, _aws_pattern("Chatbot", "UUID")]
+    ChatConfigurationArn: Annotated[str, _aws_pattern("Chatbot", "ChatConfigurationArn")]
+    IamRoleArn: Annotated[str, _aws_pattern("Chatbot", "Arn")]
+    SnsTopicArns: List[Annotated[str, _aws_pattern("Chatbot", "Arn")]]
+    ChannelName: Optional[Annotated[str, _aws_pattern("Chatbot", "TeamsChannelName")]] = None
+    TeamName: Optional[Annotated[str, _aws_pattern("Chatbot", "TeamName")]] = None
+    ConfigurationName: Optional[Annotated[str, _aws_pattern("Chatbot", "ConfigurationName")]] = None
+    LoggingLevel: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomerCwLogLevel")]] = None
+    GuardrailPolicyArns: Optional[List[Annotated[str, _aws_pattern("Chatbot", "GuardrailPolicyArn")]]] = None
     UserAuthorizationRequired: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
-    State: Optional[str] = None
+    State: Optional[Annotated[str, _aws_pattern("Chatbot", "ResourceState")]] = None
     StateReason: Optional[str] = None
 
 
 # This class is the output for the 'create_custom_action' function.
 class CreateCustomActionResultTypeDef(BaseValidatorModel):
-    CustomActionArn: str
+    CustomActionArn: Annotated[str, _aws_pattern("Chatbot", "CustomActionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -382,21 +384,21 @@ class GetAccountPreferencesResultTypeDef(BaseValidatorModel):
 class ListAssociationsResultTypeDef(BaseValidatorModel):
     Associations: List[AssociationListingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "ListAssociationsResultNextTokenString")]] = None
 
 
 # This class is the output for the 'list_custom_actions' function.
 class ListCustomActionsResultTypeDef(BaseValidatorModel):
-    CustomActions: List[str]
+    CustomActions: List[Annotated[str, _aws_pattern("Chatbot", "CustomActionArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "ListCustomActionsResultNextTokenString")]] = None
 
 
 # This class is the output for the 'list_microsoft_teams_configured_teams' function.
 class ListMicrosoftTeamsConfiguredTeamsResultTypeDef(BaseValidatorModel):
     ConfiguredTeams: List[ConfiguredTeamTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -413,7 +415,7 @@ class UpdateAccountPreferencesResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_custom_action' function.
 class UpdateCustomActionResultTypeDef(BaseValidatorModel):
-    CustomActionArn: str
+    CustomActionArn: Annotated[str, _aws_pattern("Chatbot", "CustomActionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -425,8 +427,8 @@ class CustomActionAttachmentOutputTypeDef(BaseValidatorModel):
 
 
 class CustomActionAttachmentTypeDef(BaseValidatorModel):
-    NotificationType: Optional[str] = None
-    ButtonText: Optional[str] = None
+    NotificationType: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomActionAttachmentNotificationType")]] = None
+    ButtonText: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomActionButtonText")]] = None
     Criteria: Optional[List[CustomActionAttachmentCriteriaTypeDef]] = None
     Variables: Optional[Dict[str, str]] = None
 
@@ -477,21 +479,21 @@ class ListTeamsChannelConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
 class DescribeSlackUserIdentitiesResultTypeDef(BaseValidatorModel):
     SlackUserIdentities: List[SlackUserIdentityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
 
 
 # This class is the output for the 'describe_slack_workspaces' function.
 class DescribeSlackWorkspacesResultTypeDef(BaseValidatorModel):
     SlackWorkspaces: List[SlackWorkspaceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_microsoft_teams_user_identities' function.
 class ListMicrosoftTeamsUserIdentitiesResultTypeDef(BaseValidatorModel):
     TeamsUserIdentities: List[TeamsUserIdentityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
 
 
 # This class is the output for the 'create_chime_webhook_configuration' function.
@@ -504,7 +506,7 @@ class CreateChimeWebhookConfigurationResultTypeDef(BaseValidatorModel):
 class DescribeChimeWebhookConfigurationsResultTypeDef(BaseValidatorModel):
     WebhookConfigurations: List[ChimeWebhookConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_chime_webhook_configuration' function.
@@ -523,7 +525,7 @@ class CreateSlackChannelConfigurationResultTypeDef(BaseValidatorModel):
 class DescribeSlackChannelConfigurationsResultTypeDef(BaseValidatorModel):
     SlackChannelConfigurations: List[SlackChannelConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_slack_channel_configuration' function.
@@ -548,7 +550,7 @@ class GetTeamsChannelConfigurationResultTypeDef(BaseValidatorModel):
 class ListTeamsChannelConfigurationsResultTypeDef(BaseValidatorModel):
     TeamChannelConfigurations: List[TeamsChannelConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Chatbot", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_microsoft_teams_channel_configuration' function.
@@ -558,11 +560,11 @@ class UpdateTeamsChannelConfigurationResultTypeDef(BaseValidatorModel):
 
 
 class CustomActionTypeDef(BaseValidatorModel):
-    CustomActionArn: str
+    CustomActionArn: Annotated[str, _aws_pattern("Chatbot", "CustomActionArn")]
     Definition: CustomActionDefinitionTypeDef
-    AliasName: Optional[str] = None
+    AliasName: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomActionAliasName")]] = None
     Attachments: Optional[List[CustomActionAttachmentOutputTypeDef]] = None
-    ActionName: Optional[str] = None
+    ActionName: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomActionName")]] = None
 
 
 CustomActionAttachmentUnionTypeDef = Union[CustomActionAttachmentOutputTypeDef, CustomActionAttachmentTypeDef]
@@ -577,16 +579,16 @@ class GetCustomActionResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_custom_action' function.
 class CreateCustomActionRequestTypeDef(BaseValidatorModel):
     Definition: CustomActionDefinitionTypeDef
-    ActionName: str
-    AliasName: Optional[str] = None
+    ActionName: Annotated[str, _aws_pattern("Chatbot", "CustomActionName")]
+    AliasName: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomActionAliasName")]] = None
     Attachments: Optional[List[CustomActionAttachmentUnionTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Chatbot", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_custom_action' function.
 class UpdateCustomActionRequestTypeDef(BaseValidatorModel):
-    CustomActionArn: str
+    CustomActionArn: Annotated[str, _aws_pattern("Chatbot", "CustomActionArn")]
     Definition: CustomActionDefinitionTypeDef
-    AliasName: Optional[str] = None
+    AliasName: Optional[Annotated[str, _aws_pattern("Chatbot", "CustomActionAliasName")]] = None
     Attachments: Optional[List[CustomActionAttachmentUnionTypeDef]] = None

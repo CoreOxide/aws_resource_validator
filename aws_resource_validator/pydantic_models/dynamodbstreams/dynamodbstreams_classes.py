@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -90,14 +92,14 @@ class KeySchemaElementTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_streams' function.
 class ListStreamsInputTypeDef(BaseValidatorModel):
-    TableName: Optional[str] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Dynamodbstreams", "TableName")]] = None
     Limit: Optional[int] = None
     ExclusiveStartStreamArn: Optional[str] = None
 
 
 class StreamTypeDef(BaseValidatorModel):
     StreamArn: Optional[str] = None
-    TableName: Optional[str] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Dynamodbstreams", "TableName")]] = None
     StreamLabel: Optional[str] = None
 
 
@@ -159,7 +161,7 @@ class StreamDescriptionTypeDef(BaseValidatorModel):
     StreamStatus: Optional[StreamStatusType] = None
     StreamViewType: Optional[StreamViewTypeType] = None
     CreationRequestDateTime: Optional[datetime] = None
-    TableName: Optional[str] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Dynamodbstreams", "TableName")]] = None
     KeySchema: Optional[List[KeySchemaElementTypeDef]] = None
     Shards: Optional[List[ShardTypeDef]] = None
     LastEvaluatedShardId: Optional[str] = None

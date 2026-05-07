@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.firehose.firehose_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -49,21 +51,21 @@ class AmazonOpenSearchServerlessRetryOptionsTypeDef(BaseValidatorModel):
 
 class CloudWatchLoggingOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    LogGroupName: Optional[str] = None
-    LogStreamName: Optional[str] = None
+    LogGroupName: Optional[Annotated[str, _aws_pattern("Firehose", "LogGroupName")]] = None
+    LogStreamName: Optional[Annotated[str, _aws_pattern("Firehose", "LogStreamName")]] = None
 
 
 class VpcConfigurationTypeDef(BaseValidatorModel):
-    SubnetIds: List[str]
-    RoleARN: str
-    SecurityGroupIds: List[str]
+    SubnetIds: List[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]]
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]]
 
 
 class VpcConfigurationDescriptionTypeDef(BaseValidatorModel):
-    SubnetIds: List[str]
-    RoleARN: str
-    SecurityGroupIds: List[str]
-    VpcId: str
+    SubnetIds: List[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]]
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]]
+    VpcId: Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]
 
 
 class AmazonopensearchserviceBufferingHintsTypeDef(BaseValidatorModel):
@@ -80,7 +82,7 @@ class DocumentIdOptionsTypeDef(BaseValidatorModel):
 
 
 class AuthenticationConfigurationTypeDef(BaseValidatorModel):
-    RoleARN: str
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
     Connectivity: ConnectivityType
 
 
@@ -93,19 +95,19 @@ class BufferingHintsTypeDef(BaseValidatorModel):
 
 
 class CatalogConfigurationTypeDef(BaseValidatorModel):
-    CatalogARN: Optional[str] = None
-    WarehouseLocation: Optional[str] = None
+    CatalogARN: Optional[Annotated[str, _aws_pattern("Firehose", "GlueDataCatalogARN")]] = None
+    WarehouseLocation: Optional[Annotated[str, _aws_pattern("Firehose", "WarehouseLocation")]] = None
 
 
 class CopyCommandTypeDef(BaseValidatorModel):
-    DataTableName: str
-    DataTableColumns: Optional[str] = None
-    CopyOptions: Optional[str] = None
+    DataTableName: Annotated[str, _aws_pattern("Firehose", "DataTableName")]
+    DataTableColumns: Optional[Annotated[str, _aws_pattern("Firehose", "DataTableColumns")]] = None
+    CopyOptions: Optional[Annotated[str, _aws_pattern("Firehose", "CopyOptions")]] = None
 
 
 class DeliveryStreamEncryptionConfigurationInputTypeDef(BaseValidatorModel):
     KeyType: KeyTypeType
-    KeyARN: Optional[str] = None
+    KeyARN: Optional[Annotated[str, _aws_pattern("Firehose", "AWSKMSKeyARN")]] = None
 
 
 class DirectPutSourceConfigurationTypeDef(BaseValidatorModel):
@@ -113,13 +115,13 @@ class DirectPutSourceConfigurationTypeDef(BaseValidatorModel):
 
 
 class KinesisStreamSourceConfigurationTypeDef(BaseValidatorModel):
-    KinesisStreamARN: str
-    RoleARN: str
+    KinesisStreamARN: Annotated[str, _aws_pattern("Firehose", "KinesisStreamARN")]
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Firehose", "TagKey")]
+    Value: Optional[Annotated[str, _aws_pattern("Firehose", "TagValue")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -131,12 +133,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class SchemaConfigurationTypeDef(BaseValidatorModel):
-    RoleARN: Optional[str] = None
-    CatalogId: Optional[str] = None
-    DatabaseName: Optional[str] = None
-    TableName: Optional[str] = None
-    Region: Optional[str] = None
-    VersionId: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]] = None
 
 
 class DatabaseColumnListOutputTypeDef(BaseValidatorModel):
@@ -145,8 +147,8 @@ class DatabaseColumnListOutputTypeDef(BaseValidatorModel):
 
 
 class DatabaseColumnListTypeDef(BaseValidatorModel):
-    Include: Optional[List[str]] = None
-    Exclude: Optional[List[str]] = None
+    Include: Optional[List[Annotated[str, _aws_pattern("Firehose", "DatabaseColumnName")]]] = None
+    Exclude: Optional[List[Annotated[str, _aws_pattern("Firehose", "DatabaseColumnName")]]] = None
 
 
 class DatabaseListOutputTypeDef(BaseValidatorModel):
@@ -155,23 +157,23 @@ class DatabaseListOutputTypeDef(BaseValidatorModel):
 
 
 class DatabaseListTypeDef(BaseValidatorModel):
-    Include: Optional[List[str]] = None
-    Exclude: Optional[List[str]] = None
+    Include: Optional[List[Annotated[str, _aws_pattern("Firehose", "DatabaseName")]]] = None
+    Exclude: Optional[List[Annotated[str, _aws_pattern("Firehose", "DatabaseName")]]] = None
 
 
 class FailureDescriptionTypeDef(BaseValidatorModel):
     Type: DeliveryStreamFailureTypeType
-    Details: str
+    Details: Annotated[str, _aws_pattern("Firehose", "NonEmptyString")]
 
 
 class SecretsManagerConfigurationTypeDef(BaseValidatorModel):
     Enabled: bool
-    SecretARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    SecretARN: Optional[Annotated[str, _aws_pattern("Firehose", "SecretARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
 
 
 class DatabaseSourceVPCConfigurationTypeDef(BaseValidatorModel):
-    VpcEndpointServiceName: str
+    VpcEndpointServiceName: Annotated[str, _aws_pattern("Firehose", "VpcEndpointServiceName")]
 
 
 class DatabaseTableListOutputTypeDef(BaseValidatorModel):
@@ -180,20 +182,20 @@ class DatabaseTableListOutputTypeDef(BaseValidatorModel):
 
 
 class DatabaseTableListTypeDef(BaseValidatorModel):
-    Include: Optional[List[str]] = None
-    Exclude: Optional[List[str]] = None
+    Include: Optional[List[Annotated[str, _aws_pattern("Firehose", "DatabaseTableName")]]] = None
+    Exclude: Optional[List[Annotated[str, _aws_pattern("Firehose", "DatabaseTableName")]]] = None
 
 
 class DeleteDeliveryStreamInputTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
     AllowForceDelete: Optional[bool] = None
 
 
 # This class is the input for the 'describe_delivery_stream' function.
 class DescribeDeliveryStreamInputTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
     Limit: Optional[int] = None
-    ExclusiveStartDestinationId: Optional[str] = None
+    ExclusiveStartDestinationId: Optional[Annotated[str, _aws_pattern("Firehose", "DestinationId")]] = None
 
 
 class HiveJsonSerDeOutputTypeDef(BaseValidatorModel):
@@ -224,11 +226,11 @@ class ElasticsearchRetryOptionsTypeDef(BaseValidatorModel):
 
 
 class KMSEncryptionConfigTypeDef(BaseValidatorModel):
-    AWSKMSKeyARN: str
+    AWSKMSKeyARN: Annotated[str, _aws_pattern("Firehose", "AWSKMSKeyARN")]
 
 
 class HiveJsonSerDeTypeDef(BaseValidatorModel):
-    TimestampFormats: Optional[List[str]] = None
+    TimestampFormats: Optional[List[Annotated[str, _aws_pattern("Firehose", "NonEmptyString")]]] = None
 
 
 class HttpEndpointBufferingHintsTypeDef(BaseValidatorModel):
@@ -237,19 +239,19 @@ class HttpEndpointBufferingHintsTypeDef(BaseValidatorModel):
 
 
 class HttpEndpointCommonAttributeTypeDef(BaseValidatorModel):
-    AttributeName: str
-    AttributeValue: str
+    AttributeName: Annotated[str, _aws_pattern("Firehose", "HttpEndpointAttributeName")]
+    AttributeValue: Annotated[str, _aws_pattern("Firehose", "HttpEndpointAttributeValue")]
 
 
 class HttpEndpointConfigurationTypeDef(BaseValidatorModel):
-    Url: str
-    Name: Optional[str] = None
-    AccessKey: Optional[str] = None
+    Url: Annotated[str, _aws_pattern("Firehose", "HttpEndpointUrl")]
+    Name: Optional[Annotated[str, _aws_pattern("Firehose", "HttpEndpointName")]] = None
+    AccessKey: Optional[Annotated[str, _aws_pattern("Firehose", "HttpEndpointAccessKey")]] = None
 
 
 class HttpEndpointDescriptionTypeDef(BaseValidatorModel):
-    Url: Optional[str] = None
-    Name: Optional[str] = None
+    Url: Optional[Annotated[str, _aws_pattern("Firehose", "HttpEndpointUrl")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Firehose", "HttpEndpointName")]] = None
 
 
 class HttpEndpointRetryOptionsTypeDef(BaseValidatorModel):
@@ -265,8 +267,8 @@ class TableCreationConfigurationTypeDef(BaseValidatorModel):
 
 
 class KinesisStreamSourceDescriptionTypeDef(BaseValidatorModel):
-    KinesisStreamARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    KinesisStreamARN: Optional[Annotated[str, _aws_pattern("Firehose", "KinesisStreamARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
     DeliveryStartTimestamp: Optional[datetime] = None
 
 
@@ -274,13 +276,13 @@ class KinesisStreamSourceDescriptionTypeDef(BaseValidatorModel):
 class ListDeliveryStreamsInputTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
     DeliveryStreamType: Optional[DeliveryStreamTypeType] = None
-    ExclusiveStartDeliveryStreamName: Optional[str] = None
+    ExclusiveStartDeliveryStreamName: Optional[Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]] = None
 
 
 # This class is the input for the 'list_tags_for_delivery_stream' function.
 class ListTagsForDeliveryStreamInputTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
-    ExclusiveStartTagKey: Optional[str] = None
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
+    ExclusiveStartTagKey: Optional[Annotated[str, _aws_pattern("Firehose", "TagKey")]] = None
     Limit: Optional[int] = None
 
 
@@ -313,7 +315,9 @@ class OrcSerDeTypeDef(BaseValidatorModel):
     EnablePadding: Optional[bool] = None
     PaddingTolerance: Optional[float] = None
     Compression: Optional[OrcCompressionType] = None
-    BloomFilterColumns: Optional[List[str]] = None
+    BloomFilterColumns: Optional[List[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]]] = (
+        None
+    )
     BloomFilterFalsePositiveProbability: Optional[float] = None
     DictionaryKeyThreshold: Optional[float] = None
     FormatVersion: Optional[OrcFormatVersionType] = None
@@ -329,12 +333,12 @@ class ParquetSerDeTypeDef(BaseValidatorModel):
 
 
 class PartitionFieldTypeDef(BaseValidatorModel):
-    SourceName: str
+    SourceName: Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]
 
 
 class ProcessorParameterTypeDef(BaseValidatorModel):
     ParameterName: ProcessorParameterNameType
-    ParameterValue: str
+    ParameterValue: Annotated[str, _aws_pattern("Firehose", "ProcessorParameterValue")]
 
 
 class PutRecordBatchResponseEntryTypeDef(BaseValidatorModel):
@@ -362,7 +366,7 @@ class SnowflakeRoleConfigurationTypeDef(BaseValidatorModel):
 
 
 class SnowflakeVpcConfigurationTypeDef(BaseValidatorModel):
-    PrivateLinkVpceId: str
+    PrivateLinkVpceId: Annotated[str, _aws_pattern("Firehose", "SnowflakePrivateLinkVpceId")]
 
 
 class SplunkBufferingHintsTypeDef(BaseValidatorModel):
@@ -375,17 +379,17 @@ class SplunkRetryOptionsTypeDef(BaseValidatorModel):
 
 
 class StopDeliveryStreamEncryptionInputTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
 
 
 class UntagDeliveryStreamInputTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
-    TagKeys: List[str]
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
+    TagKeys: List[Annotated[str, _aws_pattern("Firehose", "TagKey")]]
 
 
 class MSKSourceDescriptionTypeDef(BaseValidatorModel):
-    MSKClusterARN: Optional[str] = None
-    TopicName: Optional[str] = None
+    MSKClusterARN: Optional[Annotated[str, _aws_pattern("Firehose", "MSKClusterARN")]] = None
+    TopicName: Optional[Annotated[str, _aws_pattern("Firehose", "TopicName")]] = None
     AuthenticationConfiguration: Optional[AuthenticationConfigurationTypeDef] = None
     DeliveryStartTimestamp: Optional[datetime] = None
     ReadFromTimestamp: Optional[datetime] = None
@@ -396,24 +400,24 @@ class RecordTypeDef(BaseValidatorModel):
 
 
 class StartDeliveryStreamEncryptionInputTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
     DeliveryStreamEncryptionConfigurationInput: Optional[DeliveryStreamEncryptionConfigurationInputTypeDef] = None
 
 
 class TagDeliveryStreamInputTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_delivery_stream' function.
 class CreateDeliveryStreamOutputTypeDef(BaseValidatorModel):
-    DeliveryStreamARN: str
+    DeliveryStreamARN: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_delivery_streams' function.
 class ListDeliveryStreamsOutputTypeDef(BaseValidatorModel):
-    DeliveryStreamNames: List[str]
+    DeliveryStreamNames: List[Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]]
     HasMoreDeliveryStreams: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -438,8 +442,8 @@ DatabaseListUnionTypeDef = Union[DatabaseListOutputTypeDef, DatabaseListTypeDef]
 
 
 class DatabaseSnapshotInfoTypeDef(BaseValidatorModel):
-    Id: str
-    Table: str
+    Id: Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]
+    Table: Annotated[str, _aws_pattern("Firehose", "DatabaseTableName")]
     RequestTimestamp: datetime
     RequestedBy: SnapshotRequestedByType
     Status: SnapshotStatusType
@@ -447,7 +451,7 @@ class DatabaseSnapshotInfoTypeDef(BaseValidatorModel):
 
 
 class DeliveryStreamEncryptionConfigurationTypeDef(BaseValidatorModel):
-    KeyARN: Optional[str] = None
+    KeyARN: Optional[Annotated[str, _aws_pattern("Firehose", "AWSKMSKeyARN")]] = None
     KeyType: Optional[KeyTypeType] = None
     Status: Optional[DeliveryStreamEncryptionStatusType] = None
     FailureDescription: Optional[FailureDescriptionTypeDef] = None
@@ -489,8 +493,8 @@ class HttpEndpointRequestConfigurationTypeDef(BaseValidatorModel):
 
 
 class MSKSourceConfigurationTypeDef(BaseValidatorModel):
-    MSKClusterARN: str
-    TopicName: str
+    MSKClusterARN: Annotated[str, _aws_pattern("Firehose", "MSKClusterARN")]
+    TopicName: Annotated[str, _aws_pattern("Firehose", "TopicName")]
     AuthenticationConfiguration: AuthenticationConfigurationTypeDef
     ReadFromTimestamp: Optional[TimestampTypeDef] = None
 
@@ -533,26 +537,26 @@ class PutRecordBatchOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_record_batch' function.
 class PutRecordBatchInputTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
     Records: List[RecordTypeDef]
 
 
 # This class is the input for the 'put_record' function.
 class PutRecordInputTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
     Record: RecordTypeDef
 
 
 class DatabaseSourceDescriptionTypeDef(BaseValidatorModel):
     Type: Optional[DatabaseTypeType] = None
-    Endpoint: Optional[str] = None
+    Endpoint: Optional[Annotated[str, _aws_pattern("Firehose", "DatabaseEndpoint")]] = None
     Port: Optional[int] = None
     SSLMode: Optional[SSLModeType] = None
     Databases: Optional[DatabaseListOutputTypeDef] = None
     Tables: Optional[DatabaseTableListOutputTypeDef] = None
     Columns: Optional[DatabaseColumnListOutputTypeDef] = None
-    SurrogateKeys: Optional[List[str]] = None
-    SnapshotWatermarkTable: Optional[str] = None
+    SurrogateKeys: Optional[List[Annotated[str, _aws_pattern("Firehose", "DatabaseColumnName")]]] = None
+    SnapshotWatermarkTable: Optional[Annotated[str, _aws_pattern("Firehose", "DatabaseTableName")]] = None
     SnapshotInfo: Optional[List[DatabaseSnapshotInfoTypeDef]] = None
     DatabaseSourceAuthenticationConfiguration: Optional[DatabaseSourceAuthenticationConfigurationTypeDef] = None
     DatabaseSourceVPCConfiguration: Optional[DatabaseSourceVPCConfigurationTypeDef] = None
@@ -560,16 +564,16 @@ class DatabaseSourceDescriptionTypeDef(BaseValidatorModel):
 
 class DatabaseSourceConfigurationTypeDef(BaseValidatorModel):
     Type: DatabaseTypeType
-    Endpoint: str
+    Endpoint: Annotated[str, _aws_pattern("Firehose", "DatabaseEndpoint")]
     Port: int
     Databases: DatabaseListUnionTypeDef
     Tables: DatabaseTableListUnionTypeDef
-    SnapshotWatermarkTable: str
+    SnapshotWatermarkTable: Annotated[str, _aws_pattern("Firehose", "DatabaseTableName")]
     DatabaseSourceAuthenticationConfiguration: DatabaseSourceAuthenticationConfigurationTypeDef
     DatabaseSourceVPCConfiguration: DatabaseSourceVPCConfigurationTypeDef
     SSLMode: Optional[SSLModeType] = None
     Columns: Optional[DatabaseColumnListUnionTypeDef] = None
-    SurrogateKeys: Optional[List[str]] = None
+    SurrogateKeys: Optional[List[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]]] = None
 
 
 class InputFormatConfigurationOutputTypeDef(BaseValidatorModel):
@@ -577,10 +581,10 @@ class InputFormatConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class S3DestinationConfigurationTypeDef(BaseValidatorModel):
-    RoleARN: str
-    BucketARN: str
-    Prefix: Optional[str] = None
-    ErrorOutputPrefix: Optional[str] = None
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
+    BucketARN: Annotated[str, _aws_pattern("Firehose", "BucketARN")]
+    Prefix: Optional[Annotated[str, _aws_pattern("Firehose", "Prefix")]] = None
+    ErrorOutputPrefix: Optional[Annotated[str, _aws_pattern("Firehose", "ErrorOutputPrefix")]] = None
     BufferingHints: Optional[BufferingHintsTypeDef] = None
     CompressionFormat: Optional[CompressionFormatType] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
@@ -588,21 +592,21 @@ class S3DestinationConfigurationTypeDef(BaseValidatorModel):
 
 
 class S3DestinationDescriptionTypeDef(BaseValidatorModel):
-    RoleARN: str
-    BucketARN: str
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
+    BucketARN: Annotated[str, _aws_pattern("Firehose", "BucketARN")]
     BufferingHints: BufferingHintsTypeDef
     CompressionFormat: CompressionFormatType
     EncryptionConfiguration: EncryptionConfigurationTypeDef
-    Prefix: Optional[str] = None
-    ErrorOutputPrefix: Optional[str] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Firehose", "Prefix")]] = None
+    ErrorOutputPrefix: Optional[Annotated[str, _aws_pattern("Firehose", "ErrorOutputPrefix")]] = None
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
 
 
 class S3DestinationUpdateTypeDef(BaseValidatorModel):
-    RoleARN: Optional[str] = None
-    BucketARN: Optional[str] = None
-    Prefix: Optional[str] = None
-    ErrorOutputPrefix: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
+    BucketARN: Optional[Annotated[str, _aws_pattern("Firehose", "BucketARN")]] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Firehose", "Prefix")]] = None
+    ErrorOutputPrefix: Optional[Annotated[str, _aws_pattern("Firehose", "ErrorOutputPrefix")]] = None
     BufferingHints: Optional[BufferingHintsTypeDef] = None
     CompressionFormat: Optional[CompressionFormatType] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
@@ -667,17 +671,19 @@ class DataFormatConversionConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class DestinationTableConfigurationTypeDef(BaseValidatorModel):
-    DestinationTableName: str
-    DestinationDatabaseName: str
-    UniqueKeys: Optional[List[str]] = None
+    DestinationTableName: Annotated[str, _aws_pattern("Firehose", "StringWithLettersDigitsUnderscoresDots")]
+    DestinationDatabaseName: Annotated[str, _aws_pattern("Firehose", "StringWithLettersDigitsUnderscoresDots")]
+    UniqueKeys: Optional[List[Annotated[str, _aws_pattern("Firehose", "NonEmptyStringWithoutWhitespace")]]] = None
     PartitionSpec: Optional[PartitionSpecUnionTypeDef] = None
-    S3ErrorOutputPrefix: Optional[str] = None
+    S3ErrorOutputPrefix: Optional[Annotated[str, _aws_pattern("Firehose", "ErrorOutputPrefix")]] = None
 
 
 class AmazonOpenSearchServerlessDestinationDescriptionTypeDef(BaseValidatorModel):
-    RoleARN: Optional[str] = None
-    CollectionEndpoint: Optional[str] = None
-    IndexName: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
+    CollectionEndpoint: Optional[
+        Annotated[str, _aws_pattern("Firehose", "AmazonOpenSearchServerlessCollectionEndpoint")]
+    ] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonOpenSearchServerlessIndexName")]] = None
     BufferingHints: Optional[AmazonOpenSearchServerlessBufferingHintsTypeDef] = None
     RetryOptions: Optional[AmazonOpenSearchServerlessRetryOptionsTypeDef] = None
     S3BackupMode: Optional[AmazonOpenSearchServerlessS3BackupModeType] = None
@@ -688,11 +694,11 @@ class AmazonOpenSearchServerlessDestinationDescriptionTypeDef(BaseValidatorModel
 
 
 class AmazonopensearchserviceDestinationDescriptionTypeDef(BaseValidatorModel):
-    RoleARN: Optional[str] = None
-    DomainARN: Optional[str] = None
-    ClusterEndpoint: Optional[str] = None
-    IndexName: Optional[str] = None
-    TypeName: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
+    DomainARN: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceDomainARN")]] = None
+    ClusterEndpoint: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceClusterEndpoint")]] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceIndexName")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceTypeName")]] = None
     IndexRotationPeriod: Optional[AmazonopensearchserviceIndexRotationPeriodType] = None
     BufferingHints: Optional[AmazonopensearchserviceBufferingHintsTypeDef] = None
     RetryOptions: Optional[AmazonopensearchserviceRetryOptionsTypeDef] = None
@@ -705,11 +711,11 @@ class AmazonopensearchserviceDestinationDescriptionTypeDef(BaseValidatorModel):
 
 
 class ElasticsearchDestinationDescriptionTypeDef(BaseValidatorModel):
-    RoleARN: Optional[str] = None
-    DomainARN: Optional[str] = None
-    ClusterEndpoint: Optional[str] = None
-    IndexName: Optional[str] = None
-    TypeName: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
+    DomainARN: Optional[Annotated[str, _aws_pattern("Firehose", "ElasticsearchDomainARN")]] = None
+    ClusterEndpoint: Optional[Annotated[str, _aws_pattern("Firehose", "ElasticsearchClusterEndpoint")]] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Firehose", "ElasticsearchIndexName")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Firehose", "ElasticsearchTypeName")]] = None
     IndexRotationPeriod: Optional[ElasticsearchIndexRotationPeriodType] = None
     BufferingHints: Optional[ElasticsearchBufferingHintsTypeDef] = None
     RetryOptions: Optional[ElasticsearchRetryOptionsTypeDef] = None
@@ -727,7 +733,7 @@ class HttpEndpointDestinationDescriptionTypeDef(BaseValidatorModel):
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     RequestConfiguration: Optional[HttpEndpointRequestConfigurationOutputTypeDef] = None
     ProcessingConfiguration: Optional[ProcessingConfigurationOutputTypeDef] = None
-    RoleARN: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
     RetryOptions: Optional[HttpEndpointRetryOptionsTypeDef] = None
     S3BackupMode: Optional[HttpEndpointS3BackupModeType] = None
     S3DestinationDescription: Optional[S3DestinationDescriptionTypeDef] = None
@@ -743,18 +749,18 @@ class IcebergDestinationDescriptionTypeDef(BaseValidatorModel):
     ProcessingConfiguration: Optional[ProcessingConfigurationOutputTypeDef] = None
     S3BackupMode: Optional[IcebergS3BackupModeType] = None
     RetryOptions: Optional[RetryOptionsTypeDef] = None
-    RoleARN: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
     AppendOnly: Optional[bool] = None
     CatalogConfiguration: Optional[CatalogConfigurationTypeDef] = None
     S3DestinationDescription: Optional[S3DestinationDescriptionTypeDef] = None
 
 
 class RedshiftDestinationDescriptionTypeDef(BaseValidatorModel):
-    RoleARN: str
-    ClusterJDBCURL: str
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
+    ClusterJDBCURL: Annotated[str, _aws_pattern("Firehose", "ClusterJDBCURL")]
     CopyCommand: CopyCommandTypeDef
     S3DestinationDescription: S3DestinationDescriptionTypeDef
-    Username: Optional[str] = None
+    Username: Optional[Annotated[str, _aws_pattern("Firehose", "Username")]] = None
     RetryOptions: Optional[RedshiftRetryOptionsTypeDef] = None
     ProcessingConfiguration: Optional[ProcessingConfigurationOutputTypeDef] = None
     S3BackupMode: Optional[RedshiftS3BackupModeType] = None
@@ -764,7 +770,7 @@ class RedshiftDestinationDescriptionTypeDef(BaseValidatorModel):
 
 
 class SnowflakeDestinationDescriptionTypeDef(BaseValidatorModel):
-    AccountUrl: Optional[str] = None
+    AccountUrl: Optional[Annotated[str, _aws_pattern("Firehose", "SnowflakeAccountUrl")]] = None
     User: Optional[str] = None
     Database: Optional[str] = None
     Schema: Optional[str] = None
@@ -776,7 +782,7 @@ class SnowflakeDestinationDescriptionTypeDef(BaseValidatorModel):
     SnowflakeVpcConfiguration: Optional[SnowflakeVpcConfigurationTypeDef] = None
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     ProcessingConfiguration: Optional[ProcessingConfigurationOutputTypeDef] = None
-    RoleARN: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
     RetryOptions: Optional[SnowflakeRetryOptionsTypeDef] = None
     S3BackupMode: Optional[SnowflakeS3BackupModeType] = None
     S3DestinationDescription: Optional[S3DestinationDescriptionTypeDef] = None
@@ -785,9 +791,9 @@ class SnowflakeDestinationDescriptionTypeDef(BaseValidatorModel):
 
 
 class SplunkDestinationDescriptionTypeDef(BaseValidatorModel):
-    HECEndpoint: Optional[str] = None
+    HECEndpoint: Optional[Annotated[str, _aws_pattern("Firehose", "HECEndpoint")]] = None
     HECEndpointType: Optional[HECEndpointTypeType] = None
-    HECToken: Optional[str] = None
+    HECToken: Optional[Annotated[str, _aws_pattern("Firehose", "HECToken")]] = None
     HECAcknowledgmentTimeoutInSeconds: Optional[int] = None
     RetryOptions: Optional[SplunkRetryOptionsTypeDef] = None
     S3BackupMode: Optional[SplunkS3BackupModeType] = None
@@ -812,21 +818,21 @@ class OutputFormatConfigurationTypeDef(BaseValidatorModel):
 
 
 class ExtendedS3DestinationDescriptionTypeDef(BaseValidatorModel):
-    RoleARN: str
-    BucketARN: str
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
+    BucketARN: Annotated[str, _aws_pattern("Firehose", "BucketARN")]
     BufferingHints: BufferingHintsTypeDef
     CompressionFormat: CompressionFormatType
     EncryptionConfiguration: EncryptionConfigurationTypeDef
-    Prefix: Optional[str] = None
-    ErrorOutputPrefix: Optional[str] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Firehose", "Prefix")]] = None
+    ErrorOutputPrefix: Optional[Annotated[str, _aws_pattern("Firehose", "ErrorOutputPrefix")]] = None
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     ProcessingConfiguration: Optional[ProcessingConfigurationOutputTypeDef] = None
     S3BackupMode: Optional[S3BackupModeType] = None
     S3BackupDescription: Optional[S3DestinationDescriptionTypeDef] = None
     DataFormatConversionConfiguration: Optional[DataFormatConversionConfigurationOutputTypeDef] = None
     DynamicPartitioningConfiguration: Optional[DynamicPartitioningConfigurationTypeDef] = None
-    FileExtension: Optional[str] = None
-    CustomTimeZone: Optional[str] = None
+    FileExtension: Optional[Annotated[str, _aws_pattern("Firehose", "FileExtension")]] = None
+    CustomTimeZone: Optional[Annotated[str, _aws_pattern("Firehose", "CustomTimeZone")]] = None
 
 
 DestinationTableConfigurationUnionTypeDef = Union[
@@ -841,7 +847,7 @@ OutputFormatConfigurationUnionTypeDef = Union[OutputFormatConfigurationOutputTyp
 
 
 class DestinationDescriptionTypeDef(BaseValidatorModel):
-    DestinationId: str
+    DestinationId: Annotated[str, _aws_pattern("Firehose", "DestinationId")]
     S3DestinationDescription: Optional[S3DestinationDescriptionTypeDef] = None
     ExtendedS3DestinationDescription: Optional[ExtendedS3DestinationDescriptionTypeDef] = None
     RedshiftDestinationDescription: Optional[RedshiftDestinationDescriptionTypeDef] = None
@@ -857,10 +863,12 @@ class DestinationDescriptionTypeDef(BaseValidatorModel):
 
 
 class AmazonOpenSearchServerlessDestinationConfigurationTypeDef(BaseValidatorModel):
-    RoleARN: str
-    IndexName: str
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
+    IndexName: Annotated[str, _aws_pattern("Firehose", "AmazonOpenSearchServerlessIndexName")]
     S3Configuration: S3DestinationConfigurationTypeDef
-    CollectionEndpoint: Optional[str] = None
+    CollectionEndpoint: Optional[
+        Annotated[str, _aws_pattern("Firehose", "AmazonOpenSearchServerlessCollectionEndpoint")]
+    ] = None
     BufferingHints: Optional[AmazonOpenSearchServerlessBufferingHintsTypeDef] = None
     RetryOptions: Optional[AmazonOpenSearchServerlessRetryOptionsTypeDef] = None
     S3BackupMode: Optional[AmazonOpenSearchServerlessS3BackupModeType] = None
@@ -870,9 +878,11 @@ class AmazonOpenSearchServerlessDestinationConfigurationTypeDef(BaseValidatorMod
 
 
 class AmazonOpenSearchServerlessDestinationUpdateTypeDef(BaseValidatorModel):
-    RoleARN: Optional[str] = None
-    CollectionEndpoint: Optional[str] = None
-    IndexName: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
+    CollectionEndpoint: Optional[
+        Annotated[str, _aws_pattern("Firehose", "AmazonOpenSearchServerlessCollectionEndpoint")]
+    ] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonOpenSearchServerlessIndexName")]] = None
     BufferingHints: Optional[AmazonOpenSearchServerlessBufferingHintsTypeDef] = None
     RetryOptions: Optional[AmazonOpenSearchServerlessRetryOptionsTypeDef] = None
     S3Update: Optional[S3DestinationUpdateTypeDef] = None
@@ -881,12 +891,12 @@ class AmazonOpenSearchServerlessDestinationUpdateTypeDef(BaseValidatorModel):
 
 
 class AmazonopensearchserviceDestinationConfigurationTypeDef(BaseValidatorModel):
-    RoleARN: str
-    IndexName: str
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
+    IndexName: Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceIndexName")]
     S3Configuration: S3DestinationConfigurationTypeDef
-    DomainARN: Optional[str] = None
-    ClusterEndpoint: Optional[str] = None
-    TypeName: Optional[str] = None
+    DomainARN: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceDomainARN")]] = None
+    ClusterEndpoint: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceClusterEndpoint")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceTypeName")]] = None
     IndexRotationPeriod: Optional[AmazonopensearchserviceIndexRotationPeriodType] = None
     BufferingHints: Optional[AmazonopensearchserviceBufferingHintsTypeDef] = None
     RetryOptions: Optional[AmazonopensearchserviceRetryOptionsTypeDef] = None
@@ -898,11 +908,11 @@ class AmazonopensearchserviceDestinationConfigurationTypeDef(BaseValidatorModel)
 
 
 class AmazonopensearchserviceDestinationUpdateTypeDef(BaseValidatorModel):
-    RoleARN: Optional[str] = None
-    DomainARN: Optional[str] = None
-    ClusterEndpoint: Optional[str] = None
-    IndexName: Optional[str] = None
-    TypeName: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
+    DomainARN: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceDomainARN")]] = None
+    ClusterEndpoint: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceClusterEndpoint")]] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceIndexName")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Firehose", "AmazonopensearchserviceTypeName")]] = None
     IndexRotationPeriod: Optional[AmazonopensearchserviceIndexRotationPeriodType] = None
     BufferingHints: Optional[AmazonopensearchserviceBufferingHintsTypeDef] = None
     RetryOptions: Optional[AmazonopensearchserviceRetryOptionsTypeDef] = None
@@ -913,12 +923,12 @@ class AmazonopensearchserviceDestinationUpdateTypeDef(BaseValidatorModel):
 
 
 class ElasticsearchDestinationConfigurationTypeDef(BaseValidatorModel):
-    RoleARN: str
-    IndexName: str
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
+    IndexName: Annotated[str, _aws_pattern("Firehose", "ElasticsearchIndexName")]
     S3Configuration: S3DestinationConfigurationTypeDef
-    DomainARN: Optional[str] = None
-    ClusterEndpoint: Optional[str] = None
-    TypeName: Optional[str] = None
+    DomainARN: Optional[Annotated[str, _aws_pattern("Firehose", "ElasticsearchDomainARN")]] = None
+    ClusterEndpoint: Optional[Annotated[str, _aws_pattern("Firehose", "ElasticsearchClusterEndpoint")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Firehose", "ElasticsearchTypeName")]] = None
     IndexRotationPeriod: Optional[ElasticsearchIndexRotationPeriodType] = None
     BufferingHints: Optional[ElasticsearchBufferingHintsTypeDef] = None
     RetryOptions: Optional[ElasticsearchRetryOptionsTypeDef] = None
@@ -930,11 +940,11 @@ class ElasticsearchDestinationConfigurationTypeDef(BaseValidatorModel):
 
 
 class ElasticsearchDestinationUpdateTypeDef(BaseValidatorModel):
-    RoleARN: Optional[str] = None
-    DomainARN: Optional[str] = None
-    ClusterEndpoint: Optional[str] = None
-    IndexName: Optional[str] = None
-    TypeName: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
+    DomainARN: Optional[Annotated[str, _aws_pattern("Firehose", "ElasticsearchDomainARN")]] = None
+    ClusterEndpoint: Optional[Annotated[str, _aws_pattern("Firehose", "ElasticsearchClusterEndpoint")]] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Firehose", "ElasticsearchIndexName")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Firehose", "ElasticsearchTypeName")]] = None
     IndexRotationPeriod: Optional[ElasticsearchIndexRotationPeriodType] = None
     BufferingHints: Optional[ElasticsearchBufferingHintsTypeDef] = None
     RetryOptions: Optional[ElasticsearchRetryOptionsTypeDef] = None
@@ -951,7 +961,7 @@ class HttpEndpointDestinationConfigurationTypeDef(BaseValidatorModel):
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     RequestConfiguration: Optional[HttpEndpointRequestConfigurationUnionTypeDef] = None
     ProcessingConfiguration: Optional[ProcessingConfigurationUnionTypeDef] = None
-    RoleARN: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
     RetryOptions: Optional[HttpEndpointRetryOptionsTypeDef] = None
     S3BackupMode: Optional[HttpEndpointS3BackupModeType] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
@@ -963,7 +973,7 @@ class HttpEndpointDestinationUpdateTypeDef(BaseValidatorModel):
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     RequestConfiguration: Optional[HttpEndpointRequestConfigurationUnionTypeDef] = None
     ProcessingConfiguration: Optional[ProcessingConfigurationUnionTypeDef] = None
-    RoleARN: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
     RetryOptions: Optional[HttpEndpointRetryOptionsTypeDef] = None
     S3BackupMode: Optional[HttpEndpointS3BackupModeType] = None
     S3Update: Optional[S3DestinationUpdateTypeDef] = None
@@ -971,7 +981,7 @@ class HttpEndpointDestinationUpdateTypeDef(BaseValidatorModel):
 
 
 class IcebergDestinationConfigurationTypeDef(BaseValidatorModel):
-    RoleARN: str
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
     CatalogConfiguration: CatalogConfigurationTypeDef
     S3Configuration: S3DestinationConfigurationTypeDef
     DestinationTableConfigurationList: Optional[List[DestinationTableConfigurationUnionTypeDef]] = None
@@ -994,19 +1004,19 @@ class IcebergDestinationUpdateTypeDef(BaseValidatorModel):
     ProcessingConfiguration: Optional[ProcessingConfigurationUnionTypeDef] = None
     S3BackupMode: Optional[IcebergS3BackupModeType] = None
     RetryOptions: Optional[RetryOptionsTypeDef] = None
-    RoleARN: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
     AppendOnly: Optional[bool] = None
     CatalogConfiguration: Optional[CatalogConfigurationTypeDef] = None
     S3Configuration: Optional[S3DestinationConfigurationTypeDef] = None
 
 
 class RedshiftDestinationConfigurationTypeDef(BaseValidatorModel):
-    RoleARN: str
-    ClusterJDBCURL: str
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
+    ClusterJDBCURL: Annotated[str, _aws_pattern("Firehose", "ClusterJDBCURL")]
     CopyCommand: CopyCommandTypeDef
     S3Configuration: S3DestinationConfigurationTypeDef
-    Username: Optional[str] = None
-    Password: Optional[str] = None
+    Username: Optional[Annotated[str, _aws_pattern("Firehose", "Username")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("Firehose", "Password")]] = None
     RetryOptions: Optional[RedshiftRetryOptionsTypeDef] = None
     ProcessingConfiguration: Optional[ProcessingConfigurationUnionTypeDef] = None
     S3BackupMode: Optional[RedshiftS3BackupModeType] = None
@@ -1016,11 +1026,11 @@ class RedshiftDestinationConfigurationTypeDef(BaseValidatorModel):
 
 
 class RedshiftDestinationUpdateTypeDef(BaseValidatorModel):
-    RoleARN: Optional[str] = None
-    ClusterJDBCURL: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
+    ClusterJDBCURL: Optional[Annotated[str, _aws_pattern("Firehose", "ClusterJDBCURL")]] = None
     CopyCommand: Optional[CopyCommandTypeDef] = None
-    Username: Optional[str] = None
-    Password: Optional[str] = None
+    Username: Optional[Annotated[str, _aws_pattern("Firehose", "Username")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("Firehose", "Password")]] = None
     RetryOptions: Optional[RedshiftRetryOptionsTypeDef] = None
     S3Update: Optional[S3DestinationUpdateTypeDef] = None
     ProcessingConfiguration: Optional[ProcessingConfigurationUnionTypeDef] = None
@@ -1031,13 +1041,13 @@ class RedshiftDestinationUpdateTypeDef(BaseValidatorModel):
 
 
 class SnowflakeDestinationConfigurationTypeDef(BaseValidatorModel):
-    AccountUrl: str
+    AccountUrl: Annotated[str, _aws_pattern("Firehose", "SnowflakeAccountUrl")]
     Database: str
     Schema: str
     Table: str
-    RoleARN: str
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
     S3Configuration: S3DestinationConfigurationTypeDef
-    PrivateKey: Optional[str] = None
+    PrivateKey: Optional[Annotated[str, _aws_pattern("Firehose", "SnowflakePrivateKey")]] = None
     KeyPassphrase: Optional[str] = None
     User: Optional[str] = None
     SnowflakeRoleConfiguration: Optional[SnowflakeRoleConfigurationTypeDef] = None
@@ -1054,8 +1064,8 @@ class SnowflakeDestinationConfigurationTypeDef(BaseValidatorModel):
 
 
 class SnowflakeDestinationUpdateTypeDef(BaseValidatorModel):
-    AccountUrl: Optional[str] = None
-    PrivateKey: Optional[str] = None
+    AccountUrl: Optional[Annotated[str, _aws_pattern("Firehose", "SnowflakeAccountUrl")]] = None
+    PrivateKey: Optional[Annotated[str, _aws_pattern("Firehose", "SnowflakePrivateKey")]] = None
     KeyPassphrase: Optional[str] = None
     User: Optional[str] = None
     Database: Optional[str] = None
@@ -1067,7 +1077,7 @@ class SnowflakeDestinationUpdateTypeDef(BaseValidatorModel):
     ContentColumnName: Optional[str] = None
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     ProcessingConfiguration: Optional[ProcessingConfigurationUnionTypeDef] = None
-    RoleARN: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
     RetryOptions: Optional[SnowflakeRetryOptionsTypeDef] = None
     S3BackupMode: Optional[SnowflakeS3BackupModeType] = None
     S3Update: Optional[S3DestinationUpdateTypeDef] = None
@@ -1076,10 +1086,10 @@ class SnowflakeDestinationUpdateTypeDef(BaseValidatorModel):
 
 
 class SplunkDestinationConfigurationTypeDef(BaseValidatorModel):
-    HECEndpoint: str
+    HECEndpoint: Annotated[str, _aws_pattern("Firehose", "HECEndpoint")]
     HECEndpointType: HECEndpointTypeType
     S3Configuration: S3DestinationConfigurationTypeDef
-    HECToken: Optional[str] = None
+    HECToken: Optional[Annotated[str, _aws_pattern("Firehose", "HECToken")]] = None
     HECAcknowledgmentTimeoutInSeconds: Optional[int] = None
     RetryOptions: Optional[SplunkRetryOptionsTypeDef] = None
     S3BackupMode: Optional[SplunkS3BackupModeType] = None
@@ -1090,9 +1100,9 @@ class SplunkDestinationConfigurationTypeDef(BaseValidatorModel):
 
 
 class SplunkDestinationUpdateTypeDef(BaseValidatorModel):
-    HECEndpoint: Optional[str] = None
+    HECEndpoint: Optional[Annotated[str, _aws_pattern("Firehose", "HECEndpoint")]] = None
     HECEndpointType: Optional[HECEndpointTypeType] = None
-    HECToken: Optional[str] = None
+    HECToken: Optional[Annotated[str, _aws_pattern("Firehose", "HECToken")]] = None
     HECAcknowledgmentTimeoutInSeconds: Optional[int] = None
     RetryOptions: Optional[SplunkRetryOptionsTypeDef] = None
     S3BackupMode: Optional[SplunkS3BackupModeType] = None
@@ -1111,11 +1121,11 @@ class DataFormatConversionConfigurationTypeDef(BaseValidatorModel):
 
 
 class DeliveryStreamDescriptionTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
-    DeliveryStreamARN: str
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
+    DeliveryStreamARN: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamARN")]
     DeliveryStreamStatus: DeliveryStreamStatusType
     DeliveryStreamType: DeliveryStreamTypeType
-    VersionId: str
+    VersionId: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamVersionId")]
     Destinations: List[DestinationDescriptionTypeDef]
     HasMoreDestinations: bool
     FailureDescription: Optional[FailureDescriptionTypeDef] = None
@@ -1137,10 +1147,10 @@ class DescribeDeliveryStreamOutputTypeDef(BaseValidatorModel):
 
 
 class ExtendedS3DestinationConfigurationTypeDef(BaseValidatorModel):
-    RoleARN: str
-    BucketARN: str
-    Prefix: Optional[str] = None
-    ErrorOutputPrefix: Optional[str] = None
+    RoleARN: Annotated[str, _aws_pattern("Firehose", "RoleARN")]
+    BucketARN: Annotated[str, _aws_pattern("Firehose", "BucketARN")]
+    Prefix: Optional[Annotated[str, _aws_pattern("Firehose", "Prefix")]] = None
+    ErrorOutputPrefix: Optional[Annotated[str, _aws_pattern("Firehose", "ErrorOutputPrefix")]] = None
     BufferingHints: Optional[BufferingHintsTypeDef] = None
     CompressionFormat: Optional[CompressionFormatType] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
@@ -1150,15 +1160,15 @@ class ExtendedS3DestinationConfigurationTypeDef(BaseValidatorModel):
     S3BackupConfiguration: Optional[S3DestinationConfigurationTypeDef] = None
     DataFormatConversionConfiguration: Optional[DataFormatConversionConfigurationUnionTypeDef] = None
     DynamicPartitioningConfiguration: Optional[DynamicPartitioningConfigurationTypeDef] = None
-    FileExtension: Optional[str] = None
-    CustomTimeZone: Optional[str] = None
+    FileExtension: Optional[Annotated[str, _aws_pattern("Firehose", "FileExtension")]] = None
+    CustomTimeZone: Optional[Annotated[str, _aws_pattern("Firehose", "CustomTimeZone")]] = None
 
 
 class ExtendedS3DestinationUpdateTypeDef(BaseValidatorModel):
-    RoleARN: Optional[str] = None
-    BucketARN: Optional[str] = None
-    Prefix: Optional[str] = None
-    ErrorOutputPrefix: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Firehose", "RoleARN")]] = None
+    BucketARN: Optional[Annotated[str, _aws_pattern("Firehose", "BucketARN")]] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Firehose", "Prefix")]] = None
+    ErrorOutputPrefix: Optional[Annotated[str, _aws_pattern("Firehose", "ErrorOutputPrefix")]] = None
     BufferingHints: Optional[BufferingHintsTypeDef] = None
     CompressionFormat: Optional[CompressionFormatType] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
@@ -1168,13 +1178,13 @@ class ExtendedS3DestinationUpdateTypeDef(BaseValidatorModel):
     S3BackupUpdate: Optional[S3DestinationUpdateTypeDef] = None
     DataFormatConversionConfiguration: Optional[DataFormatConversionConfigurationUnionTypeDef] = None
     DynamicPartitioningConfiguration: Optional[DynamicPartitioningConfigurationTypeDef] = None
-    FileExtension: Optional[str] = None
-    CustomTimeZone: Optional[str] = None
+    FileExtension: Optional[Annotated[str, _aws_pattern("Firehose", "FileExtension")]] = None
+    CustomTimeZone: Optional[Annotated[str, _aws_pattern("Firehose", "CustomTimeZone")]] = None
 
 
 # This class is the input for the 'create_delivery_stream' function.
 class CreateDeliveryStreamInputTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
     DeliveryStreamType: Optional[DeliveryStreamTypeType] = None
     DirectPutSourceConfiguration: Optional[DirectPutSourceConfigurationTypeDef] = None
     KinesisStreamSourceConfiguration: Optional[KinesisStreamSourceConfigurationTypeDef] = None
@@ -1199,9 +1209,9 @@ class CreateDeliveryStreamInputTypeDef(BaseValidatorModel):
 
 
 class UpdateDestinationInputTypeDef(BaseValidatorModel):
-    DeliveryStreamName: str
-    CurrentDeliveryStreamVersionId: str
-    DestinationId: str
+    DeliveryStreamName: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamName")]
+    CurrentDeliveryStreamVersionId: Annotated[str, _aws_pattern("Firehose", "DeliveryStreamVersionId")]
+    DestinationId: Annotated[str, _aws_pattern("Firehose", "DestinationId")]
     S3DestinationUpdate: Optional[S3DestinationUpdateTypeDef] = None
     ExtendedS3DestinationUpdate: Optional[ExtendedS3DestinationUpdateTypeDef] = None
     RedshiftDestinationUpdate: Optional[RedshiftDestinationUpdateTypeDef] = None

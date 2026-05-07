@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class KMSKeyDetailsTypeDef(BaseValidatorModel):
-    KMSKeyId: Optional[str] = None
+    KMSKeyId: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "KMSKeyId")]] = None
     EncryptionOption: Optional[EncryptionOptionType] = None
 
 
@@ -57,12 +59,14 @@ class BranchDiffSourceCodeTypeTypeDef(BaseValidatorModel):
 
 
 class CodeArtifactsTypeDef(BaseValidatorModel):
-    SourceCodeArtifactsObjectKey: str
-    BuildArtifactsObjectKey: Optional[str] = None
+    SourceCodeArtifactsObjectKey: Annotated[str, _aws_pattern("CodeguruReviewer", "SourceCodeArtifactsObjectKey")]
+    BuildArtifactsObjectKey: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "BuildArtifactsObjectKey")]] = (
+        None
+    )
 
 
 class CodeCommitRepositoryTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]
 
 
 class MetricsSummaryTypeDef(BaseValidatorModel):
@@ -85,7 +89,7 @@ class CommitDiffSourceCodeTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_code_review' function.
 class DescribeCodeReviewRequestTypeDef(BaseValidatorModel):
-    CodeReviewArn: str
+    CodeReviewArn: Annotated[str, _aws_pattern("CodeguruReviewer", "Arn")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -95,13 +99,13 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_recommendation_feedback' function.
 class DescribeRecommendationFeedbackRequestTypeDef(BaseValidatorModel):
-    CodeReviewArn: str
+    CodeReviewArn: Annotated[str, _aws_pattern("CodeguruReviewer", "Arn")]
     RecommendationId: str
     UserId: Optional[str] = None
 
 
 class RecommendationFeedbackTypeDef(BaseValidatorModel):
-    CodeReviewArn: Optional[str] = None
+    CodeReviewArn: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Arn")]] = None
     RecommendationId: Optional[str] = None
     Reactions: Optional[List[ReactionType]] = None
     UserId: Optional[str] = None
@@ -111,17 +115,17 @@ class RecommendationFeedbackTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_repository_association' function.
 class DescribeRepositoryAssociationRequestTypeDef(BaseValidatorModel):
-    AssociationArn: str
+    AssociationArn: Annotated[str, _aws_pattern("CodeguruReviewer", "AssociationArn")]
 
 
 # This class is the input for the 'disassociate_repository' function.
 class DisassociateRepositoryRequestTypeDef(BaseValidatorModel):
-    AssociationArn: str
+    AssociationArn: Annotated[str, _aws_pattern("CodeguruReviewer", "AssociationArn")]
 
 
 class EventInfoTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    State: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "EventName")]] = None
+    State: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "EventState")]] = None
 
 
 # This class is the input for the 'list_code_reviews' function.
@@ -129,14 +133,14 @@ class ListCodeReviewsRequestTypeDef(BaseValidatorModel):
     Type: TypeType
     ProviderTypes: Optional[List[ProviderTypeType]] = None
     States: Optional[List[JobStateType]] = None
-    RepositoryNames: Optional[List[str]] = None
+    RepositoryNames: Optional[List[Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_recommendation_feedback' function.
 class ListRecommendationFeedbackRequestTypeDef(BaseValidatorModel):
-    CodeReviewArn: str
+    CodeReviewArn: Annotated[str, _aws_pattern("CodeguruReviewer", "Arn")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     UserIds: Optional[List[str]] = None
@@ -151,7 +155,7 @@ class RecommendationFeedbackSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_recommendations' function.
 class ListRecommendationsRequestTypeDef(BaseValidatorModel):
-    CodeReviewArn: str
+    CodeReviewArn: Annotated[str, _aws_pattern("CodeguruReviewer", "Arn")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -166,40 +170,40 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 class ListRepositoryAssociationsRequestTypeDef(BaseValidatorModel):
     ProviderTypes: Optional[List[ProviderTypeType]] = None
     States: Optional[List[RepositoryAssociationStateType]] = None
-    Names: Optional[List[str]] = None
-    Owners: Optional[List[str]] = None
+    Names: Optional[List[Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]]] = None
+    Owners: Optional[List[Annotated[str, _aws_pattern("CodeguruReviewer", "Owner")]]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class RepositoryAssociationSummaryTypeDef(BaseValidatorModel):
-    AssociationArn: Optional[str] = None
-    ConnectionArn: Optional[str] = None
+    AssociationArn: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Arn")]] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "ConnectionArn")]] = None
     LastUpdatedTimeStamp: Optional[datetime] = None
     AssociationId: Optional[str] = None
-    Name: Optional[str] = None
-    Owner: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]] = None
+    Owner: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Owner")]] = None
     ProviderType: Optional[ProviderTypeType] = None
     State: Optional[RepositoryAssociationStateType] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("CodeguruReviewer", "AssociationArn")]
 
 
 class PutRecommendationFeedbackRequestTypeDef(BaseValidatorModel):
-    CodeReviewArn: str
+    CodeReviewArn: Annotated[str, _aws_pattern("CodeguruReviewer", "Arn")]
     RecommendationId: str
     Reactions: List[ReactionType]
 
 
 class RuleMetadataTypeDef(BaseValidatorModel):
-    RuleId: Optional[str] = None
-    RuleName: Optional[str] = None
-    ShortDescription: Optional[str] = None
-    LongDescription: Optional[str] = None
-    RuleTags: Optional[List[str]] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "RuleId")]] = None
+    RuleName: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "RuleName")]] = None
+    ShortDescription: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "ShortDescription")]] = None
+    LongDescription: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "LongDescription")]] = None
+    RuleTags: Optional[List[Annotated[str, _aws_pattern("CodeguruReviewer", "RuleTag")]]] = None
 
 
 class RepositoryHeadSourceCodeTypeTypeDef(BaseValidatorModel):
@@ -207,23 +211,23 @@ class RepositoryHeadSourceCodeTypeTypeDef(BaseValidatorModel):
 
 
 class S3RepositoryTypeDef(BaseValidatorModel):
-    Name: str
-    BucketName: str
+    Name: Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]
+    BucketName: Annotated[str, _aws_pattern("CodeguruReviewer", "S3BucketName")]
 
 
 class ThirdPartySourceRepositoryTypeDef(BaseValidatorModel):
-    Name: str
-    ConnectionArn: str
-    Owner: str
+    Name: Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]
+    ConnectionArn: Annotated[str, _aws_pattern("CodeguruReviewer", "ConnectionArn")]
+    Owner: Annotated[str, _aws_pattern("CodeguruReviewer", "Owner")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("CodeguruReviewer", "AssociationArn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("CodeguruReviewer", "AssociationArn")]
     TagKeys: List[str]
 
 
@@ -234,7 +238,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class S3RepositoryDetailsTypeDef(BaseValidatorModel):
-    BucketName: Optional[str] = None
+    BucketName: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "S3BucketName")]] = None
     CodeArtifacts: Optional[CodeArtifactsTypeDef] = None
 
 
@@ -256,7 +260,7 @@ class DescribeRecommendationFeedbackResponseTypeDef(BaseValidatorModel):
 
 class RequestMetadataTypeDef(BaseValidatorModel):
     RequestId: Optional[str] = None
-    Requester: Optional[str] = None
+    Requester: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Requester")]] = None
     EventInfo: Optional[EventInfoTypeDef] = None
     VendorName: Optional[VendorNameType] = None
 
@@ -303,10 +307,10 @@ class RepositoryTypeDef(BaseValidatorModel):
 
 class RepositoryAssociationTypeDef(BaseValidatorModel):
     AssociationId: Optional[str] = None
-    AssociationArn: Optional[str] = None
-    ConnectionArn: Optional[str] = None
-    Name: Optional[str] = None
-    Owner: Optional[str] = None
+    AssociationArn: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Arn")]] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "ConnectionArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]] = None
+    Owner: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Owner")]] = None
     ProviderType: Optional[ProviderTypeType] = None
     State: Optional[RepositoryAssociationStateType] = None
     StateReason: Optional[str] = None
@@ -317,7 +321,7 @@ class RepositoryAssociationTypeDef(BaseValidatorModel):
 
 
 class S3BucketRepositoryTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]
     Details: Optional[S3RepositoryDetailsTypeDef] = None
 
 
@@ -331,7 +335,7 @@ class ListRecommendationsResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'associate_repository' function.
 class AssociateRepositoryRequestTypeDef(BaseValidatorModel):
     Repository: RepositoryTypeDef
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "ClientRequestToken")]] = None
     Tags: Optional[Dict[str, str]] = None
     KMSKeyDetails: Optional[KMSKeyDetailsTypeDef] = None
 
@@ -366,10 +370,10 @@ class SourceCodeTypeTypeDef(BaseValidatorModel):
 
 
 class CodeReviewSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    CodeReviewArn: Optional[str] = None
-    RepositoryName: Optional[str] = None
-    Owner: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]] = None
+    CodeReviewArn: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Arn")]] = None
+    RepositoryName: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]] = None
+    Owner: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Owner")]] = None
     ProviderType: Optional[ProviderTypeType] = None
     State: Optional[JobStateType] = None
     CreatedTimeStamp: Optional[datetime] = None
@@ -381,10 +385,10 @@ class CodeReviewSummaryTypeDef(BaseValidatorModel):
 
 
 class CodeReviewTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    CodeReviewArn: Optional[str] = None
-    RepositoryName: Optional[str] = None
-    Owner: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]] = None
+    CodeReviewArn: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Arn")]] = None
+    RepositoryName: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Name")]] = None
+    Owner: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "Owner")]] = None
     ProviderType: Optional[ProviderTypeType] = None
     State: Optional[JobStateType] = None
     StateReason: Optional[str] = None
@@ -393,7 +397,7 @@ class CodeReviewTypeDef(BaseValidatorModel):
     Type: Optional[TypeType] = None
     PullRequestId: Optional[str] = None
     SourceCodeType: Optional[SourceCodeTypeTypeDef] = None
-    AssociationArn: Optional[str] = None
+    AssociationArn: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "AssociationArn")]] = None
     Metrics: Optional[MetricsTypeDef] = None
     AnalysisTypes: Optional[List[AnalysisTypeType]] = None
     ConfigFileState: Optional[ConfigFileStateType] = None
@@ -430,7 +434,7 @@ class CodeReviewTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_code_review' function.
 class CreateCodeReviewRequestTypeDef(BaseValidatorModel):
-    Name: str
-    RepositoryAssociationArn: str
+    Name: Annotated[str, _aws_pattern("CodeguruReviewer", "CodeReviewName")]
+    RepositoryAssociationArn: Annotated[str, _aws_pattern("CodeguruReviewer", "AssociationArn")]
     Type: CodeReviewTypeTypeDef
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("CodeguruReviewer", "ClientRequestToken")]] = None

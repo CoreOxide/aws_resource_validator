@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class CloseTunnelRequestTypeDef(BaseValidatorModel):
-    tunnelId: str
+    tunnelId: Annotated[str, _aws_pattern("Iotsecuretunneling", "TunnelId")]
     delete: Optional[bool] = None
 
 
@@ -50,7 +52,7 @@ class ConnectionStateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_tunnel' function.
 class DescribeTunnelRequestTypeDef(BaseValidatorModel):
-    tunnelId: str
+    tunnelId: Annotated[str, _aws_pattern("Iotsecuretunneling", "TunnelId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -67,8 +69,8 @@ class DestinationConfigOutputTypeDef(BaseValidatorModel):
 
 
 class DestinationConfigTypeDef(BaseValidatorModel):
-    services: List[str]
-    thingName: Optional[str] = None
+    services: List[Annotated[str, _aws_pattern("Iotsecuretunneling", "Service")]]
+    thingName: Optional[Annotated[str, _aws_pattern("Iotsecuretunneling", "ThingName")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -77,22 +79,22 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("Iotsecuretunneling", "TagKey")]
+    value: Annotated[str, _aws_pattern("Iotsecuretunneling", "TagValue")]
 
 
 # This class is the input for the 'list_tunnels' function.
 class ListTunnelsRequestTypeDef(BaseValidatorModel):
-    thingName: Optional[str] = None
+    thingName: Optional[Annotated[str, _aws_pattern("Iotsecuretunneling", "ThingName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsecuretunneling", "NextToken")]] = None
 
 
 class TunnelSummaryTypeDef(BaseValidatorModel):
-    tunnelId: Optional[str] = None
+    tunnelId: Optional[Annotated[str, _aws_pattern("Iotsecuretunneling", "TunnelId")]] = None
     tunnelArn: Optional[str] = None
     status: Optional[TunnelStatusType] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotsecuretunneling", "Description")]] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
 
@@ -103,12 +105,12 @@ class TimeoutConfigTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Iotsecuretunneling", "TagKey")]]
 
 
 # This class is the output for the 'open_tunnel' function.
 class OpenTunnelResponseTypeDef(BaseValidatorModel):
-    tunnelId: str
+    tunnelId: Annotated[str, _aws_pattern("Iotsecuretunneling", "TunnelId")]
     tunnelArn: str
     sourceAccessToken: str
     destinationAccessToken: str
@@ -141,16 +143,16 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 class ListTunnelsResponseTypeDef(BaseValidatorModel):
     tunnelSummaries: List[TunnelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsecuretunneling", "NextToken")]] = None
 
 
 class TunnelTypeDef(BaseValidatorModel):
-    tunnelId: Optional[str] = None
+    tunnelId: Optional[Annotated[str, _aws_pattern("Iotsecuretunneling", "TunnelId")]] = None
     tunnelArn: Optional[str] = None
     status: Optional[TunnelStatusType] = None
     sourceConnectionState: Optional[ConnectionStateTypeDef] = None
     destinationConnectionState: Optional[ConnectionStateTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotsecuretunneling", "Description")]] = None
     destinationConfig: Optional[DestinationConfigOutputTypeDef] = None
     timeoutConfig: Optional[TimeoutConfigTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -160,7 +162,7 @@ class TunnelTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'open_tunnel' function.
 class OpenTunnelRequestTypeDef(BaseValidatorModel):
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotsecuretunneling", "Description")]] = None
     tags: Optional[List[TagTypeDef]] = None
     destinationConfig: Optional[DestinationConfigUnionTypeDef] = None
     timeoutConfig: Optional[TimeoutConfigTypeDef] = None
@@ -168,7 +170,7 @@ class OpenTunnelRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'rotate_tunnel_access_token' function.
 class RotateTunnelAccessTokenRequestTypeDef(BaseValidatorModel):
-    tunnelId: str
+    tunnelId: Annotated[str, _aws_pattern("Iotsecuretunneling", "TunnelId")]
     clientMode: ClientModeType
     destinationConfig: Optional[DestinationConfigUnionTypeDef] = None
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.taxsettings.taxsettings_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,40 +41,48 @@ except ImportError:  # pragma: no cover
 
 
 class TaxInheritanceDetailsTypeDef(BaseValidatorModel):
-    inheritanceObtainedReason: Optional[str] = None
-    parentEntityId: Optional[str] = None
+    inheritanceObtainedReason: Optional[Annotated[str, _aws_pattern("Taxsettings", "InheritanceObtainedReason")]] = None
+    parentEntityId: Optional[Annotated[str, _aws_pattern("Taxsettings", "AccountId")]] = None
 
 
 class AddressTypeDef(BaseValidatorModel):
-    addressLine1: str
-    city: str
-    countryCode: str
-    postalCode: str
-    addressLine2: Optional[str] = None
-    addressLine3: Optional[str] = None
-    districtOrCounty: Optional[str] = None
-    stateOrRegion: Optional[str] = None
+    addressLine1: Annotated[str, _aws_pattern("Taxsettings", "AddressLine1")]
+    city: Annotated[str, _aws_pattern("Taxsettings", "City")]
+    countryCode: Annotated[str, _aws_pattern("Taxsettings", "CountryCode")]
+    postalCode: Annotated[str, _aws_pattern("Taxsettings", "PostalCode")]
+    addressLine2: Optional[Annotated[str, _aws_pattern("Taxsettings", "AddressLine2")]] = None
+    addressLine3: Optional[Annotated[str, _aws_pattern("Taxsettings", "AddressLine3")]] = None
+    districtOrCounty: Optional[Annotated[str, _aws_pattern("Taxsettings", "District")]] = None
+    stateOrRegion: Optional[Annotated[str, _aws_pattern("Taxsettings", "State")]] = None
 
 
 class JurisdictionTypeDef(BaseValidatorModel):
-    countryCode: str
-    stateOrRegion: Optional[str] = None
+    countryCode: Annotated[str, _aws_pattern("Taxsettings", "CountryCode")]
+    stateOrRegion: Optional[Annotated[str, _aws_pattern("Taxsettings", "State")]] = None
 
 
 class CanadaAdditionalInfoTypeDef(BaseValidatorModel):
-    canadaQuebecSalesTaxNumber: Optional[str] = None
-    canadaRetailSalesTaxNumber: Optional[str] = None
+    canadaQuebecSalesTaxNumber: Optional[
+        Annotated[str, _aws_pattern("Taxsettings", "CanadaQuebecSalesTaxNumberString")]
+    ] = None
+    canadaRetailSalesTaxNumber: Optional[
+        Annotated[str, _aws_pattern("Taxsettings", "CanadaRetailSalesTaxNumberString")]
+    ] = None
     isResellerAccount: Optional[bool] = None
-    provincialSalesTaxId: Optional[str] = None
+    provincialSalesTaxId: Optional[Annotated[str, _aws_pattern("Taxsettings", "CanadaProvincialSalesTaxIdString")]] = (
+        None
+    )
 
 
 class EgyptAdditionalInfoTypeDef(BaseValidatorModel):
-    uniqueIdentificationNumber: Optional[str] = None
-    uniqueIdentificationNumberExpirationDate: Optional[str] = None
+    uniqueIdentificationNumber: Optional[Annotated[str, _aws_pattern("Taxsettings", "UniqueIdentificationNumber")]] = (
+        None
+    )
+    uniqueIdentificationNumberExpirationDate: Optional[Annotated[str, _aws_pattern("Taxsettings", "DateString")]] = None
 
 
 class EstoniaAdditionalInfoTypeDef(BaseValidatorModel):
-    registryCommercialCode: str
+    registryCommercialCode: Annotated[str, _aws_pattern("Taxsettings", "RegistryCommercialCode")]
 
 
 class GeorgiaAdditionalInfoTypeDef(BaseValidatorModel):
@@ -80,12 +90,14 @@ class GeorgiaAdditionalInfoTypeDef(BaseValidatorModel):
 
 
 class GreeceAdditionalInfoTypeDef(BaseValidatorModel):
-    contractingAuthorityCode: Optional[str] = None
+    contractingAuthorityCode: Optional[Annotated[str, _aws_pattern("Taxsettings", "ContractingAuthorityCode")]] = None
 
 
 class IndonesiaAdditionalInfoTypeDef(BaseValidatorModel):
-    decisionNumber: Optional[str] = None
-    ppnExceptionDesignationCode: Optional[str] = None
+    decisionNumber: Optional[Annotated[str, _aws_pattern("Taxsettings", "DecisionNumber")]] = None
+    ppnExceptionDesignationCode: Optional[
+        Annotated[str, _aws_pattern("Taxsettings", "PpnExceptionDesignationCode")]
+    ] = None
     taxRegistrationNumberType: Optional[IndonesiaTaxRegistrationNumberTypeType] = None
 
 
@@ -95,10 +107,10 @@ class IsraelAdditionalInfoTypeDef(BaseValidatorModel):
 
 
 class ItalyAdditionalInfoTypeDef(BaseValidatorModel):
-    cigNumber: Optional[str] = None
-    cupNumber: Optional[str] = None
-    sdiAccountId: Optional[str] = None
-    taxCode: Optional[str] = None
+    cigNumber: Optional[Annotated[str, _aws_pattern("Taxsettings", "CigNumber")]] = None
+    cupNumber: Optional[Annotated[str, _aws_pattern("Taxsettings", "CupNumber")]] = None
+    sdiAccountId: Optional[Annotated[str, _aws_pattern("Taxsettings", "SdiAccountId")]] = None
+    taxCode: Optional[Annotated[str, _aws_pattern("Taxsettings", "TaxCode")]] = None
 
 
 class KenyaAdditionalInfoTypeDef(BaseValidatorModel):
@@ -106,7 +118,9 @@ class KenyaAdditionalInfoTypeDef(BaseValidatorModel):
 
 
 class PolandAdditionalInfoTypeDef(BaseValidatorModel):
-    individualRegistrationNumber: Optional[str] = None
+    individualRegistrationNumber: Optional[
+        Annotated[str, _aws_pattern("Taxsettings", "IndividualRegistrationNumber")]
+    ] = None
     isGroupVatEnabled: Optional[bool] = None
 
 
@@ -119,9 +133,9 @@ class SaudiArabiaAdditionalInfoTypeDef(BaseValidatorModel):
 
 
 class SouthKoreaAdditionalInfoTypeDef(BaseValidatorModel):
-    businessRepresentativeName: str
-    itemOfBusiness: str
-    lineOfBusiness: str
+    businessRepresentativeName: Annotated[str, _aws_pattern("Taxsettings", "BusinessRepresentativeName")]
+    itemOfBusiness: Annotated[str, _aws_pattern("Taxsettings", "ItemOfBusiness")]
+    lineOfBusiness: Annotated[str, _aws_pattern("Taxsettings", "LineOfBusiness")]
 
 
 class SpainAdditionalInfoTypeDef(BaseValidatorModel):
@@ -130,9 +144,9 @@ class SpainAdditionalInfoTypeDef(BaseValidatorModel):
 
 class TurkeyAdditionalInfoTypeDef(BaseValidatorModel):
     industries: Optional[IndustriesType] = None
-    kepEmailId: Optional[str] = None
-    secondaryTaxId: Optional[str] = None
-    taxOffice: Optional[str] = None
+    kepEmailId: Optional[Annotated[str, _aws_pattern("Taxsettings", "KepEmailId")]] = None
+    secondaryTaxId: Optional[Annotated[str, _aws_pattern("Taxsettings", "SecondaryTaxId")]] = None
+    taxOffice: Optional[Annotated[str, _aws_pattern("Taxsettings", "TaxOffice")]] = None
 
 
 class UkraineAdditionalInfoTypeDef(BaseValidatorModel):
@@ -141,23 +155,27 @@ class UkraineAdditionalInfoTypeDef(BaseValidatorModel):
 
 class UzbekistanAdditionalInfoTypeDef(BaseValidatorModel):
     taxRegistrationNumberType: Optional[UzbekistanTaxRegistrationNumberTypeType] = None
-    vatRegistrationNumber: Optional[str] = None
+    vatRegistrationNumber: Optional[Annotated[str, _aws_pattern("Taxsettings", "VatRegistrationNumber")]] = None
 
 
 class VietnamAdditionalInfoTypeDef(BaseValidatorModel):
-    electronicTransactionCodeNumber: Optional[str] = None
-    enterpriseIdentificationNumber: Optional[str] = None
-    paymentVoucherNumber: Optional[str] = None
-    paymentVoucherNumberDate: Optional[str] = None
+    electronicTransactionCodeNumber: Optional[
+        Annotated[str, _aws_pattern("Taxsettings", "ElectronicTransactionCodeNumber")]
+    ] = None
+    enterpriseIdentificationNumber: Optional[
+        Annotated[str, _aws_pattern("Taxsettings", "EnterpriseIdentificationNumber")]
+    ] = None
+    paymentVoucherNumber: Optional[Annotated[str, _aws_pattern("Taxsettings", "PaymentVoucherNumber")]] = None
+    paymentVoucherNumberDate: Optional[Annotated[str, _aws_pattern("Taxsettings", "DateString")]] = None
 
 
 class BrazilAdditionalInfoTypeDef(BaseValidatorModel):
-    ccmCode: Optional[str] = None
-    legalNatureCode: Optional[str] = None
+    ccmCode: Optional[Annotated[str, _aws_pattern("Taxsettings", "CcmCode")]] = None
+    legalNatureCode: Optional[Annotated[str, _aws_pattern("Taxsettings", "LegalNatureCode")]] = None
 
 
 class IndiaAdditionalInfoTypeDef(BaseValidatorModel):
-    pan: Optional[str] = None
+    pan: Optional[Annotated[str, _aws_pattern("Taxsettings", "Pan")]] = None
 
 
 class MalaysiaAdditionalInfoOutputTypeDef(BaseValidatorModel):
@@ -167,19 +185,19 @@ class MalaysiaAdditionalInfoOutputTypeDef(BaseValidatorModel):
 
 
 class AuthorityTypeDef(BaseValidatorModel):
-    country: str
-    state: Optional[str] = None
+    country: Annotated[str, _aws_pattern("Taxsettings", "CountryCode")]
+    state: Optional[Annotated[str, _aws_pattern("Taxsettings", "State")]] = None
 
 
 class BatchDeleteTaxRegistrationErrorTypeDef(BaseValidatorModel):
-    accountId: str
-    message: str
-    code: Optional[str] = None
+    accountId: Annotated[str, _aws_pattern("Taxsettings", "AccountId")]
+    message: Annotated[str, _aws_pattern("Taxsettings", "ErrorMessage")]
+    code: Optional[Annotated[str, _aws_pattern("Taxsettings", "ErrorCode")]] = None
 
 
 # This class is the input for the 'batch_delete_tax_registration' function.
 class BatchDeleteTaxRegistrationRequestTypeDef(BaseValidatorModel):
-    accountIds: List[str]
+    accountIds: List[Annotated[str, _aws_pattern("Taxsettings", "AccountId")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -192,39 +210,39 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_get_tax_exemptions' function.
 class BatchGetTaxExemptionsRequestTypeDef(BaseValidatorModel):
-    accountIds: List[str]
+    accountIds: List[Annotated[str, _aws_pattern("Taxsettings", "AccountId")]]
 
 
 class BatchPutTaxRegistrationErrorTypeDef(BaseValidatorModel):
-    accountId: str
-    message: str
-    code: Optional[str] = None
+    accountId: Annotated[str, _aws_pattern("Taxsettings", "AccountId")]
+    message: Annotated[str, _aws_pattern("Taxsettings", "ErrorMessage")]
+    code: Optional[Annotated[str, _aws_pattern("Taxsettings", "ErrorCode")]] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class DeleteSupplementalTaxRegistrationRequestTypeDef(BaseValidatorModel):
-    authorityId: str
+    authorityId: Annotated[str, _aws_pattern("Taxsettings", "GenericString")]
 
 
 class DeleteTaxRegistrationRequestTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Taxsettings", "AccountId")]] = None
 
 
 class DestinationS3LocationTypeDef(BaseValidatorModel):
-    bucket: str
-    prefix: Optional[str] = None
+    bucket: Annotated[str, _aws_pattern("Taxsettings", "S3BucketName")]
+    prefix: Optional[Annotated[str, _aws_pattern("Taxsettings", "S3Prefix")]] = None
 
 
 class TaxDocumentMetadataTypeDef(BaseValidatorModel):
-    taxDocumentAccessToken: str
-    taxDocumentName: str
+    taxDocumentAccessToken: Annotated[str, _aws_pattern("Taxsettings", "TaxDocumentAccessToken")]
+    taxDocumentName: Annotated[str, _aws_pattern("Taxsettings", "TaxDocumentName")]
 
 
 # This class is the input for the 'get_tax_registration' function.
 class GetTaxRegistrationRequestTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Taxsettings", "AccountId")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -236,25 +254,27 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_supplemental_tax_registrations' function.
 class ListSupplementalTaxRegistrationsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Taxsettings", "PaginationTokenString")]] = None
 
 
 # This class is the input for the 'list_tax_exemptions' function.
 class ListTaxExemptionsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Taxsettings", "PaginationTokenString")]] = None
 
 
 # This class is the input for the 'list_tax_registrations' function.
 class ListTaxRegistrationsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Taxsettings", "PaginationTokenString")]] = None
 
 
 class MalaysiaAdditionalInfoTypeDef(BaseValidatorModel):
-    businessRegistrationNumber: Optional[str] = None
+    businessRegistrationNumber: Optional[Annotated[str, _aws_pattern("Taxsettings", "BusinessRegistrationNumber")]] = (
+        None
+    )
     serviceTaxCodes: Optional[List[MalaysiaServiceTaxCodeType]] = None
-    taxInformationNumber: Optional[str] = None
+    taxInformationNumber: Optional[Annotated[str, _aws_pattern("Taxsettings", "TaxInformationNumber")]] = None
 
 
 class PutTaxInheritanceRequestTypeDef(BaseValidatorModel):
@@ -262,32 +282,32 @@ class PutTaxInheritanceRequestTypeDef(BaseValidatorModel):
 
 
 class SourceS3LocationTypeDef(BaseValidatorModel):
-    bucket: str
-    key: str
+    bucket: Annotated[str, _aws_pattern("Taxsettings", "S3BucketName")]
+    key: Annotated[str, _aws_pattern("Taxsettings", "S3Key")]
 
 
 class SupplementalTaxRegistrationEntryTypeDef(BaseValidatorModel):
     address: AddressTypeDef
-    legalName: str
-    registrationId: str
+    legalName: Annotated[str, _aws_pattern("Taxsettings", "LegalName")]
+    registrationId: Annotated[str, _aws_pattern("Taxsettings", "RegistrationId")]
     registrationType: Literal["VAT"]
 
 
 class SupplementalTaxRegistrationTypeDef(BaseValidatorModel):
     address: AddressTypeDef
-    authorityId: str
-    legalName: str
-    registrationId: str
+    authorityId: Annotated[str, _aws_pattern("Taxsettings", "GenericString")]
+    legalName: Annotated[str, _aws_pattern("Taxsettings", "LegalName")]
+    registrationId: Annotated[str, _aws_pattern("Taxsettings", "RegistrationId")]
     registrationType: Literal["VAT"]
     status: TaxRegistrationStatusType
 
 
 class AccountMetaDataTypeDef(BaseValidatorModel):
-    accountName: Optional[str] = None
+    accountName: Optional[Annotated[str, _aws_pattern("Taxsettings", "AccountName")]] = None
     address: Optional[AddressTypeDef] = None
     addressRoleMap: Optional[Dict[AddressRoleTypeType, JurisdictionTypeDef]] = None
     addressType: Optional[AddressRoleTypeType] = None
-    seller: Optional[str] = None
+    seller: Optional[Annotated[str, _aws_pattern("Taxsettings", "Seller")]] = None
 
 
 class AdditionalInfoResponseTypeDef(BaseValidatorModel):
@@ -316,8 +336,8 @@ class AdditionalInfoResponseTypeDef(BaseValidatorModel):
 
 class TaxExemptionTypeTypeDef(BaseValidatorModel):
     applicableJurisdictions: Optional[List[AuthorityTypeDef]] = None
-    description: Optional[str] = None
-    displayName: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Taxsettings", "GenericString")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Taxsettings", "DisplayName")]] = None
 
 
 # This class is the output for the 'batch_delete_tax_registration' function.
@@ -333,21 +353,21 @@ class GetTaxInheritanceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_tax_registration_document' function.
 class GetTaxRegistrationDocumentResponseTypeDef(BaseValidatorModel):
-    destinationFilePath: str
-    presignedS3Url: str
+    destinationFilePath: Annotated[str, _aws_pattern("Taxsettings", "DestinationFilePath")]
+    presignedS3Url: Annotated[str, _aws_pattern("Taxsettings", "Url")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_supplemental_tax_registration' function.
 class PutSupplementalTaxRegistrationResponseTypeDef(BaseValidatorModel):
-    authorityId: str
+    authorityId: Annotated[str, _aws_pattern("Taxsettings", "GenericString")]
     status: TaxRegistrationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_tax_exemption' function.
 class PutTaxExemptionResponseTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("Taxsettings", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -366,12 +386,12 @@ class BatchPutTaxRegistrationResponseTypeDef(BaseValidatorModel):
 
 class ExemptionCertificateTypeDef(BaseValidatorModel):
     documentFile: BlobTypeDef
-    documentName: str
+    documentName: Annotated[str, _aws_pattern("Taxsettings", "ExemptionDocumentName")]
 
 
 class TaxRegistrationDocFileTypeDef(BaseValidatorModel):
     fileContent: BlobTypeDef
-    fileName: str
+    fileName: Annotated[str, _aws_pattern("Taxsettings", "TaxDocumentName")]
 
 
 # This class is the input for the 'get_tax_registration_document' function.
@@ -404,29 +424,29 @@ class PutSupplementalTaxRegistrationRequestTypeDef(BaseValidatorModel):
 class ListSupplementalTaxRegistrationsResponseTypeDef(BaseValidatorModel):
     taxRegistrations: List[SupplementalTaxRegistrationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Taxsettings", "PaginationTokenString")]] = None
 
 
 class TaxRegistrationTypeDef(BaseValidatorModel):
     legalAddress: AddressTypeDef
-    legalName: str
-    registrationId: str
+    legalName: Annotated[str, _aws_pattern("Taxsettings", "LegalName")]
+    registrationId: Annotated[str, _aws_pattern("Taxsettings", "RegistrationId")]
     registrationType: TaxRegistrationTypeType
     status: TaxRegistrationStatusType
     additionalTaxInformation: Optional[AdditionalInfoResponseTypeDef] = None
-    certifiedEmailId: Optional[str] = None
+    certifiedEmailId: Optional[Annotated[str, _aws_pattern("Taxsettings", "CertifiedEmailId")]] = None
     sector: Optional[SectorType] = None
     taxDocumentMetadatas: Optional[List[TaxDocumentMetadataTypeDef]] = None
 
 
 class TaxRegistrationWithJurisdictionTypeDef(BaseValidatorModel):
     jurisdiction: JurisdictionTypeDef
-    legalName: str
-    registrationId: str
+    legalName: Annotated[str, _aws_pattern("Taxsettings", "LegalName")]
+    registrationId: Annotated[str, _aws_pattern("Taxsettings", "RegistrationId")]
     registrationType: TaxRegistrationTypeType
     status: TaxRegistrationStatusType
     additionalTaxInformation: Optional[AdditionalInfoResponseTypeDef] = None
-    certifiedEmailId: Optional[str] = None
+    certifiedEmailId: Optional[Annotated[str, _aws_pattern("Taxsettings", "CertifiedEmailId")]] = None
     sector: Optional[SectorType] = None
     taxDocumentMetadatas: Optional[List[TaxDocumentMetadataTypeDef]] = None
 
@@ -447,10 +467,10 @@ class TaxExemptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_tax_exemption' function.
 class PutTaxExemptionRequestTypeDef(BaseValidatorModel):
-    accountIds: List[str]
+    accountIds: List[Annotated[str, _aws_pattern("Taxsettings", "AccountId")]]
     authority: AuthorityTypeDef
     exemptionCertificate: ExemptionCertificateTypeDef
-    exemptionType: str
+    exemptionType: Annotated[str, _aws_pattern("Taxsettings", "GenericString")]
 
 
 class TaxRegistrationDocumentTypeDef(BaseValidatorModel):
@@ -487,7 +507,7 @@ class GetTaxRegistrationResponseTypeDef(BaseValidatorModel):
 
 
 class AccountDetailsTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Taxsettings", "AccountId")]] = None
     accountMetaData: Optional[AccountMetaDataTypeDef] = None
     taxInheritanceDetails: Optional[TaxInheritanceDetailsTypeDef] = None
     taxRegistration: Optional[TaxRegistrationWithJurisdictionTypeDef] = None
@@ -495,13 +515,13 @@ class AccountDetailsTypeDef(BaseValidatorModel):
 
 class TaxExemptionDetailsTypeDef(BaseValidatorModel):
     heritageObtainedDetails: Optional[bool] = None
-    heritageObtainedParentEntity: Optional[str] = None
-    heritageObtainedReason: Optional[str] = None
+    heritageObtainedParentEntity: Optional[Annotated[str, _aws_pattern("Taxsettings", "GenericString")]] = None
+    heritageObtainedReason: Optional[Annotated[str, _aws_pattern("Taxsettings", "GenericString")]] = None
     taxExemptions: Optional[List[TaxExemptionTypeDef]] = None
 
 
 class VerificationDetailsTypeDef(BaseValidatorModel):
-    dateOfBirth: Optional[str] = None
+    dateOfBirth: Optional[Annotated[str, _aws_pattern("Taxsettings", "DateOfBirth")]] = None
     taxRegistrationDocuments: Optional[List[TaxRegistrationDocumentTypeDef]] = None
 
 
@@ -509,12 +529,12 @@ class VerificationDetailsTypeDef(BaseValidatorModel):
 class ListTaxRegistrationsResponseTypeDef(BaseValidatorModel):
     accountDetails: List[AccountDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Taxsettings", "PaginationTokenString")]] = None
 
 
 # This class is the output for the 'batch_get_tax_exemptions' function.
 class BatchGetTaxExemptionsResponseTypeDef(BaseValidatorModel):
-    failedAccounts: List[str]
+    failedAccounts: List[Annotated[str, _aws_pattern("Taxsettings", "AccountId")]]
     taxExemptionDetailsMap: Dict[str, TaxExemptionDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -523,27 +543,27 @@ class BatchGetTaxExemptionsResponseTypeDef(BaseValidatorModel):
 class ListTaxExemptionsResponseTypeDef(BaseValidatorModel):
     taxExemptionDetailsMap: Dict[str, TaxExemptionDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Taxsettings", "PaginationTokenString")]] = None
 
 
 class TaxRegistrationEntryTypeDef(BaseValidatorModel):
-    registrationId: str
+    registrationId: Annotated[str, _aws_pattern("Taxsettings", "RegistrationId")]
     registrationType: TaxRegistrationTypeType
     additionalTaxInformation: Optional[AdditionalInfoRequestTypeDef] = None
-    certifiedEmailId: Optional[str] = None
+    certifiedEmailId: Optional[Annotated[str, _aws_pattern("Taxsettings", "CertifiedEmailId")]] = None
     legalAddress: Optional[AddressTypeDef] = None
-    legalName: Optional[str] = None
+    legalName: Optional[Annotated[str, _aws_pattern("Taxsettings", "LegalName")]] = None
     sector: Optional[SectorType] = None
     verificationDetails: Optional[VerificationDetailsTypeDef] = None
 
 
 # This class is the input for the 'batch_put_tax_registration' function.
 class BatchPutTaxRegistrationRequestTypeDef(BaseValidatorModel):
-    accountIds: List[str]
+    accountIds: List[Annotated[str, _aws_pattern("Taxsettings", "AccountId")]]
     taxRegistrationEntry: TaxRegistrationEntryTypeDef
 
 
 # This class is the input for the 'put_tax_registration' function.
 class PutTaxRegistrationRequestTypeDef(BaseValidatorModel):
     taxRegistrationEntry: TaxRegistrationEntryTypeDef
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Taxsettings", "AccountId")]] = None

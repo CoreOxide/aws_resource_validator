@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.appsync.appsync_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -58,7 +60,7 @@ class OpenIDConnectConfigTypeDef(BaseValidatorModel):
 
 
 class ApiAssociationTypeDef(BaseValidatorModel):
-    domainName: Optional[str] = None
+    domainName: Optional[Annotated[str, _aws_pattern("Appsync", "DomainName")]] = None
     apiId: Optional[str] = None
     associationStatus: Optional[AssociationStatusType] = None
     deploymentDetail: Optional[str] = None
@@ -88,7 +90,7 @@ class AppSyncRuntimeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_api' function.
 class AssociateApiRequestTypeDef(BaseValidatorModel):
-    domainName: str
+    domainName: Annotated[str, _aws_pattern("Appsync", "DomainName")]
     apiId: str
 
 
@@ -176,16 +178,16 @@ class OpenSearchServiceDataSourceConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_domain_name' function.
 class CreateDomainNameRequestTypeDef(BaseValidatorModel):
-    domainName: str
-    certificateArn: str
-    description: Optional[str] = None
+    domainName: Annotated[str, _aws_pattern("Appsync", "DomainName")]
+    certificateArn: Annotated[str, _aws_pattern("Appsync", "CertificateArn")]
+    description: Optional[Annotated[str, _aws_pattern("Appsync", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class DomainNameConfigTypeDef(BaseValidatorModel):
-    domainName: Optional[str] = None
-    description: Optional[str] = None
-    certificateArn: Optional[str] = None
+    domainName: Optional[Annotated[str, _aws_pattern("Appsync", "DomainName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Appsync", "Description")]] = None
+    certificateArn: Optional[Annotated[str, _aws_pattern("Appsync", "CertificateArn")]] = None
     appsyncDomainName: Optional[str] = None
     hostedZoneId: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -219,7 +221,7 @@ class CreateTypeRequestTypeDef(BaseValidatorModel):
 
 
 class TypeTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Appsync", "ResourceName")]] = None
     description: Optional[str] = None
     arn: Optional[str] = None
     definition: Optional[str] = None
@@ -253,21 +255,21 @@ class DeleteApiRequestTypeDef(BaseValidatorModel):
 
 class DeleteChannelNamespaceRequestTypeDef(BaseValidatorModel):
     apiId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Appsync", "Namespace")]
 
 
 class DeleteDataSourceRequestTypeDef(BaseValidatorModel):
     apiId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
 
 
 class DeleteDomainNameRequestTypeDef(BaseValidatorModel):
-    domainName: str
+    domainName: Annotated[str, _aws_pattern("Appsync", "DomainName")]
 
 
 class DeleteFunctionRequestTypeDef(BaseValidatorModel):
     apiId: str
-    functionId: str
+    functionId: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
 
 
 class DeleteGraphqlApiRequestTypeDef(BaseValidatorModel):
@@ -276,13 +278,13 @@ class DeleteGraphqlApiRequestTypeDef(BaseValidatorModel):
 
 class DeleteResolverRequestTypeDef(BaseValidatorModel):
     apiId: str
-    typeName: str
-    fieldName: str
+    typeName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
+    fieldName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
 
 
 class DeleteTypeRequestTypeDef(BaseValidatorModel):
     apiId: str
-    typeName: str
+    typeName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
 
 
 class DeltaSyncConfigTypeDef(BaseValidatorModel):
@@ -292,7 +294,7 @@ class DeltaSyncConfigTypeDef(BaseValidatorModel):
 
 
 class DisassociateApiRequestTypeDef(BaseValidatorModel):
-    domainName: str
+    domainName: Annotated[str, _aws_pattern("Appsync", "DomainName")]
 
 
 # This class is the input for the 'disassociate_merged_graphql_api' function.
@@ -313,8 +315,8 @@ class ErrorDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'evaluate_mapping_template' function.
 class EvaluateMappingTemplateRequestTypeDef(BaseValidatorModel):
-    template: str
-    context: str
+    template: Annotated[str, _aws_pattern("Appsync", "Template")]
+    context: Annotated[str, _aws_pattern("Appsync", "Context")]
 
 
 class EventLogConfigTypeDef(BaseValidatorModel):
@@ -328,7 +330,7 @@ class FlushApiCacheRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_api_association' function.
 class GetApiAssociationRequestTypeDef(BaseValidatorModel):
-    domainName: str
+    domainName: Annotated[str, _aws_pattern("Appsync", "DomainName")]
 
 
 # This class is the input for the 'get_api_cache' function.
@@ -344,32 +346,32 @@ class GetApiRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_channel_namespace' function.
 class GetChannelNamespaceRequestTypeDef(BaseValidatorModel):
     apiId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Appsync", "Namespace")]
 
 
 # This class is the input for the 'get_data_source_introspection' function.
 class GetDataSourceIntrospectionRequestTypeDef(BaseValidatorModel):
     introspectionId: str
     includeModelsSDL: Optional[bool] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_data_source' function.
 class GetDataSourceRequestTypeDef(BaseValidatorModel):
     apiId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
 
 
 # This class is the input for the 'get_domain_name' function.
 class GetDomainNameRequestTypeDef(BaseValidatorModel):
-    domainName: str
+    domainName: Annotated[str, _aws_pattern("Appsync", "DomainName")]
 
 
 # This class is the input for the 'get_function' function.
 class GetFunctionRequestTypeDef(BaseValidatorModel):
     apiId: str
-    functionId: str
+    functionId: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
 
 
 # This class is the input for the 'get_graphql_api_environment_variables' function.
@@ -392,8 +394,8 @@ class GetIntrospectionSchemaRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_resolver' function.
 class GetResolverRequestTypeDef(BaseValidatorModel):
     apiId: str
-    typeName: str
-    fieldName: str
+    typeName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
+    fieldName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
 
 
 # This class is the input for the 'get_schema_creation_status' function.
@@ -410,7 +412,7 @@ class GetSourceApiAssociationRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_type' function.
 class GetTypeRequestTypeDef(BaseValidatorModel):
     apiId: str
-    typeName: str
+    typeName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
     format: TypeDefinitionFormatType
 
 
@@ -431,46 +433,46 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_api_keys' function.
 class ListApiKeysRequestTypeDef(BaseValidatorModel):
     apiId: str
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_apis' function.
 class ListApisRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_channel_namespaces' function.
 class ListChannelNamespacesRequestTypeDef(BaseValidatorModel):
     apiId: str
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_data_sources' function.
 class ListDataSourcesRequestTypeDef(BaseValidatorModel):
     apiId: str
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_domain_names' function.
 class ListDomainNamesRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_functions' function.
 class ListFunctionsRequestTypeDef(BaseValidatorModel):
     apiId: str
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_graphql_apis' function.
 class ListGraphqlApisRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
     apiType: Optional[GraphQLApiTypeType] = None
     owner: Optional[OwnershipType] = None
@@ -480,7 +482,7 @@ class ListGraphqlApisRequestTypeDef(BaseValidatorModel):
 class ListResolversByFunctionRequestTypeDef(BaseValidatorModel):
     apiId: str
     functionId: str
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -488,14 +490,14 @@ class ListResolversByFunctionRequestTypeDef(BaseValidatorModel):
 class ListResolversRequestTypeDef(BaseValidatorModel):
     apiId: str
     typeName: str
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_source_api_associations' function.
 class ListSourceApiAssociationsRequestTypeDef(BaseValidatorModel):
     apiId: str
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -511,7 +513,7 @@ class SourceApiAssociationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Appsync", "ResourceArn")]
 
 
 # This class is the input for the 'list_types_by_association' function.
@@ -519,7 +521,7 @@ class ListTypesByAssociationRequestTypeDef(BaseValidatorModel):
     mergedApiIdentifier: str
     associationId: str
     format: TypeDefinitionFormatType
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -527,7 +529,7 @@ class ListTypesByAssociationRequestTypeDef(BaseValidatorModel):
 class ListTypesRequestTypeDef(BaseValidatorModel):
     apiId: str
     format: TypeDefinitionFormatType
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -546,8 +548,8 @@ class PutGraphqlApiEnvironmentVariablesRequestTypeDef(BaseValidatorModel):
 
 
 class RdsDataApiConfigTypeDef(BaseValidatorModel):
-    resourceArn: str
-    secretArn: str
+    resourceArn: Annotated[str, _aws_pattern("Appsync", "RdsDataApiConfigResourceArn")]
+    secretArn: Annotated[str, _aws_pattern("Appsync", "RdsDataApiConfigSecretArn")]
     databaseName: str
 
 
@@ -566,13 +568,13 @@ class StartSchemaMergeRequestTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Appsync", "ResourceArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Appsync", "ResourceArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Appsync", "TagKey")]]
 
 
 # This class is the input for the 'update_api_cache' function.
@@ -594,14 +596,14 @@ class UpdateApiKeyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_domain_name' function.
 class UpdateDomainNameRequestTypeDef(BaseValidatorModel):
-    domainName: str
-    description: Optional[str] = None
+    domainName: Annotated[str, _aws_pattern("Appsync", "DomainName")]
+    description: Optional[Annotated[str, _aws_pattern("Appsync", "Description")]] = None
 
 
 # This class is the input for the 'update_type' function.
 class UpdateTypeRequestTypeDef(BaseValidatorModel):
     apiId: str
-    typeName: str
+    typeName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
     format: TypeDefinitionFormatType
     definition: Optional[str] = None
 
@@ -617,7 +619,7 @@ class AdditionalAuthenticationProviderTypeDef(BaseValidatorModel):
 class EvaluateCodeRequestTypeDef(BaseValidatorModel):
     runtime: AppSyncRuntimeTypeDef
     code: str
-    context: str
+    context: Annotated[str, _aws_pattern("Appsync", "Context")]
     function: Optional[str] = None
 
 
@@ -686,7 +688,7 @@ class GetSchemaCreationStatusResponseTypeDef(BaseValidatorModel):
 class ListApiKeysResponseTypeDef(BaseValidatorModel):
     apiKeys: List[ApiKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -814,7 +816,7 @@ class GetDomainNameResponseTypeDef(BaseValidatorModel):
 class ListDomainNamesResponseTypeDef(BaseValidatorModel):
     domainNameConfigs: List[DomainNameConfigTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_domain_name' function.
@@ -839,14 +841,14 @@ class GetTypeResponseTypeDef(BaseValidatorModel):
 class ListTypesByAssociationResponseTypeDef(BaseValidatorModel):
     types: List[TypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_types' function.
 class ListTypesResponseTypeDef(BaseValidatorModel):
     types: List[TypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_type' function.
@@ -871,11 +873,11 @@ class DynamodbDataSourceConfigTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'evaluate_mapping_template' function.
 class EvaluateMappingTemplateResponseTypeDef(BaseValidatorModel):
-    evaluationResult: str
+    evaluationResult: Annotated[str, _aws_pattern("Appsync", "EvaluationResult")]
     error: ErrorDetailTypeDef
     logs: List[str]
-    stash: str
-    outErrors: str
+    stash: Annotated[str, _aws_pattern("Appsync", "Stash")]
+    outErrors: Annotated[str, _aws_pattern("Appsync", "OutErrors")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -958,7 +960,7 @@ class ListTypesRequestPaginateTypeDef(BaseValidatorModel):
 class ListSourceApiAssociationsResponseTypeDef(BaseValidatorModel):
     sourceApiAssociationSummaries: List[SourceApiAssociationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 PipelineConfigUnionTypeDef = Union[PipelineConfigOutputTypeDef, PipelineConfigTypeDef]
@@ -996,7 +998,7 @@ class CreateGraphqlApiRequestTypeDef(BaseValidatorModel):
 
 
 class GraphqlApiTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Appsync", "ResourceName")]] = None
     apiId: Optional[str] = None
     authenticationType: Optional[AuthenticationTypeType] = None
     logConfig: Optional[LogConfigTypeDef] = None
@@ -1106,11 +1108,11 @@ class HandlerConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_function' function.
 class CreateFunctionRequestTypeDef(BaseValidatorModel):
     apiId: str
-    name: str
-    dataSourceName: str
+    name: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
+    dataSourceName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
     description: Optional[str] = None
-    requestMappingTemplate: Optional[str] = None
-    responseMappingTemplate: Optional[str] = None
+    requestMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
+    responseMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
     functionVersion: Optional[str] = None
     syncConfig: Optional[SyncConfigTypeDef] = None
     maxBatchSize: Optional[int] = None
@@ -1121,11 +1123,11 @@ class CreateFunctionRequestTypeDef(BaseValidatorModel):
 class FunctionConfigurationTypeDef(BaseValidatorModel):
     functionId: Optional[str] = None
     functionArn: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Appsync", "ResourceName")]] = None
     description: Optional[str] = None
-    dataSourceName: Optional[str] = None
-    requestMappingTemplate: Optional[str] = None
-    responseMappingTemplate: Optional[str] = None
+    dataSourceName: Optional[Annotated[str, _aws_pattern("Appsync", "ResourceName")]] = None
+    requestMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
+    responseMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
     functionVersion: Optional[str] = None
     syncConfig: Optional[SyncConfigTypeDef] = None
     maxBatchSize: Optional[int] = None
@@ -1134,12 +1136,12 @@ class FunctionConfigurationTypeDef(BaseValidatorModel):
 
 
 class ResolverTypeDef(BaseValidatorModel):
-    typeName: Optional[str] = None
-    fieldName: Optional[str] = None
-    dataSourceName: Optional[str] = None
+    typeName: Optional[Annotated[str, _aws_pattern("Appsync", "ResourceName")]] = None
+    fieldName: Optional[Annotated[str, _aws_pattern("Appsync", "ResourceName")]] = None
+    dataSourceName: Optional[Annotated[str, _aws_pattern("Appsync", "ResourceName")]] = None
     resolverArn: Optional[str] = None
-    requestMappingTemplate: Optional[str] = None
-    responseMappingTemplate: Optional[str] = None
+    requestMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
+    responseMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
     kind: Optional[ResolverKindType] = None
     pipelineConfig: Optional[PipelineConfigOutputTypeDef] = None
     syncConfig: Optional[SyncConfigTypeDef] = None
@@ -1153,12 +1155,12 @@ class ResolverTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_function' function.
 class UpdateFunctionRequestTypeDef(BaseValidatorModel):
     apiId: str
-    name: str
-    functionId: str
-    dataSourceName: str
+    name: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
+    functionId: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
+    dataSourceName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
     description: Optional[str] = None
-    requestMappingTemplate: Optional[str] = None
-    responseMappingTemplate: Optional[str] = None
+    requestMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
+    responseMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
     functionVersion: Optional[str] = None
     syncConfig: Optional[SyncConfigTypeDef] = None
     maxBatchSize: Optional[int] = None
@@ -1169,11 +1171,11 @@ class UpdateFunctionRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_resolver' function.
 class CreateResolverRequestTypeDef(BaseValidatorModel):
     apiId: str
-    typeName: str
-    fieldName: str
-    dataSourceName: Optional[str] = None
-    requestMappingTemplate: Optional[str] = None
-    responseMappingTemplate: Optional[str] = None
+    typeName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
+    fieldName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
+    dataSourceName: Optional[Annotated[str, _aws_pattern("Appsync", "ResourceName")]] = None
+    requestMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
+    responseMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
     kind: Optional[ResolverKindType] = None
     pipelineConfig: Optional[PipelineConfigUnionTypeDef] = None
     syncConfig: Optional[SyncConfigTypeDef] = None
@@ -1187,11 +1189,11 @@ class CreateResolverRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_resolver' function.
 class UpdateResolverRequestTypeDef(BaseValidatorModel):
     apiId: str
-    typeName: str
-    fieldName: str
-    dataSourceName: Optional[str] = None
-    requestMappingTemplate: Optional[str] = None
-    responseMappingTemplate: Optional[str] = None
+    typeName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
+    fieldName: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
+    dataSourceName: Optional[Annotated[str, _aws_pattern("Appsync", "ResourceName")]] = None
+    requestMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
+    responseMappingTemplate: Optional[Annotated[str, _aws_pattern("Appsync", "MappingTemplate")]] = None
     kind: Optional[ResolverKindType] = None
     pipelineConfig: Optional[PipelineConfigUnionTypeDef] = None
     syncConfig: Optional[SyncConfigTypeDef] = None
@@ -1218,7 +1220,7 @@ class GetGraphqlApiResponseTypeDef(BaseValidatorModel):
 class ListGraphqlApisResponseTypeDef(BaseValidatorModel):
     graphqlApis: List[GraphqlApiTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_graphql_api' function.
@@ -1229,8 +1231,8 @@ class UpdateGraphqlApiResponseTypeDef(BaseValidatorModel):
 
 class ApiTypeDef(BaseValidatorModel):
     apiId: Optional[str] = None
-    name: Optional[str] = None
-    ownerContact: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Appsync", "ApiName")]] = None
+    ownerContact: Optional[Annotated[str, _aws_pattern("Appsync", "OwnerContact")]] = None
     tags: Optional[Dict[str, str]] = None
     dns: Optional[Dict[str, str]] = None
     apiArn: Optional[str] = None
@@ -1246,7 +1248,7 @@ EventConfigUnionTypeDef = Union[EventConfigOutputTypeDef, EventConfigTypeDef]
 # This class is the input for the 'create_data_source' function.
 class CreateDataSourceRequestTypeDef(BaseValidatorModel):
     apiId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
     type: DataSourceTypeType
     description: Optional[str] = None
     serviceRoleArn: Optional[str] = None
@@ -1262,7 +1264,7 @@ class CreateDataSourceRequestTypeDef(BaseValidatorModel):
 
 class DataSourceTypeDef(BaseValidatorModel):
     dataSourceArn: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Appsync", "ResourceName")]] = None
     description: Optional[str] = None
     type: Optional[DataSourceTypeType] = None
     serviceRoleArn: Optional[str] = None
@@ -1279,7 +1281,7 @@ class DataSourceTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_data_source' function.
 class UpdateDataSourceRequestTypeDef(BaseValidatorModel):
     apiId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Appsync", "ResourceName")]
     type: DataSourceTypeType
     description: Optional[str] = None
     serviceRoleArn: Optional[str] = None
@@ -1295,17 +1297,17 @@ class UpdateDataSourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'evaluate_code' function.
 class EvaluateCodeResponseTypeDef(BaseValidatorModel):
-    evaluationResult: str
+    evaluationResult: Annotated[str, _aws_pattern("Appsync", "EvaluationResult")]
     error: EvaluateCodeErrorDetailTypeDef
     logs: List[str]
-    stash: str
-    outErrors: str
+    stash: Annotated[str, _aws_pattern("Appsync", "Stash")]
+    outErrors: Annotated[str, _aws_pattern("Appsync", "OutErrors")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DataSourceIntrospectionResultTypeDef(BaseValidatorModel):
     models: Optional[List[DataSourceIntrospectionModelTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 class HandlerConfigsTypeDef(BaseValidatorModel):
@@ -1329,7 +1331,7 @@ class GetFunctionResponseTypeDef(BaseValidatorModel):
 class ListFunctionsResponseTypeDef(BaseValidatorModel):
     functions: List[FunctionConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_function' function.
@@ -1354,14 +1356,14 @@ class GetResolverResponseTypeDef(BaseValidatorModel):
 class ListResolversByFunctionResponseTypeDef(BaseValidatorModel):
     resolvers: List[ResolverTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_resolvers' function.
 class ListResolversResponseTypeDef(BaseValidatorModel):
     resolvers: List[ResolverTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_resolver' function.
@@ -1386,7 +1388,7 @@ class GetApiResponseTypeDef(BaseValidatorModel):
 class ListApisResponseTypeDef(BaseValidatorModel):
     apis: List[ApiTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_api' function.
@@ -1397,7 +1399,7 @@ class UpdateApiResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_api' function.
 class CreateApiRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Appsync", "ApiName")]
     eventConfig: EventConfigUnionTypeDef
     ownerContact: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -1406,7 +1408,7 @@ class CreateApiRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_api' function.
 class UpdateApiRequestTypeDef(BaseValidatorModel):
     apiId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Appsync", "ApiName")]
     eventConfig: EventConfigUnionTypeDef
     ownerContact: Optional[str] = None
 
@@ -1427,7 +1429,7 @@ class GetDataSourceResponseTypeDef(BaseValidatorModel):
 class ListDataSourcesResponseTypeDef(BaseValidatorModel):
     dataSources: List[DataSourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_data_source' function.
@@ -1447,7 +1449,7 @@ class GetDataSourceIntrospectionResponseTypeDef(BaseValidatorModel):
 
 class ChannelNamespaceTypeDef(BaseValidatorModel):
     apiId: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Appsync", "Namespace")]] = None
     subscribeAuthModes: Optional[List[AuthModeTypeDef]] = None
     publishAuthModes: Optional[List[AuthModeTypeDef]] = None
     codeHandlers: Optional[str] = None
@@ -1461,7 +1463,7 @@ class ChannelNamespaceTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_channel_namespace' function.
 class CreateChannelNamespaceRequestTypeDef(BaseValidatorModel):
     apiId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Appsync", "Namespace")]
     subscribeAuthModes: Optional[List[AuthModeTypeDef]] = None
     publishAuthModes: Optional[List[AuthModeTypeDef]] = None
     codeHandlers: Optional[str] = None
@@ -1472,7 +1474,7 @@ class CreateChannelNamespaceRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_channel_namespace' function.
 class UpdateChannelNamespaceRequestTypeDef(BaseValidatorModel):
     apiId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Appsync", "Namespace")]
     subscribeAuthModes: Optional[List[AuthModeTypeDef]] = None
     publishAuthModes: Optional[List[AuthModeTypeDef]] = None
     codeHandlers: Optional[str] = None
@@ -1495,7 +1497,7 @@ class GetChannelNamespaceResponseTypeDef(BaseValidatorModel):
 class ListChannelNamespacesResponseTypeDef(BaseValidatorModel):
     channelNamespaces: List[ChannelNamespaceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appsync", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_channel_namespace' function.

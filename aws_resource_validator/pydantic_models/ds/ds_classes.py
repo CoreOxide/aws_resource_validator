@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ds.ds_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'accept_shared_directory' function.
 class AcceptSharedDirectoryRequestTypeDef(BaseValidatorModel):
-    SharedDirectoryId: str
+    SharedDirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -52,11 +54,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class SharedDirectoryTypeDef(BaseValidatorModel):
-    OwnerAccountId: Optional[str] = None
-    OwnerDirectoryId: Optional[str] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("Ds", "CustomerId")]] = None
+    OwnerDirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
     ShareMethod: Optional[ShareMethodType] = None
-    SharedAccountId: Optional[str] = None
-    SharedDirectoryId: Optional[str] = None
+    SharedAccountId: Optional[Annotated[str, _aws_pattern("Ds", "CustomerId")]] = None
+    SharedDirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
     ShareStatus: Optional[ShareStatusType] = None
     ShareNotes: Optional[str] = None
     CreatedDateTime: Optional[datetime] = None
@@ -64,14 +66,14 @@ class SharedDirectoryTypeDef(BaseValidatorModel):
 
 
 class IpRouteTypeDef(BaseValidatorModel):
-    CidrIp: Optional[str] = None
-    CidrIpv6: Optional[str] = None
-    Description: Optional[str] = None
+    CidrIp: Optional[Annotated[str, _aws_pattern("Ds", "CidrIp")]] = None
+    CidrIpv6: Optional[Annotated[str, _aws_pattern("Ds", "CidrIpv6")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Ds", "Description")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Ds", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Ds", "TagValue")]
 
 
 class AssessmentValidationTypeDef(BaseValidatorModel):
@@ -85,30 +87,30 @@ class AssessmentValidationTypeDef(BaseValidatorModel):
 
 
 class AssessmentSummaryTypeDef(BaseValidatorModel):
-    AssessmentId: Optional[str] = None
-    DirectoryId: Optional[str] = None
-    DnsName: Optional[str] = None
+    AssessmentId: Optional[Annotated[str, _aws_pattern("Ds", "AssessmentId")]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    DnsName: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryName")]] = None
     StartTime: Optional[datetime] = None
     LastUpdateDateTime: Optional[datetime] = None
     Status: Optional[str] = None
-    CustomerDnsIps: Optional[List[str]] = None
+    CustomerDnsIps: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
     ReportType: Optional[str] = None
 
 
 class AssessmentTypeDef(BaseValidatorModel):
-    AssessmentId: Optional[str] = None
-    DirectoryId: Optional[str] = None
-    DnsName: Optional[str] = None
+    AssessmentId: Optional[Annotated[str, _aws_pattern("Ds", "AssessmentId")]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    DnsName: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryName")]] = None
     StartTime: Optional[datetime] = None
     LastUpdateDateTime: Optional[datetime] = None
     Status: Optional[str] = None
     StatusCode: Optional[str] = None
     StatusReason: Optional[str] = None
-    CustomerDnsIps: Optional[List[str]] = None
-    VpcId: Optional[str] = None
-    SubnetIds: Optional[List[str]] = None
-    SecurityGroupIds: Optional[List[str]] = None
-    SelfManagedInstanceIds: Optional[List[str]] = None
+    CustomerDnsIps: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Ds", "VpcId")]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Ds", "SubnetId")]]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Ds", "SecurityGroupId")]]] = None
+    SelfManagedInstanceIds: Optional[List[Annotated[str, _aws_pattern("Ds", "AssessmentInstanceId")]]] = None
     ReportType: Optional[str] = None
     Version: Optional[str] = None
 
@@ -119,12 +121,12 @@ class AttributeTypeDef(BaseValidatorModel):
 
 
 class CancelSchemaExtensionRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SchemaExtensionId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    SchemaExtensionId: Annotated[str, _aws_pattern("Ds", "SchemaExtensionId")]
 
 
 class CertificateInfoTypeDef(BaseValidatorModel):
-    CertificateId: Optional[str] = None
+    CertificateId: Optional[Annotated[str, _aws_pattern("Ds", "CertificateId")]] = None
     CommonName: Optional[str] = None
     State: Optional[CertificateStateType] = None
     ExpiryDateTime: Optional[datetime] = None
@@ -132,7 +134,7 @@ class CertificateInfoTypeDef(BaseValidatorModel):
 
 
 class ClientCertAuthSettingsTypeDef(BaseValidatorModel):
-    OCSPUrl: Optional[str] = None
+    OCSPUrl: Optional[Annotated[str, _aws_pattern("Ds", "OCSPUrl")]] = None
 
 
 class ClientAuthenticationSettingInfoTypeDef(BaseValidatorModel):
@@ -142,110 +144,110 @@ class ClientAuthenticationSettingInfoTypeDef(BaseValidatorModel):
 
 
 class ConditionalForwarderTypeDef(BaseValidatorModel):
-    RemoteDomainName: Optional[str] = None
-    DnsIpAddrs: Optional[List[str]] = None
-    DnsIpv6Addrs: Optional[List[str]] = None
+    RemoteDomainName: Optional[Annotated[str, _aws_pattern("Ds", "RemoteDomainName")]] = None
+    DnsIpAddrs: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
+    DnsIpv6Addrs: Optional[List[Annotated[str, _aws_pattern("Ds", "Ipv6Addr")]]] = None
     ReplicationScope: Optional[Literal["Domain"]] = None
 
 
 class DirectoryConnectSettingsTypeDef(BaseValidatorModel):
-    VpcId: str
-    SubnetIds: List[str]
-    CustomerUserName: str
-    CustomerDnsIps: Optional[List[str]] = None
-    CustomerDnsIpsV6: Optional[List[str]] = None
+    VpcId: Annotated[str, _aws_pattern("Ds", "VpcId")]
+    SubnetIds: List[Annotated[str, _aws_pattern("Ds", "SubnetId")]]
+    CustomerUserName: Annotated[str, _aws_pattern("Ds", "UserName")]
+    CustomerDnsIps: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
+    CustomerDnsIpsV6: Optional[List[Annotated[str, _aws_pattern("Ds", "Ipv6Addr")]]] = None
 
 
 # This class is the input for the 'create_alias' function.
 class CreateAliasRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    Alias: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    Alias: Annotated[str, _aws_pattern("Ds", "AliasName")]
 
 
 class CreateConditionalForwarderRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    RemoteDomainName: str
-    DnsIpAddrs: Optional[List[str]] = None
-    DnsIpv6Addrs: Optional[List[str]] = None
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    RemoteDomainName: Annotated[str, _aws_pattern("Ds", "RemoteDomainName")]
+    DnsIpAddrs: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
+    DnsIpv6Addrs: Optional[List[Annotated[str, _aws_pattern("Ds", "Ipv6Addr")]]] = None
 
 
 class CreateLogSubscriptionRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    LogGroupName: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    LogGroupName: Annotated[str, _aws_pattern("Ds", "LogGroupName")]
 
 
 # This class is the input for the 'create_snapshot' function.
 class CreateSnapshotRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    Name: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    Name: Optional[Annotated[str, _aws_pattern("Ds", "SnapshotName")]] = None
 
 
 # This class is the input for the 'create_trust' function.
 class CreateTrustRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    RemoteDomainName: str
-    TrustPassword: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    RemoteDomainName: Annotated[str, _aws_pattern("Ds", "RemoteDomainName")]
+    TrustPassword: Annotated[str, _aws_pattern("Ds", "TrustPassword")]
     TrustDirection: TrustDirectionType
     TrustType: Optional[TrustTypeType] = None
-    ConditionalForwarderIpAddrs: Optional[List[str]] = None
-    ConditionalForwarderIpv6Addrs: Optional[List[str]] = None
+    ConditionalForwarderIpAddrs: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
+    ConditionalForwarderIpv6Addrs: Optional[List[Annotated[str, _aws_pattern("Ds", "Ipv6Addr")]]] = None
     SelectiveAuth: Optional[SelectiveAuthType] = None
 
 
 # This class is the input for the 'delete_ad_assessment' function.
 class DeleteADAssessmentRequestTypeDef(BaseValidatorModel):
-    AssessmentId: str
+    AssessmentId: Annotated[str, _aws_pattern("Ds", "AssessmentId")]
 
 
 class DeleteConditionalForwarderRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    RemoteDomainName: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    RemoteDomainName: Annotated[str, _aws_pattern("Ds", "RemoteDomainName")]
 
 
 # This class is the input for the 'delete_directory' function.
 class DeleteDirectoryRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 class DeleteLogSubscriptionRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 # This class is the input for the 'delete_snapshot' function.
 class DeleteSnapshotRequestTypeDef(BaseValidatorModel):
-    SnapshotId: str
+    SnapshotId: Annotated[str, _aws_pattern("Ds", "SnapshotId")]
 
 
 # This class is the input for the 'delete_trust' function.
 class DeleteTrustRequestTypeDef(BaseValidatorModel):
-    TrustId: str
+    TrustId: Annotated[str, _aws_pattern("Ds", "TrustId")]
     DeleteAssociatedConditionalForwarder: Optional[bool] = None
 
 
 class DeregisterCertificateRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    CertificateId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    CertificateId: Annotated[str, _aws_pattern("Ds", "CertificateId")]
 
 
 class DeregisterEventTopicRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    TopicName: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    TopicName: Annotated[str, _aws_pattern("Ds", "TopicName")]
 
 
 # This class is the input for the 'describe_ad_assessment' function.
 class DescribeADAssessmentRequestTypeDef(BaseValidatorModel):
-    AssessmentId: str
+    AssessmentId: Annotated[str, _aws_pattern("Ds", "AssessmentId")]
 
 
 # This class is the input for the 'describe_ca_enrollment_policy' function.
 class DescribeCAEnrollmentPolicyRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 # This class is the input for the 'describe_certificate' function.
 class DescribeCertificateRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    CertificateId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    CertificateId: Annotated[str, _aws_pattern("Ds", "CertificateId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -256,7 +258,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_client_authentication_settings' function.
 class DescribeClientAuthenticationSettingsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     Type: Optional[ClientAuthenticationTypeType] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
@@ -264,37 +266,37 @@ class DescribeClientAuthenticationSettingsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_conditional_forwarders' function.
 class DescribeConditionalForwardersRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    RemoteDomainNames: Optional[List[str]] = None
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    RemoteDomainNames: Optional[List[Annotated[str, _aws_pattern("Ds", "RemoteDomainName")]]] = None
 
 
 # This class is the input for the 'describe_directories' function.
 class DescribeDirectoriesRequestTypeDef(BaseValidatorModel):
-    DirectoryIds: Optional[List[str]] = None
+    DirectoryIds: Optional[List[Annotated[str, _aws_pattern("Ds", "DirectoryId")]]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'describe_directory_data_access' function.
 class DescribeDirectoryDataAccessRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 # This class is the input for the 'describe_domain_controllers' function.
 class DescribeDomainControllersRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    DomainControllerIds: Optional[List[str]] = None
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    DomainControllerIds: Optional[List[Annotated[str, _aws_pattern("Ds", "DomainControllerId")]]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class DomainControllerTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    DomainControllerId: Optional[str] = None
-    DnsIpAddr: Optional[str] = None
-    DnsIpv6Addr: Optional[str] = None
-    VpcId: Optional[str] = None
-    SubnetId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    DomainControllerId: Optional[Annotated[str, _aws_pattern("Ds", "DomainControllerId")]] = None
+    DnsIpAddr: Optional[Annotated[str, _aws_pattern("Ds", "IpAddr")]] = None
+    DnsIpv6Addr: Optional[Annotated[str, _aws_pattern("Ds", "Ipv6Addr")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Ds", "VpcId")]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Ds", "SubnetId")]] = None
     AvailabilityZone: Optional[str] = None
     Status: Optional[DomainControllerStatusType] = None
     StatusReason: Optional[str] = None
@@ -304,13 +306,13 @@ class DomainControllerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_event_topics' function.
 class DescribeEventTopicsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    TopicNames: Optional[List[str]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    TopicNames: Optional[List[Annotated[str, _aws_pattern("Ds", "TopicName")]]] = None
 
 
 class EventTopicTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    TopicName: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    TopicName: Optional[Annotated[str, _aws_pattern("Ds", "TopicName")]] = None
     TopicArn: Optional[str] = None
     CreatedDateTime: Optional[datetime] = None
     Status: Optional[TopicStatusType] = None
@@ -318,7 +320,7 @@ class EventTopicTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_hybrid_ad_update' function.
 class DescribeHybridADUpdateRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     UpdateType: Optional[HybridUpdateTypeType] = None
     NextToken: Optional[str] = None
 
@@ -330,7 +332,7 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_ldaps_settings' function.
 class DescribeLDAPSSettingsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     Type: Optional[Literal["Client"]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
@@ -344,24 +346,24 @@ class LDAPSSettingInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_regions' function.
 class DescribeRegionsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     RegionName: Optional[str] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_settings' function.
 class DescribeSettingsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     Status: Optional[DirectoryConfigurationStatusType] = None
     NextToken: Optional[str] = None
 
 
 class SettingEntryTypeDef(BaseValidatorModel):
     Type: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryConfigurationSettingName")]] = None
     AllowedValues: Optional[str] = None
-    AppliedValue: Optional[str] = None
-    RequestedValue: Optional[str] = None
+    AppliedValue: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryConfigurationSettingValue")]] = None
+    RequestedValue: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryConfigurationSettingValue")]] = None
     RequestStatus: Optional[DirectoryConfigurationStatusType] = None
     RequestDetailedStatus: Optional[Dict[str, DirectoryConfigurationStatusType]] = None
     RequestStatusMessage: Optional[str] = None
@@ -372,41 +374,41 @@ class SettingEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_shared_directories' function.
 class DescribeSharedDirectoriesRequestTypeDef(BaseValidatorModel):
-    OwnerDirectoryId: str
-    SharedDirectoryIds: Optional[List[str]] = None
+    OwnerDirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    SharedDirectoryIds: Optional[List[Annotated[str, _aws_pattern("Ds", "DirectoryId")]]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'describe_snapshots' function.
 class DescribeSnapshotsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    SnapshotIds: Optional[List[str]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    SnapshotIds: Optional[List[Annotated[str, _aws_pattern("Ds", "SnapshotId")]]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class SnapshotTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    SnapshotId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    SnapshotId: Optional[Annotated[str, _aws_pattern("Ds", "SnapshotId")]] = None
     Type: Optional[SnapshotTypeType] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ds", "SnapshotName")]] = None
     Status: Optional[SnapshotStatusType] = None
     StartTime: Optional[datetime] = None
 
 
 # This class is the input for the 'describe_trusts' function.
 class DescribeTrustsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    TrustIds: Optional[List[str]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    TrustIds: Optional[List[Annotated[str, _aws_pattern("Ds", "TrustId")]]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class TrustTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    TrustId: Optional[str] = None
-    RemoteDomainName: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    TrustId: Optional[Annotated[str, _aws_pattern("Ds", "TrustId")]] = None
+    RemoteDomainName: Optional[Annotated[str, _aws_pattern("Ds", "RemoteDomainName")]] = None
     TrustType: Optional[TrustTypeType] = None
     TrustDirection: Optional[TrustDirectionType] = None
     TrustState: Optional[TrustStateType] = None
@@ -419,32 +421,32 @@ class TrustTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_update_directory' function.
 class DescribeUpdateDirectoryRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     UpdateType: UpdateTypeType
     RegionName: Optional[str] = None
     NextToken: Optional[str] = None
 
 
 class DirectoryConnectSettingsDescriptionTypeDef(BaseValidatorModel):
-    VpcId: Optional[str] = None
-    SubnetIds: Optional[List[str]] = None
-    CustomerUserName: Optional[str] = None
-    SecurityGroupId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Ds", "VpcId")]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Ds", "SubnetId")]]] = None
+    CustomerUserName: Optional[Annotated[str, _aws_pattern("Ds", "UserName")]] = None
+    SecurityGroupId: Optional[Annotated[str, _aws_pattern("Ds", "SecurityGroupId")]] = None
     AvailabilityZones: Optional[List[str]] = None
-    ConnectIps: Optional[List[str]] = None
-    ConnectIpsV6: Optional[List[str]] = None
+    ConnectIps: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
+    ConnectIpsV6: Optional[List[Annotated[str, _aws_pattern("Ds", "Ipv6Addr")]]] = None
 
 
 class DirectoryVpcSettingsDescriptionTypeDef(BaseValidatorModel):
-    VpcId: Optional[str] = None
-    SubnetIds: Optional[List[str]] = None
-    SecurityGroupId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Ds", "VpcId")]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Ds", "SubnetId")]]] = None
+    SecurityGroupId: Optional[Annotated[str, _aws_pattern("Ds", "SecurityGroupId")]] = None
     AvailabilityZones: Optional[List[str]] = None
 
 
 class HybridSettingsDescriptionTypeDef(BaseValidatorModel):
-    SelfManagedDnsIpAddrs: Optional[List[str]] = None
-    SelfManagedInstanceIds: Optional[List[str]] = None
+    SelfManagedDnsIpAddrs: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
+    SelfManagedInstanceIds: Optional[List[Annotated[str, _aws_pattern("Ds", "AssessmentInstanceId")]]] = None
 
 
 class RadiusSettingsOutputTypeDef(BaseValidatorModel):
@@ -486,66 +488,66 @@ class DirectoryVpcSettingsOutputTypeDef(BaseValidatorModel):
 
 
 class DirectoryVpcSettingsTypeDef(BaseValidatorModel):
-    VpcId: str
-    SubnetIds: List[str]
+    VpcId: Annotated[str, _aws_pattern("Ds", "VpcId")]
+    SubnetIds: List[Annotated[str, _aws_pattern("Ds", "SubnetId")]]
 
 
 class DisableCAEnrollmentPolicyRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 class DisableClientAuthenticationRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     Type: ClientAuthenticationTypeType
 
 
 class DisableDirectoryDataAccessRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 class DisableLDAPSRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     Type: Literal["Client"]
 
 
 class DisableRadiusRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 class DisableSsoRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    UserName: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    UserName: Optional[Annotated[str, _aws_pattern("Ds", "UserName")]] = None
     Password: Optional[str] = None
 
 
 class EnableCAEnrollmentPolicyRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    PcaConnectorArn: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    PcaConnectorArn: Annotated[str, _aws_pattern("Ds", "PcaConnectorArn")]
 
 
 class EnableClientAuthenticationRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     Type: ClientAuthenticationTypeType
 
 
 class EnableDirectoryDataAccessRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 class EnableLDAPSRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     Type: Literal["Client"]
 
 
 class EnableSsoRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    UserName: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    UserName: Optional[Annotated[str, _aws_pattern("Ds", "UserName")]] = None
     Password: Optional[str] = None
 
 
 # This class is the input for the 'get_snapshot_limits' function.
 class GetSnapshotLimitsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 class SnapshotLimitsTypeDef(BaseValidatorModel):
@@ -555,74 +557,74 @@ class SnapshotLimitsTypeDef(BaseValidatorModel):
 
 
 class HybridAdministratorAccountUpdateTypeDef(BaseValidatorModel):
-    SecretArn: str
+    SecretArn: Annotated[str, _aws_pattern("Ds", "SecretArn")]
 
 
 class HybridCustomerInstancesSettingsTypeDef(BaseValidatorModel):
-    CustomerDnsIps: List[str]
-    InstanceIds: List[str]
+    CustomerDnsIps: List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]
+    InstanceIds: List[Annotated[str, _aws_pattern("Ds", "AssessmentInstanceId")]]
 
 
 class HybridUpdateValueTypeDef(BaseValidatorModel):
-    InstanceIds: Optional[List[str]] = None
-    DnsIps: Optional[List[str]] = None
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Ds", "AssessmentInstanceId")]]] = None
+    DnsIps: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
 
 
 class IpRouteInfoTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    CidrIp: Optional[str] = None
-    CidrIpv6: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    CidrIp: Optional[Annotated[str, _aws_pattern("Ds", "CidrIp")]] = None
+    CidrIpv6: Optional[Annotated[str, _aws_pattern("Ds", "CidrIpv6")]] = None
     IpRouteStatusMsg: Optional[IpRouteStatusMsgType] = None
     AddedDateTime: Optional[datetime] = None
     IpRouteStatusReason: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Ds", "Description")]] = None
 
 
 # This class is the input for the 'list_ad_assessments' function.
 class ListADAssessmentsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_certificates' function.
 class ListCertificatesRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_ip_routes' function.
 class ListIpRoutesRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_log_subscriptions' function.
 class ListLogSubscriptionsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class LogSubscriptionTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    LogGroupName: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    LogGroupName: Optional[Annotated[str, _aws_pattern("Ds", "LogGroupName")]] = None
     SubscriptionCreatedDateTime: Optional[datetime] = None
 
 
 # This class is the input for the 'list_schema_extensions' function.
 class ListSchemaExtensionsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class SchemaExtensionInfoTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    SchemaExtensionId: Optional[str] = None
-    Description: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    SchemaExtensionId: Optional[Annotated[str, _aws_pattern("Ds", "SchemaExtensionId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Ds", "Description")]] = None
     SchemaExtensionStatus: Optional[SchemaExtensionStatusType] = None
     SchemaExtensionStatusReason: Optional[str] = None
     StartDateTime: Optional[datetime] = None
@@ -631,14 +633,14 @@ class SchemaExtensionInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Ds", "ResourceId")]
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class NetworkUpdateSettingsTypeDef(BaseValidatorModel):
     NetworkType: Optional[NetworkTypeType] = None
-    CustomerDnsIpsV6: Optional[List[str]] = None
+    CustomerDnsIpsV6: Optional[List[Annotated[str, _aws_pattern("Ds", "Ipv6Addr")]]] = None
 
 
 class OSUpdateSettingsTypeDef(BaseValidatorModel):
@@ -651,50 +653,50 @@ class RadiusSettingsTypeDef(BaseValidatorModel):
     RadiusPort: Optional[int] = None
     RadiusTimeout: Optional[int] = None
     RadiusRetries: Optional[int] = None
-    SharedSecret: Optional[str] = None
+    SharedSecret: Optional[Annotated[str, _aws_pattern("Ds", "RadiusSharedSecret")]] = None
     AuthenticationProtocol: Optional[RadiusAuthenticationProtocolType] = None
     DisplayLabel: Optional[str] = None
     UseSameUsername: Optional[bool] = None
 
 
 class RegisterEventTopicRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    TopicName: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    TopicName: Annotated[str, _aws_pattern("Ds", "TopicName")]
 
 
 # This class is the input for the 'reject_shared_directory' function.
 class RejectSharedDirectoryRequestTypeDef(BaseValidatorModel):
-    SharedDirectoryId: str
+    SharedDirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 class RemoveIpRoutesRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    CidrIps: Optional[List[str]] = None
-    CidrIpv6s: Optional[List[str]] = None
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    CidrIps: Optional[List[Annotated[str, _aws_pattern("Ds", "CidrIp")]]] = None
+    CidrIpv6s: Optional[List[Annotated[str, _aws_pattern("Ds", "CidrIpv6")]]] = None
 
 
 class RemoveRegionRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
 
 
 class RemoveTagsFromResourceRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
-    TagKeys: List[str]
+    ResourceId: Annotated[str, _aws_pattern("Ds", "ResourceId")]
+    TagKeys: List[Annotated[str, _aws_pattern("Ds", "TagKey")]]
 
 
 class ResetUserPasswordRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    UserName: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    UserName: Annotated[str, _aws_pattern("Ds", "CustomerUserName")]
     NewPassword: str
 
 
 class RestoreFromSnapshotRequestTypeDef(BaseValidatorModel):
-    SnapshotId: str
+    SnapshotId: Annotated[str, _aws_pattern("Ds", "SnapshotId")]
 
 
 class SettingTypeDef(BaseValidatorModel):
-    Name: str
-    Value: str
+    Name: Annotated[str, _aws_pattern("Ds", "DirectoryConfigurationSettingName")]
+    Value: Annotated[str, _aws_pattern("Ds", "DirectoryConfigurationSettingValue")]
 
 
 class ShareTargetTypeDef(BaseValidatorModel):
@@ -704,10 +706,10 @@ class ShareTargetTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_schema_extension' function.
 class StartSchemaExtensionRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     CreateSnapshotBeforeSchemaExtension: bool
     LdifContent: str
-    Description: str
+    Description: Annotated[str, _aws_pattern("Ds", "Description")]
 
 
 class UnshareTargetTypeDef(BaseValidatorModel):
@@ -716,99 +718,99 @@ class UnshareTargetTypeDef(BaseValidatorModel):
 
 
 class UpdateConditionalForwarderRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    RemoteDomainName: str
-    DnsIpAddrs: Optional[List[str]] = None
-    DnsIpv6Addrs: Optional[List[str]] = None
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    RemoteDomainName: Annotated[str, _aws_pattern("Ds", "RemoteDomainName")]
+    DnsIpAddrs: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
+    DnsIpv6Addrs: Optional[List[Annotated[str, _aws_pattern("Ds", "Ipv6Addr")]]] = None
 
 
 class UpdateNumberOfDomainControllersRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     DesiredNumber: int
 
 
 # This class is the input for the 'update_trust' function.
 class UpdateTrustRequestTypeDef(BaseValidatorModel):
-    TrustId: str
+    TrustId: Annotated[str, _aws_pattern("Ds", "TrustId")]
     SelectiveAuth: Optional[SelectiveAuthType] = None
 
 
 # This class is the input for the 'verify_trust' function.
 class VerifyTrustRequestTypeDef(BaseValidatorModel):
-    TrustId: str
+    TrustId: Annotated[str, _aws_pattern("Ds", "TrustId")]
 
 
 # This class is the output for the 'connect_directory' function.
 class ConnectDirectoryResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_alias' function.
 class CreateAliasResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    Alias: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    Alias: Annotated[str, _aws_pattern("Ds", "AliasName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_directory' function.
 class CreateDirectoryResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_hybrid_ad' function.
 class CreateHybridADResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_microsoft_ad' function.
 class CreateMicrosoftADResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_snapshot' function.
 class CreateSnapshotResultTypeDef(BaseValidatorModel):
-    SnapshotId: str
+    SnapshotId: Annotated[str, _aws_pattern("Ds", "SnapshotId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_trust' function.
 class CreateTrustResultTypeDef(BaseValidatorModel):
-    TrustId: str
+    TrustId: Annotated[str, _aws_pattern("Ds", "TrustId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_ad_assessment' function.
 class DeleteADAssessmentResultTypeDef(BaseValidatorModel):
-    AssessmentId: str
+    AssessmentId: Annotated[str, _aws_pattern("Ds", "AssessmentId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_directory' function.
 class DeleteDirectoryResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_snapshot' function.
 class DeleteSnapshotResultTypeDef(BaseValidatorModel):
-    SnapshotId: str
+    SnapshotId: Annotated[str, _aws_pattern("Ds", "SnapshotId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_trust' function.
 class DeleteTrustResultTypeDef(BaseValidatorModel):
-    TrustId: str
+    TrustId: Annotated[str, _aws_pattern("Ds", "TrustId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_ca_enrollment_policy' function.
 class DescribeCAEnrollmentPolicyResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    PcaConnectorArn: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    PcaConnectorArn: Annotated[str, _aws_pattern("Ds", "PcaConnectorArn")]
     CaEnrollmentPolicyStatus: CaEnrollmentPolicyStatusType
     LastUpdatedDateTime: datetime
     CaEnrollmentPolicyStatusReason: str
@@ -823,63 +825,63 @@ class DescribeDirectoryDataAccessResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'register_certificate' function.
 class RegisterCertificateResultTypeDef(BaseValidatorModel):
-    CertificateId: str
+    CertificateId: Annotated[str, _aws_pattern("Ds", "CertificateId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'reject_shared_directory' function.
 class RejectSharedDirectoryResultTypeDef(BaseValidatorModel):
-    SharedDirectoryId: str
+    SharedDirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'share_directory' function.
 class ShareDirectoryResultTypeDef(BaseValidatorModel):
-    SharedDirectoryId: str
+    SharedDirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_ad_assessment' function.
 class StartADAssessmentResultTypeDef(BaseValidatorModel):
-    AssessmentId: str
+    AssessmentId: Annotated[str, _aws_pattern("Ds", "AssessmentId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_schema_extension' function.
 class StartSchemaExtensionResultTypeDef(BaseValidatorModel):
-    SchemaExtensionId: str
+    SchemaExtensionId: Annotated[str, _aws_pattern("Ds", "SchemaExtensionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'unshare_directory' function.
 class UnshareDirectoryResultTypeDef(BaseValidatorModel):
-    SharedDirectoryId: str
+    SharedDirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_hybrid_ad' function.
 class UpdateHybridADResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    AssessmentId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
+    AssessmentId: Annotated[str, _aws_pattern("Ds", "AssessmentId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_settings' function.
 class UpdateSettingsResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_trust' function.
 class UpdateTrustResultTypeDef(BaseValidatorModel):
-    RequestId: str
-    TrustId: str
+    RequestId: Annotated[str, _aws_pattern("Ds", "RequestId")]
+    TrustId: Annotated[str, _aws_pattern("Ds", "TrustId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'verify_trust' function.
 class VerifyTrustResultTypeDef(BaseValidatorModel):
-    TrustId: str
+    TrustId: Annotated[str, _aws_pattern("Ds", "TrustId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -897,20 +899,20 @@ class DescribeSharedDirectoriesResultTypeDef(BaseValidatorModel):
 
 
 class AddIpRoutesRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     IpRoutes: List[IpRouteTypeDef]
     UpdateSecurityGroupForDirectoryControllers: Optional[bool] = None
 
 
 class AddTagsToResourceRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Ds", "ResourceId")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'create_hybrid_ad' function.
 class CreateHybridADRequestTypeDef(BaseValidatorModel):
-    SecretArn: str
-    AssessmentId: str
+    SecretArn: Annotated[str, _aws_pattern("Ds", "SecretArn")]
+    AssessmentId: Annotated[str, _aws_pattern("Ds", "AssessmentId")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -922,7 +924,7 @@ class ListTagsForResourceResultTypeDef(BaseValidatorModel):
 
 
 class AssessmentReportTypeDef(BaseValidatorModel):
-    DomainControllerIp: Optional[str] = None
+    DomainControllerIp: Optional[Annotated[str, _aws_pattern("Ds", "IpAddr")]] = None
     Validations: Optional[List[AssessmentValidationTypeDef]] = None
 
 
@@ -934,16 +936,16 @@ class ListADAssessmentsResultTypeDef(BaseValidatorModel):
 
 
 class ComputerTypeDef(BaseValidatorModel):
-    ComputerId: Optional[str] = None
+    ComputerId: Optional[Annotated[str, _aws_pattern("Ds", "SID")]] = None
     ComputerName: Optional[str] = None
     ComputerAttributes: Optional[List[AttributeTypeDef]] = None
 
 
 # This class is the input for the 'create_computer' function.
 class CreateComputerRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     ComputerName: str
-    Password: str
+    Password: Annotated[str, _aws_pattern("Ds", "ComputerPassword")]
     OrganizationalUnitDistinguishedName: Optional[str] = None
     ComputerAttributes: Optional[List[AttributeTypeDef]] = None
 
@@ -956,7 +958,7 @@ class ListCertificatesResultTypeDef(BaseValidatorModel):
 
 
 class CertificateTypeDef(BaseValidatorModel):
-    CertificateId: Optional[str] = None
+    CertificateId: Optional[Annotated[str, _aws_pattern("Ds", "CertificateId")]] = None
     State: Optional[CertificateStateType] = None
     StateReason: Optional[str] = None
     CommonName: Optional[str] = None
@@ -968,7 +970,7 @@ class CertificateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_certificate' function.
 class RegisterCertificateRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     CertificateData: str
     Type: Optional[CertificateTypeType] = None
     ClientCertAuthSettings: Optional[ClientCertAuthSettingsTypeDef] = None
@@ -989,12 +991,12 @@ class DescribeConditionalForwardersResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'connect_directory' function.
 class ConnectDirectoryRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ds", "DirectoryName")]
     Password: str
     Size: DirectorySizeType
     ConnectSettings: DirectoryConnectSettingsTypeDef
-    ShortName: Optional[str] = None
-    Description: Optional[str] = None
+    ShortName: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryShortName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Ds", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     NetworkType: Optional[NetworkTypeType] = None
 
@@ -1112,7 +1114,7 @@ class DescribeLDAPSSettingsResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_settings' function.
 class DescribeSettingsResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     SettingEntries: List[SettingEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1133,10 +1135,10 @@ class DescribeTrustsResultTypeDef(BaseValidatorModel):
 
 
 class OwnerDirectoryDescriptionTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    AccountId: Optional[str] = None
-    DnsIpAddrs: Optional[List[str]] = None
-    DnsIpv6Addrs: Optional[List[str]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Ds", "CustomerId")]] = None
+    DnsIpAddrs: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
+    DnsIpv6Addrs: Optional[List[Annotated[str, _aws_pattern("Ds", "Ipv6Addr")]]] = None
     VpcSettings: Optional[DirectoryVpcSettingsDescriptionTypeDef] = None
     RadiusSettings: Optional[RadiusSettingsOutputTypeDef] = None
     RadiusStatus: Optional[RadiusStatusType] = None
@@ -1149,7 +1151,7 @@ class GetDirectoryLimitsResultTypeDef(BaseValidatorModel):
 
 
 class RegionDescriptionTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
     RegionName: Optional[str] = None
     RegionType: Optional[RegionTypeType] = None
     Status: Optional[DirectoryStageType] = None
@@ -1171,7 +1173,7 @@ class GetSnapshotLimitsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_hybrid_ad' function.
 class UpdateHybridADRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     HybridAdministratorAccountUpdate: Optional[HybridAdministratorAccountUpdateTypeDef] = None
     SelfManagedInstancesSettings: Optional[HybridCustomerInstancesSettingsTypeDef] = None
 
@@ -1184,7 +1186,7 @@ class HybridUpdateInfoEntryTypeDef(BaseValidatorModel):
     PreviousValue: Optional[HybridUpdateValueTypeDef] = None
     StartTime: Optional[datetime] = None
     LastUpdatedDateTime: Optional[datetime] = None
-    AssessmentId: Optional[str] = None
+    AssessmentId: Optional[Annotated[str, _aws_pattern("Ds", "AssessmentId")]] = None
 
 
 # This class is the output for the 'list_ip_routes' function.
@@ -1209,7 +1211,7 @@ class ListSchemaExtensionsResultTypeDef(BaseValidatorModel):
 
 
 class UpdateDirectorySetupRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     UpdateType: UpdateTypeType
     OSUpdateSettings: Optional[OSUpdateSettingsTypeDef] = None
     DirectorySizeUpdateSettings: Optional[DirectorySizeUpdateSettingsTypeDef] = None
@@ -1226,13 +1228,13 @@ RadiusSettingsUnionTypeDef = Union[RadiusSettingsOutputTypeDef, RadiusSettingsTy
 
 # This class is the input for the 'update_settings' function.
 class UpdateSettingsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     Settings: List[SettingTypeDef]
 
 
 # This class is the input for the 'share_directory' function.
 class ShareDirectoryRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     ShareTarget: ShareTargetTypeDef
     ShareMethod: ShareMethodType
     ShareNotes: Optional[str] = None
@@ -1240,7 +1242,7 @@ class ShareDirectoryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'unshare_directory' function.
 class UnshareDirectoryRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     UnshareTarget: UnshareTargetTypeDef
 
 
@@ -1264,16 +1266,16 @@ class DescribeCertificateResultTypeDef(BaseValidatorModel):
 
 
 class DirectoryDescriptionTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    Name: Optional[str] = None
-    ShortName: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryName")]] = None
+    ShortName: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryShortName")]] = None
     Size: Optional[DirectorySizeType] = None
     Edition: Optional[DirectoryEditionType] = None
-    Alias: Optional[str] = None
+    Alias: Optional[Annotated[str, _aws_pattern("Ds", "AliasName")]] = None
     AccessUrl: Optional[str] = None
-    Description: Optional[str] = None
-    DnsIpAddrs: Optional[List[str]] = None
-    DnsIpv6Addrs: Optional[List[str]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Ds", "Description")]] = None
+    DnsIpAddrs: Optional[List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]] = None
+    DnsIpv6Addrs: Optional[List[Annotated[str, _aws_pattern("Ds", "Ipv6Addr")]]] = None
     Stage: Optional[DirectoryStageType] = None
     ShareStatus: Optional[ShareStatusType] = None
     ShareMethod: Optional[ShareMethodType] = None
@@ -1303,26 +1305,26 @@ class DescribeRegionsResultTypeDef(BaseValidatorModel):
 
 
 class AddRegionRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     RegionName: str
     VPCSettings: DirectoryVpcSettingsUnionTypeDef
 
 
 class AssessmentConfigurationTypeDef(BaseValidatorModel):
-    CustomerDnsIps: List[str]
-    DnsName: str
+    CustomerDnsIps: List[Annotated[str, _aws_pattern("Ds", "IpAddr")]]
+    DnsName: Annotated[str, _aws_pattern("Ds", "DirectoryName")]
     VpcSettings: DirectoryVpcSettingsUnionTypeDef
-    InstanceIds: List[str]
-    SecurityGroupIds: Optional[List[str]] = None
+    InstanceIds: List[Annotated[str, _aws_pattern("Ds", "AssessmentInstanceId")]]
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Ds", "SecurityGroupId")]]] = None
 
 
 # This class is the input for the 'create_directory' function.
 class CreateDirectoryRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Password: str
+    Name: Annotated[str, _aws_pattern("Ds", "DirectoryName")]
+    Password: Annotated[str, _aws_pattern("Ds", "Password")]
     Size: DirectorySizeType
-    ShortName: Optional[str] = None
-    Description: Optional[str] = None
+    ShortName: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryShortName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Ds", "Description")]] = None
     VpcSettings: Optional[DirectoryVpcSettingsUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
     NetworkType: Optional[NetworkTypeType] = None
@@ -1330,11 +1332,11 @@ class CreateDirectoryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_microsoft_ad' function.
 class CreateMicrosoftADRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Password: str
+    Name: Annotated[str, _aws_pattern("Ds", "DirectoryName")]
+    Password: Annotated[str, _aws_pattern("Ds", "Password")]
     VpcSettings: DirectoryVpcSettingsUnionTypeDef
-    ShortName: Optional[str] = None
-    Description: Optional[str] = None
+    ShortName: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryShortName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Ds", "Description")]] = None
     Edition: Optional[DirectoryEditionType] = None
     Tags: Optional[List[TagTypeDef]] = None
     NetworkType: Optional[NetworkTypeType] = None
@@ -1357,12 +1359,12 @@ class UpdateInfoEntryTypeDef(BaseValidatorModel):
 
 
 class EnableRadiusRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     RadiusSettings: RadiusSettingsUnionTypeDef
 
 
 class UpdateRadiusRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Ds", "DirectoryId")]
     RadiusSettings: RadiusSettingsUnionTypeDef
 
 
@@ -1376,7 +1378,7 @@ class DescribeDirectoriesResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_ad_assessment' function.
 class StartADAssessmentRequestTypeDef(BaseValidatorModel):
     AssessmentConfiguration: Optional[AssessmentConfigurationTypeDef] = None
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Ds", "DirectoryId")]] = None
 
 
 # This class is the output for the 'describe_hybrid_ad_update' function.

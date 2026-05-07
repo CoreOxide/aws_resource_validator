@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.codeartifact.codeartifact_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,17 +41,17 @@ except ImportError:  # pragma: no cover
 
 
 class AssetSummaryTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codeartifact", "AssetName")]
     size: Optional[int] = None
     hashes: Optional[Dict[HashAlgorithmType, str]] = None
 
 
 # This class is the input for the 'associate_external_connection' function.
 class AssociateExternalConnectionRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    externalConnection: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
+    externalConnection: Annotated[str, _aws_pattern("Codeartifact", "ExternalConnectionName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -62,8 +64,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 class AssociatedPackageTypeDef(BaseValidatorModel):
     format: Optional[PackageFormatType] = None
-    namespace: Optional[str] = None
-    package: Optional[str] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
+    package: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageName")]] = None
     associationType: Optional[PackageGroupAssociationTypeType] = None
 
 
@@ -72,14 +74,14 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'copy_package_versions' function.
 class CopyPackageVersionsRequestTypeDef(BaseValidatorModel):
-    domain: str
-    sourceRepository: str
-    destinationRepository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    sourceRepository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
+    destinationRepository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    versions: Optional[List[str]] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
+    versions: Optional[List[Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]]] = None
     versionRevisions: Optional[Dict[str, str]] = None
     allowOverwrite: Optional[bool] = None
     includeFromUpstream: Optional[bool] = None
@@ -96,225 +98,225 @@ class SuccessfulPackageVersionInfoTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("Codeartifact", "TagKey")]
+    value: Annotated[str, _aws_pattern("Codeartifact", "TagValue")]
 
 
 class DomainDescriptionTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    owner: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codeartifact", "DomainName")]] = None
+    owner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
     status: Optional[DomainStatusType] = None
     createdTime: Optional[datetime] = None
-    encryptionKey: Optional[str] = None
+    encryptionKey: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
     repositoryCount: Optional[int] = None
     assetSizeBytes: Optional[int] = None
-    s3BucketArn: Optional[str] = None
+    s3BucketArn: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
 
 
 class UpstreamRepositoryTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
 
 
 # This class is the input for the 'delete_domain_permissions_policy' function.
 class DeleteDomainPermissionsPolicyRequestTypeDef(BaseValidatorModel):
-    domain: str
-    domainOwner: Optional[str] = None
-    policyRevision: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    policyRevision: Optional[Annotated[str, _aws_pattern("Codeartifact", "PolicyRevision")]] = None
 
 
 class ResourcePolicyTypeDef(BaseValidatorModel):
-    resourceArn: Optional[str] = None
-    revision: Optional[str] = None
-    document: Optional[str] = None
+    resourceArn: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
+    revision: Optional[Annotated[str, _aws_pattern("Codeartifact", "PolicyRevision")]] = None
+    document: Optional[Annotated[str, _aws_pattern("Codeartifact", "PolicyDocument")]] = None
 
 
 # This class is the input for the 'delete_domain' function.
 class DeleteDomainRequestTypeDef(BaseValidatorModel):
-    domain: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
 
 
 # This class is the input for the 'delete_package_group' function.
 class DeletePackageGroupRequestTypeDef(BaseValidatorModel):
-    domain: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
     packageGroup: str
-    domainOwner: Optional[str] = None
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
 
 
 # This class is the input for the 'delete_package' function.
 class DeletePackageRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
 
 
 # This class is the input for the 'delete_package_versions' function.
 class DeletePackageVersionsRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    versions: List[str]
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    versions: List[Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
     expectedStatus: Optional[PackageVersionStatusType] = None
 
 
 # This class is the input for the 'delete_repository_permissions_policy' function.
 class DeleteRepositoryPermissionsPolicyRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    domainOwner: Optional[str] = None
-    policyRevision: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    policyRevision: Optional[Annotated[str, _aws_pattern("Codeartifact", "PolicyRevision")]] = None
 
 
 # This class is the input for the 'delete_repository' function.
 class DeleteRepositoryRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
 
 
 # This class is the input for the 'describe_domain' function.
 class DescribeDomainRequestTypeDef(BaseValidatorModel):
-    domain: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
 
 
 # This class is the input for the 'describe_package_group' function.
 class DescribePackageGroupRequestTypeDef(BaseValidatorModel):
-    domain: str
-    packageGroup: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    packageGroup: Annotated[str, _aws_pattern("Codeartifact", "PackageGroupPattern")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
 
 
 # This class is the input for the 'describe_package' function.
 class DescribePackageRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
 
 
 # This class is the input for the 'describe_package_version' function.
 class DescribePackageVersionRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    packageVersion: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    packageVersion: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
 
 
 # This class is the input for the 'describe_repository' function.
 class DescribeRepositoryRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
 
 
 # This class is the input for the 'disassociate_external_connection' function.
 class DisassociateExternalConnectionRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    externalConnection: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
+    externalConnection: Annotated[str, _aws_pattern("Codeartifact", "ExternalConnectionName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
 
 
 # This class is the input for the 'dispose_package_versions' function.
 class DisposePackageVersionsRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    versions: List[str]
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    versions: List[Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
     versionRevisions: Optional[Dict[str, str]] = None
     expectedStatus: Optional[PackageVersionStatusType] = None
 
 
 class DomainEntryPointTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
-    externalConnectionName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]] = None
+    externalConnectionName: Optional[Annotated[str, _aws_pattern("Codeartifact", "ExternalConnectionName")]] = None
 
 
 class DomainSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    owner: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codeartifact", "DomainName")]] = None
+    owner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
     status: Optional[DomainStatusType] = None
     createdTime: Optional[datetime] = None
-    encryptionKey: Optional[str] = None
+    encryptionKey: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
 
 
 # This class is the input for the 'get_associated_package_group' function.
 class GetAssociatedPackageGroupRequestTypeDef(BaseValidatorModel):
-    domain: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
     format: PackageFormatType
-    package: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
 
 
 # This class is the input for the 'get_authorization_token' function.
 class GetAuthorizationTokenRequestTypeDef(BaseValidatorModel):
-    domain: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
     durationSeconds: Optional[int] = None
 
 
 # This class is the input for the 'get_domain_permissions_policy' function.
 class GetDomainPermissionsPolicyRequestTypeDef(BaseValidatorModel):
-    domain: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
 
 
 # This class is the input for the 'get_package_version_asset' function.
 class GetPackageVersionAssetRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    packageVersion: str
-    asset: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    packageVersionRevision: Optional[str] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    packageVersion: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
+    asset: Annotated[str, _aws_pattern("Codeartifact", "AssetName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
+    packageVersionRevision: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageVersionRevision")]] = None
 
 
 # This class is the input for the 'get_package_version_readme' function.
 class GetPackageVersionReadmeRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    packageVersion: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    packageVersion: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
 
 
 # This class is the input for the 'get_repository_endpoint' function.
 class GetRepositoryEndpointRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    domainOwner: Optional[str] = None
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
     endpointType: Optional[EndpointTypeType] = None
 
 
 # This class is the input for the 'get_repository_permissions_policy' function.
 class GetRepositoryPermissionsPolicyRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
 
 
 class LicenseInfoTypeDef(BaseValidatorModel):
@@ -330,149 +332,149 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_allowed_repositories_for_group' function.
 class ListAllowedRepositoriesForGroupRequestTypeDef(BaseValidatorModel):
-    domain: str
-    packageGroup: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    packageGroup: Annotated[str, _aws_pattern("Codeartifact", "PackageGroupPattern")]
     originRestrictionType: PackageGroupOriginRestrictionTypeType
-    domainOwner: Optional[str] = None
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_associated_packages' function.
 class ListAssociatedPackagesRequestTypeDef(BaseValidatorModel):
-    domain: str
-    packageGroup: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    packageGroup: Annotated[str, _aws_pattern("Codeartifact", "PackageGroupPattern")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
     preview: Optional[bool] = None
 
 
 # This class is the input for the 'list_domains' function.
 class ListDomainsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_package_groups' function.
 class ListPackageGroupsRequestTypeDef(BaseValidatorModel):
-    domain: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    prefix: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
+    prefix: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageGroupPatternPrefix")]] = None
 
 
 # This class is the input for the 'list_package_version_assets' function.
 class ListPackageVersionAssetsRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    packageVersion: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    packageVersion: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_package_version_dependencies' function.
 class ListPackageVersionDependenciesRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    packageVersion: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    nextToken: Optional[str] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    packageVersion: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 class PackageDependencyTypeDef(BaseValidatorModel):
-    namespace: Optional[str] = None
-    package: Optional[str] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
+    package: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageName")]] = None
     dependencyType: Optional[str] = None
     versionRequirement: Optional[str] = None
 
 
 # This class is the input for the 'list_package_versions' function.
 class ListPackageVersionsRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
     status: Optional[PackageVersionStatusType] = None
     sortBy: Optional[Literal["PUBLISHED_TIME"]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
     originType: Optional[PackageVersionOriginTypeType] = None
 
 
 # This class is the input for the 'list_packages' function.
 class ListPackagesRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
     format: Optional[PackageFormatType] = None
-    namespace: Optional[str] = None
-    packagePrefix: Optional[str] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
+    packagePrefix: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
     publish: Optional[AllowPublishType] = None
     upstream: Optional[AllowUpstreamType] = None
 
 
 # This class is the input for the 'list_repositories_in_domain' function.
 class ListRepositoriesInDomainRequestTypeDef(BaseValidatorModel):
-    domain: str
-    domainOwner: Optional[str] = None
-    administratorAccount: Optional[str] = None
-    repositoryPrefix: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    administratorAccount: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    repositoryPrefix: Optional[Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 class RepositorySummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    administratorAccount: Optional[str] = None
-    domainName: Optional[str] = None
-    domainOwner: Optional[str] = None
-    arn: Optional[str] = None
-    description: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]] = None
+    administratorAccount: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    domainName: Optional[Annotated[str, _aws_pattern("Codeartifact", "DomainName")]] = None
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Codeartifact", "Description")]] = None
     createdTime: Optional[datetime] = None
 
 
 # This class is the input for the 'list_repositories' function.
 class ListRepositoriesRequestTypeDef(BaseValidatorModel):
-    repositoryPrefix: Optional[str] = None
+    repositoryPrefix: Optional[Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_sub_package_groups' function.
 class ListSubPackageGroupsRequestTypeDef(BaseValidatorModel):
-    domain: str
-    packageGroup: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    packageGroup: Annotated[str, _aws_pattern("Codeartifact", "PackageGroupPattern")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Codeartifact", "Arn")]
 
 
 class PackageGroupAllowedRepositoryTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]] = None
     originRestrictionType: Optional[PackageGroupOriginRestrictionTypeType] = None
 
 
 class PackageGroupReferenceTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    pattern: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
+    pattern: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageGroupPattern")]] = None
 
 
 class PackageOriginRestrictionsTypeDef(BaseValidatorModel):
@@ -482,55 +484,55 @@ class PackageOriginRestrictionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_domain_permissions_policy' function.
 class PutDomainPermissionsPolicyRequestTypeDef(BaseValidatorModel):
-    domain: str
-    policyDocument: str
-    domainOwner: Optional[str] = None
-    policyRevision: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    policyDocument: Annotated[str, _aws_pattern("Codeartifact", "PolicyDocument")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    policyRevision: Optional[Annotated[str, _aws_pattern("Codeartifact", "PolicyRevision")]] = None
 
 
 # This class is the input for the 'put_repository_permissions_policy' function.
 class PutRepositoryPermissionsPolicyRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    policyDocument: str
-    domainOwner: Optional[str] = None
-    policyRevision: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
+    policyDocument: Annotated[str, _aws_pattern("Codeartifact", "PolicyDocument")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    policyRevision: Optional[Annotated[str, _aws_pattern("Codeartifact", "PolicyRevision")]] = None
 
 
 class RepositoryExternalConnectionInfoTypeDef(BaseValidatorModel):
-    externalConnectionName: Optional[str] = None
+    externalConnectionName: Optional[Annotated[str, _aws_pattern("Codeartifact", "ExternalConnectionName")]] = None
     packageFormat: Optional[PackageFormatType] = None
     status: Optional[Literal["Available"]] = None
 
 
 class UpstreamRepositoryInfoTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Codeartifact", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Codeartifact", "TagKey")]]
 
 
 # This class is the input for the 'update_package_group' function.
 class UpdatePackageGroupRequestTypeDef(BaseValidatorModel):
-    domain: str
-    packageGroup: str
-    domainOwner: Optional[str] = None
-    contactInfo: Optional[str] = None
-    description: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    packageGroup: Annotated[str, _aws_pattern("Codeartifact", "PackageGroupPattern")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    contactInfo: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageGroupContactInfo")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Codeartifact", "Description")]] = None
 
 
 # This class is the input for the 'update_package_versions_status' function.
 class UpdatePackageVersionsStatusRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    versions: List[str]
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    versions: List[Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]]
     targetStatus: PackageVersionStatusType
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
     versionRevisions: Optional[Dict[str, str]] = None
     expectedStatus: Optional[PackageVersionStatusType] = None
 
@@ -545,19 +547,19 @@ class GetAuthorizationTokenResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_package_version_asset' function.
 class GetPackageVersionAssetResultTypeDef(BaseValidatorModel):
     asset: StreamingBody
-    assetName: str
-    packageVersion: str
-    packageVersionRevision: str
+    assetName: Annotated[str, _aws_pattern("Codeartifact", "AssetName")]
+    packageVersion: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
+    packageVersionRevision: Annotated[str, _aws_pattern("Codeartifact", "PackageVersionRevision")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_package_version_readme' function.
 class GetPackageVersionReadmeResultTypeDef(BaseValidatorModel):
     format: PackageFormatType
-    namespace: str
-    package: str
-    version: str
-    versionRevision: str
+    namespace: Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    version: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
+    versionRevision: Annotated[str, _aws_pattern("Codeartifact", "PackageVersionRevision")]
     readme: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -570,30 +572,30 @@ class GetRepositoryEndpointResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_allowed_repositories_for_group' function.
 class ListAllowedRepositoriesForGroupResultTypeDef(BaseValidatorModel):
-    allowedRepositories: List[str]
+    allowedRepositories: List[Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_package_version_assets' function.
 class ListPackageVersionAssetsResultTypeDef(BaseValidatorModel):
     format: PackageFormatType
-    namespace: str
-    package: str
-    version: str
-    versionRevision: str
+    namespace: Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    version: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
+    versionRevision: Annotated[str, _aws_pattern("Codeartifact", "PackageVersionRevision")]
     assets: List[AssetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the output for the 'publish_package_version' function.
 class PublishPackageVersionResultTypeDef(BaseValidatorModel):
     format: PackageFormatType
-    namespace: str
-    package: str
-    version: str
-    versionRevision: str
+    namespace: Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    version: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
+    versionRevision: Annotated[str, _aws_pattern("Codeartifact", "PackageVersionRevision")]
     status: PackageVersionStatusType
     asset: AssetSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -603,21 +605,21 @@ class PublishPackageVersionResultTypeDef(BaseValidatorModel):
 class ListAssociatedPackagesResultTypeDef(BaseValidatorModel):
     packages: List[AssociatedPackageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the input for the 'publish_package_version' function.
 class PublishPackageVersionRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
-    packageVersion: str
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    packageVersion: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
     assetContent: BlobTypeDef
-    assetName: str
-    assetSHA256: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    assetName: Annotated[str, _aws_pattern("Codeartifact", "AssetName")]
+    assetSHA256: Annotated[str, _aws_pattern("Codeartifact", "SHA256")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
     unfinished: Optional[bool] = None
 
 
@@ -651,18 +653,18 @@ class UpdatePackageVersionsStatusResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_domain' function.
 class CreateDomainRequestTypeDef(BaseValidatorModel):
-    domain: str
-    encryptionKey: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    encryptionKey: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_package_group' function.
 class CreatePackageGroupRequestTypeDef(BaseValidatorModel):
-    domain: str
-    packageGroup: str
-    domainOwner: Optional[str] = None
-    contactInfo: Optional[str] = None
-    description: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    packageGroup: Annotated[str, _aws_pattern("Codeartifact", "PackageGroupPattern")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    contactInfo: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageGroupContactInfo")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Codeartifact", "Description")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -673,7 +675,7 @@ class ListTagsForResourceResultTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Codeartifact", "Arn")]
     tags: List[TagTypeDef]
 
 
@@ -697,20 +699,20 @@ class DescribeDomainResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_repository' function.
 class CreateRepositoryRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    domainOwner: Optional[str] = None
-    description: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Codeartifact", "Description")]] = None
     upstreams: Optional[List[UpstreamRepositoryTypeDef]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_repository' function.
 class UpdateRepositoryRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    domainOwner: Optional[str] = None
-    description: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Codeartifact", "Description")]] = None
     upstreams: Optional[List[UpstreamRepositoryTypeDef]] = None
 
 
@@ -759,7 +761,7 @@ class PackageVersionOriginTypeDef(BaseValidatorModel):
 class ListDomainsResultTypeDef(BaseValidatorModel):
     domains: List[DomainSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 class ListAllowedRepositoriesForGroupRequestPaginateTypeDef(BaseValidatorModel):
@@ -848,34 +850,34 @@ class ListSubPackageGroupsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_package_version_dependencies' function.
 class ListPackageVersionDependenciesResultTypeDef(BaseValidatorModel):
     format: PackageFormatType
-    namespace: str
-    package: str
-    version: str
-    versionRevision: str
+    namespace: Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
+    version: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
+    versionRevision: Annotated[str, _aws_pattern("Codeartifact", "PackageVersionRevision")]
     dependencies: List[PackageDependencyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_repositories_in_domain' function.
 class ListRepositoriesInDomainResultTypeDef(BaseValidatorModel):
     repositories: List[RepositorySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_repositories' function.
 class ListRepositoriesResultTypeDef(BaseValidatorModel):
     repositories: List[RepositorySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the input for the 'update_package_group_origin_configuration' function.
 class UpdatePackageGroupOriginConfigurationRequestTypeDef(BaseValidatorModel):
-    domain: str
-    packageGroup: str
-    domainOwner: Optional[str] = None
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    packageGroup: Annotated[str, _aws_pattern("Codeartifact", "PackageGroupPattern")]
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
     restrictions: Optional[Dict[PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionModeType]] = None
     addAllowedRepositories: Optional[List[PackageGroupAllowedRepositoryTypeDef]] = None
     removeAllowedRepositories: Optional[List[PackageGroupAllowedRepositoryTypeDef]] = None
@@ -894,22 +896,22 @@ class PackageOriginConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_package_origin_configuration' function.
 class PutPackageOriginConfigurationRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
+    domain: Annotated[str, _aws_pattern("Codeartifact", "DomainName")]
+    repository: Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]
     format: PackageFormatType
-    package: str
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
     restrictions: PackageOriginRestrictionsTypeDef
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
 
 
 class RepositoryDescriptionTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    administratorAccount: Optional[str] = None
-    domainName: Optional[str] = None
-    domainOwner: Optional[str] = None
-    arn: Optional[str] = None
-    description: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codeartifact", "RepositoryName")]] = None
+    administratorAccount: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    domainName: Optional[Annotated[str, _aws_pattern("Codeartifact", "DomainName")]] = None
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Codeartifact", "Description")]] = None
     upstreams: Optional[List[UpstreamRepositoryInfoTypeDef]] = None
     externalConnections: Optional[List[RepositoryExternalConnectionInfoTypeDef]] = None
     createdTime: Optional[datetime] = None
@@ -917,24 +919,24 @@ class RepositoryDescriptionTypeDef(BaseValidatorModel):
 
 class PackageVersionDescriptionTypeDef(BaseValidatorModel):
     format: Optional[PackageFormatType] = None
-    namespace: Optional[str] = None
-    packageName: Optional[str] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
+    packageName: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageName")]] = None
     displayName: Optional[str] = None
-    version: Optional[str] = None
+    version: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]] = None
     summary: Optional[str] = None
     homePage: Optional[str] = None
     sourceCodeRepository: Optional[str] = None
     publishedTime: Optional[datetime] = None
     licenses: Optional[List[LicenseInfoTypeDef]] = None
-    revision: Optional[str] = None
+    revision: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageVersionRevision")]] = None
     status: Optional[PackageVersionStatusType] = None
     origin: Optional[PackageVersionOriginTypeDef] = None
 
 
 class PackageVersionSummaryTypeDef(BaseValidatorModel):
-    version: str
+    version: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
     status: PackageVersionStatusType
-    revision: Optional[str] = None
+    revision: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageVersionRevision")]] = None
     origin: Optional[PackageVersionOriginTypeDef] = None
 
 
@@ -944,15 +946,15 @@ class PackageGroupOriginConfigurationTypeDef(BaseValidatorModel):
 
 class PackageDescriptionTypeDef(BaseValidatorModel):
     format: Optional[PackageFormatType] = None
-    namespace: Optional[str] = None
-    name: Optional[str] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageName")]] = None
     originConfiguration: Optional[PackageOriginConfigurationTypeDef] = None
 
 
 class PackageSummaryTypeDef(BaseValidatorModel):
     format: Optional[PackageFormatType] = None
-    namespace: Optional[str] = None
-    package: Optional[str] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]] = None
+    package: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageName")]] = None
     originConfiguration: Optional[PackageOriginConfigurationTypeDef] = None
 
 
@@ -1006,35 +1008,35 @@ class DescribePackageVersionResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_package_versions' function.
 class ListPackageVersionsResultTypeDef(BaseValidatorModel):
-    defaultDisplayVersion: str
+    defaultDisplayVersion: Annotated[str, _aws_pattern("Codeartifact", "PackageVersion")]
     format: PackageFormatType
-    namespace: str
-    package: str
+    namespace: Annotated[str, _aws_pattern("Codeartifact", "PackageNamespace")]
+    package: Annotated[str, _aws_pattern("Codeartifact", "PackageName")]
     versions: List[PackageVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 class PackageGroupDescriptionTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    pattern: Optional[str] = None
-    domainName: Optional[str] = None
-    domainOwner: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
+    pattern: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageGroupPattern")]] = None
+    domainName: Optional[Annotated[str, _aws_pattern("Codeartifact", "DomainName")]] = None
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
     createdTime: Optional[datetime] = None
-    contactInfo: Optional[str] = None
-    description: Optional[str] = None
+    contactInfo: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageGroupContactInfo")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Codeartifact", "Description")]] = None
     originConfiguration: Optional[PackageGroupOriginConfigurationTypeDef] = None
     parent: Optional[PackageGroupReferenceTypeDef] = None
 
 
 class PackageGroupSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    pattern: Optional[str] = None
-    domainName: Optional[str] = None
-    domainOwner: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Codeartifact", "Arn")]] = None
+    pattern: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageGroupPattern")]] = None
+    domainName: Optional[Annotated[str, _aws_pattern("Codeartifact", "DomainName")]] = None
+    domainOwner: Optional[Annotated[str, _aws_pattern("Codeartifact", "AccountId")]] = None
     createdTime: Optional[datetime] = None
-    contactInfo: Optional[str] = None
-    description: Optional[str] = None
+    contactInfo: Optional[Annotated[str, _aws_pattern("Codeartifact", "PackageGroupContactInfo")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Codeartifact", "Description")]] = None
     originConfiguration: Optional[PackageGroupOriginConfigurationTypeDef] = None
     parent: Optional[PackageGroupReferenceTypeDef] = None
 
@@ -1055,7 +1057,7 @@ class DeletePackageResultTypeDef(BaseValidatorModel):
 class ListPackagesResultTypeDef(BaseValidatorModel):
     packages: List[PackageSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the output for the 'create_package_group' function.
@@ -1102,11 +1104,11 @@ class UpdatePackageGroupResultTypeDef(BaseValidatorModel):
 class ListPackageGroupsResultTypeDef(BaseValidatorModel):
     packageGroups: List[PackageGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_sub_package_groups' function.
 class ListSubPackageGroupsResultTypeDef(BaseValidatorModel):
     packageGroups: List[PackageGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeartifact", "PaginationToken")]] = None

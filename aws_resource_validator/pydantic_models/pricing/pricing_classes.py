@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.pricing.pricing_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -85,7 +87,7 @@ class GetAttributeValuesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_price_list_file_url' function.
 class GetPriceListFileUrlRequestTypeDef(BaseValidatorModel):
-    PriceListArn: str
+    PriceListArn: Annotated[str, _aws_pattern("Pricing", "PriceListArn")]
     FileFormat: str
 
 
@@ -93,9 +95,9 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class PriceListTypeDef(BaseValidatorModel):
-    PriceListArn: Optional[str] = None
+    PriceListArn: Optional[Annotated[str, _aws_pattern("Pricing", "PriceListArn")]] = None
     RegionCode: Optional[str] = None
-    CurrencyCode: Optional[str] = None
+    CurrencyCode: Optional[Annotated[str, _aws_pattern("Pricing", "CurrencyCode")]] = None
     FileFormats: Optional[List[str]] = None
 
 
@@ -168,7 +170,7 @@ class ListPriceListsRequestPaginateTypeDef(BaseValidatorModel):
 class ListPriceListsRequestTypeDef(BaseValidatorModel):
     ServiceCode: str
     EffectiveDate: TimestampTypeDef
-    CurrencyCode: str
+    CurrencyCode: Annotated[str, _aws_pattern("Pricing", "CurrencyCode")]
     RegionCode: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None

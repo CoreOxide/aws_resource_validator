@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.opensearch.opensearch_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -64,14 +66,14 @@ class OptionStatusTypeDef(BaseValidatorModel):
 
 
 class AWSDomainInformationTypeDef(BaseValidatorModel):
-    DomainName: str
-    OwnerId: Optional[str] = None
-    Region: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    OwnerId: Optional[Annotated[str, _aws_pattern("Opensearch", "OwnerId")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Opensearch", "Region")]] = None
 
 
 # This class is the input for the 'accept_inbound_connection' function.
 class AcceptInboundConnectionRequestTypeDef(BaseValidatorModel):
-    ConnectionId: str
+    ConnectionId: Annotated[str, _aws_pattern("Opensearch", "ConnectionId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -83,8 +85,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Opensearch", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Opensearch", "TagValue")]
 
 
 class AdditionalLimitTypeDef(BaseValidatorModel):
@@ -94,33 +96,35 @@ class AdditionalLimitTypeDef(BaseValidatorModel):
 
 class IAMFederationOptionsInputTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    SubjectKey: Optional[str] = None
-    RolesKey: Optional[str] = None
+    SubjectKey: Optional[Annotated[str, _aws_pattern("Opensearch", "IAMFederationSubjectKey")]] = None
+    RolesKey: Optional[Annotated[str, _aws_pattern("Opensearch", "IAMFederationRolesKey")]] = None
 
 
 class JWTOptionsInputTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     SubjectKey: Optional[str] = None
     RolesKey: Optional[str] = None
+    JwksUrl: Optional[Annotated[str, _aws_pattern("Opensearch", "JwksUrl")]] = None
     PublicKey: Optional[str] = None
 
 
 class MasterUserOptionsTypeDef(BaseValidatorModel):
-    MasterUserARN: Optional[str] = None
-    MasterUserName: Optional[str] = None
-    MasterUserPassword: Optional[str] = None
+    MasterUserARN: Optional[Annotated[str, _aws_pattern("Opensearch", "ARN")]] = None
+    MasterUserName: Optional[Annotated[str, _aws_pattern("Opensearch", "Username")]] = None
+    MasterUserPassword: Optional[Annotated[str, _aws_pattern("Opensearch", "Password")]] = None
 
 
 class IAMFederationOptionsOutputTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    SubjectKey: Optional[str] = None
-    RolesKey: Optional[str] = None
+    SubjectKey: Optional[Annotated[str, _aws_pattern("Opensearch", "IAMFederationSubjectKey")]] = None
+    RolesKey: Optional[Annotated[str, _aws_pattern("Opensearch", "IAMFederationRolesKey")]] = None
 
 
 class JWTOptionsOutputTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     SubjectKey: Optional[str] = None
     RolesKey: Optional[str] = None
+    JwksUrl: Optional[Annotated[str, _aws_pattern("Opensearch", "JwksUrl")]] = None
     PublicKey: Optional[str] = None
 
 
@@ -130,9 +134,9 @@ class AppConfigTypeDef(BaseValidatorModel):
 
 
 class ApplicationSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearch", "Id")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Opensearch", "ARN")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearch", "ApplicationName")]] = None
     endpoint: Optional[str] = None
     status: Optional[ApplicationStatusType] = None
     createdAt: Optional[datetime] = None
@@ -176,15 +180,15 @@ class AutoTuneStatusTypeDef(BaseValidatorModel):
 class AvailabilityZoneInfoTypeDef(BaseValidatorModel):
     AvailabilityZoneName: Optional[str] = None
     ZoneStatus: Optional[ZoneStatusType] = None
-    ConfiguredDataNodeCount: Optional[str] = None
-    AvailableDataNodeCount: Optional[str] = None
-    TotalShards: Optional[str] = None
-    TotalUnAssignedShards: Optional[str] = None
+    ConfiguredDataNodeCount: Optional[Annotated[str, _aws_pattern("Opensearch", "NumberOfNodes")]] = None
+    AvailableDataNodeCount: Optional[Annotated[str, _aws_pattern("Opensearch", "NumberOfNodes")]] = None
+    TotalShards: Optional[Annotated[str, _aws_pattern("Opensearch", "NumberOfShards")]] = None
+    TotalUnAssignedShards: Optional[Annotated[str, _aws_pattern("Opensearch", "NumberOfShards")]] = None
 
 
 # This class is the input for the 'cancel_domain_config_change' function.
 class CancelDomainConfigChangeRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     DryRun: Optional[bool] = None
 
 
@@ -196,7 +200,7 @@ class CancelledChangePropertyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_service_software_update' function.
 class CancelServiceSoftwareUpdateRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 class ServiceSoftwareOptionsTypeDef(BaseValidatorModel):
@@ -228,7 +232,7 @@ class CapabilityFailureTypeDef(BaseValidatorModel):
 
 
 class ChangeProgressDetailsTypeDef(BaseValidatorModel):
-    ChangeId: Optional[str] = None
+    ChangeId: Optional[Annotated[str, _aws_pattern("Opensearch", "GUID")]] = None
     Message: Optional[str] = None
     ConfigChangeStatus: Optional[ConfigChangeStatusType] = None
     InitiatedBy: Optional[InitiatedByType] = None
@@ -244,7 +248,7 @@ class ChangeProgressStageTypeDef(BaseValidatorModel):
 
 
 class CloudWatchDirectQueryDataSourceTypeDef(BaseValidatorModel):
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceRoleArn")]
 
 
 class ColdStorageOptionsTypeDef(BaseValidatorModel):
@@ -257,14 +261,14 @@ class ZoneAwarenessConfigTypeDef(BaseValidatorModel):
 
 class CognitoOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    UserPoolId: Optional[str] = None
-    IdentityPoolId: Optional[str] = None
-    RoleArn: Optional[str] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("Opensearch", "UserPoolId")]] = None
+    IdentityPoolId: Optional[Annotated[str, _aws_pattern("Opensearch", "IdentityPoolId")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Opensearch", "RoleArn")]] = None
 
 
 class CompatibleVersionsMapTypeDef(BaseValidatorModel):
-    SourceVersion: Optional[str] = None
-    TargetVersions: Optional[List[str]] = None
+    SourceVersion: Optional[Annotated[str, _aws_pattern("Opensearch", "VersionString")]] = None
+    TargetVersions: Optional[List[Annotated[str, _aws_pattern("Opensearch", "VersionString")]]] = None
 
 
 class CrossClusterSearchConnectionPropertiesTypeDef(BaseValidatorModel):
@@ -272,22 +276,22 @@ class CrossClusterSearchConnectionPropertiesTypeDef(BaseValidatorModel):
 
 
 class DataSourceTypeDef(BaseValidatorModel):
-    dataSourceArn: Optional[str] = None
-    dataSourceDescription: Optional[str] = None
-    iamRoleForDataSourceArn: Optional[str] = None
+    dataSourceArn: Optional[Annotated[str, _aws_pattern("Opensearch", "ARN")]] = None
+    dataSourceDescription: Optional[Annotated[str, _aws_pattern("Opensearch", "DataSourceDescription")]] = None
+    iamRoleForDataSourceArn: Optional[Annotated[str, _aws_pattern("Opensearch", "RoleArn")]] = None
 
 
 class IamIdentityCenterOptionsInputTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
-    iamIdentityCenterInstanceArn: Optional[str] = None
-    iamRoleForIdentityCenterApplicationArn: Optional[str] = None
+    iamIdentityCenterInstanceArn: Optional[Annotated[str, _aws_pattern("Opensearch", "ARN")]] = None
+    iamRoleForIdentityCenterApplicationArn: Optional[Annotated[str, _aws_pattern("Opensearch", "RoleArn")]] = None
 
 
 class IamIdentityCenterOptionsTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
-    iamIdentityCenterInstanceArn: Optional[str] = None
-    iamRoleForIdentityCenterApplicationArn: Optional[str] = None
-    iamIdentityCenterApplicationArn: Optional[str] = None
+    iamIdentityCenterInstanceArn: Optional[Annotated[str, _aws_pattern("Opensearch", "ARN")]] = None
+    iamRoleForIdentityCenterApplicationArn: Optional[Annotated[str, _aws_pattern("Opensearch", "RoleArn")]] = None
+    iamIdentityCenterApplicationArn: Optional[Annotated[str, _aws_pattern("Opensearch", "ARN")]] = None
 
 
 class DeploymentStrategyOptionsTypeDef(BaseValidatorModel):
@@ -298,8 +302,8 @@ class DomainEndpointOptionsTypeDef(BaseValidatorModel):
     EnforceHTTPS: Optional[bool] = None
     TLSSecurityPolicy: Optional[TLSSecurityPolicyType] = None
     CustomEndpointEnabled: Optional[bool] = None
-    CustomEndpoint: Optional[str] = None
-    CustomEndpointCertificateArn: Optional[str] = None
+    CustomEndpoint: Optional[Annotated[str, _aws_pattern("Opensearch", "DomainNameFqdn")]] = None
+    CustomEndpointCertificateArn: Optional[Annotated[str, _aws_pattern("Opensearch", "ARN")]] = None
 
 
 class EBSOptionsTypeDef(BaseValidatorModel):
@@ -312,19 +316,19 @@ class EBSOptionsTypeDef(BaseValidatorModel):
 
 class EncryptionAtRestOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Opensearch", "KmsKeyId")]] = None
 
 
 class IdentityCenterOptionsInputTypeDef(BaseValidatorModel):
     EnabledAPIAccess: Optional[bool] = None
-    IdentityCenterInstanceARN: Optional[str] = None
-    IdentityCenterInstanceRegion: Optional[str] = None
+    IdentityCenterInstanceARN: Optional[Annotated[str, _aws_pattern("Opensearch", "IdentityCenterInstanceARN")]] = None
+    IdentityCenterInstanceRegion: Optional[Annotated[str, _aws_pattern("Opensearch", "Region")]] = None
     SubjectKey: Optional[SubjectKeyIdCOptionType] = None
     RolesKey: Optional[RolesKeyIdCOptionType] = None
 
 
 class LogPublishingOptionTypeDef(BaseValidatorModel):
-    CloudWatchLogsLogGroupArn: Optional[str] = None
+    CloudWatchLogsLogGroupArn: Optional[Annotated[str, _aws_pattern("Opensearch", "CloudWatchLogsLogGroupArn")]] = None
     Enabled: Optional[bool] = None
 
 
@@ -344,12 +348,13 @@ class SoftwareUpdateOptionsTypeDef(BaseValidatorModel):
 class VPCOptionsTypeDef(BaseValidatorModel):
     SubnetIds: Optional[List[str]] = None
     SecurityGroupIds: Optional[List[str]] = None
+    EgressEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'create_index' function.
 class CreateIndexRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    IndexName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    IndexName: Annotated[str, _aws_pattern("Opensearch", "IndexName")]
     IndexSchema: Dict[str, Any]
 
 
@@ -361,13 +366,13 @@ class OutboundConnectionStatusTypeDef(BaseValidatorModel):
 class PackageConfigurationTypeDef(BaseValidatorModel):
     LicenseRequirement: RequirementLevelType
     ConfigurationRequirement: RequirementLevelType
-    LicenseFilepath: Optional[str] = None
+    LicenseFilepath: Optional[Annotated[str, _aws_pattern("Opensearch", "LicenseFilepath")]] = None
     RequiresRestartForConfigurationUpdate: Optional[bool] = None
 
 
 class PackageEncryptionOptionsTypeDef(BaseValidatorModel):
     EncryptionEnabled: bool
-    KmsKeyIdentifier: Optional[str] = None
+    KmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("Opensearch", "KmsKeyId")]] = None
 
 
 class PackageSourceTypeDef(BaseValidatorModel):
@@ -380,94 +385,94 @@ class PackageVendingOptionsTypeDef(BaseValidatorModel):
 
 
 class S3GlueDataCatalogTypeDef(BaseValidatorModel):
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Opensearch", "RoleArn")]] = None
 
 
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearch", "Id")]
 
 
 # This class is the input for the 'delete_data_source' function.
 class DeleteDataSourceRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    Name: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    Name: Annotated[str, _aws_pattern("Opensearch", "DataSourceName")]
 
 
 # This class is the input for the 'delete_direct_query_data_source' function.
 class DeleteDirectQueryDataSourceRequestTypeDef(BaseValidatorModel):
-    DataSourceName: str
+    DataSourceName: Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceName")]
 
 
 # This class is the input for the 'delete_domain' function.
 class DeleteDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 # This class is the input for the 'delete_inbound_connection' function.
 class DeleteInboundConnectionRequestTypeDef(BaseValidatorModel):
-    ConnectionId: str
+    ConnectionId: Annotated[str, _aws_pattern("Opensearch", "ConnectionId")]
 
 
 # This class is the input for the 'delete_index' function.
 class DeleteIndexRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    IndexName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    IndexName: Annotated[str, _aws_pattern("Opensearch", "IndexName")]
 
 
 # This class is the input for the 'delete_outbound_connection' function.
 class DeleteOutboundConnectionRequestTypeDef(BaseValidatorModel):
-    ConnectionId: str
+    ConnectionId: Annotated[str, _aws_pattern("Opensearch", "ConnectionId")]
 
 
 # This class is the input for the 'delete_package' function.
 class DeletePackageRequestTypeDef(BaseValidatorModel):
-    PackageID: str
+    PackageID: Annotated[str, _aws_pattern("Opensearch", "PackageID")]
 
 
 # This class is the input for the 'delete_vpc_endpoint' function.
 class DeleteVpcEndpointRequestTypeDef(BaseValidatorModel):
-    VpcEndpointId: str
+    VpcEndpointId: Annotated[str, _aws_pattern("Opensearch", "VpcEndpointId")]
 
 
 class VpcEndpointSummaryTypeDef(BaseValidatorModel):
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Opensearch", "VpcEndpointId")]] = None
     VpcEndpointOwner: Optional[str] = None
-    DomainArn: Optional[str] = None
+    DomainArn: Optional[Annotated[str, _aws_pattern("Opensearch", "DomainArn")]] = None
     Status: Optional[VpcEndpointStatusType] = None
 
 
 # This class is the input for the 'deregister_capability' function.
 class DeregisterCapabilityRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    capabilityName: str
+    applicationId: Annotated[str, _aws_pattern("Opensearch", "ApplicationId")]
+    capabilityName: Annotated[str, _aws_pattern("Opensearch", "CapabilityName")]
 
 
 # This class is the input for the 'describe_domain_auto_tunes' function.
 class DescribeDomainAutoTunesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_domain_change_progress' function.
 class DescribeDomainChangeProgressRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ChangeId: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    ChangeId: Optional[Annotated[str, _aws_pattern("Opensearch", "GUID")]] = None
 
 
 # This class is the input for the 'describe_domain_config' function.
 class DescribeDomainConfigRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 # This class is the input for the 'describe_domain_health' function.
 class DescribeDomainHealthRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 # This class is the input for the 'describe_domain_nodes' function.
 class DescribeDomainNodesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 class DomainNodesStatusTypeDef(BaseValidatorModel):
@@ -483,18 +488,18 @@ class DomainNodesStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_domain' function.
 class DescribeDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 # This class is the input for the 'describe_domains' function.
 class DescribeDomainsRequestTypeDef(BaseValidatorModel):
-    DomainNames: List[str]
+    DomainNames: List[Annotated[str, _aws_pattern("Opensearch", "DomainName")]]
 
 
 # This class is the input for the 'describe_dry_run_progress' function.
 class DescribeDryRunProgressRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    DryRunId: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    DryRunId: Optional[Annotated[str, _aws_pattern("Opensearch", "GUID")]] = None
     LoadDryRunConfig: Optional[bool] = None
 
 
@@ -504,13 +509,13 @@ class DryRunResultsTypeDef(BaseValidatorModel):
 
 
 class FilterTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Values: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Opensearch", "NonEmptyString")]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Opensearch", "NonEmptyString")]]] = None
 
 
 class InsightEntityTypeDef(BaseValidatorModel):
     Type: InsightEntityTypeType
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Opensearch", "InsightEntityValue")]] = None
 
 
 class InsightFieldTypeDef(BaseValidatorModel):
@@ -522,59 +527,59 @@ class InsightFieldTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_instance_type_limits' function.
 class DescribeInstanceTypeLimitsRequestTypeDef(BaseValidatorModel):
     InstanceType: OpenSearchPartitionInstanceTypeType
-    EngineVersion: str
-    DomainName: Optional[str] = None
+    EngineVersion: Annotated[str, _aws_pattern("Opensearch", "VersionString")]
+    DomainName: Optional[Annotated[str, _aws_pattern("Opensearch", "DomainName")]] = None
 
 
 class DescribePackagesFilterTypeDef(BaseValidatorModel):
     Name: Optional[DescribePackagesFilterNameType] = None
-    Value: Optional[List[str]] = None
+    Value: Optional[List[Annotated[str, _aws_pattern("Opensearch", "DescribePackagesFilterValue")]]] = None
 
 
 # This class is the input for the 'describe_reserved_instance_offerings' function.
 class DescribeReservedInstanceOfferingsRequestTypeDef(BaseValidatorModel):
-    ReservedInstanceOfferingId: Optional[str] = None
+    ReservedInstanceOfferingId: Optional[Annotated[str, _aws_pattern("Opensearch", "GUID")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_reserved_instances' function.
 class DescribeReservedInstancesRequestTypeDef(BaseValidatorModel):
-    ReservedInstanceId: Optional[str] = None
+    ReservedInstanceId: Optional[Annotated[str, _aws_pattern("Opensearch", "GUID")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_vpc_endpoints' function.
 class DescribeVpcEndpointsRequestTypeDef(BaseValidatorModel):
-    VpcEndpointIds: List[str]
+    VpcEndpointIds: List[Annotated[str, _aws_pattern("Opensearch", "VpcEndpointId")]]
 
 
 class VpcEndpointErrorTypeDef(BaseValidatorModel):
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Opensearch", "VpcEndpointId")]] = None
     ErrorCode: Optional[VpcEndpointErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
 class PrometheusDirectQueryDataSourceTypeDef(BaseValidatorModel):
-    RoleArn: str
-    WorkspaceArn: str
+    RoleArn: Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceRoleArn")]
+    WorkspaceArn: Annotated[str, _aws_pattern("Opensearch", "AMPWorkspaceArn")]
 
 
 class SecurityLakeDirectQueryDataSourceTypeDef(BaseValidatorModel):
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceRoleArn")]
 
 
 # This class is the input for the 'dissociate_package' function.
 class DissociatePackageRequestTypeDef(BaseValidatorModel):
-    PackageID: str
-    DomainName: str
+    PackageID: Annotated[str, _aws_pattern("Opensearch", "PackageID")]
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 # This class is the input for the 'dissociate_packages' function.
 class DissociatePackagesRequestTypeDef(BaseValidatorModel):
-    PackageList: List[str]
-    DomainName: str
+    PackageList: List[Annotated[str, _aws_pattern("Opensearch", "PackageID")]]
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 class ModifyingPropertiesTypeDef(BaseValidatorModel):
@@ -585,17 +590,17 @@ class ModifyingPropertiesTypeDef(BaseValidatorModel):
 
 
 class DomainInfoTypeDef(BaseValidatorModel):
-    DomainName: Optional[str] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Opensearch", "DomainName")]] = None
     EngineType: Optional[EngineTypeType] = None
 
 
 class DomainMaintenanceDetailsTypeDef(BaseValidatorModel):
-    MaintenanceId: Optional[str] = None
-    DomainName: Optional[str] = None
+    MaintenanceId: Optional[Annotated[str, _aws_pattern("Opensearch", "RequestId")]] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Opensearch", "DomainName")]] = None
     Action: Optional[MaintenanceTypeType] = None
     NodeId: Optional[str] = None
     Status: Optional[MaintenanceStatusType] = None
-    StatusMessage: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Opensearch", "MaintenanceStatusMessage")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
@@ -607,12 +612,14 @@ class ErrorDetailsTypeDef(BaseValidatorModel):
 
 class IdentityCenterOptionsTypeDef(BaseValidatorModel):
     EnabledAPIAccess: Optional[bool] = None
-    IdentityCenterInstanceARN: Optional[str] = None
-    IdentityCenterInstanceRegion: Optional[str] = None
+    IdentityCenterInstanceARN: Optional[Annotated[str, _aws_pattern("Opensearch", "IdentityCenterInstanceARN")]] = None
+    IdentityCenterInstanceRegion: Optional[Annotated[str, _aws_pattern("Opensearch", "Region")]] = None
     SubjectKey: Optional[SubjectKeyIdCOptionType] = None
     RolesKey: Optional[RolesKeyIdCOptionType] = None
-    IdentityCenterApplicationARN: Optional[str] = None
-    IdentityStoreId: Optional[str] = None
+    IdentityCenterApplicationARN: Optional[
+        Annotated[str, _aws_pattern("Opensearch", "IdentityCenterApplicationARN")]
+    ] = None
+    IdentityStoreId: Optional[Annotated[str, _aws_pattern("Opensearch", "IdentityStoreId")]] = None
 
 
 class VPCDerivedInfoTypeDef(BaseValidatorModel):
@@ -620,6 +627,7 @@ class VPCDerivedInfoTypeDef(BaseValidatorModel):
     SubnetIds: Optional[List[str]] = None
     AvailabilityZones: Optional[List[str]] = None
     SecurityGroupIds: Optional[List[str]] = None
+    EgressEnabled: Optional[bool] = None
 
 
 class ValidationFailureTypeDef(BaseValidatorModel):
@@ -629,60 +637,60 @@ class ValidationFailureTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_application' function.
 class GetApplicationRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearch", "Id")]
 
 
 # This class is the input for the 'get_capability' function.
 class GetCapabilityRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    capabilityName: str
+    applicationId: Annotated[str, _aws_pattern("Opensearch", "ApplicationId")]
+    capabilityName: Annotated[str, _aws_pattern("Opensearch", "CapabilityName")]
 
 
 # This class is the input for the 'get_compatible_versions' function.
 class GetCompatibleVersionsRequestTypeDef(BaseValidatorModel):
-    DomainName: Optional[str] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Opensearch", "DomainName")]] = None
 
 
 # This class is the input for the 'get_data_source' function.
 class GetDataSourceRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    Name: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    Name: Annotated[str, _aws_pattern("Opensearch", "DataSourceName")]
 
 
 # This class is the input for the 'get_direct_query_data_source' function.
 class GetDirectQueryDataSourceRequestTypeDef(BaseValidatorModel):
-    DataSourceName: str
+    DataSourceName: Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceName")]
 
 
 # This class is the input for the 'get_domain_maintenance_status' function.
 class GetDomainMaintenanceStatusRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    MaintenanceId: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    MaintenanceId: Annotated[str, _aws_pattern("Opensearch", "RequestId")]
 
 
 # This class is the input for the 'get_index' function.
 class GetIndexRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    IndexName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    IndexName: Annotated[str, _aws_pattern("Opensearch", "IndexName")]
 
 
 # This class is the input for the 'get_package_version_history' function.
 class GetPackageVersionHistoryRequestTypeDef(BaseValidatorModel):
-    PackageID: str
+    PackageID: Annotated[str, _aws_pattern("Opensearch", "PackageID")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'get_upgrade_history' function.
 class GetUpgradeHistoryRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'get_upgrade_status' function.
 class GetUpgradeStatusRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 class InboundConnectionStatusTypeDef(BaseValidatorModel):
@@ -696,7 +704,7 @@ class InsightTimeRangeTypeDef(BaseValidatorModel):
 
 
 class InsightTypeDef(BaseValidatorModel):
-    InsightId: Optional[str] = None
+    InsightId: Optional[Annotated[str, _aws_pattern("Opensearch", "GUID")]] = None
     DisplayName: Optional[str] = None
     Type: Optional[InsightTypeType] = None
     Priority: Optional[InsightPriorityLevelType] = None
@@ -724,7 +732,7 @@ class InstanceTypeDetailsTypeDef(BaseValidatorModel):
 
 class KeyStoreAccessOptionTypeDef(BaseValidatorModel):
     KeyStoreAccessEnabled: bool
-    KeyAccessRoleArn: Optional[str] = None
+    KeyAccessRoleArn: Optional[Annotated[str, _aws_pattern("Opensearch", "RoleArn")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -742,7 +750,7 @@ class ListApplicationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_sources' function.
 class ListDataSourcesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 # This class is the input for the 'list_direct_query_data_sources' function.
@@ -752,7 +760,7 @@ class ListDirectQueryDataSourcesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_domain_maintenances' function.
 class ListDomainMaintenancesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     Action: Optional[MaintenanceTypeType] = None
     Status: Optional[MaintenanceStatusType] = None
     MaxResults: Optional[int] = None
@@ -766,31 +774,31 @@ class ListDomainNamesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_domains_for_package' function.
 class ListDomainsForPackageRequestTypeDef(BaseValidatorModel):
-    PackageID: str
+    PackageID: Annotated[str, _aws_pattern("Opensearch", "PackageID")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_instance_type_details' function.
 class ListInstanceTypeDetailsRequestTypeDef(BaseValidatorModel):
-    EngineVersion: str
-    DomainName: Optional[str] = None
+    EngineVersion: Annotated[str, _aws_pattern("Opensearch", "VersionString")]
+    DomainName: Optional[Annotated[str, _aws_pattern("Opensearch", "DomainName")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     RetrieveAZs: Optional[bool] = None
-    InstanceType: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Opensearch", "InstanceTypeString")]] = None
 
 
 # This class is the input for the 'list_packages_for_domain' function.
 class ListPackagesForDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_scheduled_actions' function.
 class ListScheduledActionsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -809,7 +817,7 @@ class ScheduledActionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags' function.
 class ListTagsRequestTypeDef(BaseValidatorModel):
-    ARN: str
+    ARN: Annotated[str, _aws_pattern("Opensearch", "ARN")]
 
 
 # This class is the input for the 'list_versions' function.
@@ -820,13 +828,13 @@ class ListVersionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_vpc_endpoint_access' function.
 class ListVpcEndpointAccessRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_vpc_endpoints_for_domain' function.
 class ListVpcEndpointsForDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     NextToken: Optional[str] = None
 
 
@@ -856,14 +864,14 @@ class PluginPropertiesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'purchase_reserved_instance_offering' function.
 class PurchaseReservedInstanceOfferingRequestTypeDef(BaseValidatorModel):
-    ReservedInstanceOfferingId: str
-    ReservationName: str
+    ReservedInstanceOfferingId: Annotated[str, _aws_pattern("Opensearch", "GUID")]
+    ReservationName: Annotated[str, _aws_pattern("Opensearch", "ReservationToken")]
     InstanceCount: Optional[int] = None
 
 
 # This class is the input for the 'put_default_application_setting' function.
 class PutDefaultApplicationSettingRequestTypeDef(BaseValidatorModel):
-    applicationArn: str
+    applicationArn: Annotated[str, _aws_pattern("Opensearch", "ARN")]
     setAsDefault: bool
 
 
@@ -874,12 +882,12 @@ class RecurringChargeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reject_inbound_connection' function.
 class RejectInboundConnectionRequestTypeDef(BaseValidatorModel):
-    ConnectionId: str
+    ConnectionId: Annotated[str, _aws_pattern("Opensearch", "ConnectionId")]
 
 
 # This class is the input for the 'remove_tags' function.
 class RemoveTagsRequestTypeDef(BaseValidatorModel):
-    ARN: str
+    ARN: Annotated[str, _aws_pattern("Opensearch", "ARN")]
     TagKeys: List[str]
 
 
@@ -892,7 +900,7 @@ class RollbackServiceSoftwareOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'rollback_service_software_update' function.
 class RollbackServiceSoftwareUpdateRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 class SAMLIdpTypeDef(BaseValidatorModel):
@@ -901,19 +909,19 @@ class SAMLIdpTypeDef(BaseValidatorModel):
 
 
 class ServiceOptionsTypeDef(BaseValidatorModel):
-    SupportedRegions: Optional[List[str]] = None
+    SupportedRegions: Optional[List[Annotated[str, _aws_pattern("Opensearch", "Region")]]] = None
 
 
 # This class is the input for the 'start_domain_maintenance' function.
 class StartDomainMaintenanceRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     Action: MaintenanceTypeType
     NodeId: Optional[str] = None
 
 
 # This class is the input for the 'start_service_software_update' function.
 class StartServiceSoftwareUpdateRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     ScheduleAt: Optional[ScheduleAtType] = None
     DesiredStartTime: Optional[int] = None
 
@@ -925,21 +933,21 @@ class StorageTypeLimitTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_index' function.
 class UpdateIndexRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    IndexName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    IndexName: Annotated[str, _aws_pattern("Opensearch", "IndexName")]
     IndexSchema: Dict[str, Any]
 
 
 # This class is the input for the 'update_package_scope' function.
 class UpdatePackageScopeRequestTypeDef(BaseValidatorModel):
-    PackageID: str
+    PackageID: Annotated[str, _aws_pattern("Opensearch", "PackageID")]
     Operation: PackageScopeOperationEnumType
-    PackageUserList: List[str]
+    PackageUserList: List[Annotated[str, _aws_pattern("Opensearch", "PackageUser")]]
 
 
 # This class is the input for the 'update_scheduled_action' function.
 class UpdateScheduledActionRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     ActionID: str
     ActionType: ActionTypeType
     ScheduleAt: ScheduleAtType
@@ -948,8 +956,8 @@ class UpdateScheduledActionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'upgrade_domain' function.
 class UpgradeDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    TargetVersion: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    TargetVersion: Annotated[str, _aws_pattern("Opensearch", "VersionString")]
     PerformCheckOnly: Optional[bool] = None
     AdvancedOptions: Optional[Dict[str, str]] = None
 
@@ -974,7 +982,7 @@ class AIMLOptionsOutputTypeDef(BaseValidatorModel):
 
 
 class AccessPoliciesStatusTypeDef(BaseValidatorModel):
-    Options: str
+    Options: Annotated[str, _aws_pattern("Opensearch", "PolicyDocument")]
     Status: OptionStatusTypeDef
 
 
@@ -989,7 +997,7 @@ class IPAddressTypeStatusTypeDef(BaseValidatorModel):
 
 
 class VersionStatusTypeDef(BaseValidatorModel):
-    Options: str
+    Options: Annotated[str, _aws_pattern("Opensearch", "VersionString")]
     Status: OptionStatusTypeDef
 
 
@@ -1039,14 +1047,14 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class GetDefaultApplicationSettingResponseTypeDef(BaseValidatorModel):
-    applicationArn: str
+    applicationArn: Annotated[str, _aws_pattern("Opensearch", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_domain_maintenance_status' function.
 class GetDomainMaintenanceStatusResponseTypeDef(BaseValidatorModel):
     Status: MaintenanceStatusType
-    StatusMessage: str
+    StatusMessage: Annotated[str, _aws_pattern("Opensearch", "MaintenanceStatusMessage")]
     NodeId: str
     Action: MaintenanceTypeType
     CreatedAt: datetime
@@ -1070,27 +1078,27 @@ class GetUpgradeStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_versions' function.
 class ListVersionsResponseTypeDef(BaseValidatorModel):
-    Versions: List[str]
+    Versions: List[Annotated[str, _aws_pattern("Opensearch", "VersionString")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'purchase_reserved_instance_offering' function.
 class PurchaseReservedInstanceOfferingResponseTypeDef(BaseValidatorModel):
-    ReservedInstanceId: str
-    ReservationName: str
+    ReservedInstanceId: Annotated[str, _aws_pattern("Opensearch", "GUID")]
+    ReservationName: Annotated[str, _aws_pattern("Opensearch", "ReservationToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_default_application_setting' function.
 class PutDefaultApplicationSettingResponseTypeDef(BaseValidatorModel):
-    applicationArn: str
+    applicationArn: Annotated[str, _aws_pattern("Opensearch", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_domain_maintenance' function.
 class StartDomainMaintenanceResponseTypeDef(BaseValidatorModel):
-    MaintenanceId: str
+    MaintenanceId: Annotated[str, _aws_pattern("Opensearch", "RequestId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1114,15 +1122,15 @@ class UpdateIndexResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_package_scope' function.
 class UpdatePackageScopeResponseTypeDef(BaseValidatorModel):
-    PackageID: str
+    PackageID: Annotated[str, _aws_pattern("Opensearch", "PackageID")]
     Operation: PackageScopeOperationEnumType
-    PackageUserList: List[str]
+    PackageUserList: List[Annotated[str, _aws_pattern("Opensearch", "PackageUser")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'add_tags' function.
 class AddTagsRequestTypeDef(BaseValidatorModel):
-    ARN: str
+    ARN: Annotated[str, _aws_pattern("Opensearch", "ARN")]
     TagList: List[TagTypeDef]
 
 
@@ -1167,7 +1175,7 @@ class EnvironmentInfoTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_domain_config_change' function.
 class CancelDomainConfigChangeResponseTypeDef(BaseValidatorModel):
-    CancelledChangeIds: List[str]
+    CancelledChangeIds: List[Annotated[str, _aws_pattern("Opensearch", "GUID")]]
     CancelledChangeProperties: List[CancelledChangePropertyTypeDef]
     DryRun: bool
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1187,15 +1195,15 @@ class StartServiceSoftwareUpdateResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_capability' function.
 class RegisterCapabilityRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    capabilityName: str
+    applicationId: Annotated[str, _aws_pattern("Opensearch", "ApplicationId")]
+    capabilityName: Annotated[str, _aws_pattern("Opensearch", "CapabilityName")]
     capabilityConfig: CapabilityBaseRequestConfigTypeDef
 
 
 # This class is the output for the 'register_capability' function.
 class RegisterCapabilityResponseTypeDef(BaseValidatorModel):
-    capabilityName: str
-    applicationId: str
+    capabilityName: Annotated[str, _aws_pattern("Opensearch", "CapabilityName")]
+    applicationId: Annotated[str, _aws_pattern("Opensearch", "ApplicationId")]
     status: CapabilityStatusType
     capabilityConfig: CapabilityBaseResponseConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1203,8 +1211,8 @@ class RegisterCapabilityResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_capability' function.
 class GetCapabilityResponseTypeDef(BaseValidatorModel):
-    capabilityName: str
-    applicationId: str
+    capabilityName: Annotated[str, _aws_pattern("Opensearch", "CapabilityName")]
+    applicationId: Annotated[str, _aws_pattern("Opensearch", "ApplicationId")]
     status: CapabilityStatusType
     capabilityConfig: CapabilityExtendedResponseConfigTypeDef
     failures: List[CapabilityFailureTypeDef]
@@ -1214,8 +1222,8 @@ class GetCapabilityResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'upgrade_domain' function.
 class UpgradeDomainResponseTypeDef(BaseValidatorModel):
     UpgradeId: str
-    DomainName: str
-    TargetVersion: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    TargetVersion: Annotated[str, _aws_pattern("Opensearch", "VersionString")]
     PerformCheckOnly: bool
     AdvancedOptions: Dict[str, str]
     ChangeProgressDetails: ChangeProgressDetailsTypeDef
@@ -1223,7 +1231,7 @@ class UpgradeDomainResponseTypeDef(BaseValidatorModel):
 
 
 class ChangeProgressStatusDetailsTypeDef(BaseValidatorModel):
-    ChangeId: Optional[str] = None
+    ChangeId: Optional[Annotated[str, _aws_pattern("Opensearch", "GUID")]] = None
     StartTime: Optional[datetime] = None
     Status: Optional[OverallChangeStatusType] = None
     PendingProperties: Optional[List[str]] = None
@@ -1247,47 +1255,47 @@ class GetCompatibleVersionsResponseTypeDef(BaseValidatorModel):
 
 
 class ConnectionPropertiesTypeDef(BaseValidatorModel):
-    Endpoint: Optional[str] = None
+    Endpoint: Optional[Annotated[str, _aws_pattern("Opensearch", "Endpoint")]] = None
     CrossClusterSearch: Optional[CrossClusterSearchConnectionPropertiesTypeDef] = None
 
 
 # This class is the input for the 'update_application' function.
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearch", "Id")]
     dataSources: Optional[List[DataSourceTypeDef]] = None
     appConfigs: Optional[List[AppConfigTypeDef]] = None
 
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Opensearch", "ApplicationName")]
     clientToken: Optional[str] = None
     dataSources: Optional[List[DataSourceTypeDef]] = None
     iamIdentityCenterOptions: Optional[IamIdentityCenterOptionsInputTypeDef] = None
     appConfigs: Optional[List[AppConfigTypeDef]] = None
     tagList: Optional[List[TagTypeDef]] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Opensearch", "KmsKeyArn")]] = None
 
 
 # This class is the output for the 'create_application' function.
 class CreateApplicationResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Opensearch", "Id")]
+    name: Annotated[str, _aws_pattern("Opensearch", "ApplicationName")]
+    arn: Annotated[str, _aws_pattern("Opensearch", "ARN")]
     dataSources: List[DataSourceTypeDef]
     iamIdentityCenterOptions: IamIdentityCenterOptionsTypeDef
     appConfigs: List[AppConfigTypeDef]
     tagList: List[TagTypeDef]
     createdAt: datetime
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Opensearch", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_application' function.
 class GetApplicationResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("Opensearch", "Id")]
+    arn: Annotated[str, _aws_pattern("Opensearch", "ARN")]
+    name: Annotated[str, _aws_pattern("Opensearch", "ApplicationName")]
     endpoint: str
     status: ApplicationStatusType
     iamIdentityCenterOptions: IamIdentityCenterOptionsTypeDef
@@ -1295,15 +1303,15 @@ class GetApplicationResponseTypeDef(BaseValidatorModel):
     appConfigs: List[AppConfigTypeDef]
     createdAt: datetime
     lastUpdatedAt: datetime
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Opensearch", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_application' function.
 class UpdateApplicationResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Opensearch", "Id")]
+    name: Annotated[str, _aws_pattern("Opensearch", "ApplicationName")]
+    arn: Annotated[str, _aws_pattern("Opensearch", "ARN")]
     dataSources: List[DataSourceTypeDef]
     iamIdentityCenterOptions: IamIdentityCenterOptionsTypeDef
     appConfigs: List[AppConfigTypeDef]
@@ -1354,20 +1362,20 @@ class SoftwareUpdateOptionsStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_vpc_endpoint' function.
 class CreateVpcEndpointRequestTypeDef(BaseValidatorModel):
-    DomainArn: str
+    DomainArn: Annotated[str, _aws_pattern("Opensearch", "DomainArn")]
     VpcOptions: VPCOptionsTypeDef
     ClientToken: Optional[str] = None
 
 
 # This class is the input for the 'update_vpc_endpoint' function.
 class UpdateVpcEndpointRequestTypeDef(BaseValidatorModel):
-    VpcEndpointId: str
+    VpcEndpointId: Annotated[str, _aws_pattern("Opensearch", "VpcEndpointId")]
     VpcOptions: VPCOptionsTypeDef
 
 
 # This class is the input for the 'update_package' function.
 class UpdatePackageRequestTypeDef(BaseValidatorModel):
-    PackageID: str
+    PackageID: Annotated[str, _aws_pattern("Opensearch", "PackageID")]
     PackageSource: PackageSourceTypeDef
     PackageDescription: Optional[str] = None
     CommitMessage: Optional[str] = None
@@ -1377,12 +1385,12 @@ class UpdatePackageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_package' function.
 class CreatePackageRequestTypeDef(BaseValidatorModel):
-    PackageName: str
+    PackageName: Annotated[str, _aws_pattern("Opensearch", "PackageName")]
     PackageType: PackageTypeType
     PackageSource: PackageSourceTypeDef
     PackageDescription: Optional[str] = None
     PackageConfiguration: Optional[PackageConfigurationTypeDef] = None
-    EngineVersion: Optional[str] = None
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Opensearch", "EngineVersion")]] = None
     PackageVendingOptions: Optional[PackageVendingOptionsTypeDef] = None
     PackageEncryptionOptions: Optional[PackageEncryptionOptionsTypeDef] = None
 
@@ -1434,7 +1442,7 @@ class DescribeOutboundConnectionsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_insight_details' function.
 class DescribeInsightDetailsRequestTypeDef(BaseValidatorModel):
     Entity: InsightEntityTypeDef
-    InsightId: str
+    InsightId: Annotated[str, _aws_pattern("Opensearch", "GUID")]
     ShowHtmlContent: Optional[bool] = None
 
 
@@ -1481,16 +1489,16 @@ class VPCDerivedInfoStatusTypeDef(BaseValidatorModel):
 
 
 class VpcEndpointTypeDef(BaseValidatorModel):
-    VpcEndpointId: Optional[str] = None
-    VpcEndpointOwner: Optional[str] = None
-    DomainArn: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Opensearch", "VpcEndpointId")]] = None
+    VpcEndpointOwner: Optional[Annotated[str, _aws_pattern("Opensearch", "AWSAccount")]] = None
+    DomainArn: Optional[Annotated[str, _aws_pattern("Opensearch", "DomainArn")]] = None
     VpcOptions: Optional[VPCDerivedInfoTypeDef] = None
     Status: Optional[VpcEndpointStatusType] = None
-    Endpoint: Optional[str] = None
+    Endpoint: Optional[Annotated[str, _aws_pattern("Opensearch", "Endpoint")]] = None
 
 
 class DryRunProgressStatusTypeDef(BaseValidatorModel):
-    DryRunId: str
+    DryRunId: Annotated[str, _aws_pattern("Opensearch", "GUID")]
     DryRunStatus: str
     CreationDate: str
     UpdateDate: str
@@ -1556,8 +1564,8 @@ class OffPeakWindowTypeDef(BaseValidatorModel):
 
 
 class PackageDetailsTypeDef(BaseValidatorModel):
-    PackageID: Optional[str] = None
-    PackageName: Optional[str] = None
+    PackageID: Optional[Annotated[str, _aws_pattern("Opensearch", "PackageID")]] = None
+    PackageName: Optional[Annotated[str, _aws_pattern("Opensearch", "PackageName")]] = None
     PackageType: Optional[PackageTypeType] = None
     PackageDescription: Optional[str] = None
     PackageStatus: Optional[PackageStatusType] = None
@@ -1565,10 +1573,10 @@ class PackageDetailsTypeDef(BaseValidatorModel):
     LastUpdatedAt: Optional[datetime] = None
     AvailablePackageVersion: Optional[str] = None
     ErrorDetails: Optional[ErrorDetailsTypeDef] = None
-    EngineVersion: Optional[str] = None
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Opensearch", "EngineVersion")]] = None
     AvailablePluginProperties: Optional[PluginPropertiesTypeDef] = None
     AvailablePackageConfiguration: Optional[PackageConfigurationTypeDef] = None
-    AllowListedUserList: Optional[List[str]] = None
+    AllowListedUserList: Optional[List[Annotated[str, _aws_pattern("Opensearch", "PackageUser")]]] = None
     PackageOwner: Optional[str] = None
     PackageVendingOptions: Optional[PackageVendingOptionsTypeDef] = None
     PackageEncryptionOptions: Optional[PackageEncryptionOptionsTypeDef] = None
@@ -1583,7 +1591,7 @@ class PackageVersionHistoryTypeDef(BaseValidatorModel):
 
 
 class ReservedInstanceOfferingTypeDef(BaseValidatorModel):
-    ReservedInstanceOfferingId: Optional[str] = None
+    ReservedInstanceOfferingId: Optional[Annotated[str, _aws_pattern("Opensearch", "GUID")]] = None
     InstanceType: Optional[OpenSearchPartitionInstanceTypeType] = None
     Duration: Optional[int] = None
     FixedPrice: Optional[float] = None
@@ -1594,8 +1602,8 @@ class ReservedInstanceOfferingTypeDef(BaseValidatorModel):
 
 
 class ReservedInstanceTypeDef(BaseValidatorModel):
-    ReservationName: Optional[str] = None
-    ReservedInstanceId: Optional[str] = None
+    ReservationName: Optional[Annotated[str, _aws_pattern("Opensearch", "ReservationToken")]] = None
+    ReservedInstanceId: Optional[Annotated[str, _aws_pattern("Opensearch", "GUID")]] = None
     BillingSubscriptionId: Optional[int] = None
     ReservedInstanceOfferingId: Optional[str] = None
     InstanceType: Optional[OpenSearchPartitionInstanceTypeType] = None
@@ -1619,7 +1627,7 @@ class RollbackServiceSoftwareUpdateResponseTypeDef(BaseValidatorModel):
 class SAMLOptionsInputTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     Idp: Optional[SAMLIdpTypeDef] = None
-    MasterUserName: Optional[str] = None
+    MasterUserName: Optional[Annotated[str, _aws_pattern("Opensearch", "Username")]] = None
     MasterBackendRole: Optional[str] = None
     SubjectKey: Optional[str] = None
     RolesKey: Optional[str] = None
@@ -1658,7 +1666,7 @@ class AIMLOptionsStatusTypeDef(BaseValidatorModel):
 class InboundConnectionTypeDef(BaseValidatorModel):
     LocalDomainInfo: Optional[DomainInformationContainerTypeDef] = None
     RemoteDomainInfo: Optional[DomainInformationContainerTypeDef] = None
-    ConnectionId: Optional[str] = None
+    ConnectionId: Optional[Annotated[str, _aws_pattern("Opensearch", "ConnectionId")]] = None
     ConnectionStatus: Optional[InboundConnectionStatusTypeDef] = None
     ConnectionMode: Optional[ConnectionModeType] = None
 
@@ -1703,17 +1711,17 @@ class AutoTuneOptionsTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_domain_health' function.
 class DescribeDomainHealthResponseTypeDef(BaseValidatorModel):
     DomainState: DomainStateType
-    AvailabilityZoneCount: str
-    ActiveAvailabilityZoneCount: str
-    StandByAvailabilityZoneCount: str
-    DataNodeCount: str
+    AvailabilityZoneCount: Annotated[str, _aws_pattern("Opensearch", "NumberOfAZs")]
+    ActiveAvailabilityZoneCount: Annotated[str, _aws_pattern("Opensearch", "NumberOfAZs")]
+    StandByAvailabilityZoneCount: Annotated[str, _aws_pattern("Opensearch", "NumberOfAZs")]
+    DataNodeCount: Annotated[str, _aws_pattern("Opensearch", "NumberOfNodes")]
     DedicatedMaster: bool
-    MasterEligibleNodeCount: str
-    WarmNodeCount: str
+    MasterEligibleNodeCount: Annotated[str, _aws_pattern("Opensearch", "NumberOfNodes")]
+    WarmNodeCount: Annotated[str, _aws_pattern("Opensearch", "NumberOfNodes")]
     MasterNode: MasterNodeStatusType
     ClusterHealth: DomainHealthType
-    TotalShards: str
-    TotalUnAssignedShards: str
+    TotalShards: Annotated[str, _aws_pattern("Opensearch", "NumberOfShards")]
+    TotalUnAssignedShards: Annotated[str, _aws_pattern("Opensearch", "NumberOfShards")]
     EnvironmentInformation: List[EnvironmentInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1728,7 +1736,7 @@ class DescribeDomainChangeProgressResponseTypeDef(BaseValidatorModel):
 class CreateOutboundConnectionRequestTypeDef(BaseValidatorModel):
     LocalDomainInfo: DomainInformationContainerTypeDef
     RemoteDomainInfo: DomainInformationContainerTypeDef
-    ConnectionAlias: str
+    ConnectionAlias: Annotated[str, _aws_pattern("Opensearch", "ConnectionAlias")]
     ConnectionMode: Optional[ConnectionModeType] = None
     ConnectionProperties: Optional[ConnectionPropertiesTypeDef] = None
 
@@ -1737,9 +1745,9 @@ class CreateOutboundConnectionRequestTypeDef(BaseValidatorModel):
 class CreateOutboundConnectionResponseTypeDef(BaseValidatorModel):
     LocalDomainInfo: DomainInformationContainerTypeDef
     RemoteDomainInfo: DomainInformationContainerTypeDef
-    ConnectionAlias: str
+    ConnectionAlias: Annotated[str, _aws_pattern("Opensearch", "ConnectionAlias")]
     ConnectionStatus: OutboundConnectionStatusTypeDef
-    ConnectionId: str
+    ConnectionId: Annotated[str, _aws_pattern("Opensearch", "ConnectionId")]
     ConnectionMode: ConnectionModeType
     ConnectionProperties: ConnectionPropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1748,8 +1756,8 @@ class CreateOutboundConnectionResponseTypeDef(BaseValidatorModel):
 class OutboundConnectionTypeDef(BaseValidatorModel):
     LocalDomainInfo: Optional[DomainInformationContainerTypeDef] = None
     RemoteDomainInfo: Optional[DomainInformationContainerTypeDef] = None
-    ConnectionId: Optional[str] = None
-    ConnectionAlias: Optional[str] = None
+    ConnectionId: Optional[Annotated[str, _aws_pattern("Opensearch", "ConnectionId")]] = None
+    ConnectionAlias: Optional[Annotated[str, _aws_pattern("Opensearch", "ConnectionAlias")]] = None
     ConnectionStatus: Optional[OutboundConnectionStatusTypeDef] = None
     ConnectionMode: Optional[ConnectionModeType] = None
     ConnectionProperties: Optional[ConnectionPropertiesTypeDef] = None
@@ -1757,74 +1765,74 @@ class OutboundConnectionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_data_source' function.
 class AddDataSourceRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    Name: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    Name: Annotated[str, _aws_pattern("Opensearch", "DataSourceName")]
     DataSourceType: DataSourceTypeTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Opensearch", "DataSourceDescription")]] = None
 
 
 class DataSourceDetailsTypeDef(BaseValidatorModel):
     DataSourceType: Optional[DataSourceTypeTypeDef] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Opensearch", "DataSourceName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Opensearch", "DataSourceDescription")]] = None
     Status: Optional[DataSourceStatusType] = None
 
 
 # This class is the output for the 'get_data_source' function.
 class GetDataSourceResponseTypeDef(BaseValidatorModel):
     DataSourceType: DataSourceTypeTypeDef
-    Name: str
-    Description: str
+    Name: Annotated[str, _aws_pattern("Opensearch", "DataSourceName")]
+    Description: Annotated[str, _aws_pattern("Opensearch", "DataSourceDescription")]
     Status: DataSourceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_data_source' function.
 class UpdateDataSourceRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    Name: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    Name: Annotated[str, _aws_pattern("Opensearch", "DataSourceName")]
     DataSourceType: DataSourceTypeTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Opensearch", "DataSourceDescription")]] = None
     Status: Optional[DataSourceStatusType] = None
 
 
 # This class is the input for the 'add_direct_query_data_source' function.
 class AddDirectQueryDataSourceRequestTypeDef(BaseValidatorModel):
-    DataSourceName: str
+    DataSourceName: Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceName")]
     DataSourceType: DirectQueryDataSourceTypeTypeDef
-    Description: Optional[str] = None
-    OpenSearchArns: Optional[List[str]] = None
-    DataSourceAccessPolicy: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceDescription")]] = None
+    OpenSearchArns: Optional[List[Annotated[str, _aws_pattern("Opensearch", "ARN")]]] = None
+    DataSourceAccessPolicy: Optional[Annotated[str, _aws_pattern("Opensearch", "PolicyDocument")]] = None
     TagList: Optional[List[TagTypeDef]] = None
 
 
 class DirectQueryDataSourceTypeDef(BaseValidatorModel):
-    DataSourceName: Optional[str] = None
+    DataSourceName: Optional[Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceName")]] = None
     DataSourceType: Optional[DirectQueryDataSourceTypeTypeDef] = None
-    Description: Optional[str] = None
-    OpenSearchArns: Optional[List[str]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceDescription")]] = None
+    OpenSearchArns: Optional[List[Annotated[str, _aws_pattern("Opensearch", "ARN")]]] = None
     DataSourceArn: Optional[str] = None
     TagList: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'get_direct_query_data_source' function.
 class GetDirectQueryDataSourceResponseTypeDef(BaseValidatorModel):
-    DataSourceName: str
+    DataSourceName: Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceName")]
     DataSourceType: DirectQueryDataSourceTypeTypeDef
-    Description: str
-    OpenSearchArns: List[str]
-    DataSourceAccessPolicy: str
+    Description: Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceDescription")]
+    OpenSearchArns: List[Annotated[str, _aws_pattern("Opensearch", "ARN")]]
+    DataSourceAccessPolicy: Annotated[str, _aws_pattern("Opensearch", "PolicyDocument")]
     DataSourceArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_direct_query_data_source' function.
 class UpdateDirectQueryDataSourceRequestTypeDef(BaseValidatorModel):
-    DataSourceName: str
+    DataSourceName: Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceName")]
     DataSourceType: DirectQueryDataSourceTypeTypeDef
-    Description: Optional[str] = None
-    OpenSearchArns: Optional[List[str]] = None
-    DataSourceAccessPolicy: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Opensearch", "DirectQueryDataSourceDescription")]] = None
+    OpenSearchArns: Optional[List[Annotated[str, _aws_pattern("Opensearch", "ARN")]]] = None
+    DataSourceAccessPolicy: Optional[Annotated[str, _aws_pattern("Opensearch", "PolicyDocument")]] = None
 
 
 # This class is the output for the 'create_vpc_endpoint' function.
@@ -1848,29 +1856,29 @@ class UpdateVpcEndpointResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_package' function.
 class AssociatePackageRequestTypeDef(BaseValidatorModel):
-    PackageID: str
-    DomainName: str
-    PrerequisitePackageIDList: Optional[List[str]] = None
+    PackageID: Annotated[str, _aws_pattern("Opensearch", "PackageID")]
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    PrerequisitePackageIDList: Optional[List[Annotated[str, _aws_pattern("Opensearch", "PackageID")]]] = None
     AssociationConfiguration: Optional[PackageAssociationConfigurationTypeDef] = None
 
 
 class DomainPackageDetailsTypeDef(BaseValidatorModel):
-    PackageID: Optional[str] = None
-    PackageName: Optional[str] = None
+    PackageID: Optional[Annotated[str, _aws_pattern("Opensearch", "PackageID")]] = None
+    PackageName: Optional[Annotated[str, _aws_pattern("Opensearch", "PackageName")]] = None
     PackageType: Optional[PackageTypeType] = None
     LastUpdated: Optional[datetime] = None
-    DomainName: Optional[str] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Opensearch", "DomainName")]] = None
     DomainPackageStatus: Optional[DomainPackageStatusType] = None
     PackageVersion: Optional[str] = None
-    PrerequisitePackageIDList: Optional[List[str]] = None
+    PrerequisitePackageIDList: Optional[List[Annotated[str, _aws_pattern("Opensearch", "PackageID")]]] = None
     ReferencePath: Optional[str] = None
     ErrorDetails: Optional[ErrorDetailsTypeDef] = None
     AssociationConfiguration: Optional[PackageAssociationConfigurationTypeDef] = None
 
 
 class PackageDetailsForAssociationTypeDef(BaseValidatorModel):
-    PackageID: str
-    PrerequisitePackageIDList: Optional[List[str]] = None
+    PackageID: Annotated[str, _aws_pattern("Opensearch", "PackageID")]
+    PrerequisitePackageIDList: Optional[List[Annotated[str, _aws_pattern("Opensearch", "PackageID")]]] = None
     AssociationConfiguration: Optional[PackageAssociationConfigurationTypeDef] = None
 
 
@@ -1938,7 +1946,7 @@ class UpdatePackageResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_package_version_history' function.
 class GetPackageVersionHistoryResponseTypeDef(BaseValidatorModel):
-    PackageID: str
+    PackageID: Annotated[str, _aws_pattern("Opensearch", "PackageID")]
     PackageVersionHistoryList: List[PackageVersionHistoryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1980,15 +1988,15 @@ class AdvancedSecurityOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'authorize_vpc_endpoint_access' function.
 class AuthorizeVpcEndpointAccessRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    Account: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    Account: Optional[Annotated[str, _aws_pattern("Opensearch", "AWSAccount")]] = None
     Service: Optional[Literal["application.opensearchservice.amazonaws.com"]] = None
     ServiceOptions: Optional[ServiceOptionsUnionTypeDef] = None
 
 
 class RevokeVpcEndpointAccessRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    Account: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    Account: Optional[Annotated[str, _aws_pattern("Opensearch", "AWSAccount")]] = None
     Service: Optional[Literal["application.opensearchservice.amazonaws.com"]] = None
     ServiceOptions: Optional[ServiceOptionsUnionTypeDef] = None
 
@@ -2119,7 +2127,7 @@ class ListPackagesForDomainResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'associate_packages' function.
 class AssociatePackagesRequestTypeDef(BaseValidatorModel):
     PackageList: List[PackageDetailsForAssociationTypeDef]
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
 
 
 class ClusterConfigStatusTypeDef(BaseValidatorModel):
@@ -2142,8 +2150,8 @@ class AdvancedSecurityOptionsStatusTypeDef(BaseValidatorModel):
 
 class DomainStatusTypeDef(BaseValidatorModel):
     DomainId: str
-    DomainName: str
-    ARN: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    ARN: Annotated[str, _aws_pattern("Opensearch", "ARN")]
     ClusterConfig: ClusterConfigOutputTypeDef
     Created: Optional[bool] = None
     Deleted: Optional[bool] = None
@@ -2153,9 +2161,9 @@ class DomainStatusTypeDef(BaseValidatorModel):
     DomainEndpointV2HostedZoneId: Optional[str] = None
     Processing: Optional[bool] = None
     UpgradeProcessing: Optional[bool] = None
-    EngineVersion: Optional[str] = None
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Opensearch", "VersionString")]] = None
     EBSOptions: Optional[EBSOptionsTypeDef] = None
-    AccessPolicies: Optional[str] = None
+    AccessPolicies: Optional[Annotated[str, _aws_pattern("Opensearch", "PolicyDocument")]] = None
     IPAddressType: Optional[IPAddressTypeType] = None
     SnapshotOptions: Optional[SnapshotOptionsTypeDef] = None
     VPCOptions: Optional[VPCDerivedInfoTypeDef] = None
@@ -2186,11 +2194,11 @@ class DescribeInstanceTypeLimitsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_domain' function.
 class CreateDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    EngineVersion: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Opensearch", "VersionString")]] = None
     ClusterConfig: Optional[ClusterConfigUnionTypeDef] = None
     EBSOptions: Optional[EBSOptionsTypeDef] = None
-    AccessPolicies: Optional[str] = None
+    AccessPolicies: Optional[Annotated[str, _aws_pattern("Opensearch", "PolicyDocument")]] = None
     IPAddressType: Optional[IPAddressTypeType] = None
     SnapshotOptions: Optional[SnapshotOptionsTypeDef] = None
     VPCOptions: Optional[VPCOptionsTypeDef] = None
@@ -2212,14 +2220,14 @@ class CreateDomainRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_domain_config' function.
 class UpdateDomainConfigRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Opensearch", "DomainName")]
     ClusterConfig: Optional[ClusterConfigUnionTypeDef] = None
     EBSOptions: Optional[EBSOptionsTypeDef] = None
     SnapshotOptions: Optional[SnapshotOptionsTypeDef] = None
     VPCOptions: Optional[VPCOptionsTypeDef] = None
     CognitoOptions: Optional[CognitoOptionsTypeDef] = None
     AdvancedOptions: Optional[Dict[str, str]] = None
-    AccessPolicies: Optional[str] = None
+    AccessPolicies: Optional[Annotated[str, _aws_pattern("Opensearch", "PolicyDocument")]] = None
     IPAddressType: Optional[IPAddressTypeType] = None
     LogPublishingOptions: Optional[Dict[LogTypeType, LogPublishingOptionTypeDef]] = None
     EncryptionAtRestOptions: Optional[EncryptionAtRestOptionsTypeDef] = None

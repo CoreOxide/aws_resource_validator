@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.guardduty.guardduty_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -339,7 +341,7 @@ class CreateThreatEntitySetRequestTypeDef(BaseValidatorModel):
     Format: ThreatEntitySetFormatType
     Location: str
     Activate: bool
-    ExpectedBucketOwner: Optional[str] = None
+    ExpectedBucketOwner: Optional[Annotated[str, _aws_pattern("Guardduty", "ExpectedBucketOwner")]] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -363,7 +365,7 @@ class CreateTrustedEntitySetRequestTypeDef(BaseValidatorModel):
     Format: TrustedEntitySetFormatType
     Location: str
     Activate: bool
-    ExpectedBucketOwner: Optional[str] = None
+    ExpectedBucketOwner: Optional[Annotated[str, _aws_pattern("Guardduty", "ExpectedBucketOwner")]] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -892,7 +894,7 @@ class ListPublishingDestinationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Guardduty", "GuardDutyArn")]
 
 
 # This class is the input for the 'list_threat_entity_sets' function.
@@ -1049,7 +1051,7 @@ class S3ObjectTypeDef(BaseValidatorModel):
 
 
 class ResourceDetailsTypeDef(BaseValidatorModel):
-    InstanceArn: Optional[str] = None
+    InstanceArn: Optional[Annotated[str, _aws_pattern("Guardduty", "InstanceArn")]] = None
 
 
 class S3ObjectDetailTypeDef(BaseValidatorModel):
@@ -1067,7 +1069,7 @@ class S3ObjectForSendObjectMalwareScanTypeDef(BaseValidatorModel):
 
 
 class ScanConditionPairTypeDef(BaseValidatorModel):
-    Key: str
+    Key: Annotated[str, _aws_pattern("Guardduty", "TagKey")]
     Value: Optional[str] = None
 
 
@@ -1120,7 +1122,7 @@ class StopMonitoringMembersRequestTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Guardduty", "GuardDutyArn")]
     Tags: Dict[str, str]
 
 
@@ -1135,8 +1137,8 @@ class UnarchiveFindingsRequestTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Guardduty", "GuardDutyArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Guardduty", "TagKey")]]
 
 
 class UpdateFindingsFeedbackRequestTypeDef(BaseValidatorModel):
@@ -1164,7 +1166,7 @@ class UpdateThreatEntitySetRequestTypeDef(BaseValidatorModel):
     ThreatEntitySetId: str
     Name: Optional[str] = None
     Location: Optional[str] = None
-    ExpectedBucketOwner: Optional[str] = None
+    ExpectedBucketOwner: Optional[Annotated[str, _aws_pattern("Guardduty", "ExpectedBucketOwner")]] = None
     Activate: Optional[bool] = None
 
 
@@ -1182,7 +1184,7 @@ class UpdateTrustedEntitySetRequestTypeDef(BaseValidatorModel):
     TrustedEntitySetId: str
     Name: Optional[str] = None
     Location: Optional[str] = None
-    ExpectedBucketOwner: Optional[str] = None
+    ExpectedBucketOwner: Optional[Annotated[str, _aws_pattern("Guardduty", "ExpectedBucketOwner")]] = None
     Activate: Optional[bool] = None
 
 
@@ -1348,7 +1350,7 @@ class GetThreatEntitySetResponseTypeDef(BaseValidatorModel):
     Name: str
     Format: ThreatEntitySetFormatType
     Location: str
-    ExpectedBucketOwner: str
+    ExpectedBucketOwner: Annotated[str, _aws_pattern("Guardduty", "ExpectedBucketOwner")]
     Status: ThreatEntitySetStatusType
     Tags: Dict[str, str]
     CreatedAt: datetime
@@ -1373,7 +1375,7 @@ class GetTrustedEntitySetResponseTypeDef(BaseValidatorModel):
     Name: str
     Format: TrustedEntitySetFormatType
     Location: str
-    ExpectedBucketOwner: str
+    ExpectedBucketOwner: Annotated[str, _aws_pattern("Guardduty", "ExpectedBucketOwner")]
     Status: TrustedEntitySetStatusType
     Tags: Dict[str, str]
     CreatedAt: datetime
@@ -2289,7 +2291,7 @@ class ResourceDataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_malware_scan' function.
 class StartMalwareScanRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Guardduty", "ResourceArn")]
     ClientToken: Optional[str] = None
     ScanConfiguration: Optional[StartMalwareScanConfigurationTypeDef] = None
 

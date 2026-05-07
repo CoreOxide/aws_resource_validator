@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kinesisvideo.kinesisvideo_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,12 +46,12 @@ class SingleMasterConfigurationTypeDef(BaseValidatorModel):
 
 class ChannelNameConditionTypeDef(BaseValidatorModel):
     ComparisonOperator: Optional[Literal["BEGINS_WITH"]] = None
-    ComparisonValue: Optional[str] = None
+    ComparisonValue: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ChannelName")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Kinesisvideo", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Kinesisvideo", "TagValue")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -65,18 +67,18 @@ class StreamStorageConfigurationTypeDef(BaseValidatorModel):
 
 
 class DeleteEdgeConfigurationInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 class DeleteSignalingChannelInputTypeDef(BaseValidatorModel):
-    ChannelARN: str
-    CurrentVersion: Optional[str] = None
+    ChannelARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
+    CurrentVersion: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "Version")]] = None
 
 
 class DeleteStreamInputTypeDef(BaseValidatorModel):
-    StreamARN: str
-    CurrentVersion: Optional[str] = None
+    StreamARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
+    CurrentVersion: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "Version")]] = None
 
 
 class LocalSizeConfigTypeDef(BaseValidatorModel):
@@ -86,14 +88,14 @@ class LocalSizeConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_edge_configuration' function.
 class DescribeEdgeConfigurationInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 # This class is the input for the 'describe_image_generation_configuration' function.
 class DescribeImageGenerationConfigurationInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -104,53 +106,53 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_mapped_resource_configuration' function.
 class DescribeMappedResourceConfigurationInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None
 
 
 class MappedResourceConfigurationListItemTypeDef(BaseValidatorModel):
     Type: Optional[str] = None
-    ARN: Optional[str] = None
+    ARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 # This class is the input for the 'describe_media_storage_configuration' function.
 class DescribeMediaStorageConfigurationInputTypeDef(BaseValidatorModel):
-    ChannelName: Optional[str] = None
-    ChannelARN: Optional[str] = None
+    ChannelName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ChannelName")]] = None
+    ChannelARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 class MediaStorageConfigurationTypeDef(BaseValidatorModel):
     Status: MediaStorageConfigurationStatusType
-    StreamARN: Optional[str] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 # This class is the input for the 'describe_notification_configuration' function.
 class DescribeNotificationConfigurationInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 # This class is the input for the 'describe_signaling_channel' function.
 class DescribeSignalingChannelInputTypeDef(BaseValidatorModel):
-    ChannelName: Optional[str] = None
-    ChannelARN: Optional[str] = None
+    ChannelName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ChannelName")]] = None
+    ChannelARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 # This class is the input for the 'describe_stream' function.
 class DescribeStreamInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 class StreamInfoTypeDef(BaseValidatorModel):
-    DeviceName: Optional[str] = None
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    MediaType: Optional[str] = None
-    KmsKeyId: Optional[str] = None
-    Version: Optional[str] = None
+    DeviceName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "DeviceName")]] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
+    MediaType: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "MediaType")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "KmsKeyId")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "Version")]] = None
     Status: Optional[StatusType] = None
     CreationTime: Optional[datetime] = None
     DataRetentionInHours: Optional[int] = None
@@ -158,8 +160,8 @@ class StreamInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_stream_storage_configuration' function.
 class DescribeStreamStorageConfigurationInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 class LastRecorderStatusTypeDef(BaseValidatorModel):
@@ -179,8 +181,8 @@ class LastUploaderStatusTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_data_endpoint' function.
 class GetDataEndpointInputTypeDef(BaseValidatorModel):
     APIName: APINameType
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 class SingleMasterChannelEndpointConfigurationTypeDef(BaseValidatorModel):
@@ -194,127 +196,127 @@ class ResourceEndpointListItemTypeDef(BaseValidatorModel):
 
 
 class ImageGenerationDestinationConfigTypeDef(BaseValidatorModel):
-    Uri: str
-    DestinationRegion: str
+    Uri: Annotated[str, _aws_pattern("Kinesisvideo", "DestinationUri")]
+    DestinationRegion: Annotated[str, _aws_pattern("Kinesisvideo", "DestinationRegion")]
 
 
 # This class is the input for the 'list_edge_agent_configurations' function.
 class ListEdgeAgentConfigurationsInputTypeDef(BaseValidatorModel):
-    HubDeviceArn: str
+    HubDeviceArn: Annotated[str, _aws_pattern("Kinesisvideo", "HubDeviceArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None
 
 
 class StreamNameConditionTypeDef(BaseValidatorModel):
     ComparisonOperator: Optional[Literal["BEGINS_WITH"]] = None
-    ComparisonValue: Optional[str] = None
+    ComparisonValue: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    NextToken: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_stream' function.
 class ListTagsForStreamInputTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamName: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
 
 
 class MediaSourceConfigTypeDef(BaseValidatorModel):
-    MediaUriSecretArn: str
+    MediaUriSecretArn: Annotated[str, _aws_pattern("Kinesisvideo", "MediaUriSecretArn")]
     MediaUriType: MediaUriTypeType
 
 
 class NotificationDestinationConfigTypeDef(BaseValidatorModel):
-    Uri: str
+    Uri: Annotated[str, _aws_pattern("Kinesisvideo", "DestinationUri")]
 
 
 class ScheduleConfigTypeDef(BaseValidatorModel):
-    ScheduleExpression: str
+    ScheduleExpression: Annotated[str, _aws_pattern("Kinesisvideo", "ScheduleExpression")]
     DurationInSeconds: int
 
 
 class TagStreamInputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
-    StreamARN: Optional[str] = None
-    StreamName: Optional[str] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    TagKeyList: List[str]
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
+    TagKeyList: List[Annotated[str, _aws_pattern("Kinesisvideo", "TagKey")]]
 
 
 class UntagStreamInputTypeDef(BaseValidatorModel):
-    TagKeyList: List[str]
-    StreamARN: Optional[str] = None
-    StreamName: Optional[str] = None
+    TagKeyList: List[Annotated[str, _aws_pattern("Kinesisvideo", "TagKey")]]
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
 
 
 class UpdateDataRetentionInputTypeDef(BaseValidatorModel):
-    CurrentVersion: str
+    CurrentVersion: Annotated[str, _aws_pattern("Kinesisvideo", "Version")]
     Operation: UpdateDataRetentionOperationType
     DataRetentionChangeInHours: int
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 class UpdateStreamInputTypeDef(BaseValidatorModel):
-    CurrentVersion: str
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    DeviceName: Optional[str] = None
-    MediaType: Optional[str] = None
+    CurrentVersion: Annotated[str, _aws_pattern("Kinesisvideo", "Version")]
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
+    DeviceName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "DeviceName")]] = None
+    MediaType: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "MediaType")]] = None
 
 
 class ChannelInfoTypeDef(BaseValidatorModel):
-    ChannelName: Optional[str] = None
-    ChannelARN: Optional[str] = None
+    ChannelName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ChannelName")]] = None
+    ChannelARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
     ChannelType: Optional[ChannelTypeType] = None
     ChannelStatus: Optional[StatusType] = None
     CreationTime: Optional[datetime] = None
     SingleMasterConfiguration: Optional[SingleMasterConfigurationTypeDef] = None
-    Version: Optional[str] = None
+    Version: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "Version")]] = None
 
 
 class UpdateSignalingChannelInputTypeDef(BaseValidatorModel):
-    ChannelARN: str
-    CurrentVersion: str
+    ChannelARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
+    CurrentVersion: Annotated[str, _aws_pattern("Kinesisvideo", "Version")]
     SingleMasterConfiguration: Optional[SingleMasterConfigurationTypeDef] = None
 
 
 # This class is the input for the 'list_signaling_channels' function.
 class ListSignalingChannelsInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None
     ChannelNameCondition: Optional[ChannelNameConditionTypeDef] = None
 
 
 # This class is the input for the 'create_signaling_channel' function.
 class CreateSignalingChannelInputTypeDef(BaseValidatorModel):
-    ChannelName: str
+    ChannelName: Annotated[str, _aws_pattern("Kinesisvideo", "ChannelName")]
     ChannelType: Optional[ChannelTypeType] = None
     SingleMasterConfiguration: Optional[SingleMasterConfigurationTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_signaling_channel' function.
 class CreateSignalingChannelOutputTypeDef(BaseValidatorModel):
-    ChannelARN: str
+    ChannelARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_stream' function.
 class CreateStreamOutputTypeDef(BaseValidatorModel):
-    StreamARN: str
+    StreamARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -328,22 +330,22 @@ class GetDataEndpointOutputTypeDef(BaseValidatorModel):
 class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_stream' function.
 class ListTagsForStreamOutputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None
 
 
 # This class is the input for the 'create_stream' function.
 class CreateStreamInputTypeDef(BaseValidatorModel):
-    StreamName: str
-    DeviceName: Optional[str] = None
-    MediaType: Optional[str] = None
-    KmsKeyId: Optional[str] = None
+    StreamName: Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]
+    DeviceName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "DeviceName")]] = None
+    MediaType: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "MediaType")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "KmsKeyId")]] = None
     DataRetentionInHours: Optional[int] = None
     Tags: Optional[Dict[str, str]] = None
     StreamStorageConfiguration: Optional[StreamStorageConfigurationTypeDef] = None
@@ -351,17 +353,17 @@ class CreateStreamInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_stream_storage_configuration' function.
 class DescribeStreamStorageConfigurationOutputTypeDef(BaseValidatorModel):
-    StreamName: str
-    StreamARN: str
+    StreamName: Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]
+    StreamARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
     StreamStorageConfiguration: StreamStorageConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class UpdateStreamStorageConfigurationInputTypeDef(BaseValidatorModel):
-    CurrentVersion: str
+    CurrentVersion: Annotated[str, _aws_pattern("Kinesisvideo", "Version")]
     StreamStorageConfiguration: StreamStorageConfigurationTypeDef
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 class DeletionConfigTypeDef(BaseValidatorModel):
@@ -390,7 +392,7 @@ class ListSignalingChannelsInputPaginateTypeDef(BaseValidatorModel):
 class DescribeMappedResourceConfigurationOutputTypeDef(BaseValidatorModel):
     MappedResourceConfigurationList: List[MappedResourceConfigurationListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_media_storage_configuration' function.
@@ -400,7 +402,7 @@ class DescribeMediaStorageConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class UpdateMediaStorageConfigurationInputTypeDef(BaseValidatorModel):
-    ChannelARN: str
+    ChannelARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
     MediaStorageConfiguration: MediaStorageConfigurationTypeDef
 
 
@@ -414,7 +416,7 @@ class DescribeStreamOutputTypeDef(BaseValidatorModel):
 class ListStreamsOutputTypeDef(BaseValidatorModel):
     StreamInfoList: List[StreamInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None
 
 
 class EdgeAgentStatusTypeDef(BaseValidatorModel):
@@ -424,7 +426,7 @@ class EdgeAgentStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_signaling_channel_endpoint' function.
 class GetSignalingChannelEndpointInputTypeDef(BaseValidatorModel):
-    ChannelARN: str
+    ChannelARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
     SingleMasterChannelEndpointConfiguration: Optional[SingleMasterChannelEndpointConfigurationTypeDef] = None
 
 
@@ -464,7 +466,7 @@ class ListStreamsInputPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_streams' function.
 class ListStreamsInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None
     StreamNameCondition: Optional[StreamNameConditionTypeDef] = None
 
 
@@ -492,7 +494,7 @@ class DescribeSignalingChannelOutputTypeDef(BaseValidatorModel):
 class ListSignalingChannelsOutputTypeDef(BaseValidatorModel):
     ChannelInfoList: List[ChannelInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_image_generation_configuration' function.
@@ -513,28 +515,28 @@ class DescribeNotificationConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class UpdateNotificationConfigurationInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
     NotificationConfiguration: Optional[NotificationConfigurationTypeDef] = None
 
 
 class EdgeConfigTypeDef(BaseValidatorModel):
-    HubDeviceArn: str
+    HubDeviceArn: Annotated[str, _aws_pattern("Kinesisvideo", "HubDeviceArn")]
     RecorderConfig: RecorderConfigTypeDef
     UploaderConfig: Optional[UploaderConfigTypeDef] = None
     DeletionConfig: Optional[DeletionConfigTypeDef] = None
 
 
 class UpdateImageGenerationConfigurationInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
     ImageGenerationConfiguration: Optional[ImageGenerationConfigurationUnionTypeDef] = None
 
 
 # This class is the output for the 'describe_edge_configuration' function.
 class DescribeEdgeConfigurationOutputTypeDef(BaseValidatorModel):
-    StreamName: str
-    StreamARN: str
+    StreamName: Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]
+    StreamARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
     CreationTime: datetime
     LastUpdatedTime: datetime
     SyncStatus: SyncStatusType
@@ -545,8 +547,8 @@ class DescribeEdgeConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class ListEdgeAgentConfigurationsEdgeConfigTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
     CreationTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
     SyncStatus: Optional[SyncStatusType] = None
@@ -557,14 +559,14 @@ class ListEdgeAgentConfigurationsEdgeConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_edge_configuration_update' function.
 class StartEdgeConfigurationUpdateInputTypeDef(BaseValidatorModel):
     EdgeConfig: EdgeConfigTypeDef
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]] = None
 
 
 # This class is the output for the 'start_edge_configuration_update' function.
 class StartEdgeConfigurationUpdateOutputTypeDef(BaseValidatorModel):
-    StreamName: str
-    StreamARN: str
+    StreamName: Annotated[str, _aws_pattern("Kinesisvideo", "StreamName")]
+    StreamARN: Annotated[str, _aws_pattern("Kinesisvideo", "ResourceARN")]
     CreationTime: datetime
     LastUpdatedTime: datetime
     SyncStatus: SyncStatusType
@@ -577,4 +579,4 @@ class StartEdgeConfigurationUpdateOutputTypeDef(BaseValidatorModel):
 class ListEdgeAgentConfigurationsOutputTypeDef(BaseValidatorModel):
     EdgeConfigs: List[ListEdgeAgentConfigurationsEdgeConfigTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisvideo", "NextToken")]] = None

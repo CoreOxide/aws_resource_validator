@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mgh.mgh_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,40 +41,40 @@ except ImportError:  # pragma: no cover
 
 
 class ApplicationStateTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("Mgh", "ApplicationId")]] = None
     ApplicationStatus: Optional[ApplicationStatusType] = None
     LastUpdatedTime: Optional[datetime] = None
 
 
 class CreatedArtifactTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Mgh", "CreatedArtifactName")]
+    Description: Optional[Annotated[str, _aws_pattern("Mgh", "CreatedArtifactDescription")]] = None
 
 
 class DiscoveredResourceTypeDef(BaseValidatorModel):
-    ConfigurationId: str
-    Description: Optional[str] = None
+    ConfigurationId: Annotated[str, _aws_pattern("Mgh", "ConfigurationId")]
+    Description: Optional[Annotated[str, _aws_pattern("Mgh", "DiscoveredResourceDescription")]] = None
 
 
 class SourceResourceTypeDef(BaseValidatorModel):
     Name: str
-    Description: Optional[str] = None
-    StatusDetail: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Mgh", "SourceResourceDescription")]] = None
+    StatusDetail: Optional[Annotated[str, _aws_pattern("Mgh", "StatusDetail")]] = None
 
 
 class CreateProgressUpdateStreamRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStreamName: str
+    ProgressUpdateStreamName: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
     DryRun: Optional[bool] = None
 
 
 class DeleteProgressUpdateStreamRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStreamName: str
+    ProgressUpdateStreamName: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
     DryRun: Optional[bool] = None
 
 
 # This class is the input for the 'describe_application_state' function.
 class DescribeApplicationStateRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("Mgh", "ApplicationId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -85,34 +87,34 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_migration_task' function.
 class DescribeMigrationTaskRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
 
 
 class DisassociateCreatedArtifactRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
-    CreatedArtifactName: str
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
+    CreatedArtifactName: Annotated[str, _aws_pattern("Mgh", "CreatedArtifactName")]
     DryRun: Optional[bool] = None
 
 
 class DisassociateDiscoveredResourceRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
-    ConfigurationId: str
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
+    ConfigurationId: Annotated[str, _aws_pattern("Mgh", "ConfigurationId")]
     DryRun: Optional[bool] = None
 
 
 class DisassociateSourceResourceRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
     SourceResourceName: str
     DryRun: Optional[bool] = None
 
 
 class ImportMigrationTaskRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
     DryRun: Optional[bool] = None
 
 
@@ -124,77 +126,77 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_application_states' function.
 class ListApplicationStatesRequestTypeDef(BaseValidatorModel):
-    ApplicationIds: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    ApplicationIds: Optional[List[Annotated[str, _aws_pattern("Mgh", "ApplicationId")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_created_artifacts' function.
 class ListCreatedArtifactsRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
-    NextToken: Optional[str] = None
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_discovered_resources' function.
 class ListDiscoveredResourcesRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
-    NextToken: Optional[str] = None
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_migration_task_updates' function.
 class ListMigrationTaskUpdatesRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
-    NextToken: Optional[str] = None
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_migration_tasks' function.
 class ListMigrationTasksRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
     MaxResults: Optional[int] = None
-    ResourceName: Optional[str] = None
+    ResourceName: Optional[Annotated[str, _aws_pattern("Mgh", "ResourceName")]] = None
 
 
 class MigrationTaskSummaryTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: Optional[str] = None
-    MigrationTaskName: Optional[str] = None
+    ProgressUpdateStream: Optional[Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]] = None
+    MigrationTaskName: Optional[Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]] = None
     Status: Optional[StatusType] = None
     ProgressPercent: Optional[int] = None
-    StatusDetail: Optional[str] = None
+    StatusDetail: Optional[Annotated[str, _aws_pattern("Mgh", "StatusDetail")]] = None
     UpdateDateTime: Optional[datetime] = None
 
 
 # This class is the input for the 'list_progress_update_streams' function.
 class ListProgressUpdateStreamsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
 class ProgressUpdateStreamSummaryTypeDef(BaseValidatorModel):
-    ProgressUpdateStreamName: Optional[str] = None
+    ProgressUpdateStreamName: Optional[Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]] = None
 
 
 # This class is the input for the 'list_source_resources' function.
 class ListSourceResourcesRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
-    NextToken: Optional[str] = None
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
 class ResourceAttributeTypeDef(BaseValidatorModel):
     Type: ResourceAttributeTypeType
-    Value: str
+    Value: Annotated[str, _aws_pattern("Mgh", "ResourceAttributeValue")]
 
 
 class TaskTypeDef(BaseValidatorModel):
     Status: StatusType
-    StatusDetail: Optional[str] = None
+    StatusDetail: Optional[Annotated[str, _aws_pattern("Mgh", "StatusDetail")]] = None
     ProgressPercent: Optional[int] = None
 
 
@@ -202,22 +204,22 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class AssociateCreatedArtifactRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
     CreatedArtifact: CreatedArtifactTypeDef
     DryRun: Optional[bool] = None
 
 
 class AssociateDiscoveredResourceRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
     DiscoveredResource: DiscoveredResourceTypeDef
     DryRun: Optional[bool] = None
 
 
 class AssociateSourceResourceRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
     SourceResource: SourceResourceTypeDef
     DryRun: Optional[bool] = None
 
@@ -233,28 +235,28 @@ class DescribeApplicationStateResultTypeDef(BaseValidatorModel):
 class ListApplicationStatesResultTypeDef(BaseValidatorModel):
     ApplicationStateList: List[ApplicationStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
 
 
 # This class is the output for the 'list_created_artifacts' function.
 class ListCreatedArtifactsResultTypeDef(BaseValidatorModel):
     CreatedArtifactList: List[CreatedArtifactTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
 
 
 # This class is the output for the 'list_discovered_resources' function.
 class ListDiscoveredResourcesResultTypeDef(BaseValidatorModel):
     DiscoveredResourceList: List[DiscoveredResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
 
 
 # This class is the output for the 'list_source_resources' function.
 class ListSourceResourcesResultTypeDef(BaseValidatorModel):
     SourceResourceList: List[SourceResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
 
 
 class ListApplicationStatesRequestPaginateTypeDef(BaseValidatorModel):
@@ -299,26 +301,26 @@ class ListSourceResourcesRequestPaginateTypeDef(BaseValidatorModel):
 class ListMigrationTasksResultTypeDef(BaseValidatorModel):
     MigrationTaskSummaryList: List[MigrationTaskSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
 
 
 # This class is the output for the 'list_progress_update_streams' function.
 class ListProgressUpdateStreamsResultTypeDef(BaseValidatorModel):
     ProgressUpdateStreamSummaryList: List[ProgressUpdateStreamSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None
 
 
 class PutResourceAttributesRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
     ResourceAttributeList: List[ResourceAttributeTypeDef]
     DryRun: Optional[bool] = None
 
 
 class MigrationTaskTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: Optional[str] = None
-    MigrationTaskName: Optional[str] = None
+    ProgressUpdateStream: Optional[Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]] = None
+    MigrationTaskName: Optional[Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]] = None
     Task: Optional[TaskTypeDef] = None
     UpdateDateTime: Optional[datetime] = None
     ResourceAttributeList: Optional[List[ResourceAttributeTypeDef]] = None
@@ -331,15 +333,15 @@ class MigrationTaskUpdateTypeDef(BaseValidatorModel):
 
 
 class NotifyApplicationStateRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("Mgh", "ApplicationId")]
     Status: ApplicationStatusType
     UpdateDateTime: Optional[TimestampTypeDef] = None
     DryRun: Optional[bool] = None
 
 
 class NotifyMigrationTaskStateRequestTypeDef(BaseValidatorModel):
-    ProgressUpdateStream: str
-    MigrationTaskName: str
+    ProgressUpdateStream: Annotated[str, _aws_pattern("Mgh", "ProgressUpdateStream")]
+    MigrationTaskName: Annotated[str, _aws_pattern("Mgh", "MigrationTaskName")]
     Task: TaskTypeDef
     UpdateDateTime: TimestampTypeDef
     NextUpdateSeconds: int
@@ -356,4 +358,4 @@ class DescribeMigrationTaskResultTypeDef(BaseValidatorModel):
 class ListMigrationTaskUpdatesResultTypeDef(BaseValidatorModel):
     MigrationTaskUpdateList: List[MigrationTaskUpdateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mgh", "Token")]] = None

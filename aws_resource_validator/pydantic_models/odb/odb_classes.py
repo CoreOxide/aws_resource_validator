@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.odb.odb_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -43,17 +45,17 @@ class AcceptMarketplaceRegistrationInputTypeDef(BaseValidatorModel):
 
 
 class AssociateIamRoleToResourceInputTypeDef(BaseValidatorModel):
-    iamRoleArn: str
+    iamRoleArn: Annotated[str, _aws_pattern("Odb", "RoleArn")]
     awsIntegration: Literal["KmsTde"]
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Odb", "AssociateIamRoleToResourceInputResourceArnString")]
 
 
 class AutonomousVirtualMachineSummaryTypeDef(BaseValidatorModel):
-    autonomousVirtualMachineId: Optional[str] = None
+    autonomousVirtualMachineId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceId")]] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
     vmName: Optional[str] = None
-    dbServerId: Optional[str] = None
+    dbServerId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceId")]] = None
     dbServerDisplayName: Optional[str] = None
     cpuCoreCount: Optional[int] = None
     memorySizeInGBs: Optional[int] = None
@@ -65,12 +67,12 @@ class AutonomousVirtualMachineSummaryTypeDef(BaseValidatorModel):
 
 
 class CloudAutonomousVmClusterResourceDetailsTypeDef(BaseValidatorModel):
-    cloudAutonomousVmClusterId: Optional[str] = None
+    cloudAutonomousVmClusterId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceId")]] = None
     unallocatedAdbStorageInTBs: Optional[float] = None
 
 
 class IamRoleTypeDef(BaseValidatorModel):
-    iamRoleArn: Optional[str] = None
+    iamRoleArn: Optional[Annotated[str, _aws_pattern("Odb", "RoleArn")]] = None
     status: Optional[IamRoleStatusType] = None
     statusReason: Optional[str] = None
     awsIntegration: Optional[Literal["KmsTde"]] = None
@@ -96,14 +98,16 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_odb_network' function.
 class CreateOdbNetworkInputTypeDef(BaseValidatorModel):
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("Odb", "ResourceDisplayName")]
     clientSubnetCidr: str
     availabilityZone: Optional[str] = None
     availabilityZoneId: Optional[str] = None
     backupSubnetCidr: Optional[str] = None
     customDomainName: Optional[str] = None
-    defaultDnsPrefix: Optional[str] = None
-    clientToken: Optional[str] = None
+    defaultDnsPrefix: Optional[Annotated[str, _aws_pattern("Odb", "CreateOdbNetworkInputDefaultDnsPrefixString")]] = (
+        None
+    )
+    clientToken: Optional[Annotated[str, _aws_pattern("Odb", "CreateOdbNetworkInputClientTokenString")]] = None
     s3Access: Optional[AccessType] = None
     zeroEtlAccess: Optional[AccessType] = None
     stsAccess: Optional[AccessType] = None
@@ -117,12 +121,14 @@ class CreateOdbNetworkInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_odb_peering_connection' function.
 class CreateOdbPeeringConnectionInputTypeDef(BaseValidatorModel):
-    odbNetworkId: str
-    peerNetworkId: str
-    displayName: Optional[str] = None
-    peerNetworkCidrsToBeAdded: Optional[List[str]] = None
-    peerNetworkRouteTableIds: Optional[List[str]] = None
-    clientToken: Optional[str] = None
+    odbNetworkId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
+    peerNetworkId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
+    displayName: Optional[Annotated[str, _aws_pattern("Odb", "ResourceDisplayName")]] = None
+    peerNetworkCidrsToBeAdded: Optional[List[Annotated[str, _aws_pattern("Odb", "PeeredCidr")]]] = None
+    peerNetworkRouteTableIds: Optional[List[Annotated[str, _aws_pattern("Odb", "PeerNetworkRouteTableId")]]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Odb", "CreateOdbPeeringConnectionInputClientTokenString")]] = (
+        None
+    )
     tags: Optional[Dict[str, str]] = None
 
 
@@ -143,8 +149,8 @@ class DbIormConfigTypeDef(BaseValidatorModel):
 
 
 class DbNodeSummaryTypeDef(BaseValidatorModel):
-    dbNodeId: Optional[str] = None
-    dbNodeArn: Optional[str] = None
+    dbNodeId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceId")]] = None
+    dbNodeArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
     status: Optional[DbNodeResourceStatusType] = None
     statusReason: Optional[str] = None
     additionalDetails: Optional[str] = None
@@ -153,7 +159,7 @@ class DbNodeSummaryTypeDef(BaseValidatorModel):
     backupVnicId: Optional[str] = None
     cpuCoreCount: Optional[int] = None
     dbNodeStorageSizeInGBs: Optional[int] = None
-    dbServerId: Optional[str] = None
+    dbServerId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceId")]] = None
     dbSystemId: Optional[str] = None
     faultDomain: Optional[str] = None
     hostIpId: Optional[str] = None
@@ -172,8 +178,8 @@ class DbNodeSummaryTypeDef(BaseValidatorModel):
 
 
 class DbNodeTypeDef(BaseValidatorModel):
-    dbNodeId: Optional[str] = None
-    dbNodeArn: Optional[str] = None
+    dbNodeId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceId")]] = None
+    dbNodeArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
     status: Optional[DbNodeResourceStatusType] = None
     statusReason: Optional[str] = None
     additionalDetails: Optional[str] = None
@@ -182,7 +188,7 @@ class DbNodeTypeDef(BaseValidatorModel):
     backupVnicId: Optional[str] = None
     cpuCoreCount: Optional[int] = None
     dbNodeStorageSizeInGBs: Optional[int] = None
-    dbServerId: Optional[str] = None
+    dbServerId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceId")]] = None
     dbSystemId: Optional[str] = None
     faultDomain: Optional[str] = None
     hostIpId: Optional[str] = None
@@ -237,63 +243,63 @@ class DbSystemShapeSummaryTypeDef(BaseValidatorModel):
 
 
 class DeleteCloudAutonomousVmClusterInputTypeDef(BaseValidatorModel):
-    cloudAutonomousVmClusterId: str
+    cloudAutonomousVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
 
 
 class DeleteCloudExadataInfrastructureInputTypeDef(BaseValidatorModel):
-    cloudExadataInfrastructureId: str
+    cloudExadataInfrastructureId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
 
 
 class DeleteCloudVmClusterInputTypeDef(BaseValidatorModel):
-    cloudVmClusterId: str
+    cloudVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
 
 
 class DeleteOdbNetworkInputTypeDef(BaseValidatorModel):
-    odbNetworkId: str
+    odbNetworkId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
     deleteAssociatedResources: bool
 
 
 class DeleteOdbPeeringConnectionInputTypeDef(BaseValidatorModel):
-    odbPeeringConnectionId: str
+    odbPeeringConnectionId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
 
 
 class DisassociateIamRoleFromResourceInputTypeDef(BaseValidatorModel):
-    iamRoleArn: str
+    iamRoleArn: Annotated[str, _aws_pattern("Odb", "RoleArn")]
     awsIntegration: Literal["KmsTde"]
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Odb", "DisassociateIamRoleFromResourceInputResourceArnString")]
 
 
 # This class is the input for the 'get_cloud_autonomous_vm_cluster' function.
 class GetCloudAutonomousVmClusterInputTypeDef(BaseValidatorModel):
-    cloudAutonomousVmClusterId: str
+    cloudAutonomousVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
 
 
 # This class is the input for the 'get_cloud_exadata_infrastructure' function.
 class GetCloudExadataInfrastructureInputTypeDef(BaseValidatorModel):
-    cloudExadataInfrastructureId: str
+    cloudExadataInfrastructureId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
 
 
 # This class is the input for the 'get_cloud_exadata_infrastructure_unallocated_resources' function.
 class GetCloudExadataInfrastructureUnallocatedResourcesInputTypeDef(BaseValidatorModel):
-    cloudExadataInfrastructureId: str
+    cloudExadataInfrastructureId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
     dbServers: Optional[List[str]] = None
 
 
 # This class is the input for the 'get_cloud_vm_cluster' function.
 class GetCloudVmClusterInputTypeDef(BaseValidatorModel):
-    cloudVmClusterId: str
+    cloudVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
 
 
 # This class is the input for the 'get_db_node' function.
 class GetDbNodeInputTypeDef(BaseValidatorModel):
-    cloudVmClusterId: str
-    dbNodeId: str
+    cloudVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
+    dbNodeId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
 
 
 # This class is the input for the 'get_db_server' function.
 class GetDbServerInputTypeDef(BaseValidatorModel):
-    cloudExadataInfrastructureId: str
-    dbServerId: str
+    cloudExadataInfrastructureId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
+    dbServerId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
 
 
 class OciIdentityDomainTypeDef(BaseValidatorModel):
@@ -307,16 +313,16 @@ class OciIdentityDomainTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_odb_network' function.
 class GetOdbNetworkInputTypeDef(BaseValidatorModel):
-    odbNetworkId: str
+    odbNetworkId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
 
 
 # This class is the input for the 'get_odb_peering_connection' function.
 class GetOdbPeeringConnectionInputTypeDef(BaseValidatorModel):
-    odbPeeringConnectionId: str
+    odbPeeringConnectionId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
 
 
 class OdbPeeringConnectionTypeDef(BaseValidatorModel):
-    odbPeeringConnectionId: str
+    odbPeeringConnectionId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
     displayName: Optional[str] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
@@ -324,7 +330,7 @@ class OdbPeeringConnectionTypeDef(BaseValidatorModel):
     odbNetworkArn: Optional[str] = None
     peerNetworkArn: Optional[str] = None
     odbPeeringConnectionType: Optional[str] = None
-    peerNetworkCidrs: Optional[List[str]] = None
+    peerNetworkCidrs: Optional[List[Annotated[str, _aws_pattern("Odb", "PeeredCidr")]]] = None
     createdAt: Optional[datetime] = None
     percentProgress: Optional[float] = None
 
@@ -352,7 +358,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_autonomous_virtual_machines' function.
 class ListAutonomousVirtualMachinesInputTypeDef(BaseValidatorModel):
-    cloudAutonomousVmClusterId: str
+    cloudAutonomousVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -361,7 +367,7 @@ class ListAutonomousVirtualMachinesInputTypeDef(BaseValidatorModel):
 class ListCloudAutonomousVmClustersInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    cloudExadataInfrastructureId: Optional[str] = None
+    cloudExadataInfrastructureId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]] = None
 
 
 # This class is the input for the 'list_cloud_exadata_infrastructures' function.
@@ -374,19 +380,19 @@ class ListCloudExadataInfrastructuresInputTypeDef(BaseValidatorModel):
 class ListCloudVmClustersInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    cloudExadataInfrastructureId: Optional[str] = None
+    cloudExadataInfrastructureId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]] = None
 
 
 # This class is the input for the 'list_db_nodes' function.
 class ListDbNodesInputTypeDef(BaseValidatorModel):
-    cloudVmClusterId: str
+    cloudVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_db_servers' function.
 class ListDbServersInputTypeDef(BaseValidatorModel):
-    cloudExadataInfrastructureId: str
+    cloudExadataInfrastructureId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -416,11 +422,11 @@ class ListOdbNetworksInputTypeDef(BaseValidatorModel):
 class ListOdbPeeringConnectionsInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    odbNetworkId: Optional[str] = None
+    odbNetworkId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]] = None
 
 
 class OdbPeeringConnectionSummaryTypeDef(BaseValidatorModel):
-    odbPeeringConnectionId: str
+    odbPeeringConnectionId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
     displayName: Optional[str] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
@@ -428,7 +434,7 @@ class OdbPeeringConnectionSummaryTypeDef(BaseValidatorModel):
     odbNetworkArn: Optional[str] = None
     peerNetworkArn: Optional[str] = None
     odbPeeringConnectionType: Optional[str] = None
-    peerNetworkCidrs: Optional[List[str]] = None
+    peerNetworkCidrs: Optional[List[Annotated[str, _aws_pattern("Odb", "PeeredCidr")]]] = None
     createdAt: Optional[datetime] = None
     percentProgress: Optional[float] = None
 
@@ -449,7 +455,7 @@ class SystemVersionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Odb", "ResourceArn")]
 
 
 class MonthTypeDef(BaseValidatorModel):
@@ -492,36 +498,36 @@ class OciDnsForwardingConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reboot_db_node' function.
 class RebootDbNodeInputTypeDef(BaseValidatorModel):
-    cloudVmClusterId: str
-    dbNodeId: str
+    cloudVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
+    dbNodeId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
 
 
 # This class is the input for the 'start_db_node' function.
 class StartDbNodeInputTypeDef(BaseValidatorModel):
-    cloudVmClusterId: str
-    dbNodeId: str
+    cloudVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
+    dbNodeId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
 
 
 # This class is the input for the 'stop_db_node' function.
 class StopDbNodeInputTypeDef(BaseValidatorModel):
-    cloudVmClusterId: str
-    dbNodeId: str
+    cloudVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
+    dbNodeId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Odb", "ResourceArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Odb", "ResourceArn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_odb_network' function.
 class UpdateOdbNetworkInputTypeDef(BaseValidatorModel):
-    odbNetworkId: str
-    displayName: Optional[str] = None
+    odbNetworkId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
+    displayName: Optional[Annotated[str, _aws_pattern("Odb", "ResourceDisplayName")]] = None
     peeredCidrsToBeAdded: Optional[List[str]] = None
     peeredCidrsToBeRemoved: Optional[List[str]] = None
     s3Access: Optional[AccessType] = None
@@ -537,17 +543,17 @@ class UpdateOdbNetworkInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_odb_peering_connection' function.
 class UpdateOdbPeeringConnectionInputTypeDef(BaseValidatorModel):
-    odbPeeringConnectionId: str
-    displayName: Optional[str] = None
-    peerNetworkCidrsToBeAdded: Optional[List[str]] = None
-    peerNetworkCidrsToBeRemoved: Optional[List[str]] = None
+    odbPeeringConnectionId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
+    displayName: Optional[Annotated[str, _aws_pattern("Odb", "ResourceDisplayName")]] = None
+    peerNetworkCidrsToBeAdded: Optional[List[Annotated[str, _aws_pattern("Odb", "PeeredCidr")]]] = None
+    peerNetworkCidrsToBeRemoved: Optional[List[Annotated[str, _aws_pattern("Odb", "PeeredCidr")]]] = None
 
 
 class CloudExadataInfrastructureUnallocatedResourcesTypeDef(BaseValidatorModel):
     cloudAutonomousVmClusters: Optional[List[CloudAutonomousVmClusterResourceDetailsTypeDef]] = None
     cloudExadataInfrastructureDisplayName: Optional[str] = None
     exadataStorageInTBs: Optional[float] = None
-    cloudExadataInfrastructureId: Optional[str] = None
+    cloudExadataInfrastructureId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]] = None
     localStorageInGBs: Optional[int] = None
     memoryInGBs: Optional[int] = None
     ocpus: Optional[int] = None
@@ -555,14 +561,14 @@ class CloudExadataInfrastructureUnallocatedResourcesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_cloud_vm_cluster' function.
 class CreateCloudVmClusterInputTypeDef(BaseValidatorModel):
-    cloudExadataInfrastructureId: str
+    cloudExadataInfrastructureId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
     cpuCoreCount: int
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("Odb", "ResourceDisplayName")]
     giVersion: str
-    hostname: str
+    hostname: Annotated[str, _aws_pattern("Odb", "CreateCloudVmClusterInputHostnameString")]
     sshPublicKeys: List[str]
-    odbNetworkId: str
-    clusterName: Optional[str] = None
+    odbNetworkId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
+    clusterName: Optional[Annotated[str, _aws_pattern("Odb", "CreateCloudVmClusterInputClusterNameString")]] = None
     dataCollectionOptions: Optional[DataCollectionOptionsTypeDef] = None
     dataStorageSizeInTBs: Optional[float] = None
     dbNodeStorageSizeInGBs: Optional[int] = None
@@ -574,7 +580,7 @@ class CreateCloudVmClusterInputTypeDef(BaseValidatorModel):
     memorySizeInGBs: Optional[int] = None
     systemVersion: Optional[str] = None
     timeZone: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Odb", "CreateCloudVmClusterInputClientTokenString")]] = None
     scanListenerPortTcp: Optional[int] = None
 
 
@@ -708,7 +714,7 @@ class GetDbNodeOutputTypeDef(BaseValidatorModel):
 
 
 class DbServerSummaryTypeDef(BaseValidatorModel):
-    dbServerId: Optional[str] = None
+    dbServerId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceId")]] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
     cpuCoreCount: Optional[int] = None
@@ -731,7 +737,7 @@ class DbServerSummaryTypeDef(BaseValidatorModel):
 
 
 class DbServerTypeDef(BaseValidatorModel):
-    dbServerId: Optional[str] = None
+    dbServerId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceId")]] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
     cpuCoreCount: Optional[int] = None
@@ -877,8 +883,8 @@ class MaintenanceWindowTypeDef(BaseValidatorModel):
 
 
 class ManagedServicesTypeDef(BaseValidatorModel):
-    serviceNetworkArn: Optional[str] = None
-    resourceGatewayArn: Optional[str] = None
+    serviceNetworkArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
+    resourceGatewayArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
     managedServicesIpv4Cidrs: Optional[List[str]] = None
     serviceNetworkEndpoint: Optional[ServiceNetworkEndpointTypeDef] = None
     managedS3BackupAccess: Optional[ManagedS3BackupAccessTypeDef] = None
@@ -896,13 +902,13 @@ class GetCloudExadataInfrastructureUnallocatedResourcesOutputTypeDef(BaseValidat
 
 
 class CloudVmClusterSummaryTypeDef(BaseValidatorModel):
-    cloudVmClusterId: str
+    cloudVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
     displayName: Optional[str] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
     cloudVmClusterArn: Optional[str] = None
     cloudExadataInfrastructureId: Optional[str] = None
-    cloudExadataInfrastructureArn: Optional[str] = None
+    cloudExadataInfrastructureArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
     clusterName: Optional[str] = None
     cpuCoreCount: Optional[int] = None
     dataCollectionOptions: Optional[DataCollectionOptionsTypeDef] = None
@@ -934,21 +940,21 @@ class CloudVmClusterSummaryTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     timeZone: Optional[str] = None
     vipIds: Optional[List[str]] = None
-    odbNetworkId: Optional[str] = None
-    odbNetworkArn: Optional[str] = None
+    odbNetworkId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]] = None
+    odbNetworkArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
     percentProgress: Optional[float] = None
     computeModel: Optional[ComputeModelType] = None
     iamRoles: Optional[List[IamRoleTypeDef]] = None
 
 
 class CloudVmClusterTypeDef(BaseValidatorModel):
-    cloudVmClusterId: str
+    cloudVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
     displayName: Optional[str] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
     cloudVmClusterArn: Optional[str] = None
     cloudExadataInfrastructureId: Optional[str] = None
-    cloudExadataInfrastructureArn: Optional[str] = None
+    cloudExadataInfrastructureArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
     clusterName: Optional[str] = None
     cpuCoreCount: Optional[int] = None
     dataCollectionOptions: Optional[DataCollectionOptionsTypeDef] = None
@@ -980,8 +986,8 @@ class CloudVmClusterTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     timeZone: Optional[str] = None
     vipIds: Optional[List[str]] = None
-    odbNetworkId: Optional[str] = None
-    odbNetworkArn: Optional[str] = None
+    odbNetworkId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]] = None
+    odbNetworkArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
     percentProgress: Optional[float] = None
     computeModel: Optional[ComputeModelType] = None
     iamRoles: Optional[List[IamRoleTypeDef]] = None
@@ -1001,17 +1007,17 @@ class GetDbServerOutputTypeDef(BaseValidatorModel):
 
 
 class CloudAutonomousVmClusterSummaryTypeDef(BaseValidatorModel):
-    cloudAutonomousVmClusterId: str
+    cloudAutonomousVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
     cloudAutonomousVmClusterArn: Optional[str] = None
-    odbNetworkId: Optional[str] = None
-    odbNetworkArn: Optional[str] = None
+    odbNetworkId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]] = None
+    odbNetworkArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
     ociResourceAnchorName: Optional[str] = None
     percentProgress: Optional[float] = None
-    displayName: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Odb", "ResourceDisplayName")]] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
-    cloudExadataInfrastructureId: Optional[str] = None
-    cloudExadataInfrastructureArn: Optional[str] = None
+    cloudExadataInfrastructureId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]] = None
+    cloudExadataInfrastructureArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
     autonomousDataStoragePercentage: Optional[float] = None
     autonomousDataStorageSizeInTBs: Optional[float] = None
     availableAutonomousDataStorageSizeInTBs: Optional[float] = None
@@ -1056,17 +1062,17 @@ class CloudAutonomousVmClusterSummaryTypeDef(BaseValidatorModel):
 
 
 class CloudAutonomousVmClusterTypeDef(BaseValidatorModel):
-    cloudAutonomousVmClusterId: str
+    cloudAutonomousVmClusterId: Annotated[str, _aws_pattern("Odb", "ResourceId")]
     cloudAutonomousVmClusterArn: Optional[str] = None
-    odbNetworkId: Optional[str] = None
-    odbNetworkArn: Optional[str] = None
+    odbNetworkId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]] = None
+    odbNetworkArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
     ociResourceAnchorName: Optional[str] = None
     percentProgress: Optional[float] = None
-    displayName: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Odb", "ResourceDisplayName")]] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
-    cloudExadataInfrastructureId: Optional[str] = None
-    cloudExadataInfrastructureArn: Optional[str] = None
+    cloudExadataInfrastructureId: Optional[Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]] = None
+    cloudExadataInfrastructureArn: Optional[Annotated[str, _aws_pattern("Odb", "ResourceArn")]] = None
     autonomousDataStoragePercentage: Optional[float] = None
     autonomousDataStorageSizeInTBs: Optional[float] = None
     availableAutonomousDataStorageSizeInTBs: Optional[float] = None
@@ -1111,7 +1117,7 @@ class CloudAutonomousVmClusterTypeDef(BaseValidatorModel):
 
 
 class CloudExadataInfrastructureSummaryTypeDef(BaseValidatorModel):
-    cloudExadataInfrastructureId: str
+    cloudExadataInfrastructureId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
     displayName: Optional[str] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
@@ -1152,7 +1158,7 @@ class CloudExadataInfrastructureSummaryTypeDef(BaseValidatorModel):
 
 
 class CloudExadataInfrastructureTypeDef(BaseValidatorModel):
-    cloudExadataInfrastructureId: str
+    cloudExadataInfrastructureId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
     displayName: Optional[str] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
@@ -1196,7 +1202,7 @@ MaintenanceWindowUnionTypeDef = Union[MaintenanceWindowOutputTypeDef, Maintenanc
 
 
 class OdbNetworkSummaryTypeDef(BaseValidatorModel):
-    odbNetworkId: str
+    odbNetworkId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
     displayName: Optional[str] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
@@ -1217,11 +1223,11 @@ class OdbNetworkSummaryTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     percentProgress: Optional[float] = None
     managedServices: Optional[ManagedServicesTypeDef] = None
-    ec2PlacementGroupIds: Optional[List[str]] = None
+    ec2PlacementGroupIds: Optional[List[Annotated[str, _aws_pattern("Odb", "ResourceId")]]] = None
 
 
 class OdbNetworkTypeDef(BaseValidatorModel):
-    odbNetworkId: str
+    odbNetworkId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
     displayName: Optional[str] = None
     status: Optional[ResourceStatusType] = None
     statusReason: Optional[str] = None
@@ -1242,7 +1248,7 @@ class OdbNetworkTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     percentProgress: Optional[float] = None
     managedServices: Optional[ManagedServicesTypeDef] = None
-    ec2PlacementGroupIds: Optional[List[str]] = None
+    ec2PlacementGroupIds: Optional[List[Annotated[str, _aws_pattern("Odb", "ResourceId")]]] = None
 
 
 # This class is the output for the 'list_cloud_vm_clusters' function.
@@ -1286,14 +1292,16 @@ class GetCloudExadataInfrastructureOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_cloud_autonomous_vm_cluster' function.
 class CreateCloudAutonomousVmClusterInputTypeDef(BaseValidatorModel):
-    cloudExadataInfrastructureId: str
-    odbNetworkId: str
-    displayName: str
+    cloudExadataInfrastructureId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
+    odbNetworkId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
+    displayName: Annotated[str, _aws_pattern("Odb", "ResourceDisplayName")]
     autonomousDataStorageSizeInTBs: float
     cpuCoreCountPerNode: int
     memoryPerOracleComputeUnitInGBs: int
     totalContainerDatabases: int
-    clientToken: Optional[str] = None
+    clientToken: Optional[
+        Annotated[str, _aws_pattern("Odb", "CreateCloudAutonomousVmClusterInputClientTokenString")]
+    ] = None
     dbServers: Optional[List[str]] = None
     description: Optional[str] = None
     isMtlsEnabledVmCluster: Optional[bool] = None
@@ -1307,8 +1315,8 @@ class CreateCloudAutonomousVmClusterInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_cloud_exadata_infrastructure' function.
 class CreateCloudExadataInfrastructureInputTypeDef(BaseValidatorModel):
-    displayName: str
-    shape: str
+    displayName: Annotated[str, _aws_pattern("Odb", "ResourceDisplayName")]
+    shape: Annotated[str, _aws_pattern("Odb", "CreateCloudExadataInfrastructureInputShapeString")]
     computeCount: int
     storageCount: int
     availabilityZone: Optional[str] = None
@@ -1316,14 +1324,20 @@ class CreateCloudExadataInfrastructureInputTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
     customerContactsToSendToOCI: Optional[List[CustomerContactTypeDef]] = None
     maintenanceWindow: Optional[MaintenanceWindowUnionTypeDef] = None
-    clientToken: Optional[str] = None
-    databaseServerType: Optional[str] = None
-    storageServerType: Optional[str] = None
+    clientToken: Optional[
+        Annotated[str, _aws_pattern("Odb", "CreateCloudExadataInfrastructureInputClientTokenString")]
+    ] = None
+    databaseServerType: Optional[
+        Annotated[str, _aws_pattern("Odb", "CreateCloudExadataInfrastructureInputDatabaseServerTypeString")]
+    ] = None
+    storageServerType: Optional[
+        Annotated[str, _aws_pattern("Odb", "CreateCloudExadataInfrastructureInputStorageServerTypeString")]
+    ] = None
 
 
 # This class is the input for the 'update_cloud_exadata_infrastructure' function.
 class UpdateCloudExadataInfrastructureInputTypeDef(BaseValidatorModel):
-    cloudExadataInfrastructureId: str
+    cloudExadataInfrastructureId: Annotated[str, _aws_pattern("Odb", "ResourceIdOrArn")]
     maintenanceWindow: Optional[MaintenanceWindowUnionTypeDef] = None
 
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -50,14 +52,14 @@ class AccountTakeoverActionTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_user_pool_client_secret' function.
 class AddUserPoolClientSecretRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: str
-    ClientSecret: Optional[str] = None
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    ClientSecret: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientSecretType")]] = None
 
 
 class ClientSecretDescriptorTypeTypeDef(BaseValidatorModel):
     ClientSecretId: Optional[str] = None
-    ClientSecretValue: Optional[str] = None
+    ClientSecretValue: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientSecretType")]] = None
     ClientSecretCreateDate: Optional[datetime] = None
 
 
@@ -71,79 +73,79 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'admin_add_user_to_group' function.
 class AdminAddUserToGroupRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
-    GroupName: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    GroupName: Annotated[str, _aws_pattern("CognitoIdp", "GroupNameType")]
 
 
 class AdminConfirmSignUpRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
 class MessageTemplateTypeTypeDef(BaseValidatorModel):
-    SMSMessage: Optional[str] = None
-    EmailMessage: Optional[str] = None
-    EmailSubject: Optional[str] = None
+    SMSMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SmsInviteMessageType")]] = None
+    EmailMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailInviteMessageType")]] = None
+    EmailSubject: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailVerificationSubjectType")]] = None
 
 
 class AttributeTypeTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("CognitoIdp", "AttributeNameType")]
     Value: Optional[str] = None
 
 
 class AdminDeleteUserAttributesRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
-    UserAttributeNames: List[str]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    UserAttributeNames: List[Annotated[str, _aws_pattern("CognitoIdp", "AttributeNameType")]]
 
 
 # This class is the input for the 'admin_delete_user' function.
 class AdminDeleteUserRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
 
 
 class ProviderUserIdentifierTypeTypeDef(BaseValidatorModel):
-    ProviderName: Optional[str] = None
+    ProviderName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ProviderNameType")]] = None
     ProviderAttributeName: Optional[str] = None
     ProviderAttributeValue: Optional[str] = None
 
 
 class AdminDisableUserRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
 
 
 class AdminEnableUserRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
 
 
 # This class is the input for the 'admin_forget_device' function.
 class AdminForgetDeviceRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
-    DeviceKey: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    DeviceKey: Annotated[str, _aws_pattern("CognitoIdp", "DeviceKeyType")]
 
 
 # This class is the input for the 'admin_get_device' function.
 class AdminGetDeviceRequestTypeDef(BaseValidatorModel):
-    DeviceKey: str
-    UserPoolId: str
-    Username: str
+    DeviceKey: Annotated[str, _aws_pattern("CognitoIdp", "DeviceKeyType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
 
 
 # This class is the input for the 'admin_get_user' function.
 class AdminGetUserRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
 
 
 class MFAOptionTypeTypeDef(BaseValidatorModel):
     DeliveryMedium: Optional[DeliveryMediumTypeType] = None
-    AttributeName: Optional[str] = None
+    AttributeName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "AttributeNameType")]] = None
 
 
 class AnalyticsMetadataTypeTypeDef(BaseValidatorModel):
@@ -152,10 +154,10 @@ class AnalyticsMetadataTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'admin_list_devices' function.
 class AdminListDevicesRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
     Limit: Optional[int] = None
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SearchPaginationTokenType")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -166,17 +168,17 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'admin_list_groups_for_user' function.
 class AdminListGroupsForUserRequestTypeDef(BaseValidatorModel):
-    Username: str
-    UserPoolId: str
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     Limit: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 class GroupTypeTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    UserPoolId: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "GroupNameType")]] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
     Description: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
     Precedence: Optional[int] = None
     LastModifiedDate: Optional[datetime] = None
     CreationDate: Optional[datetime] = None
@@ -184,22 +186,22 @@ class GroupTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'admin_list_user_auth_events' function.
 class AdminListUserAuthEventsRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 # This class is the input for the 'admin_remove_user_from_group' function.
 class AdminRemoveUserFromGroupRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
-    GroupName: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    GroupName: Annotated[str, _aws_pattern("CognitoIdp", "GroupNameType")]
 
 
 class AdminResetUserPasswordRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
@@ -223,29 +225,29 @@ class WebAuthnMfaSettingsTypeTypeDef(BaseValidatorModel):
 
 
 class AdminSetUserPasswordRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
-    Password: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    Password: Annotated[str, _aws_pattern("CognitoIdp", "PasswordType")]
     Permanent: Optional[bool] = None
 
 
 class AdminUpdateAuthEventFeedbackRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
-    EventId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    EventId: Annotated[str, _aws_pattern("CognitoIdp", "EventIdType")]
     FeedbackValue: FeedbackValueTypeType
 
 
 class AdminUpdateDeviceStatusRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
-    DeviceKey: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    DeviceKey: Annotated[str, _aws_pattern("CognitoIdp", "DeviceKeyType")]
     DeviceRememberedStatus: Optional[DeviceRememberedStatusTypeType] = None
 
 
 class AdminUserGlobalSignOutRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
 
 
 class AdvancedSecurityAdditionalFlowsTypeTypeDef(BaseValidatorModel):
@@ -253,9 +255,9 @@ class AdvancedSecurityAdditionalFlowsTypeTypeDef(BaseValidatorModel):
 
 
 class AnalyticsConfigurationTypeTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    ApplicationArn: Optional[str] = None
-    RoleArn: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "HexStringType")]] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
     ExternalId: Optional[str] = None
     UserDataShared: Optional[bool] = None
 
@@ -273,7 +275,7 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'associate_software_token' function.
 class AssociateSoftwareTokenRequestTypeDef(BaseValidatorModel):
-    AccessToken: Optional[str] = None
+    AccessToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]] = None
     Session: Optional[str] = None
 
 
@@ -303,28 +305,28 @@ class EventRiskTypeTypeDef(BaseValidatorModel):
 
 
 class NewDeviceMetadataTypeTypeDef(BaseValidatorModel):
-    DeviceKey: Optional[str] = None
+    DeviceKey: Optional[Annotated[str, _aws_pattern("CognitoIdp", "DeviceKeyType")]] = None
     DeviceGroupKey: Optional[str] = None
 
 
 class ChangePasswordRequestTypeDef(BaseValidatorModel):
-    ProposedPassword: str
-    AccessToken: str
-    PreviousPassword: Optional[str] = None
+    ProposedPassword: Annotated[str, _aws_pattern("CognitoIdp", "PasswordType")]
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
+    PreviousPassword: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PasswordType")]] = None
 
 
 class CloudWatchLogsConfigurationTypeTypeDef(BaseValidatorModel):
-    LogGroupArn: Optional[str] = None
+    LogGroupArn: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
 
 
 class CodeDeliveryDetailsTypeTypeDef(BaseValidatorModel):
     Destination: Optional[str] = None
     DeliveryMedium: Optional[DeliveryMediumTypeType] = None
-    AttributeName: Optional[str] = None
+    AttributeName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "AttributeNameType")]] = None
 
 
 class CompleteWebAuthnRegistrationRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
     Credential: Dict[str, Any]
 
 
@@ -349,54 +351,54 @@ class HttpHeaderTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_group' function.
 class CreateGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    UserPoolId: str
+    GroupName: Annotated[str, _aws_pattern("CognitoIdp", "GroupNameType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     Description: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
     Precedence: Optional[int] = None
 
 
 # This class is the input for the 'create_identity_provider' function.
 class CreateIdentityProviderRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ProviderName: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ProviderName: Annotated[str, _aws_pattern("CognitoIdp", "ProviderNameTypeV2")]
     ProviderType: IdentityProviderTypeTypeType
     ProviderDetails: Dict[str, str]
     AttributeMapping: Optional[Dict[str, str]] = None
-    IdpIdentifiers: Optional[List[str]] = None
+    IdpIdentifiers: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "IdpIdentifierType")]]] = None
 
 
 class IdentityProviderTypeTypeDef(BaseValidatorModel):
-    UserPoolId: Optional[str] = None
-    ProviderName: Optional[str] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
+    ProviderName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ProviderNameType")]] = None
     ProviderType: Optional[IdentityProviderTypeTypeType] = None
     ProviderDetails: Optional[Dict[str, str]] = None
     AttributeMapping: Optional[Dict[str, str]] = None
-    IdpIdentifiers: Optional[List[str]] = None
+    IdpIdentifiers: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "IdpIdentifierType")]]] = None
     LastModifiedDate: Optional[datetime] = None
     CreationDate: Optional[datetime] = None
 
 
 class ResourceServerScopeTypeTypeDef(BaseValidatorModel):
-    ScopeName: str
+    ScopeName: Annotated[str, _aws_pattern("CognitoIdp", "ResourceServerScopeNameType")]
     ScopeDescription: str
 
 
 # This class is the input for the 'create_terms' function.
 class CreateTermsRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: str
-    TermsName: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    TermsName: Annotated[str, _aws_pattern("CognitoIdp", "TermsNameType")]
     TermsSource: Literal["LINK"]
     Enforcement: Literal["NONE"]
     Links: Optional[Dict[str, str]] = None
 
 
 class TermsTypeTypeDef(BaseValidatorModel):
-    TermsId: str
-    UserPoolId: str
-    ClientId: str
-    TermsName: str
+    TermsId: Annotated[str, _aws_pattern("CognitoIdp", "TermsIdType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    TermsName: Annotated[str, _aws_pattern("CognitoIdp", "TermsNameType")]
     TermsSource: Literal["LINK"]
     Enforcement: Literal["NONE"]
     Links: Dict[str, str]
@@ -406,25 +408,25 @@ class TermsTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user_import_job' function.
 class CreateUserImportJobRequestTypeDef(BaseValidatorModel):
-    JobName: str
-    UserPoolId: str
-    CloudWatchLogsRoleArn: str
+    JobName: Annotated[str, _aws_pattern("CognitoIdp", "UserImportJobNameType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    CloudWatchLogsRoleArn: Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]
 
 
 class UserImportJobTypeTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
-    JobId: Optional[str] = None
-    UserPoolId: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserImportJobNameType")]] = None
+    JobId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserImportJobIdType")]] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
     PreSignedUrl: Optional[str] = None
     CreationDate: Optional[datetime] = None
     StartDate: Optional[datetime] = None
     CompletionDate: Optional[datetime] = None
     Status: Optional[UserImportJobStatusTypeType] = None
-    CloudWatchLogsRoleArn: Optional[str] = None
+    CloudWatchLogsRoleArn: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
     ImportedUsers: Optional[int] = None
     SkippedUsers: Optional[int] = None
     FailedUsers: Optional[int] = None
-    CompletionMessage: Optional[str] = None
+    CompletionMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "CompletionMessageType")]] = None
 
 
 class RefreshTokenRotationTypeTypeDef(BaseValidatorModel):
@@ -439,7 +441,7 @@ class TokenValidityUnitsTypeTypeDef(BaseValidatorModel):
 
 
 class CustomDomainConfigTypeTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]
 
 
 class DeviceConfigurationTypeTypeDef(BaseValidatorModel):
@@ -448,15 +450,15 @@ class DeviceConfigurationTypeTypeDef(BaseValidatorModel):
 
 
 class EmailConfigurationTypeTypeDef(BaseValidatorModel):
-    SourceArn: Optional[str] = None
-    ReplyToEmailAddress: Optional[str] = None
+    SourceArn: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
+    ReplyToEmailAddress: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailAddressType")]] = None
     EmailSendingAccount: Optional[EmailSendingAccountTypeType] = None
     From: Optional[str] = None
-    ConfigurationSet: Optional[str] = None
+    ConfigurationSet: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SESConfigurationSet")]] = None
 
 
 class SmsConfigurationTypeTypeDef(BaseValidatorModel):
-    SnsCallerArn: str
+    SnsCallerArn: Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]
     ExternalId: Optional[str] = None
     SnsRegion: Optional[str] = None
 
@@ -466,217 +468,221 @@ class UsernameConfigurationTypeTypeDef(BaseValidatorModel):
 
 
 class VerificationMessageTemplateTypeTypeDef(BaseValidatorModel):
-    SmsMessage: Optional[str] = None
-    EmailMessage: Optional[str] = None
-    EmailSubject: Optional[str] = None
-    EmailMessageByLink: Optional[str] = None
-    EmailSubjectByLink: Optional[str] = None
+    SmsMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SmsVerificationMessageType")]] = None
+    EmailMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailVerificationMessageType")]] = None
+    EmailSubject: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailVerificationSubjectType")]] = None
+    EmailMessageByLink: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailVerificationMessageByLinkType")]] = (
+        None
+    )
+    EmailSubjectByLink: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailVerificationSubjectByLinkType")]] = (
+        None
+    )
     DefaultEmailOption: Optional[DefaultEmailOptionTypeType] = None
 
 
 class CustomEmailLambdaVersionConfigTypeTypeDef(BaseValidatorModel):
     LambdaVersion: Literal["V1_0"]
-    LambdaArn: str
+    LambdaArn: Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]
 
 
 class CustomSMSLambdaVersionConfigTypeTypeDef(BaseValidatorModel):
     LambdaVersion: Literal["V1_0"]
-    LambdaArn: str
+    LambdaArn: Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]
 
 
 # This class is the input for the 'delete_group' function.
 class DeleteGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    UserPoolId: str
+    GroupName: Annotated[str, _aws_pattern("CognitoIdp", "GroupNameType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 # This class is the input for the 'delete_identity_provider' function.
 class DeleteIdentityProviderRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ProviderName: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ProviderName: Annotated[str, _aws_pattern("CognitoIdp", "ProviderNameType")]
 
 
 # This class is the input for the 'delete_managed_login_branding' function.
 class DeleteManagedLoginBrandingRequestTypeDef(BaseValidatorModel):
-    ManagedLoginBrandingId: str
-    UserPoolId: str
+    ManagedLoginBrandingId: Annotated[str, _aws_pattern("CognitoIdp", "ManagedLoginBrandingIdType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 # This class is the input for the 'delete_resource_server' function.
 class DeleteResourceServerRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Identifier: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Identifier: Annotated[str, _aws_pattern("CognitoIdp", "ResourceServerIdentifierType")]
 
 
 # This class is the input for the 'delete_terms' function.
 class DeleteTermsRequestTypeDef(BaseValidatorModel):
-    TermsId: str
-    UserPoolId: str
+    TermsId: Annotated[str, _aws_pattern("CognitoIdp", "TermsIdType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 class DeleteUserAttributesRequestTypeDef(BaseValidatorModel):
-    UserAttributeNames: List[str]
-    AccessToken: str
+    UserAttributeNames: List[Annotated[str, _aws_pattern("CognitoIdp", "AttributeNameType")]]
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
 
 
 # This class is the input for the 'delete_user_pool_client' function.
 class DeleteUserPoolClientRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
 
 
 class DeleteUserPoolClientSecretRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
     ClientSecretId: str
 
 
 class DeleteUserPoolDomainRequestTypeDef(BaseValidatorModel):
-    Domain: str
-    UserPoolId: str
+    Domain: Annotated[str, _aws_pattern("CognitoIdp", "DomainType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 # This class is the input for the 'delete_user_pool' function.
 class DeleteUserPoolRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 # This class is the input for the 'delete_user' function.
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
 
 
 class DeleteWebAuthnCredentialRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
     CredentialId: str
 
 
 # This class is the input for the 'describe_identity_provider' function.
 class DescribeIdentityProviderRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ProviderName: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ProviderName: Annotated[str, _aws_pattern("CognitoIdp", "ProviderNameType")]
 
 
 # This class is the input for the 'describe_managed_login_branding_by_client' function.
 class DescribeManagedLoginBrandingByClientRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
     ReturnMergedResources: Optional[bool] = None
 
 
 # This class is the input for the 'describe_managed_login_branding' function.
 class DescribeManagedLoginBrandingRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ManagedLoginBrandingId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ManagedLoginBrandingId: Annotated[str, _aws_pattern("CognitoIdp", "ManagedLoginBrandingIdType")]
     ReturnMergedResources: Optional[bool] = None
 
 
 # This class is the input for the 'describe_resource_server' function.
 class DescribeResourceServerRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Identifier: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Identifier: Annotated[str, _aws_pattern("CognitoIdp", "ResourceServerIdentifierType")]
 
 
 # This class is the input for the 'describe_risk_configuration' function.
 class DescribeRiskConfigurationRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: Optional[str] = None
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]] = None
 
 
 # This class is the input for the 'describe_terms' function.
 class DescribeTermsRequestTypeDef(BaseValidatorModel):
-    TermsId: str
-    UserPoolId: str
+    TermsId: Annotated[str, _aws_pattern("CognitoIdp", "TermsIdType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 # This class is the input for the 'describe_user_import_job' function.
 class DescribeUserImportJobRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    JobId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    JobId: Annotated[str, _aws_pattern("CognitoIdp", "UserImportJobIdType")]
 
 
 # This class is the input for the 'describe_user_pool_client' function.
 class DescribeUserPoolClientRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
 
 
 # This class is the input for the 'describe_user_pool_domain' function.
 class DescribeUserPoolDomainRequestTypeDef(BaseValidatorModel):
-    Domain: str
+    Domain: Annotated[str, _aws_pattern("CognitoIdp", "DomainType")]
 
 
 # This class is the input for the 'describe_user_pool' function.
 class DescribeUserPoolRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 class EmailMfaConfigTypeTypeDef(BaseValidatorModel):
-    Message: Optional[str] = None
-    Subject: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailMfaMessageType")]] = None
+    Subject: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailMfaSubjectType")]] = None
 
 
 class FirehoseConfigurationTypeTypeDef(BaseValidatorModel):
-    StreamArn: Optional[str] = None
+    StreamArn: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
 
 
 # This class is the input for the 'forget_device' function.
 class ForgetDeviceRequestTypeDef(BaseValidatorModel):
-    DeviceKey: str
-    AccessToken: Optional[str] = None
+    DeviceKey: Annotated[str, _aws_pattern("CognitoIdp", "DeviceKeyType")]
+    AccessToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]] = None
 
 
 # This class is the input for the 'get_csv_header' function.
 class GetCSVHeaderRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 # This class is the input for the 'get_device' function.
 class GetDeviceRequestTypeDef(BaseValidatorModel):
-    DeviceKey: str
-    AccessToken: Optional[str] = None
+    DeviceKey: Annotated[str, _aws_pattern("CognitoIdp", "DeviceKeyType")]
+    AccessToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]] = None
 
 
 # This class is the input for the 'get_group' function.
 class GetGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    UserPoolId: str
+    GroupName: Annotated[str, _aws_pattern("CognitoIdp", "GroupNameType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 # This class is the input for the 'get_identity_provider_by_identifier' function.
 class GetIdentityProviderByIdentifierRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    IdpIdentifier: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    IdpIdentifier: Annotated[str, _aws_pattern("CognitoIdp", "IdpIdentifierType")]
 
 
 # This class is the input for the 'get_log_delivery_configuration' function.
 class GetLogDeliveryConfigurationRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 # This class is the input for the 'get_signing_certificate' function.
 class GetSigningCertificateRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 # This class is the input for the 'get_tokens_from_refresh_token' function.
 class GetTokensFromRefreshTokenRequestTypeDef(BaseValidatorModel):
-    RefreshToken: str
-    ClientId: str
-    ClientSecret: Optional[str] = None
-    DeviceKey: Optional[str] = None
+    RefreshToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    ClientSecret: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientSecretType")]] = None
+    DeviceKey: Optional[Annotated[str, _aws_pattern("CognitoIdp", "DeviceKeyType")]] = None
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'get_ui_customization' function.
 class GetUICustomizationRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: Optional[str] = None
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]] = None
 
 
 class UICustomizationTypeTypeDef(BaseValidatorModel):
-    UserPoolId: Optional[str] = None
-    ClientId: Optional[str] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
+    ClientId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]] = None
     ImageUrl: Optional[str] = None
     CSS: Optional[str] = None
     CSSVersion: Optional[str] = None
@@ -686,19 +692,19 @@ class UICustomizationTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_user_attribute_verification_code' function.
 class GetUserAttributeVerificationCodeRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
-    AttributeName: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
+    AttributeName: Annotated[str, _aws_pattern("CognitoIdp", "AttributeNameType")]
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'get_user_auth_factors' function.
 class GetUserAuthFactorsRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
 
 
 # This class is the input for the 'get_user_pool_mfa_config' function.
 class GetUserPoolMfaConfigRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
 
 
 class SoftwareTokenMfaConfigTypeTypeDef(BaseValidatorModel):
@@ -713,46 +719,46 @@ class WebAuthnConfigurationTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_user' function.
 class GetUserRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
 
 
 class GlobalSignOutRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
 
 
 class InboundFederationLambdaTypeTypeDef(BaseValidatorModel):
     LambdaVersion: Literal["V1_0"]
-    LambdaArn: str
+    LambdaArn: Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]
 
 
 class PreTokenGenerationVersionConfigTypeTypeDef(BaseValidatorModel):
     LambdaVersion: PreTokenGenerationLambdaVersionTypeType
-    LambdaArn: str
+    LambdaArn: Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]
 
 
 # This class is the input for the 'list_devices' function.
 class ListDevicesRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
     Limit: Optional[int] = None
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SearchPaginationTokenType")]] = None
 
 
 # This class is the input for the 'list_groups' function.
 class ListGroupsRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     Limit: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 # This class is the input for the 'list_identity_providers' function.
 class ListIdentityProvidersRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKeyType")]] = None
 
 
 class ProviderDescriptionTypeDef(BaseValidatorModel):
-    ProviderName: Optional[str] = None
+    ProviderName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ProviderNameType")]] = None
     ProviderType: Optional[IdentityProviderTypeTypeType] = None
     LastModifiedDate: Optional[datetime] = None
     CreationDate: Optional[datetime] = None
@@ -760,26 +766,26 @@ class ProviderDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_resource_servers' function.
 class ListResourceServersRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKeyType")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]
 
 
 # This class is the input for the 'list_terms' function.
 class ListTermsRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class TermsDescriptionTypeTypeDef(BaseValidatorModel):
-    TermsId: str
-    TermsName: str
+    TermsId: Annotated[str, _aws_pattern("CognitoIdp", "TermsIdType")]
+    TermsName: Annotated[str, _aws_pattern("CognitoIdp", "TermsNameType")]
     Enforcement: Literal["NONE"]
     CreationDate: datetime
     LastModifiedDate: datetime
@@ -787,58 +793,58 @@ class TermsDescriptionTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_user_import_jobs' function.
 class ListUserImportJobsRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     MaxResults: int
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKeyType")]] = None
 
 
 # This class is the input for the 'list_user_pool_client_secrets' function.
 class ListUserPoolClientSecretsRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: str
-    NextToken: Optional[str] = None
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 # This class is the input for the 'list_user_pool_clients' function.
 class ListUserPoolClientsRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 class UserPoolClientDescriptionTypeDef(BaseValidatorModel):
-    ClientId: Optional[str] = None
-    UserPoolId: Optional[str] = None
-    ClientName: Optional[str] = None
+    ClientId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
+    ClientName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientNameType")]] = None
 
 
 # This class is the input for the 'list_user_pools' function.
 class ListUserPoolsRequestTypeDef(BaseValidatorModel):
     MaxResults: int
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKeyType")]] = None
 
 
 # This class is the input for the 'list_users_in_group' function.
 class ListUsersInGroupRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    GroupName: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    GroupName: Annotated[str, _aws_pattern("CognitoIdp", "GroupNameType")]
     Limit: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 # This class is the input for the 'list_users' function.
 class ListUsersRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    AttributesToGet: Optional[List[str]] = None
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    AttributesToGet: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "AttributeNameType")]]] = None
     Limit: Optional[int] = None
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SearchPaginationTokenType")]] = None
     Filter: Optional[str] = None
 
 
 # This class is the input for the 'list_web_authn_credentials' function.
 class ListWebAuthnCredentialsRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
-    NextToken: Optional[str] = None
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -852,13 +858,13 @@ class WebAuthnCredentialDescriptionTypeDef(BaseValidatorModel):
 
 
 class S3ConfigurationTypeTypeDef(BaseValidatorModel):
-    BucketArn: Optional[str] = None
+    BucketArn: Optional[Annotated[str, _aws_pattern("CognitoIdp", "S3ArnType")]] = None
 
 
 class NotifyEmailTypeTypeDef(BaseValidatorModel):
-    Subject: str
-    HtmlBody: Optional[str] = None
-    TextBody: Optional[str] = None
+    Subject: Annotated[str, _aws_pattern("CognitoIdp", "EmailNotificationSubjectType")]
+    HtmlBody: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailNotificationBodyType")]] = None
+    TextBody: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailNotificationBodyType")]] = None
 
 
 class NumberAttributeConstraintsTypeTypeDef(BaseValidatorModel):
@@ -877,9 +883,9 @@ class PasswordPolicyTypeTypeDef(BaseValidatorModel):
 
 
 class RevokeTokenRequestTypeDef(BaseValidatorModel):
-    Token: str
-    ClientId: str
-    ClientSecret: Optional[str] = None
+    Token: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    ClientSecret: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientSecretType")]] = None
 
 
 class RiskExceptionConfigurationTypeOutputTypeDef(BaseValidatorModel):
@@ -907,68 +913,68 @@ class SignInPolicyTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_user_import_job' function.
 class StartUserImportJobRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    JobId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    JobId: Annotated[str, _aws_pattern("CognitoIdp", "UserImportJobIdType")]
 
 
 # This class is the input for the 'start_web_authn_registration' function.
 class StartWebAuthnRegistrationRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
 
 
 # This class is the input for the 'stop_user_import_job' function.
 class StopUserImportJobRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    JobId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    JobId: Annotated[str, _aws_pattern("CognitoIdp", "UserImportJobIdType")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]
     TagKeys: List[str]
 
 
 class UpdateAuthEventFeedbackRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
-    EventId: str
-    FeedbackToken: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    EventId: Annotated[str, _aws_pattern("CognitoIdp", "EventIdType")]
+    FeedbackToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
     FeedbackValue: FeedbackValueTypeType
 
 
 class UpdateDeviceStatusRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
-    DeviceKey: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
+    DeviceKey: Annotated[str, _aws_pattern("CognitoIdp", "DeviceKeyType")]
     DeviceRememberedStatus: Optional[DeviceRememberedStatusTypeType] = None
 
 
 # This class is the input for the 'update_group' function.
 class UpdateGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    UserPoolId: str
+    GroupName: Annotated[str, _aws_pattern("CognitoIdp", "GroupNameType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     Description: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
     Precedence: Optional[int] = None
 
 
 # This class is the input for the 'update_identity_provider' function.
 class UpdateIdentityProviderRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ProviderName: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ProviderName: Annotated[str, _aws_pattern("CognitoIdp", "ProviderNameType")]
     ProviderDetails: Optional[Dict[str, str]] = None
     AttributeMapping: Optional[Dict[str, str]] = None
-    IdpIdentifiers: Optional[List[str]] = None
+    IdpIdentifiers: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "IdpIdentifierType")]]] = None
 
 
 # This class is the input for the 'update_terms' function.
 class UpdateTermsRequestTypeDef(BaseValidatorModel):
-    TermsId: str
-    UserPoolId: str
-    TermsName: Optional[str] = None
+    TermsId: Annotated[str, _aws_pattern("CognitoIdp", "TermsIdType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    TermsName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "TermsNameType")]] = None
     TermsSource: Optional[Literal["LINK"]] = None
     Enforcement: Optional[Literal["NONE"]] = None
     Links: Optional[Dict[str, str]] = None
@@ -984,16 +990,16 @@ class UserAttributeUpdateSettingsTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'verify_software_token' function.
 class VerifySoftwareTokenRequestTypeDef(BaseValidatorModel):
-    UserCode: str
-    AccessToken: Optional[str] = None
+    UserCode: Annotated[str, _aws_pattern("CognitoIdp", "SoftwareTokenMFAUserCodeType")]
+    AccessToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]] = None
     Session: Optional[str] = None
     FriendlyDeviceName: Optional[str] = None
 
 
 class VerifyUserAttributeRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
-    AttributeName: str
-    Code: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
+    AttributeName: Annotated[str, _aws_pattern("CognitoIdp", "AttributeNameType")]
+    Code: Annotated[str, _aws_pattern("CognitoIdp", "ConfirmationCodeType")]
 
 
 class AccountRecoverySettingTypeOutputTypeDef(BaseValidatorModel):
@@ -1018,7 +1024,7 @@ class AddUserPoolClientSecretResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'associate_software_token' function.
 class AssociateSoftwareTokenResponseTypeDef(BaseValidatorModel):
-    SecretCode: str
+    SecretCode: Annotated[str, _aws_pattern("CognitoIdp", "SecretCodeType")]
     Session: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1038,7 +1044,7 @@ class ConfirmSignUpResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_user_pool_domain' function.
 class CreateUserPoolDomainResponseTypeDef(BaseValidatorModel):
     ManagedLoginVersion: int
-    CloudFrontDomain: str
+    CloudFrontDomain: Annotated[str, _aws_pattern("CognitoIdp", "DomainType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1049,7 +1055,7 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_csv_header' function.
 class GetCSVHeaderResponseTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     CSVHeader: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1062,7 +1068,7 @@ class GetSigningCertificateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_user_auth_factors' function.
 class GetUserAuthFactorsResponseTypeDef(BaseValidatorModel):
-    Username: str
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
     PreferredMfaSetting: str
     UserMFASettingList: List[str]
     ConfiguredUserAuthFactors: List[AuthFactorTypeType]
@@ -1079,7 +1085,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 class ListUserPoolClientSecretsResponseTypeDef(BaseValidatorModel):
     ClientSecrets: List[ClientSecretDescriptorTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 # This class is the output for the 'start_web_authn_registration' function.
@@ -1091,7 +1097,7 @@ class StartWebAuthnRegistrationResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_user_pool_domain' function.
 class UpdateUserPoolDomainResponseTypeDef(BaseValidatorModel):
     ManagedLoginVersion: int
-    CloudFrontDomain: str
+    CloudFrontDomain: Annotated[str, _aws_pattern("CognitoIdp", "DomainType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1110,11 +1116,11 @@ class AdminCreateUserConfigTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'admin_create_user' function.
 class AdminCreateUserRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
     UserAttributes: Optional[List[AttributeTypeTypeDef]] = None
     ValidationData: Optional[List[AttributeTypeTypeDef]] = None
-    TemporaryPassword: Optional[str] = None
+    TemporaryPassword: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PasswordType")]] = None
     ForceAliasCreation: Optional[bool] = None
     MessageAction: Optional[MessageActionTypeType] = None
     DesiredDeliveryMediums: Optional[List[DeliveryMediumTypeType]] = None
@@ -1122,14 +1128,14 @@ class AdminCreateUserRequestTypeDef(BaseValidatorModel):
 
 
 class AdminUpdateUserAttributesRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
     UserAttributes: List[AttributeTypeTypeDef]
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
 class DeviceTypeTypeDef(BaseValidatorModel):
-    DeviceKey: Optional[str] = None
+    DeviceKey: Optional[Annotated[str, _aws_pattern("CognitoIdp", "DeviceKeyType")]] = None
     DeviceAttributes: Optional[List[AttributeTypeTypeDef]] = None
     DeviceCreateDate: Optional[datetime] = None
     DeviceLastModifiedDate: Optional[datetime] = None
@@ -1139,7 +1145,7 @@ class DeviceTypeTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_user_attributes' function.
 class UpdateUserAttributesRequestTypeDef(BaseValidatorModel):
     UserAttributes: List[AttributeTypeTypeDef]
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
@@ -1156,7 +1162,7 @@ class AdminLinkProviderForUserRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'admin_get_user' function.
 class AdminGetUserResponseTypeDef(BaseValidatorModel):
-    Username: str
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
     UserAttributes: List[AttributeTypeTypeDef]
     UserCreateDate: datetime
     UserLastModifiedDate: datetime
@@ -1169,14 +1175,14 @@ class AdminGetUserResponseTypeDef(BaseValidatorModel):
 
 
 class AdminSetUserSettingsRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Username: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
     MFAOptions: List[MFAOptionTypeTypeDef]
 
 
 # This class is the output for the 'get_user' function.
 class GetUserResponseTypeDef(BaseValidatorModel):
-    Username: str
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
     UserAttributes: List[AttributeTypeTypeDef]
     MFAOptions: List[MFAOptionTypeTypeDef]
     PreferredMfaSetting: str
@@ -1185,12 +1191,12 @@ class GetUserResponseTypeDef(BaseValidatorModel):
 
 
 class SetUserSettingsRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
     MFAOptions: List[MFAOptionTypeTypeDef]
 
 
 class UserTypeTypeDef(BaseValidatorModel):
-    Username: Optional[str] = None
+    Username: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]] = None
     Attributes: Optional[List[AttributeTypeTypeDef]] = None
     UserCreateDate: Optional[datetime] = None
     UserLastModifiedDate: Optional[datetime] = None
@@ -1252,7 +1258,7 @@ class ListUsersRequestPaginateTypeDef(BaseValidatorModel):
 class AdminListGroupsForUserResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 # This class is the output for the 'create_group' function.
@@ -1271,7 +1277,7 @@ class GetGroupResponseTypeDef(BaseValidatorModel):
 class ListGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 # This class is the output for the 'update_group' function.
@@ -1281,8 +1287,8 @@ class UpdateGroupResponseTypeDef(BaseValidatorModel):
 
 
 class AdminSetUserMFAPreferenceRequestTypeDef(BaseValidatorModel):
-    Username: str
-    UserPoolId: str
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     SMSMfaSettings: Optional[SMSMfaSettingsTypeTypeDef] = None
     SoftwareTokenMfaSettings: Optional[SoftwareTokenMfaSettingsTypeTypeDef] = None
     EmailMfaSettings: Optional[EmailMfaSettingsTypeTypeDef] = None
@@ -1290,7 +1296,7 @@ class AdminSetUserMFAPreferenceRequestTypeDef(BaseValidatorModel):
 
 
 class SetUserMFAPreferenceRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
     SMSMfaSettings: Optional[SMSMfaSettingsTypeTypeDef] = None
     SoftwareTokenMfaSettings: Optional[SoftwareTokenMfaSettingsTypeTypeDef] = None
     EmailMfaSettings: Optional[EmailMfaSettingsTypeTypeDef] = None
@@ -1303,8 +1309,8 @@ class UserPoolAddOnsTypeTypeDef(BaseValidatorModel):
 
 
 class ManagedLoginBrandingTypeTypeDef(BaseValidatorModel):
-    ManagedLoginBrandingId: Optional[str] = None
-    UserPoolId: Optional[str] = None
+    ManagedLoginBrandingId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ManagedLoginBrandingIdType")]] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
     UseCognitoProvidedValues: Optional[bool] = None
     Settings: Optional[Dict[str, Any]] = None
     Assets: Optional[List[AssetTypeOutputTypeDef]] = None
@@ -1317,13 +1323,13 @@ class AssetTypeTypeDef(BaseValidatorModel):
     ColorMode: ColorSchemeModeTypeType
     Extension: AssetExtensionTypeType
     Bytes: Optional[BlobTypeDef] = None
-    ResourceId: Optional[str] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ResourceIdType")]] = None
 
 
 # This class is the input for the 'set_ui_customization' function.
 class SetUICustomizationRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: Optional[str] = None
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]] = None
     CSS: Optional[str] = None
     ImageFile: Optional[BlobTypeDef] = None
 
@@ -1340,11 +1346,11 @@ class AuthEventTypeTypeDef(BaseValidatorModel):
 
 
 class AuthenticationResultTypeTypeDef(BaseValidatorModel):
-    AccessToken: Optional[str] = None
+    AccessToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]] = None
     ExpiresIn: Optional[int] = None
     TokenType: Optional[str] = None
-    RefreshToken: Optional[str] = None
-    IdToken: Optional[str] = None
+    RefreshToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]] = None
+    IdToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]] = None
     NewDeviceMetadata: Optional[NewDeviceMetadataTypeTypeDef] = None
 
 
@@ -1393,18 +1399,18 @@ class CompromisedCredentialsRiskConfigurationTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'confirm_device' function.
 class ConfirmDeviceRequestTypeDef(BaseValidatorModel):
-    AccessToken: str
-    DeviceKey: str
+    AccessToken: Annotated[str, _aws_pattern("CognitoIdp", "TokenModelType")]
+    DeviceKey: Annotated[str, _aws_pattern("CognitoIdp", "DeviceKeyType")]
     DeviceSecretVerifierConfig: Optional[DeviceSecretVerifierConfigTypeTypeDef] = None
     DeviceName: Optional[str] = None
 
 
 class ConfirmForgotPasswordRequestTypeDef(BaseValidatorModel):
-    ClientId: str
-    Username: str
-    ConfirmationCode: str
-    Password: str
-    SecretHash: Optional[str] = None
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    ConfirmationCode: Annotated[str, _aws_pattern("CognitoIdp", "ConfirmationCodeType")]
+    Password: Annotated[str, _aws_pattern("CognitoIdp", "PasswordType")]
+    SecretHash: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SecretHashType")]] = None
     AnalyticsMetadata: Optional[AnalyticsMetadataTypeTypeDef] = None
     UserContextData: Optional[UserContextDataTypeTypeDef] = None
     ClientMetadata: Optional[Dict[str, str]] = None
@@ -1412,10 +1418,10 @@ class ConfirmForgotPasswordRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'confirm_sign_up' function.
 class ConfirmSignUpRequestTypeDef(BaseValidatorModel):
-    ClientId: str
-    Username: str
-    ConfirmationCode: str
-    SecretHash: Optional[str] = None
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    ConfirmationCode: Annotated[str, _aws_pattern("CognitoIdp", "ConfirmationCodeType")]
+    SecretHash: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SecretHashType")]] = None
     ForceAliasCreation: Optional[bool] = None
     AnalyticsMetadata: Optional[AnalyticsMetadataTypeTypeDef] = None
     UserContextData: Optional[UserContextDataTypeTypeDef] = None
@@ -1425,9 +1431,9 @@ class ConfirmSignUpRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'forgot_password' function.
 class ForgotPasswordRequestTypeDef(BaseValidatorModel):
-    ClientId: str
-    Username: str
-    SecretHash: Optional[str] = None
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    SecretHash: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SecretHashType")]] = None
     UserContextData: Optional[UserContextDataTypeTypeDef] = None
     AnalyticsMetadata: Optional[AnalyticsMetadataTypeTypeDef] = None
     ClientMetadata: Optional[Dict[str, str]] = None
@@ -1436,7 +1442,7 @@ class ForgotPasswordRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'initiate_auth' function.
 class InitiateAuthRequestTypeDef(BaseValidatorModel):
     AuthFlow: AuthFlowTypeType
-    ClientId: str
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
     AuthParameters: Optional[Dict[str, str]] = None
     ClientMetadata: Optional[Dict[str, str]] = None
     AnalyticsMetadata: Optional[AnalyticsMetadataTypeTypeDef] = None
@@ -1446,9 +1452,9 @@ class InitiateAuthRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'resend_confirmation_code' function.
 class ResendConfirmationCodeRequestTypeDef(BaseValidatorModel):
-    ClientId: str
-    Username: str
-    SecretHash: Optional[str] = None
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    SecretHash: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SecretHashType")]] = None
     UserContextData: Optional[UserContextDataTypeTypeDef] = None
     AnalyticsMetadata: Optional[AnalyticsMetadataTypeTypeDef] = None
     ClientMetadata: Optional[Dict[str, str]] = None
@@ -1456,7 +1462,7 @@ class ResendConfirmationCodeRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'respond_to_auth_challenge' function.
 class RespondToAuthChallengeRequestTypeDef(BaseValidatorModel):
-    ClientId: str
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
     ChallengeName: ChallengeNameTypeType
     Session: Optional[str] = None
     ChallengeResponses: Optional[Dict[str, str]] = None
@@ -1467,10 +1473,10 @@ class RespondToAuthChallengeRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'sign_up' function.
 class SignUpRequestTypeDef(BaseValidatorModel):
-    ClientId: str
-    Username: str
-    SecretHash: Optional[str] = None
-    Password: Optional[str] = None
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    Username: Annotated[str, _aws_pattern("CognitoIdp", "UsernameType")]
+    SecretHash: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SecretHashType")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PasswordType")]] = None
     UserAttributes: Optional[List[AttributeTypeTypeDef]] = None
     ValidationData: Optional[List[AttributeTypeTypeDef]] = None
     AnalyticsMetadata: Optional[AnalyticsMetadataTypeTypeDef] = None
@@ -1512,24 +1518,24 @@ class UpdateIdentityProviderResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_resource_server' function.
 class CreateResourceServerRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Identifier: str
-    Name: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Identifier: Annotated[str, _aws_pattern("CognitoIdp", "ResourceServerIdentifierType")]
+    Name: Annotated[str, _aws_pattern("CognitoIdp", "ResourceServerNameType")]
     Scopes: Optional[List[ResourceServerScopeTypeTypeDef]] = None
 
 
 class ResourceServerTypeTypeDef(BaseValidatorModel):
-    UserPoolId: Optional[str] = None
-    Identifier: Optional[str] = None
-    Name: Optional[str] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
+    Identifier: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ResourceServerIdentifierType")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ResourceServerNameType")]] = None
     Scopes: Optional[List[ResourceServerScopeTypeTypeDef]] = None
 
 
 # This class is the input for the 'update_resource_server' function.
 class UpdateResourceServerRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    Identifier: str
-    Name: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    Identifier: Annotated[str, _aws_pattern("CognitoIdp", "ResourceServerIdentifierType")]
+    Name: Annotated[str, _aws_pattern("CognitoIdp", "ResourceServerNameType")]
     Scopes: Optional[List[ResourceServerScopeTypeTypeDef]] = None
 
 
@@ -1567,7 +1573,7 @@ class DescribeUserImportJobResponseTypeDef(BaseValidatorModel):
 class ListUserImportJobsResponseTypeDef(BaseValidatorModel):
     UserImportJobs: List[UserImportJobTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKeyType")]] = None
 
 
 # This class is the output for the 'start_user_import_job' function.
@@ -1584,10 +1590,10 @@ class StopUserImportJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user_pool_client' function.
 class CreateUserPoolClientRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientName: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientName: Annotated[str, _aws_pattern("CognitoIdp", "ClientNameType")]
     GenerateSecret: Optional[bool] = None
-    ClientSecret: Optional[str] = None
+    ClientSecret: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientSecretType")]] = None
     RefreshTokenValidity: Optional[int] = None
     AccessTokenValidity: Optional[int] = None
     IdTokenValidity: Optional[int] = None
@@ -1595,12 +1601,12 @@ class CreateUserPoolClientRequestTypeDef(BaseValidatorModel):
     ReadAttributes: Optional[List[str]] = None
     WriteAttributes: Optional[List[str]] = None
     ExplicitAuthFlows: Optional[List[ExplicitAuthFlowsTypeType]] = None
-    SupportedIdentityProviders: Optional[List[str]] = None
-    CallbackURLs: Optional[List[str]] = None
-    LogoutURLs: Optional[List[str]] = None
-    DefaultRedirectURI: Optional[str] = None
+    SupportedIdentityProviders: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "ProviderNameType")]]] = None
+    CallbackURLs: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "RedirectUrlType")]]] = None
+    LogoutURLs: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "RedirectUrlType")]]] = None
+    DefaultRedirectURI: Optional[Annotated[str, _aws_pattern("CognitoIdp", "RedirectUrlType")]] = None
     AllowedOAuthFlows: Optional[List[OAuthFlowTypeType]] = None
-    AllowedOAuthScopes: Optional[List[str]] = None
+    AllowedOAuthScopes: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "ScopeType")]]] = None
     AllowedOAuthFlowsUserPoolClient: Optional[bool] = None
     AnalyticsConfiguration: Optional[AnalyticsConfigurationTypeTypeDef] = None
     PreventUserExistenceErrors: Optional[PreventUserExistenceErrorTypesType] = None
@@ -1612,9 +1618,9 @@ class CreateUserPoolClientRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_user_pool_client' function.
 class UpdateUserPoolClientRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: str
-    ClientName: Optional[str] = None
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
+    ClientName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientNameType")]] = None
     RefreshTokenValidity: Optional[int] = None
     AccessTokenValidity: Optional[int] = None
     IdTokenValidity: Optional[int] = None
@@ -1622,12 +1628,12 @@ class UpdateUserPoolClientRequestTypeDef(BaseValidatorModel):
     ReadAttributes: Optional[List[str]] = None
     WriteAttributes: Optional[List[str]] = None
     ExplicitAuthFlows: Optional[List[ExplicitAuthFlowsTypeType]] = None
-    SupportedIdentityProviders: Optional[List[str]] = None
-    CallbackURLs: Optional[List[str]] = None
-    LogoutURLs: Optional[List[str]] = None
-    DefaultRedirectURI: Optional[str] = None
+    SupportedIdentityProviders: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "ProviderNameType")]]] = None
+    CallbackURLs: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "RedirectUrlType")]]] = None
+    LogoutURLs: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "RedirectUrlType")]]] = None
+    DefaultRedirectURI: Optional[Annotated[str, _aws_pattern("CognitoIdp", "RedirectUrlType")]] = None
     AllowedOAuthFlows: Optional[List[OAuthFlowTypeType]] = None
-    AllowedOAuthScopes: Optional[List[str]] = None
+    AllowedOAuthScopes: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "ScopeType")]]] = None
     AllowedOAuthFlowsUserPoolClient: Optional[bool] = None
     AnalyticsConfiguration: Optional[AnalyticsConfigurationTypeTypeDef] = None
     PreventUserExistenceErrors: Optional[PreventUserExistenceErrorTypesType] = None
@@ -1638,10 +1644,10 @@ class UpdateUserPoolClientRequestTypeDef(BaseValidatorModel):
 
 
 class UserPoolClientTypeTypeDef(BaseValidatorModel):
-    UserPoolId: Optional[str] = None
-    ClientName: Optional[str] = None
-    ClientId: Optional[str] = None
-    ClientSecret: Optional[str] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
+    ClientName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientNameType")]] = None
+    ClientId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]] = None
+    ClientSecret: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientSecretType")]] = None
     LastModifiedDate: Optional[datetime] = None
     CreationDate: Optional[datetime] = None
     RefreshTokenValidity: Optional[int] = None
@@ -1651,12 +1657,12 @@ class UserPoolClientTypeTypeDef(BaseValidatorModel):
     ReadAttributes: Optional[List[str]] = None
     WriteAttributes: Optional[List[str]] = None
     ExplicitAuthFlows: Optional[List[ExplicitAuthFlowsTypeType]] = None
-    SupportedIdentityProviders: Optional[List[str]] = None
-    CallbackURLs: Optional[List[str]] = None
-    LogoutURLs: Optional[List[str]] = None
-    DefaultRedirectURI: Optional[str] = None
+    SupportedIdentityProviders: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "ProviderNameType")]]] = None
+    CallbackURLs: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "RedirectUrlType")]]] = None
+    LogoutURLs: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "RedirectUrlType")]]] = None
+    DefaultRedirectURI: Optional[Annotated[str, _aws_pattern("CognitoIdp", "RedirectUrlType")]] = None
     AllowedOAuthFlows: Optional[List[OAuthFlowTypeType]] = None
-    AllowedOAuthScopes: Optional[List[str]] = None
+    AllowedOAuthScopes: Optional[List[Annotated[str, _aws_pattern("CognitoIdp", "ScopeType")]]] = None
     AllowedOAuthFlowsUserPoolClient: Optional[bool] = None
     AnalyticsConfiguration: Optional[AnalyticsConfigurationTypeTypeDef] = None
     PreventUserExistenceErrors: Optional[PreventUserExistenceErrorTypesType] = None
@@ -1668,17 +1674,17 @@ class UserPoolClientTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user_pool_domain' function.
 class CreateUserPoolDomainRequestTypeDef(BaseValidatorModel):
-    Domain: str
-    UserPoolId: str
+    Domain: Annotated[str, _aws_pattern("CognitoIdp", "DomainType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     ManagedLoginVersion: Optional[int] = None
     CustomDomainConfig: Optional[CustomDomainConfigTypeTypeDef] = None
 
 
 class DomainDescriptionTypeTypeDef(BaseValidatorModel):
-    UserPoolId: Optional[str] = None
-    AWSAccountId: Optional[str] = None
-    Domain: Optional[str] = None
-    S3Bucket: Optional[str] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
+    AWSAccountId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "AWSAccountIdType")]] = None
+    Domain: Optional[Annotated[str, _aws_pattern("CognitoIdp", "DomainType")]] = None
+    S3Bucket: Optional[Annotated[str, _aws_pattern("CognitoIdp", "S3BucketType")]] = None
     CloudFrontDistribution: Optional[str] = None
     Version: Optional[str] = None
     Status: Optional[DomainStatusTypeType] = None
@@ -1688,14 +1694,14 @@ class DomainDescriptionTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_user_pool_domain' function.
 class UpdateUserPoolDomainRequestTypeDef(BaseValidatorModel):
-    Domain: str
-    UserPoolId: str
+    Domain: Annotated[str, _aws_pattern("CognitoIdp", "DomainType")]
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     ManagedLoginVersion: Optional[int] = None
     CustomDomainConfig: Optional[CustomDomainConfigTypeTypeDef] = None
 
 
 class SmsMfaConfigTypeTypeDef(BaseValidatorModel):
-    SmsAuthenticationMessage: Optional[str] = None
+    SmsAuthenticationMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SmsVerificationMessageType")]] = None
     SmsConfiguration: Optional[SmsConfigurationTypeTypeDef] = None
 
 
@@ -1712,20 +1718,20 @@ class SetUICustomizationResponseTypeDef(BaseValidatorModel):
 
 
 class LambdaConfigTypeTypeDef(BaseValidatorModel):
-    PreSignUp: Optional[str] = None
-    CustomMessage: Optional[str] = None
-    PostConfirmation: Optional[str] = None
-    PreAuthentication: Optional[str] = None
-    PostAuthentication: Optional[str] = None
-    DefineAuthChallenge: Optional[str] = None
-    CreateAuthChallenge: Optional[str] = None
-    VerifyAuthChallengeResponse: Optional[str] = None
-    PreTokenGeneration: Optional[str] = None
-    UserMigration: Optional[str] = None
+    PreSignUp: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
+    CustomMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
+    PostConfirmation: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
+    PreAuthentication: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
+    PostAuthentication: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
+    DefineAuthChallenge: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
+    CreateAuthChallenge: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
+    VerifyAuthChallengeResponse: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
+    PreTokenGeneration: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
+    UserMigration: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
     PreTokenGenerationConfig: Optional[PreTokenGenerationVersionConfigTypeTypeDef] = None
     CustomSMSSender: Optional[CustomSMSLambdaVersionConfigTypeTypeDef] = None
     CustomEmailSender: Optional[CustomEmailLambdaVersionConfigTypeTypeDef] = None
-    KMSKeyID: Optional[str] = None
+    KMSKeyID: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
     InboundFederation: Optional[InboundFederationLambdaTypeTypeDef] = None
 
 
@@ -1733,7 +1739,7 @@ class LambdaConfigTypeTypeDef(BaseValidatorModel):
 class ListIdentityProvidersResponseTypeDef(BaseValidatorModel):
     Providers: List[ProviderDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKeyType")]] = None
 
 
 # This class is the output for the 'list_terms' function.
@@ -1747,14 +1753,14 @@ class ListTermsResponseTypeDef(BaseValidatorModel):
 class ListUserPoolClientsResponseTypeDef(BaseValidatorModel):
     UserPoolClients: List[UserPoolClientDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 # This class is the output for the 'list_web_authn_credentials' function.
 class ListWebAuthnCredentialsResponseTypeDef(BaseValidatorModel):
     Credentials: List[WebAuthnCredentialDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 class LogConfigurationTypeTypeDef(BaseValidatorModel):
@@ -1766,7 +1772,7 @@ class LogConfigurationTypeTypeDef(BaseValidatorModel):
 
 
 class NotifyConfigurationTypeTypeDef(BaseValidatorModel):
-    SourceArn: str
+    SourceArn: Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]
     From: Optional[str] = None
     ReplyTo: Optional[str] = None
     BlockEmail: Optional[NotifyEmailTypeTypeDef] = None
@@ -1780,7 +1786,7 @@ RiskExceptionConfigurationTypeUnionTypeDef = Union[
 
 
 class SchemaAttributeTypeTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("CognitoIdp", "CustomAttributeNameType")]] = None
     AttributeDataType: Optional[AttributeDataTypeType] = None
     DeveloperOnlyAttribute: Optional[bool] = None
     Mutable: Optional[bool] = None
@@ -1818,7 +1824,7 @@ class AdminGetDeviceResponseTypeDef(BaseValidatorModel):
 class AdminListDevicesResponseTypeDef(BaseValidatorModel):
     Devices: List[DeviceTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SearchPaginationTokenType")]] = None
 
 
 # This class is the output for the 'get_device' function.
@@ -1831,7 +1837,7 @@ class GetDeviceResponseTypeDef(BaseValidatorModel):
 class ListDevicesResponseTypeDef(BaseValidatorModel):
     Devices: List[DeviceTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SearchPaginationTokenType")]] = None
 
 
 # This class is the output for the 'admin_create_user' function.
@@ -1844,14 +1850,14 @@ class AdminCreateUserResponseTypeDef(BaseValidatorModel):
 class ListUsersInGroupResponseTypeDef(BaseValidatorModel):
     Users: List[UserTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 # This class is the output for the 'list_users' function.
 class ListUsersResponseTypeDef(BaseValidatorModel):
     Users: List[UserTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SearchPaginationTokenType")]] = None
 
 
 # This class is the output for the 'create_managed_login_branding' function.
@@ -1885,7 +1891,7 @@ AssetTypeUnionTypeDef = Union[AssetTypeOutputTypeDef, AssetTypeTypeDef]
 class AdminListUserAuthEventsResponseTypeDef(BaseValidatorModel):
     AuthEvents: List[AuthEventTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKey")]] = None
 
 
 # This class is the output for the 'admin_initiate_auth' function.
@@ -1939,8 +1945,8 @@ CompromisedCredentialsRiskConfigurationTypeUnionTypeDef = Union[
 
 # This class is the input for the 'admin_initiate_auth' function.
 class AdminInitiateAuthRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
     AuthFlow: AuthFlowTypeType
     AuthParameters: Optional[Dict[str, str]] = None
     ClientMetadata: Optional[Dict[str, str]] = None
@@ -1951,8 +1957,8 @@ class AdminInitiateAuthRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'admin_respond_to_auth_challenge' function.
 class AdminRespondToAuthChallengeRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
     ChallengeName: ChallengeNameTypeType
     ChallengeResponses: Optional[Dict[str, str]] = None
     Session: Optional[str] = None
@@ -1977,7 +1983,7 @@ class DescribeResourceServerResponseTypeDef(BaseValidatorModel):
 class ListResourceServersResponseTypeDef(BaseValidatorModel):
     ResourceServers: List[ResourceServerTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKeyType")]] = None
 
 
 # This class is the output for the 'update_resource_server' function.
@@ -2022,7 +2028,7 @@ class GetUserPoolMfaConfigResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'set_user_pool_mfa_config' function.
 class SetUserPoolMfaConfigRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     SmsMfaConfiguration: Optional[SmsMfaConfigTypeTypeDef] = None
     SoftwareTokenMfaConfiguration: Optional[SoftwareTokenMfaConfigTypeTypeDef] = None
     EmailMfaConfiguration: Optional[EmailMfaConfigTypeTypeDef] = None
@@ -2041,8 +2047,8 @@ class SetUserPoolMfaConfigResponseTypeDef(BaseValidatorModel):
 
 
 class UserPoolDescriptionTypeTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolNameType")]] = None
     LambdaConfig: Optional[LambdaConfigTypeTypeDef] = None
     Status: Optional[StatusTypeType] = None
     LastModifiedDate: Optional[datetime] = None
@@ -2050,13 +2056,13 @@ class UserPoolDescriptionTypeTypeDef(BaseValidatorModel):
 
 
 class LogDeliveryConfigurationTypeTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     LogConfigurations: List[LogConfigurationTypeTypeDef]
 
 
 # This class is the input for the 'set_log_delivery_configuration' function.
 class SetLogDeliveryConfigurationRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     LogConfigurations: List[LogConfigurationTypeTypeDef]
 
 
@@ -2066,13 +2072,13 @@ class AccountTakeoverRiskConfigurationTypeTypeDef(BaseValidatorModel):
 
 
 class AddCustomAttributesRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     CustomAttributes: List[SchemaAttributeTypeTypeDef]
 
 
 class UserPoolTypeTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolNameType")]] = None
     Policies: Optional[UserPoolPolicyTypeOutputTypeDef] = None
     DeletionProtection: Optional[DeletionProtectionTypeType] = None
     LambdaConfig: Optional[LambdaConfigTypeTypeDef] = None
@@ -2083,11 +2089,15 @@ class UserPoolTypeTypeDef(BaseValidatorModel):
     AutoVerifiedAttributes: Optional[List[VerifiedAttributeTypeType]] = None
     AliasAttributes: Optional[List[AliasAttributeTypeType]] = None
     UsernameAttributes: Optional[List[UsernameAttributeTypeType]] = None
-    SmsVerificationMessage: Optional[str] = None
-    EmailVerificationMessage: Optional[str] = None
-    EmailVerificationSubject: Optional[str] = None
+    SmsVerificationMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SmsVerificationMessageType")]] = None
+    EmailVerificationMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailVerificationMessageType")]] = (
+        None
+    )
+    EmailVerificationSubject: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailVerificationSubjectType")]] = (
+        None
+    )
     VerificationMessageTemplate: Optional[VerificationMessageTemplateTypeTypeDef] = None
-    SmsAuthenticationMessage: Optional[str] = None
+    SmsAuthenticationMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SmsVerificationMessageType")]] = None
     UserAttributeUpdateSettings: Optional[UserAttributeUpdateSettingsTypeOutputTypeDef] = None
     MfaConfiguration: Optional[UserPoolMfaTypeType] = None
     DeviceConfiguration: Optional[DeviceConfigurationTypeTypeDef] = None
@@ -2097,12 +2107,12 @@ class UserPoolTypeTypeDef(BaseValidatorModel):
     UserPoolTags: Optional[Dict[str, str]] = None
     SmsConfigurationFailure: Optional[str] = None
     EmailConfigurationFailure: Optional[str] = None
-    Domain: Optional[str] = None
-    CustomDomain: Optional[str] = None
+    Domain: Optional[Annotated[str, _aws_pattern("CognitoIdp", "DomainType")]] = None
+    CustomDomain: Optional[Annotated[str, _aws_pattern("CognitoIdp", "DomainType")]] = None
     AdminCreateUserConfig: Optional[AdminCreateUserConfigTypeTypeDef] = None
     UserPoolAddOns: Optional[UserPoolAddOnsTypeTypeDef] = None
     UsernameConfiguration: Optional[UsernameConfigurationTypeTypeDef] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ArnType")]] = None
     AccountRecoverySetting: Optional[AccountRecoverySettingTypeOutputTypeDef] = None
     UserPoolTier: Optional[UserPoolTierTypeType] = None
 
@@ -2112,8 +2122,8 @@ UserPoolPolicyTypeUnionTypeDef = Union[UserPoolPolicyTypeOutputTypeDef, UserPool
 
 # This class is the input for the 'create_managed_login_branding' function.
 class CreateManagedLoginBrandingRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]
     UseCognitoProvidedValues: Optional[bool] = None
     Settings: Optional[Dict[str, Any]] = None
     Assets: Optional[List[AssetTypeUnionTypeDef]] = None
@@ -2121,8 +2131,8 @@ class CreateManagedLoginBrandingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_managed_login_branding' function.
 class UpdateManagedLoginBrandingRequestTypeDef(BaseValidatorModel):
-    UserPoolId: Optional[str] = None
-    ManagedLoginBrandingId: Optional[str] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
+    ManagedLoginBrandingId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ManagedLoginBrandingIdType")]] = None
     UseCognitoProvidedValues: Optional[bool] = None
     Settings: Optional[Dict[str, Any]] = None
     Assets: Optional[List[AssetTypeUnionTypeDef]] = None
@@ -2132,7 +2142,7 @@ class UpdateManagedLoginBrandingRequestTypeDef(BaseValidatorModel):
 class ListUserPoolsResponseTypeDef(BaseValidatorModel):
     UserPools: List[UserPoolDescriptionTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdp", "PaginationKeyType")]] = None
 
 
 # This class is the output for the 'get_log_delivery_configuration' function.
@@ -2148,8 +2158,8 @@ class SetLogDeliveryConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class RiskConfigurationTypeTypeDef(BaseValidatorModel):
-    UserPoolId: Optional[str] = None
-    ClientId: Optional[str] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]] = None
+    ClientId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]] = None
     CompromisedCredentialsRiskConfiguration: Optional[CompromisedCredentialsRiskConfigurationTypeOutputTypeDef] = None
     AccountTakeoverRiskConfiguration: Optional[AccountTakeoverRiskConfigurationTypeTypeDef] = None
     RiskExceptionConfiguration: Optional[RiskExceptionConfigurationTypeOutputTypeDef] = None
@@ -2158,8 +2168,8 @@ class RiskConfigurationTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'set_risk_configuration' function.
 class SetRiskConfigurationRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
-    ClientId: Optional[str] = None
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
+    ClientId: Optional[Annotated[str, _aws_pattern("CognitoIdp", "ClientIdType")]] = None
     CompromisedCredentialsRiskConfiguration: Optional[CompromisedCredentialsRiskConfigurationTypeUnionTypeDef] = None
     AccountTakeoverRiskConfiguration: Optional[AccountTakeoverRiskConfigurationTypeTypeDef] = None
     RiskExceptionConfiguration: Optional[RiskExceptionConfigurationTypeUnionTypeDef] = None
@@ -2179,18 +2189,22 @@ class DescribeUserPoolResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user_pool' function.
 class CreateUserPoolRequestTypeDef(BaseValidatorModel):
-    PoolName: str
+    PoolName: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolNameType")]
     Policies: Optional[UserPoolPolicyTypeUnionTypeDef] = None
     DeletionProtection: Optional[DeletionProtectionTypeType] = None
     LambdaConfig: Optional[LambdaConfigTypeTypeDef] = None
     AutoVerifiedAttributes: Optional[List[VerifiedAttributeTypeType]] = None
     AliasAttributes: Optional[List[AliasAttributeTypeType]] = None
     UsernameAttributes: Optional[List[UsernameAttributeTypeType]] = None
-    SmsVerificationMessage: Optional[str] = None
-    EmailVerificationMessage: Optional[str] = None
-    EmailVerificationSubject: Optional[str] = None
+    SmsVerificationMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SmsVerificationMessageType")]] = None
+    EmailVerificationMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailVerificationMessageType")]] = (
+        None
+    )
+    EmailVerificationSubject: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailVerificationSubjectType")]] = (
+        None
+    )
     VerificationMessageTemplate: Optional[VerificationMessageTemplateTypeTypeDef] = None
-    SmsAuthenticationMessage: Optional[str] = None
+    SmsAuthenticationMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SmsVerificationMessageType")]] = None
     MfaConfiguration: Optional[UserPoolMfaTypeType] = None
     UserAttributeUpdateSettings: Optional[UserAttributeUpdateSettingsTypeUnionTypeDef] = None
     DeviceConfiguration: Optional[DeviceConfigurationTypeTypeDef] = None
@@ -2206,16 +2220,20 @@ class CreateUserPoolRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateUserPoolRequestTypeDef(BaseValidatorModel):
-    UserPoolId: str
+    UserPoolId: Annotated[str, _aws_pattern("CognitoIdp", "UserPoolIdType")]
     Policies: Optional[UserPoolPolicyTypeUnionTypeDef] = None
     DeletionProtection: Optional[DeletionProtectionTypeType] = None
     LambdaConfig: Optional[LambdaConfigTypeTypeDef] = None
     AutoVerifiedAttributes: Optional[List[VerifiedAttributeTypeType]] = None
-    SmsVerificationMessage: Optional[str] = None
-    EmailVerificationMessage: Optional[str] = None
-    EmailVerificationSubject: Optional[str] = None
+    SmsVerificationMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SmsVerificationMessageType")]] = None
+    EmailVerificationMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailVerificationMessageType")]] = (
+        None
+    )
+    EmailVerificationSubject: Optional[Annotated[str, _aws_pattern("CognitoIdp", "EmailVerificationSubjectType")]] = (
+        None
+    )
     VerificationMessageTemplate: Optional[VerificationMessageTemplateTypeTypeDef] = None
-    SmsAuthenticationMessage: Optional[str] = None
+    SmsAuthenticationMessage: Optional[Annotated[str, _aws_pattern("CognitoIdp", "SmsVerificationMessageType")]] = None
     UserAttributeUpdateSettings: Optional[UserAttributeUpdateSettingsTypeUnionTypeDef] = None
     MfaConfiguration: Optional[UserPoolMfaTypeType] = None
     DeviceConfiguration: Optional[DeviceConfigurationTypeTypeDef] = None
@@ -2225,7 +2243,7 @@ class UpdateUserPoolRequestTypeDef(BaseValidatorModel):
     AdminCreateUserConfig: Optional[AdminCreateUserConfigTypeTypeDef] = None
     UserPoolAddOns: Optional[UserPoolAddOnsTypeTypeDef] = None
     AccountRecoverySetting: Optional[AccountRecoverySettingTypeUnionTypeDef] = None
-    PoolName: Optional[str] = None
+    PoolName: Optional[Annotated[str, _aws_pattern("CognitoIdp", "UserPoolNameType")]] = None
     UserPoolTier: Optional[UserPoolTierTypeType] = None
 
 

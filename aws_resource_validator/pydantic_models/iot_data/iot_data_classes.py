@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iot_data.iot_data_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -42,15 +44,15 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'delete_connection' function.
 class DeleteConnectionRequestTypeDef(BaseValidatorModel):
-    clientId: str
+    clientId: Annotated[str, _aws_pattern("IotData", "ClientId")]
     cleanSession: Optional[bool] = None
     preventWillMessage: Optional[bool] = None
 
 
 # This class is the input for the 'delete_thing_shadow' function.
 class DeleteThingShadowRequestTypeDef(BaseValidatorModel):
-    thingName: str
-    shadowName: Optional[str] = None
+    thingName: Annotated[str, _aws_pattern("IotData", "ThingName")]
+    shadowName: Optional[Annotated[str, _aws_pattern("IotData", "ShadowName")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -68,13 +70,13 @@ class GetRetainedMessageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_thing_shadow' function.
 class GetThingShadowRequestTypeDef(BaseValidatorModel):
-    thingName: str
-    shadowName: Optional[str] = None
+    thingName: Annotated[str, _aws_pattern("IotData", "ThingName")]
+    shadowName: Optional[Annotated[str, _aws_pattern("IotData", "ShadowName")]] = None
 
 
 # This class is the input for the 'list_named_shadows_for_thing' function.
 class ListNamedShadowsForThingRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("IotData", "ThingName")]
     nextToken: Optional[str] = None
     pageSize: Optional[int] = None
 
@@ -114,9 +116,9 @@ class PublishRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_thing_shadow' function.
 class UpdateThingShadowRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("IotData", "ThingName")]
     payload: BlobTypeDef
-    shadowName: Optional[str] = None
+    shadowName: Optional[Annotated[str, _aws_pattern("IotData", "ShadowName")]] = None
 
 
 # This class is the output for the 'delete_thing_shadow' function.
@@ -148,7 +150,7 @@ class GetThingShadowResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_named_shadows_for_thing' function.
 class ListNamedShadowsForThingResponseTypeDef(BaseValidatorModel):
-    results: List[str]
+    results: List[Annotated[str, _aws_pattern("IotData", "ShadowName")]]
     timestamp: int
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None

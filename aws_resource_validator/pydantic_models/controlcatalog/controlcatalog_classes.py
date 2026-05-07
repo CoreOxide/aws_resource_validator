@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.controlcatalog.controlcatalog_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,31 +41,31 @@ except ImportError:  # pragma: no cover
 
 
 class AssociatedDomainSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Controlcatalog", "DomainArn")]] = None
     Name: Optional[str] = None
 
 
 class AssociatedObjectiveSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Controlcatalog", "ObjectiveArn")]] = None
     Name: Optional[str] = None
 
 
 class ObjectiveResourceFilterTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Controlcatalog", "ObjectiveArn")]] = None
 
 
 class CommonControlMappingDetailsTypeDef(BaseValidatorModel):
-    CommonControlArn: str
+    CommonControlArn: Annotated[str, _aws_pattern("Controlcatalog", "CommonControlArn")]
 
 
 class ImplementationFilterTypeDef(BaseValidatorModel):
-    Types: Optional[List[str]] = None
-    Identifiers: Optional[List[str]] = None
+    Types: Optional[List[Annotated[str, _aws_pattern("Controlcatalog", "ImplementationType")]]] = None
+    Identifiers: Optional[List[Annotated[str, _aws_pattern("Controlcatalog", "ImplementationIdentifier")]]] = None
 
 
 class ControlMappingFilterTypeDef(BaseValidatorModel):
-    ControlArns: Optional[List[str]] = None
-    CommonControlArns: Optional[List[str]] = None
+    ControlArns: Optional[List[Annotated[str, _aws_pattern("Controlcatalog", "ControlArn")]]] = None
+    CommonControlArns: Optional[List[Annotated[str, _aws_pattern("Controlcatalog", "CommonControlArn")]]] = None
     MappingTypes: Optional[List[MappingTypeType]] = None
 
 
@@ -72,16 +74,16 @@ class ControlParameterTypeDef(BaseValidatorModel):
 
 
 class ImplementationSummaryTypeDef(BaseValidatorModel):
-    Type: str
-    Identifier: Optional[str] = None
+    Type: Annotated[str, _aws_pattern("Controlcatalog", "ImplementationType")]
+    Identifier: Optional[Annotated[str, _aws_pattern("Controlcatalog", "ImplementationIdentifier")]] = None
 
 
 class DomainResourceFilterTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Controlcatalog", "DomainArn")]] = None
 
 
 class DomainSummaryTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Controlcatalog", "DomainArn")]
     Name: str
     Description: str
     CreateTime: datetime
@@ -95,17 +97,17 @@ class FrameworkMappingDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_control' function.
 class GetControlRequestTypeDef(BaseValidatorModel):
-    ControlArn: str
+    ControlArn: Annotated[str, _aws_pattern("Controlcatalog", "ControlArn")]
 
 
 class ImplementationDetailsTypeDef(BaseValidatorModel):
-    Type: str
-    Identifier: Optional[str] = None
+    Type: Annotated[str, _aws_pattern("Controlcatalog", "ImplementationType")]
+    Identifier: Optional[Annotated[str, _aws_pattern("Controlcatalog", "ImplementationIdentifier")]] = None
 
 
 class RegionConfigurationTypeDef(BaseValidatorModel):
     Scope: ControlScopeType
-    DeployableRegions: Optional[List[str]] = None
+    DeployableRegions: Optional[List[Annotated[str, _aws_pattern("Controlcatalog", "RegionCode")]]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -130,11 +132,11 @@ class ListDomainsRequestTypeDef(BaseValidatorModel):
 
 class RelatedControlMappingDetailsTypeDef(BaseValidatorModel):
     RelationType: ControlRelationTypeType
-    ControlArn: Optional[str] = None
+    ControlArn: Optional[Annotated[str, _aws_pattern("Controlcatalog", "ControlArn")]] = None
 
 
 class ObjectiveSummaryTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Controlcatalog", "ObjectiveArn")]
     Name: str
     Description: str
     Domain: AssociatedDomainSummaryTypeDef
@@ -143,7 +145,7 @@ class ObjectiveSummaryTypeDef(BaseValidatorModel):
 
 
 class CommonControlSummaryTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Controlcatalog", "CommonControlArn")]
     Name: str
     Description: str
     Domain: AssociatedDomainSummaryTypeDef
@@ -168,15 +170,15 @@ class ListControlMappingsRequestTypeDef(BaseValidatorModel):
 
 
 class ControlSummaryTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Controlcatalog", "ControlArn")]
     Name: str
     Description: str
-    Aliases: Optional[List[str]] = None
+    Aliases: Optional[List[Annotated[str, _aws_pattern("Controlcatalog", "ControlAlias")]]] = None
     Behavior: Optional[ControlBehaviorType] = None
     Severity: Optional[ControlSeverityType] = None
     Implementation: Optional[ImplementationSummaryTypeDef] = None
     CreateTime: Optional[datetime] = None
-    GovernedResources: Optional[List[str]] = None
+    GovernedResources: Optional[List[Annotated[str, _aws_pattern("Controlcatalog", "GovernedResource")]]] = None
 
 
 class ObjectiveFilterTypeDef(BaseValidatorModel):
@@ -185,8 +187,8 @@ class ObjectiveFilterTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_control' function.
 class GetControlResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Aliases: List[str]
+    Arn: Annotated[str, _aws_pattern("Controlcatalog", "ControlArn")]
+    Aliases: List[Annotated[str, _aws_pattern("Controlcatalog", "ControlAlias")]]
     Name: str
     Description: str
     Behavior: ControlBehaviorType
@@ -195,7 +197,7 @@ class GetControlResponseTypeDef(BaseValidatorModel):
     Implementation: ImplementationDetailsTypeDef
     Parameters: List[ControlParameterTypeDef]
     CreateTime: datetime
-    GovernedResources: List[str]
+    GovernedResources: List[Annotated[str, _aws_pattern("Controlcatalog", "GovernedResource")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -279,7 +281,7 @@ class ListObjectivesRequestTypeDef(BaseValidatorModel):
 
 
 class ControlMappingTypeDef(BaseValidatorModel):
-    ControlArn: str
+    ControlArn: Annotated[str, _aws_pattern("Controlcatalog", "ControlArn")]
     MappingType: MappingTypeType
     Mapping: MappingTypeDef
 

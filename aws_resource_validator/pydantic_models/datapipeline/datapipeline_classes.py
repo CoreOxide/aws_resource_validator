@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.datapipeline.datapipeline_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class ParameterValueTypeDef(BaseValidatorModel):
-    id: str
-    stringValue: str
+    id: Annotated[str, _aws_pattern("Datapipeline", "fieldNameString")]
+    stringValue: Annotated[str, _aws_pattern("Datapipeline", "fieldStringValue")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -60,13 +62,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeactivatePipelineInputTypeDef(BaseValidatorModel):
-    pipelineId: str
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
     cancelActive: Optional[bool] = None
 
 
 # This class is the input for the 'delete_pipeline' function.
 class DeletePipelineInputTypeDef(BaseValidatorModel):
-    pipelineId: str
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -77,120 +79,120 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_objects' function.
 class DescribeObjectsInputTypeDef(BaseValidatorModel):
-    pipelineId: str
-    objectIds: List[str]
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    objectIds: List[Annotated[str, _aws_pattern("Datapipeline", "id")]]
     evaluateExpressions: Optional[bool] = None
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
 
 
 # This class is the input for the 'describe_pipelines' function.
 class DescribePipelinesInputTypeDef(BaseValidatorModel):
-    pipelineIds: List[str]
+    pipelineIds: List[Annotated[str, _aws_pattern("Datapipeline", "id")]]
 
 
 # This class is the input for the 'evaluate_expression' function.
 class EvaluateExpressionInputTypeDef(BaseValidatorModel):
-    pipelineId: str
-    objectId: str
-    expression: str
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    objectId: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    expression: Annotated[str, _aws_pattern("Datapipeline", "longString")]
 
 
 class FieldTypeDef(BaseValidatorModel):
-    key: str
-    stringValue: Optional[str] = None
-    refValue: Optional[str] = None
+    key: Annotated[str, _aws_pattern("Datapipeline", "fieldNameString")]
+    stringValue: Optional[Annotated[str, _aws_pattern("Datapipeline", "fieldStringValue")]] = None
+    refValue: Optional[Annotated[str, _aws_pattern("Datapipeline", "fieldNameString")]] = None
 
 
 # This class is the input for the 'get_pipeline_definition' function.
 class GetPipelineDefinitionInputTypeDef(BaseValidatorModel):
-    pipelineId: str
-    version: Optional[str] = None
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    version: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
 
 
 class InstanceIdentityTypeDef(BaseValidatorModel):
-    document: Optional[str] = None
-    signature: Optional[str] = None
+    document: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
+    signature: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
 
 
 # This class is the input for the 'list_pipelines' function.
 class ListPipelinesInputTypeDef(BaseValidatorModel):
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
 
 
 class PipelineIdNameTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Datapipeline", "id")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Datapipeline", "id")]] = None
 
 
 class OperatorTypeDef(BaseValidatorModel):
     type: Optional[OperatorTypeType] = None
-    values: Optional[List[str]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("Datapipeline", "string")]]] = None
 
 
 class ParameterAttributeTypeDef(BaseValidatorModel):
-    key: str
-    stringValue: str
+    key: Annotated[str, _aws_pattern("Datapipeline", "attributeNameString")]
+    stringValue: Annotated[str, _aws_pattern("Datapipeline", "attributeValueString")]
 
 
 class ValidationErrorTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    errors: Optional[List[str]] = None
+    id: Optional[Annotated[str, _aws_pattern("Datapipeline", "id")]] = None
+    errors: Optional[List[Annotated[str, _aws_pattern("Datapipeline", "validationMessage")]]] = None
 
 
 class ValidationWarningTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    warnings: Optional[List[str]] = None
+    id: Optional[Annotated[str, _aws_pattern("Datapipeline", "id")]] = None
+    warnings: Optional[List[Annotated[str, _aws_pattern("Datapipeline", "validationMessage")]]] = None
 
 
 class RemoveTagsInputTypeDef(BaseValidatorModel):
-    pipelineId: str
-    tagKeys: List[str]
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    tagKeys: List[Annotated[str, _aws_pattern("Datapipeline", "string")]]
 
 
 # This class is the input for the 'report_task_runner_heartbeat' function.
 class ReportTaskRunnerHeartbeatInputTypeDef(BaseValidatorModel):
-    taskrunnerId: str
-    workerGroup: Optional[str] = None
-    hostname: Optional[str] = None
+    taskrunnerId: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    workerGroup: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
+    hostname: Optional[Annotated[str, _aws_pattern("Datapipeline", "id")]] = None
 
 
 # This class is the input for the 'set_status' function.
 class SetStatusInputTypeDef(BaseValidatorModel):
-    pipelineId: str
-    objectIds: List[str]
-    status: str
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    objectIds: List[Annotated[str, _aws_pattern("Datapipeline", "id")]]
+    status: Annotated[str, _aws_pattern("Datapipeline", "string")]
 
 
 class SetTaskStatusInputTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Datapipeline", "taskId")]
     taskStatus: TaskStatusType
-    errorId: Optional[str] = None
+    errorId: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
     errorMessage: Optional[str] = None
-    errorStackTrace: Optional[str] = None
+    errorStackTrace: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
 
 
 class ActivatePipelineInputTypeDef(BaseValidatorModel):
-    pipelineId: str
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
     parameterValues: Optional[List[ParameterValueTypeDef]] = None
     startTimestamp: Optional[TimestampTypeDef] = None
 
 
 class AddTagsInputTypeDef(BaseValidatorModel):
-    pipelineId: str
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
     tags: List[TagTypeDef]
 
 
 # This class is the input for the 'create_pipeline' function.
 class CreatePipelineInputTypeDef(BaseValidatorModel):
-    name: str
-    uniqueId: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    uniqueId: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    description: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'create_pipeline' function.
 class CreatePipelineOutputTypeDef(BaseValidatorModel):
-    pipelineId: str
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -201,14 +203,14 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'evaluate_expression' function.
 class EvaluateExpressionOutputTypeDef(BaseValidatorModel):
-    evaluatedExpression: str
+    evaluatedExpression: Annotated[str, _aws_pattern("Datapipeline", "longString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'query_objects' function.
 class QueryObjectsOutputTypeDef(BaseValidatorModel):
-    ids: List[str]
-    marker: str
+    ids: List[Annotated[str, _aws_pattern("Datapipeline", "id")]]
+    marker: Annotated[str, _aws_pattern("Datapipeline", "string")]
     hasMoreResults: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -237,10 +239,10 @@ class ListPipelinesInputPaginateTypeDef(BaseValidatorModel):
 
 
 class PipelineDescriptionTypeDef(BaseValidatorModel):
-    pipelineId: str
-    name: str
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    name: Annotated[str, _aws_pattern("Datapipeline", "id")]
     fields: List[FieldTypeDef]
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -251,34 +253,34 @@ class PipelineObjectOutputTypeDef(BaseValidatorModel):
 
 
 class PipelineObjectTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    name: Annotated[str, _aws_pattern("Datapipeline", "id")]
     fields: List[FieldTypeDef]
 
 
 # This class is the input for the 'report_task_progress' function.
 class ReportTaskProgressInputTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Datapipeline", "taskId")]
     fields: Optional[List[FieldTypeDef]] = None
 
 
 # This class is the input for the 'poll_for_task' function.
 class PollForTaskInputTypeDef(BaseValidatorModel):
-    workerGroup: str
-    hostname: Optional[str] = None
+    workerGroup: Annotated[str, _aws_pattern("Datapipeline", "string")]
+    hostname: Optional[Annotated[str, _aws_pattern("Datapipeline", "id")]] = None
     instanceIdentity: Optional[InstanceIdentityTypeDef] = None
 
 
 # This class is the output for the 'list_pipelines' function.
 class ListPipelinesOutputTypeDef(BaseValidatorModel):
     pipelineIdList: List[PipelineIdNameTypeDef]
-    marker: str
+    marker: Annotated[str, _aws_pattern("Datapipeline", "string")]
     hasMoreResults: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class SelectorTypeDef(BaseValidatorModel):
-    fieldName: Optional[str] = None
+    fieldName: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
     operator: Optional[OperatorTypeDef] = None
 
 
@@ -288,7 +290,7 @@ class ParameterObjectOutputTypeDef(BaseValidatorModel):
 
 
 class ParameterObjectTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datapipeline", "fieldNameString")]
     attributes: List[ParameterAttributeTypeDef]
 
 
@@ -317,15 +319,15 @@ class DescribePipelinesOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_objects' function.
 class DescribeObjectsOutputTypeDef(BaseValidatorModel):
     pipelineObjects: List[PipelineObjectOutputTypeDef]
-    marker: str
+    marker: Annotated[str, _aws_pattern("Datapipeline", "string")]
     hasMoreResults: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class TaskObjectTypeDef(BaseValidatorModel):
-    taskId: Optional[str] = None
-    pipelineId: Optional[str] = None
-    attemptId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Datapipeline", "taskId")]] = None
+    pipelineId: Optional[Annotated[str, _aws_pattern("Datapipeline", "id")]] = None
+    attemptId: Optional[Annotated[str, _aws_pattern("Datapipeline", "id")]] = None
     objects: Optional[Dict[str, PipelineObjectOutputTypeDef]] = None
 
 
@@ -362,16 +364,16 @@ class QueryObjectsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'query_objects' function.
 class QueryObjectsInputTypeDef(BaseValidatorModel):
-    pipelineId: str
-    sphere: str
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
+    sphere: Annotated[str, _aws_pattern("Datapipeline", "string")]
     query: Optional[QueryTypeDef] = None
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Datapipeline", "string")]] = None
     limit: Optional[int] = None
 
 
 # This class is the input for the 'put_pipeline_definition' function.
 class PutPipelineDefinitionInputTypeDef(BaseValidatorModel):
-    pipelineId: str
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
     pipelineObjects: List[PipelineObjectUnionTypeDef]
     parameterObjects: Optional[List[ParameterObjectUnionTypeDef]] = None
     parameterValues: Optional[List[ParameterValueTypeDef]] = None
@@ -379,7 +381,7 @@ class PutPipelineDefinitionInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'validate_pipeline_definition' function.
 class ValidatePipelineDefinitionInputTypeDef(BaseValidatorModel):
-    pipelineId: str
+    pipelineId: Annotated[str, _aws_pattern("Datapipeline", "id")]
     pipelineObjects: List[PipelineObjectUnionTypeDef]
     parameterObjects: Optional[List[ParameterObjectUnionTypeDef]] = None
     parameterValues: Optional[List[ParameterValueTypeDef]] = None

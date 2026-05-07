@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.dynamodb.dynamodb_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -97,7 +99,7 @@ class AutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef(BaseValid
 
 class BackupDetailsTypeDef(BaseValidatorModel):
     BackupArn: str
-    BackupName: str
+    BackupName: Annotated[str, _aws_pattern("Dynamodb", "BackupName")]
     BackupStatus: BackupStatusType
     BackupType: BackupTypeType
     BackupCreationDateTime: datetime
@@ -106,11 +108,11 @@ class BackupDetailsTypeDef(BaseValidatorModel):
 
 
 class BackupSummaryTypeDef(BaseValidatorModel):
-    TableName: Optional[str] = None
-    TableId: Optional[str] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableName")]] = None
+    TableId: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableId")]] = None
     TableArn: Optional[str] = None
     BackupArn: Optional[str] = None
-    BackupName: Optional[str] = None
+    BackupName: Optional[Annotated[str, _aws_pattern("Dynamodb", "BackupName")]] = None
     BackupCreationDateTime: Optional[datetime] = None
     BackupExpiryDateTime: Optional[datetime] = None
     BackupStatus: Optional[BackupStatusType] = None
@@ -148,8 +150,8 @@ class PointInTimeRecoveryDescriptionTypeDef(BaseValidatorModel):
 
 
 class ContributorInsightsSummaryTypeDef(BaseValidatorModel):
-    TableName: Optional[str] = None
-    IndexName: Optional[str] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableName")]] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     ContributorInsightsStatus: Optional[ContributorInsightsStatusType] = None
     ContributorInsightsMode: Optional[ContributorInsightsModeType] = None
 
@@ -157,7 +159,7 @@ class ContributorInsightsSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_backup' function.
 class CreateBackupInputTypeDef(BaseValidatorModel):
     TableName: str
-    BackupName: str
+    BackupName: Annotated[str, _aws_pattern("Dynamodb", "BackupName")]
 
 
 class KeySchemaElementTypeDef(BaseValidatorModel):
@@ -222,8 +224,8 @@ class CsvOptionsOutputTypeDef(BaseValidatorModel):
 
 
 class CsvOptionsTypeDef(BaseValidatorModel):
-    Delimiter: Optional[str] = None
-    HeaderList: Optional[List[str]] = None
+    Delimiter: Optional[Annotated[str, _aws_pattern("Dynamodb", "CsvDelimiter")]] = None
+    HeaderList: Optional[List[Annotated[str, _aws_pattern("Dynamodb", "CsvHeader")]]] = None
 
 
 # This class is the input for the 'delete_backup' function.
@@ -232,7 +234,7 @@ class DeleteBackupInputTypeDef(BaseValidatorModel):
 
 
 class DeleteGlobalSecondaryIndexActionTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Dynamodb", "IndexName")]
 
 
 class DeleteGlobalTableWitnessGroupMemberActionTypeDef(BaseValidatorModel):
@@ -271,7 +273,7 @@ class DescribeContinuousBackupsInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_contributor_insights' function.
 class DescribeContributorInsightsInputTypeDef(BaseValidatorModel):
     TableName: str
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -296,12 +298,12 @@ class DescribeExportInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_global_table' function.
 class DescribeGlobalTableInputTypeDef(BaseValidatorModel):
-    GlobalTableName: str
+    GlobalTableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
 
 
 # This class is the input for the 'describe_global_table_settings' function.
 class DescribeGlobalTableSettingsInputTypeDef(BaseValidatorModel):
-    GlobalTableName: str
+    GlobalTableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
 
 
 # This class is the input for the 'describe_import' function.
@@ -390,8 +392,8 @@ class GlobalTableWitnessDescriptionTypeDef(BaseValidatorModel):
 
 
 class S3BucketSourceTypeDef(BaseValidatorModel):
-    S3Bucket: str
-    S3BucketOwner: Optional[str] = None
+    S3Bucket: Annotated[str, _aws_pattern("Dynamodb", "S3Bucket")]
+    S3BucketOwner: Optional[Annotated[str, _aws_pattern("Dynamodb", "S3BucketOwner")]] = None
     S3KeyPrefix: Optional[str] = None
 
 
@@ -417,7 +419,7 @@ class ListExportsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_global_tables' function.
 class ListGlobalTablesInputTypeDef(BaseValidatorModel):
-    ExclusiveStartGlobalTableName: Optional[str] = None
+    ExclusiveStartGlobalTableName: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableName")]] = None
     Limit: Optional[int] = None
     RegionName: Optional[str] = None
 
@@ -426,12 +428,12 @@ class ListGlobalTablesInputTypeDef(BaseValidatorModel):
 class ListImportsInputTypeDef(BaseValidatorModel):
     TableArn: Optional[str] = None
     PageSize: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Dynamodb", "ImportNextToken")]] = None
 
 
 # This class is the input for the 'list_tables' function.
 class ListTablesInputTypeDef(BaseValidatorModel):
-    ExclusiveStartTableName: Optional[str] = None
+    ExclusiveStartTableName: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableName")]] = None
     Limit: Optional[int] = None
 
 
@@ -503,7 +505,7 @@ class UntagResourceInputTypeDef(BaseValidatorModel):
 class UpdateContributorInsightsInputTypeDef(BaseValidatorModel):
     TableName: str
     ContributorInsightsAction: ContributorInsightsActionType
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     ContributorInsightsMode: Optional[ContributorInsightsModeType] = None
 
 
@@ -631,7 +633,7 @@ class PutRequestServiceResourceTypeDef(BaseValidatorModel):
 
 
 class AutoScalingPolicyDescriptionTypeDef(BaseValidatorModel):
-    PolicyName: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Dynamodb", "AutoScalingPolicyName")]] = None
     TargetTrackingScalingPolicyConfiguration: Optional[
         AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef
     ] = None
@@ -639,7 +641,7 @@ class AutoScalingPolicyDescriptionTypeDef(BaseValidatorModel):
 
 class AutoScalingPolicyUpdateTypeDef(BaseValidatorModel):
     TargetTrackingScalingPolicyConfiguration: AutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef
-    PolicyName: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Dynamodb", "AutoScalingPolicyName")]] = None
 
 
 # This class is the output for the 'create_backup' function.
@@ -683,8 +685,8 @@ class ListBackupsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_tables' function.
 class ListTablesOutputTypeDef(BaseValidatorModel):
-    TableNames: List[str]
-    LastEvaluatedTableName: str
+    TableNames: List[Annotated[str, _aws_pattern("Dynamodb", "TableName")]]
+    LastEvaluatedTableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -696,8 +698,8 @@ class PutResourcePolicyOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_contributor_insights' function.
 class UpdateContributorInsightsOutputTypeDef(BaseValidatorModel):
-    TableName: str
-    IndexName: str
+    TableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
+    IndexName: Annotated[str, _aws_pattern("Dynamodb", "IndexName")]
     ContributorInsightsStatus: ContributorInsightsStatusType
     ContributorInsightsMode: ContributorInsightsModeType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -726,8 +728,8 @@ class ListContributorInsightsOutputTypeDef(BaseValidatorModel):
 
 
 class SourceTableDetailsTypeDef(BaseValidatorModel):
-    TableName: str
-    TableId: str
+    TableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
+    TableId: Annotated[str, _aws_pattern("Dynamodb", "TableId")]
     KeySchema: List[KeySchemaElementTypeDef]
     TableCreationDateTime: datetime
     ProvisionedThroughput: ProvisionedThroughputTypeDef
@@ -739,7 +741,7 @@ class SourceTableDetailsTypeDef(BaseValidatorModel):
 
 
 class UpdateGlobalSecondaryIndexActionTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Dynamodb", "IndexName")]
     ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
     OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
     WarmThroughput: Optional[WarmThroughputTypeDef] = None
@@ -747,17 +749,17 @@ class UpdateGlobalSecondaryIndexActionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_global_table' function.
 class CreateGlobalTableInputTypeDef(BaseValidatorModel):
-    GlobalTableName: str
+    GlobalTableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     ReplicationGroup: List[ReplicaTypeDef]
 
 
 class GlobalTableTypeDef(BaseValidatorModel):
-    GlobalTableName: Optional[str] = None
+    GlobalTableName: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableName")]] = None
     ReplicationGroup: Optional[List[ReplicaTypeDef]] = None
 
 
 class ReplicaGlobalSecondaryIndexTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Dynamodb", "IndexName")]
     ProvisionedThroughputOverride: Optional[ProvisionedThroughputOverrideTypeDef] = None
     OnDemandThroughputOverride: Optional[OnDemandThroughputOverrideTypeDef] = None
 
@@ -826,9 +828,9 @@ class DescribeTableInputWaitTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_contributor_insights' function.
 class DescribeContributorInsightsOutputTypeDef(BaseValidatorModel):
-    TableName: str
-    IndexName: str
-    ContributorInsightsRuleList: List[str]
+    TableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
+    IndexName: Annotated[str, _aws_pattern("Dynamodb", "IndexName")]
+    ContributorInsightsRuleList: List[Annotated[str, _aws_pattern("Dynamodb", "ContributorInsightsRule")]]
     ContributorInsightsStatus: ContributorInsightsStatusType
     LastUpdateDateTime: datetime
     FailureException: FailureExceptionTypeDef
@@ -843,7 +845,7 @@ class DescribeEndpointsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_kinesis_streaming_destination' function.
 class DescribeKinesisStreamingDestinationOutputTypeDef(BaseValidatorModel):
-    TableName: str
+    TableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     KinesisDataStreamDestinations: List[KinesisDataStreamDestinationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -870,7 +872,7 @@ class KinesisStreamingDestinationInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'disable_kinesis_streaming_destination' function.
 class KinesisStreamingDestinationOutputTypeDef(BaseValidatorModel):
-    TableName: str
+    TableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     StreamArn: str
     DestinationStatus: DestinationStatusType
     EnableKinesisStreamingConfiguration: EnableKinesisStreamingConfigurationTypeDef
@@ -884,11 +886,11 @@ class ExportDescriptionTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
     ExportManifest: Optional[str] = None
     TableArn: Optional[str] = None
-    TableId: Optional[str] = None
+    TableId: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableId")]] = None
     ExportTime: Optional[datetime] = None
-    ClientToken: Optional[str] = None
-    S3Bucket: Optional[str] = None
-    S3BucketOwner: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Dynamodb", "ClientToken")]] = None
+    S3Bucket: Optional[Annotated[str, _aws_pattern("Dynamodb", "S3Bucket")]] = None
+    S3BucketOwner: Optional[Annotated[str, _aws_pattern("Dynamodb", "S3BucketOwner")]] = None
     S3Prefix: Optional[str] = None
     S3SseAlgorithm: Optional[S3SseAlgorithmType] = None
     S3SseKmsKeyId: Optional[str] = None
@@ -925,14 +927,14 @@ class ListBackupsInputTypeDef(BaseValidatorModel):
 
 
 class ReplicaGlobalSecondaryIndexDescriptionTypeDef(BaseValidatorModel):
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     ProvisionedThroughputOverride: Optional[ProvisionedThroughputOverrideTypeDef] = None
     OnDemandThroughputOverride: Optional[OnDemandThroughputOverrideTypeDef] = None
     WarmThroughput: Optional[GlobalSecondaryIndexWarmThroughputDescriptionTypeDef] = None
 
 
 class GlobalSecondaryIndexInfoTypeDef(BaseValidatorModel):
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     KeySchema: Optional[List[KeySchemaElementTypeDef]] = None
     Projection: Optional[ProjectionOutputTypeDef] = None
     ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
@@ -949,7 +951,7 @@ class GlobalSecondaryIndexOutputTypeDef(BaseValidatorModel):
 
 
 class LocalSecondaryIndexDescriptionTypeDef(BaseValidatorModel):
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     KeySchema: Optional[List[KeySchemaElementTypeDef]] = None
     Projection: Optional[ProjectionOutputTypeDef] = None
     IndexSizeBytes: Optional[int] = None
@@ -958,13 +960,13 @@ class LocalSecondaryIndexDescriptionTypeDef(BaseValidatorModel):
 
 
 class LocalSecondaryIndexInfoTypeDef(BaseValidatorModel):
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     KeySchema: Optional[List[KeySchemaElementTypeDef]] = None
     Projection: Optional[ProjectionOutputTypeDef] = None
 
 
 class GlobalSecondaryIndexDescriptionTypeDef(BaseValidatorModel):
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     KeySchema: Optional[List[KeySchemaElementTypeDef]] = None
     Projection: Optional[ProjectionOutputTypeDef] = None
     IndexStatus: Optional[IndexStatusType] = None
@@ -1035,7 +1037,7 @@ class UpdateKinesisStreamingDestinationInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_kinesis_streaming_destination' function.
 class UpdateKinesisStreamingDestinationOutputTypeDef(BaseValidatorModel):
-    TableName: str
+    TableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     StreamArn: str
     DestinationStatus: DestinationStatusType
     UpdateKinesisStreamingConfiguration: UpdateKinesisStreamingConfigurationTypeDef
@@ -1044,7 +1046,7 @@ class UpdateKinesisStreamingDestinationOutputTypeDef(BaseValidatorModel):
 
 class BatchStatementResponseTypeDef(BaseValidatorModel):
     Error: Optional[BatchStatementErrorTypeDef] = None
-    TableName: Optional[str] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableName")]] = None
     Item: Optional[Dict[str, AttributeValueTypeDef]] = None
 
 
@@ -1273,7 +1275,7 @@ class AutoScalingSettingsUpdateTypeDef(BaseValidatorModel):
     MinimumUnits: Optional[int] = None
     MaximumUnits: Optional[int] = None
     AutoScalingDisabled: Optional[bool] = None
-    AutoScalingRoleArn: Optional[str] = None
+    AutoScalingRoleArn: Optional[Annotated[str, _aws_pattern("Dynamodb", "AutoScalingRoleArn")]] = None
     ScalingPolicyUpdate: Optional[AutoScalingPolicyUpdateTypeDef] = None
 
 
@@ -1433,7 +1435,7 @@ class UpdateContinuousBackupsOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_global_tables' function.
 class ListGlobalTablesOutputTypeDef(BaseValidatorModel):
     GlobalTables: List[GlobalTableTypeDef]
-    LastEvaluatedGlobalTableName: str
+    LastEvaluatedGlobalTableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1460,7 +1462,7 @@ InputFormatOptionsUnionTypeDef = Union[InputFormatOptionsOutputTypeDef, InputFor
 
 # This class is the input for the 'update_global_table' function.
 class UpdateGlobalTableInputTypeDef(BaseValidatorModel):
-    GlobalTableName: str
+    GlobalTableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     ReplicaUpdates: List[ReplicaUpdateTypeDef]
 
 
@@ -1520,11 +1522,11 @@ class SourceTableFeatureDetailsTypeDef(BaseValidatorModel):
 class ListImportsOutputTypeDef(BaseValidatorModel):
     ImportSummaryList: List[ImportSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Dynamodb", "ImportNextToken")]] = None
 
 
 class CreateGlobalSecondaryIndexActionTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Dynamodb", "IndexName")]
     KeySchema: List[KeySchemaElementTypeDef]
     Projection: ProjectionUnionTypeDef
     ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
@@ -1533,7 +1535,7 @@ class CreateGlobalSecondaryIndexActionTypeDef(BaseValidatorModel):
 
 
 class GlobalSecondaryIndexTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Dynamodb", "IndexName")]
     KeySchema: List[KeySchemaElementTypeDef]
     Projection: ProjectionUnionTypeDef
     ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
@@ -1542,7 +1544,7 @@ class GlobalSecondaryIndexTypeDef(BaseValidatorModel):
 
 
 class LocalSecondaryIndexTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Dynamodb", "IndexName")]
     KeySchema: List[KeySchemaElementTypeDef]
     Projection: ProjectionUnionTypeDef
 
@@ -1590,7 +1592,7 @@ class QueryInputPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'query' function.
 class QueryInputTypeDef(BaseValidatorModel):
     TableName: str
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     Select: Optional[SelectType] = None
     AttributesToGet: Optional[List[str]] = None
     Limit: Optional[int] = None
@@ -1629,7 +1631,7 @@ class ScanInputPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'scan' function.
 class ScanInputTypeDef(BaseValidatorModel):
     TableName: str
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     AttributesToGet: Optional[List[str]] = None
     Limit: Optional[int] = None
     Select: Optional[SelectType] = None
@@ -1738,14 +1740,14 @@ class WriteRequestServiceResourceTypeDef(BaseValidatorModel):
 
 
 class ReplicaGlobalSecondaryIndexAutoScalingDescriptionTypeDef(BaseValidatorModel):
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     IndexStatus: Optional[IndexStatusType] = None
     ProvisionedReadCapacityAutoScalingSettings: Optional[AutoScalingSettingsDescriptionTypeDef] = None
     ProvisionedWriteCapacityAutoScalingSettings: Optional[AutoScalingSettingsDescriptionTypeDef] = None
 
 
 class ReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Dynamodb", "IndexName")]
     IndexStatus: Optional[IndexStatusType] = None
     ProvisionedReadCapacityUnits: Optional[int] = None
     ProvisionedReadCapacityAutoScalingSettings: Optional[AutoScalingSettingsDescriptionTypeDef] = None
@@ -1754,23 +1756,23 @@ class ReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef(BaseValidatorModel):
 
 
 class GlobalSecondaryIndexAutoScalingUpdateTypeDef(BaseValidatorModel):
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     ProvisionedWriteCapacityAutoScalingUpdate: Optional[AutoScalingSettingsUpdateTypeDef] = None
 
 
 class GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Dynamodb", "IndexName")]
     ProvisionedWriteCapacityUnits: Optional[int] = None
     ProvisionedWriteCapacityAutoScalingSettingsUpdate: Optional[AutoScalingSettingsUpdateTypeDef] = None
 
 
 class ReplicaGlobalSecondaryIndexAutoScalingUpdateTypeDef(BaseValidatorModel):
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Dynamodb", "IndexName")]] = None
     ProvisionedReadCapacityAutoScalingUpdate: Optional[AutoScalingSettingsUpdateTypeDef] = None
 
 
 class ReplicaGlobalSecondaryIndexSettingsUpdateTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Dynamodb", "IndexName")]
     ProvisionedReadCapacityUnits: Optional[int] = None
     ProvisionedReadCapacityAutoScalingSettingsUpdate: Optional[AutoScalingSettingsUpdateTypeDef] = None
 
@@ -1784,10 +1786,10 @@ class ReplicationGroupUpdateTypeDef(BaseValidatorModel):
 # This class is the input for the 'export_table_to_point_in_time' function.
 class ExportTableToPointInTimeInputTypeDef(BaseValidatorModel):
     TableArn: str
-    S3Bucket: str
+    S3Bucket: Annotated[str, _aws_pattern("Dynamodb", "S3Bucket")]
     ExportTime: Optional[TimestampTypeDef] = None
-    ClientToken: Optional[str] = None
-    S3BucketOwner: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Dynamodb", "ClientToken")]] = None
+    S3BucketOwner: Optional[Annotated[str, _aws_pattern("Dynamodb", "S3BucketOwner")]] = None
     S3Prefix: Optional[str] = None
     S3SseAlgorithm: Optional[S3SseAlgorithmType] = None
     S3SseKmsKeyId: Optional[str] = None
@@ -1801,12 +1803,12 @@ class GlobalTableDescriptionTypeDef(BaseValidatorModel):
     GlobalTableArn: Optional[str] = None
     CreationDateTime: Optional[datetime] = None
     GlobalTableStatus: Optional[GlobalTableStatusType] = None
-    GlobalTableName: Optional[str] = None
+    GlobalTableName: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableName")]] = None
 
 
 class TableDescriptionTypeDef(BaseValidatorModel):
     AttributeDefinitions: Optional[List[AttributeDefinitionTypeDef]] = None
-    TableName: Optional[str] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableName")]] = None
     KeySchema: Optional[List[KeySchemaElementTypeDef]] = None
     TableStatus: Optional[TableStatusType] = None
     CreationDateTime: Optional[datetime] = None
@@ -1814,7 +1816,7 @@ class TableDescriptionTypeDef(BaseValidatorModel):
     TableSizeBytes: Optional[int] = None
     ItemCount: Optional[int] = None
     TableArn: Optional[str] = None
-    TableId: Optional[str] = None
+    TableId: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableId")]] = None
     BillingModeSummary: Optional[BillingModeSummaryTypeDef] = None
     LocalSecondaryIndexes: Optional[List[LocalSecondaryIndexDescriptionTypeDef]] = None
     GlobalSecondaryIndexes: Optional[List[GlobalSecondaryIndexDescriptionTypeDef]] = None
@@ -1839,8 +1841,8 @@ class ImportTableDescriptionTypeDef(BaseValidatorModel):
     ImportArn: Optional[str] = None
     ImportStatus: Optional[ImportStatusType] = None
     TableArn: Optional[str] = None
-    TableId: Optional[str] = None
-    ClientToken: Optional[str] = None
+    TableId: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableId")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Dynamodb", "ClientToken")]] = None
     S3BucketSource: Optional[S3BucketSourceTypeDef] = None
     ErrorCount: Optional[int] = None
     CloudWatchLogGroupArn: Optional[str] = None
@@ -1873,7 +1875,7 @@ GlobalSecondaryIndexUnionTypeDef = Union[GlobalSecondaryIndexOutputTypeDef, Glob
 
 
 class TableCreationParametersTypeDef(BaseValidatorModel):
-    TableName: str
+    TableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     AttributeDefinitions: List[AttributeDefinitionTypeDef]
     KeySchema: List[KeySchemaElementTypeDef]
     BillingMode: Optional[BillingModeType] = None
@@ -2104,7 +2106,7 @@ class CreateTableInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'restore_table_from_backup' function.
 class RestoreTableFromBackupInputTypeDef(BaseValidatorModel):
-    TargetTableName: str
+    TargetTableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     BackupArn: str
     BillingModeOverride: Optional[BillingModeType] = None
     GlobalSecondaryIndexOverride: Optional[List[GlobalSecondaryIndexUnionTypeDef]] = None
@@ -2116,9 +2118,9 @@ class RestoreTableFromBackupInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'restore_table_to_point_in_time' function.
 class RestoreTableToPointInTimeInputTypeDef(BaseValidatorModel):
-    TargetTableName: str
+    TargetTableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     SourceTableArn: Optional[str] = None
-    SourceTableName: Optional[str] = None
+    SourceTableName: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableName")]] = None
     UseLatestRestorableTime: Optional[bool] = None
     RestoreDateTime: Optional[TimestampTypeDef] = None
     BillingModeOverride: Optional[BillingModeType] = None
@@ -2141,21 +2143,21 @@ class BatchWriteItemInputServiceResourceBatchWriteItemTypeDef(BaseValidatorModel
 
 
 class TableAutoScalingDescriptionTypeDef(BaseValidatorModel):
-    TableName: Optional[str] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Dynamodb", "TableName")]] = None
     TableStatus: Optional[TableStatusType] = None
     Replicas: Optional[List[ReplicaAutoScalingDescriptionTypeDef]] = None
 
 
 # This class is the output for the 'describe_global_table_settings' function.
 class DescribeGlobalTableSettingsOutputTypeDef(BaseValidatorModel):
-    GlobalTableName: str
+    GlobalTableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     ReplicaSettings: List[ReplicaSettingsDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_global_table_settings' function.
 class UpdateGlobalTableSettingsOutputTypeDef(BaseValidatorModel):
-    GlobalTableName: str
+    GlobalTableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     ReplicaSettings: List[ReplicaSettingsDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2170,7 +2172,7 @@ class UpdateTableReplicaAutoScalingInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_global_table_settings' function.
 class UpdateGlobalTableSettingsInputTypeDef(BaseValidatorModel):
-    GlobalTableName: str
+    GlobalTableName: Annotated[str, _aws_pattern("Dynamodb", "TableName")]
     GlobalTableBillingMode: Optional[BillingModeType] = None
     GlobalTableProvisionedWriteCapacityUnits: Optional[int] = None
     GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: Optional[AutoScalingSettingsUpdateTypeDef] = None
@@ -2185,7 +2187,7 @@ class ImportTableInputTypeDef(BaseValidatorModel):
     S3BucketSource: S3BucketSourceTypeDef
     InputFormat: InputFormatType
     TableCreationParameters: TableCreationParametersUnionTypeDef
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Dynamodb", "ClientToken")]] = None
     InputFormatOptions: Optional[InputFormatOptionsUnionTypeDef] = None
     InputCompressionType: Optional[InputCompressionTypeType] = None
 

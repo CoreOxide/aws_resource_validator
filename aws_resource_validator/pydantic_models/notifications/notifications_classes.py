@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.notifications.notifications_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -55,31 +57,35 @@ class SummarizationDimensionOverviewTypeDef(BaseValidatorModel):
 
 
 class AssociateChannelRequestTypeDef(BaseValidatorModel):
-    arn: str
-    notificationConfigurationArn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "ChannelArn")]
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
 
 
 class AssociateManagedNotificationAccountContactRequestTypeDef(BaseValidatorModel):
     contactIdentifier: AccountContactTypeType
-    managedNotificationConfigurationArn: str
+    managedNotificationConfigurationArn: Annotated[
+        str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")
+    ]
 
 
 class AssociateManagedNotificationAdditionalChannelRequestTypeDef(BaseValidatorModel):
-    channelArn: str
-    managedNotificationConfigurationArn: str
+    channelArn: Annotated[str, _aws_pattern("Notifications", "ChannelArn")]
+    managedNotificationConfigurationArn: Annotated[
+        str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")
+    ]
 
 
 class AssociateOrganizationalUnitRequestTypeDef(BaseValidatorModel):
-    organizationalUnitId: str
-    notificationConfigurationArn: str
+    organizationalUnitId: Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
 
 
 # This class is the input for the 'create_event_rule' function.
 class CreateEventRuleRequestTypeDef(BaseValidatorModel):
-    notificationConfigurationArn: str
-    source: str
-    eventType: str
-    regions: List[str]
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
+    source: Annotated[str, _aws_pattern("Notifications", "Source")]
+    eventType: Annotated[str, _aws_pattern("Notifications", "EventType")]
+    regions: List[Annotated[str, _aws_pattern("Notifications", "Region")]]
     eventPattern: Optional[str] = None
 
 
@@ -98,23 +104,23 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_notification_configuration' function.
 class CreateNotificationConfigurationRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: str
+    name: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationName")]
+    description: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationDescription")]
     aggregationDuration: Optional[AggregationDurationType] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class DeleteEventRuleRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "EventRuleArn")]
 
 
 class DeleteNotificationConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
 
 
 # This class is the input for the 'deregister_notification_hub' function.
 class DeregisterNotificationHubRequestTypeDef(BaseValidatorModel):
-    notificationHubRegion: str
+    notificationHubRegion: Annotated[str, _aws_pattern("Notifications", "Region")]
 
 
 class NotificationHubStatusSummaryTypeDef(BaseValidatorModel):
@@ -128,55 +134,59 @@ class DimensionTypeDef(BaseValidatorModel):
 
 
 class DisassociateChannelRequestTypeDef(BaseValidatorModel):
-    arn: str
-    notificationConfigurationArn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "ChannelArn")]
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
 
 
 class DisassociateManagedNotificationAccountContactRequestTypeDef(BaseValidatorModel):
     contactIdentifier: AccountContactTypeType
-    managedNotificationConfigurationArn: str
+    managedNotificationConfigurationArn: Annotated[
+        str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")
+    ]
 
 
 class DisassociateManagedNotificationAdditionalChannelRequestTypeDef(BaseValidatorModel):
-    channelArn: str
-    managedNotificationConfigurationArn: str
+    channelArn: Annotated[str, _aws_pattern("Notifications", "ChannelArn")]
+    managedNotificationConfigurationArn: Annotated[
+        str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")
+    ]
 
 
 class DisassociateOrganizationalUnitRequestTypeDef(BaseValidatorModel):
-    organizationalUnitId: str
-    notificationConfigurationArn: str
+    organizationalUnitId: Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
 
 
 # This class is the input for the 'get_event_rule' function.
 class GetEventRuleRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "EventRuleArn")]
 
 
 # This class is the input for the 'get_managed_notification_child_event' function.
 class GetManagedNotificationChildEventRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationChildEventArn")]
     locale: Optional[LocaleCodeType] = None
 
 
 # This class is the input for the 'get_managed_notification_configuration' function.
 class GetManagedNotificationConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")]
 
 
 # This class is the input for the 'get_managed_notification_event' function.
 class GetManagedNotificationEventRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationEventArn")]
     locale: Optional[LocaleCodeType] = None
 
 
 # This class is the input for the 'get_notification_configuration' function.
 class GetNotificationConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
 
 
 # This class is the input for the 'get_notification_event' function.
 class GetNotificationEventRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationEventArn")]
     locale: Optional[LocaleCodeType] = None
 
 
@@ -192,23 +202,25 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_channels' function.
 class ListChannelsRequestTypeDef(BaseValidatorModel):
-    notificationConfigurationArn: str
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 # This class is the input for the 'list_event_rules' function.
 class ListEventRulesRequestTypeDef(BaseValidatorModel):
-    notificationConfigurationArn: str
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 # This class is the input for the 'list_managed_notification_channel_associations' function.
 class ListManagedNotificationChannelAssociationsRequestTypeDef(BaseValidatorModel):
-    managedNotificationConfigurationArn: str
+    managedNotificationConfigurationArn: Annotated[
+        str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")
+    ]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 class ManagedNotificationChannelAssociationSummaryTypeDef(BaseValidatorModel):
@@ -222,49 +234,51 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'list_managed_notification_configurations' function.
 class ListManagedNotificationConfigurationsRequestTypeDef(BaseValidatorModel):
-    channelIdentifier: Optional[str] = None
+    channelIdentifier: Optional[Annotated[str, _aws_pattern("Notifications", "ChannelIdentifier")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 class ManagedNotificationConfigurationStructureTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
-    description: str
+    arn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")]
+    name: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationConfigurationName")]
+    description: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationConfigurationDescription")]
 
 
 # This class is the input for the 'list_member_accounts' function.
 class ListMemberAccountsRequestTypeDef(BaseValidatorModel):
-    notificationConfigurationArn: str
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    memberAccount: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
+    memberAccount: Optional[Annotated[str, _aws_pattern("Notifications", "AccountId")]] = None
     status: Optional[MemberAccountNotificationConfigurationStatusType] = None
-    organizationalUnitId: Optional[str] = None
+    organizationalUnitId: Optional[Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]] = None
 
 
 class MemberAccountTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Notifications", "AccountId")]
     status: MemberAccountNotificationConfigurationStatusType
     statusReason: str
-    organizationalUnitId: str
-    notificationConfigurationArn: Optional[str] = None
+    organizationalUnitId: Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]
+    notificationConfigurationArn: Optional[
+        Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
+    ] = None
 
 
 # This class is the input for the 'list_notification_configurations' function.
 class ListNotificationConfigurationsRequestTypeDef(BaseValidatorModel):
-    eventRuleSource: Optional[str] = None
-    channelArn: Optional[str] = None
+    eventRuleSource: Optional[Annotated[str, _aws_pattern("Notifications", "Source")]] = None
+    channelArn: Optional[Annotated[str, _aws_pattern("Notifications", "ChannelArn")]] = None
     status: Optional[NotificationConfigurationStatusType] = None
     subtype: Optional[NotificationConfigurationSubtypeType] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 class NotificationConfigurationStructureTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
-    description: str
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
+    name: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationName")]
+    description: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationDescription")]
     status: NotificationConfigurationStatusType
     creationTime: datetime
     aggregationDuration: Optional[AggregationDurationType] = None
@@ -274,25 +288,27 @@ class NotificationConfigurationStructureTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_notification_hubs' function.
 class ListNotificationHubsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 # This class is the input for the 'list_organizational_units' function.
 class ListOrganizationalUnitsRequestTypeDef(BaseValidatorModel):
-    notificationConfigurationArn: str
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
 
 
 class ManagedSourceEventMetadataSummaryTypeDef(BaseValidatorModel):
-    source: str
-    eventType: str
-    eventOriginRegion: Optional[str] = None
+    source: Annotated[str, _aws_pattern("Notifications", "Source")]
+    eventType: Annotated[str, _aws_pattern("Notifications", "ManagedSourceEventMetadataSummaryEventTypeString")]
+    eventOriginRegion: Optional[
+        Annotated[str, _aws_pattern("Notifications", "ManagedSourceEventMetadataSummaryEventOriginRegionString")]
+    ] = None
 
 
 class MessageComponentsSummaryTypeDef(BaseValidatorModel):
@@ -303,13 +319,13 @@ class TextPartValueTypeDef(BaseValidatorModel):
     type: TextPartTypeType
     displayText: Optional[str] = None
     textByLocale: Optional[Dict[LocaleCodeType, str]] = None
-    url: Optional[str] = None
+    url: Optional[Annotated[str, _aws_pattern("Notifications", "Url")]] = None
 
 
 class MediaElementTypeDef(BaseValidatorModel):
     mediaId: str
     type: Literal["IMAGE"]
-    url: str
+    url: Annotated[str, _aws_pattern("Notifications", "Url")]
     caption: str
 
 
@@ -321,38 +337,38 @@ class SourceEventMetadataSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_notification_hub' function.
 class RegisterNotificationHubRequestTypeDef(BaseValidatorModel):
-    notificationHubRegion: str
+    notificationHubRegion: Annotated[str, _aws_pattern("Notifications", "Region")]
 
 
 class ResourceTypeDef(BaseValidatorModel):
     id: Optional[str] = None
-    arn: Optional[str] = None
-    detailUrl: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Notifications", "Arn")]] = None
+    detailUrl: Optional[Annotated[str, _aws_pattern("Notifications", "Url")]] = None
     tags: Optional[List[str]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
-    tagKeys: List[str]
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Notifications", "TagKey")]]
 
 
 # This class is the input for the 'update_event_rule' function.
 class UpdateEventRuleRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "EventRuleArn")]
     eventPattern: Optional[str] = None
-    regions: Optional[List[str]] = None
+    regions: Optional[List[Annotated[str, _aws_pattern("Notifications", "Region")]]] = None
 
 
 # This class is the input for the 'update_notification_configuration' function.
 class UpdateNotificationConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
+    name: Optional[Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationDescription")]] = None
     aggregationDuration: Optional[AggregationDurationType] = None
 
 
@@ -370,51 +386,51 @@ class AggregationSummaryTypeDef(BaseValidatorModel):
 
 
 class EventRuleStructureTypeDef(BaseValidatorModel):
-    arn: str
-    notificationConfigurationArn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "EventRuleArn")]
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     creationTime: datetime
-    source: str
-    eventType: str
+    source: Annotated[str, _aws_pattern("Notifications", "Source")]
+    eventType: Annotated[str, _aws_pattern("Notifications", "EventType")]
     eventPattern: str
-    regions: List[str]
-    managedRules: List[str]
+    regions: List[Annotated[str, _aws_pattern("Notifications", "Region")]]
+    managedRules: List[Annotated[str, _aws_pattern("Notifications", "ManagedRuleArn")]]
     statusSummaryByRegion: Dict[str, EventRuleStatusSummaryTypeDef]
 
 
 # This class is the output for the 'create_event_rule' function.
 class CreateEventRuleResponseTypeDef(BaseValidatorModel):
-    arn: str
-    notificationConfigurationArn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "EventRuleArn")]
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     statusSummaryByRegion: Dict[str, EventRuleStatusSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_notification_configuration' function.
 class CreateNotificationConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     status: NotificationConfigurationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_event_rule' function.
 class GetEventRuleResponseTypeDef(BaseValidatorModel):
-    arn: str
-    notificationConfigurationArn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "EventRuleArn")]
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     creationTime: datetime
-    source: str
-    eventType: str
+    source: Annotated[str, _aws_pattern("Notifications", "Source")]
+    eventType: Annotated[str, _aws_pattern("Notifications", "EventType")]
     eventPattern: str
-    regions: List[str]
-    managedRules: List[str]
+    regions: List[Annotated[str, _aws_pattern("Notifications", "Region")]]
+    managedRules: List[Annotated[str, _aws_pattern("Notifications", "ManagedRuleArn")]]
     statusSummaryByRegion: Dict[str, EventRuleStatusSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_managed_notification_configuration' function.
 class GetManagedNotificationConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
-    description: str
+    arn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")]
+    name: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationConfigurationName")]
+    description: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationConfigurationDescription")]
     category: str
     subCategory: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -422,9 +438,9 @@ class GetManagedNotificationConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_notification_configuration' function.
 class GetNotificationConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
-    description: str
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
+    name: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationName")]
+    description: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationDescription")]
     status: NotificationConfigurationStatusType
     creationTime: datetime
     aggregationDuration: AggregationDurationType
@@ -434,16 +450,16 @@ class GetNotificationConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_channels' function.
 class ListChannelsResponseTypeDef(BaseValidatorModel):
-    channels: List[str]
+    channels: List[Annotated[str, _aws_pattern("Notifications", "ChannelArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 # This class is the output for the 'list_organizational_units' function.
 class ListOrganizationalUnitsResponseTypeDef(BaseValidatorModel):
-    organizationalUnits: List[str]
+    organizationalUnits: List[Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -454,27 +470,27 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_event_rule' function.
 class UpdateEventRuleResponseTypeDef(BaseValidatorModel):
-    arn: str
-    notificationConfigurationArn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "EventRuleArn")]
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     statusSummaryByRegion: Dict[str, EventRuleStatusSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_notification_configuration' function.
 class UpdateNotificationConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'deregister_notification_hub' function.
 class DeregisterNotificationHubResponseTypeDef(BaseValidatorModel):
-    notificationHubRegion: str
+    notificationHubRegion: Annotated[str, _aws_pattern("Notifications", "Region")]
     statusSummary: NotificationHubStatusSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class NotificationHubOverviewTypeDef(BaseValidatorModel):
-    notificationHubRegion: str
+    notificationHubRegion: Annotated[str, _aws_pattern("Notifications", "Region")]
     statusSummary: NotificationHubStatusSummaryTypeDef
     creationTime: datetime
     lastActivationTime: Optional[datetime] = None
@@ -482,7 +498,7 @@ class NotificationHubOverviewTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'register_notification_hub' function.
 class RegisterNotificationHubResponseTypeDef(BaseValidatorModel):
-    notificationHubRegion: str
+    notificationHubRegion: Annotated[str, _aws_pattern("Notifications", "Region")]
     statusSummary: NotificationHubStatusSummaryTypeDef
     creationTime: datetime
     lastActivationTime: datetime
@@ -550,7 +566,7 @@ class ListOrganizationalUnitsRequestPaginateTypeDef(BaseValidatorModel):
 class ListManagedNotificationChannelAssociationsResponseTypeDef(BaseValidatorModel):
     channelAssociations: List[ManagedNotificationChannelAssociationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 class ListManagedNotificationChildEventsRequestPaginateTypeDef(BaseValidatorModel):
@@ -565,14 +581,14 @@ class ListManagedNotificationChildEventsRequestPaginateTypeDef(BaseValidatorMode
 
 # This class is the input for the 'list_managed_notification_child_events' function.
 class ListManagedNotificationChildEventsRequestTypeDef(BaseValidatorModel):
-    aggregateManagedNotificationEventArn: str
+    aggregateManagedNotificationEventArn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationEventArn")]
     startTime: Optional[TimestampTypeDef] = None
     endTime: Optional[TimestampTypeDef] = None
     locale: Optional[LocaleCodeType] = None
     maxResults: Optional[int] = None
-    relatedAccount: Optional[str] = None
-    organizationalUnitId: Optional[str] = None
-    nextToken: Optional[str] = None
+    relatedAccount: Optional[Annotated[str, _aws_pattern("Notifications", "AccountId")]] = None
+    organizationalUnitId: Optional[Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 class ListManagedNotificationEventsRequestPaginateTypeDef(BaseValidatorModel):
@@ -590,11 +606,11 @@ class ListManagedNotificationEventsRequestTypeDef(BaseValidatorModel):
     startTime: Optional[TimestampTypeDef] = None
     endTime: Optional[TimestampTypeDef] = None
     locale: Optional[LocaleCodeType] = None
-    source: Optional[str] = None
+    source: Optional[Annotated[str, _aws_pattern("Notifications", "Source")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    organizationalUnitId: Optional[str] = None
-    relatedAccount: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
+    organizationalUnitId: Optional[Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]] = None
+    relatedAccount: Optional[Annotated[str, _aws_pattern("Notifications", "AccountId")]] = None
 
 
 class ListNotificationEventsRequestPaginateTypeDef(BaseValidatorModel):
@@ -613,33 +629,35 @@ class ListNotificationEventsRequestTypeDef(BaseValidatorModel):
     startTime: Optional[TimestampTypeDef] = None
     endTime: Optional[TimestampTypeDef] = None
     locale: Optional[LocaleCodeType] = None
-    source: Optional[str] = None
+    source: Optional[Annotated[str, _aws_pattern("Notifications", "Source")]] = None
     includeChildEvents: Optional[bool] = None
-    aggregateNotificationEventArn: Optional[str] = None
+    aggregateNotificationEventArn: Optional[Annotated[str, _aws_pattern("Notifications", "NotificationEventArn")]] = (
+        None
+    )
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    organizationalUnitId: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
+    organizationalUnitId: Optional[Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]] = None
 
 
 # This class is the output for the 'list_managed_notification_configurations' function.
 class ListManagedNotificationConfigurationsResponseTypeDef(BaseValidatorModel):
     managedNotificationConfigurations: List[ManagedNotificationConfigurationStructureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 # This class is the output for the 'list_member_accounts' function.
 class ListMemberAccountsResponseTypeDef(BaseValidatorModel):
     memberAccounts: List[MemberAccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 # This class is the output for the 'list_notification_configurations' function.
 class ListNotificationConfigurationsResponseTypeDef(BaseValidatorModel):
     notificationConfigurations: List[NotificationConfigurationStructureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 class ManagedNotificationEventSummaryTypeDef(BaseValidatorModel):
@@ -659,14 +677,16 @@ class NotificationEventSummaryTypeDef(BaseValidatorModel):
 
 
 class SourceEventMetadataTypeDef(BaseValidatorModel):
-    eventTypeVersion: str
+    eventTypeVersion: Annotated[str, _aws_pattern("Notifications", "SourceEventMetadataEventTypeVersionString")]
     sourceEventId: str
-    relatedAccount: str
-    source: str
+    relatedAccount: Annotated[str, _aws_pattern("Notifications", "SourceEventMetadataRelatedAccountString")]
+    source: Annotated[str, _aws_pattern("Notifications", "Source")]
     eventOccurrenceTime: datetime
     eventType: str
     relatedResources: List[ResourceTypeDef]
-    eventOriginRegion: Optional[str] = None
+    eventOriginRegion: Optional[
+        Annotated[str, _aws_pattern("Notifications", "SourceEventMetadataEventOriginRegionString")]
+    ] = None
 
 
 class ManagedNotificationChildEventSummaryTypeDef(BaseValidatorModel):
@@ -682,105 +702,115 @@ class ManagedNotificationChildEventSummaryTypeDef(BaseValidatorModel):
 class ListEventRulesResponseTypeDef(BaseValidatorModel):
     eventRules: List[EventRuleStructureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 # This class is the output for the 'list_notification_hubs' function.
 class ListNotificationHubsResponseTypeDef(BaseValidatorModel):
     notificationHubs: List[NotificationHubOverviewTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 class ManagedNotificationChildEventTypeDef(BaseValidatorModel):
     schemaVersion: Literal["v1.0"]
-    id: str
+    id: Annotated[str, _aws_pattern("Notifications", "NotificationEventId")]
     messageComponents: MessageComponentsTypeDef
     notificationType: NotificationTypeType
-    aggregateManagedNotificationEventArn: str
+    aggregateManagedNotificationEventArn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationEventArn")]
     textParts: Dict[str, TextPartValueTypeDef]
-    sourceEventDetailUrl: Optional[str] = None
+    sourceEventDetailUrl: Optional[Annotated[str, _aws_pattern("Notifications", "Url")]] = None
     sourceEventDetailUrlDisplayText: Optional[str] = None
     eventStatus: Optional[EventStatusType] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
-    organizationalUnitId: Optional[str] = None
+    organizationalUnitId: Optional[Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]] = None
     aggregationDetail: Optional[AggregationDetailTypeDef] = None
 
 
 class ManagedNotificationEventTypeDef(BaseValidatorModel):
     schemaVersion: Literal["v1.0"]
-    id: str
+    id: Annotated[str, _aws_pattern("Notifications", "NotificationEventId")]
     messageComponents: MessageComponentsTypeDef
     notificationType: NotificationTypeType
     textParts: Dict[str, TextPartValueTypeDef]
-    sourceEventDetailUrl: Optional[str] = None
+    sourceEventDetailUrl: Optional[Annotated[str, _aws_pattern("Notifications", "Url")]] = None
     sourceEventDetailUrlDisplayText: Optional[str] = None
     eventStatus: Optional[EventStatusType] = None
     aggregationEventType: Optional[AggregationEventTypeType] = None
     aggregationSummary: Optional[AggregationSummaryTypeDef] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
-    organizationalUnitId: Optional[str] = None
+    organizationalUnitId: Optional[Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]] = None
 
 
 class ManagedNotificationEventOverviewTypeDef(BaseValidatorModel):
-    arn: str
-    managedNotificationConfigurationArn: str
-    relatedAccount: str
+    arn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationEventArn")]
+    managedNotificationConfigurationArn: Annotated[
+        str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")
+    ]
+    relatedAccount: Annotated[str, _aws_pattern("Notifications", "AccountId")]
     creationTime: datetime
     notificationEvent: ManagedNotificationEventSummaryTypeDef
     aggregationEventType: Optional[AggregationEventTypeType] = None
-    organizationalUnitId: Optional[str] = None
+    organizationalUnitId: Optional[Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]] = None
     aggregationSummary: Optional[AggregationSummaryTypeDef] = None
-    aggregatedNotificationRegions: Optional[List[str]] = None
+    aggregatedNotificationRegions: Optional[List[Annotated[str, _aws_pattern("Notifications", "Region")]]] = None
 
 
 class NotificationEventOverviewTypeDef(BaseValidatorModel):
-    arn: str
-    notificationConfigurationArn: str
-    relatedAccount: str
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationEventArn")]
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
+    relatedAccount: Annotated[str, _aws_pattern("Notifications", "AccountId")]
     creationTime: datetime
     notificationEvent: NotificationEventSummaryTypeDef
     aggregationEventType: Optional[AggregationEventTypeType] = None
-    aggregateNotificationEventArn: Optional[str] = None
+    aggregateNotificationEventArn: Optional[Annotated[str, _aws_pattern("Notifications", "NotificationEventArn")]] = (
+        None
+    )
     aggregationSummary: Optional[AggregationSummaryTypeDef] = None
-    organizationalUnitId: Optional[str] = None
+    organizationalUnitId: Optional[Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]] = None
 
 
 class NotificationEventTypeDef(BaseValidatorModel):
     schemaVersion: Literal["v1.0"]
-    id: str
+    id: Annotated[str, _aws_pattern("Notifications", "NotificationEventId")]
     sourceEventMetadata: SourceEventMetadataTypeDef
     messageComponents: MessageComponentsTypeDef
     notificationType: NotificationTypeType
     textParts: Dict[str, TextPartValueTypeDef]
     media: List[MediaElementTypeDef]
-    sourceEventDetailUrl: Optional[str] = None
+    sourceEventDetailUrl: Optional[Annotated[str, _aws_pattern("Notifications", "Url")]] = None
     sourceEventDetailUrlDisplayText: Optional[str] = None
     eventStatus: Optional[EventStatusType] = None
     aggregationEventType: Optional[AggregationEventTypeType] = None
-    aggregateNotificationEventArn: Optional[str] = None
+    aggregateNotificationEventArn: Optional[Annotated[str, _aws_pattern("Notifications", "NotificationEventArn")]] = (
+        None
+    )
     aggregationSummary: Optional[AggregationSummaryTypeDef] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
-    organizationalUnitId: Optional[str] = None
+    organizationalUnitId: Optional[Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]] = None
 
 
 class ManagedNotificationChildEventOverviewTypeDef(BaseValidatorModel):
-    arn: str
-    managedNotificationConfigurationArn: str
-    relatedAccount: str
+    arn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationEventArn")]
+    managedNotificationConfigurationArn: Annotated[
+        str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")
+    ]
+    relatedAccount: Annotated[str, _aws_pattern("Notifications", "AccountId")]
     creationTime: datetime
     childEvent: ManagedNotificationChildEventSummaryTypeDef
-    aggregateManagedNotificationEventArn: str
-    organizationalUnitId: Optional[str] = None
+    aggregateManagedNotificationEventArn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationEventArn")]
+    organizationalUnitId: Optional[Annotated[str, _aws_pattern("Notifications", "OrganizationalUnitId")]] = None
 
 
 # This class is the output for the 'get_managed_notification_child_event' function.
 class GetManagedNotificationChildEventResponseTypeDef(BaseValidatorModel):
-    arn: str
-    managedNotificationConfigurationArn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationChildEventArn")]
+    managedNotificationConfigurationArn: Annotated[
+        str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")
+    ]
     creationTime: datetime
     content: ManagedNotificationChildEventTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -788,8 +818,10 @@ class GetManagedNotificationChildEventResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_managed_notification_event' function.
 class GetManagedNotificationEventResponseTypeDef(BaseValidatorModel):
-    arn: str
-    managedNotificationConfigurationArn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "ManagedNotificationEventArn")]
+    managedNotificationConfigurationArn: Annotated[
+        str, _aws_pattern("Notifications", "ManagedNotificationConfigurationOsArn")
+    ]
     creationTime: datetime
     content: ManagedNotificationEventTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -799,20 +831,20 @@ class GetManagedNotificationEventResponseTypeDef(BaseValidatorModel):
 class ListManagedNotificationEventsResponseTypeDef(BaseValidatorModel):
     managedNotificationEvents: List[ManagedNotificationEventOverviewTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 # This class is the output for the 'list_notification_events' function.
 class ListNotificationEventsResponseTypeDef(BaseValidatorModel):
     notificationEvents: List[NotificationEventOverviewTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None
 
 
 # This class is the output for the 'get_notification_event' function.
 class GetNotificationEventResponseTypeDef(BaseValidatorModel):
-    arn: str
-    notificationConfigurationArn: str
+    arn: Annotated[str, _aws_pattern("Notifications", "NotificationEventArn")]
+    notificationConfigurationArn: Annotated[str, _aws_pattern("Notifications", "NotificationConfigurationArn")]
     creationTime: datetime
     content: NotificationEventTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -822,4 +854,4 @@ class GetNotificationEventResponseTypeDef(BaseValidatorModel):
 class ListManagedNotificationChildEventsResponseTypeDef(BaseValidatorModel):
     managedNotificationChildEvents: List[ManagedNotificationChildEventOverviewTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Notifications", "NextToken")]] = None

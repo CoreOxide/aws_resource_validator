@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'bulk_publish' function.
 class BulkPublishRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -53,13 +55,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 class CognitoStreamsTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("CognitoSync", "AssumeRoleArn")]] = None
     StreamingStatus: Optional[StreamingStatusType] = None
 
 
 class DatasetTypeDef(BaseValidatorModel):
-    IdentityId: Optional[str] = None
-    DatasetName: Optional[str] = None
+    IdentityId: Optional[Annotated[str, _aws_pattern("CognitoSync", "IdentityId")]] = None
+    DatasetName: Optional[Annotated[str, _aws_pattern("CognitoSync", "DatasetName")]] = None
     CreationDate: Optional[datetime] = None
     LastModifiedDate: Optional[datetime] = None
     LastModifiedBy: Optional[str] = None
@@ -69,25 +71,25 @@ class DatasetTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_dataset' function.
 class DeleteDatasetRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    IdentityId: str
-    DatasetName: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
+    IdentityId: Annotated[str, _aws_pattern("CognitoSync", "IdentityId")]
+    DatasetName: Annotated[str, _aws_pattern("CognitoSync", "DatasetName")]
 
 
 # This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    IdentityId: str
-    DatasetName: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
+    IdentityId: Annotated[str, _aws_pattern("CognitoSync", "IdentityId")]
+    DatasetName: Annotated[str, _aws_pattern("CognitoSync", "DatasetName")]
 
 
 # This class is the input for the 'describe_identity_pool_usage' function.
 class DescribeIdentityPoolUsageRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
 
 
 class IdentityPoolUsageTypeDef(BaseValidatorModel):
-    IdentityPoolId: Optional[str] = None
+    IdentityPoolId: Optional[Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]] = None
     SyncSessionsCount: Optional[int] = None
     DataStorage: Optional[int] = None
     LastModifiedDate: Optional[datetime] = None
@@ -95,13 +97,13 @@ class IdentityPoolUsageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_identity_usage' function.
 class DescribeIdentityUsageRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    IdentityId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
+    IdentityId: Annotated[str, _aws_pattern("CognitoSync", "IdentityId")]
 
 
 class IdentityUsageTypeDef(BaseValidatorModel):
-    IdentityId: Optional[str] = None
-    IdentityPoolId: Optional[str] = None
+    IdentityId: Optional[Annotated[str, _aws_pattern("CognitoSync", "IdentityId")]] = None
+    IdentityPoolId: Optional[Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]] = None
     LastModifiedDate: Optional[datetime] = None
     DatasetCount: Optional[int] = None
     DataStorage: Optional[int] = None
@@ -109,17 +111,17 @@ class IdentityUsageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_bulk_publish_details' function.
 class GetBulkPublishDetailsRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
 
 
 # This class is the input for the 'get_cognito_events' function.
 class GetCognitoEventsRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
 
 
 # This class is the input for the 'get_identity_pool_configuration' function.
 class GetIdentityPoolConfigurationRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
 
 
 class PushSyncOutputTypeDef(BaseValidatorModel):
@@ -129,8 +131,8 @@ class PushSyncOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_datasets' function.
 class ListDatasetsRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    IdentityId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
+    IdentityId: Annotated[str, _aws_pattern("CognitoSync", "IdentityId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -143,9 +145,9 @@ class ListIdentityPoolUsageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_records' function.
 class ListRecordsRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    IdentityId: str
-    DatasetName: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
+    IdentityId: Annotated[str, _aws_pattern("CognitoSync", "IdentityId")]
+    DatasetName: Annotated[str, _aws_pattern("CognitoSync", "DatasetName")]
     LastSyncCount: Optional[int] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -162,8 +164,8 @@ class RecordTypeDef(BaseValidatorModel):
 
 
 class PushSyncTypeDef(BaseValidatorModel):
-    ApplicationArns: Optional[List[str]] = None
-    RoleArn: Optional[str] = None
+    ApplicationArns: Optional[List[Annotated[str, _aws_pattern("CognitoSync", "ApplicationArn")]]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("CognitoSync", "AssumeRoleArn")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -171,35 +173,35 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'register_device' function.
 class RegisterDeviceRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    IdentityId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
+    IdentityId: Annotated[str, _aws_pattern("CognitoSync", "IdentityId")]
     Platform: PlatformType
     Token: str
 
 
 # This class is the input for the 'set_cognito_events' function.
 class SetCognitoEventsRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
     Events: Dict[str, str]
 
 
 class SubscribeToDatasetRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    IdentityId: str
-    DatasetName: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
+    IdentityId: Annotated[str, _aws_pattern("CognitoSync", "IdentityId")]
+    DatasetName: Annotated[str, _aws_pattern("CognitoSync", "DatasetName")]
     DeviceId: str
 
 
 class UnsubscribeFromDatasetRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    IdentityId: str
-    DatasetName: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
+    IdentityId: Annotated[str, _aws_pattern("CognitoSync", "IdentityId")]
+    DatasetName: Annotated[str, _aws_pattern("CognitoSync", "DatasetName")]
     DeviceId: str
 
 
 # This class is the output for the 'bulk_publish' function.
 class BulkPublishResponseTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -210,7 +212,7 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_bulk_publish_details' function.
 class GetBulkPublishDetailsResponseTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
     BulkPublishStartTime: datetime
     BulkPublishCompleteTime: datetime
     BulkPublishStatus: BulkPublishStatusType
@@ -273,7 +275,7 @@ class DescribeIdentityUsageResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_identity_pool_configuration' function.
 class GetIdentityPoolConfigurationResponseTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
     PushSync: PushSyncOutputTypeDef
     CognitoStreams: CognitoStreamsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -281,7 +283,7 @@ class GetIdentityPoolConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'set_identity_pool_configuration' function.
 class SetIdentityPoolConfigurationResponseTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
     PushSync: PushSyncOutputTypeDef
     CognitoStreams: CognitoStreamsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -320,16 +322,16 @@ class RecordPatchTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'set_identity_pool_configuration' function.
 class SetIdentityPoolConfigurationRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
     PushSync: Optional[PushSyncUnionTypeDef] = None
     CognitoStreams: Optional[CognitoStreamsTypeDef] = None
 
 
 # This class is the input for the 'update_records' function.
 class UpdateRecordsRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    IdentityId: str
-    DatasetName: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoSync", "IdentityPoolId")]
+    IdentityId: Annotated[str, _aws_pattern("CognitoSync", "IdentityId")]
+    DatasetName: Annotated[str, _aws_pattern("CognitoSync", "DatasetName")]
     SyncSessionToken: str
     DeviceId: Optional[str] = None
     RecordPatches: Optional[List[RecordPatchTypeDef]] = None

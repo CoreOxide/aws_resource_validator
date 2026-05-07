@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.aiops.aiops_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,12 +41,12 @@ except ImportError:  # pragma: no cover
 
 
 class CrossAccountConfigurationTypeDef(BaseValidatorModel):
-    sourceRoleArn: Optional[str] = None
+    sourceRoleArn: Optional[Annotated[str, _aws_pattern("Aiops", "RoleArn")]] = None
 
 
 class EncryptionConfigurationTypeDef(BaseValidatorModel):
     type: Optional[EncryptionConfigurationTypeType] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Aiops", "KmsKeyId")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -56,22 +58,22 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteInvestigationGroupPolicyRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupIdentifier")]
 
 
 # This class is the input for the 'delete_investigation_group' function.
 class DeleteInvestigationGroupRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupIdentifier")]
 
 
 # This class is the input for the 'get_investigation_group_policy' function.
 class GetInvestigationGroupPolicyRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupIdentifier")]
 
 
 # This class is the input for the 'get_investigation_group' function.
 class GetInvestigationGroupRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupIdentifier")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -87,8 +89,8 @@ class ListInvestigationGroupsInputTypeDef(BaseValidatorModel):
 
 
 class ListInvestigationGroupsModelTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Aiops", "InvestigationGroupArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Aiops", "StringWithPatternAndLengthLimits")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -98,8 +100,8 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_investigation_group_policy' function.
 class PutInvestigationGroupPolicyRequestTypeDef(BaseValidatorModel):
-    identifier: str
-    policy: str
+    identifier: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupIdentifier")]
+    policy: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupPolicyDocument")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
@@ -109,27 +111,27 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Aiops", "TagKey")]]
 
 
 # This class is the input for the 'create_investigation_group' function.
 class CreateInvestigationGroupInputTypeDef(BaseValidatorModel):
-    name: str
-    roleArn: str
+    name: Annotated[str, _aws_pattern("Aiops", "StringWithPatternAndLengthLimits")]
+    roleArn: Annotated[str, _aws_pattern("Aiops", "RoleArn")]
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     retentionInDays: Optional[int] = None
     tags: Optional[Dict[str, str]] = None
-    tagKeyBoundaries: Optional[List[str]] = None
+    tagKeyBoundaries: Optional[List[Annotated[str, _aws_pattern("Aiops", "TagKey")]]] = None
     chatbotNotificationChannel: Optional[Dict[str, List[str]]] = None
     isCloudTrailEventHistoryEnabled: Optional[bool] = None
     crossAccountConfigurations: Optional[List[CrossAccountConfigurationTypeDef]] = None
 
 
 class UpdateInvestigationGroupRequestTypeDef(BaseValidatorModel):
-    identifier: str
-    roleArn: Optional[str] = None
+    identifier: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupIdentifier")]
+    roleArn: Optional[Annotated[str, _aws_pattern("Aiops", "RoleArn")]] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
-    tagKeyBoundaries: Optional[List[str]] = None
+    tagKeyBoundaries: Optional[List[Annotated[str, _aws_pattern("Aiops", "TagKey")]]] = None
     chatbotNotificationChannel: Optional[Dict[str, List[str]]] = None
     isCloudTrailEventHistoryEnabled: Optional[bool] = None
     crossAccountConfigurations: Optional[List[CrossAccountConfigurationTypeDef]] = None
@@ -137,7 +139,7 @@ class UpdateInvestigationGroupRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_investigation_group' function.
 class CreateInvestigationGroupOutputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -148,24 +150,24 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_investigation_group_policy' function.
 class GetInvestigationGroupPolicyResponseTypeDef(BaseValidatorModel):
-    investigationGroupArn: str
-    policy: str
+    investigationGroupArn: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupArn")]
+    policy: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupPolicyDocument")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_investigation_group' function.
 class GetInvestigationGroupResponseTypeDef(BaseValidatorModel):
-    createdBy: str
+    createdBy: Annotated[str, _aws_pattern("Aiops", "IdentifierStringWithPatternAndLengthLimits")]
     createdAt: int
-    lastModifiedBy: str
+    lastModifiedBy: Annotated[str, _aws_pattern("Aiops", "IdentifierStringWithPatternAndLengthLimits")]
     lastModifiedAt: int
-    name: str
-    arn: str
-    roleArn: str
+    name: Annotated[str, _aws_pattern("Aiops", "StringWithPatternAndLengthLimits")]
+    arn: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupArn")]
+    roleArn: Annotated[str, _aws_pattern("Aiops", "RoleArn")]
     encryptionConfiguration: EncryptionConfigurationTypeDef
     retentionInDays: int
     chatbotNotificationChannel: Dict[str, List[str]]
-    tagKeyBoundaries: List[str]
+    tagKeyBoundaries: List[Annotated[str, _aws_pattern("Aiops", "TagKey")]]
     isCloudTrailEventHistoryEnabled: bool
     crossAccountConfigurations: List[CrossAccountConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -179,7 +181,7 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_investigation_group_policy' function.
 class PutInvestigationGroupPolicyResponseTypeDef(BaseValidatorModel):
-    investigationGroupArn: str
+    investigationGroupArn: Annotated[str, _aws_pattern("Aiops", "InvestigationGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 

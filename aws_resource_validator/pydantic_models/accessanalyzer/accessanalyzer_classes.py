@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.accessanalyzer.accessanalyzer_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -63,13 +65,13 @@ class AnalysisRuleCriteriaTypeDef(BaseValidatorModel):
 
 
 class AnalyzedResourceSummaryTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Accessanalyzer", "ResourceArn")]
     resourceOwnerAccount: str
     resourceType: ResourceTypeType
 
 
 class AnalyzedResourceTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Accessanalyzer", "ResourceArn")]
     resourceType: ResourceTypeType
     createdAt: datetime
     analyzedAt: datetime
@@ -88,8 +90,8 @@ class StatusReasonTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'apply_archive_rule' function.
 class ApplyArchiveRuleRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
-    ruleName: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
+    ruleName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
     clientToken: Optional[str] = None
 
 
@@ -135,13 +137,13 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class TrailTypeDef(BaseValidatorModel):
-    cloudTrailArn: str
+    cloudTrailArn: Annotated[str, _aws_pattern("Accessanalyzer", "CloudTrailArn")]
     regions: Optional[List[str]] = None
     allRegions: Optional[bool] = None
 
 
 class TrailPropertiesTypeDef(BaseValidatorModel):
-    cloudTrailArn: str
+    cloudTrailArn: Annotated[str, _aws_pattern("Accessanalyzer", "CloudTrailArn")]
     regions: Optional[List[str]] = None
     allRegions: Optional[bool] = None
 
@@ -194,14 +196,14 @@ class CriterionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_analyzer' function.
 class DeleteAnalyzerRequestTypeDef(BaseValidatorModel):
-    analyzerName: str
+    analyzerName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'delete_archive_rule' function.
 class DeleteArchiveRuleRequestTypeDef(BaseValidatorModel):
-    analyzerName: str
-    ruleName: str
+    analyzerName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
+    ruleName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
     clientToken: Optional[str] = None
 
 
@@ -256,7 +258,7 @@ class FindingSummaryV2TypeDef(BaseValidatorModel):
 
 # This class is the input for the 'generate_finding_recommendation' function.
 class GenerateFindingRecommendationRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     id: str
 
 
@@ -266,25 +268,25 @@ class GeneratedPolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_access_preview' function.
 class GetAccessPreviewRequestTypeDef(BaseValidatorModel):
-    accessPreviewId: str
-    analyzerArn: str
+    accessPreviewId: Annotated[str, _aws_pattern("Accessanalyzer", "AccessPreviewId")]
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
 
 
 # This class is the input for the 'get_analyzed_resource' function.
 class GetAnalyzedResourceRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
-    resourceArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
+    resourceArn: Annotated[str, _aws_pattern("Accessanalyzer", "ResourceArn")]
 
 
 # This class is the input for the 'get_analyzer' function.
 class GetAnalyzerRequestTypeDef(BaseValidatorModel):
-    analyzerName: str
+    analyzerName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
 
 
 # This class is the input for the 'get_archive_rule' function.
 class GetArchiveRuleRequestTypeDef(BaseValidatorModel):
-    analyzerName: str
-    ruleName: str
+    analyzerName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
+    ruleName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -295,7 +297,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_finding_recommendation' function.
 class GetFindingRecommendationRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     id: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -308,13 +310,13 @@ class RecommendationErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_finding' function.
 class GetFindingRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     id: str
 
 
 # This class is the input for the 'get_finding_v2' function.
 class GetFindingV2RequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     id: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -322,7 +324,7 @@ class GetFindingV2RequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_findings_statistics' function.
 class GetFindingsStatisticsRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
 
 
 # This class is the input for the 'get_generated_policy' function.
@@ -367,14 +369,14 @@ class KmsGrantConstraintsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_access_previews' function.
 class ListAccessPreviewsRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_analyzed_resources' function.
 class ListAnalyzedResourcesRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     resourceType: Optional[ResourceTypeType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -389,7 +391,7 @@ class ListAnalyzersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_archive_rules' function.
 class ListArchiveRulesRequestTypeDef(BaseValidatorModel):
-    analyzerName: str
+    analyzerName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -401,14 +403,14 @@ class SortCriteriaTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_policy_generations' function.
 class ListPolicyGenerationsRequestTypeDef(BaseValidatorModel):
-    principalArn: Optional[str] = None
+    principalArn: Optional[Annotated[str, _aws_pattern("Accessanalyzer", "PrincipalArn")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class PolicyGenerationTypeDef(BaseValidatorModel):
     jobId: str
-    principalArn: str
+    principalArn: Annotated[str, _aws_pattern("Accessanalyzer", "PrincipalArn")]
     status: JobStatusType
     startedOn: datetime
     completedOn: Optional[datetime] = None
@@ -420,7 +422,7 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 
 class VpcConfigurationTypeDef(BaseValidatorModel):
-    vpcId: str
+    vpcId: Annotated[str, _aws_pattern("Accessanalyzer", "VpcId")]
 
 
 class SubstringTypeDef(BaseValidatorModel):
@@ -429,7 +431,7 @@ class SubstringTypeDef(BaseValidatorModel):
 
 
 class PolicyGenerationDetailsTypeDef(BaseValidatorModel):
-    principalArn: str
+    principalArn: Annotated[str, _aws_pattern("Accessanalyzer", "PrincipalArn")]
 
 
 class PositionTypeDef(BaseValidatorModel):
@@ -468,8 +470,8 @@ class S3PublicAccessBlockConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_resource_scan' function.
 class StartResourceScanRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
-    resourceArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
+    resourceArn: Annotated[str, _aws_pattern("Accessanalyzer", "ResourceArn")]
     resourceOwnerAccount: Optional[str] = None
 
 
@@ -495,10 +497,10 @@ class UnusedActionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_findings' function.
 class UpdateFindingsRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     status: FindingStatusUpdateType
     ids: Optional[List[str]] = None
-    resourceArn: Optional[str] = None
+    resourceArn: Optional[Annotated[str, _aws_pattern("Accessanalyzer", "ResourceArn")]] = None
     clientToken: Optional[str] = None
 
 
@@ -513,8 +515,8 @@ class ValidatePolicyRequestTypeDef(BaseValidatorModel):
 
 
 class AccessPreviewSummaryTypeDef(BaseValidatorModel):
-    id: str
-    analyzerArn: str
+    id: Annotated[str, _aws_pattern("Accessanalyzer", "AccessPreviewId")]
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     createdAt: datetime
     status: AccessPreviewStatusType
     statusReason: Optional[AccessPreviewStatusReasonTypeDef] = None
@@ -541,7 +543,7 @@ class AnalysisRuleTypeDef(BaseValidatorModel):
 
 
 class ArchiveRuleSummaryTypeDef(BaseValidatorModel):
-    ruleName: str
+    ruleName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
     filter: Dict[str, CriterionOutputTypeDef]
     createdAt: datetime
     updatedAt: datetime
@@ -573,13 +575,13 @@ class CheckNoPublicAccessResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_access_preview' function.
 class CreateAccessPreviewResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Accessanalyzer", "AccessPreviewId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_analyzer' function.
 class CreateAnalyzerResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -615,7 +617,7 @@ class StartPolicyGenerationResponseTypeDef(BaseValidatorModel):
 
 class CloudTrailDetailsTypeDef(BaseValidatorModel):
     trails: List[TrailTypeDef]
-    accessRole: str
+    accessRole: Annotated[str, _aws_pattern("Accessanalyzer", "RoleArn")]
     startTime: TimestampTypeDef
     endTime: Optional[TimestampTypeDef] = None
 
@@ -835,21 +837,21 @@ class StartPolicyGenerationRequestTypeDef(BaseValidatorModel):
 
 
 class GeneratedPolicyPropertiesTypeDef(BaseValidatorModel):
-    principalArn: str
+    principalArn: Annotated[str, _aws_pattern("Accessanalyzer", "PrincipalArn")]
     isComplete: Optional[bool] = None
     cloudTrailProperties: Optional[CloudTrailPropertiesTypeDef] = None
 
 
 # This class is the input for the 'create_archive_rule' function.
 class CreateArchiveRuleRequestTypeDef(BaseValidatorModel):
-    analyzerName: str
-    ruleName: str
+    analyzerName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
+    ruleName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
     filter: Dict[str, CriterionUnionTypeDef]
     clientToken: Optional[str] = None
 
 
 class InlineArchiveRuleTypeDef(BaseValidatorModel):
-    ruleName: str
+    ruleName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
     filter: Dict[str, CriterionUnionTypeDef]
 
 
@@ -862,8 +864,8 @@ class ListAccessPreviewFindingsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_access_preview_findings' function.
 class ListAccessPreviewFindingsRequestTypeDef(BaseValidatorModel):
-    accessPreviewId: str
-    analyzerArn: str
+    accessPreviewId: Annotated[str, _aws_pattern("Accessanalyzer", "AccessPreviewId")]
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     filter: Optional[Dict[str, CriterionUnionTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -878,7 +880,7 @@ class ListFindingsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_findings' function.
 class ListFindingsRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     filter: Optional[Dict[str, CriterionUnionTypeDef]] = None
     sort: Optional[SortCriteriaTypeDef] = None
     nextToken: Optional[str] = None
@@ -894,7 +896,7 @@ class ListFindingsV2RequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_findings_v2' function.
 class ListFindingsV2RequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     filter: Optional[Dict[str, CriterionUnionTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -903,8 +905,8 @@ class ListFindingsV2RequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_archive_rule' function.
 class UpdateArchiveRuleRequestTypeDef(BaseValidatorModel):
-    analyzerName: str
-    ruleName: str
+    analyzerName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
+    ruleName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
     filter: Dict[str, CriterionUnionTypeDef]
     clientToken: Optional[str] = None
 
@@ -1042,7 +1044,7 @@ class GetFindingRecommendationResponseTypeDef(BaseValidatorModel):
     startedAt: datetime
     completedAt: datetime
     error: RecommendationErrorTypeDef
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Accessanalyzer", "ResourceArn")]
     recommendedSteps: List[RecommendedStepTypeDef]
     recommendationType: Literal["UnusedPermissionRecommendation"]
     status: StatusType
@@ -1175,8 +1177,8 @@ class GetFindingV2ResponseTypeDef(BaseValidatorModel):
 
 
 class AnalyzerSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
+    arn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
+    name: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
     type: TypeType
     createdAt: datetime
     status: AnalyzerStatusType
@@ -1249,7 +1251,7 @@ class ListAnalyzersResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_analyzer' function.
 class CreateAnalyzerRequestTypeDef(BaseValidatorModel):
-    analyzerName: str
+    analyzerName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
     type: TypeType
     archiveRules: Optional[List[InlineArchiveRuleTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
@@ -1259,7 +1261,7 @@ class CreateAnalyzerRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_analyzer' function.
 class UpdateAnalyzerRequestTypeDef(BaseValidatorModel):
-    analyzerName: str
+    analyzerName: Annotated[str, _aws_pattern("Accessanalyzer", "Name")]
     configuration: Optional[AnalyzerConfigurationUnionTypeDef] = None
 
 
@@ -1267,8 +1269,8 @@ KmsKeyConfigurationUnionTypeDef = Union[KmsKeyConfigurationOutputTypeDef, KmsKey
 
 
 class AccessPreviewTypeDef(BaseValidatorModel):
-    id: str
-    analyzerArn: str
+    id: Annotated[str, _aws_pattern("Accessanalyzer", "AccessPreviewId")]
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     configurations: Dict[str, ConfigurationOutputTypeDef]
     createdAt: datetime
     status: AccessPreviewStatusType
@@ -1322,6 +1324,6 @@ ConfigurationUnionTypeDef = Union[ConfigurationOutputTypeDef, ConfigurationTypeD
 
 # This class is the input for the 'create_access_preview' function.
 class CreateAccessPreviewRequestTypeDef(BaseValidatorModel):
-    analyzerArn: str
+    analyzerArn: Annotated[str, _aws_pattern("Accessanalyzer", "AnalyzerArn")]
     configurations: Dict[str, ConfigurationUnionTypeDef]
     clientToken: Optional[str] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.geo_routes.geo_routes_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -72,7 +74,7 @@ class RouteMatrixAllowOptionsTypeDef(BaseValidatorModel):
 
 
 class RouteMatrixExclusionOptionsTypeDef(BaseValidatorModel):
-    Countries: List[str]
+    Countries: List[Annotated[str, _aws_pattern("GeoRoutes", "CountryCode")]]
 
 
 class RouteMatrixTrafficOptionsTypeDef(BaseValidatorModel):
@@ -92,7 +94,7 @@ class RouteAllowOptionsTypeDef(BaseValidatorModel):
 
 
 class RouteExclusionOptionsTypeDef(BaseValidatorModel):
-    Countries: List[str]
+    Countries: List[Annotated[str, _aws_pattern("GeoRoutes", "CountryCode")]]
 
 
 class RouteTrafficOptionsTypeDef(BaseValidatorModel):
@@ -174,11 +176,11 @@ class LocalizedStringTypeDef(BaseValidatorModel):
 
 
 class WaypointOptimizationExclusionOptionsTypeDef(BaseValidatorModel):
-    Countries: List[str]
+    Countries: List[Annotated[str, _aws_pattern("GeoRoutes", "CountryCode")]]
 
 
 class WaypointOptimizationOriginOptionsTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("GeoRoutes", "WaypointId")]] = None
 
 
 class WaypointOptimizationTrafficOptionsTypeDef(BaseValidatorModel):
@@ -187,18 +189,18 @@ class WaypointOptimizationTrafficOptionsTypeDef(BaseValidatorModel):
 
 class WaypointOptimizationConnectionTypeDef(BaseValidatorModel):
     Distance: int
-    From: str
+    From: Annotated[str, _aws_pattern("GeoRoutes", "WaypointId")]
     RestDuration: int
-    To: str
+    To: Annotated[str, _aws_pattern("GeoRoutes", "WaypointId")]
     TravelDuration: int
     WaitDuration: int
 
 
 class WaypointOptimizationOptimizedWaypointTypeDef(BaseValidatorModel):
-    DepartureTime: str
-    Id: str
+    DepartureTime: Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]
+    Id: Annotated[str, _aws_pattern("GeoRoutes", "WaypointId")]
     Position: List[float]
-    ArrivalTime: Optional[str] = None
+    ArrivalTime: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
     ClusterIndex: Optional[int] = None
 
 
@@ -230,7 +232,7 @@ class RoadSnapTracePointTypeDef(BaseValidatorModel):
     Position: List[float]
     Heading: Optional[float] = None
     Speed: Optional[float] = None
-    Timestamp: Optional[str] = None
+    Timestamp: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
 
 
 class RoadSnapTrailerOptionsTypeDef(BaseValidatorModel):
@@ -440,9 +442,9 @@ class RouteVehiclePlaceTypeDef(BaseValidatorModel):
 
 class RouteVehicleIncidentTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
-    EndTime: Optional[str] = None
+    EndTime: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
     Severity: Optional[RouteVehicleIncidentSeverityType] = None
-    StartTime: Optional[str] = None
+    StartTime: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
     Type: Optional[RouteVehicleIncidentTypeType] = None
 
 
@@ -471,7 +473,7 @@ class RouteWeightConstraintTypeDef(BaseValidatorModel):
 
 class WaypointOptimizationAccessHoursEntryTypeDef(BaseValidatorModel):
     DayOfWeek: DayOfWeekType
-    TimeOfDay: str
+    TimeOfDay: Annotated[str, _aws_pattern("GeoRoutes", "TimeOfDay")]
 
 
 class WaypointOptimizationAvoidanceAreaGeometryTypeDef(BaseValidatorModel):
@@ -608,7 +610,7 @@ class RouteExitStepDetailsTypeDef(BaseValidatorModel):
 
 
 class RouteFerrySpanTypeDef(BaseValidatorModel):
-    Country: Optional[str] = None
+    Country: Optional[Annotated[str, _aws_pattern("GeoRoutes", "CountryCode3")]] = None
     Distance: Optional[int] = None
     Duration: Optional[int] = None
     GeometryOffset: Optional[int] = None
@@ -734,19 +736,19 @@ class RouteDriverOptionsTypeDef(BaseValidatorModel):
 class RouteTollOptionsTypeDef(BaseValidatorModel):
     AllTransponders: Optional[bool] = None
     AllVignettes: Optional[bool] = None
-    Currency: Optional[str] = None
+    Currency: Optional[Annotated[str, _aws_pattern("GeoRoutes", "CurrencyCode")]] = None
     EmissionType: Optional[RouteEmissionTypeTypeDef] = None
     VehicleCategory: Optional[Literal["Minibus"]] = None
 
 
 class RouteFerryArrivalTypeDef(BaseValidatorModel):
     Place: RouteFerryPlaceTypeDef
-    Time: Optional[str] = None
+    Time: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
 
 
 class RouteFerryDepartureTypeDef(BaseValidatorModel):
     Place: RouteFerryPlaceTypeDef
-    Time: Optional[str] = None
+    Time: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
 
 
 class RouteFerrySummaryTypeDef(BaseValidatorModel):
@@ -841,17 +843,17 @@ class RoutePassThroughWaypointTypeDef(BaseValidatorModel):
 
 class RoutePedestrianArrivalTypeDef(BaseValidatorModel):
     Place: RoutePedestrianPlaceTypeDef
-    Time: Optional[str] = None
+    Time: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
 
 
 class RoutePedestrianDepartureTypeDef(BaseValidatorModel):
     Place: RoutePedestrianPlaceTypeDef
-    Time: Optional[str] = None
+    Time: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
 
 
 class RoutePedestrianSpanTypeDef(BaseValidatorModel):
     BestCaseDuration: Optional[int] = None
-    Country: Optional[str] = None
+    Country: Optional[Annotated[str, _aws_pattern("GeoRoutes", "CountryCode3")]] = None
     Distance: Optional[int] = None
     Duration: Optional[int] = None
     DynamicSpeed: Optional[RouteSpanDynamicSpeedDetailsTypeDef] = None
@@ -870,7 +872,7 @@ class RoutePedestrianSpanTypeDef(BaseValidatorModel):
 class RouteVehicleSpanTypeDef(BaseValidatorModel):
     BestCaseDuration: Optional[int] = None
     CarAccess: Optional[List[RouteSpanCarAccessAttributeType]] = None
-    Country: Optional[str] = None
+    Country: Optional[Annotated[str, _aws_pattern("GeoRoutes", "CountryCode3")]] = None
     Distance: Optional[int] = None
     Duration: Optional[int] = None
     DynamicSpeed: Optional[RouteSpanDynamicSpeedDetailsTypeDef] = None
@@ -907,7 +909,7 @@ class RouteTollPassTypeDef(BaseValidatorModel):
 
 
 class RouteTollPriceSummaryTypeDef(BaseValidatorModel):
-    Currency: str
+    Currency: Annotated[str, _aws_pattern("GeoRoutes", "CurrencyCode")]
     Estimate: bool
     Range: bool
     Value: float
@@ -915,7 +917,7 @@ class RouteTollPriceSummaryTypeDef(BaseValidatorModel):
 
 
 class RouteTollPriceTypeDef(BaseValidatorModel):
-    Currency: str
+    Currency: Annotated[str, _aws_pattern("GeoRoutes", "CurrencyCode")]
     Estimate: bool
     Range: bool
     Value: float
@@ -947,12 +949,12 @@ class RouteTruckOptionsTypeDef(BaseValidatorModel):
 
 class RouteVehicleArrivalTypeDef(BaseValidatorModel):
     Place: RouteVehiclePlaceTypeDef
-    Time: Optional[str] = None
+    Time: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
 
 
 class RouteVehicleDepartureTypeDef(BaseValidatorModel):
     Place: RouteVehiclePlaceTypeDef
-    Time: Optional[str] = None
+    Time: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
 
 
 class RouteVehicleSummaryTypeDef(BaseValidatorModel):
@@ -998,7 +1000,7 @@ class WaypointOptimizationClusteringOptionsTypeDef(BaseValidatorModel):
 
 class WaypointOptimizationImpedingWaypointTypeDef(BaseValidatorModel):
     FailedConstraints: List[WaypointOptimizationFailedConstraintTypeDef]
-    Id: str
+    Id: Annotated[str, _aws_pattern("GeoRoutes", "WaypointId")]
     Position: List[float]
 
 
@@ -1132,9 +1134,9 @@ class RouteVehicleNoticeDetailTypeDef(BaseValidatorModel):
 
 class WaypointOptimizationDestinationOptionsTypeDef(BaseValidatorModel):
     AccessHours: Optional[WaypointOptimizationAccessHoursTypeDef] = None
-    AppointmentTime: Optional[str] = None
+    AppointmentTime: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
     Heading: Optional[float] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("GeoRoutes", "WaypointId")]] = None
     ServiceDuration: Optional[int] = None
     SideOfStreet: Optional[WaypointOptimizationSideOfStreetOptionsTypeDef] = None
 
@@ -1142,10 +1144,10 @@ class WaypointOptimizationDestinationOptionsTypeDef(BaseValidatorModel):
 class WaypointOptimizationWaypointTypeDef(BaseValidatorModel):
     Position: List[float]
     AccessHours: Optional[WaypointOptimizationAccessHoursTypeDef] = None
-    AppointmentTime: Optional[str] = None
+    AppointmentTime: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
     Before: Optional[List[int]] = None
     Heading: Optional[float] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("GeoRoutes", "WaypointId")]] = None
     ServiceDuration: Optional[int] = None
     SideOfStreet: Optional[WaypointOptimizationSideOfStreetOptionsTypeDef] = None
 
@@ -1216,8 +1218,8 @@ class RouteAvoidanceOptionsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'calculate_isolines' function.
 class CalculateIsolinesResponseTypeDef(BaseValidatorModel):
-    ArrivalTime: str
-    DepartureTime: str
+    ArrivalTime: Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]
+    DepartureTime: Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]
     IsolineGeometryFormat: GeometryFormatType
     Isolines: List[IsolineTypeDef]
     PricingBucket: str
@@ -1299,7 +1301,7 @@ class RouteTollTypeDef(BaseValidatorModel):
     PaymentSites: List[RouteTollPaymentSiteTypeDef]
     Rates: List[RouteTollRateTypeDef]
     Systems: List[int]
-    Country: Optional[str] = None
+    Country: Optional[Annotated[str, _aws_pattern("GeoRoutes", "CountryCode3")]] = None
 
 
 class RouteVehicleNoticeTypeDef(BaseValidatorModel):
@@ -1313,7 +1315,7 @@ class OptimizeWaypointsRequestTypeDef(BaseValidatorModel):
     Origin: List[float]
     Avoid: Optional[WaypointOptimizationAvoidanceOptionsTypeDef] = None
     Clustering: Optional[WaypointOptimizationClusteringOptionsTypeDef] = None
-    DepartureTime: Optional[str] = None
+    DepartureTime: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
     Destination: Optional[List[float]] = None
     DestinationOptions: Optional[WaypointOptimizationDestinationOptionsTypeDef] = None
     Driver: Optional[WaypointOptimizationDriverOptionsTypeDef] = None
@@ -1331,10 +1333,10 @@ class OptimizeWaypointsRequestTypeDef(BaseValidatorModel):
 class CalculateIsolinesRequestTypeDef(BaseValidatorModel):
     Thresholds: IsolineThresholdsTypeDef
     Allow: Optional[IsolineAllowOptionsTypeDef] = None
-    ArrivalTime: Optional[str] = None
+    ArrivalTime: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
     Avoid: Optional[IsolineAvoidanceOptionsTypeDef] = None
     DepartNow: Optional[bool] = None
-    DepartureTime: Optional[str] = None
+    DepartureTime: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
     Destination: Optional[List[float]] = None
     DestinationOptions: Optional[IsolineDestinationOptionsTypeDef] = None
     IsolineGeometryFormat: Optional[GeometryFormatType] = None
@@ -1354,10 +1356,10 @@ class CalculateRoutesRequestTypeDef(BaseValidatorModel):
     Destination: List[float]
     Origin: List[float]
     Allow: Optional[RouteAllowOptionsTypeDef] = None
-    ArrivalTime: Optional[str] = None
+    ArrivalTime: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
     Avoid: Optional[RouteAvoidanceOptionsTypeDef] = None
     DepartNow: Optional[bool] = None
-    DepartureTime: Optional[str] = None
+    DepartureTime: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
     DestinationOptions: Optional[RouteDestinationOptionsTypeDef] = None
     Driver: Optional[RouteDriverOptionsTypeDef] = None
     Exclude: Optional[RouteExclusionOptionsTypeDef] = None
@@ -1395,7 +1397,7 @@ class CalculateRouteMatrixRequestTypeDef(BaseValidatorModel):
     Allow: Optional[RouteMatrixAllowOptionsTypeDef] = None
     Avoid: Optional[RouteMatrixAvoidanceOptionsTypeDef] = None
     DepartNow: Optional[bool] = None
-    DepartureTime: Optional[str] = None
+    DepartureTime: Optional[Annotated[str, _aws_pattern("GeoRoutes", "TimestampWithTimezoneOffset")]] = None
     Exclude: Optional[RouteMatrixExclusionOptionsTypeDef] = None
     Key: Optional[str] = None
     OptimizeRoutingFor: Optional[RoutingObjectiveType] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.directconnect.directconnect_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -60,8 +62,8 @@ class AllocateConnectionOnInterconnectRequestTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
-    value: Optional[str] = None
+    key: Annotated[str, _aws_pattern("Directconnect", "TagKey")]
+    value: Optional[Annotated[str, _aws_pattern("Directconnect", "TagValue")]] = None
 
 
 # This class is the input for the 'associate_connection_with_lag' function.
@@ -98,9 +100,9 @@ class AssociateVirtualInterfaceRequestTypeDef(BaseValidatorModel):
 
 
 class AssociatedCoreNetworkTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Directconnect", "CoreNetworkIdentifier")]] = None
     ownerAccount: Optional[str] = None
-    attachmentId: Optional[str] = None
+    attachmentId: Optional[Annotated[str, _aws_pattern("Directconnect", "CoreNetworkAttachmentId")]] = None
 
 
 class AssociatedGatewayTypeDef(BaseValidatorModel):
@@ -405,7 +407,7 @@ class StopBgpFailoverTestRequestTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Directconnect", "TagKey")]]
 
 
 # This class is the input for the 'update_connection' function.

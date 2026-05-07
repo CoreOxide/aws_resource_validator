@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.redshift_serverless.redshift_serverless_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,10 +41,12 @@ except ImportError:  # pragma: no cover
 
 
 class AssociationTypeDef(BaseValidatorModel):
-    customDomainCertificateArn: Optional[str] = None
+    customDomainCertificateArn: Optional[
+        Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainCertificateArnString")]
+    ] = None
     customDomainCertificateExpiryTime: Optional[datetime] = None
-    customDomainName: Optional[str] = None
-    workgroupName: Optional[str] = None
+    customDomainName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainName")]] = None
+    workgroupName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]] = None
 
 
 class ConfigParameterTypeDef(BaseValidatorModel):
@@ -90,9 +94,9 @@ class SnapshotTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_custom_domain_association' function.
 class CreateCustomDomainAssociationRequestTypeDef(BaseValidatorModel):
-    customDomainCertificateArn: str
-    customDomainName: str
-    workgroupName: str
+    customDomainCertificateArn: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainCertificateArnString")]
+    customDomainName: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainName")]
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
 
 
 # This class is the input for the 'create_endpoint_access' function.
@@ -100,7 +104,7 @@ class CreateEndpointAccessRequestTypeDef(BaseValidatorModel):
     endpointName: str
     subnetIds: List[str]
     workgroupName: str
-    ownerAccount: Optional[str] = None
+    ownerAccount: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "OwnerAccount")]] = None
     vpcSecurityGroupIds: Optional[List[str]] = None
 
 
@@ -118,7 +122,7 @@ class NamespaceTypeDef(BaseValidatorModel):
     logExports: Optional[List[LogExportType]] = None
     namespaceArn: Optional[str] = None
     namespaceId: Optional[str] = None
-    namespaceName: Optional[str] = None
+    namespaceName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]] = None
     status: Optional[NamespaceStatusType] = None
 
 
@@ -135,7 +139,7 @@ TimestampTypeDef = Union[datetime, str]
 # This class is the input for the 'create_snapshot_copy_configuration' function.
 class CreateSnapshotCopyConfigurationRequestTypeDef(BaseValidatorModel):
     destinationRegion: str
-    namespaceName: str
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
     destinationKmsKeyId: Optional[str] = None
     snapshotRetentionPeriod: Optional[int] = None
 
@@ -143,7 +147,7 @@ class CreateSnapshotCopyConfigurationRequestTypeDef(BaseValidatorModel):
 class SnapshotCopyConfigurationTypeDef(BaseValidatorModel):
     destinationKmsKeyId: Optional[str] = None
     destinationRegion: Optional[str] = None
-    namespaceName: Optional[str] = None
+    namespaceName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]] = None
     snapshotCopyConfigurationArn: Optional[str] = None
     snapshotCopyConfigurationId: Optional[str] = None
     snapshotRetentionPeriod: Optional[int] = None
@@ -174,8 +178,8 @@ class PerformanceTargetTypeDef(BaseValidatorModel):
 
 
 class DeleteCustomDomainAssociationRequestTypeDef(BaseValidatorModel):
-    customDomainName: str
-    workgroupName: str
+    customDomainName: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainName")]
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
 
 
 # This class is the input for the 'delete_endpoint_access' function.
@@ -185,7 +189,7 @@ class DeleteEndpointAccessRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_namespace' function.
 class DeleteNamespaceRequestTypeDef(BaseValidatorModel):
-    namespaceName: str
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
     finalSnapshotName: Optional[str] = None
     finalSnapshotRetentionPeriod: Optional[int] = None
 
@@ -196,7 +200,7 @@ class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_scheduled_action' function.
 class DeleteScheduledActionRequestTypeDef(BaseValidatorModel):
-    scheduledActionName: str
+    scheduledActionName: Annotated[str, _aws_pattern("RedshiftServerless", "ScheduledActionName")]
 
 
 # This class is the input for the 'delete_snapshot_copy_configuration' function.
@@ -216,7 +220,7 @@ class DeleteUsageLimitRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_workgroup' function.
 class DeleteWorkgroupRequestTypeDef(BaseValidatorModel):
-    workgroupName: str
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
 
 
 class VpcSecurityGroupMembershipTypeDef(BaseValidatorModel):
@@ -226,16 +230,16 @@ class VpcSecurityGroupMembershipTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_credentials' function.
 class GetCredentialsRequestTypeDef(BaseValidatorModel):
-    customDomainName: Optional[str] = None
+    customDomainName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainName")]] = None
     dbName: Optional[str] = None
     durationSeconds: Optional[int] = None
-    workgroupName: Optional[str] = None
+    workgroupName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]] = None
 
 
 # This class is the input for the 'get_custom_domain_association' function.
 class GetCustomDomainAssociationRequestTypeDef(BaseValidatorModel):
-    customDomainName: str
-    workgroupName: str
+    customDomainName: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainName")]
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
 
 
 # This class is the input for the 'get_endpoint_access' function.
@@ -245,12 +249,12 @@ class GetEndpointAccessRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_identity_center_auth_token' function.
 class GetIdentityCenterAuthTokenRequestTypeDef(BaseValidatorModel):
-    workgroupNames: List[str]
+    workgroupNames: List[Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]]
 
 
 # This class is the input for the 'get_namespace' function.
 class GetNamespaceRequestTypeDef(BaseValidatorModel):
-    namespaceName: str
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
 
 
 # This class is the input for the 'get_recovery_point' function.
@@ -260,11 +264,11 @@ class GetRecoveryPointRequestTypeDef(BaseValidatorModel):
 
 class RecoveryPointTypeDef(BaseValidatorModel):
     namespaceArn: Optional[str] = None
-    namespaceName: Optional[str] = None
+    namespaceName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]] = None
     recoveryPointCreateTime: Optional[datetime] = None
     recoveryPointId: Optional[str] = None
     totalSizeInMegaBytes: Optional[float] = None
-    workgroupName: Optional[str] = None
+    workgroupName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]] = None
 
 
 # This class is the input for the 'get_reservation_offering' function.
@@ -298,7 +302,7 @@ class ResourcePolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_scheduled_action' function.
 class GetScheduledActionRequestTypeDef(BaseValidatorModel):
-    scheduledActionName: str
+    scheduledActionName: Annotated[str, _aws_pattern("RedshiftServerless", "ScheduledActionName")]
 
 
 # This class is the input for the 'get_snapshot' function.
@@ -334,7 +338,7 @@ class TableRestoreStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_track' function.
 class GetTrackRequestTypeDef(BaseValidatorModel):
-    trackName: str
+    trackName: Annotated[str, _aws_pattern("RedshiftServerless", "TrackName")]
 
 
 # This class is the input for the 'get_usage_limit' function.
@@ -344,7 +348,7 @@ class GetUsageLimitRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_workgroup' function.
 class GetWorkgroupRequestTypeDef(BaseValidatorModel):
-    workgroupName: str
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -355,8 +359,10 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_custom_domain_associations' function.
 class ListCustomDomainAssociationsRequestTypeDef(BaseValidatorModel):
-    customDomainCertificateArn: Optional[str] = None
-    customDomainName: Optional[str] = None
+    customDomainCertificateArn: Optional[
+        Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainCertificateArnString")]
+    ] = None
+    customDomainName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainName")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -365,7 +371,7 @@ class ListCustomDomainAssociationsRequestTypeDef(BaseValidatorModel):
 class ListEndpointAccessRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    ownerAccount: Optional[str] = None
+    ownerAccount: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "OwnerAccount")]] = None
     vpcId: Optional[str] = None
     workgroupName: Optional[str] = None
 
@@ -374,14 +380,14 @@ class ListEndpointAccessRequestTypeDef(BaseValidatorModel):
 class ListManagedWorkgroupsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    sourceArn: Optional[str] = None
+    sourceArn: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "SourceArn")]] = None
 
 
 class ManagedWorkgroupListItemTypeDef(BaseValidatorModel):
     creationDate: Optional[datetime] = None
     managedWorkgroupId: Optional[str] = None
-    managedWorkgroupName: Optional[str] = None
-    sourceArn: Optional[str] = None
+    managedWorkgroupName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "ManagedWorkgroupName")]] = None
+    sourceArn: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "SourceArn")]] = None
     status: Optional[ManagedWorkgroupStatusType] = None
 
 
@@ -406,19 +412,19 @@ class ListReservationsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_scheduled_actions' function.
 class ListScheduledActionsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    namespaceName: Optional[str] = None
+    namespaceName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]] = None
     nextToken: Optional[str] = None
 
 
 class ScheduledActionAssociationTypeDef(BaseValidatorModel):
-    namespaceName: Optional[str] = None
-    scheduledActionName: Optional[str] = None
+    namespaceName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]] = None
+    scheduledActionName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "ScheduledActionName")]] = None
 
 
 # This class is the input for the 'list_snapshot_copy_configurations' function.
 class ListSnapshotCopyConfigurationsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    namespaceName: Optional[str] = None
+    namespaceName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]] = None
     nextToken: Optional[str] = None
 
 
@@ -453,7 +459,7 @@ class ListUsageLimitsRequestTypeDef(BaseValidatorModel):
 class ListWorkgroupsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    ownerAccount: Optional[str] = None
+    ownerAccount: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "OwnerAccount")]] = None
 
 
 class NetworkInterfaceTypeDef(BaseValidatorModel):
@@ -472,15 +478,15 @@ class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'restore_from_recovery_point' function.
 class RestoreFromRecoveryPointRequestTypeDef(BaseValidatorModel):
-    namespaceName: str
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
     recoveryPointId: str
-    workgroupName: str
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
 
 
 # This class is the input for the 'restore_from_snapshot' function.
 class RestoreFromSnapshotRequestTypeDef(BaseValidatorModel):
-    namespaceName: str
-    workgroupName: str
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
     adminPasswordSecretKmsKeyId: Optional[str] = None
     manageAdminPassword: Optional[bool] = None
     ownerAccount: Optional[str] = None
@@ -522,7 +528,7 @@ class ScheduleOutputTypeDef(BaseValidatorModel):
 
 
 class UpdateTargetTypeDef(BaseValidatorModel):
-    trackName: Optional[str] = None
+    trackName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "TrackName")]] = None
     workgroupVersion: Optional[str] = None
 
 
@@ -533,9 +539,9 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_custom_domain_association' function.
 class UpdateCustomDomainAssociationRequestTypeDef(BaseValidatorModel):
-    customDomainCertificateArn: str
-    customDomainName: str
-    workgroupName: str
+    customDomainCertificateArn: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainCertificateArnString")]
+    customDomainName: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainName")]
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
 
 
 # This class is the input for the 'update_endpoint_access' function.
@@ -546,8 +552,8 @@ class UpdateEndpointAccessRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_lakehouse_configuration' function.
 class UpdateLakehouseConfigurationRequestTypeDef(BaseValidatorModel):
-    namespaceName: str
-    catalogName: Optional[str] = None
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
+    catalogName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "CatalogNameString")]] = None
     dryRun: Optional[bool] = None
     lakehouseIdcApplicationArn: Optional[str] = None
     lakehouseIdcRegistration: Optional[LakehouseIdcRegistrationType] = None
@@ -556,7 +562,7 @@ class UpdateLakehouseConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_namespace' function.
 class UpdateNamespaceRequestTypeDef(BaseValidatorModel):
-    namespaceName: str
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
     adminPasswordSecretKmsKeyId: Optional[str] = None
     adminUserPassword: Optional[str] = None
     adminUsername: Optional[str] = None
@@ -596,7 +602,7 @@ class ConvertRecoveryPointToSnapshotRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_namespace' function.
 class CreateNamespaceRequestTypeDef(BaseValidatorModel):
-    namespaceName: str
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
     adminPasswordSecretKmsKeyId: Optional[str] = None
     adminUserPassword: Optional[str] = None
     adminUsername: Optional[str] = None
@@ -626,7 +632,7 @@ class CreateSnapshotScheduleActionParametersOutputTypeDef(BaseValidatorModel):
 
 
 class CreateSnapshotScheduleActionParametersTypeDef(BaseValidatorModel):
-    namespaceName: str
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
     snapshotNamePrefix: str
     retentionPeriod: Optional[int] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -639,10 +645,10 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_custom_domain_association' function.
 class CreateCustomDomainAssociationResponseTypeDef(BaseValidatorModel):
-    customDomainCertificateArn: str
+    customDomainCertificateArn: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainCertificateArnString")]
     customDomainCertificateExpiryTime: datetime
-    customDomainName: str
-    workgroupName: str
+    customDomainName: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainName")]
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -657,10 +663,10 @@ class GetCredentialsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_custom_domain_association' function.
 class GetCustomDomainAssociationResponseTypeDef(BaseValidatorModel):
-    customDomainCertificateArn: str
+    customDomainCertificateArn: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainCertificateArnString")]
     customDomainCertificateExpiryTime: datetime
-    customDomainName: str
-    workgroupName: str
+    customDomainName: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainName")]
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -686,10 +692,10 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_custom_domain_association' function.
 class UpdateCustomDomainAssociationResponseTypeDef(BaseValidatorModel):
-    customDomainCertificateArn: str
+    customDomainCertificateArn: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainCertificateArnString")]
     customDomainCertificateExpiryTime: datetime
-    customDomainName: str
-    workgroupName: str
+    customDomainName: Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainName")]
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -698,7 +704,7 @@ class UpdateLakehouseConfigurationResponseTypeDef(BaseValidatorModel):
     catalogArn: str
     lakehouseIdcApplicationArn: str
     lakehouseRegistrationStatus: str
-    namespaceName: str
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -790,7 +796,7 @@ class ListRecoveryPointsRequestTypeDef(BaseValidatorModel):
     endTime: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
     namespaceArn: Optional[str] = None
-    namespaceName: Optional[str] = None
+    namespaceName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]] = None
     nextToken: Optional[str] = None
     startTime: Optional[TimestampTypeDef] = None
 
@@ -869,13 +875,13 @@ class UpdateUsageLimitResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_workgroup' function.
 class CreateWorkgroupRequestTypeDef(BaseValidatorModel):
-    namespaceName: str
-    workgroupName: str
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
     baseCapacity: Optional[int] = None
     configParameters: Optional[List[ConfigParameterTypeDef]] = None
     enhancedVpcRouting: Optional[bool] = None
     extraComputeForAutomaticOptimization: Optional[bool] = None
-    ipAddressType: Optional[str] = None
+    ipAddressType: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "IpAddressType")]] = None
     maxCapacity: Optional[int] = None
     port: Optional[int] = None
     pricePerformanceTarget: Optional[PerformanceTargetTypeDef] = None
@@ -883,24 +889,24 @@ class CreateWorkgroupRequestTypeDef(BaseValidatorModel):
     securityGroupIds: Optional[List[str]] = None
     subnetIds: Optional[List[str]] = None
     tags: Optional[List[TagTypeDef]] = None
-    trackName: Optional[str] = None
+    trackName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "TrackName")]] = None
 
 
 # This class is the input for the 'update_workgroup' function.
 class UpdateWorkgroupRequestTypeDef(BaseValidatorModel):
-    workgroupName: str
+    workgroupName: Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]
     baseCapacity: Optional[int] = None
     configParameters: Optional[List[ConfigParameterTypeDef]] = None
     enhancedVpcRouting: Optional[bool] = None
     extraComputeForAutomaticOptimization: Optional[bool] = None
-    ipAddressType: Optional[str] = None
+    ipAddressType: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "IpAddressType")]] = None
     maxCapacity: Optional[int] = None
     port: Optional[int] = None
     pricePerformanceTarget: Optional[PerformanceTargetTypeDef] = None
     publiclyAccessible: Optional[bool] = None
     securityGroupIds: Optional[List[str]] = None
     subnetIds: Optional[List[str]] = None
-    trackName: Optional[str] = None
+    trackName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "TrackName")]] = None
 
 
 # This class is the output for the 'get_recovery_point' function.
@@ -1075,7 +1081,7 @@ class VpcEndpointTypeDef(BaseValidatorModel):
 
 
 class ServerlessTrackTypeDef(BaseValidatorModel):
-    trackName: Optional[str] = None
+    trackName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "TrackName")]] = None
     updateTargets: Optional[List[UpdateTargetTypeDef]] = None
     workgroupVersion: Optional[str] = None
 
@@ -1144,12 +1150,12 @@ class ListTracksResponseTypeDef(BaseValidatorModel):
 
 class ScheduledActionResponseTypeDef(BaseValidatorModel):
     endTime: Optional[datetime] = None
-    namespaceName: Optional[str] = None
+    namespaceName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]] = None
     nextInvocations: Optional[List[datetime]] = None
     roleArn: Optional[str] = None
     schedule: Optional[ScheduleOutputTypeDef] = None
     scheduledActionDescription: Optional[str] = None
-    scheduledActionName: Optional[str] = None
+    scheduledActionName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "ScheduledActionName")]] = None
     scheduledActionUuid: Optional[str] = None
     startTime: Optional[datetime] = None
     state: Optional[StateType] = None
@@ -1195,27 +1201,29 @@ class WorkgroupTypeDef(BaseValidatorModel):
     configParameters: Optional[List[ConfigParameterTypeDef]] = None
     creationDate: Optional[datetime] = None
     crossAccountVpcs: Optional[List[str]] = None
-    customDomainCertificateArn: Optional[str] = None
+    customDomainCertificateArn: Optional[
+        Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainCertificateArnString")]
+    ] = None
     customDomainCertificateExpiryTime: Optional[datetime] = None
-    customDomainName: Optional[str] = None
+    customDomainName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "CustomDomainName")]] = None
     endpoint: Optional[EndpointTypeDef] = None
     enhancedVpcRouting: Optional[bool] = None
     extraComputeForAutomaticOptimization: Optional[bool] = None
-    ipAddressType: Optional[str] = None
+    ipAddressType: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "IpAddressType")]] = None
     maxCapacity: Optional[int] = None
     namespaceName: Optional[str] = None
     patchVersion: Optional[str] = None
-    pendingTrackName: Optional[str] = None
+    pendingTrackName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "TrackName")]] = None
     port: Optional[int] = None
     pricePerformanceTarget: Optional[PerformanceTargetTypeDef] = None
     publiclyAccessible: Optional[bool] = None
     securityGroupIds: Optional[List[str]] = None
     status: Optional[WorkgroupStatusType] = None
     subnetIds: Optional[List[str]] = None
-    trackName: Optional[str] = None
+    trackName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "TrackName")]] = None
     workgroupArn: Optional[str] = None
     workgroupId: Optional[str] = None
-    workgroupName: Optional[str] = None
+    workgroupName: Optional[Annotated[str, _aws_pattern("RedshiftServerless", "WorkgroupName")]] = None
     workgroupVersion: Optional[str] = None
 
 
@@ -1245,10 +1253,10 @@ class UpdateScheduledActionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_scheduled_action' function.
 class CreateScheduledActionRequestTypeDef(BaseValidatorModel):
-    namespaceName: str
+    namespaceName: Annotated[str, _aws_pattern("RedshiftServerless", "NamespaceName")]
     roleArn: str
     schedule: ScheduleUnionTypeDef
-    scheduledActionName: str
+    scheduledActionName: Annotated[str, _aws_pattern("RedshiftServerless", "ScheduledActionName")]
     targetAction: TargetActionUnionTypeDef
     enabled: Optional[bool] = None
     endTime: Optional[TimestampTypeDef] = None
@@ -1258,7 +1266,7 @@ class CreateScheduledActionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_scheduled_action' function.
 class UpdateScheduledActionRequestTypeDef(BaseValidatorModel):
-    scheduledActionName: str
+    scheduledActionName: Annotated[str, _aws_pattern("RedshiftServerless", "ScheduledActionName")]
     enabled: Optional[bool] = None
     endTime: Optional[TimestampTypeDef] = None
     roleArn: Optional[str] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iam.iam_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,14 +42,14 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'accept_delegation_request' function.
 class AcceptDelegationRequestRequestTypeDef(BaseValidatorModel):
-    DelegationRequestId: str
+    DelegationRequestId: Annotated[str, _aws_pattern("Iam", "delegationRequestIdType")]
 
 
 class AccessDetailTypeDef(BaseValidatorModel):
     ServiceName: str
-    ServiceNamespace: str
+    ServiceNamespace: Annotated[str, _aws_pattern("Iam", "serviceNamespaceType")]
     Region: Optional[str] = None
-    EntityPath: Optional[str] = None
+    EntityPath: Optional[Annotated[str, _aws_pattern("Iam", "organizationsEntityPathType")]] = None
     LastAuthenticatedTime: Optional[datetime] = None
     TotalAuthenticatedEntities: Optional[int] = None
 
@@ -59,15 +61,15 @@ class AccessKeyLastUsedTypeDef(BaseValidatorModel):
 
 
 class AccessKeyMetadataTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
-    AccessKeyId: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
+    AccessKeyId: Optional[Annotated[str, _aws_pattern("Iam", "accessKeyIdType")]] = None
     Status: Optional[StatusTypeType] = None
     CreateDate: Optional[datetime] = None
 
 
 class AccessKeyTypeDef(BaseValidatorModel):
-    UserName: str
-    AccessKeyId: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    AccessKeyId: Annotated[str, _aws_pattern("Iam", "accessKeyIdType")]
     Status: StatusTypeType
     SecretAccessKey: str
     CreateDate: Optional[datetime] = None
@@ -85,8 +87,8 @@ class AddRoleToInstanceProfileRequestInstanceProfileAddRoleTypeDef(BaseValidator
 
 # This class is the input for the 'add_role_to_instance_profile' function.
 class AddRoleToInstanceProfileRequestTypeDef(BaseValidatorModel):
-    InstanceProfileName: str
-    RoleName: str
+    InstanceProfileName: Annotated[str, _aws_pattern("Iam", "instanceProfileNameType")]
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
 
 
 class AddUserToGroupRequestGroupAddUserTypeDef(BaseValidatorModel):
@@ -95,8 +97,8 @@ class AddUserToGroupRequestGroupAddUserTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_user_to_group' function.
 class AddUserToGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    UserName: str
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
 
 
 class AddUserToGroupRequestUserAddGroupTypeDef(BaseValidatorModel):
@@ -105,7 +107,7 @@ class AddUserToGroupRequestUserAddGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_delegation_request' function.
 class AssociateDelegationRequestRequestTypeDef(BaseValidatorModel):
-    DelegationRequestId: str
+    DelegationRequestId: Annotated[str, _aws_pattern("Iam", "delegationRequestIdType")]
 
 
 class AttachGroupPolicyRequestGroupAttachPolicyTypeDef(BaseValidatorModel):
@@ -118,7 +120,7 @@ class AttachGroupPolicyRequestPolicyAttachGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'attach_group_policy' function.
 class AttachGroupPolicyRequestTypeDef(BaseValidatorModel):
-    GroupName: str
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
     PolicyArn: str
 
 
@@ -132,7 +134,7 @@ class AttachRolePolicyRequestRoleAttachPolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'attach_role_policy' function.
 class AttachRolePolicyRequestTypeDef(BaseValidatorModel):
-    RoleName: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
     PolicyArn: str
 
 
@@ -142,7 +144,7 @@ class AttachUserPolicyRequestPolicyAttachUserTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'attach_user_policy' function.
 class AttachUserPolicyRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
     PolicyArn: str
 
 
@@ -156,7 +158,7 @@ class AttachedPermissionsBoundaryTypeDef(BaseValidatorModel):
 
 
 class AttachedPolicyTypeDef(BaseValidatorModel):
-    PolicyName: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Iam", "policyNameType")]] = None
     PolicyArn: Optional[str] = None
 
 
@@ -167,8 +169,8 @@ class ChangePasswordRequestServiceResourceChangePasswordTypeDef(BaseValidatorMod
 
 # This class is the input for the 'change_password' function.
 class ChangePasswordRequestTypeDef(BaseValidatorModel):
-    OldPassword: str
-    NewPassword: str
+    OldPassword: Annotated[str, _aws_pattern("Iam", "passwordType")]
+    NewPassword: Annotated[str, _aws_pattern("Iam", "passwordType")]
 
 
 class ContextEntryTypeDef(BaseValidatorModel):
@@ -179,7 +181,7 @@ class ContextEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_access_key' function.
 class CreateAccessKeyRequestTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "existingUserNameType")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -196,7 +198,7 @@ class CreateAccountAliasRequestServiceResourceCreateAccountAliasTypeDef(BaseVali
 
 # This class is the input for the 'create_account_alias' function.
 class CreateAccountAliasRequestTypeDef(BaseValidatorModel):
-    AccountAlias: str
+    AccountAlias: Annotated[str, _aws_pattern("Iam", "accountAliasType")]
 
 
 class CreateGroupRequestGroupCreateTypeDef(BaseValidatorModel):
@@ -210,21 +212,21 @@ class CreateGroupRequestServiceResourceCreateGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_group' function.
 class CreateGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    Path: Optional[str] = None
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
 
 
 class GroupTypeDef(BaseValidatorModel):
-    Path: str
-    GroupName: str
-    GroupId: str
+    Path: Annotated[str, _aws_pattern("Iam", "pathType")]
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    GroupId: Annotated[str, _aws_pattern("Iam", "idType")]
     Arn: str
     CreateDate: datetime
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Iam", "tagKeyType")]
+    Value: Annotated[str, _aws_pattern("Iam", "tagValueType")]
 
 
 class CreateLoginProfileRequestLoginProfileCreateTypeDef(BaseValidatorModel):
@@ -234,8 +236,8 @@ class CreateLoginProfileRequestLoginProfileCreateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_login_profile' function.
 class CreateLoginProfileRequestTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
-    Password: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("Iam", "passwordType")]] = None
     PasswordResetRequired: Optional[bool] = None
 
 
@@ -245,7 +247,7 @@ class CreateLoginProfileRequestUserCreateLoginProfileTypeDef(BaseValidatorModel)
 
 
 class LoginProfileTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
     CreateDate: datetime
     PasswordResetRequired: Optional[bool] = None
 
@@ -258,20 +260,20 @@ class CreatePolicyVersionRequestPolicyCreateVersionTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_policy_version' function.
 class CreatePolicyVersionRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
-    PolicyDocument: str
+    PolicyDocument: Annotated[str, _aws_pattern("Iam", "policyDocumentType")]
     SetAsDefault: Optional[bool] = None
 
 
 # This class is the input for the 'create_service_linked_role' function.
 class CreateServiceLinkedRoleRequestTypeDef(BaseValidatorModel):
-    AWSServiceName: str
-    Description: Optional[str] = None
-    CustomSuffix: Optional[str] = None
+    AWSServiceName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    Description: Optional[Annotated[str, _aws_pattern("Iam", "roleDescriptionType")]] = None
+    CustomSuffix: Optional[Annotated[str, _aws_pattern("Iam", "customSuffixType")]] = None
 
 
 # This class is the input for the 'create_service_specific_credential' function.
 class CreateServiceSpecificCredentialRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
     ServiceName: str
     CredentialAgeDays: Optional[int] = None
 
@@ -279,20 +281,20 @@ class CreateServiceSpecificCredentialRequestTypeDef(BaseValidatorModel):
 class ServiceSpecificCredentialTypeDef(BaseValidatorModel):
     CreateDate: datetime
     ServiceName: str
-    ServiceSpecificCredentialId: str
-    UserName: str
+    ServiceSpecificCredentialId: Annotated[str, _aws_pattern("Iam", "serviceSpecificCredentialId")]
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
     Status: StatusTypeType
     ExpirationDate: Optional[datetime] = None
-    ServiceUserName: Optional[str] = None
+    ServiceUserName: Optional[Annotated[str, _aws_pattern("Iam", "serviceUserName")]] = None
     ServicePassword: Optional[str] = None
-    ServiceCredentialAlias: Optional[str] = None
+    ServiceCredentialAlias: Optional[Annotated[str, _aws_pattern("Iam", "serviceCredentialAlias")]] = None
     ServiceCredentialSecret: Optional[str] = None
 
 
 # This class is the input for the 'deactivate_mfa_device' function.
 class DeactivateMFADeviceRequestTypeDef(BaseValidatorModel):
-    SerialNumber: str
-    UserName: Optional[str] = None
+    SerialNumber: Annotated[str, _aws_pattern("Iam", "serialNumberType")]
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "existingUserNameType")]] = None
 
 
 class PolicyParameterOutputTypeDef(BaseValidatorModel):
@@ -302,41 +304,41 @@ class PolicyParameterOutputTypeDef(BaseValidatorModel):
 
 
 class PolicyParameterTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Values: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Iam", "policyParameterNameType")]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Iam", "policyParameterValueType")]]] = None
     Type: Optional[PolicyParameterTypeEnumType] = None
 
 
 # This class is the input for the 'delete_access_key' function.
 class DeleteAccessKeyRequestTypeDef(BaseValidatorModel):
-    AccessKeyId: str
-    UserName: Optional[str] = None
+    AccessKeyId: Annotated[str, _aws_pattern("Iam", "accessKeyIdType")]
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "existingUserNameType")]] = None
 
 
 # This class is the input for the 'delete_account_alias' function.
 class DeleteAccountAliasRequestTypeDef(BaseValidatorModel):
-    AccountAlias: str
+    AccountAlias: Annotated[str, _aws_pattern("Iam", "accountAliasType")]
 
 
 # This class is the input for the 'delete_group_policy' function.
 class DeleteGroupPolicyRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    PolicyName: str
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
 
 
 # This class is the input for the 'delete_group' function.
 class DeleteGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
 
 
 # This class is the input for the 'delete_instance_profile' function.
 class DeleteInstanceProfileRequestTypeDef(BaseValidatorModel):
-    InstanceProfileName: str
+    InstanceProfileName: Annotated[str, _aws_pattern("Iam", "instanceProfileNameType")]
 
 
 # This class is the input for the 'delete_login_profile' function.
 class DeleteLoginProfileRequestTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
 
 
 # This class is the input for the 'delete_open_id_connect_provider' function.
@@ -352,23 +354,23 @@ class DeletePolicyRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'delete_policy_version' function.
 class DeletePolicyVersionRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
-    VersionId: str
+    VersionId: Annotated[str, _aws_pattern("Iam", "policyVersionIdType")]
 
 
 # This class is the input for the 'delete_role_permissions_boundary' function.
 class DeleteRolePermissionsBoundaryRequestTypeDef(BaseValidatorModel):
-    RoleName: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
 
 
 # This class is the input for the 'delete_role_policy' function.
 class DeleteRolePolicyRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    PolicyName: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
 
 
 # This class is the input for the 'delete_role' function.
 class DeleteRoleRequestTypeDef(BaseValidatorModel):
-    RoleName: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
 
 
 # This class is the input for the 'delete_saml_provider' function.
@@ -378,51 +380,51 @@ class DeleteSAMLProviderRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_ssh_public_key' function.
 class DeleteSSHPublicKeyRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    SSHPublicKeyId: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    SSHPublicKeyId: Annotated[str, _aws_pattern("Iam", "publicKeyIdType")]
 
 
 # This class is the input for the 'delete_server_certificate' function.
 class DeleteServerCertificateRequestTypeDef(BaseValidatorModel):
-    ServerCertificateName: str
+    ServerCertificateName: Annotated[str, _aws_pattern("Iam", "serverCertificateNameType")]
 
 
 # This class is the input for the 'delete_service_linked_role' function.
 class DeleteServiceLinkedRoleRequestTypeDef(BaseValidatorModel):
-    RoleName: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
 
 
 # This class is the input for the 'delete_service_specific_credential' function.
 class DeleteServiceSpecificCredentialRequestTypeDef(BaseValidatorModel):
-    ServiceSpecificCredentialId: str
-    UserName: Optional[str] = None
+    ServiceSpecificCredentialId: Annotated[str, _aws_pattern("Iam", "serviceSpecificCredentialId")]
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
 
 
 # This class is the input for the 'delete_signing_certificate' function.
 class DeleteSigningCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateId: str
-    UserName: Optional[str] = None
+    CertificateId: Annotated[str, _aws_pattern("Iam", "certificateIdType")]
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "existingUserNameType")]] = None
 
 
 # This class is the input for the 'delete_user_permissions_boundary' function.
 class DeleteUserPermissionsBoundaryRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
 
 
 # This class is the input for the 'delete_user_policy' function.
 class DeleteUserPolicyRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    PolicyName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
 
 
 # This class is the input for the 'delete_user' function.
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
 
 
 # This class is the input for the 'delete_virtual_mfa_device' function.
 class DeleteVirtualMFADeviceRequestTypeDef(BaseValidatorModel):
-    SerialNumber: str
+    SerialNumber: Annotated[str, _aws_pattern("Iam", "serialNumberType")]
 
 
 class RoleUsageTypeTypeDef(BaseValidatorModel):
@@ -440,7 +442,7 @@ class DetachGroupPolicyRequestPolicyDetachGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'detach_group_policy' function.
 class DetachGroupPolicyRequestTypeDef(BaseValidatorModel):
-    GroupName: str
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
     PolicyArn: str
 
 
@@ -454,7 +456,7 @@ class DetachRolePolicyRequestRoleDetachPolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'detach_role_policy' function.
 class DetachRolePolicyRequestTypeDef(BaseValidatorModel):
-    RoleName: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
     PolicyArn: str
 
 
@@ -464,7 +466,7 @@ class DetachUserPolicyRequestPolicyDetachUserTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'detach_user_policy' function.
 class DetachUserPolicyRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
     PolicyArn: str
 
 
@@ -479,10 +481,10 @@ class EnableMFADeviceRequestMfaDeviceAssociateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'enable_mfa_device' function.
 class EnableMFADeviceRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    SerialNumber: str
-    AuthenticationCode1: str
-    AuthenticationCode2: str
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
+    SerialNumber: Annotated[str, _aws_pattern("Iam", "serialNumberType")]
+    AuthenticationCode1: Annotated[str, _aws_pattern("Iam", "authenticationCodeType")]
+    AuthenticationCode2: Annotated[str, _aws_pattern("Iam", "authenticationCodeType")]
 
 
 class EnableMFADeviceRequestUserEnableMfaTypeDef(BaseValidatorModel):
@@ -493,10 +495,10 @@ class EnableMFADeviceRequestUserEnableMfaTypeDef(BaseValidatorModel):
 
 class EntityInfoTypeDef(BaseValidatorModel):
     Arn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Iam", "userNameType")]
     Type: PolicyOwnerEntityTypeType
-    Id: str
-    Path: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Iam", "idType")]
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
 
 
 class ErrorDetailsTypeDef(BaseValidatorModel):
@@ -514,8 +516,8 @@ class PermissionsBoundaryDecisionDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'generate_organizations_access_report' function.
 class GenerateOrganizationsAccessReportRequestTypeDef(BaseValidatorModel):
-    EntityPath: str
-    OrganizationsPolicyId: Optional[str] = None
+    EntityPath: Annotated[str, _aws_pattern("Iam", "organizationsEntityPathType")]
+    OrganizationsPolicyId: Optional[Annotated[str, _aws_pattern("Iam", "organizationsPolicyIdType")]] = None
 
 
 # This class is the input for the 'generate_service_last_accessed_details' function.
@@ -526,7 +528,7 @@ class GenerateServiceLastAccessedDetailsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_access_key_last_used' function.
 class GetAccessKeyLastUsedRequestTypeDef(BaseValidatorModel):
-    AccessKeyId: str
+    AccessKeyId: Annotated[str, _aws_pattern("Iam", "accessKeyIdType")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -539,7 +541,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 class GetAccountAuthorizationDetailsRequestTypeDef(BaseValidatorModel):
     Filter: Optional[List[EntityTypeType]] = None
     MaxItems: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
 
 
 class PasswordPolicyTypeDef(BaseValidatorModel):
@@ -557,31 +559,31 @@ class PasswordPolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_context_keys_for_custom_policy' function.
 class GetContextKeysForCustomPolicyRequestTypeDef(BaseValidatorModel):
-    PolicyInputList: List[str]
+    PolicyInputList: List[Annotated[str, _aws_pattern("Iam", "policyDocumentType")]]
 
 
 # This class is the input for the 'get_context_keys_for_principal_policy' function.
 class GetContextKeysForPrincipalPolicyRequestTypeDef(BaseValidatorModel):
     PolicySourceArn: str
-    PolicyInputList: Optional[List[str]] = None
+    PolicyInputList: Optional[List[Annotated[str, _aws_pattern("Iam", "policyDocumentType")]]] = None
 
 
 # This class is the input for the 'get_delegation_request' function.
 class GetDelegationRequestRequestTypeDef(BaseValidatorModel):
-    DelegationRequestId: str
+    DelegationRequestId: Annotated[str, _aws_pattern("Iam", "delegationRequestIdType")]
     DelegationPermissionCheck: Optional[bool] = None
 
 
 # This class is the input for the 'get_group_policy' function.
 class GetGroupPolicyRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    PolicyName: str
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
 
 
 # This class is the input for the 'get_group' function.
 class GetGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    Marker: Optional[str] = None
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
@@ -593,7 +595,7 @@ class GetHumanReadableSummaryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_instance_profile' function.
 class GetInstanceProfileRequestTypeDef(BaseValidatorModel):
-    InstanceProfileName: str
+    InstanceProfileName: Annotated[str, _aws_pattern("Iam", "instanceProfileNameType")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -603,13 +605,13 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_login_profile' function.
 class GetLoginProfileRequestTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
 
 
 # This class is the input for the 'get_mfa_device' function.
 class GetMFADeviceRequestTypeDef(BaseValidatorModel):
-    SerialNumber: str
-    UserName: Optional[str] = None
+    SerialNumber: Annotated[str, _aws_pattern("Iam", "serialNumberType")]
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
 
 
 # This class is the input for the 'get_open_id_connect_provider' function.
@@ -621,7 +623,7 @@ class GetOpenIDConnectProviderRequestTypeDef(BaseValidatorModel):
 class GetOrganizationsAccessReportRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxItems: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     SortKey: Optional[SortKeyTypeType] = None
 
 
@@ -633,18 +635,18 @@ class GetPolicyRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_policy_version' function.
 class GetPolicyVersionRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
-    VersionId: str
+    VersionId: Annotated[str, _aws_pattern("Iam", "policyVersionIdType")]
 
 
 # This class is the input for the 'get_role_policy' function.
 class GetRolePolicyRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    PolicyName: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
 
 
 # This class is the input for the 'get_role' function.
 class GetRoleRequestTypeDef(BaseValidatorModel):
-    RoleName: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
 
 
 # This class is the input for the 'get_saml_provider' function.
@@ -653,44 +655,44 @@ class GetSAMLProviderRequestTypeDef(BaseValidatorModel):
 
 
 class SAMLPrivateKeyTypeDef(BaseValidatorModel):
-    KeyId: Optional[str] = None
+    KeyId: Optional[Annotated[str, _aws_pattern("Iam", "privateKeyIdType")]] = None
     Timestamp: Optional[datetime] = None
 
 
 # This class is the input for the 'get_ssh_public_key' function.
 class GetSSHPublicKeyRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    SSHPublicKeyId: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    SSHPublicKeyId: Annotated[str, _aws_pattern("Iam", "publicKeyIdType")]
     Encoding: EncodingTypeType
 
 
 class SSHPublicKeyTypeDef(BaseValidatorModel):
-    UserName: str
-    SSHPublicKeyId: str
-    Fingerprint: str
-    SSHPublicKeyBody: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    SSHPublicKeyId: Annotated[str, _aws_pattern("Iam", "publicKeyIdType")]
+    Fingerprint: Annotated[str, _aws_pattern("Iam", "publicKeyFingerprintType")]
+    SSHPublicKeyBody: Annotated[str, _aws_pattern("Iam", "publicKeyMaterialType")]
     Status: StatusTypeType
     UploadDate: Optional[datetime] = None
 
 
 # This class is the input for the 'get_server_certificate' function.
 class GetServerCertificateRequestTypeDef(BaseValidatorModel):
-    ServerCertificateName: str
+    ServerCertificateName: Annotated[str, _aws_pattern("Iam", "serverCertificateNameType")]
 
 
 # This class is the input for the 'get_service_last_accessed_details' function.
 class GetServiceLastAccessedDetailsRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxItems: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
 
 
 # This class is the input for the 'get_service_last_accessed_details_with_entities' function.
 class GetServiceLastAccessedDetailsWithEntitiesRequestTypeDef(BaseValidatorModel):
     JobId: str
-    ServiceNamespace: str
+    ServiceNamespace: Annotated[str, _aws_pattern("Iam", "serviceNamespaceType")]
     MaxItems: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
 
 
 # This class is the input for the 'get_service_linked_role_deletion_status' function.
@@ -700,56 +702,56 @@ class GetServiceLinkedRoleDeletionStatusRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_user_policy' function.
 class GetUserPolicyRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    PolicyName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
 
 
 # This class is the input for the 'get_user' function.
 class GetUserRequestTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "existingUserNameType")]] = None
 
 
 # This class is the input for the 'list_access_keys' function.
 class ListAccessKeysRequestTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
-    Marker: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "existingUserNameType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_account_aliases' function.
 class ListAccountAliasesRequestTypeDef(BaseValidatorModel):
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_attached_group_policies' function.
 class ListAttachedGroupPoliciesRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    PathPrefix: Optional[str] = None
-    Marker: Optional[str] = None
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    PathPrefix: Optional[Annotated[str, _aws_pattern("Iam", "policyPathType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_attached_role_policies' function.
 class ListAttachedRolePoliciesRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    PathPrefix: Optional[str] = None
-    Marker: Optional[str] = None
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    PathPrefix: Optional[Annotated[str, _aws_pattern("Iam", "policyPathType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_attached_user_policies' function.
 class ListAttachedUserPoliciesRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    PathPrefix: Optional[str] = None
-    Marker: Optional[str] = None
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    PathPrefix: Optional[Annotated[str, _aws_pattern("Iam", "policyPathType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_delegation_requests' function.
 class ListDelegationRequestsRequestTypeDef(BaseValidatorModel):
-    OwnerId: Optional[str] = None
-    Marker: Optional[str] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Iam", "ownerIdType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
@@ -757,93 +759,93 @@ class ListDelegationRequestsRequestTypeDef(BaseValidatorModel):
 class ListEntitiesForPolicyRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
     EntityFilter: Optional[EntityTypeType] = None
-    PathPrefix: Optional[str] = None
+    PathPrefix: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
     PolicyUsageFilter: Optional[PolicyUsageTypeType] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 class PolicyGroupTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    GroupId: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Iam", "groupNameType")]] = None
+    GroupId: Optional[Annotated[str, _aws_pattern("Iam", "idType")]] = None
 
 
 class PolicyRoleTypeDef(BaseValidatorModel):
-    RoleName: Optional[str] = None
-    RoleId: Optional[str] = None
+    RoleName: Optional[Annotated[str, _aws_pattern("Iam", "roleNameType")]] = None
+    RoleId: Optional[Annotated[str, _aws_pattern("Iam", "idType")]] = None
 
 
 class PolicyUserTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
-    UserId: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Iam", "idType")]] = None
 
 
 # This class is the input for the 'list_group_policies' function.
 class ListGroupPoliciesRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    Marker: Optional[str] = None
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_groups_for_user' function.
 class ListGroupsForUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    Marker: Optional[str] = None
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_groups' function.
 class ListGroupsRequestTypeDef(BaseValidatorModel):
-    PathPrefix: Optional[str] = None
-    Marker: Optional[str] = None
+    PathPrefix: Optional[Annotated[str, _aws_pattern("Iam", "pathPrefixType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_instance_profile_tags' function.
 class ListInstanceProfileTagsRequestTypeDef(BaseValidatorModel):
-    InstanceProfileName: str
-    Marker: Optional[str] = None
+    InstanceProfileName: Annotated[str, _aws_pattern("Iam", "instanceProfileNameType")]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_instance_profiles_for_role' function.
 class ListInstanceProfilesForRoleRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    Marker: Optional[str] = None
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_instance_profiles' function.
 class ListInstanceProfilesRequestTypeDef(BaseValidatorModel):
-    PathPrefix: Optional[str] = None
-    Marker: Optional[str] = None
+    PathPrefix: Optional[Annotated[str, _aws_pattern("Iam", "pathPrefixType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_mfa_device_tags' function.
 class ListMFADeviceTagsRequestTypeDef(BaseValidatorModel):
-    SerialNumber: str
-    Marker: Optional[str] = None
+    SerialNumber: Annotated[str, _aws_pattern("Iam", "serialNumberType")]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_mfa_devices' function.
 class ListMFADevicesRequestTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
-    Marker: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "existingUserNameType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 class MFADeviceTypeDef(BaseValidatorModel):
-    UserName: str
-    SerialNumber: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    SerialNumber: Annotated[str, _aws_pattern("Iam", "serialNumberType")]
     EnableDate: datetime
 
 
 # This class is the input for the 'list_open_id_connect_provider_tags' function.
 class ListOpenIDConnectProviderTagsRequestTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
@@ -852,69 +854,69 @@ class OpenIDConnectProviderListEntryTypeDef(BaseValidatorModel):
 
 
 class PolicyGrantingServiceAccessTypeDef(BaseValidatorModel):
-    PolicyName: str
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
     PolicyType: PolicyTypeType
     PolicyArn: Optional[str] = None
     EntityType: Optional[PolicyOwnerEntityTypeType] = None
-    EntityName: Optional[str] = None
+    EntityName: Optional[Annotated[str, _aws_pattern("Iam", "entityNameType")]] = None
 
 
 # This class is the input for the 'list_policies_granting_service_access' function.
 class ListPoliciesGrantingServiceAccessRequestTypeDef(BaseValidatorModel):
     Arn: str
-    ServiceNamespaces: List[str]
-    Marker: Optional[str] = None
+    ServiceNamespaces: List[Annotated[str, _aws_pattern("Iam", "serviceNamespaceType")]]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
 
 
 # This class is the input for the 'list_policies' function.
 class ListPoliciesRequestTypeDef(BaseValidatorModel):
     Scope: Optional[PolicyScopeTypeType] = None
     OnlyAttached: Optional[bool] = None
-    PathPrefix: Optional[str] = None
+    PathPrefix: Optional[Annotated[str, _aws_pattern("Iam", "policyPathType")]] = None
     PolicyUsageFilter: Optional[PolicyUsageTypeType] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_policy_tags' function.
 class ListPolicyTagsRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_policy_versions' function.
 class ListPolicyVersionsRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_role_policies' function.
 class ListRolePoliciesRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    Marker: Optional[str] = None
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_role_tags' function.
 class ListRoleTagsRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    Marker: Optional[str] = None
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_roles' function.
 class ListRolesRequestTypeDef(BaseValidatorModel):
-    PathPrefix: Optional[str] = None
-    Marker: Optional[str] = None
+    PathPrefix: Optional[Annotated[str, _aws_pattern("Iam", "pathPrefixType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_saml_provider_tags' function.
 class ListSAMLProviderTagsRequestTypeDef(BaseValidatorModel):
     SAMLProviderArn: str
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
@@ -926,36 +928,36 @@ class SAMLProviderListEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_ssh_public_keys' function.
 class ListSSHPublicKeysRequestTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
-    Marker: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 class SSHPublicKeyMetadataTypeDef(BaseValidatorModel):
-    UserName: str
-    SSHPublicKeyId: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    SSHPublicKeyId: Annotated[str, _aws_pattern("Iam", "publicKeyIdType")]
     Status: StatusTypeType
     UploadDate: datetime
 
 
 # This class is the input for the 'list_server_certificate_tags' function.
 class ListServerCertificateTagsRequestTypeDef(BaseValidatorModel):
-    ServerCertificateName: str
-    Marker: Optional[str] = None
+    ServerCertificateName: Annotated[str, _aws_pattern("Iam", "serverCertificateNameType")]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_server_certificates' function.
 class ListServerCertificatesRequestTypeDef(BaseValidatorModel):
-    PathPrefix: Optional[str] = None
-    Marker: Optional[str] = None
+    PathPrefix: Optional[Annotated[str, _aws_pattern("Iam", "pathPrefixType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 class ServerCertificateMetadataTypeDef(BaseValidatorModel):
-    Path: str
-    ServerCertificateName: str
-    ServerCertificateId: str
+    Path: Annotated[str, _aws_pattern("Iam", "pathType")]
+    ServerCertificateName: Annotated[str, _aws_pattern("Iam", "serverCertificateNameType")]
+    ServerCertificateId: Annotated[str, _aws_pattern("Iam", "idType")]
     Arn: str
     UploadDate: Optional[datetime] = None
     Expiration: Optional[datetime] = None
@@ -963,64 +965,64 @@ class ServerCertificateMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_service_specific_credentials' function.
 class ListServiceSpecificCredentialsRequestTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
     ServiceName: Optional[str] = None
     AllUsers: Optional[bool] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 class ServiceSpecificCredentialMetadataTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
     Status: StatusTypeType
     CreateDate: datetime
-    ServiceSpecificCredentialId: str
+    ServiceSpecificCredentialId: Annotated[str, _aws_pattern("Iam", "serviceSpecificCredentialId")]
     ServiceName: str
-    ServiceUserName: Optional[str] = None
-    ServiceCredentialAlias: Optional[str] = None
+    ServiceUserName: Optional[Annotated[str, _aws_pattern("Iam", "serviceUserName")]] = None
+    ServiceCredentialAlias: Optional[Annotated[str, _aws_pattern("Iam", "serviceCredentialAlias")]] = None
     ExpirationDate: Optional[datetime] = None
 
 
 # This class is the input for the 'list_signing_certificates' function.
 class ListSigningCertificatesRequestTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
-    Marker: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "existingUserNameType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 class SigningCertificateTypeDef(BaseValidatorModel):
-    UserName: str
-    CertificateId: str
-    CertificateBody: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    CertificateId: Annotated[str, _aws_pattern("Iam", "certificateIdType")]
+    CertificateBody: Annotated[str, _aws_pattern("Iam", "certificateBodyType")]
     Status: StatusTypeType
     UploadDate: Optional[datetime] = None
 
 
 # This class is the input for the 'list_user_policies' function.
 class ListUserPoliciesRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    Marker: Optional[str] = None
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_user_tags' function.
 class ListUserTagsRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    Marker: Optional[str] = None
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_users' function.
 class ListUsersRequestTypeDef(BaseValidatorModel):
-    PathPrefix: Optional[str] = None
-    Marker: Optional[str] = None
+    PathPrefix: Optional[Annotated[str, _aws_pattern("Iam", "pathPrefixType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_virtual_mfa_devices' function.
 class ListVirtualMFADevicesRequestTypeDef(BaseValidatorModel):
     AssignmentStatus: Optional[AssignmentStatusTypeType] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
     MaxItems: Optional[int] = None
 
 
@@ -1047,14 +1049,14 @@ class PutGroupPolicyRequestGroupPolicyPutTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_group_policy' function.
 class PutGroupPolicyRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    PolicyName: str
-    PolicyDocument: str
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
+    PolicyDocument: Annotated[str, _aws_pattern("Iam", "policyDocumentType")]
 
 
 # This class is the input for the 'put_role_permissions_boundary' function.
 class PutRolePermissionsBoundaryRequestTypeDef(BaseValidatorModel):
-    RoleName: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
     PermissionsBoundary: str
 
 
@@ -1064,22 +1066,22 @@ class PutRolePolicyRequestRolePolicyPutTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_role_policy' function.
 class PutRolePolicyRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    PolicyName: str
-    PolicyDocument: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
+    PolicyDocument: Annotated[str, _aws_pattern("Iam", "policyDocumentType")]
 
 
 # This class is the input for the 'put_user_permissions_boundary' function.
 class PutUserPermissionsBoundaryRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
     PermissionsBoundary: str
 
 
 # This class is the input for the 'put_user_policy' function.
 class PutUserPolicyRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    PolicyName: str
-    PolicyDocument: str
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
+    PolicyDocument: Annotated[str, _aws_pattern("Iam", "policyDocumentType")]
 
 
 class PutUserPolicyRequestUserCreatePolicyTypeDef(BaseValidatorModel):
@@ -1093,8 +1095,8 @@ class PutUserPolicyRequestUserPolicyPutTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reject_delegation_request' function.
 class RejectDelegationRequestRequestTypeDef(BaseValidatorModel):
-    DelegationRequestId: str
-    Notes: Optional[str] = None
+    DelegationRequestId: Annotated[str, _aws_pattern("Iam", "delegationRequestIdType")]
+    Notes: Optional[Annotated[str, _aws_pattern("Iam", "notesType")]] = None
 
 
 # This class is the input for the 'remove_client_id_from_open_id_connect_provider' function.
@@ -1109,8 +1111,8 @@ class RemoveRoleFromInstanceProfileRequestInstanceProfileRemoveRoleTypeDef(BaseV
 
 # This class is the input for the 'remove_role_from_instance_profile' function.
 class RemoveRoleFromInstanceProfileRequestTypeDef(BaseValidatorModel):
-    InstanceProfileName: str
-    RoleName: str
+    InstanceProfileName: Annotated[str, _aws_pattern("Iam", "instanceProfileNameType")]
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
 
 
 class RemoveUserFromGroupRequestGroupRemoveUserTypeDef(BaseValidatorModel):
@@ -1119,8 +1121,8 @@ class RemoveUserFromGroupRequestGroupRemoveUserTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'remove_user_from_group' function.
 class RemoveUserFromGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    UserName: str
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
 
 
 class RemoveUserFromGroupRequestUserRemoveGroupTypeDef(BaseValidatorModel):
@@ -1129,8 +1131,8 @@ class RemoveUserFromGroupRequestUserRemoveGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reset_service_specific_credential' function.
 class ResetServiceSpecificCredentialRequestTypeDef(BaseValidatorModel):
-    ServiceSpecificCredentialId: str
-    UserName: Optional[str] = None
+    ServiceSpecificCredentialId: Annotated[str, _aws_pattern("Iam", "serviceSpecificCredentialId")]
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
 
 
 class ResyncMFADeviceRequestMfaDeviceResyncTypeDef(BaseValidatorModel):
@@ -1140,10 +1142,10 @@ class ResyncMFADeviceRequestMfaDeviceResyncTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'resync_mfa_device' function.
 class ResyncMFADeviceRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    SerialNumber: str
-    AuthenticationCode1: str
-    AuthenticationCode2: str
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
+    SerialNumber: Annotated[str, _aws_pattern("Iam", "serialNumberType")]
+    AuthenticationCode1: Annotated[str, _aws_pattern("Iam", "authenticationCodeType")]
+    AuthenticationCode2: Annotated[str, _aws_pattern("Iam", "authenticationCodeType")]
 
 
 class RoleLastUsedTypeDef(BaseValidatorModel):
@@ -1153,7 +1155,7 @@ class RoleLastUsedTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'send_delegation_token' function.
 class SendDelegationTokenRequestTypeDef(BaseValidatorModel):
-    DelegationRequestId: str
+    DelegationRequestId: Annotated[str, _aws_pattern("Iam", "delegationRequestIdType")]
 
 
 class TrackedActionLastAccessedTypeDef(BaseValidatorModel):
@@ -1166,7 +1168,7 @@ class TrackedActionLastAccessedTypeDef(BaseValidatorModel):
 # This class is the input for the 'set_default_policy_version' function.
 class SetDefaultPolicyVersionRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
-    VersionId: str
+    VersionId: Annotated[str, _aws_pattern("Iam", "policyVersionIdType")]
 
 
 # This class is the input for the 'set_security_token_service_preferences' function.
@@ -1176,50 +1178,50 @@ class SetSecurityTokenServicePreferencesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'untag_instance_profile' function.
 class UntagInstanceProfileRequestTypeDef(BaseValidatorModel):
-    InstanceProfileName: str
-    TagKeys: List[str]
+    InstanceProfileName: Annotated[str, _aws_pattern("Iam", "instanceProfileNameType")]
+    TagKeys: List[Annotated[str, _aws_pattern("Iam", "tagKeyType")]]
 
 
 # This class is the input for the 'untag_mfa_device' function.
 class UntagMFADeviceRequestTypeDef(BaseValidatorModel):
-    SerialNumber: str
-    TagKeys: List[str]
+    SerialNumber: Annotated[str, _aws_pattern("Iam", "serialNumberType")]
+    TagKeys: List[Annotated[str, _aws_pattern("Iam", "tagKeyType")]]
 
 
 # This class is the input for the 'untag_open_id_connect_provider' function.
 class UntagOpenIDConnectProviderRequestTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("Iam", "tagKeyType")]]
 
 
 # This class is the input for the 'untag_policy' function.
 class UntagPolicyRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("Iam", "tagKeyType")]]
 
 
 # This class is the input for the 'untag_role' function.
 class UntagRoleRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    TagKeys: List[str]
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    TagKeys: List[Annotated[str, _aws_pattern("Iam", "tagKeyType")]]
 
 
 # This class is the input for the 'untag_saml_provider' function.
 class UntagSAMLProviderRequestTypeDef(BaseValidatorModel):
     SAMLProviderArn: str
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("Iam", "tagKeyType")]]
 
 
 # This class is the input for the 'untag_server_certificate' function.
 class UntagServerCertificateRequestTypeDef(BaseValidatorModel):
-    ServerCertificateName: str
-    TagKeys: List[str]
+    ServerCertificateName: Annotated[str, _aws_pattern("Iam", "serverCertificateNameType")]
+    TagKeys: List[Annotated[str, _aws_pattern("Iam", "tagKeyType")]]
 
 
 # This class is the input for the 'untag_user' function.
 class UntagUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    TagKeys: List[str]
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
+    TagKeys: List[Annotated[str, _aws_pattern("Iam", "tagKeyType")]]
 
 
 class UpdateAccessKeyRequestAccessKeyActivateTypeDef(BaseValidatorModel):
@@ -1240,9 +1242,9 @@ class UpdateAccessKeyRequestAccessKeyPairDeactivateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_access_key' function.
 class UpdateAccessKeyRequestTypeDef(BaseValidatorModel):
-    AccessKeyId: str
+    AccessKeyId: Annotated[str, _aws_pattern("Iam", "accessKeyIdType")]
     Status: StatusTypeType
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "existingUserNameType")]] = None
 
 
 class UpdateAccountPasswordPolicyRequestAccountPasswordPolicyUpdateTypeDef(BaseValidatorModel):
@@ -1288,14 +1290,14 @@ class UpdateAssumeRolePolicyRequestAssumeRolePolicyUpdateTypeDef(BaseValidatorMo
 
 # This class is the input for the 'update_assume_role_policy' function.
 class UpdateAssumeRolePolicyRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    PolicyDocument: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    PolicyDocument: Annotated[str, _aws_pattern("Iam", "policyDocumentType")]
 
 
 # This class is the input for the 'update_delegation_request' function.
 class UpdateDelegationRequestRequestTypeDef(BaseValidatorModel):
-    DelegationRequestId: str
-    Notes: Optional[str] = None
+    DelegationRequestId: Annotated[str, _aws_pattern("Iam", "delegationRequestIdType")]
+    Notes: Optional[Annotated[str, _aws_pattern("Iam", "notesType")]] = None
 
 
 class UpdateGroupRequestGroupUpdateTypeDef(BaseValidatorModel):
@@ -1305,9 +1307,9 @@ class UpdateGroupRequestGroupUpdateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_group' function.
 class UpdateGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    NewPath: Optional[str] = None
-    NewGroupName: Optional[str] = None
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    NewPath: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
+    NewGroupName: Optional[Annotated[str, _aws_pattern("Iam", "groupNameType")]] = None
 
 
 class UpdateLoginProfileRequestLoginProfileUpdateTypeDef(BaseValidatorModel):
@@ -1317,8 +1319,8 @@ class UpdateLoginProfileRequestLoginProfileUpdateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_login_profile' function.
 class UpdateLoginProfileRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    Password: Optional[str] = None
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    Password: Optional[Annotated[str, _aws_pattern("Iam", "passwordType")]] = None
     PasswordResetRequired: Optional[bool] = None
 
 
@@ -1330,13 +1332,13 @@ class UpdateOpenIDConnectProviderThumbprintRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_role_description' function.
 class UpdateRoleDescriptionRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    Description: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    Description: Annotated[str, _aws_pattern("Iam", "roleDescriptionType")]
 
 
 class UpdateRoleRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    Description: Optional[str] = None
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    Description: Optional[Annotated[str, _aws_pattern("Iam", "roleDescriptionType")]] = None
     MaxSessionDuration: Optional[int] = None
 
 
@@ -1352,14 +1354,14 @@ class UpdateSAMLProviderRequestTypeDef(BaseValidatorModel):
     SAMLProviderArn: str
     SAMLMetadataDocument: Optional[str] = None
     AssertionEncryptionMode: Optional[AssertionEncryptionModeTypeType] = None
-    AddPrivateKey: Optional[str] = None
-    RemovePrivateKey: Optional[str] = None
+    AddPrivateKey: Optional[Annotated[str, _aws_pattern("Iam", "privateKeyType")]] = None
+    RemovePrivateKey: Optional[Annotated[str, _aws_pattern("Iam", "privateKeyIdType")]] = None
 
 
 # This class is the input for the 'update_ssh_public_key' function.
 class UpdateSSHPublicKeyRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    SSHPublicKeyId: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    SSHPublicKeyId: Annotated[str, _aws_pattern("Iam", "publicKeyIdType")]
     Status: StatusTypeType
 
 
@@ -1370,16 +1372,16 @@ class UpdateServerCertificateRequestServerCertificateUpdateTypeDef(BaseValidator
 
 # This class is the input for the 'update_server_certificate' function.
 class UpdateServerCertificateRequestTypeDef(BaseValidatorModel):
-    ServerCertificateName: str
-    NewPath: Optional[str] = None
-    NewServerCertificateName: Optional[str] = None
+    ServerCertificateName: Annotated[str, _aws_pattern("Iam", "serverCertificateNameType")]
+    NewPath: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
+    NewServerCertificateName: Optional[Annotated[str, _aws_pattern("Iam", "serverCertificateNameType")]] = None
 
 
 # This class is the input for the 'update_service_specific_credential' function.
 class UpdateServiceSpecificCredentialRequestTypeDef(BaseValidatorModel):
-    ServiceSpecificCredentialId: str
+    ServiceSpecificCredentialId: Annotated[str, _aws_pattern("Iam", "serviceSpecificCredentialId")]
     Status: StatusTypeType
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
 
 
 class UpdateSigningCertificateRequestSigningCertificateActivateTypeDef(BaseValidatorModel):
@@ -1392,16 +1394,16 @@ class UpdateSigningCertificateRequestSigningCertificateDeactivateTypeDef(BaseVal
 
 # This class is the input for the 'update_signing_certificate' function.
 class UpdateSigningCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateId: str
+    CertificateId: Annotated[str, _aws_pattern("Iam", "certificateIdType")]
     Status: StatusTypeType
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "existingUserNameType")]] = None
 
 
 # This class is the input for the 'update_user' function.
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    NewPath: Optional[str] = None
-    NewUserName: Optional[str] = None
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
+    NewPath: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
+    NewUserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
 
 
 class UpdateUserRequestUserUpdateTypeDef(BaseValidatorModel):
@@ -1411,8 +1413,8 @@ class UpdateUserRequestUserUpdateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'upload_ssh_public_key' function.
 class UploadSSHPublicKeyRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    SSHPublicKeyBody: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    SSHPublicKeyBody: Annotated[str, _aws_pattern("Iam", "publicKeyMaterialType")]
 
 
 class UploadSigningCertificateRequestServiceResourceCreateSigningCertificateTypeDef(BaseValidatorModel):
@@ -1422,39 +1424,39 @@ class UploadSigningCertificateRequestServiceResourceCreateSigningCertificateType
 
 # This class is the input for the 'upload_signing_certificate' function.
 class UploadSigningCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateBody: str
-    UserName: Optional[str] = None
+    CertificateBody: Annotated[str, _aws_pattern("Iam", "certificateBodyType")]
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "existingUserNameType")]] = None
 
 
 # This class is the input for the 'simulate_custom_policy' function.
 class SimulateCustomPolicyRequestTypeDef(BaseValidatorModel):
-    PolicyInputList: List[str]
+    PolicyInputList: List[Annotated[str, _aws_pattern("Iam", "policyDocumentType")]]
     ActionNames: List[str]
-    PermissionsBoundaryPolicyInputList: Optional[List[str]] = None
+    PermissionsBoundaryPolicyInputList: Optional[List[Annotated[str, _aws_pattern("Iam", "policyDocumentType")]]] = None
     ResourceArns: Optional[List[str]] = None
-    ResourcePolicy: Optional[str] = None
+    ResourcePolicy: Optional[Annotated[str, _aws_pattern("Iam", "policyDocumentType")]] = None
     ResourceOwner: Optional[str] = None
     CallerArn: Optional[str] = None
     ContextEntries: Optional[List[ContextEntryTypeDef]] = None
     ResourceHandlingOption: Optional[str] = None
     MaxItems: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
 
 
 # This class is the input for the 'simulate_principal_policy' function.
 class SimulatePrincipalPolicyRequestTypeDef(BaseValidatorModel):
     PolicySourceArn: str
     ActionNames: List[str]
-    PolicyInputList: Optional[List[str]] = None
-    PermissionsBoundaryPolicyInputList: Optional[List[str]] = None
+    PolicyInputList: Optional[List[Annotated[str, _aws_pattern("Iam", "policyDocumentType")]]] = None
+    PermissionsBoundaryPolicyInputList: Optional[List[Annotated[str, _aws_pattern("Iam", "policyDocumentType")]]] = None
     ResourceArns: Optional[List[str]] = None
-    ResourcePolicy: Optional[str] = None
+    ResourcePolicy: Optional[Annotated[str, _aws_pattern("Iam", "policyDocumentType")]] = None
     ResourceOwner: Optional[str] = None
     CallerArn: Optional[str] = None
     ContextEntries: Optional[List[ContextEntryTypeDef]] = None
     ResourceHandlingOption: Optional[str] = None
     MaxItems: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Iam", "markerType")]] = None
 
 
 # This class is the output for the 'create_access_key' function.
@@ -1466,7 +1468,7 @@ class CreateAccessKeyResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_delegation_request' function.
 class CreateDelegationRequestResponseTypeDef(BaseValidatorModel):
     ConsoleDeepLink: str
-    DelegationRequestId: str
+    DelegationRequestId: Annotated[str, _aws_pattern("Iam", "delegationRequestIdType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1477,13 +1479,13 @@ class DeleteServiceLinkedRoleResponseTypeDef(BaseValidatorModel):
 
 
 class DisableOrganizationsRootCredentialsManagementResponseTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Iam", "OrganizationIdType")]
     EnabledFeatures: List[FeatureTypeType]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DisableOrganizationsRootSessionsResponseTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Iam", "OrganizationIdType")]
     EnabledFeatures: List[FeatureTypeType]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1494,13 +1496,13 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class EnableOrganizationsRootCredentialsManagementResponseTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Iam", "OrganizationIdType")]
     EnabledFeatures: List[FeatureTypeType]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class EnableOrganizationsRootSessionsResponseTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Iam", "OrganizationIdType")]
     EnabledFeatures: List[FeatureTypeType]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1530,7 +1532,7 @@ class GenerateServiceLastAccessedDetailsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_access_key_last_used' function.
 class GetAccessKeyLastUsedResponseTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
     AccessKeyLastUsed: AccessKeyLastUsedTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1563,8 +1565,8 @@ class GetHumanReadableSummaryResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_mfa_device' function.
 class GetMFADeviceResponseTypeDef(BaseValidatorModel):
-    UserName: str
-    SerialNumber: str
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    SerialNumber: Annotated[str, _aws_pattern("Iam", "serialNumberType")]
     EnableDate: datetime
     Certifications: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1586,7 +1588,7 @@ class ListAccessKeysResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_account_aliases' function.
 class ListAccountAliasesResponseTypeDef(BaseValidatorModel):
-    AccountAliases: List[str]
+    AccountAliases: List[Annotated[str, _aws_pattern("Iam", "accountAliasType")]]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1618,21 +1620,21 @@ class ListAttachedUserPoliciesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_group_policies' function.
 class ListGroupPoliciesResponseTypeDef(BaseValidatorModel):
-    PolicyNames: List[str]
+    PolicyNames: List[Annotated[str, _aws_pattern("Iam", "policyNameType")]]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ListOrganizationsFeaturesResponseTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Iam", "OrganizationIdType")]
     EnabledFeatures: List[FeatureTypeType]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_role_policies' function.
 class ListRolePoliciesResponseTypeDef(BaseValidatorModel):
-    PolicyNames: List[str]
+    PolicyNames: List[Annotated[str, _aws_pattern("Iam", "policyNameType")]]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1640,7 +1642,7 @@ class ListRolePoliciesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_user_policies' function.
 class ListUserPoliciesResponseTypeDef(BaseValidatorModel):
-    PolicyNames: List[str]
+    PolicyNames: List[Annotated[str, _aws_pattern("Iam", "policyNameType")]]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1682,8 +1684,8 @@ class CreateInstanceProfileRequestServiceResourceCreateInstanceProfileTypeDef(Ba
 
 # This class is the input for the 'create_instance_profile' function.
 class CreateInstanceProfileRequestTypeDef(BaseValidatorModel):
-    InstanceProfileName: str
-    Path: Optional[str] = None
+    InstanceProfileName: Annotated[str, _aws_pattern("Iam", "instanceProfileNameType")]
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1712,9 +1714,9 @@ class CreatePolicyRequestServiceResourceCreatePolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_policy' function.
 class CreatePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyName: str
-    PolicyDocument: str
-    Path: Optional[str] = None
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
+    PolicyDocument: Annotated[str, _aws_pattern("Iam", "policyDocumentType")]
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "policyPathType")]] = None
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -1731,10 +1733,10 @@ class CreateRoleRequestServiceResourceCreateRoleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_role' function.
 class CreateRoleRequestTypeDef(BaseValidatorModel):
-    RoleName: str
-    AssumeRolePolicyDocument: str
-    Path: Optional[str] = None
-    Description: Optional[str] = None
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    AssumeRolePolicyDocument: Annotated[str, _aws_pattern("Iam", "policyDocumentType")]
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Iam", "roleDescriptionType")]] = None
     MaxSessionDuration: Optional[int] = None
     PermissionsBoundary: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -1751,10 +1753,10 @@ class CreateSAMLProviderRequestServiceResourceCreateSamlProviderTypeDef(BaseVali
 # This class is the input for the 'create_saml_provider' function.
 class CreateSAMLProviderRequestTypeDef(BaseValidatorModel):
     SAMLMetadataDocument: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Iam", "SAMLProviderNameType")]
     Tags: Optional[List[TagTypeDef]] = None
     AssertionEncryptionMode: Optional[AssertionEncryptionModeTypeType] = None
-    AddPrivateKey: Optional[str] = None
+    AddPrivateKey: Optional[Annotated[str, _aws_pattern("Iam", "privateKeyType")]] = None
 
 
 # This class is the output for the 'create_saml_provider' function.
@@ -1773,8 +1775,8 @@ class CreateUserRequestServiceResourceCreateUserTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user' function.
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    Path: Optional[str] = None
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
     PermissionsBoundary: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -1793,8 +1795,8 @@ class CreateVirtualMFADeviceRequestServiceResourceCreateVirtualMfaDeviceTypeDef(
 
 # This class is the input for the 'create_virtual_mfa_device' function.
 class CreateVirtualMFADeviceRequestTypeDef(BaseValidatorModel):
-    VirtualMFADeviceName: str
-    Path: Optional[str] = None
+    VirtualMFADeviceName: Annotated[str, _aws_pattern("Iam", "virtualMFADeviceName")]
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1873,11 +1875,11 @@ class ListUserTagsResponseTypeDef(BaseValidatorModel):
 
 
 class PolicyTypeDef(BaseValidatorModel):
-    PolicyName: Optional[str] = None
-    PolicyId: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Iam", "policyNameType")]] = None
+    PolicyId: Optional[Annotated[str, _aws_pattern("Iam", "idType")]] = None
     Arn: Optional[str] = None
-    Path: Optional[str] = None
-    DefaultVersionId: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "policyPathType")]] = None
+    DefaultVersionId: Optional[Annotated[str, _aws_pattern("Iam", "policyVersionIdType")]] = None
     AttachmentCount: Optional[int] = None
     PermissionsBoundaryUsageCount: Optional[int] = None
     IsAttachable: Optional[bool] = None
@@ -1889,13 +1891,13 @@ class PolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_instance_profile' function.
 class TagInstanceProfileRequestTypeDef(BaseValidatorModel):
-    InstanceProfileName: str
+    InstanceProfileName: Annotated[str, _aws_pattern("Iam", "instanceProfileNameType")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'tag_mfa_device' function.
 class TagMFADeviceRequestTypeDef(BaseValidatorModel):
-    SerialNumber: str
+    SerialNumber: Annotated[str, _aws_pattern("Iam", "serialNumberType")]
     Tags: List[TagTypeDef]
 
 
@@ -1913,7 +1915,7 @@ class TagPolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_role' function.
 class TagRoleRequestTypeDef(BaseValidatorModel):
-    RoleName: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
     Tags: List[TagTypeDef]
 
 
@@ -1925,13 +1927,13 @@ class TagSAMLProviderRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_server_certificate' function.
 class TagServerCertificateRequestTypeDef(BaseValidatorModel):
-    ServerCertificateName: str
+    ServerCertificateName: Annotated[str, _aws_pattern("Iam", "serverCertificateNameType")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'tag_user' function.
 class TagUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
     Tags: List[TagTypeDef]
 
 
@@ -1946,18 +1948,18 @@ class UploadServerCertificateRequestServiceResourceCreateServerCertificateTypeDe
 
 # This class is the input for the 'upload_server_certificate' function.
 class UploadServerCertificateRequestTypeDef(BaseValidatorModel):
-    ServerCertificateName: str
-    CertificateBody: str
-    PrivateKey: str
-    Path: Optional[str] = None
-    CertificateChain: Optional[str] = None
+    ServerCertificateName: Annotated[str, _aws_pattern("Iam", "serverCertificateNameType")]
+    CertificateBody: Annotated[str, _aws_pattern("Iam", "certificateBodyType")]
+    PrivateKey: Annotated[str, _aws_pattern("Iam", "privateKeyType")]
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
+    CertificateChain: Optional[Annotated[str, _aws_pattern("Iam", "certificateChainType")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class UserTypeDef(BaseValidatorModel):
-    Path: str
-    UserName: str
-    UserId: str
+    Path: Annotated[str, _aws_pattern("Iam", "pathType")]
+    UserName: Annotated[str, _aws_pattern("Iam", "userNameType")]
+    UserId: Annotated[str, _aws_pattern("Iam", "idType")]
     Arn: str
     CreateDate: datetime
     PasswordLastUsed: Optional[datetime] = None
@@ -2018,7 +2020,7 @@ class GetOrganizationsAccessReportResponseTypeDef(BaseValidatorModel):
     NumberOfServicesNotAccessed: int
     AccessDetails: List[AccessDetailTypeDef]
     IsTruncated: bool
-    Marker: str
+    Marker: Annotated[str, _aws_pattern("Iam", "markerType")]
     ErrorDetails: ErrorDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2245,7 +2247,7 @@ class GetUserRequestWaitTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_saml_provider' function.
 class GetSAMLProviderResponseTypeDef(BaseValidatorModel):
-    SAMLProviderUUID: str
+    SAMLProviderUUID: Annotated[str, _aws_pattern("Iam", "privateKeyIdType")]
     SAMLMetadataDocument: str
     CreateDate: datetime
     ValidUntil: datetime
@@ -2291,7 +2293,7 @@ class ListOpenIDConnectProvidersResponseTypeDef(BaseValidatorModel):
 
 
 class ListPoliciesGrantingServiceAccessEntryTypeDef(BaseValidatorModel):
-    ServiceNamespace: Optional[str] = None
+    ServiceNamespace: Optional[Annotated[str, _aws_pattern("Iam", "serviceNamespaceType")]] = None
     Policies: Optional[List[PolicyGrantingServiceAccessTypeDef]] = None
 
 
@@ -2318,8 +2320,8 @@ class ListServerCertificatesResponseTypeDef(BaseValidatorModel):
 
 class ServerCertificateTypeDef(BaseValidatorModel):
     ServerCertificateMetadata: ServerCertificateMetadataTypeDef
-    CertificateBody: str
-    CertificateChain: Optional[str] = None
+    CertificateBody: Annotated[str, _aws_pattern("Iam", "certificateBodyType")]
+    CertificateChain: Optional[Annotated[str, _aws_pattern("Iam", "certificateChainType")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -2366,7 +2368,7 @@ class StatementTypeDef(BaseValidatorModel):
 
 class ServiceLastAccessedTypeDef(BaseValidatorModel):
     ServiceName: str
-    ServiceNamespace: str
+    ServiceNamespace: Annotated[str, _aws_pattern("Iam", "serviceNamespaceType")]
     LastAuthenticated: Optional[datetime] = None
     LastAuthenticatedEntity: Optional[str] = None
     LastAuthenticatedRegion: Optional[str] = None
@@ -2424,7 +2426,7 @@ class ListUsersResponseTypeDef(BaseValidatorModel):
 
 
 class VirtualMFADeviceTypeDef(BaseValidatorModel):
-    SerialNumber: str
+    SerialNumber: Annotated[str, _aws_pattern("Iam", "serialNumberType")]
     Base32StringSeed: Optional[bytes] = None
     QRCodePNG: Optional[bytes] = None
     User: Optional[UserTypeDef] = None
@@ -2433,24 +2435,24 @@ class VirtualMFADeviceTypeDef(BaseValidatorModel):
 
 
 class DelegationRequestTypeDef(BaseValidatorModel):
-    DelegationRequestId: Optional[str] = None
-    OwnerAccountId: Optional[str] = None
-    Description: Optional[str] = None
-    RequestMessage: Optional[str] = None
+    DelegationRequestId: Optional[Annotated[str, _aws_pattern("Iam", "delegationRequestIdType")]] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("Iam", "accountIdType")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Iam", "delegationRequestDescriptionType")]] = None
+    RequestMessage: Optional[Annotated[str, _aws_pattern("Iam", "requestMessageType")]] = None
     Permissions: Optional[DelegationPermissionOutputTypeDef] = None
     PermissionPolicy: Optional[str] = None
     RolePermissionRestrictionArns: Optional[List[str]] = None
-    OwnerId: Optional[str] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Iam", "ownerIdType")]] = None
     ApproverId: Optional[str] = None
     State: Optional[StateTypeType] = None
     ExpirationTime: Optional[datetime] = None
-    RequestorId: Optional[str] = None
-    RequestorName: Optional[str] = None
+    RequestorId: Optional[Annotated[str, _aws_pattern("Iam", "accountIdType")]] = None
+    RequestorName: Optional[Annotated[str, _aws_pattern("Iam", "requestorNameType")]] = None
     CreateDate: Optional[datetime] = None
     SessionDuration: Optional[int] = None
-    RedirectUrl: Optional[str] = None
-    Notes: Optional[str] = None
-    RejectionReason: Optional[str] = None
+    RedirectUrl: Optional[Annotated[str, _aws_pattern("Iam", "redirectUrlType")]] = None
+    Notes: Optional[Annotated[str, _aws_pattern("Iam", "notesType")]] = None
+    RejectionReason: Optional[Annotated[str, _aws_pattern("Iam", "notesType")]] = None
     OnlySendByOwner: Optional[bool] = None
     UpdatedTime: Optional[datetime] = None
 
@@ -2541,68 +2543,68 @@ class GetDelegationRequestResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_delegation_requests' function.
 class ListDelegationRequestsResponseTypeDef(BaseValidatorModel):
     DelegationRequests: List[DelegationRequestTypeDef]
-    Marker: str
+    Marker: Annotated[str, _aws_pattern("Iam", "markerType")]
     isTruncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_delegation_request' function.
 class CreateDelegationRequestRequestTypeDef(BaseValidatorModel):
-    Description: str
+    Description: Annotated[str, _aws_pattern("Iam", "delegationRequestDescriptionType")]
     Permissions: DelegationPermissionUnionTypeDef
-    RequestorWorkflowId: str
-    NotificationChannel: str
+    RequestorWorkflowId: Annotated[str, _aws_pattern("Iam", "requestorWorkflowIdType")]
+    NotificationChannel: Annotated[str, _aws_pattern("Iam", "notificationChannelType")]
     SessionDuration: int
-    OwnerAccountId: Optional[str] = None
-    RequestMessage: Optional[str] = None
-    RedirectUrl: Optional[str] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("Iam", "accountIdType")]] = None
+    RequestMessage: Optional[Annotated[str, _aws_pattern("Iam", "requestMessageType")]] = None
+    RedirectUrl: Optional[Annotated[str, _aws_pattern("Iam", "redirectUrlType")]] = None
     OnlySendByOwner: Optional[bool] = None
 
 
 # This class is the output for the 'get_group_policy' function.
 class GetGroupPolicyResponseTypeDef(BaseValidatorModel):
-    GroupName: str
-    PolicyName: str
+    GroupName: Annotated[str, _aws_pattern("Iam", "groupNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
     PolicyDocument: PolicyDocumentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_role_policy' function.
 class GetRolePolicyResponseTypeDef(BaseValidatorModel):
-    RoleName: str
-    PolicyName: str
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
     PolicyDocument: PolicyDocumentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_user_policy' function.
 class GetUserPolicyResponseTypeDef(BaseValidatorModel):
-    UserName: str
-    PolicyName: str
+    UserName: Annotated[str, _aws_pattern("Iam", "existingUserNameType")]
+    PolicyName: Annotated[str, _aws_pattern("Iam", "policyNameType")]
     PolicyDocument: PolicyDocumentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class PolicyDetailTypeDef(BaseValidatorModel):
-    PolicyName: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Iam", "policyNameType")]] = None
     PolicyDocument: Optional[PolicyDocumentTypeDef] = None
 
 
 class PolicyVersionTypeDef(BaseValidatorModel):
     Document: Optional[PolicyDocumentTypeDef] = None
-    VersionId: Optional[str] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Iam", "policyVersionIdType")]] = None
     IsDefaultVersion: Optional[bool] = None
     CreateDate: Optional[datetime] = None
 
 
 class RoleTypeDef(BaseValidatorModel):
-    Path: str
-    RoleName: str
-    RoleId: str
+    Path: Annotated[str, _aws_pattern("Iam", "pathType")]
+    RoleName: Annotated[str, _aws_pattern("Iam", "roleNameType")]
+    RoleId: Annotated[str, _aws_pattern("Iam", "idType")]
     Arn: str
     CreateDate: datetime
     AssumeRolePolicyDocument: Optional[PolicyDocumentTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Iam", "roleDescriptionType")]] = None
     MaxSessionDuration: Optional[int] = None
     PermissionsBoundary: Optional[AttachedPermissionsBoundaryTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -2622,9 +2624,9 @@ class EvaluationResultTypeDef(BaseValidatorModel):
 
 
 class GroupDetailTypeDef(BaseValidatorModel):
-    Path: Optional[str] = None
-    GroupName: Optional[str] = None
-    GroupId: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Iam", "groupNameType")]] = None
+    GroupId: Optional[Annotated[str, _aws_pattern("Iam", "idType")]] = None
     Arn: Optional[str] = None
     CreateDate: Optional[datetime] = None
     GroupPolicyList: Optional[List[PolicyDetailTypeDef]] = None
@@ -2632,13 +2634,13 @@ class GroupDetailTypeDef(BaseValidatorModel):
 
 
 class UserDetailTypeDef(BaseValidatorModel):
-    Path: Optional[str] = None
-    UserName: Optional[str] = None
-    UserId: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Iam", "userNameType")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Iam", "idType")]] = None
     Arn: Optional[str] = None
     CreateDate: Optional[datetime] = None
     UserPolicyList: Optional[List[PolicyDetailTypeDef]] = None
-    GroupList: Optional[List[str]] = None
+    GroupList: Optional[List[Annotated[str, _aws_pattern("Iam", "groupNameType")]]] = None
     AttachedManagedPolicies: Optional[List[AttachedPolicyTypeDef]] = None
     PermissionsBoundary: Optional[AttachedPermissionsBoundaryTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -2665,11 +2667,11 @@ class ListPolicyVersionsResponseTypeDef(BaseValidatorModel):
 
 
 class ManagedPolicyDetailTypeDef(BaseValidatorModel):
-    PolicyName: Optional[str] = None
-    PolicyId: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Iam", "policyNameType")]] = None
+    PolicyId: Optional[Annotated[str, _aws_pattern("Iam", "idType")]] = None
     Arn: Optional[str] = None
-    Path: Optional[str] = None
-    DefaultVersionId: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "policyPathType")]] = None
+    DefaultVersionId: Optional[Annotated[str, _aws_pattern("Iam", "policyVersionIdType")]] = None
     AttachmentCount: Optional[int] = None
     PermissionsBoundaryUsageCount: Optional[int] = None
     IsAttachable: Optional[bool] = None
@@ -2698,9 +2700,9 @@ class GetRoleResponseTypeDef(BaseValidatorModel):
 
 
 class InstanceProfileTypeDef(BaseValidatorModel):
-    Path: str
-    InstanceProfileName: str
-    InstanceProfileId: str
+    Path: Annotated[str, _aws_pattern("Iam", "pathType")]
+    InstanceProfileName: Annotated[str, _aws_pattern("Iam", "instanceProfileNameType")]
+    InstanceProfileId: Annotated[str, _aws_pattern("Iam", "idType")]
     Arn: str
     CreateDate: datetime
     Roles: List[RoleTypeDef]
@@ -2758,9 +2760,9 @@ class ListInstanceProfilesResponseTypeDef(BaseValidatorModel):
 
 
 class RoleDetailTypeDef(BaseValidatorModel):
-    Path: Optional[str] = None
-    RoleName: Optional[str] = None
-    RoleId: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Iam", "pathType")]] = None
+    RoleName: Optional[Annotated[str, _aws_pattern("Iam", "roleNameType")]] = None
+    RoleId: Optional[Annotated[str, _aws_pattern("Iam", "idType")]] = None
     Arn: Optional[str] = None
     CreateDate: Optional[datetime] = None
     AssumeRolePolicyDocument: Optional[PolicyDocumentTypeDef] = None

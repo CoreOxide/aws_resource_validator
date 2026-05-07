@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.migrationhub_config.migrationhub_config_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 class TargetTypeDef(BaseValidatorModel):
     Type: Literal["ACCOUNT"]
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("MigrationhubConfig", "TargetId")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -52,34 +54,34 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteHomeRegionControlRequestTypeDef(BaseValidatorModel):
-    ControlId: str
+    ControlId: Annotated[str, _aws_pattern("MigrationhubConfig", "ControlId")]
 
 
 # This class is the input for the 'create_home_region_control' function.
 class CreateHomeRegionControlRequestTypeDef(BaseValidatorModel):
-    HomeRegion: str
+    HomeRegion: Annotated[str, _aws_pattern("MigrationhubConfig", "HomeRegion")]
     Target: TargetTypeDef
     DryRun: Optional[bool] = None
 
 
 # This class is the input for the 'describe_home_region_controls' function.
 class DescribeHomeRegionControlsRequestTypeDef(BaseValidatorModel):
-    ControlId: Optional[str] = None
-    HomeRegion: Optional[str] = None
+    ControlId: Optional[Annotated[str, _aws_pattern("MigrationhubConfig", "ControlId")]] = None
+    HomeRegion: Optional[Annotated[str, _aws_pattern("MigrationhubConfig", "HomeRegion")]] = None
     Target: Optional[TargetTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationhubConfig", "Token")]] = None
 
 
 class HomeRegionControlTypeDef(BaseValidatorModel):
-    ControlId: Optional[str] = None
-    HomeRegion: Optional[str] = None
+    ControlId: Optional[Annotated[str, _aws_pattern("MigrationhubConfig", "ControlId")]] = None
+    HomeRegion: Optional[Annotated[str, _aws_pattern("MigrationhubConfig", "HomeRegion")]] = None
     Target: Optional[TargetTypeDef] = None
     RequestedTime: Optional[datetime] = None
 
 
 class GetHomeRegionResultTypeDef(BaseValidatorModel):
-    HomeRegion: str
+    HomeRegion: Annotated[str, _aws_pattern("MigrationhubConfig", "HomeRegion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -93,4 +95,4 @@ class CreateHomeRegionControlResultTypeDef(BaseValidatorModel):
 class DescribeHomeRegionControlsResultTypeDef(BaseValidatorModel):
     HomeRegionControls: List[HomeRegionControlTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationhubConfig", "Token")]] = None

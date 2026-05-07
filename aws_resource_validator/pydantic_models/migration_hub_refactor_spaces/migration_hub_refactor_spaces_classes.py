@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,36 +41,38 @@ except ImportError:  # pragma: no cover
 
 
 class ApiGatewayProxyConfigTypeDef(BaseValidatorModel):
-    ApiGatewayId: Optional[str] = None
+    ApiGatewayId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApiGatewayId")]] = None
     EndpointType: Optional[ApiGatewayEndpointTypeType] = None
-    NlbArn: Optional[str] = None
-    NlbName: Optional[str] = None
-    ProxyUrl: Optional[str] = None
-    StageName: Optional[str] = None
-    VpcLinkId: Optional[str] = None
+    NlbArn: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NlbArn")]] = None
+    NlbName: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NlbName")]] = None
+    ProxyUrl: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Uri")]] = None
+    StageName: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "StageName")]] = None
+    VpcLinkId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "VpcLinkId")]] = None
 
 
 class ApiGatewayProxyInputTypeDef(BaseValidatorModel):
     EndpointType: Optional[ApiGatewayEndpointTypeType] = None
-    StageName: Optional[str] = None
+    StageName: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "StageName")]] = None
 
 
 class ApiGatewayProxySummaryTypeDef(BaseValidatorModel):
-    ApiGatewayId: Optional[str] = None
+    ApiGatewayId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApiGatewayId")]] = None
     EndpointType: Optional[ApiGatewayEndpointTypeType] = None
-    NlbArn: Optional[str] = None
-    NlbName: Optional[str] = None
-    ProxyUrl: Optional[str] = None
-    StageName: Optional[str] = None
-    VpcLinkId: Optional[str] = None
+    NlbArn: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NlbArn")]] = None
+    NlbName: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NlbName")]] = None
+    ProxyUrl: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Uri")]] = None
+    StageName: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "StageName")]] = None
+    VpcLinkId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "VpcLinkId")]] = None
 
 
 class ErrorResponseTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]] = None
     AdditionalDetails: Optional[Dict[str, str]] = None
     Code: Optional[ErrorCodeType] = None
-    Message: Optional[str] = None
-    ResourceIdentifier: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ErrorMessage")]] = None
+    ResourceIdentifier: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceIdentifier")]] = (
+        None
+    )
     ResourceType: Optional[ErrorResourceTypeType] = None
 
 
@@ -82,10 +86,10 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_environment' function.
 class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentName")]
     NetworkFabricType: NetworkFabricTypeType
-    ClientToken: Optional[str] = None
-    Description: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ClientToken")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Description")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -102,94 +106,94 @@ class UriPathRouteInputOutputTypeDef(BaseValidatorModel):
 
 
 class LambdaEndpointInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "LambdaArn")]
 
 
 class UrlEndpointInputTypeDef(BaseValidatorModel):
-    Url: str
-    HealthUrl: Optional[str] = None
+    Url: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Uri")]
+    HealthUrl: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Uri")]] = None
 
 
 # This class is the input for the 'delete_application' function.
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationIdentifier: str
-    EnvironmentIdentifier: str
+    ApplicationIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
 
 
 # This class is the input for the 'delete_environment' function.
 class DeleteEnvironmentRequestTypeDef(BaseValidatorModel):
-    EnvironmentIdentifier: str
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourcePolicyIdentifier")]
 
 
 # This class is the input for the 'delete_route' function.
 class DeleteRouteRequestTypeDef(BaseValidatorModel):
-    ApplicationIdentifier: str
-    EnvironmentIdentifier: str
-    RouteIdentifier: str
+    ApplicationIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
+    RouteIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "RouteId")]
 
 
 # This class is the input for the 'delete_service' function.
 class DeleteServiceRequestTypeDef(BaseValidatorModel):
-    ApplicationIdentifier: str
-    EnvironmentIdentifier: str
-    ServiceIdentifier: str
+    ApplicationIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
+    ServiceIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]
 
 
 class EnvironmentVpcTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]] = None
     CidrBlocks: Optional[List[str]] = None
     CreatedTime: Optional[datetime] = None
-    EnvironmentId: Optional[str] = None
+    EnvironmentId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]] = None
     LastUpdatedTime: Optional[datetime] = None
-    VpcId: Optional[str] = None
-    VpcName: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "VpcId")]] = None
+    VpcName: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Ec2TagValue")]] = None
 
 
 # This class is the input for the 'get_application' function.
 class GetApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationIdentifier: str
-    EnvironmentIdentifier: str
+    ApplicationIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
 
 
 # This class is the input for the 'get_environment' function.
 class GetEnvironmentRequestTypeDef(BaseValidatorModel):
-    EnvironmentIdentifier: str
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
 
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourcePolicyIdentifier")]
 
 
 # This class is the input for the 'get_route' function.
 class GetRouteRequestTypeDef(BaseValidatorModel):
-    ApplicationIdentifier: str
-    EnvironmentIdentifier: str
-    RouteIdentifier: str
+    ApplicationIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
+    RouteIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "RouteId")]
 
 
 # This class is the input for the 'get_service' function.
 class GetServiceRequestTypeDef(BaseValidatorModel):
-    ApplicationIdentifier: str
-    EnvironmentIdentifier: str
-    ServiceIdentifier: str
+    ApplicationIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
+    ServiceIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]
 
 
 class LambdaEndpointConfigTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "LambdaArn")]] = None
 
 
 class UrlEndpointConfigTypeDef(BaseValidatorModel):
-    HealthUrl: Optional[str] = None
-    Url: Optional[str] = None
+    HealthUrl: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Uri")]] = None
+    Url: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Uri")]] = None
 
 
 class LambdaEndpointSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "LambdaArn")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -200,38 +204,38 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_applications' function.
 class ListApplicationsRequestTypeDef(BaseValidatorModel):
-    EnvironmentIdentifier: str
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NextToken")]] = None
 
 
 # This class is the input for the 'list_environment_vpcs' function.
 class ListEnvironmentVpcsRequestTypeDef(BaseValidatorModel):
-    EnvironmentIdentifier: str
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NextToken")]] = None
 
 
 # This class is the input for the 'list_environments' function.
 class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NextToken")]] = None
 
 
 # This class is the input for the 'list_routes' function.
 class ListRoutesRequestTypeDef(BaseValidatorModel):
-    ApplicationIdentifier: str
-    EnvironmentIdentifier: str
+    ApplicationIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NextToken")]] = None
 
 
 # This class is the input for the 'list_services' function.
 class ListServicesRequestTypeDef(BaseValidatorModel):
-    ApplicationIdentifier: str
-    EnvironmentIdentifier: str
+    ApplicationIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -240,13 +244,13 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    Policy: str
-    ResourceArn: str
+    Policy: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "PolicyString")]
+    ResourceArn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
 
 
 class UrlEndpointSummaryTypeDef(BaseValidatorModel):
-    HealthUrl: Optional[str] = None
-    Url: Optional[str] = None
+    HealthUrl: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Uri")]] = None
+    Url: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Uri")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
@@ -262,14 +266,14 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_route' function.
 class UpdateRouteRequestTypeDef(BaseValidatorModel):
     ActivationState: RouteActivationStateType
-    ApplicationIdentifier: str
-    EnvironmentIdentifier: str
-    RouteIdentifier: str
+    ApplicationIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
+    RouteIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "RouteId")]
 
 
 class UriPathRouteInputTypeDef(BaseValidatorModel):
     ActivationState: RouteActivationStateType
-    SourcePath: str
+    SourcePath: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "UriPath")]
     AppendSourcePath: Optional[bool] = None
     IncludeChildPaths: Optional[bool] = None
     Methods: Optional[List[HttpMethodType]] = None
@@ -277,64 +281,64 @@ class UriPathRouteInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    EnvironmentIdentifier: str
-    Name: str
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationName")]
     ProxyType: Literal["API_GATEWAY"]
-    VpcId: str
+    VpcId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "VpcId")]
     ApiGatewayProxy: Optional[ApiGatewayProxyInputTypeDef] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ClientToken")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class ApplicationSummaryTypeDef(BaseValidatorModel):
     ApiGatewayProxy: Optional[ApiGatewayProxySummaryTypeDef] = None
-    ApplicationId: Optional[str] = None
-    Arn: Optional[str] = None
-    CreatedByAccountId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]] = None
+    CreatedByAccountId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]] = None
     CreatedTime: Optional[datetime] = None
-    EnvironmentId: Optional[str] = None
+    EnvironmentId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]] = None
     Error: Optional[ErrorResponseTypeDef] = None
     LastUpdatedTime: Optional[datetime] = None
-    Name: Optional[str] = None
-    OwnerAccountId: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationName")]] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]] = None
     ProxyType: Optional[Literal["API_GATEWAY"]] = None
     State: Optional[ApplicationStateType] = None
     Tags: Optional[Dict[str, str]] = None
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "VpcId")]] = None
 
 
 class EnvironmentSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]] = None
     CreatedTime: Optional[datetime] = None
-    Description: Optional[str] = None
-    EnvironmentId: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Description")]] = None
+    EnvironmentId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]] = None
     Error: Optional[ErrorResponseTypeDef] = None
     LastUpdatedTime: Optional[datetime] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentName")]] = None
     NetworkFabricType: Optional[NetworkFabricTypeType] = None
-    OwnerAccountId: Optional[str] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]] = None
     State: Optional[EnvironmentStateType] = None
     Tags: Optional[Dict[str, str]] = None
-    TransitGatewayId: Optional[str] = None
+    TransitGatewayId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "TransitGatewayId")]] = None
 
 
 class RouteSummaryTypeDef(BaseValidatorModel):
     AppendSourcePath: Optional[bool] = None
-    ApplicationId: Optional[str] = None
-    Arn: Optional[str] = None
-    CreatedByAccountId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]] = None
+    CreatedByAccountId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]] = None
     CreatedTime: Optional[datetime] = None
-    EnvironmentId: Optional[str] = None
+    EnvironmentId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]] = None
     Error: Optional[ErrorResponseTypeDef] = None
     IncludeChildPaths: Optional[bool] = None
     LastUpdatedTime: Optional[datetime] = None
     Methods: Optional[List[HttpMethodType]] = None
-    OwnerAccountId: Optional[str] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]] = None
     PathResourceToId: Optional[Dict[str, str]] = None
-    RouteId: Optional[str] = None
+    RouteId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "RouteId")]] = None
     RouteType: Optional[RouteTypeType] = None
-    ServiceId: Optional[str] = None
-    SourcePath: Optional[str] = None
+    ServiceId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]] = None
+    SourcePath: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "UriPath")]] = None
     State: Optional[RouteStateType] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -342,31 +346,31 @@ class RouteSummaryTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_application' function.
 class CreateApplicationResponseTypeDef(BaseValidatorModel):
     ApiGatewayProxy: ApiGatewayProxyInputTypeDef
-    ApplicationId: str
-    Arn: str
-    CreatedByAccountId: str
+    ApplicationId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
+    CreatedByAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
     CreatedTime: datetime
-    EnvironmentId: str
+    EnvironmentId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     LastUpdatedTime: datetime
-    Name: str
-    OwnerAccountId: str
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationName")]
+    OwnerAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
     ProxyType: Literal["API_GATEWAY"]
     State: ApplicationStateType
     Tags: Dict[str, str]
-    VpcId: str
+    VpcId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "VpcId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_environment' function.
 class CreateEnvironmentResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
     CreatedTime: datetime
-    Description: str
-    EnvironmentId: str
+    Description: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Description")]
+    EnvironmentId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     LastUpdatedTime: datetime
-    Name: str
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentName")]
     NetworkFabricType: NetworkFabricTypeType
-    OwnerAccountId: str
+    OwnerAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
     State: EnvironmentStateType
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -374,44 +378,44 @@ class CreateEnvironmentResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_application' function.
 class DeleteApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    Arn: str
-    EnvironmentId: str
+    ApplicationId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
+    EnvironmentId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     LastUpdatedTime: datetime
-    Name: str
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationName")]
     State: ApplicationStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_environment' function.
 class DeleteEnvironmentResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    EnvironmentId: str
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
+    EnvironmentId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     LastUpdatedTime: datetime
-    Name: str
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentName")]
     State: EnvironmentStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_route' function.
 class DeleteRouteResponseTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    Arn: str
+    ApplicationId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
     LastUpdatedTime: datetime
-    RouteId: str
-    ServiceId: str
+    RouteId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "RouteId")]
+    ServiceId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]
     State: RouteStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_service' function.
 class DeleteServiceResponseTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    Arn: str
-    EnvironmentId: str
+    ApplicationId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
+    EnvironmentId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     LastUpdatedTime: datetime
-    Name: str
-    ServiceId: str
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceName")]
+    ServiceId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]
     State: ServiceStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -419,63 +423,63 @@ class DeleteServiceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_application' function.
 class GetApplicationResponseTypeDef(BaseValidatorModel):
     ApiGatewayProxy: ApiGatewayProxyConfigTypeDef
-    ApplicationId: str
-    Arn: str
-    CreatedByAccountId: str
+    ApplicationId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
+    CreatedByAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
     CreatedTime: datetime
-    EnvironmentId: str
+    EnvironmentId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     Error: ErrorResponseTypeDef
     LastUpdatedTime: datetime
-    Name: str
-    OwnerAccountId: str
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationName")]
+    OwnerAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
     ProxyType: Literal["API_GATEWAY"]
     State: ApplicationStateType
     Tags: Dict[str, str]
-    VpcId: str
+    VpcId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "VpcId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_environment' function.
 class GetEnvironmentResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
     CreatedTime: datetime
-    Description: str
-    EnvironmentId: str
+    Description: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Description")]
+    EnvironmentId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     Error: ErrorResponseTypeDef
     LastUpdatedTime: datetime
-    Name: str
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentName")]
     NetworkFabricType: NetworkFabricTypeType
-    OwnerAccountId: str
+    OwnerAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
     State: EnvironmentStateType
     Tags: Dict[str, str]
-    TransitGatewayId: str
+    TransitGatewayId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "TransitGatewayId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
-    Policy: str
+    Policy: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "PolicyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_route' function.
 class GetRouteResponseTypeDef(BaseValidatorModel):
     AppendSourcePath: bool
-    ApplicationId: str
-    Arn: str
-    CreatedByAccountId: str
+    ApplicationId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
+    CreatedByAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
     CreatedTime: datetime
-    EnvironmentId: str
+    EnvironmentId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     Error: ErrorResponseTypeDef
     IncludeChildPaths: bool
     LastUpdatedTime: datetime
     Methods: List[HttpMethodType]
-    OwnerAccountId: str
+    OwnerAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
     PathResourceToId: Dict[str, str]
-    RouteId: str
+    RouteId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "RouteId")]
     RouteType: RouteTypeType
-    ServiceId: str
-    SourcePath: str
+    ServiceId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]
+    SourcePath: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "UriPath")]
     State: RouteStateType
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -489,26 +493,26 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_route' function.
 class UpdateRouteResponseTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    Arn: str
+    ApplicationId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
     LastUpdatedTime: datetime
-    RouteId: str
-    ServiceId: str
+    RouteId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "RouteId")]
+    ServiceId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]
     State: RouteStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_route' function.
 class CreateRouteResponseTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    Arn: str
-    CreatedByAccountId: str
+    ApplicationId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
+    CreatedByAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
     CreatedTime: datetime
     LastUpdatedTime: datetime
-    OwnerAccountId: str
-    RouteId: str
+    OwnerAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
+    RouteId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "RouteId")]
     RouteType: RouteTypeType
-    ServiceId: str
+    ServiceId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]
     State: RouteStateType
     Tags: Dict[str, str]
     UriPathRoute: UriPathRouteInputOutputTypeDef
@@ -517,36 +521,36 @@ class CreateRouteResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_service' function.
 class CreateServiceRequestTypeDef(BaseValidatorModel):
-    ApplicationIdentifier: str
+    ApplicationIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
     EndpointType: ServiceEndpointTypeType
-    EnvironmentIdentifier: str
-    Name: str
-    ClientToken: Optional[str] = None
-    Description: Optional[str] = None
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ClientToken")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Description")]] = None
     LambdaEndpoint: Optional[LambdaEndpointInputTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
     UrlEndpoint: Optional[UrlEndpointInputTypeDef] = None
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "VpcId")]] = None
 
 
 # This class is the output for the 'create_service' function.
 class CreateServiceResponseTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    Arn: str
-    CreatedByAccountId: str
+    ApplicationId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
+    CreatedByAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
     CreatedTime: datetime
-    Description: str
+    Description: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Description")]
     EndpointType: ServiceEndpointTypeType
-    EnvironmentId: str
+    EnvironmentId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     LambdaEndpoint: LambdaEndpointInputTypeDef
     LastUpdatedTime: datetime
-    Name: str
-    OwnerAccountId: str
-    ServiceId: str
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceName")]
+    OwnerAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
+    ServiceId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]
     State: ServiceStateType
     Tags: Dict[str, str]
     UrlEndpoint: UrlEndpointInputTypeDef
-    VpcId: str
+    VpcId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "VpcId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -554,28 +558,28 @@ class CreateServiceResponseTypeDef(BaseValidatorModel):
 class ListEnvironmentVpcsResponseTypeDef(BaseValidatorModel):
     EnvironmentVpcList: List[EnvironmentVpcTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NextToken")]] = None
 
 
 # This class is the output for the 'get_service' function.
 class GetServiceResponseTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    Arn: str
-    CreatedByAccountId: str
+    ApplicationId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    Arn: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]
+    CreatedByAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
     CreatedTime: datetime
-    Description: str
+    Description: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Description")]
     EndpointType: ServiceEndpointTypeType
-    EnvironmentId: str
+    EnvironmentId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     Error: ErrorResponseTypeDef
     LambdaEndpoint: LambdaEndpointConfigTypeDef
     LastUpdatedTime: datetime
-    Name: str
-    OwnerAccountId: str
-    ServiceId: str
+    Name: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceName")]
+    OwnerAccountId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]
+    ServiceId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]
     State: ServiceStateType
     Tags: Dict[str, str]
     UrlEndpoint: UrlEndpointConfigTypeDef
-    VpcId: str
+    VpcId: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "VpcId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -606,23 +610,23 @@ class ListServicesRequestPaginateTypeDef(BaseValidatorModel):
 
 
 class ServiceSummaryTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    Arn: Optional[str] = None
-    CreatedByAccountId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ResourceArn")]] = None
+    CreatedByAccountId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]] = None
     CreatedTime: Optional[datetime] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "Description")]] = None
     EndpointType: Optional[ServiceEndpointTypeType] = None
-    EnvironmentId: Optional[str] = None
+    EnvironmentId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]] = None
     Error: Optional[ErrorResponseTypeDef] = None
     LambdaEndpoint: Optional[LambdaEndpointSummaryTypeDef] = None
     LastUpdatedTime: Optional[datetime] = None
-    Name: Optional[str] = None
-    OwnerAccountId: Optional[str] = None
-    ServiceId: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceName")]] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "AccountId")]] = None
+    ServiceId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]] = None
     State: Optional[ServiceStateType] = None
     Tags: Optional[Dict[str, str]] = None
     UrlEndpoint: Optional[UrlEndpointSummaryTypeDef] = None
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "VpcId")]] = None
 
 
 UriPathRouteInputUnionTypeDef = Union[UriPathRouteInputOutputTypeDef, UriPathRouteInputTypeDef]
@@ -632,37 +636,37 @@ UriPathRouteInputUnionTypeDef = Union[UriPathRouteInputOutputTypeDef, UriPathRou
 class ListApplicationsResponseTypeDef(BaseValidatorModel):
     ApplicationSummaryList: List[ApplicationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NextToken")]] = None
 
 
 # This class is the output for the 'list_environments' function.
 class ListEnvironmentsResponseTypeDef(BaseValidatorModel):
     EnvironmentSummaryList: List[EnvironmentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NextToken")]] = None
 
 
 # This class is the output for the 'list_routes' function.
 class ListRoutesResponseTypeDef(BaseValidatorModel):
     RouteSummaryList: List[RouteSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NextToken")]] = None
 
 
 # This class is the output for the 'list_services' function.
 class ListServicesResponseTypeDef(BaseValidatorModel):
     ServiceSummaryList: List[ServiceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "NextToken")]] = None
 
 
 # This class is the input for the 'create_route' function.
 class CreateRouteRequestTypeDef(BaseValidatorModel):
-    ApplicationIdentifier: str
-    EnvironmentIdentifier: str
+    ApplicationIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ApplicationId")]
+    EnvironmentIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "EnvironmentId")]
     RouteType: RouteTypeType
-    ServiceIdentifier: str
-    ClientToken: Optional[str] = None
+    ServiceIdentifier: Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ServiceId")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("MigrationHubRefactorSpaces", "ClientToken")]] = None
     DefaultRoute: Optional[DefaultRouteInputTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
     UriPathRoute: Optional[UriPathRouteInputUnionTypeDef] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.osis.osis_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -50,7 +52,7 @@ class ChangeProgressStageTypeDef(BaseValidatorModel):
 
 
 class CloudWatchLogDestinationTypeDef(BaseValidatorModel):
-    LogGroup: str
+    LogGroup: Annotated[str, _aws_pattern("Osis", "LogGroup")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -66,26 +68,26 @@ class EncryptionAtRestOptionsTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Osis", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Osis", "TagValue")]
 
 
 class DeletePipelineEndpointRequestTypeDef(BaseValidatorModel):
-    EndpointId: str
+    EndpointId: Annotated[str, _aws_pattern("Osis", "PipelineEndpointId")]
 
 
 class DeletePipelineRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Osis", "PipelineName")]
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
 
 
 # This class is the input for the 'get_pipeline_blueprint' function.
 class GetPipelineBlueprintRequestTypeDef(BaseValidatorModel):
     BlueprintName: str
-    Format: Optional[str] = None
+    Format: Optional[Annotated[str, _aws_pattern("Osis", "BlueprintFormat")]] = None
 
 
 class PipelineBlueprintTypeDef(BaseValidatorModel):
@@ -99,17 +101,17 @@ class PipelineBlueprintTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_pipeline_change_progress' function.
 class GetPipelineChangeProgressRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Osis", "PipelineName")]
 
 
 # This class is the input for the 'get_pipeline' function.
 class GetPipelineRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Osis", "PipelineName")]
 
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
 
 
 class PipelineBlueprintSummaryTypeDef(BaseValidatorModel):
@@ -129,31 +131,31 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_pipeline_endpoint_connections' function.
 class ListPipelineEndpointConnectionsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Osis", "NextToken")]] = None
 
 
 class PipelineEndpointConnectionTypeDef(BaseValidatorModel):
-    PipelineArn: Optional[str] = None
-    EndpointId: Optional[str] = None
+    PipelineArn: Optional[Annotated[str, _aws_pattern("Osis", "PipelineArn")]] = None
+    EndpointId: Optional[Annotated[str, _aws_pattern("Osis", "PipelineEndpointId")]] = None
     Status: Optional[PipelineEndpointStatusType] = None
-    VpcEndpointOwner: Optional[str] = None
+    VpcEndpointOwner: Optional[Annotated[str, _aws_pattern("Osis", "AwsAccountId")]] = None
 
 
 # This class is the input for the 'list_pipeline_endpoints' function.
 class ListPipelineEndpointsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Osis", "NextToken")]] = None
 
 
 # This class is the input for the 'list_pipelines' function.
 class ListPipelinesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Osis", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
 
 
 class PipelineDestinationTypeDef(BaseValidatorModel):
@@ -167,8 +169,8 @@ class PipelineEndpointVpcOptionsOutputTypeDef(BaseValidatorModel):
 
 
 class PipelineEndpointVpcOptionsTypeDef(BaseValidatorModel):
-    SubnetIds: Optional[List[str]] = None
-    SecurityGroupIds: Optional[List[str]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Osis", "SubnetId")]]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Osis", "SecurityGroupId")]]] = None
 
 
 class PipelineStatusReasonTypeDef(BaseValidatorModel):
@@ -182,28 +184,28 @@ class ServiceVpcEndpointTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
     Policy: str
 
 
 # This class is the input for the 'revoke_pipeline_endpoint_connections' function.
 class RevokePipelineEndpointConnectionsRequestTypeDef(BaseValidatorModel):
-    PipelineArn: str
-    EndpointIds: List[str]
+    PipelineArn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
+    EndpointIds: List[Annotated[str, _aws_pattern("Osis", "PipelineEndpointId")]]
 
 
 # This class is the input for the 'start_pipeline' function.
 class StartPipelineRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Osis", "PipelineName")]
 
 
 # This class is the input for the 'stop_pipeline' function.
 class StopPipelineRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Osis", "PipelineName")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
     TagKeys: List[str]
 
 
@@ -218,7 +220,7 @@ class ValidationMessageTypeDef(BaseValidatorModel):
 
 class VpcAttachmentOptionsTypeDef(BaseValidatorModel):
     AttachToVpc: bool
-    CidrBlock: Optional[str] = None
+    CidrBlock: Optional[Annotated[str, _aws_pattern("Osis", "CidrBlock")]] = None
 
 
 class ChangeProgressStatusTypeDef(BaseValidatorModel):
@@ -235,8 +237,8 @@ class LogPublishingOptionsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_pipeline_endpoint' function.
 class CreatePipelineEndpointResponseTypeDef(BaseValidatorModel):
-    PipelineArn: str
-    EndpointId: str
+    PipelineArn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
+    EndpointId: Annotated[str, _aws_pattern("Osis", "PipelineEndpointId")]
     Status: PipelineEndpointStatusType
     VpcId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -244,21 +246,21 @@ class CreatePipelineEndpointResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'revoke_pipeline_endpoint_connections' function.
 class RevokePipelineEndpointConnectionsResponseTypeDef(BaseValidatorModel):
-    PipelineArn: str
+    PipelineArn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -269,7 +271,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
     Tags: List[TagTypeDef]
 
 
@@ -297,12 +299,12 @@ class ListPipelineEndpointsRequestPaginateTypeDef(BaseValidatorModel):
 class ListPipelineEndpointConnectionsResponseTypeDef(BaseValidatorModel):
     PipelineEndpointConnections: List[PipelineEndpointConnectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Osis", "NextToken")]] = None
 
 
 class PipelineEndpointTypeDef(BaseValidatorModel):
-    PipelineArn: Optional[str] = None
-    EndpointId: Optional[str] = None
+    PipelineArn: Optional[Annotated[str, _aws_pattern("Osis", "PipelineArn")]] = None
+    EndpointId: Optional[Annotated[str, _aws_pattern("Osis", "PipelineEndpointId")]] = None
     Status: Optional[PipelineEndpointStatusType] = None
     VpcId: Optional[str] = None
     VpcOptions: Optional[PipelineEndpointVpcOptionsOutputTypeDef] = None
@@ -317,8 +319,8 @@ PipelineEndpointVpcOptionsUnionTypeDef = Union[
 class PipelineSummaryTypeDef(BaseValidatorModel):
     Status: Optional[PipelineStatusType] = None
     StatusReason: Optional[PipelineStatusReasonTypeDef] = None
-    PipelineName: Optional[str] = None
-    PipelineArn: Optional[str] = None
+    PipelineName: Optional[Annotated[str, _aws_pattern("Osis", "PipelineName")]] = None
+    PipelineArn: Optional[Annotated[str, _aws_pattern("Osis", "PipelineArn")]] = None
     MinUnits: Optional[int] = None
     MaxUnits: Optional[int] = None
     CreatedAt: Optional[datetime] = None
@@ -342,8 +344,8 @@ class VpcOptionsOutputTypeDef(BaseValidatorModel):
 
 
 class VpcOptionsTypeDef(BaseValidatorModel):
-    SubnetIds: List[str]
-    SecurityGroupIds: Optional[List[str]] = None
+    SubnetIds: List[Annotated[str, _aws_pattern("Osis", "SubnetId")]]
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Osis", "SecurityGroupId")]]] = None
     VpcAttachmentOptions: Optional[VpcAttachmentOptionsTypeDef] = None
     VpcEndpointManagement: Optional[VpcEndpointManagementType] = None
 
@@ -356,26 +358,26 @@ class GetPipelineChangeProgressResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_pipeline' function.
 class UpdatePipelineRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Osis", "PipelineName")]
     MinUnits: Optional[int] = None
     MaxUnits: Optional[int] = None
     PipelineConfigurationBody: Optional[str] = None
     LogPublishingOptions: Optional[LogPublishingOptionsTypeDef] = None
     BufferOptions: Optional[BufferOptionsTypeDef] = None
     EncryptionAtRestOptions: Optional[EncryptionAtRestOptionsTypeDef] = None
-    PipelineRoleArn: Optional[str] = None
+    PipelineRoleArn: Optional[Annotated[str, _aws_pattern("Osis", "PipelineRoleArn")]] = None
 
 
 # This class is the output for the 'list_pipeline_endpoints' function.
 class ListPipelineEndpointsResponseTypeDef(BaseValidatorModel):
     PipelineEndpoints: List[PipelineEndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Osis", "NextToken")]] = None
 
 
 # This class is the input for the 'create_pipeline_endpoint' function.
 class CreatePipelineEndpointRequestTypeDef(BaseValidatorModel):
-    PipelineArn: str
+    PipelineArn: Annotated[str, _aws_pattern("Osis", "PipelineArn")]
     VpcOptions: PipelineEndpointVpcOptionsUnionTypeDef
 
 
@@ -383,7 +385,7 @@ class CreatePipelineEndpointRequestTypeDef(BaseValidatorModel):
 class ListPipelinesResponseTypeDef(BaseValidatorModel):
     Pipelines: List[PipelineSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Osis", "NextToken")]] = None
 
 
 class VpcEndpointTypeDef(BaseValidatorModel):
@@ -414,12 +416,12 @@ class PipelineTypeDef(BaseValidatorModel):
     ServiceVpcEndpoints: Optional[List[ServiceVpcEndpointTypeDef]] = None
     Destinations: Optional[List[PipelineDestinationTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    PipelineRoleArn: Optional[str] = None
+    PipelineRoleArn: Optional[Annotated[str, _aws_pattern("Osis", "PipelineRoleArn")]] = None
 
 
 # This class is the input for the 'create_pipeline' function.
 class CreatePipelineRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Osis", "PipelineName")]
     MinUnits: int
     MaxUnits: int
     PipelineConfigurationBody: str
@@ -428,7 +430,7 @@ class CreatePipelineRequestTypeDef(BaseValidatorModel):
     BufferOptions: Optional[BufferOptionsTypeDef] = None
     EncryptionAtRestOptions: Optional[EncryptionAtRestOptionsTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    PipelineRoleArn: Optional[str] = None
+    PipelineRoleArn: Optional[Annotated[str, _aws_pattern("Osis", "PipelineRoleArn")]] = None
 
 
 # This class is the output for the 'create_pipeline' function.

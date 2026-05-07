@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.elbv2.elbv2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -65,14 +67,14 @@ class AuthenticateOidcActionConfigOutputTypeDef(BaseValidatorModel):
 
 
 class FixedResponseActionConfigTypeDef(BaseValidatorModel):
-    StatusCode: str
+    StatusCode: Annotated[str, _aws_pattern("Elbv2", "FixedResponseActionStatusCode")]
     MessageBody: Optional[str] = None
     ContentType: Optional[str] = None
 
 
 class RedirectActionConfigTypeDef(BaseValidatorModel):
     StatusCode: RedirectActionStatusCodeEnumType
-    Protocol: Optional[str] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Elbv2", "RedirectActionProtocol")]] = None
     Port: Optional[str] = None
     Host: Optional[str] = None
     Path: Optional[str] = None
@@ -93,8 +95,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Elbv2", "TagKey")]
+    Value: Optional[Annotated[str, _aws_pattern("Elbv2", "TagValue")]] = None
 
 
 class RevocationContentTypeDef(BaseValidatorModel):
@@ -174,7 +176,7 @@ class MutualAuthenticationAttributesTypeDef(BaseValidatorModel):
 
 
 class IpamPoolsTypeDef(BaseValidatorModel):
-    Ipv4IpamPoolId: Optional[str] = None
+    Ipv4IpamPoolId: Optional[Annotated[str, _aws_pattern("Elbv2", "IpamPoolId")]] = None
 
 
 class SubnetMappingTypeDef(BaseValidatorModel):
@@ -191,7 +193,7 @@ class MatcherTypeDef(BaseValidatorModel):
 
 
 class TrustStoreTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Elbv2", "TrustStoreName")]] = None
     TrustStoreArn: Optional[str] = None
     Status: Optional[TrustStoreStatusType] = None
     NumberOfCaCertificates: Optional[int] = None
@@ -262,7 +264,7 @@ class DescribeListenerAttributesInputTypeDef(BaseValidatorModel):
 
 
 class ListenerAttributeTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Elbv2", "ListenerAttributeKey")]] = None
     Value: Optional[str] = None
 
 
@@ -287,7 +289,7 @@ class DescribeLoadBalancerAttributesInputTypeDef(BaseValidatorModel):
 
 
 class LoadBalancerAttributeTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Elbv2", "LoadBalancerAttributeKey")]] = None
     Value: Optional[str] = None
 
 
@@ -331,7 +333,7 @@ class DescribeTargetGroupAttributesInputTypeDef(BaseValidatorModel):
 
 
 class TargetGroupAttributeTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Elbv2", "TargetGroupAttributeKey")]] = None
     Value: Optional[str] = None
 
 
@@ -373,7 +375,7 @@ class DescribeTrustStoreRevocationsInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_trust_stores' function.
 class DescribeTrustStoresInputTypeDef(BaseValidatorModel):
     TrustStoreArns: Optional[List[str]] = None
-    Names: Optional[List[str]] = None
+    Names: Optional[List[Annotated[str, _aws_pattern("Elbv2", "TrustStoreName")]]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
@@ -481,7 +483,7 @@ class QueryStringKeyValuePairTypeDef(BaseValidatorModel):
 
 class RemoveTagsInputTypeDef(BaseValidatorModel):
     ResourceArns: List[str]
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("Elbv2", "TagKey")]]
 
 
 class RemoveTrustStoreRevocationsInputTypeDef(BaseValidatorModel):
@@ -585,7 +587,7 @@ class AddTagsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_trust_store' function.
 class CreateTrustStoreInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Elbv2", "TrustStoreName")]
     CaCertificatesBundleS3Bucket: str
     CaCertificatesBundleS3Key: str
     CaCertificatesBundleS3ObjectVersion: Optional[str] = None
@@ -662,7 +664,7 @@ class CreateLoadBalancerInputTypeDef(BaseValidatorModel):
     Tags: Optional[List[TagTypeDef]] = None
     Type: Optional[LoadBalancerTypeEnumType] = None
     IpAddressType: Optional[IpAddressTypeType] = None
-    CustomerOwnedIpv4Pool: Optional[str] = None
+    CustomerOwnedIpv4Pool: Optional[Annotated[str, _aws_pattern("Elbv2", "CustomerOwnedIpv4Pool")]] = None
     EnablePrefixForIpv6SourceNat: Optional[EnablePrefixForIpv6SourceNatEnumType] = None
     IpamPools: Optional[IpamPoolsTypeDef] = None
 
@@ -1041,7 +1043,7 @@ class LoadBalancerTypeDef(BaseValidatorModel):
     AvailabilityZones: Optional[List[AvailabilityZoneTypeDef]] = None
     SecurityGroups: Optional[List[str]] = None
     IpAddressType: Optional[IpAddressTypeType] = None
-    CustomerOwnedIpv4Pool: Optional[str] = None
+    CustomerOwnedIpv4Pool: Optional[Annotated[str, _aws_pattern("Elbv2", "CustomerOwnedIpv4Pool")]] = None
     EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: Optional[str] = None
     EnablePrefixForIpv6SourceNat: Optional[EnablePrefixForIpv6SourceNatEnumType] = None
     IpamPools: Optional[IpamPoolsTypeDef] = None

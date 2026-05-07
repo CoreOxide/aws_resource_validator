@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.rekognition.rekognition_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,15 +47,15 @@ class AgeRangeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_faces' function.
 class AssociateFacesRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
-    UserId: str
-    FaceIds: List[str]
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
+    UserId: Annotated[str, _aws_pattern("Rekognition", "UserId")]
+    FaceIds: List[Annotated[str, _aws_pattern("Rekognition", "FaceId")]]
     UserMatchThreshold: Optional[float] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
 
 
 class AssociatedFaceTypeDef(BaseValidatorModel):
-    FaceId: Optional[str] = None
+    FaceId: Optional[Annotated[str, _aws_pattern("Rekognition", "FaceId")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -65,8 +67,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class UnsuccessfulFaceAssociationTypeDef(BaseValidatorModel):
-    FaceId: Optional[str] = None
-    UserId: Optional[str] = None
+    FaceId: Optional[Annotated[str, _aws_pattern("Rekognition", "FaceId")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Rekognition", "UserId")]] = None
     Confidence: Optional[float] = None
     Reasons: Optional[List[UnsuccessfulFaceAssociationReasonType]] = None
 
@@ -86,7 +88,7 @@ class BoundingBoxTypeDef(BaseValidatorModel):
 
 
 class S3ObjectTypeDef(BaseValidatorModel):
-    Bucket: Optional[str] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("Rekognition", "S3Bucket")]] = None
     Name: Optional[str] = None
     Version: Optional[str] = None
 
@@ -109,13 +111,13 @@ class KnownGenderTypeDef(BaseValidatorModel):
 
 
 class VersionsTypeDef(BaseValidatorModel):
-    Minimum: Optional[str] = None
-    Maximum: Optional[str] = None
+    Minimum: Optional[Annotated[str, _aws_pattern("Rekognition", "Version")]] = None
+    Maximum: Optional[Annotated[str, _aws_pattern("Rekognition", "Version")]] = None
 
 
 class ChallengeTypeDef(BaseValidatorModel):
     Type: ChallengeTypeType
-    Version: str
+    Version: Annotated[str, _aws_pattern("Rekognition", "Version")]
 
 
 class EmotionTypeDef(BaseValidatorModel):
@@ -173,7 +175,7 @@ class ModerationLabelTypeDef(BaseValidatorModel):
 
 
 class OutputConfigTypeDef(BaseValidatorModel):
-    S3Bucket: Optional[str] = None
+    S3Bucket: Optional[Annotated[str, _aws_pattern("Rekognition", "S3Bucket")]] = None
     S3KeyPrefix: Optional[str] = None
 
 
@@ -184,18 +186,18 @@ class CoversBodyPartTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_collection' function.
 class CreateCollectionRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
     Tags: Optional[Dict[str, str]] = None
 
 
 class LivenessOutputConfigTypeDef(BaseValidatorModel):
-    S3Bucket: str
-    S3KeyPrefix: Optional[str] = None
+    S3Bucket: Annotated[str, _aws_pattern("Rekognition", "S3Bucket")]
+    S3KeyPrefix: Optional[Annotated[str, _aws_pattern("Rekognition", "LivenessS3KeyPrefix")]] = None
 
 
 # This class is the input for the 'create_project' function.
 class CreateProjectRequestTypeDef(BaseValidatorModel):
-    ProjectName: str
+    ProjectName: Annotated[str, _aws_pattern("Rekognition", "ProjectName")]
     Feature: Optional[CustomizationFeatureType] = None
     AutoUpdate: Optional[ProjectAutoUpdateType] = None
     Tags: Optional[Dict[str, str]] = None
@@ -206,13 +208,13 @@ class StreamProcessorDataSharingPreferenceTypeDef(BaseValidatorModel):
 
 
 class StreamProcessorNotificationChannelTypeDef(BaseValidatorModel):
-    SNSTopicArn: str
+    SNSTopicArn: Annotated[str, _aws_pattern("Rekognition", "SNSTopicArn")]
 
 
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
-    UserId: str
-    ClientRequestToken: Optional[str] = None
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
+    UserId: Annotated[str, _aws_pattern("Rekognition", "UserId")]
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
 
 
 class CustomizationFeatureContentModerationConfigTypeDef(BaseValidatorModel):
@@ -234,7 +236,7 @@ class DatasetLabelStatsTypeDef(BaseValidatorModel):
 class DatasetMetadataTypeDef(BaseValidatorModel):
     CreationTimestamp: Optional[datetime] = None
     DatasetType: Optional[DatasetTypeType] = None
-    DatasetArn: Optional[str] = None
+    DatasetArn: Optional[Annotated[str, _aws_pattern("Rekognition", "DatasetArn")]] = None
     Status: Optional[DatasetStatusType] = None
     StatusMessage: Optional[str] = None
     StatusMessageCode: Optional[DatasetStatusMessageCodeType] = None
@@ -242,59 +244,59 @@ class DatasetMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_collection' function.
 class DeleteCollectionRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
 
 
 class DeleteDatasetRequestTypeDef(BaseValidatorModel):
-    DatasetArn: str
+    DatasetArn: Annotated[str, _aws_pattern("Rekognition", "DatasetArn")]
 
 
 # This class is the input for the 'delete_faces' function.
 class DeleteFacesRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
-    FaceIds: List[str]
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
+    FaceIds: List[Annotated[str, _aws_pattern("Rekognition", "FaceId")]]
 
 
 class UnsuccessfulFaceDeletionTypeDef(BaseValidatorModel):
-    FaceId: Optional[str] = None
-    UserId: Optional[str] = None
+    FaceId: Optional[Annotated[str, _aws_pattern("Rekognition", "FaceId")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Rekognition", "UserId")]] = None
     Reasons: Optional[List[UnsuccessfulFaceDeletionReasonType]] = None
 
 
 class DeleteProjectPolicyRequestTypeDef(BaseValidatorModel):
-    ProjectArn: str
-    PolicyName: str
-    PolicyRevisionId: Optional[str] = None
+    ProjectArn: Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]
+    PolicyName: Annotated[str, _aws_pattern("Rekognition", "ProjectPolicyName")]
+    PolicyRevisionId: Optional[Annotated[str, _aws_pattern("Rekognition", "ProjectPolicyRevisionId")]] = None
 
 
 # This class is the input for the 'delete_project' function.
 class DeleteProjectRequestTypeDef(BaseValidatorModel):
-    ProjectArn: str
+    ProjectArn: Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]
 
 
 # This class is the input for the 'delete_project_version' function.
 class DeleteProjectVersionRequestTypeDef(BaseValidatorModel):
-    ProjectVersionArn: str
+    ProjectVersionArn: Annotated[str, _aws_pattern("Rekognition", "ProjectVersionArn")]
 
 
 class DeleteStreamProcessorRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rekognition", "StreamProcessorName")]
 
 
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
-    UserId: str
-    ClientRequestToken: Optional[str] = None
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
+    UserId: Annotated[str, _aws_pattern("Rekognition", "UserId")]
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
 
 
 # This class is the input for the 'describe_collection' function.
 class DescribeCollectionRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
 
 
 # This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequestTypeDef(BaseValidatorModel):
-    DatasetArn: str
+    DatasetArn: Annotated[str, _aws_pattern("Rekognition", "DatasetArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -305,8 +307,8 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_project_versions' function.
 class DescribeProjectVersionsRequestTypeDef(BaseValidatorModel):
-    ProjectArn: str
-    VersionNames: Optional[List[str]] = None
+    ProjectArn: Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]
+    VersionNames: Optional[List[Annotated[str, _aws_pattern("Rekognition", "VersionName")]]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -320,13 +322,13 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 class DescribeProjectsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    ProjectNames: Optional[List[str]] = None
+    ProjectNames: Optional[List[Annotated[str, _aws_pattern("Rekognition", "ProjectName")]]] = None
     Features: Optional[List[CustomizationFeatureType]] = None
 
 
 # This class is the input for the 'describe_stream_processor' function.
 class DescribeStreamProcessorRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rekognition", "StreamProcessorName")]
 
 
 class DetectLabelsImageQualityTypeDef(BaseValidatorModel):
@@ -350,10 +352,18 @@ class DetectLabelsImagePropertiesSettingsTypeDef(BaseValidatorModel):
 
 
 class GeneralLabelsSettingsTypeDef(BaseValidatorModel):
-    LabelInclusionFilters: Optional[List[str]] = None
-    LabelExclusionFilters: Optional[List[str]] = None
-    LabelCategoryInclusionFilters: Optional[List[str]] = None
-    LabelCategoryExclusionFilters: Optional[List[str]] = None
+    LabelInclusionFilters: Optional[List[Annotated[str, _aws_pattern("Rekognition", "GeneralLabelsFilterValue")]]] = (
+        None
+    )
+    LabelExclusionFilters: Optional[List[Annotated[str, _aws_pattern("Rekognition", "GeneralLabelsFilterValue")]]] = (
+        None
+    )
+    LabelCategoryInclusionFilters: Optional[
+        List[Annotated[str, _aws_pattern("Rekognition", "GeneralLabelsFilterValue")]]
+    ] = None
+    LabelCategoryExclusionFilters: Optional[
+        List[Annotated[str, _aws_pattern("Rekognition", "GeneralLabelsFilterValue")]]
+    ] = None
 
 
 class HumanLoopActivationOutputTypeDef(BaseValidatorModel):
@@ -381,24 +391,24 @@ class DetectionFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'disassociate_faces' function.
 class DisassociateFacesRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
-    UserId: str
-    FaceIds: List[str]
-    ClientRequestToken: Optional[str] = None
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
+    UserId: Annotated[str, _aws_pattern("Rekognition", "UserId")]
+    FaceIds: List[Annotated[str, _aws_pattern("Rekognition", "FaceId")]]
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
 
 
 class DisassociatedFaceTypeDef(BaseValidatorModel):
-    FaceId: Optional[str] = None
+    FaceId: Optional[Annotated[str, _aws_pattern("Rekognition", "FaceId")]] = None
 
 
 class UnsuccessfulFaceDisassociationTypeDef(BaseValidatorModel):
-    FaceId: Optional[str] = None
-    UserId: Optional[str] = None
+    FaceId: Optional[Annotated[str, _aws_pattern("Rekognition", "FaceId")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Rekognition", "UserId")]] = None
     Reasons: Optional[List[UnsuccessfulFaceDisassociationReasonType]] = None
 
 
 class DistributeDatasetTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Rekognition", "DatasetArn")]
 
 
 class EyeDirectionTypeDef(BaseValidatorModel):
@@ -443,7 +453,7 @@ class SunglassesTypeDef(BaseValidatorModel):
 
 
 class FaceSearchSettingsTypeDef(BaseValidatorModel):
-    CollectionId: Optional[str] = None
+    CollectionId: Optional[Annotated[str, _aws_pattern("Rekognition", "CollectionId")]] = None
     FaceMatchThreshold: Optional[float] = None
 
 
@@ -454,12 +464,12 @@ class PointTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_celebrity_info' function.
 class GetCelebrityInfoRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Rekognition", "RekognitionUniqueId")]
 
 
 # This class is the input for the 'get_celebrity_recognition' function.
 class GetCelebrityRecognitionRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[CelebrityRecognitionSortByType] = None
@@ -482,7 +492,7 @@ class GetContentModerationRequestMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_content_moderation' function.
 class GetContentModerationRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[ContentModerationSortByType] = None
@@ -491,19 +501,19 @@ class GetContentModerationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_face_detection' function.
 class GetFaceDetectionRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'get_face_liveness_session_results' function.
 class GetFaceLivenessSessionResultsRequestTypeDef(BaseValidatorModel):
-    SessionId: str
+    SessionId: Annotated[str, _aws_pattern("Rekognition", "LivenessSessionId")]
 
 
 # This class is the input for the 'get_face_search' function.
 class GetFaceSearchRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[FaceSearchSortByType] = None
@@ -516,7 +526,7 @@ class GetLabelDetectionRequestMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_label_detection' function.
 class GetLabelDetectionRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[LabelDetectionSortByType] = None
@@ -525,7 +535,7 @@ class GetLabelDetectionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_media_analysis_job' function.
 class GetMediaAnalysisJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "MediaAnalysisJobId")]
 
 
 class MediaAnalysisJobFailureDetailsTypeDef(BaseValidatorModel):
@@ -534,13 +544,13 @@ class MediaAnalysisJobFailureDetailsTypeDef(BaseValidatorModel):
 
 
 class MediaAnalysisOutputConfigTypeDef(BaseValidatorModel):
-    S3Bucket: str
-    S3KeyPrefix: Optional[str] = None
+    S3Bucket: Annotated[str, _aws_pattern("Rekognition", "S3Bucket")]
+    S3KeyPrefix: Optional[Annotated[str, _aws_pattern("Rekognition", "MediaAnalysisS3KeyPrefix")]] = None
 
 
 # This class is the input for the 'get_person_tracking' function.
 class GetPersonTrackingRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[PersonTrackingSortByType] = None
@@ -548,7 +558,7 @@ class GetPersonTrackingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_segment_detection' function.
 class GetSegmentDetectionRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -560,7 +570,7 @@ class SegmentTypeInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_text_detection' function.
 class GetTextDetectionRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -570,16 +580,16 @@ class HumanLoopDataAttributesTypeDef(BaseValidatorModel):
 
 
 class KinesisDataStreamTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Rekognition", "KinesisDataArn")]] = None
 
 
 class KinesisVideoStreamStartSelectorTypeDef(BaseValidatorModel):
     ProducerTimestamp: Optional[int] = None
-    FragmentNumber: Optional[str] = None
+    FragmentNumber: Optional[Annotated[str, _aws_pattern("Rekognition", "KinesisVideoStreamFragmentNumber")]] = None
 
 
 class KinesisVideoStreamTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Rekognition", "KinesisVideoArn")]] = None
 
 
 class LabelAliasTypeDef(BaseValidatorModel):
@@ -602,10 +612,10 @@ class ListCollectionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_dataset_entries' function.
 class ListDatasetEntriesRequestTypeDef(BaseValidatorModel):
-    DatasetArn: str
-    ContainsLabels: Optional[List[str]] = None
+    DatasetArn: Annotated[str, _aws_pattern("Rekognition", "DatasetArn")]
+    ContainsLabels: Optional[List[Annotated[str, _aws_pattern("Rekognition", "DatasetLabel")]]] = None
     Labeled: Optional[bool] = None
-    SourceRefContains: Optional[str] = None
+    SourceRefContains: Optional[Annotated[str, _aws_pattern("Rekognition", "QueryString")]] = None
     HasErrors: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -613,18 +623,18 @@ class ListDatasetEntriesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_dataset_labels' function.
 class ListDatasetLabelsRequestTypeDef(BaseValidatorModel):
-    DatasetArn: str
+    DatasetArn: Annotated[str, _aws_pattern("Rekognition", "DatasetArn")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_faces' function.
 class ListFacesRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    UserId: Optional[str] = None
-    FaceIds: Optional[List[str]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Rekognition", "UserId")]] = None
+    FaceIds: Optional[List[Annotated[str, _aws_pattern("Rekognition", "FaceId")]]] = None
 
 
 # This class is the input for the 'list_media_analysis_jobs' function.
@@ -635,16 +645,16 @@ class ListMediaAnalysisJobsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_project_policies' function.
 class ListProjectPoliciesRequestTypeDef(BaseValidatorModel):
-    ProjectArn: str
+    ProjectArn: Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class ProjectPolicyTypeDef(BaseValidatorModel):
-    ProjectArn: Optional[str] = None
-    PolicyName: Optional[str] = None
-    PolicyRevisionId: Optional[str] = None
-    PolicyDocument: Optional[str] = None
+    ProjectArn: Optional[Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Rekognition", "ProjectPolicyName")]] = None
+    PolicyRevisionId: Optional[Annotated[str, _aws_pattern("Rekognition", "ProjectPolicyRevisionId")]] = None
+    PolicyDocument: Optional[Annotated[str, _aws_pattern("Rekognition", "ProjectPolicyDocument")]] = None
     CreationTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
 
@@ -656,7 +666,7 @@ class ListStreamProcessorsRequestTypeDef(BaseValidatorModel):
 
 
 class StreamProcessorTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Rekognition", "StreamProcessorName")]] = None
     Status: Optional[StreamProcessorStatusType] = None
 
 
@@ -667,24 +677,24 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_users' function.
 class ListUsersRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class UserTypeDef(BaseValidatorModel):
-    UserId: Optional[str] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Rekognition", "UserId")]] = None
     UserStatus: Optional[UserStatusType] = None
 
 
 class MatchedUserTypeDef(BaseValidatorModel):
-    UserId: Optional[str] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Rekognition", "UserId")]] = None
     UserStatus: Optional[UserStatusType] = None
 
 
 class MediaAnalysisDetectModerationLabelsConfigTypeDef(BaseValidatorModel):
     MinConfidence: Optional[float] = None
-    ProjectVersion: Optional[str] = None
+    ProjectVersion: Optional[Annotated[str, _aws_pattern("Rekognition", "ProjectVersionId")]] = None
 
 
 class MediaAnalysisModelVersionsTypeDef(BaseValidatorModel):
@@ -692,46 +702,46 @@ class MediaAnalysisModelVersionsTypeDef(BaseValidatorModel):
 
 
 class NotificationChannelTypeDef(BaseValidatorModel):
-    SNSTopicArn: str
-    RoleArn: str
+    SNSTopicArn: Annotated[str, _aws_pattern("Rekognition", "SNSTopicArn")]
+    RoleArn: Annotated[str, _aws_pattern("Rekognition", "RoleArn")]
 
 
 # This class is the input for the 'put_project_policy' function.
 class PutProjectPolicyRequestTypeDef(BaseValidatorModel):
-    ProjectArn: str
-    PolicyName: str
-    PolicyDocument: str
-    PolicyRevisionId: Optional[str] = None
+    ProjectArn: Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]
+    PolicyName: Annotated[str, _aws_pattern("Rekognition", "ProjectPolicyName")]
+    PolicyDocument: Annotated[str, _aws_pattern("Rekognition", "ProjectPolicyDocument")]
+    PolicyRevisionId: Optional[Annotated[str, _aws_pattern("Rekognition", "ProjectPolicyRevisionId")]] = None
 
 
 class S3DestinationTypeDef(BaseValidatorModel):
-    Bucket: Optional[str] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("Rekognition", "S3Bucket")]] = None
     KeyPrefix: Optional[str] = None
 
 
 # This class is the input for the 'search_faces' function.
 class SearchFacesRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
-    FaceId: str
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
+    FaceId: Annotated[str, _aws_pattern("Rekognition", "FaceId")]
     MaxFaces: Optional[int] = None
     FaceMatchThreshold: Optional[float] = None
 
 
 # This class is the input for the 'search_users' function.
 class SearchUsersRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
-    UserId: Optional[str] = None
-    FaceId: Optional[str] = None
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
+    UserId: Optional[Annotated[str, _aws_pattern("Rekognition", "UserId")]] = None
+    FaceId: Optional[Annotated[str, _aws_pattern("Rekognition", "FaceId")]] = None
     UserMatchThreshold: Optional[float] = None
     MaxUsers: Optional[int] = None
 
 
 class SearchedFaceTypeDef(BaseValidatorModel):
-    FaceId: Optional[str] = None
+    FaceId: Optional[Annotated[str, _aws_pattern("Rekognition", "FaceId")]] = None
 
 
 class SearchedUserTypeDef(BaseValidatorModel):
-    UserId: Optional[str] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Rekognition", "UserId")]] = None
 
 
 class ShotSegmentTypeDef(BaseValidatorModel):
@@ -746,7 +756,7 @@ class TechnicalCueSegmentTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_project_version' function.
 class StartProjectVersionRequestTypeDef(BaseValidatorModel):
-    ProjectVersionArn: str
+    ProjectVersionArn: Annotated[str, _aws_pattern("Rekognition", "ProjectVersionArn")]
     MinInferenceUnits: int
     MaxInferenceUnits: Optional[int] = None
 
@@ -761,11 +771,11 @@ class StreamProcessingStopSelectorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'stop_project_version' function.
 class StopProjectVersionRequestTypeDef(BaseValidatorModel):
-    ProjectVersionArn: str
+    ProjectVersionArn: Annotated[str, _aws_pattern("Rekognition", "ProjectVersionArn")]
 
 
 class StopStreamProcessorRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rekognition", "StreamProcessorName")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
@@ -775,12 +785,12 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("Rekognition", "TagKey")]]
 
 
 # This class is the output for the 'copy_project_version' function.
 class CopyProjectVersionResponseTypeDef(BaseValidatorModel):
-    ProjectVersionArn: str
+    ProjectVersionArn: Annotated[str, _aws_pattern("Rekognition", "ProjectVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -794,31 +804,31 @@ class CreateCollectionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_dataset' function.
 class CreateDatasetResponseTypeDef(BaseValidatorModel):
-    DatasetArn: str
+    DatasetArn: Annotated[str, _aws_pattern("Rekognition", "DatasetArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_face_liveness_session' function.
 class CreateFaceLivenessSessionResponseTypeDef(BaseValidatorModel):
-    SessionId: str
+    SessionId: Annotated[str, _aws_pattern("Rekognition", "LivenessSessionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_project' function.
 class CreateProjectResponseTypeDef(BaseValidatorModel):
-    ProjectArn: str
+    ProjectArn: Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_project_version' function.
 class CreateProjectVersionResponseTypeDef(BaseValidatorModel):
-    ProjectVersionArn: str
+    ProjectVersionArn: Annotated[str, _aws_pattern("Rekognition", "ProjectVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_stream_processor' function.
 class CreateStreamProcessorResponseTypeDef(BaseValidatorModel):
-    StreamProcessorArn: str
+    StreamProcessorArn: Annotated[str, _aws_pattern("Rekognition", "StreamProcessorArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -852,7 +862,7 @@ class DescribeCollectionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_collections' function.
 class ListCollectionsResponseTypeDef(BaseValidatorModel):
-    CollectionIds: List[str]
+    CollectionIds: List[Annotated[str, _aws_pattern("Rekognition", "CollectionId")]]
     FaceModelVersions: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -860,7 +870,7 @@ class ListCollectionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_dataset_entries' function.
 class ListDatasetEntriesResponseTypeDef(BaseValidatorModel):
-    DatasetEntries: List[str]
+    DatasetEntries: List[Annotated[str, _aws_pattern("Rekognition", "DatasetEntry")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -873,49 +883,49 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_project_policy' function.
 class PutProjectPolicyResponseTypeDef(BaseValidatorModel):
-    PolicyRevisionId: str
+    PolicyRevisionId: Annotated[str, _aws_pattern("Rekognition", "ProjectPolicyRevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_celebrity_recognition' function.
 class StartCelebrityRecognitionResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_content_moderation' function.
 class StartContentModerationResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_face_detection' function.
 class StartFaceDetectionResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_face_search' function.
 class StartFaceSearchResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_label_detection' function.
 class StartLabelDetectionResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_media_analysis_job' function.
 class StartMediaAnalysisJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "MediaAnalysisJobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_person_tracking' function.
 class StartPersonTrackingResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -927,7 +937,7 @@ class StartProjectVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_segment_detection' function.
 class StartSegmentDetectionResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -939,7 +949,7 @@ class StartStreamProcessorResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_text_detection' function.
 class StartTextDetectionResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -963,13 +973,13 @@ class ComparedSourceImageFaceTypeDef(BaseValidatorModel):
 
 
 class FaceTypeDef(BaseValidatorModel):
-    FaceId: Optional[str] = None
+    FaceId: Optional[Annotated[str, _aws_pattern("Rekognition", "FaceId")]] = None
     BoundingBox: Optional[BoundingBoxTypeDef] = None
-    ImageId: Optional[str] = None
-    ExternalImageId: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Rekognition", "ImageId")]] = None
+    ExternalImageId: Optional[Annotated[str, _aws_pattern("Rekognition", "ExternalImageId")]] = None
     Confidence: Optional[float] = None
-    IndexFacesModelVersion: Optional[str] = None
-    UserId: Optional[str] = None
+    IndexFacesModelVersion: Optional[Annotated[str, _aws_pattern("Rekognition", "IndexFacesModelVersion")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Rekognition", "UserId")]] = None
 
 
 class AuditImageTypeDef(BaseValidatorModel):
@@ -1050,13 +1060,13 @@ class ContentModerationDetectionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'copy_project_version' function.
 class CopyProjectVersionRequestTypeDef(BaseValidatorModel):
-    SourceProjectArn: str
-    SourceProjectVersionArn: str
-    DestinationProjectArn: str
-    VersionName: str
+    SourceProjectArn: Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]
+    SourceProjectVersionArn: Annotated[str, _aws_pattern("Rekognition", "ProjectVersionArn")]
+    DestinationProjectArn: Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]
+    VersionName: Annotated[str, _aws_pattern("Rekognition", "VersionName")]
     OutputConfig: OutputConfigTypeDef
     Tags: Optional[Dict[str, str]] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Rekognition", "KmsKeyId")]] = None
 
 
 class EquipmentDetectionTypeDef(BaseValidatorModel):
@@ -1080,12 +1090,12 @@ class DatasetDescriptionTypeDef(BaseValidatorModel):
 
 
 class DatasetLabelDescriptionTypeDef(BaseValidatorModel):
-    LabelName: Optional[str] = None
+    LabelName: Optional[Annotated[str, _aws_pattern("Rekognition", "DatasetLabel")]] = None
     LabelStats: Optional[DatasetLabelStatsTypeDef] = None
 
 
 class ProjectDescriptionTypeDef(BaseValidatorModel):
-    ProjectArn: Optional[str] = None
+    ProjectArn: Optional[Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]] = None
     CreationTimestamp: Optional[datetime] = None
     Status: Optional[ProjectStatusType] = None
     Datasets: Optional[List[DatasetMetadataTypeDef]] = None
@@ -1095,7 +1105,7 @@ class ProjectDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_faces' function.
 class DeleteFacesResponseTypeDef(BaseValidatorModel):
-    DeletedFaces: List[str]
+    DeletedFaces: List[Annotated[str, _aws_pattern("Rekognition", "FaceId")]]
     UnsuccessfulFaceDeletions: List[UnsuccessfulFaceDeletionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1197,7 +1207,7 @@ class DetectModerationLabelsResponseTypeDef(BaseValidatorModel):
     ModerationLabels: List[ModerationLabelTypeDef]
     ModerationModelVersion: str
     HumanLoopActivationOutput: HumanLoopActivationOutputTypeDef
-    ProjectVersion: str
+    ProjectVersion: Annotated[str, _aws_pattern("Rekognition", "ProjectVersionId")]
     ContentTypes: List[ContentTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1260,7 +1270,7 @@ class RegionOfInterestTypeDef(BaseValidatorModel):
 
 
 class HumanLoopConfigTypeDef(BaseValidatorModel):
-    HumanLoopName: str
+    HumanLoopName: Annotated[str, _aws_pattern("Rekognition", "HumanLoopName")]
     FlowDefinitionArn: str
     DataAttributes: Optional[HumanLoopDataAttributesTypeDef] = None
 
@@ -1343,7 +1353,7 @@ class ListFacesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_face_liveness_session_results' function.
 class GetFaceLivenessSessionResultsResponseTypeDef(BaseValidatorModel):
-    SessionId: str
+    SessionId: Annotated[str, _aws_pattern("Rekognition", "LivenessSessionId")]
     Status: LivenessSessionStatusType
     Confidence: float
     ReferenceImage: AuditImageTypeDef
@@ -1358,7 +1368,7 @@ class AssetTypeDef(BaseValidatorModel):
 
 class DatasetSourceTypeDef(BaseValidatorModel):
     GroundTruthManifest: Optional[GroundTruthManifestTypeDef] = None
-    DatasetArn: Optional[str] = None
+    DatasetArn: Optional[Annotated[str, _aws_pattern("Rekognition", "DatasetArn")]] = None
 
 
 class EvaluationResultTypeDef(BaseValidatorModel):
@@ -1369,45 +1379,45 @@ class EvaluationResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_celebrity_recognition' function.
 class StartCelebrityRecognitionRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
-    JobTag: Optional[str] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Rekognition", "JobTag")]] = None
 
 
 # This class is the input for the 'start_content_moderation' function.
 class StartContentModerationRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
     MinConfidence: Optional[float] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
-    JobTag: Optional[str] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Rekognition", "JobTag")]] = None
 
 
 # This class is the input for the 'start_face_detection' function.
 class StartFaceDetectionRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
     FaceAttributes: Optional[FaceAttributesType] = None
-    JobTag: Optional[str] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Rekognition", "JobTag")]] = None
 
 
 # This class is the input for the 'start_face_search' function.
 class StartFaceSearchRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
-    CollectionId: str
-    ClientRequestToken: Optional[str] = None
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
     FaceMatchThreshold: Optional[float] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
-    JobTag: Optional[str] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Rekognition", "JobTag")]] = None
 
 
 # This class is the input for the 'start_person_tracking' function.
 class StartPersonTrackingRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
-    JobTag: Optional[str] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Rekognition", "JobTag")]] = None
 
 
 class StartSegmentDetectionFiltersTypeDef(BaseValidatorModel):
@@ -1416,7 +1426,7 @@ class StartSegmentDetectionFiltersTypeDef(BaseValidatorModel):
 
 
 class UpdateDatasetEntriesRequestTypeDef(BaseValidatorModel):
-    DatasetArn: str
+    DatasetArn: Annotated[str, _aws_pattern("Rekognition", "DatasetArn")]
     Changes: DatasetChangesTypeDef
 
 
@@ -1430,7 +1440,7 @@ class CompareFacesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'detect_custom_labels' function.
 class DetectCustomLabelsRequestTypeDef(BaseValidatorModel):
-    ProjectVersionArn: str
+    ProjectVersionArn: Annotated[str, _aws_pattern("Rekognition", "ProjectVersionArn")]
     Image: ImageTypeDef
     MaxResults: Optional[int] = None
     MinConfidence: Optional[float] = None
@@ -1450,9 +1460,9 @@ class DetectProtectiveEquipmentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'index_faces' function.
 class IndexFacesRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
     Image: ImageTypeDef
-    ExternalImageId: Optional[str] = None
+    ExternalImageId: Optional[Annotated[str, _aws_pattern("Rekognition", "ExternalImageId")]] = None
     DetectionAttributes: Optional[List[AttributeType]] = None
     MaxFaces: Optional[int] = None
     QualityFilter: Optional[QualityFilterType] = None
@@ -1465,7 +1475,7 @@ class RecognizeCelebritiesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_faces_by_image' function.
 class SearchFacesByImageRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
     Image: ImageTypeDef
     MaxFaces: Optional[int] = None
     FaceMatchThreshold: Optional[float] = None
@@ -1474,7 +1484,7 @@ class SearchFacesByImageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_users_by_image' function.
 class SearchUsersByImageRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
+    CollectionId: Annotated[str, _aws_pattern("Rekognition", "CollectionId")]
     Image: ImageTypeDef
     UserMatchThreshold: Optional[float] = None
     MaxUsers: Optional[int] = None
@@ -1490,7 +1500,7 @@ class CreateFaceLivenessSessionRequestSettingsTypeDef(BaseValidatorModel):
 class CelebrityTypeDef(BaseValidatorModel):
     Urls: Optional[List[str]] = None
     Name: Optional[str] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Rekognition", "RekognitionUniqueId")]] = None
     Face: Optional[ComparedFaceTypeDef] = None
     MatchConfidence: Optional[float] = None
     KnownGender: Optional[KnownGenderTypeDef] = None
@@ -1508,9 +1518,9 @@ class GetContentModerationResponseTypeDef(BaseValidatorModel):
     VideoMetadata: VideoMetadataTypeDef
     ModerationLabels: List[ContentModerationDetectionTypeDef]
     ModerationModelVersion: str
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     Video: VideoTypeDef
-    JobTag: str
+    JobTag: Annotated[str, _aws_pattern("Rekognition", "JobTag")]
     GetRequestMetadata: GetContentModerationRequestMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1570,10 +1580,10 @@ class DetectLabelsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_label_detection' function.
 class StartLabelDetectionRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
     MinConfidence: Optional[float] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
-    JobTag: Optional[str] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Rekognition", "JobTag")]] = None
     Features: Optional[List[Literal["GENERAL_LABELS"]]] = None
     Settings: Optional[LabelDetectionSettingsTypeDef] = None
 
@@ -1581,7 +1591,7 @@ class StartLabelDetectionRequestTypeDef(BaseValidatorModel):
 class CelebrityDetailTypeDef(BaseValidatorModel):
     Urls: Optional[List[str]] = None
     Name: Optional[str] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Rekognition", "RekognitionUniqueId")]] = None
     Confidence: Optional[float] = None
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     Face: Optional[FaceDetailTypeDef] = None
@@ -1651,12 +1661,12 @@ class DetectModerationLabelsRequestTypeDef(BaseValidatorModel):
     Image: ImageTypeDef
     MinConfidence: Optional[float] = None
     HumanLoopConfig: Optional[HumanLoopConfigTypeDef] = None
-    ProjectVersion: Optional[str] = None
+    ProjectVersion: Optional[Annotated[str, _aws_pattern("Rekognition", "ProjectVersionId")]] = None
 
 
 # This class is the input for the 'start_stream_processor' function.
 class StartStreamProcessorRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rekognition", "StreamProcessorName")]
     StartSelector: Optional[StreamProcessingStartSelectorTypeDef] = None
     StopSelector: Optional[StreamProcessingStopSelectorTypeDef] = None
 
@@ -1675,15 +1685,15 @@ class StartMediaAnalysisJobRequestTypeDef(BaseValidatorModel):
     OperationsConfig: MediaAnalysisOperationsConfigTypeDef
     Input: MediaAnalysisInputTypeDef
     OutputConfig: MediaAnalysisOutputConfigTypeDef
-    ClientRequestToken: Optional[str] = None
-    JobName: Optional[str] = None
-    KmsKeyId: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Rekognition", "MediaAnalysisJobName")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Rekognition", "KmsKeyId")]] = None
 
 
 # This class is the output for the 'get_media_analysis_job' function.
 class GetMediaAnalysisJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    JobName: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "MediaAnalysisJobId")]
+    JobName: Annotated[str, _aws_pattern("Rekognition", "MediaAnalysisJobName")]
     OperationsConfig: MediaAnalysisOperationsConfigTypeDef
     Status: MediaAnalysisJobStatusType
     FailureDetails: MediaAnalysisJobFailureDetailsTypeDef
@@ -1691,41 +1701,41 @@ class GetMediaAnalysisJobResponseTypeDef(BaseValidatorModel):
     CompletionTimestamp: datetime
     Input: MediaAnalysisInputTypeDef
     OutputConfig: MediaAnalysisOutputConfigTypeDef
-    KmsKeyId: str
+    KmsKeyId: Annotated[str, _aws_pattern("Rekognition", "KmsKeyId")]
     Results: MediaAnalysisResultsTypeDef
     ManifestSummary: MediaAnalysisManifestSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class MediaAnalysisJobDescriptionTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "MediaAnalysisJobId")]
     OperationsConfig: MediaAnalysisOperationsConfigTypeDef
     Status: MediaAnalysisJobStatusType
     CreationTimestamp: datetime
     Input: MediaAnalysisInputTypeDef
     OutputConfig: MediaAnalysisOutputConfigTypeDef
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Rekognition", "MediaAnalysisJobName")]] = None
     FailureDetails: Optional[MediaAnalysisJobFailureDetailsTypeDef] = None
     CompletionTimestamp: Optional[datetime] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Rekognition", "KmsKeyId")]] = None
     Results: Optional[MediaAnalysisResultsTypeDef] = None
     ManifestSummary: Optional[MediaAnalysisManifestSummaryTypeDef] = None
 
 
 # This class is the output for the 'describe_stream_processor' function.
 class DescribeStreamProcessorResponseTypeDef(BaseValidatorModel):
-    Name: str
-    StreamProcessorArn: str
+    Name: Annotated[str, _aws_pattern("Rekognition", "StreamProcessorName")]
+    StreamProcessorArn: Annotated[str, _aws_pattern("Rekognition", "StreamProcessorArn")]
     Status: StreamProcessorStatusType
     StatusMessage: str
     CreationTimestamp: datetime
     LastUpdateTimestamp: datetime
     Input: StreamProcessorInputTypeDef
     Output: StreamProcessorOutputTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Rekognition", "RoleArn")]
     Settings: StreamProcessorSettingsOutputTypeDef
     NotificationChannel: StreamProcessorNotificationChannelTypeDef
-    KmsKeyId: str
+    KmsKeyId: Annotated[str, _aws_pattern("Rekognition", "KmsKeyId")]
     RegionsOfInterest: List[RegionOfInterestOutputTypeDef]
     DataSharingPreference: StreamProcessorDataSharingPreferenceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1739,9 +1749,9 @@ class GetSegmentDetectionResponseTypeDef(BaseValidatorModel):
     AudioMetadata: List[AudioMetadataTypeDef]
     Segments: List[SegmentDetectionTypeDef]
     SelectedSegmentTypes: List[SegmentTypeInfoTypeDef]
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     Video: VideoTypeDef
-    JobTag: str
+    JobTag: Annotated[str, _aws_pattern("Rekognition", "JobTag")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -1757,7 +1767,7 @@ class SearchFacesByImageResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'search_faces' function.
 class SearchFacesResponseTypeDef(BaseValidatorModel):
-    SearchedFaceId: str
+    SearchedFaceId: Annotated[str, _aws_pattern("Rekognition", "FaceId")]
     FaceMatches: List[FaceMatchTypeDef]
     FaceModelVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1788,7 +1798,7 @@ class ValidationDataTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_dataset' function.
 class CreateDatasetRequestTypeDef(BaseValidatorModel):
     DatasetType: DatasetTypeType
-    ProjectArn: str
+    ProjectArn: Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]
     DatasetSource: Optional[DatasetSourceTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -1797,17 +1807,17 @@ class CreateDatasetRequestTypeDef(BaseValidatorModel):
 class StartSegmentDetectionRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
     SegmentTypes: List[SegmentTypeType]
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
-    JobTag: Optional[str] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Rekognition", "JobTag")]] = None
     Filters: Optional[StartSegmentDetectionFiltersTypeDef] = None
 
 
 # This class is the input for the 'create_face_liveness_session' function.
 class CreateFaceLivenessSessionRequestTypeDef(BaseValidatorModel):
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Rekognition", "KmsKeyId")]] = None
     Settings: Optional[CreateFaceLivenessSessionRequestSettingsTypeDef] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
 
 
 # This class is the output for the 'recognize_celebrities' function.
@@ -1863,9 +1873,9 @@ class GetFaceDetectionResponseTypeDef(BaseValidatorModel):
     StatusMessage: str
     VideoMetadata: VideoMetadataTypeDef
     Faces: List[FaceDetectionTypeDef]
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     Video: VideoTypeDef
-    JobTag: str
+    JobTag: Annotated[str, _aws_pattern("Rekognition", "JobTag")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -1921,12 +1931,12 @@ class TextDetectionResultTypeDef(BaseValidatorModel):
 class CreateStreamProcessorRequestTypeDef(BaseValidatorModel):
     Input: StreamProcessorInputTypeDef
     Output: StreamProcessorOutputTypeDef
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rekognition", "StreamProcessorName")]
     Settings: StreamProcessorSettingsUnionTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Rekognition", "RoleArn")]
     Tags: Optional[Dict[str, str]] = None
     NotificationChannel: Optional[StreamProcessorNotificationChannelTypeDef] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Rekognition", "KmsKeyId")]] = None
     RegionsOfInterest: Optional[List[RegionOfInterestUnionTypeDef]] = None
     DataSharingPreference: Optional[StreamProcessorDataSharingPreferenceTypeDef] = None
 
@@ -1942,7 +1952,7 @@ class StartTextDetectionFiltersTypeDef(BaseValidatorModel):
 
 
 class UpdateStreamProcessorRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rekognition", "StreamProcessorName")]
     SettingsForUpdate: Optional[StreamProcessorSettingsForUpdateTypeDef] = None
     RegionsOfInterestForUpdate: Optional[List[RegionOfInterestUnionTypeDef]] = None
     DataSharingPreferenceForUpdate: Optional[StreamProcessorDataSharingPreferenceTypeDef] = None
@@ -1988,9 +1998,9 @@ class GetLabelDetectionResponseTypeDef(BaseValidatorModel):
     VideoMetadata: VideoMetadataTypeDef
     Labels: List[LabelDetectionTypeDef]
     LabelModelVersion: str
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     Video: VideoTypeDef
-    JobTag: str
+    JobTag: Annotated[str, _aws_pattern("Rekognition", "JobTag")]
     GetRequestMetadata: GetLabelDetectionRequestMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -2002,9 +2012,9 @@ class GetCelebrityRecognitionResponseTypeDef(BaseValidatorModel):
     StatusMessage: str
     VideoMetadata: VideoMetadataTypeDef
     Celebrities: List[CelebrityRecognitionTypeDef]
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     Video: VideoTypeDef
-    JobTag: str
+    JobTag: Annotated[str, _aws_pattern("Rekognition", "JobTag")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -2015,9 +2025,9 @@ class GetPersonTrackingResponseTypeDef(BaseValidatorModel):
     StatusMessage: str
     VideoMetadata: VideoMetadataTypeDef
     Persons: List[PersonDetectionTypeDef]
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     Video: VideoTypeDef
-    JobTag: str
+    JobTag: Annotated[str, _aws_pattern("Rekognition", "JobTag")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -2028,9 +2038,9 @@ class GetFaceSearchResponseTypeDef(BaseValidatorModel):
     StatusMessage: str
     VideoMetadata: VideoMetadataTypeDef
     Persons: List[PersonMatchTypeDef]
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     Video: VideoTypeDef
-    JobTag: str
+    JobTag: Annotated[str, _aws_pattern("Rekognition", "JobTag")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -2042,9 +2052,9 @@ class GetTextDetectionResponseTypeDef(BaseValidatorModel):
     VideoMetadata: VideoMetadataTypeDef
     TextDetections: List[TextDetectionResultTypeDef]
     TextModelVersion: str
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Rekognition", "JobId")]
     Video: VideoTypeDef
-    JobTag: str
+    JobTag: Annotated[str, _aws_pattern("Rekognition", "JobTag")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -2058,27 +2068,27 @@ class DetectTextRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_text_detection' function.
 class StartTextDetectionRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Rekognition", "ClientRequestToken")]] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
-    JobTag: Optional[str] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Rekognition", "JobTag")]] = None
     Filters: Optional[StartTextDetectionFiltersTypeDef] = None
 
 
 # This class is the input for the 'create_project_version' function.
 class CreateProjectVersionRequestTypeDef(BaseValidatorModel):
-    ProjectArn: str
-    VersionName: str
+    ProjectArn: Annotated[str, _aws_pattern("Rekognition", "ProjectArn")]
+    VersionName: Annotated[str, _aws_pattern("Rekognition", "VersionName")]
     OutputConfig: OutputConfigTypeDef
     TrainingData: Optional[TrainingDataUnionTypeDef] = None
     TestingData: Optional[TestingDataUnionTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
-    KmsKeyId: Optional[str] = None
-    VersionDescription: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Rekognition", "KmsKeyId")]] = None
+    VersionDescription: Optional[Annotated[str, _aws_pattern("Rekognition", "VersionDescription")]] = None
     FeatureConfig: Optional[CustomizationFeatureConfigTypeDef] = None
 
 
 class ProjectVersionDescriptionTypeDef(BaseValidatorModel):
-    ProjectVersionArn: Optional[str] = None
+    ProjectVersionArn: Optional[Annotated[str, _aws_pattern("Rekognition", "ProjectVersionArn")]] = None
     CreationTimestamp: Optional[datetime] = None
     MinInferenceUnits: Optional[int] = None
     Status: Optional[ProjectVersionStatusType] = None
@@ -2090,10 +2100,10 @@ class ProjectVersionDescriptionTypeDef(BaseValidatorModel):
     TestingDataResult: Optional[TestingDataResultTypeDef] = None
     EvaluationResult: Optional[EvaluationResultTypeDef] = None
     ManifestSummary: Optional[GroundTruthManifestTypeDef] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Rekognition", "KmsKeyId")]] = None
     MaxInferenceUnits: Optional[int] = None
-    SourceProjectVersionArn: Optional[str] = None
-    VersionDescription: Optional[str] = None
+    SourceProjectVersionArn: Optional[Annotated[str, _aws_pattern("Rekognition", "ProjectVersionArn")]] = None
+    VersionDescription: Optional[Annotated[str, _aws_pattern("Rekognition", "VersionDescription")]] = None
     Feature: Optional[CustomizationFeatureType] = None
     BaseModelVersion: Optional[str] = None
     FeatureConfig: Optional[CustomizationFeatureConfigTypeDef] = None

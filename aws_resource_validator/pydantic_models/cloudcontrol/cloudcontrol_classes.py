@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cloudcontrol.cloudcontrol_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,19 +42,19 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'cancel_resource_request' function.
 class CancelResourceRequestInputTypeDef(BaseValidatorModel):
-    RequestToken: str
+    RequestToken: Annotated[str, _aws_pattern("Cloudcontrol", "RequestToken")]
 
 
 class ProgressEventTypeDef(BaseValidatorModel):
-    TypeName: Optional[str] = None
-    Identifier: Optional[str] = None
-    RequestToken: Optional[str] = None
-    HooksRequestToken: Optional[str] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "TypeName")]] = None
+    Identifier: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "Identifier")]] = None
+    RequestToken: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "RequestToken")]] = None
+    HooksRequestToken: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "RequestToken")]] = None
     Operation: Optional[OperationType] = None
     OperationStatus: Optional[OperationStatusType] = None
     EventTime: Optional[datetime] = None
-    ResourceModel: Optional[str] = None
-    StatusMessage: Optional[str] = None
+    ResourceModel: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "Properties")]] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "StatusMessage")]] = None
     ErrorCode: Optional[HandlerErrorCodeType] = None
     RetryAfter: Optional[datetime] = None
 
@@ -67,38 +69,38 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_resource' function.
 class CreateResourceInputTypeDef(BaseValidatorModel):
-    TypeName: str
-    DesiredState: str
-    TypeVersionId: Optional[str] = None
-    RoleArn: Optional[str] = None
-    ClientToken: Optional[str] = None
+    TypeName: Annotated[str, _aws_pattern("Cloudcontrol", "TypeName")]
+    DesiredState: Annotated[str, _aws_pattern("Cloudcontrol", "Properties")]
+    TypeVersionId: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "TypeVersionId")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "RoleArn")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_resource' function.
 class DeleteResourceInputTypeDef(BaseValidatorModel):
-    TypeName: str
-    Identifier: str
-    TypeVersionId: Optional[str] = None
-    RoleArn: Optional[str] = None
-    ClientToken: Optional[str] = None
+    TypeName: Annotated[str, _aws_pattern("Cloudcontrol", "TypeName")]
+    Identifier: Annotated[str, _aws_pattern("Cloudcontrol", "Identifier")]
+    TypeVersionId: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "TypeVersionId")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "RoleArn")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "ClientToken")]] = None
 
 
 # This class is the input for the 'get_resource' function.
 class GetResourceInputTypeDef(BaseValidatorModel):
-    TypeName: str
-    Identifier: str
-    TypeVersionId: Optional[str] = None
-    RoleArn: Optional[str] = None
+    TypeName: Annotated[str, _aws_pattern("Cloudcontrol", "TypeName")]
+    Identifier: Annotated[str, _aws_pattern("Cloudcontrol", "Identifier")]
+    TypeVersionId: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "TypeVersionId")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "RoleArn")]] = None
 
 
 class ResourceDescriptionTypeDef(BaseValidatorModel):
-    Identifier: Optional[str] = None
-    Properties: Optional[str] = None
+    Identifier: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "Identifier")]] = None
+    Properties: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "Properties")]] = None
 
 
 # This class is the input for the 'get_resource_request_status' function.
 class GetResourceRequestStatusInputTypeDef(BaseValidatorModel):
-    RequestToken: str
+    RequestToken: Annotated[str, _aws_pattern("Cloudcontrol", "RequestToken")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -107,14 +109,14 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 
 class HookProgressEventTypeDef(BaseValidatorModel):
-    HookTypeName: Optional[str] = None
-    HookTypeVersionId: Optional[str] = None
-    HookTypeArn: Optional[str] = None
-    InvocationPoint: Optional[str] = None
-    HookStatus: Optional[str] = None
+    HookTypeName: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "TypeName")]] = None
+    HookTypeVersionId: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "TypeVersionId")]] = None
+    HookTypeArn: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "HookTypeArn")]] = None
+    InvocationPoint: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "HookInvocationPoint")]] = None
+    HookStatus: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "HookStatus")]] = None
     HookEventTime: Optional[datetime] = None
-    HookStatusMessage: Optional[str] = None
-    FailureMode: Optional[str] = None
+    HookStatusMessage: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "StatusMessage")]] = None
+    FailureMode: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "HookFailureMode")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -130,22 +132,22 @@ class ResourceRequestStatusFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_resources' function.
 class ListResourcesInputTypeDef(BaseValidatorModel):
-    TypeName: str
-    TypeVersionId: Optional[str] = None
-    RoleArn: Optional[str] = None
-    NextToken: Optional[str] = None
+    TypeName: Annotated[str, _aws_pattern("Cloudcontrol", "TypeName")]
+    TypeVersionId: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "TypeVersionId")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "RoleArn")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "HandlerNextToken")]] = None
     MaxResults: Optional[int] = None
-    ResourceModel: Optional[str] = None
+    ResourceModel: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "Properties")]] = None
 
 
 # This class is the input for the 'update_resource' function.
 class UpdateResourceInputTypeDef(BaseValidatorModel):
-    TypeName: str
-    Identifier: str
-    PatchDocument: str
-    TypeVersionId: Optional[str] = None
-    RoleArn: Optional[str] = None
-    ClientToken: Optional[str] = None
+    TypeName: Annotated[str, _aws_pattern("Cloudcontrol", "TypeName")]
+    Identifier: Annotated[str, _aws_pattern("Cloudcontrol", "Identifier")]
+    PatchDocument: Annotated[str, _aws_pattern("Cloudcontrol", "PatchDocument")]
+    TypeVersionId: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "TypeVersionId")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "RoleArn")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "ClientToken")]] = None
 
 
 # This class is the output for the 'cancel_resource_request' function.
@@ -170,7 +172,7 @@ class DeleteResourceOutputTypeDef(BaseValidatorModel):
 class ListResourceRequestsOutputTypeDef(BaseValidatorModel):
     ResourceRequestStatusSummaries: List[ProgressEventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "NextToken")]] = None
 
 
 # This class is the output for the 'update_resource' function.
@@ -181,17 +183,17 @@ class UpdateResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_resource' function.
 class GetResourceOutputTypeDef(BaseValidatorModel):
-    TypeName: str
+    TypeName: Annotated[str, _aws_pattern("Cloudcontrol", "TypeName")]
     ResourceDescription: ResourceDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_resources' function.
 class ListResourcesOutputTypeDef(BaseValidatorModel):
-    TypeName: str
+    TypeName: Annotated[str, _aws_pattern("Cloudcontrol", "TypeName")]
     ResourceDescriptions: List[ResourceDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "HandlerNextToken")]] = None
 
 
 class GetResourceRequestStatusInputWaitTypeDef(BaseValidatorModel):
@@ -222,5 +224,5 @@ class ListResourceRequestsInputPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_resource_requests' function.
 class ListResourceRequestsInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudcontrol", "NextToken")]] = None
     ResourceRequestStatusFilter: Optional[ResourceRequestStatusFilterTypeDef] = None

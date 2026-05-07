@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.controltower.controltower_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class BaselineOperationTypeDef(BaseValidatorModel):
-    operationIdentifier: Optional[str] = None
+    operationIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]] = None
     operationType: Optional[BaselineOperationTypeType] = None
     status: Optional[BaselineOperationStatusType] = None
     startTime: Optional[datetime] = None
@@ -54,9 +56,9 @@ class BaselineSummaryTypeDef(BaseValidatorModel):
 
 
 class ControlOperationFilterTypeDef(BaseValidatorModel):
-    controlIdentifiers: Optional[List[str]] = None
-    targetIdentifiers: Optional[List[str]] = None
-    enabledControlIdentifiers: Optional[List[str]] = None
+    controlIdentifiers: Optional[List[Annotated[str, _aws_pattern("Controltower", "ControlIdentifier")]]] = None
+    targetIdentifiers: Optional[List[Annotated[str, _aws_pattern("Controltower", "TargetIdentifier")]]] = None
+    enabledControlIdentifiers: Optional[List[Annotated[str, _aws_pattern("Controltower", "Arn")]]] = None
     statuses: Optional[List[ControlOperationStatusType]] = None
     controlOperationTypes: Optional[List[ControlOperationTypeType]] = None
 
@@ -67,10 +69,10 @@ class ControlOperationSummaryTypeDef(BaseValidatorModel):
     endTime: Optional[datetime] = None
     status: Optional[ControlOperationStatusType] = None
     statusMessage: Optional[str] = None
-    operationIdentifier: Optional[str] = None
-    controlIdentifier: Optional[str] = None
-    targetIdentifier: Optional[str] = None
-    enabledControlIdentifier: Optional[str] = None
+    operationIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]] = None
+    controlIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "ControlIdentifier")]] = None
+    targetIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "TargetIdentifier")]] = None
+    enabledControlIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "Arn")]] = None
 
 
 class ControlOperationTypeDef(BaseValidatorModel):
@@ -79,15 +81,15 @@ class ControlOperationTypeDef(BaseValidatorModel):
     endTime: Optional[datetime] = None
     status: Optional[ControlOperationStatusType] = None
     statusMessage: Optional[str] = None
-    operationIdentifier: Optional[str] = None
-    controlIdentifier: Optional[str] = None
-    targetIdentifier: Optional[str] = None
-    enabledControlIdentifier: Optional[str] = None
+    operationIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]] = None
+    controlIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "ControlIdentifier")]] = None
+    targetIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "TargetIdentifier")]] = None
+    enabledControlIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "Arn")]] = None
 
 
 # This class is the input for the 'create_landing_zone' function.
 class CreateLandingZoneInputTypeDef(BaseValidatorModel):
-    version: str
+    version: Annotated[str, _aws_pattern("Controltower", "LandingZoneVersion")]
     remediationTypes: Optional[List[Literal["INHERITANCE_DRIFT"]]] = None
     tags: Optional[Dict[str, str]] = None
     manifest: Optional[Dict[str, Any]] = None
@@ -108,14 +110,14 @@ class DeleteLandingZoneInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'disable_baseline' function.
 class DisableBaselineInputTypeDef(BaseValidatorModel):
-    enabledBaselineIdentifier: str
+    enabledBaselineIdentifier: Annotated[str, _aws_pattern("Controltower", "Arn")]
 
 
 # This class is the input for the 'disable_control' function.
 class DisableControlInputTypeDef(BaseValidatorModel):
-    controlIdentifier: Optional[str] = None
-    targetIdentifier: Optional[str] = None
-    enabledControlIdentifier: Optional[str] = None
+    controlIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "ControlIdentifier")]] = None
+    targetIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "TargetIdentifier")]] = None
+    enabledControlIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "Arn")]] = None
 
 
 class EnabledBaselineParameterTypeDef(BaseValidatorModel):
@@ -135,7 +137,7 @@ class EnabledBaselineParameterSummaryTypeDef(BaseValidatorModel):
 
 class EnablementStatusSummaryTypeDef(BaseValidatorModel):
     status: Optional[EnablementStatusType] = None
-    lastOperationIdentifier: Optional[str] = None
+    lastOperationIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]] = None
 
 
 class EnabledBaselineInheritanceDriftTypeDef(BaseValidatorModel):
@@ -143,9 +145,9 @@ class EnabledBaselineInheritanceDriftTypeDef(BaseValidatorModel):
 
 
 class EnabledBaselineFilterTypeDef(BaseValidatorModel):
-    targetIdentifiers: Optional[List[str]] = None
-    baselineIdentifiers: Optional[List[str]] = None
-    parentIdentifiers: Optional[List[str]] = None
+    targetIdentifiers: Optional[List[Annotated[str, _aws_pattern("Controltower", "Arn")]]] = None
+    baselineIdentifiers: Optional[List[Annotated[str, _aws_pattern("Controltower", "Arn")]]] = None
+    parentIdentifiers: Optional[List[Annotated[str, _aws_pattern("Controltower", "Arn")]]] = None
     statuses: Optional[List[EnablementStatusType]] = None
     inheritanceDriftStatuses: Optional[List[EnabledBaselineDriftStatusType]] = None
 
@@ -168,37 +170,37 @@ class EnabledControlResourceDriftTypeDef(BaseValidatorModel):
 
 
 class EnabledControlFilterTypeDef(BaseValidatorModel):
-    controlIdentifiers: Optional[List[str]] = None
+    controlIdentifiers: Optional[List[Annotated[str, _aws_pattern("Controltower", "ControlIdentifier")]]] = None
     statuses: Optional[List[EnablementStatusType]] = None
     driftStatuses: Optional[List[DriftStatusType]] = None
-    parentIdentifiers: Optional[List[str]] = None
+    parentIdentifiers: Optional[List[Annotated[str, _aws_pattern("Controltower", "ParentIdentifier")]]] = None
     inheritanceDriftStatuses: Optional[List[DriftStatusType]] = None
     resourceDriftStatuses: Optional[List[DriftStatusType]] = None
 
 
 # This class is the input for the 'get_baseline' function.
 class GetBaselineInputTypeDef(BaseValidatorModel):
-    baselineIdentifier: str
+    baselineIdentifier: Annotated[str, _aws_pattern("Controltower", "BaselineArn")]
 
 
 # This class is the input for the 'get_baseline_operation' function.
 class GetBaselineOperationInputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
 
 
 # This class is the input for the 'get_control_operation' function.
 class GetControlOperationInputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
 
 
 # This class is the input for the 'get_enabled_baseline' function.
 class GetEnabledBaselineInputTypeDef(BaseValidatorModel):
-    enabledBaselineIdentifier: str
+    enabledBaselineIdentifier: Annotated[str, _aws_pattern("Controltower", "Arn")]
 
 
 # This class is the input for the 'get_enabled_control' function.
 class GetEnabledControlInputTypeDef(BaseValidatorModel):
-    enabledControlIdentifier: str
+    enabledControlIdentifier: Annotated[str, _aws_pattern("Controltower", "Arn")]
 
 
 # This class is the input for the 'get_landing_zone' function.
@@ -208,12 +210,12 @@ class GetLandingZoneInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_landing_zone_operation' function.
 class GetLandingZoneOperationInputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
 
 
 class LandingZoneOperationDetailTypeDef(BaseValidatorModel):
     operationType: Optional[LandingZoneOperationTypeType] = None
-    operationIdentifier: Optional[str] = None
+    operationIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]] = None
     status: Optional[LandingZoneOperationStatusType] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
@@ -231,12 +233,12 @@ class LandingZoneOperationFilterTypeDef(BaseValidatorModel):
 
 class LandingZoneOperationSummaryTypeDef(BaseValidatorModel):
     operationType: Optional[LandingZoneOperationTypeType] = None
-    operationIdentifier: Optional[str] = None
+    operationIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]] = None
     status: Optional[LandingZoneOperationStatusType] = None
 
 
 class LandingZoneSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Controltower", "Arn")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -259,17 +261,17 @@ class ListLandingZonesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Controltower", "Arn")]
 
 
 # This class is the input for the 'reset_enabled_baseline' function.
 class ResetEnabledBaselineInputTypeDef(BaseValidatorModel):
-    enabledBaselineIdentifier: str
+    enabledBaselineIdentifier: Annotated[str, _aws_pattern("Controltower", "Arn")]
 
 
 # This class is the input for the 'reset_enabled_control' function.
 class ResetEnabledControlInputTypeDef(BaseValidatorModel):
-    enabledControlIdentifier: str
+    enabledControlIdentifier: Annotated[str, _aws_pattern("Controltower", "Arn")]
 
 
 # This class is the input for the 'reset_landing_zone' function.
@@ -278,18 +280,18 @@ class ResetLandingZoneInputTypeDef(BaseValidatorModel):
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Controltower", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Controltower", "Arn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_landing_zone' function.
 class UpdateLandingZoneInputTypeDef(BaseValidatorModel):
-    version: str
+    version: Annotated[str, _aws_pattern("Controltower", "LandingZoneVersion")]
     landingZoneIdentifier: str
     remediationTypes: Optional[List[Literal["INHERITANCE_DRIFT"]]] = None
     manifest: Optional[Dict[str, Any]] = None
@@ -298,46 +300,46 @@ class UpdateLandingZoneInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_control_operations' function.
 class ListControlOperationsInputTypeDef(BaseValidatorModel):
     filter: Optional[ControlOperationFilterTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Controltower", "ListControlOperationsNextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the output for the 'create_landing_zone' function.
 class CreateLandingZoneOutputTypeDef(BaseValidatorModel):
-    arn: str
-    operationIdentifier: str
+    arn: Annotated[str, _aws_pattern("Controltower", "Arn")]
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_landing_zone' function.
 class DeleteLandingZoneOutputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disable_baseline' function.
 class DisableBaselineOutputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disable_control' function.
 class DisableControlOutputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'enable_baseline' function.
 class EnableBaselineOutputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
-    arn: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
+    arn: Annotated[str, _aws_pattern("Controltower", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'enable_control' function.
 class EnableControlOutputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
-    arn: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
+    arn: Annotated[str, _aws_pattern("Controltower", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -349,7 +351,7 @@ class GetBaselineOperationOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_baseline' function.
 class GetBaselineOutputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Controltower", "BaselineArn")]
     name: str
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -372,7 +374,7 @@ class ListBaselinesOutputTypeDef(BaseValidatorModel):
 class ListControlOperationsOutputTypeDef(BaseValidatorModel):
     controlOperations: List[ControlOperationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Controltower", "ListControlOperationsNextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -383,60 +385,60 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'reset_enabled_baseline' function.
 class ResetEnabledBaselineOutputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'reset_enabled_control' function.
 class ResetEnabledControlOutputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'reset_landing_zone' function.
 class ResetLandingZoneOutputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_enabled_baseline' function.
 class UpdateEnabledBaselineOutputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_enabled_control' function.
 class UpdateEnabledControlOutputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_landing_zone' function.
 class UpdateLandingZoneOutputTypeDef(BaseValidatorModel):
-    operationIdentifier: str
+    operationIdentifier: Annotated[str, _aws_pattern("Controltower", "OperationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'enable_baseline' function.
 class EnableBaselineInputTypeDef(BaseValidatorModel):
-    baselineVersion: str
-    baselineIdentifier: str
-    targetIdentifier: str
+    baselineVersion: Annotated[str, _aws_pattern("Controltower", "BaselineVersion")]
+    baselineIdentifier: Annotated[str, _aws_pattern("Controltower", "Arn")]
+    targetIdentifier: Annotated[str, _aws_pattern("Controltower", "Arn")]
     parameters: Optional[List[EnabledBaselineParameterTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_enabled_baseline' function.
 class UpdateEnabledBaselineInputTypeDef(BaseValidatorModel):
-    baselineVersion: str
-    enabledBaselineIdentifier: str
+    baselineVersion: Annotated[str, _aws_pattern("Controltower", "BaselineVersion")]
+    enabledBaselineIdentifier: Annotated[str, _aws_pattern("Controltower", "Arn")]
     parameters: Optional[List[EnabledBaselineParameterTypeDef]] = None
 
 
 # This class is the input for the 'enable_control' function.
 class EnableControlInputTypeDef(BaseValidatorModel):
-    controlIdentifier: str
-    targetIdentifier: str
+    controlIdentifier: Annotated[str, _aws_pattern("Controltower", "ControlIdentifier")]
+    targetIdentifier: Annotated[str, _aws_pattern("Controltower", "TargetIdentifier")]
     tags: Optional[Dict[str, str]] = None
     parameters: Optional[List[EnabledControlParameterTypeDef]] = None
 
@@ -444,7 +446,7 @@ class EnableControlInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_enabled_control' function.
 class UpdateEnabledControlInputTypeDef(BaseValidatorModel):
     parameters: List[EnabledControlParameterTypeDef]
-    enabledControlIdentifier: str
+    enabledControlIdentifier: Annotated[str, _aws_pattern("Controltower", "Arn")]
 
 
 class EnabledBaselineDriftTypesTypeDef(BaseValidatorModel):
@@ -454,7 +456,7 @@ class EnabledBaselineDriftTypesTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_enabled_baselines' function.
 class ListEnabledBaselinesInputTypeDef(BaseValidatorModel):
     filter: Optional[EnabledBaselineFilterTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Controltower", "ListEnabledBaselinesNextToken")]] = None
     maxResults: Optional[int] = None
     includeChildren: Optional[bool] = None
 
@@ -466,7 +468,7 @@ class EnabledControlDriftTypesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_enabled_controls' function.
 class ListEnabledControlsInputTypeDef(BaseValidatorModel):
-    targetIdentifier: Optional[str] = None
+    targetIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "TargetIdentifier")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filter: Optional[EnabledControlFilterTypeDef] = None
@@ -480,12 +482,12 @@ class GetLandingZoneOperationOutputTypeDef(BaseValidatorModel):
 
 
 class LandingZoneDetailTypeDef(BaseValidatorModel):
-    version: str
+    version: Annotated[str, _aws_pattern("Controltower", "LandingZoneVersion")]
     manifest: Dict[str, Any]
     remediationTypes: Optional[List[Literal["INHERITANCE_DRIFT"]]] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Controltower", "Arn")]] = None
     status: Optional[LandingZoneStatusType] = None
-    latestAvailableVersion: Optional[str] = None
+    latestAvailableVersion: Optional[Annotated[str, _aws_pattern("Controltower", "LandingZoneVersion")]] = None
     driftStatus: Optional[LandingZoneDriftStatusSummaryTypeDef] = None
 
 
@@ -557,44 +559,44 @@ class GetLandingZoneOutputTypeDef(BaseValidatorModel):
 
 
 class EnabledBaselineDetailsTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Controltower", "Arn")]
     baselineIdentifier: str
     targetIdentifier: str
     statusSummary: EnablementStatusSummaryTypeDef
     baselineVersion: Optional[str] = None
     driftStatusSummary: Optional[EnabledBaselineDriftStatusSummaryTypeDef] = None
-    parentIdentifier: Optional[str] = None
+    parentIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "Arn")]] = None
     parameters: Optional[List[EnabledBaselineParameterSummaryTypeDef]] = None
 
 
 class EnabledBaselineSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Controltower", "Arn")]
     baselineIdentifier: str
     targetIdentifier: str
     statusSummary: EnablementStatusSummaryTypeDef
     baselineVersion: Optional[str] = None
     driftStatusSummary: Optional[EnabledBaselineDriftStatusSummaryTypeDef] = None
-    parentIdentifier: Optional[str] = None
+    parentIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "Arn")]] = None
 
 
 class EnabledControlDetailsTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    controlIdentifier: Optional[str] = None
-    targetIdentifier: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Controltower", "Arn")]] = None
+    controlIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "ControlIdentifier")]] = None
+    targetIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "TargetIdentifier")]] = None
     statusSummary: Optional[EnablementStatusSummaryTypeDef] = None
     driftStatusSummary: Optional[DriftStatusSummaryTypeDef] = None
-    parentIdentifier: Optional[str] = None
+    parentIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "ParentIdentifier")]] = None
     targetRegions: Optional[List[RegionTypeDef]] = None
     parameters: Optional[List[EnabledControlParameterSummaryTypeDef]] = None
 
 
 class EnabledControlSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    controlIdentifier: Optional[str] = None
-    targetIdentifier: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Controltower", "Arn")]] = None
+    controlIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "ControlIdentifier")]] = None
+    targetIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "TargetIdentifier")]] = None
     statusSummary: Optional[EnablementStatusSummaryTypeDef] = None
     driftStatusSummary: Optional[DriftStatusSummaryTypeDef] = None
-    parentIdentifier: Optional[str] = None
+    parentIdentifier: Optional[Annotated[str, _aws_pattern("Controltower", "ParentIdentifier")]] = None
 
 
 # This class is the output for the 'get_enabled_baseline' function.
@@ -607,7 +609,7 @@ class GetEnabledBaselineOutputTypeDef(BaseValidatorModel):
 class ListEnabledBaselinesOutputTypeDef(BaseValidatorModel):
     enabledBaselines: List[EnabledBaselineSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Controltower", "ListEnabledBaselinesNextToken")]] = None
 
 
 # This class is the output for the 'get_enabled_control' function.

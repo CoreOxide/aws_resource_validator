@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.waf.waf_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class ExcludedRuleTypeDef(BaseValidatorModel):
-    RuleId: str
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 class WafActionTypeDef(BaseValidatorModel):
@@ -54,19 +56,19 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class ByteMatchSetSummaryTypeDef(BaseValidatorModel):
-    ByteMatchSetId: str
-    Name: str
+    ByteMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
 
 
 class FieldToMatchTypeDef(BaseValidatorModel):
     Type: MatchFieldTypeType
-    Data: Optional[str] = None
+    Data: Optional[Annotated[str, _aws_pattern("Waf", "MatchFieldData")]] = None
 
 
 # This class is the input for the 'create_byte_match_set' function.
 class CreateByteMatchSetRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ChangeToken: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -79,148 +81,148 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_geo_match_set' function.
 class CreateGeoMatchSetRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ChangeToken: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'create_ip_set' function.
 class CreateIPSetRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ChangeToken: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Waf", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Waf", "TagValue")]
 
 
 # This class is the input for the 'create_regex_match_set' function.
 class CreateRegexMatchSetRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ChangeToken: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'create_regex_pattern_set' function.
 class CreateRegexPatternSetRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ChangeToken: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 class RegexPatternSetTypeDef(BaseValidatorModel):
-    RegexPatternSetId: str
-    RegexPatternStrings: List[str]
-    Name: Optional[str] = None
+    RegexPatternSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    RegexPatternStrings: List[Annotated[str, _aws_pattern("Waf", "RegexPatternString")]]
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
 
 
 class RuleGroupTypeDef(BaseValidatorModel):
-    RuleGroupId: str
-    Name: Optional[str] = None
-    MetricName: Optional[str] = None
+    RuleGroupId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Waf", "MetricName")]] = None
 
 
 # This class is the input for the 'create_size_constraint_set' function.
 class CreateSizeConstraintSetRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ChangeToken: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'create_sql_injection_match_set' function.
 class CreateSqlInjectionMatchSetRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ChangeToken: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'create_web_acl_migration_stack' function.
 class CreateWebACLMigrationStackRequestTypeDef(BaseValidatorModel):
-    WebACLId: str
-    S3BucketName: str
+    WebACLId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    S3BucketName: Annotated[str, _aws_pattern("Waf", "S3BucketName")]
     IgnoreUnsupportedType: bool
 
 
 # This class is the input for the 'create_xss_match_set' function.
 class CreateXssMatchSetRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ChangeToken: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'delete_byte_match_set' function.
 class DeleteByteMatchSetRequestTypeDef(BaseValidatorModel):
-    ByteMatchSetId: str
-    ChangeToken: str
+    ByteMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'delete_geo_match_set' function.
 class DeleteGeoMatchSetRequestTypeDef(BaseValidatorModel):
-    GeoMatchSetId: str
-    ChangeToken: str
+    GeoMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'delete_ip_set' function.
 class DeleteIPSetRequestTypeDef(BaseValidatorModel):
-    IPSetId: str
-    ChangeToken: str
+    IPSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 class DeleteLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Waf", "ResourceArn")]
 
 
 class DeletePermissionPolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Waf", "ResourceArn")]
 
 
 # This class is the input for the 'delete_rate_based_rule' function.
 class DeleteRateBasedRuleRequestTypeDef(BaseValidatorModel):
-    RuleId: str
-    ChangeToken: str
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'delete_regex_match_set' function.
 class DeleteRegexMatchSetRequestTypeDef(BaseValidatorModel):
-    RegexMatchSetId: str
-    ChangeToken: str
+    RegexMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'delete_regex_pattern_set' function.
 class DeleteRegexPatternSetRequestTypeDef(BaseValidatorModel):
-    RegexPatternSetId: str
-    ChangeToken: str
+    RegexPatternSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'delete_rule_group' function.
 class DeleteRuleGroupRequestTypeDef(BaseValidatorModel):
-    RuleGroupId: str
-    ChangeToken: str
+    RuleGroupId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'delete_rule' function.
 class DeleteRuleRequestTypeDef(BaseValidatorModel):
-    RuleId: str
-    ChangeToken: str
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'delete_size_constraint_set' function.
 class DeleteSizeConstraintSetRequestTypeDef(BaseValidatorModel):
-    SizeConstraintSetId: str
-    ChangeToken: str
+    SizeConstraintSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'delete_sql_injection_match_set' function.
 class DeleteSqlInjectionMatchSetRequestTypeDef(BaseValidatorModel):
-    SqlInjectionMatchSetId: str
-    ChangeToken: str
+    SqlInjectionMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'delete_web_acl' function.
 class DeleteWebACLRequestTypeDef(BaseValidatorModel):
-    WebACLId: str
-    ChangeToken: str
+    WebACLId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'delete_xss_match_set' function.
 class DeleteXssMatchSetRequestTypeDef(BaseValidatorModel):
-    XssMatchSetId: str
-    ChangeToken: str
+    XssMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 class GeoMatchConstraintTypeDef(BaseValidatorModel):
@@ -229,38 +231,38 @@ class GeoMatchConstraintTypeDef(BaseValidatorModel):
 
 
 class GeoMatchSetSummaryTypeDef(BaseValidatorModel):
-    GeoMatchSetId: str
-    Name: str
+    GeoMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
 
 
 # This class is the input for the 'get_byte_match_set' function.
 class GetByteMatchSetRequestTypeDef(BaseValidatorModel):
-    ByteMatchSetId: str
+    ByteMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 # This class is the input for the 'get_change_token_status' function.
 class GetChangeTokenStatusRequestTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'get_geo_match_set' function.
 class GetGeoMatchSetRequestTypeDef(BaseValidatorModel):
-    GeoMatchSetId: str
+    GeoMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 # This class is the input for the 'get_ip_set' function.
 class GetIPSetRequestTypeDef(BaseValidatorModel):
-    IPSetId: str
+    IPSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 # This class is the input for the 'get_logging_configuration' function.
 class GetLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Waf", "ResourceArn")]
 
 
 # This class is the input for the 'get_permission_policy' function.
 class GetPermissionPolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Waf", "ResourceArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -271,33 +273,33 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_rate_based_rule_managed_keys' function.
 class GetRateBasedRuleManagedKeysRequestTypeDef(BaseValidatorModel):
-    RuleId: str
-    NextMarker: Optional[str] = None
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
 
 
 # This class is the input for the 'get_rate_based_rule' function.
 class GetRateBasedRuleRequestTypeDef(BaseValidatorModel):
-    RuleId: str
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 # This class is the input for the 'get_regex_match_set' function.
 class GetRegexMatchSetRequestTypeDef(BaseValidatorModel):
-    RegexMatchSetId: str
+    RegexMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 # This class is the input for the 'get_regex_pattern_set' function.
 class GetRegexPatternSetRequestTypeDef(BaseValidatorModel):
-    RegexPatternSetId: str
+    RegexPatternSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 # This class is the input for the 'get_rule_group' function.
 class GetRuleGroupRequestTypeDef(BaseValidatorModel):
-    RuleGroupId: str
+    RuleGroupId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 # This class is the input for the 'get_rule' function.
 class GetRuleRequestTypeDef(BaseValidatorModel):
-    RuleId: str
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 class TimeWindowOutputTypeDef(BaseValidatorModel):
@@ -307,22 +309,22 @@ class TimeWindowOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_size_constraint_set' function.
 class GetSizeConstraintSetRequestTypeDef(BaseValidatorModel):
-    SizeConstraintSetId: str
+    SizeConstraintSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 # This class is the input for the 'get_sql_injection_match_set' function.
 class GetSqlInjectionMatchSetRequestTypeDef(BaseValidatorModel):
-    SqlInjectionMatchSetId: str
+    SqlInjectionMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 # This class is the input for the 'get_web_acl' function.
 class GetWebACLRequestTypeDef(BaseValidatorModel):
-    WebACLId: str
+    WebACLId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 # This class is the input for the 'get_xss_match_set' function.
 class GetXssMatchSetRequestTypeDef(BaseValidatorModel):
-    XssMatchSetId: str
+    XssMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 class HTTPHeaderTypeDef(BaseValidatorModel):
@@ -332,180 +334,180 @@ class HTTPHeaderTypeDef(BaseValidatorModel):
 
 class IPSetDescriptorTypeDef(BaseValidatorModel):
     Type: IPSetDescriptorTypeType
-    Value: str
+    Value: Annotated[str, _aws_pattern("Waf", "IPSetDescriptorValue")]
 
 
 class IPSetSummaryTypeDef(BaseValidatorModel):
-    IPSetId: str
-    Name: str
+    IPSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
 
 
 # This class is the input for the 'list_activated_rules_in_rule_group' function.
 class ListActivatedRulesInRuleGroupRequestTypeDef(BaseValidatorModel):
-    RuleGroupId: Optional[str] = None
-    NextMarker: Optional[str] = None
+    RuleGroupId: Optional[Annotated[str, _aws_pattern("Waf", "ResourceId")]] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_byte_match_sets' function.
 class ListByteMatchSetsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_geo_match_sets' function.
 class ListGeoMatchSetsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_ip_sets' function.
 class ListIPSetsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_logging_configurations' function.
 class ListLoggingConfigurationsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_rate_based_rules' function.
 class ListRateBasedRulesRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class RuleSummaryTypeDef(BaseValidatorModel):
-    RuleId: str
-    Name: str
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
 
 
 # This class is the input for the 'list_regex_match_sets' function.
 class ListRegexMatchSetsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class RegexMatchSetSummaryTypeDef(BaseValidatorModel):
-    RegexMatchSetId: str
-    Name: str
+    RegexMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
 
 
 # This class is the input for the 'list_regex_pattern_sets' function.
 class ListRegexPatternSetsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class RegexPatternSetSummaryTypeDef(BaseValidatorModel):
-    RegexPatternSetId: str
-    Name: str
+    RegexPatternSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
 
 
 # This class is the input for the 'list_rule_groups' function.
 class ListRuleGroupsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class RuleGroupSummaryTypeDef(BaseValidatorModel):
-    RuleGroupId: str
-    Name: str
+    RuleGroupId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
 
 
 # This class is the input for the 'list_rules' function.
 class ListRulesRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_size_constraint_sets' function.
 class ListSizeConstraintSetsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class SizeConstraintSetSummaryTypeDef(BaseValidatorModel):
-    SizeConstraintSetId: str
-    Name: str
+    SizeConstraintSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
 
 
 # This class is the input for the 'list_sql_injection_match_sets' function.
 class ListSqlInjectionMatchSetsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class SqlInjectionMatchSetSummaryTypeDef(BaseValidatorModel):
-    SqlInjectionMatchSetId: str
-    Name: str
+    SqlInjectionMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
 
 
 # This class is the input for the 'list_subscribed_rule_groups' function.
 class ListSubscribedRuleGroupsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class SubscribedRuleGroupSummaryTypeDef(BaseValidatorModel):
-    RuleGroupId: str
-    Name: str
-    MetricName: str
+    RuleGroupId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    MetricName: Annotated[str, _aws_pattern("Waf", "MetricName")]
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    NextMarker: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Waf", "ResourceArn")]
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_web_acls' function.
 class ListWebACLsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class WebACLSummaryTypeDef(BaseValidatorModel):
-    WebACLId: str
-    Name: str
+    WebACLId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
 
 
 # This class is the input for the 'list_xss_match_sets' function.
 class ListXssMatchSetsRequestTypeDef(BaseValidatorModel):
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Waf", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class XssMatchSetSummaryTypeDef(BaseValidatorModel):
-    XssMatchSetId: str
-    Name: str
+    XssMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
 
 
 class PredicateTypeDef(BaseValidatorModel):
     Negated: bool
     Type: PredicateTypeType
-    DataId: str
+    DataId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 class PutPermissionPolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    Policy: str
+    ResourceArn: Annotated[str, _aws_pattern("Waf", "ResourceArn")]
+    Policy: Annotated[str, _aws_pattern("Waf", "PolicyString")]
 
 
 class RegexPatternSetUpdateTypeDef(BaseValidatorModel):
     Action: ChangeActionType
-    RegexPatternString: str
+    RegexPatternString: Annotated[str, _aws_pattern("Waf", "RegexPatternString")]
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    TagKeys: List[str]
+    ResourceARN: Annotated[str, _aws_pattern("Waf", "ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Waf", "TagKey")]]
 
 
 class ActivatedRuleOutputTypeDef(BaseValidatorModel):
@@ -519,7 +521,7 @@ class ActivatedRuleOutputTypeDef(BaseValidatorModel):
 
 class ActivatedRuleTypeDef(BaseValidatorModel):
     Priority: int
-    RuleId: str
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     Action: Optional[WafActionTypeDef] = None
     OverrideAction: Optional[WafOverrideActionTypeDef] = None
     Type: Optional[WafRuleTypeType] = None
@@ -547,15 +549,15 @@ class LoggingConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class LoggingConfigurationTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    LogDestinationConfigs: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Waf", "ResourceArn")]
+    LogDestinationConfigs: List[Annotated[str, _aws_pattern("Waf", "ResourceArn")]]
     RedactedFields: Optional[List[FieldToMatchTypeDef]] = None
 
 
 class RegexMatchTupleTypeDef(BaseValidatorModel):
     FieldToMatch: FieldToMatchTypeDef
     TextTransformation: TextTransformationType
-    RegexPatternSetId: str
+    RegexPatternSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
 
 
 class SizeConstraintTypeDef(BaseValidatorModel):
@@ -583,78 +585,78 @@ class CreateWebACLMigrationStackResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_byte_match_set' function.
 class DeleteByteMatchSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_geo_match_set' function.
 class DeleteGeoMatchSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_ip_set' function.
 class DeleteIPSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_rate_based_rule' function.
 class DeleteRateBasedRuleResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_regex_match_set' function.
 class DeleteRegexMatchSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_regex_pattern_set' function.
 class DeleteRegexPatternSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_rule_group' function.
 class DeleteRuleGroupResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_rule' function.
 class DeleteRuleResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_size_constraint_set' function.
 class DeleteSizeConstraintSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_sql_injection_match_set' function.
 class DeleteSqlInjectionMatchSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_web_acl' function.
 class DeleteWebACLResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_xss_match_set' function.
 class DeleteXssMatchSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class GetChangeTokenResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -666,145 +668,145 @@ class GetChangeTokenStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_permission_policy' function.
 class GetPermissionPolicyResponseTypeDef(BaseValidatorModel):
-    Policy: str
+    Policy: Annotated[str, _aws_pattern("Waf", "PolicyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_rate_based_rule_managed_keys' function.
 class GetRateBasedRuleManagedKeysResponseTypeDef(BaseValidatorModel):
     ManagedKeys: List[str]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_byte_match_sets' function.
 class ListByteMatchSetsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     ByteMatchSets: List[ByteMatchSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_byte_match_set' function.
 class UpdateByteMatchSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_geo_match_set' function.
 class UpdateGeoMatchSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_ip_set' function.
 class UpdateIPSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_rate_based_rule' function.
 class UpdateRateBasedRuleResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_regex_match_set' function.
 class UpdateRegexMatchSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_regex_pattern_set' function.
 class UpdateRegexPatternSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_rule_group' function.
 class UpdateRuleGroupResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_rule' function.
 class UpdateRuleResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_size_constraint_set' function.
 class UpdateSizeConstraintSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_sql_injection_match_set' function.
 class UpdateSqlInjectionMatchSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_web_acl' function.
 class UpdateWebACLResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_xss_match_set' function.
 class UpdateXssMatchSetResponseTypeDef(BaseValidatorModel):
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_rate_based_rule' function.
 class CreateRateBasedRuleRequestTypeDef(BaseValidatorModel):
-    Name: str
-    MetricName: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    MetricName: Annotated[str, _aws_pattern("Waf", "MetricName")]
     RateKey: Literal["IP"]
     RateLimit: int
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_rule_group' function.
 class CreateRuleGroupRequestTypeDef(BaseValidatorModel):
-    Name: str
-    MetricName: str
-    ChangeToken: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    MetricName: Annotated[str, _aws_pattern("Waf", "MetricName")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_rule' function.
 class CreateRuleRequestTypeDef(BaseValidatorModel):
-    Name: str
-    MetricName: str
-    ChangeToken: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    MetricName: Annotated[str, _aws_pattern("Waf", "MetricName")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_web_acl' function.
 class CreateWebACLRequestTypeDef(BaseValidatorModel):
-    Name: str
-    MetricName: str
+    Name: Annotated[str, _aws_pattern("Waf", "ResourceName")]
+    MetricName: Annotated[str, _aws_pattern("Waf", "MetricName")]
     DefaultAction: WafActionTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class TagInfoForResourceTypeDef(BaseValidatorModel):
-    ResourceARN: Optional[str] = None
+    ResourceARN: Optional[Annotated[str, _aws_pattern("Waf", "ResourceArn")]] = None
     TagList: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Waf", "ResourceArn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_regex_pattern_set' function.
 class CreateRegexPatternSetResponseTypeDef(BaseValidatorModel):
     RegexPatternSet: RegexPatternSetTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -817,7 +819,7 @@ class GetRegexPatternSetResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_rule_group' function.
 class CreateRuleGroupResponseTypeDef(BaseValidatorModel):
     RuleGroup: RuleGroupTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -828,9 +830,9 @@ class GetRuleGroupResponseTypeDef(BaseValidatorModel):
 
 
 class GeoMatchSetTypeDef(BaseValidatorModel):
-    GeoMatchSetId: str
+    GeoMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     GeoMatchConstraints: List[GeoMatchConstraintTypeDef]
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
 
 
 class GeoMatchSetUpdateTypeDef(BaseValidatorModel):
@@ -840,7 +842,7 @@ class GeoMatchSetUpdateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_geo_match_sets' function.
 class ListGeoMatchSetsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     GeoMatchSets: List[GeoMatchSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -921,9 +923,9 @@ class HTTPRequestTypeDef(BaseValidatorModel):
 
 
 class IPSetTypeDef(BaseValidatorModel):
-    IPSetId: str
+    IPSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     IPSetDescriptors: List[IPSetDescriptorTypeDef]
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
 
 
 class IPSetUpdateTypeDef(BaseValidatorModel):
@@ -933,95 +935,95 @@ class IPSetUpdateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_ip_sets' function.
 class ListIPSetsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     IPSets: List[IPSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_rate_based_rules' function.
 class ListRateBasedRulesResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     Rules: List[RuleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_rules' function.
 class ListRulesResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     Rules: List[RuleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_regex_match_sets' function.
 class ListRegexMatchSetsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     RegexMatchSets: List[RegexMatchSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_regex_pattern_sets' function.
 class ListRegexPatternSetsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     RegexPatternSets: List[RegexPatternSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_rule_groups' function.
 class ListRuleGroupsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     RuleGroups: List[RuleGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_size_constraint_sets' function.
 class ListSizeConstraintSetsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     SizeConstraintSets: List[SizeConstraintSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_sql_injection_match_sets' function.
 class ListSqlInjectionMatchSetsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     SqlInjectionMatchSets: List[SqlInjectionMatchSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_subscribed_rule_groups' function.
 class ListSubscribedRuleGroupsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     RuleGroups: List[SubscribedRuleGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_web_acls' function.
 class ListWebACLsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     WebACLs: List[WebACLSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_xss_match_sets' function.
 class ListXssMatchSetsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     XssMatchSets: List[XssMatchSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class RateBasedRuleTypeDef(BaseValidatorModel):
-    RuleId: str
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     MatchPredicates: List[PredicateTypeDef]
     RateKey: Literal["IP"]
     RateLimit: int
-    Name: Optional[str] = None
-    MetricName: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Waf", "MetricName")]] = None
 
 
 class RuleTypeDef(BaseValidatorModel):
-    RuleId: str
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     Predicates: List[PredicateTypeDef]
-    Name: Optional[str] = None
-    MetricName: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Waf", "MetricName")]] = None
 
 
 class RuleUpdateTypeDef(BaseValidatorModel):
@@ -1031,9 +1033,9 @@ class RuleUpdateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_regex_pattern_set' function.
 class UpdateRegexPatternSetRequestTypeDef(BaseValidatorModel):
-    RegexPatternSetId: str
+    RegexPatternSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     Updates: List[RegexPatternSetUpdateTypeDef]
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 class TimeWindowTypeDef(BaseValidatorModel):
@@ -1043,27 +1045,27 @@ class TimeWindowTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_activated_rules_in_rule_group' function.
 class ListActivatedRulesInRuleGroupResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     ActivatedRules: List[ActivatedRuleOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class WebACLTypeDef(BaseValidatorModel):
-    WebACLId: str
+    WebACLId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     DefaultAction: WafActionTypeDef
     Rules: List[ActivatedRuleOutputTypeDef]
-    Name: Optional[str] = None
-    MetricName: Optional[str] = None
-    WebACLArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Waf", "MetricName")]] = None
+    WebACLArn: Optional[Annotated[str, _aws_pattern("Waf", "ResourceArn")]] = None
 
 
 ActivatedRuleUnionTypeDef = Union[ActivatedRuleOutputTypeDef, ActivatedRuleTypeDef]
 
 
 class ByteMatchSetTypeDef(BaseValidatorModel):
-    ByteMatchSetId: str
+    ByteMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     ByteMatchTuples: List[ByteMatchTupleOutputTypeDef]
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
 
 
 ByteMatchTupleUnionTypeDef = Union[ByteMatchTupleOutputTypeDef, ByteMatchTupleTypeDef]
@@ -1078,7 +1080,7 @@ class GetLoggingConfigurationResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_logging_configurations' function.
 class ListLoggingConfigurationsResponseTypeDef(BaseValidatorModel):
     LoggingConfigurations: List[LoggingConfigurationOutputTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1092,8 +1094,8 @@ LoggingConfigurationUnionTypeDef = Union[LoggingConfigurationOutputTypeDef, Logg
 
 
 class RegexMatchSetTypeDef(BaseValidatorModel):
-    RegexMatchSetId: Optional[str] = None
-    Name: Optional[str] = None
+    RegexMatchSetId: Optional[Annotated[str, _aws_pattern("Waf", "ResourceId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
     RegexMatchTuples: Optional[List[RegexMatchTupleTypeDef]] = None
 
 
@@ -1103,9 +1105,9 @@ class RegexMatchSetUpdateTypeDef(BaseValidatorModel):
 
 
 class SizeConstraintSetTypeDef(BaseValidatorModel):
-    SizeConstraintSetId: str
+    SizeConstraintSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     SizeConstraints: List[SizeConstraintTypeDef]
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
 
 
 class SizeConstraintSetUpdateTypeDef(BaseValidatorModel):
@@ -1114,9 +1116,9 @@ class SizeConstraintSetUpdateTypeDef(BaseValidatorModel):
 
 
 class SqlInjectionMatchSetTypeDef(BaseValidatorModel):
-    SqlInjectionMatchSetId: str
+    SqlInjectionMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     SqlInjectionMatchTuples: List[SqlInjectionMatchTupleTypeDef]
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
 
 
 class SqlInjectionMatchSetUpdateTypeDef(BaseValidatorModel):
@@ -1125,9 +1127,9 @@ class SqlInjectionMatchSetUpdateTypeDef(BaseValidatorModel):
 
 
 class XssMatchSetTypeDef(BaseValidatorModel):
-    XssMatchSetId: str
+    XssMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     XssMatchTuples: List[XssMatchTupleTypeDef]
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Waf", "ResourceName")]] = None
 
 
 class XssMatchSetUpdateTypeDef(BaseValidatorModel):
@@ -1137,7 +1139,7 @@ class XssMatchSetUpdateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Waf", "NextMarker")]
     TagInfoForResource: TagInfoForResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1145,7 +1147,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_geo_match_set' function.
 class CreateGeoMatchSetResponseTypeDef(BaseValidatorModel):
     GeoMatchSet: GeoMatchSetTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1157,8 +1159,8 @@ class GetGeoMatchSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_geo_match_set' function.
 class UpdateGeoMatchSetRequestTypeDef(BaseValidatorModel):
-    GeoMatchSetId: str
-    ChangeToken: str
+    GeoMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Updates: List[GeoMatchSetUpdateTypeDef]
 
 
@@ -1167,13 +1169,13 @@ class SampledHTTPRequestTypeDef(BaseValidatorModel):
     Weight: int
     Timestamp: Optional[datetime] = None
     Action: Optional[str] = None
-    RuleWithinRuleGroup: Optional[str] = None
+    RuleWithinRuleGroup: Optional[Annotated[str, _aws_pattern("Waf", "ResourceId")]] = None
 
 
 # This class is the output for the 'create_ip_set' function.
 class CreateIPSetResponseTypeDef(BaseValidatorModel):
     IPSet: IPSetTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1185,15 +1187,15 @@ class GetIPSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_ip_set' function.
 class UpdateIPSetRequestTypeDef(BaseValidatorModel):
-    IPSetId: str
-    ChangeToken: str
+    IPSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Updates: List[IPSetUpdateTypeDef]
 
 
 # This class is the output for the 'create_rate_based_rule' function.
 class CreateRateBasedRuleResponseTypeDef(BaseValidatorModel):
     Rule: RateBasedRuleTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1206,7 +1208,7 @@ class GetRateBasedRuleResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_rule' function.
 class CreateRuleResponseTypeDef(BaseValidatorModel):
     Rule: RuleTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1218,16 +1220,16 @@ class GetRuleResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_rate_based_rule' function.
 class UpdateRateBasedRuleRequestTypeDef(BaseValidatorModel):
-    RuleId: str
-    ChangeToken: str
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Updates: List[RuleUpdateTypeDef]
     RateLimit: int
 
 
 # This class is the input for the 'update_rule' function.
 class UpdateRuleRequestTypeDef(BaseValidatorModel):
-    RuleId: str
-    ChangeToken: str
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Updates: List[RuleUpdateTypeDef]
 
 
@@ -1237,7 +1239,7 @@ TimeWindowUnionTypeDef = Union[TimeWindowOutputTypeDef, TimeWindowTypeDef]
 # This class is the output for the 'create_web_acl' function.
 class CreateWebACLResponseTypeDef(BaseValidatorModel):
     WebACL: WebACLTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1260,7 +1262,7 @@ class WebACLUpdateTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_byte_match_set' function.
 class CreateByteMatchSetResponseTypeDef(BaseValidatorModel):
     ByteMatchSet: ByteMatchSetTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1283,7 +1285,7 @@ class PutLoggingConfigurationRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_regex_match_set' function.
 class CreateRegexMatchSetResponseTypeDef(BaseValidatorModel):
     RegexMatchSet: RegexMatchSetTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1295,15 +1297,15 @@ class GetRegexMatchSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_regex_match_set' function.
 class UpdateRegexMatchSetRequestTypeDef(BaseValidatorModel):
-    RegexMatchSetId: str
+    RegexMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     Updates: List[RegexMatchSetUpdateTypeDef]
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the output for the 'create_size_constraint_set' function.
 class CreateSizeConstraintSetResponseTypeDef(BaseValidatorModel):
     SizeConstraintSet: SizeConstraintSetTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1315,15 +1317,15 @@ class GetSizeConstraintSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_size_constraint_set' function.
 class UpdateSizeConstraintSetRequestTypeDef(BaseValidatorModel):
-    SizeConstraintSetId: str
-    ChangeToken: str
+    SizeConstraintSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Updates: List[SizeConstraintSetUpdateTypeDef]
 
 
 # This class is the output for the 'create_sql_injection_match_set' function.
 class CreateSqlInjectionMatchSetResponseTypeDef(BaseValidatorModel):
     SqlInjectionMatchSet: SqlInjectionMatchSetTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1335,15 +1337,15 @@ class GetSqlInjectionMatchSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_sql_injection_match_set' function.
 class UpdateSqlInjectionMatchSetRequestTypeDef(BaseValidatorModel):
-    SqlInjectionMatchSetId: str
-    ChangeToken: str
+    SqlInjectionMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Updates: List[SqlInjectionMatchSetUpdateTypeDef]
 
 
 # This class is the output for the 'create_xss_match_set' function.
 class CreateXssMatchSetResponseTypeDef(BaseValidatorModel):
     XssMatchSet: XssMatchSetTypeDef
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1355,8 +1357,8 @@ class GetXssMatchSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_xss_match_set' function.
 class UpdateXssMatchSetRequestTypeDef(BaseValidatorModel):
-    XssMatchSetId: str
-    ChangeToken: str
+    XssMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Updates: List[XssMatchSetUpdateTypeDef]
 
 
@@ -1370,29 +1372,29 @@ class GetSampledRequestsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_sampled_requests' function.
 class GetSampledRequestsRequestTypeDef(BaseValidatorModel):
-    WebAclId: str
-    RuleId: str
+    WebAclId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    RuleId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     TimeWindow: TimeWindowUnionTypeDef
     MaxItems: int
 
 
 # This class is the input for the 'update_rule_group' function.
 class UpdateRuleGroupRequestTypeDef(BaseValidatorModel):
-    RuleGroupId: str
+    RuleGroupId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
     Updates: List[RuleGroupUpdateTypeDef]
-    ChangeToken: str
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
 
 
 # This class is the input for the 'update_web_acl' function.
 class UpdateWebACLRequestTypeDef(BaseValidatorModel):
-    WebACLId: str
-    ChangeToken: str
+    WebACLId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Updates: Optional[List[WebACLUpdateTypeDef]] = None
     DefaultAction: Optional[WafActionTypeDef] = None
 
 
 # This class is the input for the 'update_byte_match_set' function.
 class UpdateByteMatchSetRequestTypeDef(BaseValidatorModel):
-    ByteMatchSetId: str
-    ChangeToken: str
+    ByteMatchSetId: Annotated[str, _aws_pattern("Waf", "ResourceId")]
+    ChangeToken: Annotated[str, _aws_pattern("Waf", "ChangeToken")]
     Updates: List[ByteMatchSetUpdateTypeDef]

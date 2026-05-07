@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class AlarmTypeDef(BaseValidatorModel):
-    AlarmName: str
-    AlarmARN: str
+    AlarmName: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceId")]
+    AlarmARN: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceId")]
 
 
 class CapacityForecastTypeDef(BaseValidatorModel):
@@ -54,22 +56,22 @@ class MetricDimensionTypeDef(BaseValidatorModel):
 
 
 class DeleteScalingPolicyRequestTypeDef(BaseValidatorModel):
-    PolicyName: str
+    PolicyName: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
 
 
 class DeleteScheduledActionRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
-    ScheduledActionName: str
-    ResourceId: str
+    ScheduledActionName: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
+    ResourceId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
 
 
 class DeregisterScalableTargetRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
 
 
@@ -82,10 +84,10 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_scalable_targets' function.
 class DescribeScalableTargetsRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
-    ResourceIds: Optional[List[str]] = None
+    ResourceIds: Optional[List[Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]]] = None
     ScalableDimension: Optional[ScalableDimensionType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -99,31 +101,33 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_scaling_activities' function.
 class DescribeScalingActivitiesRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: Optional[str] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]] = None
     ScalableDimension: Optional[ScalableDimensionType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
     IncludeNotScaledActivities: Optional[bool] = None
 
 
 # This class is the input for the 'describe_scaling_policies' function.
 class DescribeScalingPoliciesRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
-    PolicyNames: Optional[List[str]] = None
-    ResourceId: Optional[str] = None
+    PolicyNames: Optional[List[Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]]] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]] = None
     ScalableDimension: Optional[ScalableDimensionType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
 
 
 # This class is the input for the 'describe_scheduled_actions' function.
 class DescribeScheduledActionsRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
-    ScheduledActionNames: Optional[List[str]] = None
-    ResourceId: Optional[str] = None
+    ScheduledActionNames: Optional[
+        List[Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]]
+    ] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]] = None
     ScalableDimension: Optional[ScalableDimensionType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -131,11 +135,11 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ApplicationAutoscaling", "AmazonResourceName")]
 
 
 class NotScaledReasonTypeDef(BaseValidatorModel):
-    Code: str
+    Code: Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]
     MaxCapacity: Optional[int] = None
     MinCapacity: Optional[int] = None
     CurrentCapacity: Optional[int] = None
@@ -147,8 +151,8 @@ class PredefinedMetricSpecificationTypeDef(BaseValidatorModel):
 
 
 class PredictiveScalingMetricDimensionTypeDef(BaseValidatorModel):
-    Name: str
-    Value: str
+    Name: Annotated[str, _aws_pattern("ApplicationAutoscaling", "PredictiveScalingMetricDimensionName")]
+    Value: Annotated[str, _aws_pattern("ApplicationAutoscaling", "PredictiveScalingMetricDimensionValue")]
 
 
 class PredictiveScalingPredefinedLoadMetricSpecificationTypeDef(BaseValidatorModel):
@@ -184,17 +188,17 @@ class StepAdjustmentTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ApplicationAutoscaling", "AmazonResourceName")]
     Tags: Dict[str, str]
 
 
 class TargetTrackingMetricDimensionTypeDef(BaseValidatorModel):
-    Name: str
-    Value: str
+    Name: Annotated[str, _aws_pattern("ApplicationAutoscaling", "TargetTrackingMetricDimensionName")]
+    Value: Annotated[str, _aws_pattern("ApplicationAutoscaling", "TargetTrackingMetricDimensionValue")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ApplicationAutoscaling", "AmazonResourceName")]
     TagKeys: List[str]
 
 
@@ -237,39 +241,39 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_scaling_policy' function.
 class PutScalingPolicyResponseTypeDef(BaseValidatorModel):
-    PolicyARN: str
+    PolicyARN: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     Alarms: List[AlarmTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_scalable_target' function.
 class RegisterScalableTargetResponseTypeDef(BaseValidatorModel):
-    ScalableTargetARN: str
+    ScalableTargetARN: Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'get_predictive_scaling_forecast' function.
 class GetPredictiveScalingForecastRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
-    PolicyName: str
+    PolicyName: Annotated[str, _aws_pattern("ApplicationAutoscaling", "PolicyName")]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
 
 
 class ScalingActivityTypeDef(BaseValidatorModel):
-    ActivityId: str
+    ActivityId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceId")]
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
-    Description: str
-    Cause: str
+    Description: Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]
+    Cause: Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]
     StartTime: datetime
     StatusCode: ScalingActivityStatusCodeType
     EndTime: Optional[datetime] = None
-    StatusMessage: Optional[str] = None
-    Details: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
+    Details: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
     NotScaledReasons: Optional[List[NotScaledReasonTypeDef]] = None
 
 
@@ -281,30 +285,32 @@ class PredictiveScalingMetricOutputTypeDef(BaseValidatorModel):
 
 class PredictiveScalingMetricTypeDef(BaseValidatorModel):
     Dimensions: Optional[List[PredictiveScalingMetricDimensionTypeDef]] = None
-    MetricName: Optional[str] = None
-    Namespace: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "PredictiveScalingMetricName")]] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "PredictiveScalingMetricNamespace")]] = (
+        None
+    )
 
 
 class PutScheduledActionRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
-    ScheduledActionName: str
-    ResourceId: str
+    ScheduledActionName: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ScheduledActionName")]
+    ResourceId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
-    Schedule: Optional[str] = None
-    Timezone: Optional[str] = None
+    Schedule: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]] = None
+    Timezone: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
     ScalableTargetAction: Optional[ScalableTargetActionTypeDef] = None
 
 
 class ScheduledActionTypeDef(BaseValidatorModel):
-    ScheduledActionName: str
-    ScheduledActionARN: str
+    ScheduledActionName: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ScheduledActionName")]
+    ScheduledActionARN: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ServiceNamespace: ServiceNamespaceType
-    Schedule: str
-    ResourceId: str
+    Schedule: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
+    ResourceId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     CreationTime: datetime
-    Timezone: Optional[str] = None
+    Timezone: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]] = None
     ScalableDimension: Optional[ScalableDimensionType] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
@@ -314,26 +320,26 @@ class ScheduledActionTypeDef(BaseValidatorModel):
 # This class is the input for the 'register_scalable_target' function.
 class RegisterScalableTargetRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
     MinCapacity: Optional[int] = None
     MaxCapacity: Optional[int] = None
-    RoleARN: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]] = None
     SuspendedState: Optional[SuspendedStateTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class ScalableTargetTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
     MinCapacity: int
     MaxCapacity: int
-    RoleARN: str
+    RoleARN: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     CreationTime: datetime
     PredictedCapacity: Optional[int] = None
     SuspendedState: Optional[SuspendedStateTypeDef] = None
-    ScalableTargetARN: Optional[str] = None
+    ScalableTargetARN: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
 
 
 class StepScalingPolicyConfigurationOutputTypeDef(BaseValidatorModel):
@@ -360,15 +366,15 @@ class TargetTrackingMetricOutputTypeDef(BaseValidatorModel):
 
 class TargetTrackingMetricTypeDef(BaseValidatorModel):
     Dimensions: Optional[List[TargetTrackingMetricDimensionTypeDef]] = None
-    MetricName: Optional[str] = None
-    Namespace: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "TargetTrackingMetricName")]] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "TargetTrackingMetricNamespace")]] = None
 
 
 # This class is the output for the 'describe_scaling_activities' function.
 class DescribeScalingActivitiesResponseTypeDef(BaseValidatorModel):
     ScalingActivities: List[ScalingActivityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
 
 
 class PredictiveScalingMetricStatOutputTypeDef(BaseValidatorModel):
@@ -379,22 +385,22 @@ class PredictiveScalingMetricStatOutputTypeDef(BaseValidatorModel):
 
 class PredictiveScalingMetricStatTypeDef(BaseValidatorModel):
     Metric: PredictiveScalingMetricTypeDef
-    Stat: str
-    Unit: Optional[str] = None
+    Stat: Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]
+    Unit: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "PredictiveScalingMetricUnit")]] = None
 
 
 # This class is the output for the 'describe_scheduled_actions' function.
 class DescribeScheduledActionsResponseTypeDef(BaseValidatorModel):
     ScheduledActions: List[ScheduledActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
 
 
 # This class is the output for the 'describe_scalable_targets' function.
 class DescribeScalableTargetsResponseTypeDef(BaseValidatorModel):
     ScalableTargets: List[ScalableTargetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
 
 
 StepScalingPolicyConfigurationUnionTypeDef = Union[
@@ -410,8 +416,8 @@ class TargetTrackingMetricStatOutputTypeDef(BaseValidatorModel):
 
 class TargetTrackingMetricStatTypeDef(BaseValidatorModel):
     Metric: TargetTrackingMetricTypeDef
-    Stat: str
-    Unit: Optional[str] = None
+    Stat: Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]
+    Unit: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "TargetTrackingMetricUnit")]] = None
 
 
 class PredictiveScalingMetricDataQueryOutputTypeDef(BaseValidatorModel):
@@ -423,10 +429,10 @@ class PredictiveScalingMetricDataQueryOutputTypeDef(BaseValidatorModel):
 
 
 class PredictiveScalingMetricDataQueryTypeDef(BaseValidatorModel):
-    Id: str
-    Expression: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("ApplicationAutoscaling", "Id")]
+    Expression: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "Expression")]] = None
     MetricStat: Optional[PredictiveScalingMetricStatTypeDef] = None
-    Label: Optional[str] = None
+    Label: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
     ReturnData: Optional[bool] = None
 
 
@@ -439,9 +445,9 @@ class TargetTrackingMetricDataQueryOutputTypeDef(BaseValidatorModel):
 
 
 class TargetTrackingMetricDataQueryTypeDef(BaseValidatorModel):
-    Id: str
-    Expression: Optional[str] = None
-    Label: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("ApplicationAutoscaling", "Id")]
+    Expression: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "Expression")]] = None
+    Label: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
     MetricStat: Optional[TargetTrackingMetricStatTypeDef] = None
     ReturnData: Optional[bool] = None
 
@@ -546,10 +552,10 @@ class GetPredictiveScalingForecastResponseTypeDef(BaseValidatorModel):
 
 
 class ScalingPolicyTypeDef(BaseValidatorModel):
-    PolicyARN: str
-    PolicyName: str
+    PolicyARN: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
+    PolicyName: Annotated[str, _aws_pattern("ApplicationAutoscaling", "PolicyName")]
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
     PolicyType: PolicyTypeType
     CreationTime: datetime
@@ -568,14 +574,14 @@ PredictiveScalingPolicyConfigurationUnionTypeDef = Union[
 class DescribeScalingPoliciesResponseTypeDef(BaseValidatorModel):
     ScalingPolicies: List[ScalingPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationAutoscaling", "XmlString")]] = None
 
 
 # This class is the input for the 'put_scaling_policy' function.
 class PutScalingPolicyRequestTypeDef(BaseValidatorModel):
-    PolicyName: str
+    PolicyName: Annotated[str, _aws_pattern("ApplicationAutoscaling", "PolicyName")]
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("ApplicationAutoscaling", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
     PolicyType: Optional[PolicyTypeType] = None
     StepScalingPolicyConfiguration: Optional[StepScalingPolicyConfigurationUnionTypeDef] = None

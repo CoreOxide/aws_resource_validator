@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.route53profiles.route53profiles_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -47,7 +49,7 @@ class ProfileAssociationTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     Id: Optional[str] = None
     ModificationTime: Optional[datetime] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53profiles", "Name")]] = None
     OwnerId: Optional[str] = None
     ProfileId: Optional[str] = None
     ResourceId: Optional[str] = None
@@ -65,7 +67,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_resource_to_profile' function.
 class AssociateResourceToProfileRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Route53profiles", "Name")]
     ProfileId: str
     ResourceArn: str
     ResourceProperties: Optional[str] = None
@@ -75,7 +77,7 @@ class ProfileResourceAssociationTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     Id: Optional[str] = None
     ModificationTime: Optional[datetime] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53profiles", "Name")]] = None
     OwnerId: Optional[str] = None
     ProfileId: Optional[str] = None
     ResourceArn: Optional[str] = None
@@ -91,7 +93,7 @@ class ProfileTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     Id: Optional[str] = None
     ModificationTime: Optional[datetime] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53profiles", "Name")]] = None
     OwnerId: Optional[str] = None
     ShareStatus: Optional[ShareStatusType] = None
     Status: Optional[ProfileStatusType] = None
@@ -161,7 +163,7 @@ class ListProfilesRequestTypeDef(BaseValidatorModel):
 class ProfileSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53profiles", "Name")]] = None
     ShareStatus: Optional[ShareStatusType] = None
 
 
@@ -183,13 +185,13 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_profile_resource_association' function.
 class UpdateProfileResourceAssociationRequestTypeDef(BaseValidatorModel):
     ProfileResourceAssociationId: str
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53profiles", "Name")]] = None
     ResourceProperties: Optional[str] = None
 
 
 # This class is the input for the 'associate_profile' function.
 class AssociateProfileRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Route53profiles", "Name")]
     ProfileId: str
     ResourceId: str
     Tags: Optional[List[TagTypeDef]] = None
@@ -198,7 +200,7 @@ class AssociateProfileRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_profile' function.
 class CreateProfileRequestTypeDef(BaseValidatorModel):
     ClientToken: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Route53profiles", "Name")]
     Tags: Optional[List[TagTypeDef]] = None
 
 

@@ -4,6 +4,11 @@ from __future__ import annotations
 from aws_resource_validator.pydantic_models.appstream.appstream_classes import (
     AccessEndpointTypeDef,
     AdminAppLicenseUsageRecordTypeDef,
+    AgentAccessConfigForUpdateTypeDef,
+    AgentAccessConfigOutputTypeDef,
+    AgentAccessConfigTypeDef,
+    AgentAccessConfigUnionTypeDef,
+    AgentAccessSettingTypeDef,
     AppBlockBuilderAppBlockAssociationTypeDef,
     AppBlockBuilderStateChangeReasonTypeDef,
     AppBlockBuilderTypeDef,
@@ -229,6 +234,11 @@ from aws_resource_validator.pydantic_models.appstream.appstream_classes import (
 __all__ = [
     'AccessEndpointTypeDef',
     'AdminAppLicenseUsageRecordTypeDef',
+    'AgentAccessConfigForUpdateTypeDef',
+    'AgentAccessConfigOutputTypeDef',
+    'AgentAccessConfigTypeDef',
+    'AgentAccessConfigUnionTypeDef',
+    'AgentAccessSettingTypeDef',
     'AppBlockBuilderAppBlockAssociationTypeDef',
     'AppBlockBuilderStateChangeReasonTypeDef',
     'AppBlockBuilderTypeDef',

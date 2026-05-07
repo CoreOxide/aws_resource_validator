@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kms.kms_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class AliasListEntryTypeDef(BaseValidatorModel):
-    AliasName: Optional[str] = None
+    AliasName: Optional[Annotated[str, _aws_pattern("Kms", "AliasNameType")]] = None
     AliasArn: Optional[str] = None
     TargetKeyId: Optional[str] = None
     CreationDate: Optional[datetime] = None
@@ -68,13 +70,13 @@ class ConnectCustomKeyStoreRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_alias' function.
 class CreateAliasRequestTypeDef(BaseValidatorModel):
-    AliasName: str
+    AliasName: Annotated[str, _aws_pattern("Kms", "AliasNameType")]
     TargetKeyId: str
 
 
 class XksProxyAuthenticationCredentialTypeTypeDef(BaseValidatorModel):
-    AccessKeyId: str
-    RawSecretAccessKey: str
+    AccessKeyId: Annotated[str, _aws_pattern("Kms", "XksProxyAuthenticationAccessKeyIdType")]
+    RawSecretAccessKey: Annotated[str, _aws_pattern("Kms", "XksProxyAuthenticationRawSecretAccessKeyType")]
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -84,16 +86,16 @@ class TagTypeDef(BaseValidatorModel):
 
 class XksProxyConfigurationTypeTypeDef(BaseValidatorModel):
     Connectivity: Optional[XksProxyConnectivityTypeType] = None
-    AccessKeyId: Optional[str] = None
-    UriEndpoint: Optional[str] = None
-    UriPath: Optional[str] = None
-    VpcEndpointServiceName: Optional[str] = None
-    VpcEndpointServiceOwner: Optional[str] = None
+    AccessKeyId: Optional[Annotated[str, _aws_pattern("Kms", "XksProxyAuthenticationAccessKeyIdType")]] = None
+    UriEndpoint: Optional[Annotated[str, _aws_pattern("Kms", "XksProxyUriEndpointType")]] = None
+    UriPath: Optional[Annotated[str, _aws_pattern("Kms", "XksProxyUriPathType")]] = None
+    VpcEndpointServiceName: Optional[Annotated[str, _aws_pattern("Kms", "XksProxyVpcEndpointServiceNameType")]] = None
+    VpcEndpointServiceOwner: Optional[Annotated[str, _aws_pattern("Kms", "AccountIdType")]] = None
 
 
 # This class is the input for the 'delete_alias' function.
 class DeleteAliasRequestTypeDef(BaseValidatorModel):
-    AliasName: str
+    AliasName: Annotated[str, _aws_pattern("Kms", "AliasNameType")]
 
 
 class DeleteCustomKeyStoreRequestTypeDef(BaseValidatorModel):
@@ -103,7 +105,7 @@ class DeleteCustomKeyStoreRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'delete_imported_key_material' function.
 class DeleteImportedKeyMaterialRequestTypeDef(BaseValidatorModel):
     KeyId: str
-    KeyMaterialId: Optional[str] = None
+    KeyMaterialId: Optional[Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -117,7 +119,7 @@ class DescribeCustomKeyStoresRequestTypeDef(BaseValidatorModel):
     CustomKeyStoreId: Optional[str] = None
     CustomKeyStoreName: Optional[str] = None
     Limit: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Kms", "MarkerType")]] = None
 
 
 # This class is the input for the 'describe_key' function.
@@ -170,10 +172,22 @@ class GenerateDataKeyWithoutPlaintextRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_key_last_usage' function.
+class GetKeyLastUsageRequestTypeDef(BaseValidatorModel):
+    KeyId: str
+
+
+class KeyLastUsageDataTypeDef(BaseValidatorModel):
+    Operation: Optional[KeyLastUsageTrackingOperationType] = None
+    Timestamp: Optional[datetime] = None
+    CloudTrailEventId: Optional[str] = None
+    KmsRequestId: Optional[str] = None
+
+
 # This class is the input for the 'get_key_policy' function.
 class GetKeyPolicyRequestTypeDef(BaseValidatorModel):
     KeyId: str
-    PolicyName: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Kms", "PolicyNameType")]] = None
 
 
 # This class is the input for the 'get_key_rotation_status' function.
@@ -213,30 +227,30 @@ class KeyListEntryTypeDef(BaseValidatorModel):
 
 
 class XksKeyConfigurationTypeTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Kms", "XksKeyIdType")]] = None
 
 
 # This class is the input for the 'list_aliases' function.
 class ListAliasesRequestTypeDef(BaseValidatorModel):
     KeyId: Optional[str] = None
     Limit: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Kms", "MarkerType")]] = None
 
 
 # This class is the input for the 'list_grants' function.
 class ListGrantsRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Limit: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Kms", "MarkerType")]] = None
     GrantId: Optional[str] = None
-    GranteePrincipal: Optional[str] = None
+    GranteePrincipal: Optional[Annotated[str, _aws_pattern("Kms", "PrincipalIdType")]] = None
 
 
 # This class is the input for the 'list_key_policies' function.
 class ListKeyPoliciesRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Limit: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Kms", "MarkerType")]] = None
 
 
 # This class is the input for the 'list_key_rotations' function.
@@ -244,13 +258,13 @@ class ListKeyRotationsRequestTypeDef(BaseValidatorModel):
     KeyId: str
     IncludeKeyMaterial: Optional[IncludeKeyMaterialType] = None
     Limit: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Kms", "MarkerType")]] = None
 
 
 class RotationsListEntryTypeDef(BaseValidatorModel):
     KeyId: Optional[str] = None
-    KeyMaterialId: Optional[str] = None
-    KeyMaterialDescription: Optional[str] = None
+    KeyMaterialId: Optional[Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]] = None
+    KeyMaterialDescription: Optional[Annotated[str, _aws_pattern("Kms", "KeyMaterialDescriptionType")]] = None
     ImportState: Optional[ImportStateType] = None
     KeyMaterialState: Optional[KeyMaterialStateType] = None
     ExpirationModel: Optional[ExpirationModelTypeType] = None
@@ -262,33 +276,33 @@ class RotationsListEntryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_keys' function.
 class ListKeysRequestTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Kms", "MarkerType")]] = None
 
 
 # This class is the input for the 'list_resource_tags' function.
 class ListResourceTagsRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Limit: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Kms", "MarkerType")]] = None
 
 
 # This class is the input for the 'list_retirable_grants' function.
 class ListRetirableGrantsRequestTypeDef(BaseValidatorModel):
-    RetiringPrincipal: str
+    RetiringPrincipal: Annotated[str, _aws_pattern("Kms", "PrincipalIdType")]
     Limit: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Kms", "MarkerType")]] = None
 
 
 class MultiRegionKeyTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    Region: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Kms", "RegionType")]] = None
 
 
 # This class is the input for the 'put_key_policy' function.
 class PutKeyPolicyRequestTypeDef(BaseValidatorModel):
     KeyId: str
-    Policy: str
-    PolicyName: Optional[str] = None
+    Policy: Annotated[str, _aws_pattern("Kms", "PolicyType")]
+    PolicyName: Optional[Annotated[str, _aws_pattern("Kms", "PolicyNameType")]] = None
     BypassPolicyLockoutSafetyCheck: Optional[bool] = None
 
 
@@ -326,7 +340,7 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_alias' function.
 class UpdateAliasRequestTypeDef(BaseValidatorModel):
-    AliasName: str
+    AliasName: Annotated[str, _aws_pattern("Kms", "AliasNameType")]
     TargetKeyId: str
 
 
@@ -339,7 +353,7 @@ class UpdateKeyDescriptionRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_primary_region' function.
 class UpdatePrimaryRegionRequestTypeDef(BaseValidatorModel):
     KeyId: str
-    PrimaryRegion: str
+    PrimaryRegion: Annotated[str, _aws_pattern("Kms", "RegionType")]
 
 
 # This class is the input for the 'encrypt' function.
@@ -436,14 +450,14 @@ class DecryptResponseTypeDef(BaseValidatorModel):
     Plaintext: bytes
     EncryptionAlgorithm: EncryptionAlgorithmSpecType
     CiphertextForRecipient: bytes
-    KeyMaterialId: str
+    KeyMaterialId: Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_imported_key_material' function.
 class DeleteImportedKeyMaterialResponseTypeDef(BaseValidatorModel):
     KeyId: str
-    KeyMaterialId: str
+    KeyMaterialId: Annotated[str, _aws_pattern("Kms", "BackingKeyIdResponseType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -478,7 +492,7 @@ class GenerateDataKeyPairResponseTypeDef(BaseValidatorModel):
     KeyId: str
     KeyPairSpec: DataKeyPairSpecType
     CiphertextForRecipient: bytes
-    KeyMaterialId: str
+    KeyMaterialId: Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -488,7 +502,7 @@ class GenerateDataKeyPairWithoutPlaintextResponseTypeDef(BaseValidatorModel):
     PublicKey: bytes
     KeyId: str
     KeyPairSpec: DataKeyPairSpecType
-    KeyMaterialId: str
+    KeyMaterialId: Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -498,7 +512,7 @@ class GenerateDataKeyResponseTypeDef(BaseValidatorModel):
     Plaintext: bytes
     KeyId: str
     CiphertextForRecipient: bytes
-    KeyMaterialId: str
+    KeyMaterialId: Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -506,7 +520,7 @@ class GenerateDataKeyResponseTypeDef(BaseValidatorModel):
 class GenerateDataKeyWithoutPlaintextResponseTypeDef(BaseValidatorModel):
     CiphertextBlob: bytes
     KeyId: str
-    KeyMaterialId: str
+    KeyMaterialId: Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -527,8 +541,8 @@ class GenerateRandomResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_key_policy' function.
 class GetKeyPolicyResponseTypeDef(BaseValidatorModel):
-    Policy: str
-    PolicyName: str
+    Policy: Annotated[str, _aws_pattern("Kms", "PolicyType")]
+    PolicyName: Annotated[str, _aws_pattern("Kms", "PolicyNameType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -567,22 +581,22 @@ class GetPublicKeyResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'import_key_material' function.
 class ImportKeyMaterialResponseTypeDef(BaseValidatorModel):
     KeyId: str
-    KeyMaterialId: str
+    KeyMaterialId: Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_aliases' function.
 class ListAliasesResponseTypeDef(BaseValidatorModel):
     Aliases: List[AliasListEntryTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Kms", "MarkerType")]
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_key_policies' function.
 class ListKeyPoliciesResponseTypeDef(BaseValidatorModel):
-    PolicyNames: List[str]
-    NextMarker: str
+    PolicyNames: List[Annotated[str, _aws_pattern("Kms", "PolicyNameType")]]
+    NextMarker: Annotated[str, _aws_pattern("Kms", "MarkerType")]
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -594,8 +608,8 @@ class ReEncryptResponseTypeDef(BaseValidatorModel):
     KeyId: str
     SourceEncryptionAlgorithm: EncryptionAlgorithmSpecType
     DestinationEncryptionAlgorithm: EncryptionAlgorithmSpecType
-    SourceKeyMaterialId: str
-    DestinationKeyMaterialId: str
+    SourceKeyMaterialId: Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]
+    DestinationKeyMaterialId: Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -641,14 +655,16 @@ class VerifyResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_custom_key_store' function.
 class CreateCustomKeyStoreRequestTypeDef(BaseValidatorModel):
     CustomKeyStoreName: str
-    CloudHsmClusterId: Optional[str] = None
+    CloudHsmClusterId: Optional[Annotated[str, _aws_pattern("Kms", "CloudHsmClusterIdType")]] = None
     TrustAnchorCertificate: Optional[str] = None
     KeyStorePassword: Optional[str] = None
     CustomKeyStoreType: Optional[CustomKeyStoreTypeType] = None
-    XksProxyUriEndpoint: Optional[str] = None
-    XksProxyUriPath: Optional[str] = None
-    XksProxyVpcEndpointServiceName: Optional[str] = None
-    XksProxyVpcEndpointServiceOwner: Optional[str] = None
+    XksProxyUriEndpoint: Optional[Annotated[str, _aws_pattern("Kms", "XksProxyUriEndpointType")]] = None
+    XksProxyUriPath: Optional[Annotated[str, _aws_pattern("Kms", "XksProxyUriPathType")]] = None
+    XksProxyVpcEndpointServiceName: Optional[
+        Annotated[str, _aws_pattern("Kms", "XksProxyVpcEndpointServiceNameType")]
+    ] = None
+    XksProxyVpcEndpointServiceOwner: Optional[Annotated[str, _aws_pattern("Kms", "AccountIdType")]] = None
     XksProxyAuthenticationCredential: Optional[XksProxyAuthenticationCredentialTypeTypeDef] = None
     XksProxyConnectivity: Optional[XksProxyConnectivityTypeType] = None
 
@@ -657,18 +673,20 @@ class UpdateCustomKeyStoreRequestTypeDef(BaseValidatorModel):
     CustomKeyStoreId: str
     NewCustomKeyStoreName: Optional[str] = None
     KeyStorePassword: Optional[str] = None
-    CloudHsmClusterId: Optional[str] = None
-    XksProxyUriEndpoint: Optional[str] = None
-    XksProxyUriPath: Optional[str] = None
-    XksProxyVpcEndpointServiceName: Optional[str] = None
-    XksProxyVpcEndpointServiceOwner: Optional[str] = None
+    CloudHsmClusterId: Optional[Annotated[str, _aws_pattern("Kms", "CloudHsmClusterIdType")]] = None
+    XksProxyUriEndpoint: Optional[Annotated[str, _aws_pattern("Kms", "XksProxyUriEndpointType")]] = None
+    XksProxyUriPath: Optional[Annotated[str, _aws_pattern("Kms", "XksProxyUriPathType")]] = None
+    XksProxyVpcEndpointServiceName: Optional[
+        Annotated[str, _aws_pattern("Kms", "XksProxyVpcEndpointServiceNameType")]
+    ] = None
+    XksProxyVpcEndpointServiceOwner: Optional[Annotated[str, _aws_pattern("Kms", "AccountIdType")]] = None
     XksProxyAuthenticationCredential: Optional[XksProxyAuthenticationCredentialTypeTypeDef] = None
     XksProxyConnectivity: Optional[XksProxyConnectivityTypeType] = None
 
 
 # This class is the input for the 'create_key' function.
 class CreateKeyRequestTypeDef(BaseValidatorModel):
-    Policy: Optional[str] = None
+    Policy: Optional[Annotated[str, _aws_pattern("Kms", "PolicyType")]] = None
     Description: Optional[str] = None
     KeyUsage: Optional[KeyUsageTypeType] = None
     CustomerMasterKeySpec: Optional[CustomerMasterKeySpecType] = None
@@ -678,13 +696,13 @@ class CreateKeyRequestTypeDef(BaseValidatorModel):
     BypassPolicyLockoutSafetyCheck: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
     MultiRegion: Optional[bool] = None
-    XksKeyId: Optional[str] = None
+    XksKeyId: Optional[Annotated[str, _aws_pattern("Kms", "XksKeyIdType")]] = None
 
 
 # This class is the output for the 'list_resource_tags' function.
 class ListResourceTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Kms", "MarkerType")]
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -692,8 +710,8 @@ class ListResourceTagsResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'replicate_key' function.
 class ReplicateKeyRequestTypeDef(BaseValidatorModel):
     KeyId: str
-    ReplicaRegion: str
-    Policy: Optional[str] = None
+    ReplicaRegion: Annotated[str, _aws_pattern("Kms", "RegionType")]
+    Policy: Optional[Annotated[str, _aws_pattern("Kms", "PolicyType")]] = None
     BypassPolicyLockoutSafetyCheck: Optional[bool] = None
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -708,7 +726,7 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 class CustomKeyStoresListEntryTypeDef(BaseValidatorModel):
     CustomKeyStoreId: Optional[str] = None
     CustomKeyStoreName: Optional[str] = None
-    CloudHsmClusterId: Optional[str] = None
+    CloudHsmClusterId: Optional[Annotated[str, _aws_pattern("Kms", "CloudHsmClusterIdType")]] = None
     TrustAnchorCertificate: Optional[str] = None
     ConnectionState: Optional[ConnectionStateTypeType] = None
     ConnectionErrorCode: Optional[ConnectionErrorCodeTypeType] = None
@@ -760,14 +778,23 @@ class ListRetirableGrantsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
+# This class is the output for the 'get_key_last_usage' function.
+class GetKeyLastUsageResponseTypeDef(BaseValidatorModel):
+    KeyId: str
+    KeyLastUsage: KeyLastUsageDataTypeDef
+    TrackingStartDate: datetime
+    KeyCreationDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class GrantListEntryTypeDef(BaseValidatorModel):
     KeyId: Optional[str] = None
     GrantId: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Kms", "GrantNameType")]] = None
     CreationDate: Optional[datetime] = None
-    GranteePrincipal: Optional[str] = None
-    RetiringPrincipal: Optional[str] = None
-    IssuingAccount: Optional[str] = None
+    GranteePrincipal: Optional[Annotated[str, _aws_pattern("Kms", "PrincipalIdType")]] = None
+    RetiringPrincipal: Optional[Annotated[str, _aws_pattern("Kms", "PrincipalIdType")]] = None
+    IssuingAccount: Optional[Annotated[str, _aws_pattern("Kms", "PrincipalIdType")]] = None
     Operations: Optional[List[GrantOperationType]] = None
     Constraints: Optional[GrantConstraintsOutputTypeDef] = None
 
@@ -783,14 +810,14 @@ class ImportKeyMaterialRequestTypeDef(BaseValidatorModel):
     ValidTo: Optional[TimestampTypeDef] = None
     ExpirationModel: Optional[ExpirationModelTypeType] = None
     ImportType: Optional[ImportTypeType] = None
-    KeyMaterialDescription: Optional[str] = None
-    KeyMaterialId: Optional[str] = None
+    KeyMaterialDescription: Optional[Annotated[str, _aws_pattern("Kms", "KeyMaterialDescriptionType")]] = None
+    KeyMaterialId: Optional[Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]] = None
 
 
 # This class is the output for the 'list_keys' function.
 class ListKeysResponseTypeDef(BaseValidatorModel):
     Keys: List[KeyListEntryTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Kms", "MarkerType")]
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -798,7 +825,7 @@ class ListKeysResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_key_rotations' function.
 class ListKeyRotationsResponseTypeDef(BaseValidatorModel):
     Rotations: List[RotationsListEntryTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Kms", "MarkerType")]
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -862,7 +889,7 @@ class GenerateRandomRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_custom_key_stores' function.
 class DescribeCustomKeyStoresResponseTypeDef(BaseValidatorModel):
     CustomKeyStores: List[CustomKeyStoresListEntryTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Kms", "MarkerType")]
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -870,7 +897,7 @@ class DescribeCustomKeyStoresResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_grants' function.
 class ListGrantsResponseTypeDef(BaseValidatorModel):
     Grants: List[GrantListEntryTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Kms", "MarkerType")]
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -878,12 +905,12 @@ class ListGrantsResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_grant' function.
 class CreateGrantRequestTypeDef(BaseValidatorModel):
     KeyId: str
-    GranteePrincipal: str
+    GranteePrincipal: Annotated[str, _aws_pattern("Kms", "PrincipalIdType")]
     Operations: List[GrantOperationType]
-    RetiringPrincipal: Optional[str] = None
+    RetiringPrincipal: Optional[Annotated[str, _aws_pattern("Kms", "PrincipalIdType")]] = None
     Constraints: Optional[GrantConstraintsUnionTypeDef] = None
     GrantTokens: Optional[List[str]] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Kms", "GrantNameType")]] = None
     DryRun: Optional[bool] = None
 
 
@@ -900,7 +927,7 @@ class KeyMetadataTypeDef(BaseValidatorModel):
     ValidTo: Optional[datetime] = None
     Origin: Optional[OriginTypeType] = None
     CustomKeyStoreId: Optional[str] = None
-    CloudHsmClusterId: Optional[str] = None
+    CloudHsmClusterId: Optional[Annotated[str, _aws_pattern("Kms", "CloudHsmClusterIdType")]] = None
     ExpirationModel: Optional[ExpirationModelTypeType] = None
     KeyManager: Optional[KeyManagerTypeType] = None
     CustomerMasterKeySpec: Optional[CustomerMasterKeySpecType] = None
@@ -913,7 +940,7 @@ class KeyMetadataTypeDef(BaseValidatorModel):
     PendingDeletionWindowInDays: Optional[int] = None
     MacAlgorithms: Optional[List[MacAlgorithmSpecType]] = None
     XksKeyConfiguration: Optional[XksKeyConfigurationTypeTypeDef] = None
-    CurrentKeyMaterialId: Optional[str] = None
+    CurrentKeyMaterialId: Optional[Annotated[str, _aws_pattern("Kms", "BackingKeyIdType")]] = None
 
 
 # This class is the output for the 'create_key' function.
@@ -931,6 +958,6 @@ class DescribeKeyResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'replicate_key' function.
 class ReplicateKeyResponseTypeDef(BaseValidatorModel):
     ReplicaKeyMetadata: KeyMetadataTypeDef
-    ReplicaPolicy: str
+    ReplicaPolicy: Annotated[str, _aws_pattern("Kms", "PolicyType")]
     ReplicaTags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

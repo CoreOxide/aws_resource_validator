@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mediatailor.mediatailor_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -151,6 +153,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ManifestServiceInteractionLogOutputTypeDef(BaseValidatorModel):
+    PublishOptInEventTypes: Optional[List[ManifestServicePublishOptInEventTypeType]] = None
     ExcludeEventTypes: Optional[List[ManifestServiceExcludeEventTypeType]] = None
 
 
@@ -177,6 +180,16 @@ class SegmentDeliveryConfigurationTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+class CustomOutputConfigurationOutputTypeDef(BaseValidatorModel):
+    Runtime: Literal["JSONATA"]
+    Output: Optional[Dict[str, str]] = None
+
+
+class CustomOutputConfigurationTypeDef(BaseValidatorModel):
+    Runtime: Literal["JSONATA"]
+    Output: Optional[Dict[str, str]] = None
+
+
 class DashConfigurationForPutTypeDef(BaseValidatorModel):
     MpdLocation: Optional[str] = None
     OriginManifestType: Optional[OriginManifestTypeType] = None
@@ -201,6 +214,10 @@ class DeleteChannelPolicyRequestTypeDef(BaseValidatorModel):
 
 class DeleteChannelRequestTypeDef(BaseValidatorModel):
     ChannelName: str
+
+
+class DeleteFunctionRequestTypeDef(BaseValidatorModel):
+    FunctionId: str
 
 
 class DeleteLiveSourceRequestTypeDef(BaseValidatorModel):
@@ -259,6 +276,21 @@ class DescribeVodSourceRequestTypeDef(BaseValidatorModel):
     VodSourceName: str
 
 
+class FunctionRefTypeDef(BaseValidatorModel):
+    RunCondition: Optional[str] = None
+    FunctionId: Optional[str] = None
+
+
+class HttpRequestConfigurationOutputTypeDef(BaseValidatorModel):
+    Runtime: Literal["JSONATA"]
+    MethodType: MethodTypeType
+    RequestTimeoutMilliseconds: int
+    Url: str
+    Output: Optional[Dict[str, str]] = None
+    Body: Optional[str] = None
+    Headers: Optional[Dict[str, str]] = None
+
+
 # This class is the input for the 'get_channel_policy' function.
 class GetChannelPolicyRequestTypeDef(BaseValidatorModel):
     ChannelName: str
@@ -277,6 +309,11 @@ class GetChannelScheduleRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Audience: Optional[str] = None
+
+
+# This class is the input for the 'get_function' function.
+class GetFunctionRequestTypeDef(BaseValidatorModel):
+    FunctionId: str
 
 
 # This class is the input for the 'get_playback_configuration' function.
@@ -309,6 +346,16 @@ class HlsPlaylistSettingsTypeDef(BaseValidatorModel):
     AdMarkupType: Optional[List[AdMarkupTypeType]] = None
 
 
+class HttpRequestConfigurationTypeDef(BaseValidatorModel):
+    Runtime: Literal["JSONATA"]
+    MethodType: MethodTypeType
+    RequestTimeoutMilliseconds: int
+    Url: str
+    Output: Optional[Dict[str, str]] = None
+    Body: Optional[str] = None
+    Headers: Optional[Dict[str, str]] = None
+
+
 # This class is the input for the 'list_alerts' function.
 class ListAlertsRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
@@ -318,6 +365,12 @@ class ListAlertsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_channels' function.
 class ListChannelsRequestTypeDef(BaseValidatorModel):
+    MaxResults: Optional[int] = None
+    NextToken: Optional[str] = None
+
+
+# This class is the input for the 'list_functions' function.
+class ListFunctionsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -363,6 +416,7 @@ class ListVodSourcesRequestTypeDef(BaseValidatorModel):
 
 
 class ManifestServiceInteractionLogTypeDef(BaseValidatorModel):
+    PublishOptInEventTypes: Optional[List[ManifestServicePublishOptInEventTypeType]] = None
     ExcludeEventTypes: Optional[List[ManifestServiceExcludeEventTypeType]] = None
 
 
@@ -641,6 +695,23 @@ class VodSourceTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+CustomOutputConfigurationUnionTypeDef = Union[CustomOutputConfigurationOutputTypeDef, CustomOutputConfigurationTypeDef]
+
+
+class SequentialExecutorConfigurationOutputTypeDef(BaseValidatorModel):
+    Runtime: Literal["JSONATA"]
+    FunctionList: List[FunctionRefTypeDef]
+    TimeoutMilliseconds: int
+    Output: Optional[Dict[str, str]] = None
+
+
+class SequentialExecutorConfigurationTypeDef(BaseValidatorModel):
+    Runtime: Literal["JSONATA"]
+    FunctionList: List[FunctionRefTypeDef]
+    TimeoutMilliseconds: int
+    Output: Optional[Dict[str, str]] = None
+
+
 class GetChannelScheduleRequestPaginateTypeDef(BaseValidatorModel):
     ChannelName: str
     DurationMinutes: Optional[str] = None
@@ -654,6 +725,10 @@ class ListAlertsRequestPaginateTypeDef(BaseValidatorModel):
 
 
 class ListChannelsRequestPaginateTypeDef(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListFunctionsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
@@ -691,6 +766,8 @@ class ResponseOutputItemTypeDef(BaseValidatorModel):
 
 
 HlsPlaylistSettingsUnionTypeDef = Union[HlsPlaylistSettingsOutputTypeDef, HlsPlaylistSettingsTypeDef]
+
+HttpRequestConfigurationUnionTypeDef = Union[HttpRequestConfigurationOutputTypeDef, HttpRequestConfigurationTypeDef]
 
 ManifestServiceInteractionLogUnionTypeDef = Union[
     ManifestServiceInteractionLogOutputTypeDef, ManifestServiceInteractionLogTypeDef
@@ -871,6 +948,7 @@ class GetPlaybackConfigurationResponseTypeDef(BaseValidatorModel):
     VideoContentSourceUrl: str
     AdConditioningConfiguration: AdConditioningConfigurationTypeDef
     AdDecisionServerConfiguration: AdDecisionServerConfigurationOutputTypeDef
+    FunctionMapping: Dict[EventNameType, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -897,6 +975,7 @@ class PlaybackConfigurationTypeDef(BaseValidatorModel):
     VideoContentSourceUrl: Optional[str] = None
     AdConditioningConfiguration: Optional[AdConditioningConfigurationTypeDef] = None
     AdDecisionServerConfiguration: Optional[AdDecisionServerConfigurationOutputTypeDef] = None
+    FunctionMapping: Optional[Dict[EventNameType, str]] = None
 
 
 # This class is the output for the 'put_playback_configuration' function.
@@ -923,6 +1002,7 @@ class PutPlaybackConfigurationResponseTypeDef(BaseValidatorModel):
     VideoContentSourceUrl: str
     AdConditioningConfiguration: AdConditioningConfigurationTypeDef
     AdDecisionServerConfiguration: AdDecisionServerConfigurationOutputTypeDef
+    FunctionMapping: Dict[EventNameType, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -938,6 +1018,48 @@ class ListVodSourcesResponseTypeDef(BaseValidatorModel):
     Items: List[VodSourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
+
+class FunctionTypeDef(BaseValidatorModel):
+    FunctionId: str
+    FunctionType: FunctionTypeType
+    Description: Optional[str] = None
+    HttpRequestConfiguration: Optional[HttpRequestConfigurationOutputTypeDef] = None
+    CustomOutputConfiguration: Optional[CustomOutputConfigurationOutputTypeDef] = None
+    SequentialExecutorConfiguration: Optional[SequentialExecutorConfigurationOutputTypeDef] = None
+    Tags: Optional[Dict[str, str]] = None
+    Arn: Optional[str] = None
+
+
+# This class is the output for the 'get_function' function.
+class GetFunctionResponseTypeDef(BaseValidatorModel):
+    FunctionId: str
+    FunctionType: FunctionTypeType
+    Description: str
+    HttpRequestConfiguration: HttpRequestConfigurationOutputTypeDef
+    CustomOutputConfiguration: CustomOutputConfigurationOutputTypeDef
+    SequentialExecutorConfiguration: SequentialExecutorConfigurationOutputTypeDef
+    Tags: Dict[str, str]
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'put_function' function.
+class PutFunctionResponseTypeDef(BaseValidatorModel):
+    FunctionId: str
+    FunctionType: FunctionTypeType
+    Description: str
+    HttpRequestConfiguration: HttpRequestConfigurationOutputTypeDef
+    CustomOutputConfiguration: CustomOutputConfigurationOutputTypeDef
+    SequentialExecutorConfiguration: SequentialExecutorConfigurationOutputTypeDef
+    Tags: Dict[str, str]
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+SequentialExecutorConfigurationUnionTypeDef = Union[
+    SequentialExecutorConfigurationOutputTypeDef, SequentialExecutorConfigurationTypeDef
+]
 
 
 class ChannelTypeDef(BaseValidatorModel):
@@ -1087,6 +1209,7 @@ class PutPlaybackConfigurationRequestTypeDef(BaseValidatorModel):
     VideoContentSourceUrl: Optional[str] = None
     AdConditioningConfiguration: Optional[AdConditioningConfigurationTypeDef] = None
     AdDecisionServerConfiguration: Optional[AdDecisionServerConfigurationUnionTypeDef] = None
+    FunctionMapping: Optional[Dict[EventNameType, str]] = None
 
 
 # This class is the output for the 'list_playback_configurations' function.
@@ -1094,6 +1217,24 @@ class ListPlaybackConfigurationsResponseTypeDef(BaseValidatorModel):
     Items: List[PlaybackConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
+
+# This class is the output for the 'list_functions' function.
+class ListFunctionsResponseTypeDef(BaseValidatorModel):
+    Items: List[FunctionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+# This class is the input for the 'put_function' function.
+class PutFunctionRequestTypeDef(BaseValidatorModel):
+    FunctionId: str
+    FunctionType: FunctionTypeType
+    Description: Optional[str] = None
+    HttpRequestConfiguration: Optional[HttpRequestConfigurationUnionTypeDef] = None
+    CustomOutputConfiguration: Optional[CustomOutputConfigurationUnionTypeDef] = None
+    SequentialExecutorConfiguration: Optional[SequentialExecutorConfigurationUnionTypeDef] = None
+    Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'list_channels' function.

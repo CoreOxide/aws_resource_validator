@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.marketplace_reporting.marketplace_reporting_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,8 +42,8 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'get_buyer_dashboard' function.
 class GetBuyerDashboardInputTypeDef(BaseValidatorModel):
-    dashboardIdentifier: str
-    embeddingDomains: List[str]
+    dashboardIdentifier: Annotated[str, _aws_pattern("MarketplaceReporting", "DashboardIdentifier")]
+    embeddingDomains: List[Annotated[str, _aws_pattern("MarketplaceReporting", "EmbeddingDomain")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -55,6 +57,6 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_buyer_dashboard' function.
 class GetBuyerDashboardOutputTypeDef(BaseValidatorModel):
     embedUrl: str
-    dashboardIdentifier: str
-    embeddingDomains: List[str]
+    dashboardIdentifier: Annotated[str, _aws_pattern("MarketplaceReporting", "DashboardIdentifier")]
+    embeddingDomains: List[Annotated[str, _aws_pattern("MarketplaceReporting", "EmbeddingDomain")]]
     ResponseMetadata: ResponseMetadataTypeDef

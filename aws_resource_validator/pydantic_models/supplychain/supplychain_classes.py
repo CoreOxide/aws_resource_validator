@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.supplychain.supplychain_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,17 +41,17 @@ except ImportError:  # pragma: no cover
 
 
 class BillOfMaterialsImportJobTypeDef(BaseValidatorModel):
-    instanceId: str
-    jobId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    jobId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
     status: ConfigurationJobStatusType
-    s3uri: str
+    s3uri: Annotated[str, _aws_pattern("Supplychain", "ConfigurationS3Uri")]
     message: Optional[str] = None
 
 
 # This class is the input for the 'create_bill_of_materials_import_job' function.
 class CreateBillOfMaterialsImportJobRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    s3uri: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    s3uri: Annotated[str, _aws_pattern("Supplychain", "ConfigurationS3Uri")]
     clientToken: Optional[str] = None
 
 
@@ -63,16 +65,16 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_lake_namespace' function.
 class CreateDataLakeNamespaceRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
     description: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class DataLakeNamespaceTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
-    arn: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
+    arn: Annotated[str, _aws_pattern("Supplychain", "AscResourceArn")]
     createdTime: datetime
     lastModifiedTime: datetime
     description: Optional[str] = None
@@ -80,25 +82,25 @@ class DataLakeNamespaceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_instance' function.
 class CreateInstanceRequestTypeDef(BaseValidatorModel):
-    instanceName: Optional[str] = None
-    instanceDescription: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
-    webAppDnsDomain: Optional[str] = None
+    instanceName: Optional[Annotated[str, _aws_pattern("Supplychain", "InstanceName")]] = None
+    instanceDescription: Optional[Annotated[str, _aws_pattern("Supplychain", "InstanceDescription")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Supplychain", "KmsKeyArn")]] = None
+    webAppDnsDomain: Optional[Annotated[str, _aws_pattern("Supplychain", "InstanceWebAppDnsDomain")]] = None
     tags: Optional[Dict[str, str]] = None
     clientToken: Optional[str] = None
 
 
 class InstanceTypeDef(BaseValidatorModel):
-    instanceId: str
-    awsAccountId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    awsAccountId: Annotated[str, _aws_pattern("Supplychain", "AwsAccountId")]
     state: InstanceStateType
     errorMessage: Optional[str] = None
-    webAppDnsDomain: Optional[str] = None
+    webAppDnsDomain: Optional[Annotated[str, _aws_pattern("Supplychain", "InstanceWebAppDnsDomain")]] = None
     createdTime: Optional[datetime] = None
     lastModifiedTime: Optional[datetime] = None
-    instanceName: Optional[str] = None
-    instanceDescription: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    instanceName: Optional[Annotated[str, _aws_pattern("Supplychain", "InstanceName")]] = None
+    instanceDescription: Optional[Annotated[str, _aws_pattern("Supplychain", "InstanceDescription")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Supplychain", "KmsKeyArn")]] = None
     versionNumber: Optional[float] = None
 
 
@@ -108,25 +110,27 @@ class DataIntegrationEventDatasetLoadExecutionDetailsTypeDef(BaseValidatorModel)
 
 
 class DataIntegrationEventDatasetTargetConfigurationTypeDef(BaseValidatorModel):
-    datasetIdentifier: str
+    datasetIdentifier: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationDatasetArn")]
     operationType: DataIntegrationEventDatasetOperationTypeType
 
 
 class DataIntegrationFlowDatasetSourceTypeDef(BaseValidatorModel):
-    datasetIdentifier: str
+    datasetIdentifier: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationDatasetArn")]
 
 
 class DataIntegrationFlowExecutionOutputMetadataTypeDef(BaseValidatorModel):
-    diagnosticReportsRootS3URI: Optional[str] = None
+    diagnosticReportsRootS3URI: Optional[
+        Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowExecutionDiagnosticReportsRootS3URI")]
+    ] = None
 
 
 class DataIntegrationFlowS3SourceTypeDef(BaseValidatorModel):
-    bucketName: str
-    key: str
+    bucketName: Annotated[str, _aws_pattern("Supplychain", "S3BucketName")]
+    key: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationS3ObjectKey")]
 
 
 class DataIntegrationFlowFieldPriorityDedupeFieldTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowFieldPriorityDedupeFieldName")]
     sortOrder: DataIntegrationFlowFieldPriorityDedupeSortOrderType
 
 
@@ -143,80 +147,80 @@ class DataLakeDatasetPartitionFieldTransformTypeDef(BaseValidatorModel):
 
 
 class DataLakeDatasetPrimaryKeyFieldTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeDatasetSchemaFieldName")]
 
 
 class DataLakeDatasetSchemaFieldTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeDatasetSchemaFieldName")]
     type: DataLakeDatasetSchemaFieldTypeType
     isRequired: bool
 
 
 # This class is the input for the 'delete_data_integration_flow' function.
 class DeleteDataIntegrationFlowRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowName")]
 
 
 # This class is the input for the 'delete_data_lake_dataset' function.
 class DeleteDataLakeDatasetRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    namespace: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    namespace: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeDatasetName")]
 
 
 # This class is the input for the 'delete_data_lake_namespace' function.
 class DeleteDataLakeNamespaceRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
 
 
 # This class is the input for the 'delete_instance' function.
 class DeleteInstanceRequestTypeDef(BaseValidatorModel):
-    instanceId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
 
 
 # This class is the input for the 'get_bill_of_materials_import_job' function.
 class GetBillOfMaterialsImportJobRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    jobId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    jobId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
 
 
 # This class is the input for the 'get_data_integration_event' function.
 class GetDataIntegrationEventRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    eventId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    eventId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
 
 
 # This class is the input for the 'get_data_integration_flow_execution' function.
 class GetDataIntegrationFlowExecutionRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    flowName: str
-    executionId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    flowName: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowName")]
+    executionId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
 
 
 # This class is the input for the 'get_data_integration_flow' function.
 class GetDataIntegrationFlowRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowName")]
 
 
 # This class is the input for the 'get_data_lake_dataset' function.
 class GetDataLakeDatasetRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    namespace: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    namespace: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeDatasetName")]
 
 
 # This class is the input for the 'get_data_lake_namespace' function.
 class GetDataLakeNamespaceRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
 
 
 # This class is the input for the 'get_instance' function.
 class GetInstanceRequestTypeDef(BaseValidatorModel):
-    instanceId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -227,7 +231,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_integration_events' function.
 class ListDataIntegrationEventsRequestTypeDef(BaseValidatorModel):
-    instanceId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
     eventType: Optional[DataIntegrationEventTypeType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -235,30 +239,30 @@ class ListDataIntegrationEventsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_integration_flow_executions' function.
 class ListDataIntegrationFlowExecutionsRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    flowName: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    flowName: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_data_integration_flows' function.
 class ListDataIntegrationFlowsRequestTypeDef(BaseValidatorModel):
-    instanceId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_data_lake_datasets' function.
 class ListDataLakeDatasetsRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    namespace: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    namespace: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_data_lake_namespaces' function.
 class ListDataLakeNamespacesRequestTypeDef(BaseValidatorModel):
-    instanceId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -267,82 +271,82 @@ class ListDataLakeNamespacesRequestTypeDef(BaseValidatorModel):
 class ListInstancesRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    instanceNameFilter: Optional[List[str]] = None
+    instanceNameFilter: Optional[List[Annotated[str, _aws_pattern("Supplychain", "InstanceName")]]] = None
     instanceStateFilter: Optional[List[InstanceStateType]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Supplychain", "AscResourceArn")]
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Supplychain", "AscResourceArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Supplychain", "AscResourceArn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_data_lake_dataset' function.
 class UpdateDataLakeDatasetRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    namespace: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    namespace: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeDatasetName")]
     description: Optional[str] = None
 
 
 # This class is the input for the 'update_data_lake_namespace' function.
 class UpdateDataLakeNamespaceRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
     description: Optional[str] = None
 
 
 # This class is the input for the 'update_instance' function.
 class UpdateInstanceRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    instanceName: Optional[str] = None
-    instanceDescription: Optional[str] = None
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    instanceName: Optional[Annotated[str, _aws_pattern("Supplychain", "InstanceName")]] = None
+    instanceDescription: Optional[Annotated[str, _aws_pattern("Supplychain", "InstanceDescription")]] = None
 
 
 # This class is the output for the 'create_bill_of_materials_import_job' function.
 class CreateBillOfMaterialsImportJobResponseTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_integration_flow' function.
 class CreateDataIntegrationFlowResponseTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_data_integration_flow' function.
 class DeleteDataIntegrationFlowResponseTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_data_lake_dataset' function.
 class DeleteDataLakeDatasetResponseTypeDef(BaseValidatorModel):
-    instanceId: str
-    namespace: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    namespace: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeDatasetName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_data_lake_namespace' function.
 class DeleteDataLakeNamespaceResponseTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -360,7 +364,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'send_data_integration_event' function.
 class SendDataIntegrationEventResponseTypeDef(BaseValidatorModel):
-    eventId: str
+    eventId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -421,7 +425,7 @@ class UpdateInstanceResponseTypeDef(BaseValidatorModel):
 
 
 class DataIntegrationEventDatasetTargetDetailsTypeDef(BaseValidatorModel):
-    datasetIdentifier: str
+    datasetIdentifier: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationDatasetArn")]
     operationType: DataIntegrationEventDatasetOperationTypeType
     datasetLoadExecution: DataIntegrationEventDatasetLoadExecutionDetailsTypeDef
 
@@ -441,14 +445,14 @@ class DataIntegrationFlowFieldPriorityDedupeStrategyConfigurationTypeDef(BaseVal
 
 
 class DataIntegrationFlowS3SourceConfigurationTypeDef(BaseValidatorModel):
-    bucketName: str
-    prefix: str
+    bucketName: Annotated[str, _aws_pattern("Supplychain", "S3BucketName")]
+    prefix: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowS3Prefix")]
     options: Optional[DataIntegrationFlowS3OptionsTypeDef] = None
 
 
 class DataIntegrationFlowS3TargetConfigurationTypeDef(BaseValidatorModel):
-    bucketName: str
-    prefix: str
+    bucketName: Annotated[str, _aws_pattern("Supplychain", "S3BucketName")]
+    prefix: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowS3Prefix")]
     options: Optional[DataIntegrationFlowS3OptionsTypeDef] = None
 
 
@@ -458,7 +462,7 @@ class DataIntegrationFlowTransformationTypeDef(BaseValidatorModel):
 
 
 class DataLakeDatasetPartitionFieldTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeDatasetSchemaFieldName")]
     transform: DataLakeDatasetPartitionFieldTransformTypeDef
 
 
@@ -469,7 +473,7 @@ class DataLakeDatasetSchemaOutputTypeDef(BaseValidatorModel):
 
 
 class DataLakeDatasetSchemaTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeDatasetSchemaName")]
     fields: List[DataLakeDatasetSchemaFieldTypeDef]
     primaryKeys: Optional[List[DataLakeDatasetPrimaryKeyFieldTypeDef]] = None
 
@@ -510,7 +514,7 @@ class ListInstancesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'send_data_integration_event' function.
 class SendDataIntegrationEventRequestTypeDef(BaseValidatorModel):
-    instanceId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
     eventType: DataIntegrationEventTypeType
     data: str
     eventGroupId: str
@@ -520,8 +524,8 @@ class SendDataIntegrationEventRequestTypeDef(BaseValidatorModel):
 
 
 class DataIntegrationEventTypeDef(BaseValidatorModel):
-    instanceId: str
-    eventId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    eventId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
     eventType: DataIntegrationEventTypeType
     eventGroupId: str
     eventTimestamp: datetime
@@ -529,9 +533,9 @@ class DataIntegrationEventTypeDef(BaseValidatorModel):
 
 
 class DataIntegrationFlowExecutionTypeDef(BaseValidatorModel):
-    instanceId: str
-    flowName: str
-    executionId: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    flowName: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowName")]
+    executionId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
     status: Optional[DataIntegrationFlowExecutionStatusType] = None
     sourceInfo: Optional[DataIntegrationFlowExecutionSourceInfoTypeDef] = None
     message: Optional[str] = None
@@ -600,10 +604,10 @@ class DataIntegrationFlowDedupeStrategyTypeDef(BaseValidatorModel):
 
 
 class DataLakeDatasetTypeDef(BaseValidatorModel):
-    instanceId: str
-    namespace: str
-    name: str
-    arn: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    namespace: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeDatasetName")]
+    arn: Annotated[str, _aws_pattern("Supplychain", "AscResourceArn")]
     schema: DataLakeDatasetSchemaOutputTypeDef
     createdTime: datetime
     lastModifiedTime: datetime
@@ -658,9 +662,9 @@ class UpdateDataLakeDatasetResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_lake_dataset' function.
 class CreateDataLakeDatasetRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    namespace: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    namespace: Annotated[str, _aws_pattern("Supplychain", "DataLakeNamespaceName")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataLakeDatasetName")]
     schema: Optional[DataLakeDatasetSchemaUnionTypeDef] = None
     description: Optional[str] = None
     partitionSpec: Optional[DataLakeDatasetPartitionSpecUnionTypeDef] = None
@@ -687,8 +691,8 @@ class DataIntegrationFlowDatasetOptionsTypeDef(BaseValidatorModel):
 
 
 class DataIntegrationFlowTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowName")]
     sources: List[DataIntegrationFlowSourceOutputTypeDef]
     transformation: DataIntegrationFlowTransformationTypeDef
     target: DataIntegrationFlowTargetOutputTypeDef
@@ -702,7 +706,7 @@ DataIntegrationFlowDatasetOptionsUnionTypeDef = Union[
 
 
 class DataIntegrationFlowDatasetTargetConfigurationTypeDef(BaseValidatorModel):
-    datasetIdentifier: str
+    datasetIdentifier: Annotated[str, _aws_pattern("Supplychain", "DatasetIdentifier")]
     options: Optional[DataIntegrationFlowDatasetOptionsTypeDef] = None
 
 
@@ -726,7 +730,7 @@ class UpdateDataIntegrationFlowResponseTypeDef(BaseValidatorModel):
 
 
 class DataIntegrationFlowDatasetSourceConfigurationTypeDef(BaseValidatorModel):
-    datasetIdentifier: str
+    datasetIdentifier: Annotated[str, _aws_pattern("Supplychain", "DatasetIdentifier")]
     options: Optional[DataIntegrationFlowDatasetOptionsUnionTypeDef] = None
 
 
@@ -745,7 +749,7 @@ DataIntegrationFlowTargetUnionTypeDef = Union[DataIntegrationFlowTargetOutputTyp
 
 class DataIntegrationFlowSourceTypeDef(BaseValidatorModel):
     sourceType: DataIntegrationFlowSourceTypeType
-    sourceName: str
+    sourceName: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowSourceName")]
     s3Source: Optional[DataIntegrationFlowS3SourceConfigurationTypeDef] = None
     datasetSource: Optional[DataIntegrationFlowDatasetSourceConfigurationUnionTypeDef] = None
 
@@ -755,8 +759,8 @@ DataIntegrationFlowSourceUnionTypeDef = Union[DataIntegrationFlowSourceOutputTyp
 
 # This class is the input for the 'create_data_integration_flow' function.
 class CreateDataIntegrationFlowRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowName")]
     sources: List[DataIntegrationFlowSourceUnionTypeDef]
     transformation: DataIntegrationFlowTransformationTypeDef
     target: DataIntegrationFlowTargetUnionTypeDef
@@ -765,8 +769,8 @@ class CreateDataIntegrationFlowRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_data_integration_flow' function.
 class UpdateDataIntegrationFlowRequestTypeDef(BaseValidatorModel):
-    instanceId: str
-    name: str
+    instanceId: Annotated[str, _aws_pattern("Supplychain", "UUID")]
+    name: Annotated[str, _aws_pattern("Supplychain", "DataIntegrationFlowName")]
     sources: Optional[List[DataIntegrationFlowSourceUnionTypeDef]] = None
     transformation: Optional[DataIntegrationFlowTransformationTypeDef] = None
     target: Optional[DataIntegrationFlowTargetUnionTypeDef] = None

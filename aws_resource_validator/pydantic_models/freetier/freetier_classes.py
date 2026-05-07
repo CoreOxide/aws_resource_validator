@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.freetier.freetier_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,26 +47,26 @@ class MonetaryAmountTypeDef(BaseValidatorModel):
 
 class DimensionValuesTypeDef(BaseValidatorModel):
     Key: DimensionType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Freetier", "Value")]]
     MatchOptions: List[MatchOptionType]
 
 
 class FreeTierUsageTypeDef(BaseValidatorModel):
-    service: Optional[str] = None
-    operation: Optional[str] = None
-    usageType: Optional[str] = None
-    region: Optional[str] = None
+    service: Optional[Annotated[str, _aws_pattern("Freetier", "GenericString")]] = None
+    operation: Optional[Annotated[str, _aws_pattern("Freetier", "GenericString")]] = None
+    usageType: Optional[Annotated[str, _aws_pattern("Freetier", "GenericString")]] = None
+    region: Optional[Annotated[str, _aws_pattern("Freetier", "GenericString")]] = None
     actualUsageAmount: Optional[float] = None
     forecastedUsageAmount: Optional[float] = None
     limit: Optional[float] = None
-    unit: Optional[str] = None
-    description: Optional[str] = None
-    freeTierType: Optional[str] = None
+    unit: Optional[Annotated[str, _aws_pattern("Freetier", "GenericString")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Freetier", "GenericString")]] = None
+    freeTierType: Optional[Annotated[str, _aws_pattern("Freetier", "GenericString")]] = None
 
 
 # This class is the input for the 'get_account_activity' function.
 class GetAccountActivityRequestTypeDef(BaseValidatorModel):
-    activityId: str
+    activityId: Annotated[str, _aws_pattern("Freetier", "ActivityId")]
     languageCode: Optional[LanguageCodeType] = None
 
 
@@ -85,7 +87,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_account_activities' function.
 class ListAccountActivitiesRequestTypeDef(BaseValidatorModel):
     filterActivityStatuses: Optional[List[ActivityStatusType]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Freetier", "NextPageToken")]] = None
     maxResults: Optional[int] = None
     languageCode: Optional[LanguageCodeType] = None
 
@@ -114,7 +116,7 @@ class ExpressionTypeDef(BaseValidatorModel):
 
 
 class GetAccountPlanStateResponseTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Freetier", "AccountId")]
     accountPlanType: AccountPlanTypeType
     accountPlanStatus: AccountPlanStatusType
     accountPlanRemainingCredits: MonetaryAmountTypeDef
@@ -126,12 +128,12 @@ class GetAccountPlanStateResponseTypeDef(BaseValidatorModel):
 class GetFreeTierUsageResponseTypeDef(BaseValidatorModel):
     freeTierUsages: List[FreeTierUsageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Freetier", "NextPageToken")]] = None
 
 
 # This class is the output for the 'upgrade_account_plan' function.
 class UpgradeAccountPlanResponseTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Freetier", "AccountId")]
     accountPlanType: AccountPlanTypeType
     accountPlanStatus: AccountPlanStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -144,19 +146,19 @@ class ListAccountActivitiesRequestPaginateTypeDef(BaseValidatorModel):
 
 
 class ActivitySummaryTypeDef(BaseValidatorModel):
-    activityId: str
-    title: str
+    activityId: Annotated[str, _aws_pattern("Freetier", "ActivityId")]
+    title: Annotated[str, _aws_pattern("Freetier", "GenericString")]
     reward: ActivityRewardTypeDef
     status: ActivityStatusType
 
 
 # This class is the output for the 'get_account_activity' function.
 class GetAccountActivityResponseTypeDef(BaseValidatorModel):
-    activityId: str
-    title: str
-    description: str
+    activityId: Annotated[str, _aws_pattern("Freetier", "ActivityId")]
+    title: Annotated[str, _aws_pattern("Freetier", "GenericString")]
+    description: Annotated[str, _aws_pattern("Freetier", "GenericString")]
     status: ActivityStatusType
-    instructionsUrl: str
+    instructionsUrl: Annotated[str, _aws_pattern("Freetier", "GenericString")]
     reward: ActivityRewardTypeDef
     estimatedTimeToCompleteInMinutes: int
     expiresAt: datetime
@@ -174,11 +176,11 @@ class GetFreeTierUsageRequestPaginateTypeDef(BaseValidatorModel):
 class GetFreeTierUsageRequestTypeDef(BaseValidatorModel):
     filter: Optional[ExpressionTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Freetier", "NextPageToken")]] = None
 
 
 # This class is the output for the 'list_account_activities' function.
 class ListAccountActivitiesResponseTypeDef(BaseValidatorModel):
     activities: List[ActivitySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Freetier", "NextPageToken")]] = None

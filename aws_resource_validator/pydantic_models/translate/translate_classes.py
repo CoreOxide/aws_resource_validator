@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.translate.translate_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class TermTypeDef(BaseValidatorModel):
-    SourceText: Optional[str] = None
-    TargetText: Optional[str] = None
+    SourceText: Optional[Annotated[str, _aws_pattern("Translate", "String")]] = None
+    TargetText: Optional[Annotated[str, _aws_pattern("Translate", "String")]] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
@@ -48,11 +50,11 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 class EncryptionKeyTypeDef(BaseValidatorModel):
     Type: Literal["KMS"]
-    Id: str
+    Id: Annotated[str, _aws_pattern("Translate", "EncryptionKeyID")]
 
 
 class ParallelDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Translate", "S3Uri")]] = None
     Format: Optional[ParallelDataFormatType] = None
 
 
@@ -71,43 +73,43 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_parallel_data' function.
 class DeleteParallelDataRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Translate", "ResourceName")]
 
 
 # This class is the input for the 'delete_terminology' function.
 class DeleteTerminologyRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Translate", "ResourceName")]
 
 
 # This class is the input for the 'describe_text_translation_job' function.
 class DescribeTextTranslationJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Translate", "JobId")]
 
 
 # This class is the input for the 'get_parallel_data' function.
 class GetParallelDataRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Translate", "ResourceName")]
 
 
 class ParallelDataDataLocationTypeDef(BaseValidatorModel):
-    RepositoryType: str
-    Location: str
+    RepositoryType: Annotated[str, _aws_pattern("Translate", "String")]
+    Location: Annotated[str, _aws_pattern("Translate", "String")]
 
 
 # This class is the input for the 'get_terminology' function.
 class GetTerminologyRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Translate", "ResourceName")]
     TerminologyDataFormat: Optional[TerminologyDataFormatType] = None
 
 
 class TerminologyDataLocationTypeDef(BaseValidatorModel):
-    RepositoryType: str
-    Location: str
+    RepositoryType: Annotated[str, _aws_pattern("Translate", "String")]
+    Location: Annotated[str, _aws_pattern("Translate", "String")]
 
 
 class InputDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
-    ContentType: str
+    S3Uri: Annotated[str, _aws_pattern("Translate", "S3Uri")]
+    ContentType: Annotated[str, _aws_pattern("Translate", "ContentType")]
 
 
 class JobDetailsTypeDef(BaseValidatorModel):
@@ -124,13 +126,13 @@ class LanguageTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_languages' function.
 class ListLanguagesRequestTypeDef(BaseValidatorModel):
     DisplayLanguageCode: Optional[DisplayLanguageCodeType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Translate", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_parallel_data' function.
 class ListParallelDataRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Translate", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -147,7 +149,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_terminologies' function.
 class ListTerminologiesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Translate", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -159,7 +161,7 @@ class TranslationSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'stop_text_translation_job' function.
 class StopTextTranslationJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Translate", "JobId")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -175,13 +177,13 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 
 class AppliedTerminologyTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Translate", "ResourceName")]] = None
     Terms: Optional[List[TermTypeDef]] = None
 
 
 class DocumentTypeDef(BaseValidatorModel):
     Content: BlobTypeDef
-    ContentType: str
+    ContentType: Annotated[str, _aws_pattern("Translate", "ContentType")]
 
 
 class TerminologyDataTypeDef(BaseValidatorModel):
@@ -191,13 +193,13 @@ class TerminologyDataTypeDef(BaseValidatorModel):
 
 
 class OutputDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Translate", "S3Uri")]
     EncryptionKey: Optional[EncryptionKeyTypeDef] = None
 
 
 class TerminologyPropertiesTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Translate", "ResourceName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Translate", "Description")]] = None
     Arn: Optional[str] = None
     SourceLanguageCode: Optional[str] = None
     TargetLanguageCodes: Optional[List[str]] = None
@@ -213,9 +215,9 @@ class TerminologyPropertiesTypeDef(BaseValidatorModel):
 
 
 class ParallelDataPropertiesTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Translate", "ResourceName")]] = None
     Arn: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Translate", "Description")]] = None
     Status: Optional[ParallelDataStatusType] = None
     SourceLanguageCode: Optional[str] = None
     TargetLanguageCodes: Optional[List[str]] = None
@@ -234,18 +236,18 @@ class ParallelDataPropertiesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_parallel_data' function.
 class UpdateParallelDataRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Translate", "ResourceName")]
     ParallelDataConfig: ParallelDataConfigTypeDef
-    ClientToken: str
-    Description: Optional[str] = None
+    ClientToken: Annotated[str, _aws_pattern("Translate", "ClientTokenString")]
+    Description: Optional[Annotated[str, _aws_pattern("Translate", "Description")]] = None
 
 
 # This class is the input for the 'create_parallel_data' function.
 class CreateParallelDataRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Translate", "ResourceName")]
     ParallelDataConfig: ParallelDataConfigTypeDef
-    ClientToken: str
-    Description: Optional[str] = None
+    ClientToken: Annotated[str, _aws_pattern("Translate", "ClientTokenString")]
+    Description: Optional[Annotated[str, _aws_pattern("Translate", "Description")]] = None
     EncryptionKey: Optional[EncryptionKeyTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -257,14 +259,14 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_parallel_data' function.
 class CreateParallelDataResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Translate", "ResourceName")]
     Status: ParallelDataStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_parallel_data' function.
 class DeleteParallelDataResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Translate", "ResourceName")]
     Status: ParallelDataStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -282,21 +284,21 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_text_translation_job' function.
 class StartTextTranslationJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Translate", "JobId")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_text_translation_job' function.
 class StopTextTranslationJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Translate", "JobId")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_parallel_data' function.
 class UpdateParallelDataResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Translate", "ResourceName")]
     Status: ParallelDataStatusType
     LatestUpdateAttemptStatus: ParallelDataStatusType
     LatestUpdateAttemptAt: datetime
@@ -308,7 +310,7 @@ class ListLanguagesResponseTypeDef(BaseValidatorModel):
     Languages: List[LanguageTypeDef]
     DisplayLanguageCode: DisplayLanguageCodeType
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Translate", "NextToken")]] = None
 
 
 class ListTerminologiesRequestPaginateTypeDef(BaseValidatorModel):
@@ -317,15 +319,15 @@ class ListTerminologiesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'translate_text' function.
 class TranslateTextRequestTypeDef(BaseValidatorModel):
-    Text: str
+    Text: Annotated[str, _aws_pattern("Translate", "BoundedLengthString")]
     SourceLanguageCode: str
     TargetLanguageCode: str
-    TerminologyNames: Optional[List[str]] = None
+    TerminologyNames: Optional[List[Annotated[str, _aws_pattern("Translate", "ResourceName")]]] = None
     Settings: Optional[TranslationSettingsTypeDef] = None
 
 
 class TextTranslationJobFilterTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Translate", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmittedBeforeTime: Optional[TimestampTypeDef] = None
     SubmittedAfterTime: Optional[TimestampTypeDef] = None
@@ -343,7 +345,7 @@ class TranslateDocumentResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'translate_text' function.
 class TranslateTextResponseTypeDef(BaseValidatorModel):
-    TranslatedText: str
+    TranslatedText: Annotated[str, _aws_pattern("Translate", "TranslatedTextString")]
     SourceLanguageCode: str
     TargetLanguageCode: str
     AppliedTerminologies: List[AppliedTerminologyTypeDef]
@@ -356,16 +358,16 @@ class TranslateDocumentRequestTypeDef(BaseValidatorModel):
     Document: DocumentTypeDef
     SourceLanguageCode: str
     TargetLanguageCode: str
-    TerminologyNames: Optional[List[str]] = None
+    TerminologyNames: Optional[List[Annotated[str, _aws_pattern("Translate", "ResourceName")]]] = None
     Settings: Optional[TranslationSettingsTypeDef] = None
 
 
 # This class is the input for the 'import_terminology' function.
 class ImportTerminologyRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Translate", "ResourceName")]
     MergeStrategy: Literal["OVERWRITE"]
     TerminologyData: TerminologyDataTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Translate", "Description")]] = None
     EncryptionKey: Optional[EncryptionKeyTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -374,31 +376,31 @@ class ImportTerminologyRequestTypeDef(BaseValidatorModel):
 class StartTextTranslationJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Translate", "IamRoleArn")]
     SourceLanguageCode: str
     TargetLanguageCodes: List[str]
-    ClientToken: str
-    JobName: Optional[str] = None
-    TerminologyNames: Optional[List[str]] = None
-    ParallelDataNames: Optional[List[str]] = None
+    ClientToken: Annotated[str, _aws_pattern("Translate", "ClientTokenString")]
+    JobName: Optional[Annotated[str, _aws_pattern("Translate", "JobName")]] = None
+    TerminologyNames: Optional[List[Annotated[str, _aws_pattern("Translate", "ResourceName")]]] = None
+    ParallelDataNames: Optional[List[Annotated[str, _aws_pattern("Translate", "ResourceName")]]] = None
     Settings: Optional[TranslationSettingsTypeDef] = None
 
 
 class TextTranslationJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Translate", "JobId")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Translate", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     JobDetails: Optional[JobDetailsTypeDef] = None
     SourceLanguageCode: Optional[str] = None
     TargetLanguageCodes: Optional[List[str]] = None
-    TerminologyNames: Optional[List[str]] = None
-    ParallelDataNames: Optional[List[str]] = None
+    TerminologyNames: Optional[List[Annotated[str, _aws_pattern("Translate", "ResourceName")]]] = None
+    ParallelDataNames: Optional[List[Annotated[str, _aws_pattern("Translate", "ResourceName")]]] = None
     Message: Optional[str] = None
     SubmittedTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     InputDataConfig: Optional[InputDataConfigTypeDef] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
-    DataAccessRoleArn: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Translate", "IamRoleArn")]] = None
     Settings: Optional[TranslationSettingsTypeDef] = None
 
 
@@ -421,7 +423,7 @@ class ImportTerminologyResponseTypeDef(BaseValidatorModel):
 class ListTerminologiesResponseTypeDef(BaseValidatorModel):
     TerminologyPropertiesList: List[TerminologyPropertiesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Translate", "NextToken")]] = None
 
 
 # This class is the output for the 'get_parallel_data' function.
@@ -437,13 +439,13 @@ class GetParallelDataResponseTypeDef(BaseValidatorModel):
 class ListParallelDataResponseTypeDef(BaseValidatorModel):
     ParallelDataPropertiesList: List[ParallelDataPropertiesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Translate", "NextToken")]] = None
 
 
 # This class is the input for the 'list_text_translation_jobs' function.
 class ListTextTranslationJobsRequestTypeDef(BaseValidatorModel):
     Filter: Optional[TextTranslationJobFilterTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Translate", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -457,4 +459,4 @@ class DescribeTextTranslationJobResponseTypeDef(BaseValidatorModel):
 class ListTextTranslationJobsResponseTypeDef(BaseValidatorModel):
     TextTranslationJobPropertiesList: List[TextTranslationJobPropertiesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Translate", "NextToken")]] = None

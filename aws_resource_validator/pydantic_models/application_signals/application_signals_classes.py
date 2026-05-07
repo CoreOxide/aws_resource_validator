@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.application_signals.application_signals_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,8 +46,8 @@ class AttributeFilterOutputTypeDef(BaseValidatorModel):
 
 
 class AttributeFilterTypeDef(BaseValidatorModel):
-    AttributeFilterName: str
-    AttributeFilterValues: List[str]
+    AttributeFilterName: Annotated[str, _aws_pattern("ApplicationSignals", "AttributeFilterName")]
+    AttributeFilterValues: List[Annotated[str, _aws_pattern("ApplicationSignals", "AttributeFilterValue")]]
 
 
 class AuditorResultTypeDef(BaseValidatorModel):
@@ -83,14 +85,14 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ServiceLevelObjectiveBudgetReportErrorTypeDef(BaseValidatorModel):
-    Name: str
-    Arn: str
+    Name: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveName")]
+    Arn: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveArn")]
     ErrorCode: str
     ErrorMessage: str
 
 
 class BatchUpdateExclusionWindowsErrorTypeDef(BaseValidatorModel):
-    SloId: str
+    SloId: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveId")]
     ErrorCode: str
     ErrorMessage: str
 
@@ -107,7 +109,7 @@ class CalendarIntervalOutputTypeDef(BaseValidatorModel):
 
 class ChangeEventTypeDef(BaseValidatorModel):
     Timestamp: datetime
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("ApplicationSignals", "AwsAccountId")]
     Region: str
     Entity: Dict[str, str]
     ChangeEventType: ChangeEventTypeType
@@ -116,13 +118,22 @@ class ChangeEventTypeDef(BaseValidatorModel):
     EventName: Optional[str] = None
 
 
+class CompositeSliComponentTypeDef(BaseValidatorModel):
+    OperationName: Optional[str] = None
+
+
+class SelectionConfigTypeDef(BaseValidatorModel):
+    Type: SelectionTypeType
+    Pattern: Optional[Annotated[str, _aws_pattern("ApplicationSignals", "SelectionPattern")]] = None
+
+
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
 
 class DeleteServiceLevelObjectiveInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveId")]
 
 
 class DependencyConfigOutputTypeDef(BaseValidatorModel):
@@ -168,7 +179,7 @@ class WindowTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_service_level_objective' function.
 class GetServiceLevelObjectiveInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveId")]
 
 
 class GroupingAttributeDefinitionOutputTypeDef(BaseValidatorModel):
@@ -178,9 +189,9 @@ class GroupingAttributeDefinitionOutputTypeDef(BaseValidatorModel):
 
 
 class GroupingAttributeDefinitionTypeDef(BaseValidatorModel):
-    GroupingName: str
-    GroupingSourceKeys: Optional[List[str]] = None
-    DefaultGroupingValue: Optional[str] = None
+    GroupingName: Annotated[str, _aws_pattern("ApplicationSignals", "GroupingString")]
+    GroupingSourceKeys: Optional[List[Annotated[str, _aws_pattern("ApplicationSignals", "GroupingString")]]] = None
+    DefaultGroupingValue: Optional[Annotated[str, _aws_pattern("ApplicationSignals", "GroupingString")]] = None
 
 
 class RollingIntervalTypeDef(BaseValidatorModel):
@@ -197,13 +208,13 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_grouping_attribute_definitions' function.
 class ListGroupingAttributeDefinitionsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
-    AwsAccountId: Optional[str] = None
+    AwsAccountId: Optional[Annotated[str, _aws_pattern("ApplicationSignals", "AwsAccountId")]] = None
     IncludeLinkedAccounts: Optional[bool] = None
 
 
 # This class is the input for the 'list_service_level_objective_exclusion_windows' function.
 class ListServiceLevelObjectiveExclusionWindowsInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -306,7 +317,7 @@ class ListServicesInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     IncludeLinkedAccounts: Optional[bool] = None
-    AwsAccountId: Optional[str] = None
+    AwsAccountId: Optional[Annotated[str, _aws_pattern("ApplicationSignals", "AwsAccountId")]] = None
 
 
 # This class is the output for the 'batch_update_exclusion_windows' function.
@@ -329,6 +340,16 @@ class ServiceStateTypeDef(BaseValidatorModel):
     Service: Dict[str, str]
     LatestChangeEvents: List[ChangeEventTypeDef]
     AttributeFilters: Optional[List[AttributeFilterOutputTypeDef]] = None
+
+
+class CompositeSliConfigOutputTypeDef(BaseValidatorModel):
+    SelectionConfig: SelectionConfigTypeDef
+    Components: Optional[List[CompositeSliComponentTypeDef]] = None
+
+
+class CompositeSliConfigTypeDef(BaseValidatorModel):
+    SelectionConfig: SelectionConfigTypeDef
+    Components: Optional[List[CompositeSliComponentTypeDef]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -357,15 +378,15 @@ class MetricOutputTypeDef(BaseValidatorModel):
 
 
 class MetricReferenceTypeDef(BaseValidatorModel):
-    Namespace: str
-    MetricType: str
+    Namespace: Annotated[str, _aws_pattern("ApplicationSignals", "Namespace")]
+    MetricType: Annotated[str, _aws_pattern("ApplicationSignals", "MetricType")]
     MetricName: str
     Dimensions: Optional[List[DimensionTypeDef]] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationSignals", "AwsAccountId")]] = None
 
 
 class MetricTypeDef(BaseValidatorModel):
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("ApplicationSignals", "Namespace")]] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
 
@@ -448,18 +469,6 @@ class ListServicesInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
-class ServiceLevelObjectiveSummaryTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
-    KeyAttributes: Optional[Dict[str, str]] = None
-    OperationName: Optional[str] = None
-    DependencyConfig: Optional[DependencyConfigOutputTypeDef] = None
-    CreatedTime: Optional[datetime] = None
-    EvaluationType: Optional[EvaluationTypeType] = None
-    MetricSourceType: Optional[MetricSourceTypeType] = None
-    MetricSource: Optional[MetricSourceOutputTypeDef] = None
-
-
 MetricSourceUnionTypeDef = Union[MetricSourceOutputTypeDef, MetricSourceTypeDef]
 
 
@@ -479,7 +488,7 @@ class ListServiceStatesInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     IncludeLinkedAccounts: Optional[bool] = None
-    AwsAccountId: Optional[str] = None
+    AwsAccountId: Optional[Annotated[str, _aws_pattern("ApplicationSignals", "AwsAccountId")]] = None
     AttributeFilters: Optional[List[AttributeFilterUnionTypeDef]] = None
 
 
@@ -502,6 +511,22 @@ class ListServiceStatesOutputTypeDef(BaseValidatorModel):
     ServiceStates: List[ServiceStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
+
+class ServiceLevelObjectiveSummaryTypeDef(BaseValidatorModel):
+    Arn: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveArn")]
+    Name: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveName")]
+    KeyAttributes: Optional[Dict[str, str]] = None
+    OperationName: Optional[str] = None
+    DependencyConfig: Optional[DependencyConfigOutputTypeDef] = None
+    CreatedTime: Optional[datetime] = None
+    EvaluationType: Optional[EvaluationTypeType] = None
+    MetricSourceType: Optional[MetricSourceTypeType] = None
+    MetricSource: Optional[MetricSourceOutputTypeDef] = None
+    CompositeSliConfig: Optional[CompositeSliConfigOutputTypeDef] = None
+
+
+CompositeSliConfigUnionTypeDef = Union[CompositeSliConfigOutputTypeDef, CompositeSliConfigTypeDef]
 
 
 class MetricStatOutputTypeDef(BaseValidatorModel):
@@ -575,13 +600,6 @@ class GoalOutputTypeDef(BaseValidatorModel):
     WarningThreshold: Optional[float] = None
 
 
-# This class is the output for the 'list_service_level_objectives' function.
-class ListServiceLevelObjectivesOutputTypeDef(BaseValidatorModel):
-    SloSummaries: List[ServiceLevelObjectiveSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
-
-
 class ListServiceLevelObjectivesInputPaginateTypeDef(BaseValidatorModel):
     KeyAttributes: Optional[Dict[str, str]] = None
     OperationName: Optional[str] = None
@@ -602,7 +620,7 @@ class ListServiceLevelObjectivesInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MetricSourceTypes: Optional[List[MetricSourceTypeType]] = None
     IncludeLinkedAccounts: Optional[bool] = None
-    SloOwnerAwsAccountId: Optional[str] = None
+    SloOwnerAwsAccountId: Optional[Annotated[str, _aws_pattern("ApplicationSignals", "AwsAccountId")]] = None
     MetricSource: Optional[MetricSourceUnionTypeDef] = None
 
 
@@ -615,6 +633,13 @@ class GoalTypeDef(BaseValidatorModel):
     Interval: Optional[IntervalTypeDef] = None
     AttainmentGoal: Optional[float] = None
     WarningThreshold: Optional[float] = None
+
+
+# This class is the output for the 'list_service_level_objectives' function.
+class ListServiceLevelObjectivesOutputTypeDef(BaseValidatorModel):
+    SloSummaries: List[ServiceLevelObjectiveSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
 
 class MetricDataQueryOutputTypeDef(BaseValidatorModel):
@@ -718,6 +743,7 @@ class ServiceLevelIndicatorMetricTypeDef(BaseValidatorModel):
     MetricType: Optional[ServiceLevelIndicatorMetricTypeType] = None
     DependencyConfig: Optional[DependencyConfigOutputTypeDef] = None
     MetricSource: Optional[MetricSourceOutputTypeDef] = None
+    CompositeSliConfig: Optional[CompositeSliConfigOutputTypeDef] = None
 
 
 MetricStatUnionTypeDef = Union[MetricStatOutputTypeDef, MetricStatTypeDef]
@@ -740,6 +766,7 @@ class RequestBasedServiceLevelIndicatorMetricTypeDef(BaseValidatorModel):
     MetricType: Optional[ServiceLevelIndicatorMetricTypeType] = None
     DependencyConfig: Optional[DependencyConfigOutputTypeDef] = None
     MetricSource: Optional[MetricSourceOutputTypeDef] = None
+    CompositeSliConfig: Optional[CompositeSliConfigOutputTypeDef] = None
 
 
 class ServiceLevelIndicatorTypeDef(BaseValidatorModel):
@@ -777,8 +804,8 @@ MetricDataQueryUnionTypeDef = Union[MetricDataQueryOutputTypeDef, MetricDataQuer
 
 
 class ServiceLevelObjectiveBudgetReportTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveArn")]
+    Name: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveName")]
     BudgetStatus: ServiceLevelObjectiveBudgetStatusType
     EvaluationType: Optional[EvaluationTypeType] = None
     Attainment: Optional[float] = None
@@ -792,8 +819,8 @@ class ServiceLevelObjectiveBudgetReportTypeDef(BaseValidatorModel):
 
 
 class ServiceLevelObjectiveTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveArn")]
+    Name: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveName")]
     CreatedTime: datetime
     LastUpdatedTime: datetime
     Goal: GoalOutputTypeDef
@@ -803,6 +830,7 @@ class ServiceLevelObjectiveTypeDef(BaseValidatorModel):
     EvaluationType: Optional[EvaluationTypeType] = None
     BurnRateConfigurations: Optional[List[BurnRateConfigurationTypeDef]] = None
     MetricSourceType: Optional[MetricSourceTypeType] = None
+    AutoInvestigationEnabled: Optional[bool] = None
 
 
 class MonitoredRequestCountMetricDataQueriesTypeDef(BaseValidatorModel):
@@ -815,11 +843,12 @@ class ServiceLevelIndicatorMetricConfigTypeDef(BaseValidatorModel):
     OperationName: Optional[str] = None
     MetricType: Optional[ServiceLevelIndicatorMetricTypeType] = None
     MetricName: Optional[str] = None
-    Statistic: Optional[str] = None
+    Statistic: Optional[Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelIndicatorStatistic")]] = None
     PeriodSeconds: Optional[int] = None
     MetricSource: Optional[MetricSourceUnionTypeDef] = None
     MetricDataQueries: Optional[List[MetricDataQueryUnionTypeDef]] = None
     DependencyConfig: Optional[DependencyConfigUnionTypeDef] = None
+    CompositeSliConfig: Optional[CompositeSliConfigUnionTypeDef] = None
 
 
 # This class is the output for the 'batch_get_service_level_objective_budget_report' function.
@@ -868,6 +897,7 @@ class RequestBasedServiceLevelIndicatorMetricConfigTypeDef(BaseValidatorModel):
     DependencyConfig: Optional[DependencyConfigUnionTypeDef] = None
     MetricSource: Optional[MetricSourceUnionTypeDef] = None
     MetricName: Optional[str] = None
+    CompositeSliConfig: Optional[CompositeSliConfigUnionTypeDef] = None
 
 
 class RequestBasedServiceLevelIndicatorConfigTypeDef(BaseValidatorModel):
@@ -878,7 +908,7 @@ class RequestBasedServiceLevelIndicatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_service_level_objective' function.
 class CreateServiceLevelObjectiveInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveName")]
     Description: Optional[str] = None
     SliConfig: Optional[ServiceLevelIndicatorConfigTypeDef] = None
     RequestBasedSliConfig: Optional[RequestBasedServiceLevelIndicatorConfigTypeDef] = None
@@ -886,13 +916,15 @@ class CreateServiceLevelObjectiveInputTypeDef(BaseValidatorModel):
     Tags: Optional[List[TagTypeDef]] = None
     BurnRateConfigurations: Optional[List[BurnRateConfigurationTypeDef]] = None
     CreateRecommendedSlo: Optional[bool] = None
+    AutoInvestigationEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'update_service_level_objective' function.
 class UpdateServiceLevelObjectiveInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("ApplicationSignals", "ServiceLevelObjectiveId")]
     Description: Optional[str] = None
     SliConfig: Optional[ServiceLevelIndicatorConfigTypeDef] = None
     RequestBasedSliConfig: Optional[RequestBasedServiceLevelIndicatorConfigTypeDef] = None
     Goal: Optional[GoalUnionTypeDef] = None
     BurnRateConfigurations: Optional[List[BurnRateConfigurationTypeDef]] = None
+    AutoInvestigationEnabled: Optional[bool] = None

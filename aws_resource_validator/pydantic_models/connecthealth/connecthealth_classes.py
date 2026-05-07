@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.connecthealth.connecthealth_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,8 +42,8 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'activate_subscription' function.
 class ActivateSubscriptionInputTypeDef(BaseValidatorModel):
-    domainId: str
-    subscriptionId: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
+    subscriptionId: Annotated[str, _aws_pattern("Connecthealth", "SubscriptionId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -53,9 +55,9 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class SubscriptionDescriptionTypeDef(BaseValidatorModel):
-    domainId: str
-    subscriptionId: str
-    arn: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
+    subscriptionId: Annotated[str, _aws_pattern("Connecthealth", "SubscriptionId")]
+    arn: Annotated[str, _aws_pattern("Connecthealth", "SubscriptionArn")]
     status: SubscriptionStatusType
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -64,34 +66,34 @@ class SubscriptionDescriptionTypeDef(BaseValidatorModel):
 
 
 class ArtifactDetailsTypeDef(BaseValidatorModel):
-    outputLocation: Optional[str] = None
+    outputLocation: Optional[Annotated[str, _aws_pattern("Connecthealth", "Uri")]] = None
     status: Optional[PostStreamArtifactGenerationStatusType] = None
-    failureReason: Optional[str] = None
+    failureReason: Optional[Annotated[str, _aws_pattern("Connecthealth", "ErrorMessage")]] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class CreateWebAppConfigurationTypeDef(BaseValidatorModel):
-    ehrRole: str
+    ehrRole: Annotated[str, _aws_pattern("Connecthealth", "CreateWebAppConfigurationEhrRoleString")]
     idcInstanceId: str
     idcRegion: str
 
 
 class EncryptionContextTypeDef(BaseValidatorModel):
     encryptionType: EncryptionTypeType
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Connecthealth", "KmsKeyArn")]] = None
 
 
 class WebAppConfigurationTypeDef(BaseValidatorModel):
-    ehrRole: str
+    ehrRole: Annotated[str, _aws_pattern("Connecthealth", "WebAppConfigurationEhrRoleString")]
     idcApplicationId: str
     idcRegion: str
 
 
 # This class is the input for the 'create_subscription' function.
 class CreateSubscriptionInputTypeDef(BaseValidatorModel):
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
 
 
 class CustomTemplateResponseTypeDef(BaseValidatorModel):
@@ -99,53 +101,53 @@ class CustomTemplateResponseTypeDef(BaseValidatorModel):
 
 
 class TemplateSectionInstructionTypeDef(BaseValidatorModel):
-    sectionHeader: str
-    sectionInstruction: str
+    sectionHeader: Annotated[str, _aws_pattern("Connecthealth", "SensitiveAlphanumericString")]
+    sectionInstruction: Annotated[str, _aws_pattern("Connecthealth", "SensitiveMarkdownString")]
 
 
 # This class is the input for the 'deactivate_subscription' function.
 class DeactivateSubscriptionInputTypeDef(BaseValidatorModel):
-    domainId: str
-    subscriptionId: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
+    subscriptionId: Annotated[str, _aws_pattern("Connecthealth", "SubscriptionId")]
 
 
 # This class is the input for the 'delete_domain' function.
 class DeleteDomainInputTypeDef(BaseValidatorModel):
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
 
 
 class DomainSummaryTypeDef(BaseValidatorModel):
-    domainId: str
-    arn: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
+    arn: Annotated[str, _aws_pattern("Connecthealth", "DomainArn")]
     name: str
     status: DomainStatusType
     createdAt: datetime
 
 
 class EncounterContextTypeDef(BaseValidatorModel):
-    unstructuredContext: Optional[str] = None
+    unstructuredContext: Optional[Annotated[str, _aws_pattern("Connecthealth", "SensitiveMarkdownString")]] = None
 
 
 class FHIRServerTypeDef(BaseValidatorModel):
-    fhirEndpoint: str
-    oauthToken: Optional[str] = None
+    fhirEndpoint: Annotated[str, _aws_pattern("Connecthealth", "FHIRServerFhirEndpointString")]
+    oauthToken: Optional[Annotated[str, _aws_pattern("Connecthealth", "SensitiveNonEmptyString")]] = None
 
 
 # This class is the input for the 'get_domain' function.
 class GetDomainInputTypeDef(BaseValidatorModel):
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
 
 
 # This class is the input for the 'get_medical_scribe_listening_session' function.
 class GetMedicalScribeListeningSessionInputTypeDef(BaseValidatorModel):
-    sessionId: str
-    domainId: str
-    subscriptionId: str
+    sessionId: Annotated[str, _aws_pattern("Connecthealth", "SessionId")]
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
+    subscriptionId: Annotated[str, _aws_pattern("Connecthealth", "SubscriptionId")]
 
 
 # This class is the input for the 'get_patient_insights_job' function.
 class GetPatientInsightsJobRequestTypeDef(BaseValidatorModel):
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
     jobId: str
 
 
@@ -154,37 +156,39 @@ class InsightsContextTypeDef(BaseValidatorModel):
 
 
 class InsightsOutputTypeDef(BaseValidatorModel):
-    uri: str
+    uri: Annotated[str, _aws_pattern("Connecthealth", "S3Uri")]
 
 
 class OutputDataConfigTypeDef(BaseValidatorModel):
-    s3OutputPath: str
+    s3OutputPath: Annotated[str, _aws_pattern("Connecthealth", "S3Uri")]
 
 
 class PatientInsightsEncounterContextTypeDef(BaseValidatorModel):
-    encounterReason: str
+    encounterReason: Annotated[
+        str, _aws_pattern("Connecthealth", "PatientInsightsEncounterContextEncounterReasonString")
+    ]
 
 
 class PatientInsightsPatientContextTypeDef(BaseValidatorModel):
-    patientId: str
-    dateOfBirth: Optional[str] = None
+    patientId: Annotated[str, _aws_pattern("Connecthealth", "SensitiveNonEmptyString")]
+    dateOfBirth: Optional[Annotated[str, _aws_pattern("Connecthealth", "SensitiveIsoDateString")]] = None
     pronouns: Optional[PronounsType] = None
 
 
 class UserContextTypeDef(BaseValidatorModel):
     role: Literal["CLINICIAN"]
-    userId: str
+    userId: Annotated[str, _aws_pattern("Connecthealth", "SensitiveNonEmptyString")]
     specialty: Optional[Literal["PRIMARY_CARE"]] = None
 
 
 # This class is the input for the 'get_subscription' function.
 class GetSubscriptionInputTypeDef(BaseValidatorModel):
-    domainId: str
-    subscriptionId: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
+    subscriptionId: Annotated[str, _aws_pattern("Connecthealth", "SubscriptionId")]
 
 
 class S3SourceTypeDef(BaseValidatorModel):
-    uri: str
+    uri: Annotated[str, _aws_pattern("Connecthealth", "S3Uri")]
 
 
 class InternalServerExceptionTypeDef(BaseValidatorModel):
@@ -206,7 +210,7 @@ class ListDomainsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_subscriptions' function.
 class ListSubscriptionsInputTypeDef(BaseValidatorModel):
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -260,9 +264,9 @@ class UntagResourceInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_subscription' function.
 class CreateSubscriptionOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    subscriptionId: str
-    arn: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
+    subscriptionId: Annotated[str, _aws_pattern("Connecthealth", "SubscriptionId")]
+    arn: Annotated[str, _aws_pattern("Connecthealth", "SubscriptionArn")]
     status: SubscriptionStatusType
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -273,8 +277,8 @@ class CreateSubscriptionOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_domain' function.
 class DeleteDomainOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    arn: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
+    arn: Annotated[str, _aws_pattern("Connecthealth", "DomainArn")]
     status: DomainStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -292,7 +296,7 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_patient_insights_job' function.
 class StartPatientInsightsJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Connecthealth", "JobArn")]
     jobId: str
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -336,17 +340,17 @@ class MedicalScribeAudioEventTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_domain' function.
 class CreateDomainInputTypeDef(BaseValidatorModel):
     name: str
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Connecthealth", "KmsKeyArn")]] = None
     webAppSetupConfiguration: Optional[CreateWebAppConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'create_domain' function.
 class CreateDomainOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    arn: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
+    arn: Annotated[str, _aws_pattern("Connecthealth", "DomainArn")]
     name: str
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Connecthealth", "KmsKeyArn")]
     encryptionContext: EncryptionContextTypeDef
     status: DomainStatusType
     webAppUrl: str
@@ -357,10 +361,10 @@ class CreateDomainOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_domain' function.
 class GetDomainOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    arn: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
+    arn: Annotated[str, _aws_pattern("Connecthealth", "DomainArn")]
     name: str
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Connecthealth", "KmsKeyArn")]
     encryptionContext: EncryptionContextTypeDef
     status: DomainStatusType
     webAppUrl: str
@@ -423,12 +427,12 @@ class NoteTemplateSettingsTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_patient_insights_job' function.
 class GetPatientInsightsJobResponseTypeDef(BaseValidatorModel):
     jobId: str
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Connecthealth", "JobArn")]
     jobStatus: JobStatusType
     creationTime: datetime
     updatedTime: datetime
     insightsOutput: InsightsOutputTypeDef
-    statusDetails: str
+    statusDetails: Annotated[str, _aws_pattern("Connecthealth", "NonEmptyString")]
     patientContext: PatientInsightsPatientContextTypeDef
     insightsContext: InsightsContextTypeDef
     encounterContext: PatientInsightsEncounterContextTypeDef
@@ -457,18 +461,18 @@ class ClinicalNoteGenerationSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_patient_insights_job' function.
 class StartPatientInsightsJobRequestTypeDef(BaseValidatorModel):
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
     patientContext: PatientInsightsPatientContextTypeDef
     insightsContext: InsightsContextTypeDef
     encounterContext: PatientInsightsEncounterContextTypeDef
     userContext: UserContextTypeDef
     inputDataConfig: InputDataConfigUnionTypeDef
     outputDataConfig: OutputDataConfigTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Connecthealth", "NonEmptyString")]] = None
 
 
 class MedicalScribePostStreamActionSettingsResponseTypeDef(BaseValidatorModel):
-    outputS3Uri: str
+    outputS3Uri: Annotated[str, _aws_pattern("Connecthealth", "S3Uri")]
     clinicalNoteGenerationSettings: ClinicalNoteGenerationSettingsResponseTypeDef
 
 
@@ -478,14 +482,14 @@ class StartMedicalScribeListeningSessionOutputTypeDef(EventStream[MedicalScribeO
 
 
 class MedicalScribePostStreamActionSettingsTypeDef(BaseValidatorModel):
-    outputS3Uri: str
+    outputS3Uri: Annotated[str, _aws_pattern("Connecthealth", "S3Uri")]
     clinicalNoteGenerationSettings: ClinicalNoteGenerationSettingsTypeDef
 
 
 class MedicalScribeListeningSessionDetailsTypeDef(BaseValidatorModel):
-    sessionId: Optional[str] = None
-    domainId: Optional[str] = None
-    subscriptionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("Connecthealth", "SessionId")]] = None
+    domainId: Optional[Annotated[str, _aws_pattern("Connecthealth", "DomainId")]] = None
+    subscriptionId: Optional[Annotated[str, _aws_pattern("Connecthealth", "SubscriptionId")]] = None
     languageCode: Optional[Literal["en-US"]] = None
     mediaSampleRateHertz: Optional[int] = None
     mediaEncoding: Optional[MedicalScribeMediaEncodingType] = None
@@ -518,9 +522,9 @@ class MedicalScribeInputStreamTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_medical_scribe_listening_session' function.
 class StartMedicalScribeListeningSessionInputTypeDef(BaseValidatorModel):
-    sessionId: str
-    domainId: str
-    subscriptionId: str
+    sessionId: Annotated[str, _aws_pattern("Connecthealth", "SessionId")]
+    domainId: Annotated[str, _aws_pattern("Connecthealth", "DomainId")]
+    subscriptionId: Annotated[str, _aws_pattern("Connecthealth", "SubscriptionId")]
     languageCode: Literal["en-US"]
     mediaSampleRateHertz: int
     mediaEncoding: MedicalScribeMediaEncodingType

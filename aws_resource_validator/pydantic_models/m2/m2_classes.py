@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.m2.m2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -46,18 +48,18 @@ class AlternateKeyTypeDef(BaseValidatorModel):
 
 
 class ApplicationSummaryTypeDef(BaseValidatorModel):
-    applicationArn: str
-    applicationId: str
+    applicationArn: Annotated[str, _aws_pattern("M2", "Arn")]
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     applicationVersion: int
     creationTime: datetime
     engineType: EngineTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("M2", "EntityName")]
     status: ApplicationLifecycleType
     deploymentStatus: Optional[ApplicationDeploymentLifecycleType] = None
     description: Optional[str] = None
-    environmentId: Optional[str] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("M2", "Identifier")]] = None
     lastStartTime: Optional[datetime] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("M2", "Arn")]] = None
     versionStatus: Optional[ApplicationVersionLifecycleType] = None
 
 
@@ -87,14 +89,14 @@ class ScriptBatchJobIdentifierTypeDef(BaseValidatorModel):
 
 
 class CancelBatchJobExecutionRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    executionId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    executionId: Annotated[str, _aws_pattern("M2", "Identifier")]
     authSecretsManagerArn: Optional[str] = None
 
 
 class DefinitionTypeDef(BaseValidatorModel):
     content: Optional[str] = None
-    s3Location: Optional[str] = None
+    s3Location: Optional[Annotated[str, _aws_pattern("M2", "String2000")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -107,10 +109,10 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_deployment' function.
 class CreateDeploymentRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     applicationVersion: int
-    environmentId: str
-    clientToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    clientToken: Optional[Annotated[str, _aws_pattern("M2", "ClientToken")]] = None
 
 
 class HighAvailabilityConfigTypeDef(BaseValidatorModel):
@@ -118,7 +120,7 @@ class HighAvailabilityConfigTypeDef(BaseValidatorModel):
 
 
 class ExternalLocationTypeDef(BaseValidatorModel):
-    s3Location: Optional[str] = None
+    s3Location: Optional[Annotated[str, _aws_pattern("M2", "String2000")]] = None
 
 
 class DataSetExportSummaryTypeDef(BaseValidatorModel):
@@ -138,10 +140,10 @@ class DataSetImportSummaryTypeDef(BaseValidatorModel):
 
 
 class DataSetSummaryTypeDef(BaseValidatorModel):
-    dataSetName: str
+    dataSetName: Annotated[str, _aws_pattern("M2", "String200")]
     creationTime: Optional[datetime] = None
-    dataSetOrg: Optional[str] = None
-    format: Optional[str] = None
+    dataSetOrg: Optional[Annotated[str, _aws_pattern("M2", "String20")]] = None
+    format: Optional[Annotated[str, _aws_pattern("M2", "String20")]] = None
     lastReferencedTime: Optional[datetime] = None
     lastUpdatedTime: Optional[datetime] = None
 
@@ -153,7 +155,7 @@ class RecordLengthTypeDef(BaseValidatorModel):
 
 class GdgDetailAttributesTypeDef(BaseValidatorModel):
     limit: Optional[int] = None
-    rollDisposition: Optional[str] = None
+    rollDisposition: Optional[Annotated[str, _aws_pattern("M2", "String50")]] = None
 
 
 class PoDetailAttributesTypeDef(BaseValidatorModel):
@@ -173,7 +175,7 @@ class GdgAttributesTypeDef(BaseValidatorModel):
 
 class PoAttributesTypeDef(BaseValidatorModel):
     format: str
-    memberFileExtensions: List[str]
+    memberFileExtensions: List[Annotated[str, _aws_pattern("M2", "String20")]]
     encoding: Optional[str] = None
 
 
@@ -183,16 +185,16 @@ class PsAttributesTypeDef(BaseValidatorModel):
 
 
 class DeleteApplicationFromEnvironmentRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    environmentId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
 
 
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
 
 
 class DeleteEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
 
 
 class DeployedVersionSummaryTypeDef(BaseValidatorModel):
@@ -202,18 +204,18 @@ class DeployedVersionSummaryTypeDef(BaseValidatorModel):
 
 
 class DeploymentSummaryTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     applicationVersion: int
     creationTime: datetime
-    deploymentId: str
-    environmentId: str
+    deploymentId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
     status: DeploymentLifecycleType
     statusReason: Optional[str] = None
 
 
 class EfsStorageConfigurationTypeDef(BaseValidatorModel):
-    fileSystemId: str
-    mountPoint: str
+    fileSystemId: Annotated[str, _aws_pattern("M2", "String200")]
+    mountPoint: Annotated[str, _aws_pattern("M2", "String200")]
 
 
 class EngineVersionsSummaryTypeDef(BaseValidatorModel):
@@ -224,40 +226,40 @@ class EngineVersionsSummaryTypeDef(BaseValidatorModel):
 class EnvironmentSummaryTypeDef(BaseValidatorModel):
     creationTime: datetime
     engineType: EngineTypeType
-    engineVersion: str
-    environmentArn: str
-    environmentId: str
-    instanceType: str
-    name: str
+    engineVersion: Annotated[str, _aws_pattern("M2", "EngineVersion")]
+    environmentArn: Annotated[str, _aws_pattern("M2", "Arn")]
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    instanceType: Annotated[str, _aws_pattern("M2", "String20")]
+    name: Annotated[str, _aws_pattern("M2", "EntityName")]
     status: EnvironmentLifecycleType
     networkType: Optional[NetworkTypeType] = None
 
 
 class FsxStorageConfigurationTypeDef(BaseValidatorModel):
-    fileSystemId: str
-    mountPoint: str
+    fileSystemId: Annotated[str, _aws_pattern("M2", "String200")]
+    mountPoint: Annotated[str, _aws_pattern("M2", "String200")]
 
 
 # This class is the input for the 'get_application' function.
 class GetApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
 
 
 class LogGroupSummaryTypeDef(BaseValidatorModel):
     logGroupName: str
-    logType: str
+    logType: Annotated[str, _aws_pattern("M2", "String20")]
 
 
 # This class is the input for the 'get_application_version' function.
 class GetApplicationVersionRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     applicationVersion: int
 
 
 # This class is the input for the 'get_batch_job_execution' function.
 class GetBatchJobExecutionRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    executionId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    executionId: Annotated[str, _aws_pattern("M2", "Identifier")]
 
 
 class JobStepRestartMarkerTypeDef(BaseValidatorModel):
@@ -271,31 +273,31 @@ class JobStepRestartMarkerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_data_set_details' function.
 class GetDataSetDetailsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    dataSetName: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    dataSetName: Annotated[str, _aws_pattern("M2", "String200")]
 
 
 # This class is the input for the 'get_data_set_export_task' function.
 class GetDataSetExportTaskRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    taskId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    taskId: Annotated[str, _aws_pattern("M2", "Identifier")]
 
 
 # This class is the input for the 'get_data_set_import_task' function.
 class GetDataSetImportTaskRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    taskId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    taskId: Annotated[str, _aws_pattern("M2", "Identifier")]
 
 
 # This class is the input for the 'get_deployment' function.
 class GetDeploymentRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    deploymentId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    deploymentId: Annotated[str, _aws_pattern("M2", "Identifier")]
 
 
 # This class is the input for the 'get_environment' function.
 class GetEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
 
 
 class JobIdentifierTypeDef(BaseValidatorModel):
@@ -323,24 +325,24 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_application_versions' function.
 class ListApplicationVersionsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the input for the 'list_applications' function.
 class ListApplicationsRequestTypeDef(BaseValidatorModel):
-    environmentId: Optional[str] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("M2", "Identifier")]] = None
     maxResults: Optional[int] = None
-    names: Optional[List[str]] = None
-    nextToken: Optional[str] = None
+    names: Optional[List[Annotated[str, _aws_pattern("M2", "EntityName")]]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the input for the 'list_batch_job_definitions' function.
 class ListBatchJobDefinitionsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
     prefix: Optional[str] = None
 
 
@@ -349,59 +351,59 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'list_batch_job_restart_points' function.
 class ListBatchJobRestartPointsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    executionId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    executionId: Annotated[str, _aws_pattern("M2", "Identifier")]
     authSecretsManagerArn: Optional[str] = None
 
 
 # This class is the input for the 'list_data_set_export_history' function.
 class ListDataSetExportHistoryRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the input for the 'list_data_set_import_history' function.
 class ListDataSetImportHistoryRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the input for the 'list_data_sets' function.
 class ListDataSetsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     maxResults: Optional[int] = None
-    nameFilter: Optional[str] = None
-    nextToken: Optional[str] = None
-    prefix: Optional[str] = None
+    nameFilter: Optional[Annotated[str, _aws_pattern("M2", "String200")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
+    prefix: Optional[Annotated[str, _aws_pattern("M2", "String200")]] = None
 
 
 # This class is the input for the 'list_deployments' function.
 class ListDeploymentsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the input for the 'list_engine_versions' function.
 class ListEngineVersionsRequestTypeDef(BaseValidatorModel):
     engineType: Optional[EngineTypeType] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the input for the 'list_environments' function.
 class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
     engineType: Optional[EngineTypeType] = None
     maxResults: Optional[int] = None
-    names: Optional[List[str]] = None
-    nextToken: Optional[str] = None
+    names: Optional[List[Annotated[str, _aws_pattern("M2", "EntityName")]]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("M2", "Arn")]
 
 
 class MaintenanceScheduleTypeDef(BaseValidatorModel):
@@ -416,32 +418,32 @@ class PrimaryKeyTypeDef(BaseValidatorModel):
 
 
 class StartApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
 
 
 class StopApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     forceStop: Optional[bool] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("M2", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("M2", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("M2", "TagKey")]]
 
 
 # This class is the input for the 'update_environment' function.
 class UpdateEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
     applyDuringMaintenanceWindow: Optional[bool] = None
     desiredCapacity: Optional[int] = None
-    engineVersion: Optional[str] = None
+    engineVersion: Optional[Annotated[str, _aws_pattern("M2", "EngineVersion")]] = None
     forceUpdate: Optional[bool] = None
-    instanceType: Optional[str] = None
+    instanceType: Optional[Annotated[str, _aws_pattern("M2", "String20")]] = None
     preferredMaintenanceWindow: Optional[str] = None
 
 
@@ -454,17 +456,17 @@ class BatchJobDefinitionTypeDef(BaseValidatorModel):
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
     definition: DefinitionTypeDef
     engineType: EngineTypeType
-    name: str
-    clientToken: Optional[str] = None
+    name: Annotated[str, _aws_pattern("M2", "EntityName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("M2", "ClientToken")]] = None
     description: Optional[str] = None
     kmsKeyId: Optional[str] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("M2", "Arn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_application' function.
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     currentApplicationVersion: int
     definition: Optional[DefinitionTypeDef] = None
     description: Optional[str] = None
@@ -472,33 +474,33 @@ class UpdateApplicationRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_application' function.
 class CreateApplicationResponseTypeDef(BaseValidatorModel):
-    applicationArn: str
-    applicationId: str
+    applicationArn: Annotated[str, _aws_pattern("M2", "Arn")]
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     applicationVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_set_export_task' function.
 class CreateDataSetExportTaskResponseTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("M2", "Identifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_set_import_task' function.
 class CreateDataSetImportTaskResponseTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("M2", "Identifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_deployment' function.
 class CreateDeploymentResponseTypeDef(BaseValidatorModel):
-    deploymentId: str
+    deploymentId: Annotated[str, _aws_pattern("M2", "Identifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_environment' function.
 class CreateEnvironmentResponseTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -508,7 +510,7 @@ class GetApplicationVersionResponseTypeDef(BaseValidatorModel):
     creationTime: datetime
     definitionContent: str
     description: str
-    name: str
+    name: Annotated[str, _aws_pattern("M2", "EntityName")]
     status: ApplicationVersionLifecycleType
     statusReason: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -516,11 +518,11 @@ class GetApplicationVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_deployment' function.
 class GetDeploymentResponseTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     applicationVersion: int
     creationTime: datetime
-    deploymentId: str
-    environmentId: str
+    deploymentId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
     status: DeploymentLifecycleType
     statusReason: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -535,14 +537,14 @@ class GetSignedBluinsightsUrlResponseTypeDef(BaseValidatorModel):
 class ListApplicationVersionsResponseTypeDef(BaseValidatorModel):
     applicationVersions: List[ApplicationVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the output for the 'list_applications' function.
 class ListApplicationsResponseTypeDef(BaseValidatorModel):
     applications: List[ApplicationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -553,7 +555,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_batch_job' function.
 class StartBatchJobResponseTypeDef(BaseValidatorModel):
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("M2", "Identifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -565,19 +567,19 @@ class UpdateApplicationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_environment' function.
 class UpdateEnvironmentResponseTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DataSetExportItemTypeDef(BaseValidatorModel):
-    datasetName: str
+    datasetName: Annotated[str, _aws_pattern("M2", "String200")]
     externalLocation: ExternalLocationTypeDef
 
 
 class DataSetExportTaskTypeDef(BaseValidatorModel):
     status: DataSetTaskLifecycleType
     summary: DataSetExportSummaryTypeDef
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("M2", "Identifier")]
     statusReason: Optional[str] = None
 
 
@@ -587,14 +589,14 @@ class GetDataSetExportTaskResponseTypeDef(BaseValidatorModel):
     status: DataSetTaskLifecycleType
     statusReason: str
     summary: DataSetExportSummaryTypeDef
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("M2", "Identifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DataSetImportTaskTypeDef(BaseValidatorModel):
     status: DataSetTaskLifecycleType
     summary: DataSetImportSummaryTypeDef
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("M2", "Identifier")]
     statusReason: Optional[str] = None
 
 
@@ -602,7 +604,7 @@ class DataSetImportTaskTypeDef(BaseValidatorModel):
 class GetDataSetImportTaskResponseTypeDef(BaseValidatorModel):
     status: DataSetTaskLifecycleType
     summary: DataSetImportSummaryTypeDef
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("M2", "Identifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -610,28 +612,28 @@ class GetDataSetImportTaskResponseTypeDef(BaseValidatorModel):
 class ListDataSetsResponseTypeDef(BaseValidatorModel):
     dataSets: List[DataSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the output for the 'list_deployments' function.
 class ListDeploymentsResponseTypeDef(BaseValidatorModel):
     deployments: List[DeploymentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the output for the 'list_engine_versions' function.
 class ListEngineVersionsResponseTypeDef(BaseValidatorModel):
     engineVersions: List[EngineVersionsSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the output for the 'list_environments' function.
 class ListEnvironmentsResponseTypeDef(BaseValidatorModel):
     environments: List[EnvironmentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 class StorageConfigurationTypeDef(BaseValidatorModel):
@@ -641,31 +643,31 @@ class StorageConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_application' function.
 class GetApplicationResponseTypeDef(BaseValidatorModel):
-    applicationArn: str
-    applicationId: str
+    applicationArn: Annotated[str, _aws_pattern("M2", "Arn")]
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     creationTime: datetime
     deployedVersion: DeployedVersionSummaryTypeDef
     description: str
     engineType: EngineTypeType
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
     kmsKeyId: str
     lastStartTime: datetime
     latestVersion: ApplicationVersionSummaryTypeDef
-    listenerArns: List[str]
+    listenerArns: List[Annotated[str, _aws_pattern("M2", "Arn")]]
     listenerPorts: List[int]
-    loadBalancerDnsName: str
+    loadBalancerDnsName: Annotated[str, _aws_pattern("M2", "String100")]
     logGroups: List[LogGroupSummaryTypeDef]
-    name: str
-    roleArn: str
+    name: Annotated[str, _aws_pattern("M2", "EntityName")]
+    roleArn: Annotated[str, _aws_pattern("M2", "Arn")]
     status: ApplicationLifecycleType
     statusReason: str
     tags: Dict[str, str]
-    targetGroupArns: List[str]
+    targetGroupArns: List[Annotated[str, _aws_pattern("M2", "Arn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class RestartBatchJobIdentifierTypeDef(BaseValidatorModel):
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("M2", "Identifier")]
     jobStepRestartMarker: JobStepRestartMarkerTypeDef
 
 
@@ -743,11 +745,11 @@ class ListBatchJobExecutionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_batch_job_executions' function.
 class ListBatchJobExecutionsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    executionIds: Optional[List[str]] = None
-    jobName: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    executionIds: Optional[List[Annotated[str, _aws_pattern("M2", "Identifier")]]] = None
+    jobName: Optional[Annotated[str, _aws_pattern("M2", "String100")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
     startedAfter: Optional[TimestampTypeDef] = None
     startedBefore: Optional[TimestampTypeDef] = None
     status: Optional[BatchJobExecutionStatusType] = None
@@ -770,16 +772,16 @@ class VsamDetailAttributesTypeDef(BaseValidatorModel):
     alternateKeys: Optional[List[AlternateKeyTypeDef]] = None
     cacheAtStartup: Optional[bool] = None
     compressed: Optional[bool] = None
-    encoding: Optional[str] = None
+    encoding: Optional[Annotated[str, _aws_pattern("M2", "String20")]] = None
     primaryKey: Optional[PrimaryKeyTypeDef] = None
-    recordFormat: Optional[str] = None
+    recordFormat: Optional[Annotated[str, _aws_pattern("M2", "String20")]] = None
 
 
 # This class is the output for the 'list_batch_job_definitions' function.
 class ListBatchJobDefinitionsResponseTypeDef(BaseValidatorModel):
     batchJobDefinitions: List[BatchJobDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 class DataSetExportConfigTypeDef(BaseValidatorModel):
@@ -791,32 +793,32 @@ class DataSetExportConfigTypeDef(BaseValidatorModel):
 class ListDataSetExportHistoryResponseTypeDef(BaseValidatorModel):
     dataSetExportTasks: List[DataSetExportTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the output for the 'list_data_set_import_history' function.
 class ListDataSetImportHistoryResponseTypeDef(BaseValidatorModel):
     dataSetImportTasks: List[DataSetImportTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 # This class is the input for the 'create_environment' function.
 class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
     engineType: EngineTypeType
-    instanceType: str
-    name: str
-    clientToken: Optional[str] = None
+    instanceType: Annotated[str, _aws_pattern("M2", "String20")]
+    name: Annotated[str, _aws_pattern("M2", "EntityName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("M2", "ClientToken")]] = None
     description: Optional[str] = None
-    engineVersion: Optional[str] = None
+    engineVersion: Optional[Annotated[str, _aws_pattern("M2", "EngineVersion")]] = None
     highAvailabilityConfig: Optional[HighAvailabilityConfigTypeDef] = None
     kmsKeyId: Optional[str] = None
     networkType: Optional[NetworkTypeType] = None
-    preferredMaintenanceWindow: Optional[str] = None
+    preferredMaintenanceWindow: Optional[Annotated[str, _aws_pattern("M2", "String50")]] = None
     publiclyAccessible: Optional[bool] = None
-    securityGroupIds: Optional[List[str]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("M2", "String50")]]] = None
     storageConfigurations: Optional[List[StorageConfigurationTypeDef]] = None
-    subnetIds: Optional[List[str]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("M2", "String50")]]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -833,25 +835,25 @@ class GetEnvironmentResponseTypeDef(BaseValidatorModel):
     creationTime: datetime
     description: str
     engineType: EngineTypeType
-    engineVersion: str
-    environmentArn: str
-    environmentId: str
+    engineVersion: Annotated[str, _aws_pattern("M2", "EngineVersion")]
+    environmentArn: Annotated[str, _aws_pattern("M2", "Arn")]
+    environmentId: Annotated[str, _aws_pattern("M2", "Identifier")]
     highAvailabilityConfig: HighAvailabilityConfigTypeDef
-    instanceType: str
+    instanceType: Annotated[str, _aws_pattern("M2", "String20")]
     kmsKeyId: str
     loadBalancerArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("M2", "EntityName")]
     networkType: NetworkTypeType
     pendingMaintenance: PendingMaintenanceTypeDef
-    preferredMaintenanceWindow: str
+    preferredMaintenanceWindow: Annotated[str, _aws_pattern("M2", "String50")]
     publiclyAccessible: bool
-    securityGroupIds: List[str]
+    securityGroupIds: List[Annotated[str, _aws_pattern("M2", "String50")]]
     status: EnvironmentLifecycleType
     statusReason: str
     storageConfigurations: List[StorageConfigurationTypeDef]
-    subnetIds: List[str]
+    subnetIds: List[Annotated[str, _aws_pattern("M2", "String50")]]
     tags: Dict[str, str]
-    vpcId: str
+    vpcId: Annotated[str, _aws_pattern("M2", "String50")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -871,36 +873,36 @@ class DatasetDetailOrgAttributesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_set_export_task' function.
 class CreateDataSetExportTaskRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     exportConfig: DataSetExportConfigTypeDef
-    clientToken: Optional[str] = None
-    kmsKeyId: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("M2", "ClientToken")]] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("M2", "KMSKeyId")]] = None
 
 
 class BatchJobExecutionSummaryTypeDef(BaseValidatorModel):
-    applicationId: str
-    executionId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    executionId: Annotated[str, _aws_pattern("M2", "Identifier")]
     startTime: datetime
     status: BatchJobExecutionStatusType
     batchJobIdentifier: Optional[BatchJobIdentifierTypeDef] = None
     endTime: Optional[datetime] = None
-    jobId: Optional[str] = None
-    jobName: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("M2", "String100")]] = None
+    jobName: Optional[Annotated[str, _aws_pattern("M2", "String100")]] = None
     jobType: Optional[BatchJobTypeType] = None
     returnCode: Optional[str] = None
 
 
 # This class is the output for the 'get_batch_job_execution' function.
 class GetBatchJobExecutionResponseTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     batchJobIdentifier: BatchJobIdentifierTypeDef
     endTime: datetime
-    executionId: str
-    jobId: str
-    jobName: str
+    executionId: Annotated[str, _aws_pattern("M2", "Identifier")]
+    jobId: Annotated[str, _aws_pattern("M2", "String100")]
+    jobName: Annotated[str, _aws_pattern("M2", "String100")]
     jobStepRestartMarker: JobStepRestartMarkerTypeDef
     jobType: BatchJobTypeType
-    jobUser: str
+    jobUser: Annotated[str, _aws_pattern("M2", "String100")]
     returnCode: str
     startTime: datetime
     status: BatchJobExecutionStatusType
@@ -910,7 +912,7 @@ class GetBatchJobExecutionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_batch_job' function.
 class StartBatchJobRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     batchJobIdentifier: BatchJobIdentifierTypeDef
     authSecretsManagerArn: Optional[str] = None
     jobParams: Optional[Dict[str, str]] = None
@@ -928,12 +930,12 @@ class DataSetTypeDef(BaseValidatorModel):
 class GetDataSetDetailsResponseTypeDef(BaseValidatorModel):
     blocksize: int
     creationTime: datetime
-    dataSetName: str
+    dataSetName: Annotated[str, _aws_pattern("M2", "String200")]
     dataSetOrg: DatasetDetailOrgAttributesTypeDef
     fileSize: int
     lastReferencedTime: datetime
     lastUpdatedTime: datetime
-    location: str
+    location: Annotated[str, _aws_pattern("M2", "String2000")]
     recordLength: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -942,7 +944,7 @@ class GetDataSetDetailsResponseTypeDef(BaseValidatorModel):
 class ListBatchJobExecutionsResponseTypeDef(BaseValidatorModel):
     batchJobExecutions: List[BatchJobExecutionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("M2", "NextToken")]] = None
 
 
 class DataSetImportItemTypeDef(BaseValidatorModel):
@@ -952,11 +954,11 @@ class DataSetImportItemTypeDef(BaseValidatorModel):
 
 class DataSetImportConfigTypeDef(BaseValidatorModel):
     dataSets: Optional[List[DataSetImportItemTypeDef]] = None
-    s3Location: Optional[str] = None
+    s3Location: Optional[Annotated[str, _aws_pattern("M2", "String2000")]] = None
 
 
 # This class is the input for the 'create_data_set_import_task' function.
 class CreateDataSetImportTaskRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("M2", "Identifier")]
     importConfig: DataSetImportConfigTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("M2", "ClientToken")]] = None

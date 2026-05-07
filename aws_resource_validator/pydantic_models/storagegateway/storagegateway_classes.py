@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.storagegateway.storagegateway_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
+    Key: Annotated[str, _aws_pattern("Storagegateway", "TagKey")]
     Value: str
 
 
@@ -71,7 +73,7 @@ class AddWorkingStorageInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'assign_tape_pool' function.
 class AssignTapePoolInputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     PoolId: str
     BypassGovernanceRetention: Optional[bool] = None
 
@@ -83,14 +85,14 @@ class CacheAttributesTypeDef(BaseValidatorModel):
 # This class is the input for the 'attach_volume' function.
 class AttachVolumeInputTypeDef(BaseValidatorModel):
     GatewayARN: str
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     NetworkInterfaceId: str
-    TargetName: Optional[str] = None
+    TargetName: Optional[Annotated[str, _aws_pattern("Storagegateway", "TargetName")]] = None
     DiskId: Optional[str] = None
 
 
 class AutomaticTapeCreationRuleTypeDef(BaseValidatorModel):
-    TapeBarcodePrefix: str
+    TapeBarcodePrefix: Annotated[str, _aws_pattern("Storagegateway", "TapeBarcodePrefix")]
     PoolId: str
     TapeSizeInBytes: int
     MinimumNumTapes: int
@@ -138,7 +140,7 @@ class VolumeiSCSIAttributesTypeDef(BaseValidatorModel):
 # This class is the input for the 'cancel_archival' function.
 class CancelArchivalInputTypeDef(BaseValidatorModel):
     GatewayARN: str
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
 
 
 # This class is the input for the 'cancel_cache_report' function.
@@ -149,19 +151,19 @@ class CancelCacheReportInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'cancel_retrieval' function.
 class CancelRetrievalInputTypeDef(BaseValidatorModel):
     GatewayARN: str
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
 
 
 class ChapInfoTypeDef(BaseValidatorModel):
     TargetARN: Optional[str] = None
     SecretToAuthenticateInitiator: Optional[str] = None
-    InitiatorName: Optional[str] = None
+    InitiatorName: Optional[Annotated[str, _aws_pattern("Storagegateway", "IqnName")]] = None
     SecretToAuthenticateTarget: Optional[str] = None
 
 
 class NFSFileShareDefaultsTypeDef(BaseValidatorModel):
-    FileMode: Optional[str] = None
-    DirectoryMode: Optional[str] = None
+    FileMode: Optional[Annotated[str, _aws_pattern("Storagegateway", "PermissionMode")]] = None
+    DirectoryMode: Optional[Annotated[str, _aws_pattern("Storagegateway", "PermissionMode")]] = None
     GroupId: Optional[int] = None
     OwnerId: Optional[int] = None
 
@@ -185,7 +187,7 @@ class DeleteCacheReportInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'delete_chap_credentials' function.
 class DeleteChapCredentialsInputTypeDef(BaseValidatorModel):
     TargetARN: str
-    InitiatorName: str
+    InitiatorName: Annotated[str, _aws_pattern("Storagegateway", "IqnName")]
 
 
 # This class is the input for the 'delete_file_share' function.
@@ -201,19 +203,19 @@ class DeleteGatewayInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_snapshot_schedule' function.
 class DeleteSnapshotScheduleInputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
 
 
 # This class is the input for the 'delete_tape_archive' function.
 class DeleteTapeArchiveInputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     BypassGovernanceRetention: Optional[bool] = None
 
 
 # This class is the input for the 'delete_tape' function.
 class DeleteTapeInputTypeDef(BaseValidatorModel):
     GatewayARN: str
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     BypassGovernanceRetention: Optional[bool] = None
 
 
@@ -224,7 +226,7 @@ class DeleteTapePoolInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_volume' function.
 class DeleteVolumeInputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
 
 
 # This class is the input for the 'describe_availability_monitor_test' function.
@@ -254,7 +256,7 @@ class DescribeCacheReportInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_cached_iscsi_volumes' function.
 class DescribeCachediSCSIVolumesInputTypeDef(BaseValidatorModel):
-    VolumeARNs: List[str]
+    VolumeARNs: List[Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]]
 
 
 # This class is the input for the 'describe_chap_credentials' function.
@@ -308,12 +310,12 @@ class SMBLocalGroupsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_snapshot_schedule' function.
 class DescribeSnapshotScheduleInputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
 
 
 # This class is the input for the 'describe_stored_iscsi_volumes' function.
 class DescribeStorediSCSIVolumesInputTypeDef(BaseValidatorModel):
-    VolumeARNs: List[str]
+    VolumeARNs: List[Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -324,21 +326,21 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_tape_archives' function.
 class DescribeTapeArchivesInputTypeDef(BaseValidatorModel):
-    TapeARNs: Optional[List[str]] = None
+    TapeARNs: Optional[List[Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]]] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class TapeArchiveTypeDef(BaseValidatorModel):
-    TapeARN: Optional[str] = None
-    TapeBarcode: Optional[str] = None
+    TapeARN: Optional[Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]] = None
+    TapeBarcode: Optional[Annotated[str, _aws_pattern("Storagegateway", "TapeBarcode")]] = None
     TapeCreatedDate: Optional[datetime] = None
     TapeSizeInBytes: Optional[int] = None
     CompletionTime: Optional[datetime] = None
     RetrievedTo: Optional[str] = None
     TapeStatus: Optional[str] = None
     TapeUsedInBytes: Optional[int] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     PoolId: Optional[str] = None
     Worm: Optional[bool] = None
     RetentionStartDate: Optional[datetime] = None
@@ -353,7 +355,7 @@ class DescribeTapeRecoveryPointsInputTypeDef(BaseValidatorModel):
 
 
 class TapeRecoveryPointInfoTypeDef(BaseValidatorModel):
-    TapeARN: Optional[str] = None
+    TapeARN: Optional[Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]] = None
     TapeRecoveryPointTime: Optional[datetime] = None
     TapeSizeInBytes: Optional[int] = None
     TapeStatus: Optional[str] = None
@@ -362,21 +364,21 @@ class TapeRecoveryPointInfoTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_tapes' function.
 class DescribeTapesInputTypeDef(BaseValidatorModel):
     GatewayARN: str
-    TapeARNs: Optional[List[str]] = None
+    TapeARNs: Optional[List[Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]]] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class TapeTypeDef(BaseValidatorModel):
-    TapeARN: Optional[str] = None
-    TapeBarcode: Optional[str] = None
+    TapeARN: Optional[Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]] = None
+    TapeBarcode: Optional[Annotated[str, _aws_pattern("Storagegateway", "TapeBarcode")]] = None
     TapeCreatedDate: Optional[datetime] = None
     TapeSizeInBytes: Optional[int] = None
     TapeStatus: Optional[str] = None
     VTLDevice: Optional[str] = None
     Progress: Optional[float] = None
     TapeUsedInBytes: Optional[int] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     PoolId: Optional[str] = None
     Worm: Optional[bool] = None
     RetentionStartDate: Optional[datetime] = None
@@ -403,7 +405,7 @@ class DescribeWorkingStorageInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'detach_volume' function.
 class DetachVolumeInputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     ForceDetach: Optional[bool] = None
 
 
@@ -441,7 +443,7 @@ class EndpointNetworkConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class EndpointNetworkConfigurationTypeDef(BaseValidatorModel):
-    IpAddresses: Optional[List[str]] = None
+    IpAddresses: Optional[List[Annotated[str, _aws_pattern("Storagegateway", "IPV4Address")]]] = None
 
 
 # This class is the input for the 'evict_files_failing_upload' function.
@@ -486,11 +488,11 @@ class GatewayInfoTypeDef(BaseValidatorModel):
 # This class is the input for the 'join_domain' function.
 class JoinDomainInputTypeDef(BaseValidatorModel):
     GatewayARN: str
-    DomainName: str
-    UserName: str
-    Password: str
+    DomainName: Annotated[str, _aws_pattern("Storagegateway", "DomainName")]
+    UserName: Annotated[str, _aws_pattern("Storagegateway", "DomainUserName")]
+    Password: Annotated[str, _aws_pattern("Storagegateway", "DomainUserPassword")]
     OrganizationalUnit: Optional[str] = None
-    DomainControllers: Optional[List[str]] = None
+    DomainControllers: Optional[List[Annotated[str, _aws_pattern("Storagegateway", "Host")]]] = None
     TimeoutInSeconds: Optional[int] = None
 
 
@@ -545,7 +547,7 @@ class ListTapePoolsInputTypeDef(BaseValidatorModel):
 
 class PoolInfoTypeDef(BaseValidatorModel):
     PoolARN: Optional[str] = None
-    PoolName: Optional[str] = None
+    PoolName: Optional[Annotated[str, _aws_pattern("Storagegateway", "PoolName")]] = None
     StorageClass: Optional[TapeStorageClassType] = None
     RetentionLockType: Optional[RetentionLockTypeType] = None
     RetentionLockTimeInDays: Optional[int] = None
@@ -554,14 +556,14 @@ class PoolInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tapes' function.
 class ListTapesInputTypeDef(BaseValidatorModel):
-    TapeARNs: Optional[List[str]] = None
+    TapeARNs: Optional[List[Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]]] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class TapeInfoTypeDef(BaseValidatorModel):
-    TapeARN: Optional[str] = None
-    TapeBarcode: Optional[str] = None
+    TapeARN: Optional[Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]] = None
+    TapeBarcode: Optional[Annotated[str, _aws_pattern("Storagegateway", "TapeBarcode")]] = None
     TapeSizeInBytes: Optional[int] = None
     TapeStatus: Optional[str] = None
     GatewayARN: Optional[str] = None
@@ -572,7 +574,7 @@ class TapeInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_volume_initiators' function.
 class ListVolumeInitiatorsInputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
 
 
 # This class is the input for the 'list_volume_recovery_points' function.
@@ -581,7 +583,7 @@ class ListVolumeRecoveryPointsInputTypeDef(BaseValidatorModel):
 
 
 class VolumeRecoveryPointInfoTypeDef(BaseValidatorModel):
-    VolumeARN: Optional[str] = None
+    VolumeARN: Optional[Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]] = None
     VolumeSizeInBytes: Optional[int] = None
     VolumeUsageInBytes: Optional[int] = None
     VolumeRecoveryPointTime: Optional[str] = None
@@ -595,7 +597,7 @@ class ListVolumesInputTypeDef(BaseValidatorModel):
 
 
 class VolumeInfoTypeDef(BaseValidatorModel):
-    VolumeARN: Optional[str] = None
+    VolumeARN: Optional[Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]] = None
     VolumeId: Optional[str] = None
     GatewayARN: Optional[str] = None
     GatewayId: Optional[str] = None
@@ -619,7 +621,7 @@ class RefreshCacheInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'remove_tags_from_resource' function.
 class RemoveTagsFromResourceInputTypeDef(BaseValidatorModel):
     ResourceARN: str
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("Storagegateway", "TagKey")]]
 
 
 # This class is the input for the 'reset_cache' function.
@@ -629,13 +631,13 @@ class ResetCacheInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'retrieve_tape_archive' function.
 class RetrieveTapeArchiveInputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     GatewayARN: str
 
 
 # This class is the input for the 'retrieve_tape_recovery_point' function.
 class RetrieveTapeRecoveryPointInputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     GatewayARN: str
 
 
@@ -646,13 +648,13 @@ class SMBLocalGroupsTypeDef(BaseValidatorModel):
 # This class is the input for the 'set_local_console_password' function.
 class SetLocalConsolePasswordInputTypeDef(BaseValidatorModel):
     GatewayARN: str
-    LocalConsolePassword: str
+    LocalConsolePassword: Annotated[str, _aws_pattern("Storagegateway", "LocalConsolePassword")]
 
 
 # This class is the input for the 'set_smb_guest_password' function.
 class SetSMBGuestPasswordInputTypeDef(BaseValidatorModel):
     GatewayARN: str
-    Password: str
+    Password: Annotated[str, _aws_pattern("Storagegateway", "SMBGuestPassword")]
 
 
 # This class is the input for the 'shutdown_gateway' function.
@@ -681,14 +683,14 @@ class UpdateBandwidthRateLimitInputTypeDef(BaseValidatorModel):
 class UpdateChapCredentialsInputTypeDef(BaseValidatorModel):
     TargetARN: str
     SecretToAuthenticateInitiator: str
-    InitiatorName: str
+    InitiatorName: Annotated[str, _aws_pattern("Storagegateway", "IqnName")]
     SecretToAuthenticateTarget: Optional[str] = None
 
 
 # This class is the input for the 'update_gateway_information' function.
 class UpdateGatewayInformationInputTypeDef(BaseValidatorModel):
     GatewayARN: str
-    GatewayName: Optional[str] = None
+    GatewayName: Optional[Annotated[str, _aws_pattern("Storagegateway", "GatewayName")]] = None
     GatewayTimezone: Optional[str] = None
     CloudWatchLogGroupARN: Optional[str] = None
     GatewayCapacity: Optional[GatewayCapacityType] = None
@@ -720,7 +722,7 @@ class UpdateVTLDeviceTypeInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'activate_gateway' function.
 class ActivateGatewayInputTypeDef(BaseValidatorModel):
     ActivationKey: str
-    GatewayName: str
+    GatewayName: Annotated[str, _aws_pattern("Storagegateway", "GatewayName")]
     GatewayTimezone: str
     GatewayRegion: str
     GatewayType: Optional[str] = None
@@ -739,26 +741,26 @@ class AddTagsToResourceInputTypeDef(BaseValidatorModel):
 class CreateCachediSCSIVolumeInputTypeDef(BaseValidatorModel):
     GatewayARN: str
     VolumeSizeInBytes: int
-    TargetName: str
+    TargetName: Annotated[str, _aws_pattern("Storagegateway", "TargetName")]
     NetworkInterfaceId: str
     ClientToken: str
-    SnapshotId: Optional[str] = None
-    SourceVolumeARN: Optional[str] = None
+    SnapshotId: Optional[Annotated[str, _aws_pattern("Storagegateway", "SnapshotId")]] = None
+    SourceVolumeARN: Optional[Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]] = None
     KMSEncrypted: Optional[bool] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_snapshot_from_volume_recovery_point' function.
 class CreateSnapshotFromVolumeRecoveryPointInputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     SnapshotDescription: str
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_snapshot' function.
 class CreateSnapshotInputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     SnapshotDescription: str
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -768,17 +770,17 @@ class CreateStorediSCSIVolumeInputTypeDef(BaseValidatorModel):
     GatewayARN: str
     DiskId: str
     PreserveExistingData: bool
-    TargetName: str
+    TargetName: Annotated[str, _aws_pattern("Storagegateway", "TargetName")]
     NetworkInterfaceId: str
-    SnapshotId: Optional[str] = None
+    SnapshotId: Optional[Annotated[str, _aws_pattern("Storagegateway", "SnapshotId")]] = None
     KMSEncrypted: Optional[bool] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_tape_pool' function.
 class CreateTapePoolInputTypeDef(BaseValidatorModel):
-    PoolName: str
+    PoolName: Annotated[str, _aws_pattern("Storagegateway", "PoolName")]
     StorageClass: TapeStorageClassType
     RetentionLockType: Optional[RetentionLockTypeType] = None
     RetentionLockTimeInDays: Optional[int] = None
@@ -789,9 +791,9 @@ class CreateTapePoolInputTypeDef(BaseValidatorModel):
 class CreateTapeWithBarcodeInputTypeDef(BaseValidatorModel):
     GatewayARN: str
     TapeSizeInBytes: int
-    TapeBarcode: str
+    TapeBarcode: Annotated[str, _aws_pattern("Storagegateway", "TapeBarcode")]
     KMSEncrypted: Optional[bool] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     PoolId: Optional[str] = None
     Worm: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -803,9 +805,9 @@ class CreateTapesInputTypeDef(BaseValidatorModel):
     TapeSizeInBytes: int
     ClientToken: str
     NumTapesToCreate: int
-    TapeBarcodePrefix: str
+    TapeBarcodePrefix: Annotated[str, _aws_pattern("Storagegateway", "TapeBarcodePrefix")]
     KMSEncrypted: Optional[bool] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     PoolId: Optional[str] = None
     Worm: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -813,7 +815,7 @@ class CreateTapesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_snapshot_schedule' function.
 class UpdateSnapshotScheduleInputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     StartAt: int
     RecurrenceInHours: int
     Description: Optional[str] = None
@@ -852,7 +854,7 @@ class AddWorkingStorageOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'assign_tape_pool' function.
 class AssignTapePoolOutputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -864,14 +866,14 @@ class AssociateFileSystemOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'attach_volume' function.
 class AttachVolumeOutputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     TargetARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'cancel_archival' function.
 class CancelArchivalOutputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -883,13 +885,13 @@ class CancelCacheReportOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_retrieval' function.
 class CancelRetrievalOutputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_cached_iscsi_volume' function.
 class CreateCachediSCSIVolumeOutputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     TargetARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -908,22 +910,22 @@ class CreateSMBFileShareOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_snapshot_from_volume_recovery_point' function.
 class CreateSnapshotFromVolumeRecoveryPointOutputTypeDef(BaseValidatorModel):
-    SnapshotId: str
-    VolumeARN: str
+    SnapshotId: Annotated[str, _aws_pattern("Storagegateway", "SnapshotId")]
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     VolumeRecoveryPointTime: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_snapshot' function.
 class CreateSnapshotOutputTypeDef(BaseValidatorModel):
-    VolumeARN: str
-    SnapshotId: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
+    SnapshotId: Annotated[str, _aws_pattern("Storagegateway", "SnapshotId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_stored_iscsi_volume' function.
 class CreateStorediSCSIVolumeOutputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     VolumeSizeInBytes: int
     TargetARN: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -937,13 +939,13 @@ class CreateTapePoolOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_tape_with_barcode' function.
 class CreateTapeWithBarcodeOutputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_tapes' function.
 class CreateTapesOutputTypeDef(BaseValidatorModel):
-    TapeARNs: List[str]
+    TapeARNs: List[Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -968,7 +970,7 @@ class DeleteCacheReportOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'delete_chap_credentials' function.
 class DeleteChapCredentialsOutputTypeDef(BaseValidatorModel):
     TargetARN: str
-    InitiatorName: str
+    InitiatorName: Annotated[str, _aws_pattern("Storagegateway", "IqnName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -986,19 +988,19 @@ class DeleteGatewayOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_snapshot_schedule' function.
 class DeleteSnapshotScheduleOutputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_tape_archive' function.
 class DeleteTapeArchiveOutputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_tape' function.
 class DeleteTapeOutputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1010,7 +1012,7 @@ class DeleteTapePoolOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_volume' function.
 class DeleteVolumeOutputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1044,7 +1046,7 @@ class DescribeCacheOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_snapshot_schedule' function.
 class DescribeSnapshotScheduleOutputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     StartAt: int
     RecurrenceInHours: int
     Description: str
@@ -1073,7 +1075,7 @@ class DescribeWorkingStorageOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'detach_volume' function.
 class DetachVolumeOutputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1144,13 +1146,13 @@ class ResetCacheOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'retrieve_tape_archive' function.
 class RetrieveTapeArchiveOutputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'retrieve_tape_recovery_point' function.
 class RetrieveTapeRecoveryPointOutputTypeDef(BaseValidatorModel):
-    TapeARN: str
+    TapeARN: Annotated[str, _aws_pattern("Storagegateway", "TapeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1211,7 +1213,7 @@ class UpdateBandwidthRateLimitScheduleOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_chap_credentials' function.
 class UpdateChapCredentialsOutputTypeDef(BaseValidatorModel):
     TargetARN: str
-    InitiatorName: str
+    InitiatorName: Annotated[str, _aws_pattern("Storagegateway", "IqnName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1272,7 +1274,7 @@ class UpdateSMBSecurityStrategyOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_snapshot_schedule' function.
 class UpdateSnapshotScheduleOutputTypeDef(BaseValidatorModel):
-    VolumeARN: str
+    VolumeARN: Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1286,11 +1288,11 @@ class UpdateVTLDeviceTypeOutputTypeDef(BaseValidatorModel):
 class CreateSMBFileShareInputTypeDef(BaseValidatorModel):
     ClientToken: str
     GatewayARN: str
-    Role: str
+    Role: Annotated[str, _aws_pattern("Storagegateway", "Role")]
     LocationARN: str
     EncryptionType: Optional[EncryptionTypeType] = None
     KMSEncrypted: Optional[bool] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     DefaultStorageClass: Optional[str] = None
     ObjectACL: Optional[ObjectACLType] = None
     ReadOnly: Optional[bool] = None
@@ -1307,8 +1309,8 @@ class CreateSMBFileShareInputTypeDef(BaseValidatorModel):
     Tags: Optional[List[TagTypeDef]] = None
     FileShareName: Optional[str] = None
     CacheAttributes: Optional[CacheAttributesTypeDef] = None
-    NotificationPolicy: Optional[str] = None
-    VPCEndpointDNSName: Optional[str] = None
+    NotificationPolicy: Optional[Annotated[str, _aws_pattern("Storagegateway", "NotificationPolicy")]] = None
+    VPCEndpointDNSName: Optional[Annotated[str, _aws_pattern("Storagegateway", "DNSHostName")]] = None
     BucketRegion: Optional[str] = None
     OplocksEnabled: Optional[bool] = None
 
@@ -1320,9 +1322,9 @@ class SMBFileShareInfoTypeDef(BaseValidatorModel):
     GatewayARN: Optional[str] = None
     EncryptionType: Optional[EncryptionTypeType] = None
     KMSEncrypted: Optional[bool] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     Path: Optional[str] = None
-    Role: Optional[str] = None
+    Role: Optional[Annotated[str, _aws_pattern("Storagegateway", "Role")]] = None
     LocationARN: Optional[str] = None
     DefaultStorageClass: Optional[str] = None
     ObjectACL: Optional[ObjectACLType] = None
@@ -1340,8 +1342,8 @@ class SMBFileShareInfoTypeDef(BaseValidatorModel):
     Tags: Optional[List[TagTypeDef]] = None
     FileShareName: Optional[str] = None
     CacheAttributes: Optional[CacheAttributesTypeDef] = None
-    NotificationPolicy: Optional[str] = None
-    VPCEndpointDNSName: Optional[str] = None
+    NotificationPolicy: Optional[Annotated[str, _aws_pattern("Storagegateway", "NotificationPolicy")]] = None
+    VPCEndpointDNSName: Optional[Annotated[str, _aws_pattern("Storagegateway", "DNSHostName")]] = None
     BucketRegion: Optional[str] = None
     OplocksEnabled: Optional[bool] = None
 
@@ -1349,8 +1351,8 @@ class SMBFileShareInfoTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_file_system_association' function.
 class UpdateFileSystemAssociationInputTypeDef(BaseValidatorModel):
     FileSystemAssociationARN: str
-    UserName: Optional[str] = None
-    Password: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Storagegateway", "DomainUserName")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("Storagegateway", "DomainUserPassword")]] = None
     AuditDestinationARN: Optional[str] = None
     CacheAttributes: Optional[CacheAttributesTypeDef] = None
 
@@ -1360,7 +1362,7 @@ class UpdateSMBFileShareInputTypeDef(BaseValidatorModel):
     FileShareARN: str
     EncryptionType: Optional[EncryptionTypeType] = None
     KMSEncrypted: Optional[bool] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     DefaultStorageClass: Optional[str] = None
     ObjectACL: Optional[ObjectACLType] = None
     ReadOnly: Optional[bool] = None
@@ -1375,7 +1377,7 @@ class UpdateSMBFileShareInputTypeDef(BaseValidatorModel):
     CaseSensitivity: Optional[CaseSensitivityType] = None
     FileShareName: Optional[str] = None
     CacheAttributes: Optional[CacheAttributesTypeDef] = None
-    NotificationPolicy: Optional[str] = None
+    NotificationPolicy: Optional[Annotated[str, _aws_pattern("Storagegateway", "NotificationPolicy")]] = None
     OplocksEnabled: Optional[bool] = None
 
 
@@ -1407,7 +1409,7 @@ class CacheReportInfoTypeDef(BaseValidatorModel):
     CacheReportStatus: Optional[CacheReportStatusType] = None
     ReportCompletionPercent: Optional[int] = None
     EndTime: Optional[datetime] = None
-    Role: Optional[str] = None
+    Role: Optional[Annotated[str, _aws_pattern("Storagegateway", "Role")]] = None
     FileShareARN: Optional[str] = None
     LocationARN: Optional[str] = None
     StartTime: Optional[datetime] = None
@@ -1421,23 +1423,23 @@ CacheReportFilterUnionTypeDef = Union[CacheReportFilterOutputTypeDef, CacheRepor
 
 
 class CachediSCSIVolumeTypeDef(BaseValidatorModel):
-    VolumeARN: Optional[str] = None
+    VolumeARN: Optional[Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]] = None
     VolumeId: Optional[str] = None
     VolumeType: Optional[str] = None
     VolumeStatus: Optional[str] = None
     VolumeAttachmentStatus: Optional[str] = None
     VolumeSizeInBytes: Optional[int] = None
     VolumeProgress: Optional[float] = None
-    SourceSnapshotId: Optional[str] = None
+    SourceSnapshotId: Optional[Annotated[str, _aws_pattern("Storagegateway", "SnapshotId")]] = None
     VolumeiSCSIAttributes: Optional[VolumeiSCSIAttributesTypeDef] = None
     CreatedDate: Optional[datetime] = None
     VolumeUsedInBytes: Optional[int] = None
-    KMSKey: Optional[str] = None
-    TargetName: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
+    TargetName: Optional[Annotated[str, _aws_pattern("Storagegateway", "TargetName")]] = None
 
 
 class StorediSCSIVolumeTypeDef(BaseValidatorModel):
-    VolumeARN: Optional[str] = None
+    VolumeARN: Optional[Annotated[str, _aws_pattern("Storagegateway", "VolumeARN")]] = None
     VolumeId: Optional[str] = None
     VolumeType: Optional[str] = None
     VolumeStatus: Optional[str] = None
@@ -1445,13 +1447,13 @@ class StorediSCSIVolumeTypeDef(BaseValidatorModel):
     VolumeSizeInBytes: Optional[int] = None
     VolumeProgress: Optional[float] = None
     VolumeDiskId: Optional[str] = None
-    SourceSnapshotId: Optional[str] = None
+    SourceSnapshotId: Optional[Annotated[str, _aws_pattern("Storagegateway", "SnapshotId")]] = None
     PreservedExistingData: Optional[bool] = None
     VolumeiSCSIAttributes: Optional[VolumeiSCSIAttributesTypeDef] = None
     CreatedDate: Optional[datetime] = None
     VolumeUsedInBytes: Optional[int] = None
-    KMSKey: Optional[str] = None
-    TargetName: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
+    TargetName: Optional[Annotated[str, _aws_pattern("Storagegateway", "TargetName")]] = None
 
 
 # This class is the output for the 'describe_chap_credentials' function.
@@ -1464,15 +1466,15 @@ class DescribeChapCredentialsOutputTypeDef(BaseValidatorModel):
 class CreateNFSFileShareInputTypeDef(BaseValidatorModel):
     ClientToken: str
     GatewayARN: str
-    Role: str
+    Role: Annotated[str, _aws_pattern("Storagegateway", "Role")]
     LocationARN: str
     NFSFileShareDefaults: Optional[NFSFileShareDefaultsTypeDef] = None
     EncryptionType: Optional[EncryptionTypeType] = None
     KMSEncrypted: Optional[bool] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     DefaultStorageClass: Optional[str] = None
     ObjectACL: Optional[ObjectACLType] = None
-    ClientList: Optional[List[str]] = None
+    ClientList: Optional[List[Annotated[str, _aws_pattern("Storagegateway", "Ipv4OrIpv6AddressCIDR")]]] = None
     Squash: Optional[str] = None
     ReadOnly: Optional[bool] = None
     GuessMIMETypeEnabled: Optional[bool] = None
@@ -1480,8 +1482,8 @@ class CreateNFSFileShareInputTypeDef(BaseValidatorModel):
     Tags: Optional[List[TagTypeDef]] = None
     FileShareName: Optional[str] = None
     CacheAttributes: Optional[CacheAttributesTypeDef] = None
-    NotificationPolicy: Optional[str] = None
-    VPCEndpointDNSName: Optional[str] = None
+    NotificationPolicy: Optional[Annotated[str, _aws_pattern("Storagegateway", "NotificationPolicy")]] = None
+    VPCEndpointDNSName: Optional[Annotated[str, _aws_pattern("Storagegateway", "DNSHostName")]] = None
     BucketRegion: Optional[str] = None
     AuditDestinationARN: Optional[str] = None
 
@@ -1494,13 +1496,13 @@ class NFSFileShareInfoTypeDef(BaseValidatorModel):
     GatewayARN: Optional[str] = None
     EncryptionType: Optional[EncryptionTypeType] = None
     KMSEncrypted: Optional[bool] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     Path: Optional[str] = None
-    Role: Optional[str] = None
+    Role: Optional[Annotated[str, _aws_pattern("Storagegateway", "Role")]] = None
     LocationARN: Optional[str] = None
     DefaultStorageClass: Optional[str] = None
     ObjectACL: Optional[ObjectACLType] = None
-    ClientList: Optional[List[str]] = None
+    ClientList: Optional[List[Annotated[str, _aws_pattern("Storagegateway", "Ipv4OrIpv6AddressCIDR")]]] = None
     Squash: Optional[str] = None
     ReadOnly: Optional[bool] = None
     GuessMIMETypeEnabled: Optional[bool] = None
@@ -1508,8 +1510,8 @@ class NFSFileShareInfoTypeDef(BaseValidatorModel):
     Tags: Optional[List[TagTypeDef]] = None
     FileShareName: Optional[str] = None
     CacheAttributes: Optional[CacheAttributesTypeDef] = None
-    NotificationPolicy: Optional[str] = None
-    VPCEndpointDNSName: Optional[str] = None
+    NotificationPolicy: Optional[Annotated[str, _aws_pattern("Storagegateway", "NotificationPolicy")]] = None
+    VPCEndpointDNSName: Optional[Annotated[str, _aws_pattern("Storagegateway", "DNSHostName")]] = None
     BucketRegion: Optional[str] = None
     AuditDestinationARN: Optional[str] = None
 
@@ -1519,18 +1521,18 @@ class UpdateNFSFileShareInputTypeDef(BaseValidatorModel):
     FileShareARN: str
     EncryptionType: Optional[EncryptionTypeType] = None
     KMSEncrypted: Optional[bool] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Storagegateway", "KMSKey")]] = None
     NFSFileShareDefaults: Optional[NFSFileShareDefaultsTypeDef] = None
     DefaultStorageClass: Optional[str] = None
     ObjectACL: Optional[ObjectACLType] = None
-    ClientList: Optional[List[str]] = None
+    ClientList: Optional[List[Annotated[str, _aws_pattern("Storagegateway", "Ipv4OrIpv6AddressCIDR")]]] = None
     Squash: Optional[str] = None
     ReadOnly: Optional[bool] = None
     GuessMIMETypeEnabled: Optional[bool] = None
     RequesterPays: Optional[bool] = None
     FileShareName: Optional[str] = None
     CacheAttributes: Optional[CacheAttributesTypeDef] = None
-    NotificationPolicy: Optional[str] = None
+    NotificationPolicy: Optional[Annotated[str, _aws_pattern("Storagegateway", "NotificationPolicy")]] = None
     AuditDestinationARN: Optional[str] = None
 
 
@@ -1586,7 +1588,7 @@ class UpdateMaintenanceStartTimeInputTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_smb_settings' function.
 class DescribeSMBSettingsOutputTypeDef(BaseValidatorModel):
     GatewayARN: str
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Storagegateway", "DomainName")]
     ActiveDirectoryStatus: ActiveDirectoryStatusType
     SMBGuestPasswordSet: bool
     SMBSecurityStrategy: SMBSecurityStrategyType
@@ -1798,11 +1800,11 @@ class ListCacheReportsOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_cache_report' function.
 class StartCacheReportInputTypeDef(BaseValidatorModel):
     FileShareARN: str
-    Role: str
+    Role: Annotated[str, _aws_pattern("Storagegateway", "Role")]
     LocationARN: str
     BucketRegion: str
     ClientToken: str
-    VPCEndpointDNSName: Optional[str] = None
+    VPCEndpointDNSName: Optional[Annotated[str, _aws_pattern("Storagegateway", "DNSHostName")]] = None
     InclusionFilters: Optional[List[CacheReportFilterUnionTypeDef]] = None
     ExclusionFilters: Optional[List[CacheReportFilterUnionTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -1836,8 +1838,8 @@ class DescribeVTLDevicesOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_file_system' function.
 class AssociateFileSystemInputTypeDef(BaseValidatorModel):
-    UserName: str
-    Password: str
+    UserName: Annotated[str, _aws_pattern("Storagegateway", "DomainUserName")]
+    Password: Annotated[str, _aws_pattern("Storagegateway", "DomainUserPassword")]
     ClientToken: str
     GatewayARN: str
     LocationARN: str

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.wickr.wickr_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,28 +41,28 @@ except ImportError:  # pragma: no cover
 
 
 class BasicDeviceObjectTypeDef(BaseValidatorModel):
-    appId: Optional[str] = None
-    created: Optional[str] = None
-    lastLogin: Optional[str] = None
-    statusText: Optional[str] = None
+    appId: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    created: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    lastLogin: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    statusText: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     suspend: Optional[bool] = None
-    type: Optional[str] = None
+    type: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class BatchCreateUserRequestItemTypeDef(BaseValidatorModel):
-    securityGroupIds: List[str]
-    username: str
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
-    inviteCode: Optional[str] = None
+    securityGroupIds: List[Annotated[str, _aws_pattern("Wickr", "SecurityGroupId")]]
+    username: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    firstName: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
+    lastName: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
+    inviteCode: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     inviteCodeTtl: Optional[int] = None
     codeValidation: Optional[bool] = None
 
 
 class BatchUserErrorResponseItemTypeDef(BaseValidatorModel):
-    userId: str
-    field: Optional[str] = None
-    reason: Optional[str] = None
+    userId: Annotated[str, _aws_pattern("Wickr", "UserId")]
+    field: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    reason: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -72,107 +74,107 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class UserTypeDef(BaseValidatorModel):
-    userId: Optional[str] = None
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
-    username: Optional[str] = None
-    securityGroups: Optional[List[str]] = None
+    userId: Optional[Annotated[str, _aws_pattern("Wickr", "UserId")]] = None
+    firstName: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
+    lastName: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
+    username: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    securityGroups: Optional[List[Annotated[str, _aws_pattern("Wickr", "SecurityGroupId")]]] = None
     isAdmin: Optional[bool] = None
     suspended: Optional[bool] = None
     status: Optional[int] = None
     otpEnabled: Optional[bool] = None
-    scimId: Optional[str] = None
-    type: Optional[str] = None
-    cell: Optional[str] = None
-    countryCode: Optional[str] = None
+    scimId: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    type: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    cell: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    countryCode: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     challengeFailures: Optional[int] = None
     isInviteExpired: Optional[bool] = None
     isUser: Optional[bool] = None
-    inviteCode: Optional[str] = None
+    inviteCode: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     codeValidation: Optional[bool] = None
-    uname: Optional[str] = None
+    uname: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the input for the 'batch_delete_user' function.
 class BatchDeleteUserRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    userIds: List[str]
-    clientToken: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    userIds: List[Annotated[str, _aws_pattern("Wickr", "UserId")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("Wickr", "ClientToken")]] = None
 
 
 class BatchUserSuccessResponseItemTypeDef(BaseValidatorModel):
-    userId: str
+    userId: Annotated[str, _aws_pattern("Wickr", "UserId")]
 
 
 class BatchDeviceErrorResponseItemTypeDef(BaseValidatorModel):
-    appId: str
-    field: Optional[str] = None
-    reason: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    field: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    reason: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class BatchDeviceSuccessResponseItemTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
 
 
 # This class is the input for the 'batch_lookup_user_uname' function.
 class BatchLookupUserUnameRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    unames: List[str]
-    clientToken: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    unames: List[Annotated[str, _aws_pattern("Wickr", "GenericString")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("Wickr", "ClientToken")]] = None
 
 
 class BatchUnameErrorResponseItemTypeDef(BaseValidatorModel):
     uname: str
-    field: Optional[str] = None
-    reason: Optional[str] = None
+    field: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    reason: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class BatchUnameSuccessResponseItemTypeDef(BaseValidatorModel):
     uname: str
-    username: str
+    username: Annotated[str, _aws_pattern("Wickr", "GenericString")]
 
 
 # This class is the input for the 'batch_reinvite_user' function.
 class BatchReinviteUserRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    userIds: List[str]
-    clientToken: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    userIds: List[Annotated[str, _aws_pattern("Wickr", "UserId")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("Wickr", "ClientToken")]] = None
 
 
 # This class is the input for the 'batch_reset_devices_for_user' function.
 class BatchResetDevicesForUserRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    userId: str
-    appIds: List[str]
-    clientToken: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    userId: Annotated[str, _aws_pattern("Wickr", "UserId")]
+    appIds: List[Annotated[str, _aws_pattern("Wickr", "GenericString")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("Wickr", "ClientToken")]] = None
 
 
 # This class is the input for the 'batch_toggle_user_suspend_status' function.
 class BatchToggleUserSuspendStatusRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
     suspend: bool
-    userIds: List[str]
-    clientToken: Optional[str] = None
+    userIds: List[Annotated[str, _aws_pattern("Wickr", "UserId")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("Wickr", "ClientToken")]] = None
 
 
 class BlockedGuestUserTypeDef(BaseValidatorModel):
-    username: str
-    admin: str
-    modified: str
-    usernameHash: str
+    username: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    admin: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    modified: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    usernameHash: Annotated[str, _aws_pattern("Wickr", "GenericString")]
 
 
 class BotTypeDef(BaseValidatorModel):
-    botId: Optional[str] = None
-    displayName: Optional[str] = None
-    username: Optional[str] = None
-    uname: Optional[str] = None
-    pubkey: Optional[str] = None
+    botId: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    username: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    uname: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    pubkey: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     status: Optional[int] = None
-    groupId: Optional[str] = None
+    groupId: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     hasChallenge: Optional[bool] = None
     suspended: Optional[bool] = None
-    lastLogin: Optional[str] = None
+    lastLogin: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class CallingSettingsTypeDef(BaseValidatorModel):
@@ -183,145 +185,145 @@ class CallingSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_bot' function.
 class CreateBotRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    username: str
-    groupId: str
-    challenge: str
-    displayName: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    username: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    groupId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    challenge: Annotated[str, _aws_pattern("Wickr", "SensitiveString")]
+    displayName: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the input for the 'create_data_retention_bot_challenge' function.
 class CreateDataRetentionBotChallengeRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 # This class is the input for the 'create_data_retention_bot' function.
 class CreateDataRetentionBotRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 # This class is the input for the 'create_network' function.
 class CreateNetworkRequestTypeDef(BaseValidatorModel):
-    networkName: str
+    networkName: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     accessLevel: AccessLevelType
     enablePremiumFreeTrial: Optional[bool] = None
-    encryptionKeyArn: Optional[str] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the input for the 'delete_bot' function.
 class DeleteBotRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    botId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    botId: Annotated[str, _aws_pattern("Wickr", "BotId")]
 
 
 # This class is the input for the 'delete_data_retention_bot' function.
 class DeleteDataRetentionBotRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 # This class is the input for the 'delete_network' function.
 class DeleteNetworkRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    clientToken: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Wickr", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_security_group' function.
 class DeleteSecurityGroupRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    groupId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    groupId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
 
 
 # This class is the input for the 'get_bot' function.
 class GetBotRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    botId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    botId: Annotated[str, _aws_pattern("Wickr", "BotId")]
 
 
 # This class is the input for the 'get_bots_count' function.
 class GetBotsCountRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 # This class is the input for the 'get_data_retention_bot' function.
 class GetDataRetentionBotRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 # This class is the input for the 'get_guest_user_history_count' function.
 class GetGuestUserHistoryCountRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 class GuestUserHistoryCountTypeDef(BaseValidatorModel):
-    month: str
-    count: str
+    month: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    count: Annotated[str, _aws_pattern("Wickr", "GenericString")]
 
 
 # This class is the input for the 'get_network' function.
 class GetNetworkRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 # This class is the input for the 'get_network_settings' function.
 class GetNetworkSettingsRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 class SettingTypeDef(BaseValidatorModel):
-    optionName: str
-    value: str
-    type: str
+    optionName: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    value: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    type: Annotated[str, _aws_pattern("Wickr", "GenericString")]
 
 
 # This class is the input for the 'get_oidc_info' function.
 class GetOidcInfoRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    clientId: Optional[str] = None
-    code: Optional[str] = None
-    grantType: Optional[str] = None
-    redirectUri: Optional[str] = None
-    url: Optional[str] = None
-    clientSecret: Optional[str] = None
-    codeVerifier: Optional[str] = None
-    certificate: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    clientId: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    code: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    grantType: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    redirectUri: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    url: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    clientSecret: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
+    codeVerifier: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    certificate: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class OidcConfigInfoTypeDef(BaseValidatorModel):
-    companyId: str
-    scopes: str
-    issuer: str
-    applicationName: Optional[str] = None
-    clientId: Optional[str] = None
-    clientSecret: Optional[str] = None
-    secret: Optional[str] = None
-    redirectUrl: Optional[str] = None
-    userId: Optional[str] = None
-    customUsername: Optional[str] = None
-    caCertificate: Optional[str] = None
+    companyId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    scopes: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    issuer: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    applicationName: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    clientId: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    clientSecret: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
+    secret: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
+    redirectUrl: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    userId: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    customUsername: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    caCertificate: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     applicationId: Optional[int] = None
     ssoTokenBufferMinutes: Optional[int] = None
-    extraAuthParams: Optional[str] = None
+    extraAuthParams: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class OidcTokenInfoTypeDef(BaseValidatorModel):
-    codeVerifier: Optional[str] = None
-    codeChallenge: Optional[str] = None
-    accessToken: Optional[str] = None
-    idToken: Optional[str] = None
-    refreshToken: Optional[str] = None
-    tokenType: Optional[str] = None
+    codeVerifier: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    codeChallenge: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    accessToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    idToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    refreshToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    tokenType: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     expiresIn: Optional[int] = None
 
 
 # This class is the input for the 'get_opentdf_config' function.
 class GetOpentdfConfigRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 # This class is the input for the 'get_security_group' function.
 class GetSecurityGroupRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    groupId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    groupId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -329,13 +331,13 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'get_users_count' function.
 class GetUsersCountRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 class GuestUserTypeDef(BaseValidatorModel):
-    billingPeriod: str
-    username: str
-    usernameHash: str
+    billingPeriod: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    username: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    usernameHash: Annotated[str, _aws_pattern("Wickr", "GenericString")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -346,100 +348,100 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_blocked_guest_users' function.
 class ListBlockedGuestUsersRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
     maxResults: Optional[int] = None
     sortDirection: Optional[SortDirectionType] = None
-    sortFields: Optional[str] = None
-    username: Optional[str] = None
-    admin: Optional[str] = None
-    nextToken: Optional[str] = None
+    sortFields: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    username: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    admin: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the input for the 'list_bots' function.
 class ListBotsRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    nextToken: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     maxResults: Optional[int] = None
-    sortFields: Optional[str] = None
+    sortFields: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     sortDirection: Optional[SortDirectionType] = None
-    displayName: Optional[str] = None
-    username: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    username: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     status: Optional[int] = None
-    groupId: Optional[str] = None
+    groupId: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the input for the 'list_devices_for_user' function.
 class ListDevicesForUserRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    userId: str
-    nextToken: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    userId: Annotated[str, _aws_pattern("Wickr", "UserId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     maxResults: Optional[int] = None
-    sortFields: Optional[str] = None
+    sortFields: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     sortDirection: Optional[SortDirectionType] = None
 
 
 # This class is the input for the 'list_guest_users' function.
 class ListGuestUsersRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
     maxResults: Optional[int] = None
     sortDirection: Optional[SortDirectionType] = None
-    sortFields: Optional[str] = None
-    username: Optional[str] = None
-    billingPeriod: Optional[str] = None
-    nextToken: Optional[str] = None
+    sortFields: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    username: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    billingPeriod: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the input for the 'list_networks' function.
 class ListNetworksRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    sortFields: Optional[str] = None
+    sortFields: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     sortDirection: Optional[SortDirectionType] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class NetworkTypeDef(BaseValidatorModel):
-    networkId: str
-    networkName: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    networkName: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     accessLevel: AccessLevelType
-    awsAccountId: str
-    networkArn: str
+    awsAccountId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    networkArn: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     standing: Optional[int] = None
-    freeTrialExpiration: Optional[str] = None
+    freeTrialExpiration: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     migrationState: Optional[int] = None
-    encryptionKeyArn: Optional[str] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the input for the 'list_security_group_users' function.
 class ListSecurityGroupUsersRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    groupId: str
-    nextToken: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    groupId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     maxResults: Optional[int] = None
-    sortFields: Optional[str] = None
+    sortFields: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     sortDirection: Optional[SortDirectionType] = None
 
 
 # This class is the input for the 'list_security_groups' function.
 class ListSecurityGroupsRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    nextToken: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     maxResults: Optional[int] = None
-    sortFields: Optional[str] = None
+    sortFields: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     sortDirection: Optional[SortDirectionType] = None
 
 
 # This class is the input for the 'list_users' function.
 class ListUsersRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    nextToken: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     maxResults: Optional[int] = None
-    sortFields: Optional[str] = None
+    sortFields: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     sortDirection: Optional[SortDirectionType] = None
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
-    username: Optional[str] = None
+    firstName: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
+    lastName: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
+    username: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     status: Optional[int] = None
-    groupId: Optional[str] = None
+    groupId: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class ReadReceiptConfigTypeDef(BaseValidatorModel):
@@ -455,39 +457,39 @@ class PasswordRequirementsTypeDef(BaseValidatorModel):
 
 
 class PermittedWickrEnterpriseNetworkTypeDef(BaseValidatorModel):
-    domain: str
-    networkId: str
+    domain: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 # This class is the input for the 'register_oidc_config' function.
 class RegisterOidcConfigRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    companyId: str
-    issuer: str
-    scopes: str
-    customUsername: Optional[str] = None
-    extraAuthParams: Optional[str] = None
-    secret: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    companyId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    issuer: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    scopes: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    customUsername: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    extraAuthParams: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    secret: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
     ssoTokenBufferMinutes: Optional[int] = None
-    userId: Optional[str] = None
+    userId: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the input for the 'register_oidc_config_test' function.
 class RegisterOidcConfigTestRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    issuer: str
-    scopes: str
-    extraAuthParams: Optional[str] = None
-    certificate: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    issuer: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    scopes: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    extraAuthParams: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    certificate: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the input for the 'register_opentdf_config' function.
 class RegisterOpentdfConfigRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    clientId: str
-    clientSecret: str
-    domain: str
-    provider: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    clientId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    clientSecret: Annotated[str, _aws_pattern("Wickr", "SensitiveString")]
+    domain: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    provider: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     dryRun: Optional[bool] = None
 
 
@@ -497,127 +499,127 @@ class ShredderSettingsTypeDef(BaseValidatorModel):
 
 
 class WickrAwsNetworksTypeDef(BaseValidatorModel):
-    region: str
-    networkId: str
+    region: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
 
 
 # This class is the input for the 'update_bot' function.
 class UpdateBotRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    botId: str
-    displayName: Optional[str] = None
-    groupId: Optional[str] = None
-    challenge: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    botId: Annotated[str, _aws_pattern("Wickr", "BotId")]
+    displayName: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    groupId: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    challenge: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
     suspend: Optional[bool] = None
 
 
 # This class is the input for the 'update_data_retention' function.
 class UpdateDataRetentionRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
     actionType: DataRetentionActionTypeType
 
 
 # This class is the input for the 'update_guest_user' function.
 class UpdateGuestUserRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    usernameHash: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    usernameHash: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     block: bool
 
 
 # This class is the input for the 'update_network' function.
 class UpdateNetworkRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    networkName: str
-    clientToken: Optional[str] = None
-    encryptionKeyArn: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    networkName: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Wickr", "ClientToken")]] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class UpdateUserDetailsTypeDef(BaseValidatorModel):
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
-    username: Optional[str] = None
-    securityGroupIds: Optional[List[str]] = None
-    inviteCode: Optional[str] = None
+    firstName: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
+    lastName: Optional[Annotated[str, _aws_pattern("Wickr", "SensitiveString")]] = None
+    username: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("Wickr", "SecurityGroupId")]]] = None
+    inviteCode: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     inviteCodeTtl: Optional[int] = None
     codeValidation: Optional[bool] = None
 
 
 # This class is the input for the 'batch_create_user' function.
 class BatchCreateUserRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
     users: List[BatchCreateUserRequestItemTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Wickr", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_bot' function.
 class CreateBotResponseTypeDef(BaseValidatorModel):
-    message: str
-    botId: str
-    networkId: str
-    username: str
-    displayName: str
-    groupId: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    botId: Annotated[str, _aws_pattern("Wickr", "BotId")]
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    username: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    displayName: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    groupId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_retention_bot_challenge' function.
 class CreateDataRetentionBotChallengeResponseTypeDef(BaseValidatorModel):
-    challenge: str
+    challenge: Annotated[str, _aws_pattern("Wickr", "SensitiveString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_retention_bot' function.
 class CreateDataRetentionBotResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_network' function.
 class CreateNetworkResponseTypeDef(BaseValidatorModel):
-    networkId: str
-    networkName: str
-    encryptionKeyArn: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    networkName: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    encryptionKeyArn: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_bot' function.
 class DeleteBotResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_data_retention_bot' function.
 class DeleteDataRetentionBotResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_network' function.
 class DeleteNetworkResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_security_group' function.
 class DeleteSecurityGroupResponseTypeDef(BaseValidatorModel):
-    message: str
-    networkId: str
-    groupId: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    groupId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_bot' function.
 class GetBotResponseTypeDef(BaseValidatorModel):
-    botId: str
-    displayName: str
-    username: str
-    uname: str
-    pubkey: str
+    botId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    displayName: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    username: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    uname: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    pubkey: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     status: int
-    groupId: str
+    groupId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     hasChallenge: bool
     suspended: bool
-    lastLogin: str
+    lastLogin: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -631,7 +633,7 @@ class GetBotsCountResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_data_retention_bot' function.
 class GetDataRetentionBotResponseTypeDef(BaseValidatorModel):
-    botName: str
+    botName: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     botExists: bool
     isBotActive: bool
     isDataRetentionBotRegistered: bool
@@ -642,39 +644,39 @@ class GetDataRetentionBotResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_network' function.
 class GetNetworkResponseTypeDef(BaseValidatorModel):
-    networkId: str
-    networkName: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    networkName: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     accessLevel: AccessLevelType
-    awsAccountId: str
-    networkArn: str
+    awsAccountId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    networkArn: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     standing: int
-    freeTrialExpiration: str
+    freeTrialExpiration: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     migrationState: int
-    encryptionKeyArn: str
+    encryptionKeyArn: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_opentdf_config' function.
 class GetOpentdfConfigResponseTypeDef(BaseValidatorModel):
-    clientId: str
-    domain: str
-    clientSecret: str
-    provider: str
+    clientId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    domain: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    clientSecret: Annotated[str, _aws_pattern("Wickr", "SensitiveString")]
+    provider: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_user' function.
 class GetUserResponseTypeDef(BaseValidatorModel):
-    userId: str
-    firstName: str
-    lastName: str
-    username: str
+    userId: Annotated[str, _aws_pattern("Wickr", "UserId")]
+    firstName: Annotated[str, _aws_pattern("Wickr", "SensitiveString")]
+    lastName: Annotated[str, _aws_pattern("Wickr", "SensitiveString")]
+    username: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     isAdmin: bool
     suspended: bool
     status: int
     lastActivity: int
     lastLogin: int
-    securityGroupIds: List[str]
+    securityGroupIds: List[Annotated[str, _aws_pattern("Wickr", "SecurityGroupId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -692,90 +694,90 @@ class GetUsersCountResponseTypeDef(BaseValidatorModel):
 class ListDevicesForUserResponseTypeDef(BaseValidatorModel):
     devices: List[BasicDeviceObjectTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the output for the 'register_oidc_config' function.
 class RegisterOidcConfigResponseTypeDef(BaseValidatorModel):
-    applicationName: str
-    clientId: str
-    companyId: str
-    scopes: str
-    issuer: str
-    clientSecret: str
-    secret: str
-    redirectUrl: str
-    userId: str
-    customUsername: str
-    caCertificate: str
+    applicationName: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    clientId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    companyId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    scopes: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    issuer: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    clientSecret: Annotated[str, _aws_pattern("Wickr", "SensitiveString")]
+    secret: Annotated[str, _aws_pattern("Wickr", "SensitiveString")]
+    redirectUrl: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    userId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    customUsername: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    caCertificate: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     applicationId: int
     ssoTokenBufferMinutes: int
-    extraAuthParams: str
+    extraAuthParams: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_oidc_config_test' function.
 class RegisterOidcConfigTestResponseTypeDef(BaseValidatorModel):
-    tokenEndpoint: str
-    userinfoEndpoint: str
-    responseTypesSupported: List[str]
-    scopesSupported: List[str]
-    issuer: str
-    authorizationEndpoint: str
-    endSessionEndpoint: str
-    logoutEndpoint: str
-    grantTypesSupported: List[str]
-    revocationEndpoint: str
-    tokenEndpointAuthMethodsSupported: List[str]
+    tokenEndpoint: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    userinfoEndpoint: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    responseTypesSupported: List[Annotated[str, _aws_pattern("Wickr", "GenericString")]]
+    scopesSupported: List[Annotated[str, _aws_pattern("Wickr", "GenericString")]]
+    issuer: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    authorizationEndpoint: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    endSessionEndpoint: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    logoutEndpoint: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    grantTypesSupported: List[Annotated[str, _aws_pattern("Wickr", "GenericString")]]
+    revocationEndpoint: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    tokenEndpointAuthMethodsSupported: List[Annotated[str, _aws_pattern("Wickr", "GenericString")]]
     microsoftMultiRefreshToken: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_opentdf_config' function.
 class RegisterOpentdfConfigResponseTypeDef(BaseValidatorModel):
-    clientId: str
-    domain: str
-    clientSecret: str
-    provider: str
+    clientId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    domain: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    clientSecret: Annotated[str, _aws_pattern("Wickr", "SensitiveString")]
+    provider: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_bot' function.
 class UpdateBotResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_data_retention' function.
 class UpdateDataRetentionResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_guest_user' function.
 class UpdateGuestUserResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_network' function.
 class UpdateNetworkResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_user' function.
 class UpdateUserResponseTypeDef(BaseValidatorModel):
-    userId: str
-    networkId: str
-    securityGroupIds: List[str]
-    firstName: str
-    lastName: str
-    middleName: str
+    userId: Annotated[str, _aws_pattern("Wickr", "UserId")]
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    securityGroupIds: List[Annotated[str, _aws_pattern("Wickr", "SecurityGroupId")]]
+    firstName: Annotated[str, _aws_pattern("Wickr", "SensitiveString")]
+    lastName: Annotated[str, _aws_pattern("Wickr", "SensitiveString")]
+    middleName: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     suspended: bool
     modified: int
     status: int
-    inviteCode: str
+    inviteCode: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     inviteExpiration: int
     codeValidation: bool
     ResponseMetadata: ResponseMetadataTypeDef
@@ -783,7 +785,7 @@ class UpdateUserResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'batch_create_user' function.
 class BatchCreateUserResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     successful: List[UserTypeDef]
     failed: List[BatchUserErrorResponseItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -793,19 +795,19 @@ class BatchCreateUserResponseTypeDef(BaseValidatorModel):
 class ListSecurityGroupUsersResponseTypeDef(BaseValidatorModel):
     users: List[UserTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the output for the 'list_users' function.
 class ListUsersResponseTypeDef(BaseValidatorModel):
     users: List[UserTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the output for the 'batch_delete_user' function.
 class BatchDeleteUserResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     successful: List[BatchUserSuccessResponseItemTypeDef]
     failed: List[BatchUserErrorResponseItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -813,7 +815,7 @@ class BatchDeleteUserResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'batch_reinvite_user' function.
 class BatchReinviteUserResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     successful: List[BatchUserSuccessResponseItemTypeDef]
     failed: List[BatchUserErrorResponseItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -821,7 +823,7 @@ class BatchReinviteUserResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'batch_toggle_user_suspend_status' function.
 class BatchToggleUserSuspendStatusResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     successful: List[BatchUserSuccessResponseItemTypeDef]
     failed: List[BatchUserErrorResponseItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -829,7 +831,7 @@ class BatchToggleUserSuspendStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'batch_reset_devices_for_user' function.
 class BatchResetDevicesForUserResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     successful: List[BatchDeviceSuccessResponseItemTypeDef]
     failed: List[BatchDeviceErrorResponseItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -837,7 +839,7 @@ class BatchResetDevicesForUserResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'batch_lookup_user_uname' function.
 class BatchLookupUserUnameResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     successful: List[BatchUnameSuccessResponseItemTypeDef]
     failed: List[BatchUnameErrorResponseItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -847,14 +849,14 @@ class BatchLookupUserUnameResponseTypeDef(BaseValidatorModel):
 class ListBlockedGuestUsersResponseTypeDef(BaseValidatorModel):
     blocklist: List[BlockedGuestUserTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the output for the 'list_bots' function.
 class ListBotsResponseTypeDef(BaseValidatorModel):
     bots: List[BotTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the output for the 'get_guest_user_history_count' function.
@@ -884,8 +886,8 @@ class GetOidcInfoResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_user' function.
 class GetUserRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    userId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    userId: Annotated[str, _aws_pattern("Wickr", "UserId")]
     startTime: Optional[TimestampTypeDef] = None
     endTime: Optional[TimestampTypeDef] = None
 
@@ -894,7 +896,7 @@ class GetUserRequestTypeDef(BaseValidatorModel):
 class ListGuestUsersResponseTypeDef(BaseValidatorModel):
     guestlist: List[GuestUserTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class ListBlockedGuestUsersRequestPaginateTypeDef(BaseValidatorModel):
@@ -971,7 +973,7 @@ class ListUsersRequestPaginateTypeDef(BaseValidatorModel):
 class ListNetworksResponseTypeDef(BaseValidatorModel):
     networks: List[NetworkTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 class NetworkSettingsTypeDef(BaseValidatorModel):
@@ -1021,7 +1023,7 @@ class SecurityGroupSettingsOutputTypeDef(BaseValidatorModel):
 
 class SecurityGroupSettingsRequestTypeDef(BaseValidatorModel):
     lockoutThreshold: Optional[int] = None
-    permittedNetworks: Optional[List[str]] = None
+    permittedNetworks: Optional[List[Annotated[str, _aws_pattern("Wickr", "NetworkId")]]] = None
     enableGuestFederation: Optional[bool] = None
     globalFederation: Optional[bool] = None
     federationMode: Optional[int] = None
@@ -1032,7 +1034,7 @@ class SecurityGroupSettingsRequestTypeDef(BaseValidatorModel):
 
 class SecurityGroupSettingsTypeDef(BaseValidatorModel):
     alwaysReauthenticate: Optional[bool] = None
-    atakPackageValues: Optional[List[str]] = None
+    atakPackageValues: Optional[List[Annotated[str, _aws_pattern("Wickr", "GenericString")]]] = None
     calling: Optional[CallingSettingsTypeDef] = None
     checkForUpdates: Optional[bool] = None
     enableAtak: Optional[bool] = None
@@ -1057,47 +1059,47 @@ class SecurityGroupSettingsTypeDef(BaseValidatorModel):
     messageForwardingEnabled: Optional[bool] = None
     passwordRequirements: Optional[PasswordRequirementsTypeDef] = None
     presenceEnabled: Optional[bool] = None
-    quickResponses: Optional[List[str]] = None
+    quickResponses: Optional[List[Annotated[str, _aws_pattern("Wickr", "GenericString")]]] = None
     showMasterRecoveryKey: Optional[bool] = None
     shredder: Optional[ShredderSettingsTypeDef] = None
     ssoMaxIdleMinutes: Optional[int] = None
     federationMode: Optional[int] = None
     lockoutThreshold: Optional[int] = None
-    permittedNetworks: Optional[List[str]] = None
+    permittedNetworks: Optional[List[Annotated[str, _aws_pattern("Wickr", "NetworkId")]]] = None
     permittedWickrAwsNetworks: Optional[List[WickrAwsNetworksTypeDef]] = None
     permittedWickrEnterpriseNetworks: Optional[List[PermittedWickrEnterpriseNetworkTypeDef]] = None
 
 
 # This class is the input for the 'update_user' function.
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    userId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    userId: Annotated[str, _aws_pattern("Wickr", "UserId")]
     userDetails: Optional[UpdateUserDetailsTypeDef] = None
 
 
 # This class is the input for the 'update_network_settings' function.
 class UpdateNetworkSettingsRequestTypeDef(BaseValidatorModel):
-    networkId: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
     settings: NetworkSettingsTypeDef
 
 
 class SecurityGroupTypeDef(BaseValidatorModel):
     activeMembers: int
     botMembers: int
-    id: str
+    id: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     isDefault: bool
-    name: str
+    name: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     modified: int
     securityGroupSettings: SecurityGroupSettingsOutputTypeDef
-    activeDirectoryGuid: Optional[str] = None
+    activeDirectoryGuid: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the input for the 'create_security_group' function.
 class CreateSecurityGroupRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    name: str
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    name: Annotated[str, _aws_pattern("Wickr", "GenericString")]
     securityGroupSettings: SecurityGroupSettingsRequestTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Wickr", "ClientToken")]] = None
 
 
 SecurityGroupSettingsUnionTypeDef = Union[SecurityGroupSettingsOutputTypeDef, SecurityGroupSettingsTypeDef]
@@ -1119,7 +1121,7 @@ class GetSecurityGroupResponseTypeDef(BaseValidatorModel):
 class ListSecurityGroupsResponseTypeDef(BaseValidatorModel):
     securityGroups: List[SecurityGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
 
 
 # This class is the output for the 'update_security_group' function.
@@ -1130,7 +1132,7 @@ class UpdateSecurityGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_security_group' function.
 class UpdateSecurityGroupRequestTypeDef(BaseValidatorModel):
-    networkId: str
-    groupId: str
-    name: Optional[str] = None
+    networkId: Annotated[str, _aws_pattern("Wickr", "NetworkId")]
+    groupId: Annotated[str, _aws_pattern("Wickr", "GenericString")]
+    name: Optional[Annotated[str, _aws_pattern("Wickr", "GenericString")]] = None
     securityGroupSettings: Optional[SecurityGroupSettingsUnionTypeDef] = None

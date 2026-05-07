@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,17 +41,17 @@ except ImportError:  # pragma: no cover
 
 
 class CurrentPinAttributesTypeDef(BaseValidatorModel):
-    CurrentPinPekIdentifier: str
-    CurrentEncryptedPinBlock: str
+    CurrentPinPekIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    CurrentEncryptedPinBlock: Annotated[str, _aws_pattern("PaymentCryptographyData", "PinBlockLengthEquals16")]
 
 
 class AmexCardSecurityCodeVersion1TypeDef(BaseValidatorModel):
-    CardExpiryDate: str
+    CardExpiryDate: Annotated[str, _aws_pattern("PaymentCryptographyData", "CardExpiryDateType")]
 
 
 class AmexCardSecurityCodeVersion2TypeDef(BaseValidatorModel):
-    CardExpiryDate: str
-    ServiceCode: str
+    CardExpiryDate: Annotated[str, _aws_pattern("PaymentCryptographyData", "CardExpiryDateType")]
+    ServiceCode: Annotated[str, _aws_pattern("PaymentCryptographyData", "ServiceCodeType")]
 
 
 class KekValidationRequestTypeDef(BaseValidatorModel):
@@ -57,12 +59,12 @@ class KekValidationRequestTypeDef(BaseValidatorModel):
 
 
 class KekValidationResponseTypeDef(BaseValidatorModel):
-    RandomKeySend: str
+    RandomKeySend: Annotated[str, _aws_pattern("PaymentCryptographyData", "As2805RandomKeyMaterial")]
 
 
 class As2805PekDerivationAttributesTypeDef(BaseValidatorModel):
-    SystemTraceAuditNumber: str
-    TransactionAmount: str
+    SystemTraceAuditNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "SystemTraceAuditNumberType")]
+    TransactionAmount: Annotated[str, _aws_pattern("PaymentCryptographyData", "TransactionAmountType")]
 
 
 class AsymmetricEncryptionAttributesTypeDef(BaseValidatorModel):
@@ -70,47 +72,49 @@ class AsymmetricEncryptionAttributesTypeDef(BaseValidatorModel):
 
 
 class CardHolderVerificationValueTypeDef(BaseValidatorModel):
-    UnpredictableNumber: str
-    PanSequenceNumber: str
-    ApplicationTransactionCounter: str
+    UnpredictableNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthBetween2And8")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    ApplicationTransactionCounter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthBetween2And4")]
 
 
 class CardVerificationValue1TypeDef(BaseValidatorModel):
-    CardExpiryDate: str
-    ServiceCode: str
+    CardExpiryDate: Annotated[str, _aws_pattern("PaymentCryptographyData", "CardExpiryDateType")]
+    ServiceCode: Annotated[str, _aws_pattern("PaymentCryptographyData", "ServiceCodeType")]
 
 
 class CardVerificationValue2TypeDef(BaseValidatorModel):
-    CardExpiryDate: str
+    CardExpiryDate: Annotated[str, _aws_pattern("PaymentCryptographyData", "CardExpiryDateType")]
 
 
 class DynamicCardVerificationCodeTypeDef(BaseValidatorModel):
-    UnpredictableNumber: str
-    PanSequenceNumber: str
-    ApplicationTransactionCounter: str
-    TrackData: str
+    UnpredictableNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthBetween2And8")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    ApplicationTransactionCounter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthBetween2And4")]
+    TrackData: Annotated[str, _aws_pattern("PaymentCryptographyData", "TrackDataType")]
 
 
 class DynamicCardVerificationValueTypeDef(BaseValidatorModel):
-    PanSequenceNumber: str
-    CardExpiryDate: str
-    ServiceCode: str
-    ApplicationTransactionCounter: str
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    CardExpiryDate: Annotated[str, _aws_pattern("PaymentCryptographyData", "CardExpiryDateType")]
+    ServiceCode: Annotated[str, _aws_pattern("PaymentCryptographyData", "ServiceCodeType")]
+    ApplicationTransactionCounter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthBetween2And4")]
 
 
 class DiscoverDynamicCardVerificationCodeTypeDef(BaseValidatorModel):
-    CardExpiryDate: str
-    UnpredictableNumber: str
-    ApplicationTransactionCounter: str
+    CardExpiryDate: Annotated[str, _aws_pattern("PaymentCryptographyData", "CardExpiryDateType")]
+    UnpredictableNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthBetween2And8")]
+    ApplicationTransactionCounter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthBetween2And4")]
 
 
 class CryptogramVerificationArpcMethod1TypeDef(BaseValidatorModel):
-    AuthResponseCode: str
+    AuthResponseCode: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals4")]
 
 
 class CryptogramVerificationArpcMethod2TypeDef(BaseValidatorModel):
-    CardStatusUpdate: str
-    ProprietaryAuthenticationData: Optional[str] = None
+    CardStatusUpdate: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals8")]
+    ProprietaryAuthenticationData: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptographyData", "ProprietaryAuthenticationDataType")]
+    ] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -123,16 +127,16 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 class Emv2000AttributesTypeDef(BaseValidatorModel):
     MajorKeyDerivationMode: MajorKeyDerivationModeType
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
-    ApplicationTransactionCounter: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    ApplicationTransactionCounter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals4")]
 
 
 class EmvCommonAttributesTypeDef(BaseValidatorModel):
     MajorKeyDerivationMode: MajorKeyDerivationModeType
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
-    ApplicationCryptogram: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    ApplicationCryptogram: Annotated[str, _aws_pattern("PaymentCryptographyData", "ApplicationCryptogramType")]
     Mode: EmvEncryptionModeType
     PinBlockPaddingType: PinBlockPaddingTypeType
     PinBlockLengthPosition: PinBlockLengthPositionType
@@ -140,116 +144,130 @@ class EmvCommonAttributesTypeDef(BaseValidatorModel):
 
 class MasterCardAttributesTypeDef(BaseValidatorModel):
     MajorKeyDerivationMode: MajorKeyDerivationModeType
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
-    ApplicationCryptogram: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    ApplicationCryptogram: Annotated[str, _aws_pattern("PaymentCryptographyData", "ApplicationCryptogramType")]
 
 
 class DiffieHellmanDerivationDataTypeDef(BaseValidatorModel):
-    SharedInformation: Optional[str] = None
+    SharedInformation: Optional[Annotated[str, _aws_pattern("PaymentCryptographyData", "SharedInformation")]] = None
 
 
 class DukptAttributesTypeDef(BaseValidatorModel):
-    KeySerialNumber: str
+    KeySerialNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLength16Or20Or24")]
     DukptDerivationType: DukptDerivationTypeType
 
 
 class DukptDerivationAttributesTypeDef(BaseValidatorModel):
-    KeySerialNumber: str
+    KeySerialNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLength16Or20Or24")]
     DukptKeyDerivationType: Optional[DukptDerivationTypeType] = None
     DukptKeyVariant: Optional[DukptKeyVariantType] = None
 
 
 class DukptEncryptionAttributesTypeDef(BaseValidatorModel):
-    KeySerialNumber: str
+    KeySerialNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLength16Or20Or24")]
     Mode: Optional[DukptEncryptionModeType] = None
     DukptKeyDerivationType: Optional[DukptDerivationTypeType] = None
     DukptKeyVariant: Optional[DukptKeyVariantType] = None
-    InitializationVector: Optional[str] = None
+    InitializationVector: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptographyData", "InitializationVectorType")]
+    ] = None
 
 
 class EcdhDerivationAttributesTypeDef(BaseValidatorModel):
-    CertificateAuthorityPublicKeyIdentifier: str
-    PublicKeyCertificate: str
+    CertificateAuthorityPublicKeyIdentifier: Annotated[
+        str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")
+    ]
+    PublicKeyCertificate: Annotated[str, _aws_pattern("PaymentCryptographyData", "CertificateType")]
     KeyAlgorithm: SymmetricKeyAlgorithmType
     KeyDerivationFunction: KeyDerivationFunctionType
     KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithmType
-    SharedInformation: str
+    SharedInformation: Annotated[str, _aws_pattern("PaymentCryptographyData", "SharedInformation")]
 
 
 class EmvEncryptionAttributesTypeDef(BaseValidatorModel):
     MajorKeyDerivationMode: EmvMajorKeyDerivationModeType
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
-    SessionDerivationData: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    SessionDerivationData: Annotated[str, _aws_pattern("PaymentCryptographyData", "SessionDerivationDataType")]
     Mode: Optional[EmvEncryptionModeType] = None
-    InitializationVector: Optional[str] = None
+    InitializationVector: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptographyData", "InitializationVectorType")]
+    ] = None
 
 
 class SymmetricEncryptionAttributesTypeDef(BaseValidatorModel):
     Mode: EncryptionModeType
-    InitializationVector: Optional[str] = None
+    InitializationVector: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptographyData", "InitializationVectorType")]
+    ] = None
     PaddingType: Optional[PaddingTypeType] = None
 
 
 class VisaAmexDerivationOutputsTypeDef(BaseValidatorModel):
-    AuthorizationRequestKeyArn: str
-    AuthorizationRequestKeyCheckValue: str
-    CurrentPinPekArn: Optional[str] = None
-    CurrentPinPekKeyCheckValue: Optional[str] = None
+    AuthorizationRequestKeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    AuthorizationRequestKeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    CurrentPinPekArn: Optional[Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]] = None
+    CurrentPinPekKeyCheckValue: Optional[Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]] = (
+        None
+    )
 
 
 class PinDataTypeDef(BaseValidatorModel):
-    PinOffset: Optional[str] = None
-    VerificationValue: Optional[str] = None
+    PinOffset: Optional[Annotated[str, _aws_pattern("PaymentCryptographyData", "PinOffsetType")]] = None
+    VerificationValue: Optional[Annotated[str, _aws_pattern("PaymentCryptographyData", "VerificationValueType")]] = None
 
 
 class Ibm3624NaturalPinTypeDef(BaseValidatorModel):
-    DecimalizationTable: str
-    PinValidationDataPadCharacter: str
-    PinValidationData: str
+    DecimalizationTable: Annotated[str, _aws_pattern("PaymentCryptographyData", "DecimalizationTableType")]
+    PinValidationDataPadCharacter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals1")]
+    PinValidationData: Annotated[str, _aws_pattern("PaymentCryptographyData", "PinValidationDataType")]
 
 
 class Ibm3624PinFromOffsetTypeDef(BaseValidatorModel):
-    DecimalizationTable: str
-    PinValidationDataPadCharacter: str
-    PinValidationData: str
-    PinOffset: str
+    DecimalizationTable: Annotated[str, _aws_pattern("PaymentCryptographyData", "DecimalizationTableType")]
+    PinValidationDataPadCharacter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals1")]
+    PinValidationData: Annotated[str, _aws_pattern("PaymentCryptographyData", "PinValidationDataType")]
+    PinOffset: Annotated[str, _aws_pattern("PaymentCryptographyData", "PinOffsetType")]
 
 
 class Ibm3624PinOffsetTypeDef(BaseValidatorModel):
-    EncryptedPinBlock: str
-    DecimalizationTable: str
-    PinValidationDataPadCharacter: str
-    PinValidationData: str
+    EncryptedPinBlock: Annotated[str, _aws_pattern("PaymentCryptographyData", "EncryptedPinBlockType")]
+    DecimalizationTable: Annotated[str, _aws_pattern("PaymentCryptographyData", "DecimalizationTableType")]
+    PinValidationDataPadCharacter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals1")]
+    PinValidationData: Annotated[str, _aws_pattern("PaymentCryptographyData", "PinValidationDataType")]
 
 
 class Ibm3624PinVerificationTypeDef(BaseValidatorModel):
-    DecimalizationTable: str
-    PinValidationDataPadCharacter: str
-    PinValidationData: str
-    PinOffset: str
+    DecimalizationTable: Annotated[str, _aws_pattern("PaymentCryptographyData", "DecimalizationTableType")]
+    PinValidationDataPadCharacter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals1")]
+    PinValidationData: Annotated[str, _aws_pattern("PaymentCryptographyData", "PinValidationDataType")]
+    PinOffset: Annotated[str, _aws_pattern("PaymentCryptographyData", "PinOffsetType")]
 
 
 class Ibm3624RandomPinTypeDef(BaseValidatorModel):
-    DecimalizationTable: str
-    PinValidationDataPadCharacter: str
-    PinValidationData: str
+    DecimalizationTable: Annotated[str, _aws_pattern("PaymentCryptographyData", "DecimalizationTableType")]
+    PinValidationDataPadCharacter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals1")]
+    PinValidationData: Annotated[str, _aws_pattern("PaymentCryptographyData", "PinValidationDataType")]
 
 
 class MacAlgorithmDukptTypeDef(BaseValidatorModel):
-    KeySerialNumber: str
+    KeySerialNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLength16Or20Or24")]
     DukptKeyVariant: DukptKeyVariantType
     DukptDerivationType: Optional[DukptDerivationTypeType] = None
 
 
 class SessionKeyDerivationValueTypeDef(BaseValidatorModel):
-    ApplicationCryptogram: Optional[str] = None
-    ApplicationTransactionCounter: Optional[str] = None
+    ApplicationCryptogram: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptographyData", "ApplicationCryptogramType")]
+    ] = None
+    ApplicationTransactionCounter: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals4")]
+    ] = None
 
 
 class OutgoingTr31KeyBlockTypeDef(BaseValidatorModel):
-    WrappingKeyIdentifier: str
+    WrappingKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
 
 
 class VisaPinTypeDef(BaseValidatorModel):
@@ -257,73 +275,73 @@ class VisaPinTypeDef(BaseValidatorModel):
 
 
 class VisaPinVerificationValueTypeDef(BaseValidatorModel):
-    EncryptedPinBlock: str
+    EncryptedPinBlock: Annotated[str, _aws_pattern("PaymentCryptographyData", "EncryptedPinBlockType")]
     PinVerificationKeyIndex: int
 
 
 class VisaPinVerificationTypeDef(BaseValidatorModel):
     PinVerificationKeyIndex: int
-    VerificationValue: str
+    VerificationValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "VerificationValueType")]
 
 
 class SessionKeyAmexTypeDef(BaseValidatorModel):
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
 
 
 class SessionKeyEmv2000TypeDef(BaseValidatorModel):
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
-    ApplicationTransactionCounter: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    ApplicationTransactionCounter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals4")]
 
 
 class SessionKeyEmvCommonTypeDef(BaseValidatorModel):
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
-    ApplicationTransactionCounter: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    ApplicationTransactionCounter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals4")]
 
 
 class SessionKeyMastercardTypeDef(BaseValidatorModel):
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
-    ApplicationTransactionCounter: str
-    UnpredictableNumber: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    ApplicationTransactionCounter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals4")]
+    UnpredictableNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthBetween2And8")]
 
 
 class SessionKeyVisaTypeDef(BaseValidatorModel):
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
 
 
 class WrappedWorkingKeyTypeDef(BaseValidatorModel):
     WrappedKeyMaterial: str
-    KeyCheckValue: str
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
     WrappedKeyMaterialFormat: WrappedKeyMaterialFormatType
 
 
 class TranslationPinDataAs2805Format0TypeDef(BaseValidatorModel):
-    PrimaryAccountNumber: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
 
 
 class TranslationPinDataIsoFormat034TypeDef(BaseValidatorModel):
-    PrimaryAccountNumber: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
 
 
 class AmexAttributesTypeDef(BaseValidatorModel):
     MajorKeyDerivationMode: MajorKeyDerivationModeType
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
-    ApplicationTransactionCounter: str
-    AuthorizationRequestKeyIdentifier: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    ApplicationTransactionCounter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals4")]
+    AuthorizationRequestKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
     CurrentPinAttributes: Optional[CurrentPinAttributesTypeDef] = None
 
 
 class VisaAttributesTypeDef(BaseValidatorModel):
     MajorKeyDerivationMode: MajorKeyDerivationModeType
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
-    ApplicationTransactionCounter: str
-    AuthorizationRequestKeyIdentifier: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
+    ApplicationTransactionCounter: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexLengthEquals4")]
+    AuthorizationRequestKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
     CurrentPinAttributes: Optional[CurrentPinAttributesTypeDef] = None
 
 
@@ -360,105 +378,107 @@ class CryptogramAuthResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'decrypt_data' function.
 class DecryptDataOutputTypeDef(BaseValidatorModel):
-    KeyArn: str
-    KeyCheckValue: str
-    PlainText: str
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    PlainText: Annotated[str, _aws_pattern("PaymentCryptographyData", "PlainTextOutputType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'encrypt_data' function.
 class EncryptDataOutputTypeDef(BaseValidatorModel):
-    KeyArn: str
-    KeyCheckValue: str
-    CipherText: str
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    CipherText: Annotated[str, _aws_pattern("PaymentCryptographyData", "CipherTextType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'generate_as2805_kek_validation' function.
 class GenerateAs2805KekValidationOutputTypeDef(BaseValidatorModel):
-    KeyArn: str
-    KeyCheckValue: str
-    RandomKeySend: str
-    RandomKeyReceive: str
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    RandomKeySend: Annotated[str, _aws_pattern("PaymentCryptographyData", "As2805RandomKeyMaterial")]
+    RandomKeyReceive: Annotated[str, _aws_pattern("PaymentCryptographyData", "As2805RandomKeyMaterial")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'generate_card_validation_data' function.
 class GenerateCardValidationDataOutputTypeDef(BaseValidatorModel):
-    KeyArn: str
-    KeyCheckValue: str
-    ValidationData: str
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    ValidationData: Annotated[str, _aws_pattern("PaymentCryptographyData", "ValidationDataType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'generate_mac' function.
 class GenerateMacOutputTypeDef(BaseValidatorModel):
-    KeyArn: str
-    KeyCheckValue: str
-    Mac: str
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    Mac: Annotated[str, _aws_pattern("PaymentCryptographyData", "MacOutputType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 're_encrypt_data' function.
 class ReEncryptDataOutputTypeDef(BaseValidatorModel):
-    KeyArn: str
-    KeyCheckValue: str
-    CipherText: str
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    CipherText: Annotated[str, _aws_pattern("PaymentCryptographyData", "CipherTextType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'translate_pin_data' function.
 class TranslatePinDataOutputTypeDef(BaseValidatorModel):
-    PinBlock: str
-    KeyArn: str
-    KeyCheckValue: str
+    PinBlock: Annotated[str, _aws_pattern("PaymentCryptographyData", "EncryptedPinBlockType")]
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'verify_auth_request_cryptogram' function.
 class VerifyAuthRequestCryptogramOutputTypeDef(BaseValidatorModel):
-    KeyArn: str
-    KeyCheckValue: str
-    AuthResponseValue: str
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    AuthResponseValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "AuthResponseValueType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'verify_card_validation_data' function.
 class VerifyCardValidationDataOutputTypeDef(BaseValidatorModel):
-    KeyArn: str
-    KeyCheckValue: str
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'verify_mac' function.
 class VerifyMacOutputTypeDef(BaseValidatorModel):
-    KeyArn: str
-    KeyCheckValue: str
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'verify_pin_data' function.
 class VerifyPinDataOutputTypeDef(BaseValidatorModel):
-    VerificationKeyArn: str
-    VerificationKeyCheckValue: str
-    EncryptionKeyArn: str
-    EncryptionKeyCheckValue: str
+    VerificationKeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    VerificationKeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    EncryptionKeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    EncryptionKeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class IncomingDiffieHellmanTr31KeyBlockTypeDef(BaseValidatorModel):
-    PrivateKeyIdentifier: str
-    CertificateAuthorityPublicKeyIdentifier: str
-    PublicKeyCertificate: str
+    PrivateKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    CertificateAuthorityPublicKeyIdentifier: Annotated[
+        str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")
+    ]
+    PublicKeyCertificate: Annotated[str, _aws_pattern("PaymentCryptographyData", "CertificateType")]
     DeriveKeyAlgorithm: SymmetricKeyAlgorithmType
     KeyDerivationFunction: KeyDerivationFunctionType
     KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithmType
     DerivationData: DiffieHellmanDerivationDataTypeDef
-    WrappedKeyBlock: str
+    WrappedKeyBlock: Annotated[str, _aws_pattern("PaymentCryptographyData", "Tr31WrappedKeyBlock")]
 
 
 class WrappedKeyMaterialTypeDef(BaseValidatorModel):
-    Tr31KeyBlock: Optional[str] = None
+    Tr31KeyBlock: Optional[Annotated[str, _aws_pattern("PaymentCryptographyData", "Tr31WrappedKeyBlock")]] = None
     DiffieHellmanSymmetricKey: Optional[EcdhDerivationAttributesTypeDef] = None
 
 
@@ -476,33 +496,35 @@ class ReEncryptionAttributesTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'generate_mac_emv_pin_change' function.
 class GenerateMacEmvPinChangeOutputTypeDef(BaseValidatorModel):
-    NewPinPekArn: str
-    SecureMessagingIntegrityKeyArn: str
-    SecureMessagingConfidentialityKeyArn: str
-    Mac: str
-    EncryptedPinBlock: str
-    NewPinPekKeyCheckValue: str
-    SecureMessagingIntegrityKeyCheckValue: str
-    SecureMessagingConfidentialityKeyCheckValue: str
+    NewPinPekArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    SecureMessagingIntegrityKeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    SecureMessagingConfidentialityKeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    Mac: Annotated[str, _aws_pattern("PaymentCryptographyData", "PinChangeMacOutputType")]
+    EncryptedPinBlock: Annotated[str, _aws_pattern("PaymentCryptographyData", "EncryptedPinBlockType")]
+    NewPinPekKeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    SecureMessagingIntegrityKeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    SecureMessagingConfidentialityKeyCheckValue: Annotated[
+        str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")
+    ]
     VisaAmexDerivationOutputs: VisaAmexDerivationOutputsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'generate_pin_data' function.
 class GeneratePinDataOutputTypeDef(BaseValidatorModel):
-    GenerationKeyArn: str
-    GenerationKeyCheckValue: str
-    EncryptionKeyArn: str
-    EncryptionKeyCheckValue: str
-    EncryptedPinBlock: str
+    GenerationKeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    GenerationKeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    EncryptionKeyArn: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArn")]
+    EncryptionKeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyCheckValue")]
+    EncryptedPinBlock: Annotated[str, _aws_pattern("PaymentCryptographyData", "EncryptedPinBlockType")]
     PinData: PinDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class MacAlgorithmEmvTypeDef(BaseValidatorModel):
     MajorKeyDerivationMode: MajorKeyDerivationModeType
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    PanSequenceNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "NumberLengthEquals2")]
     SessionKeyDerivationMode: SessionKeyDerivationModeType
     SessionKeyDerivationValue: SessionKeyDerivationValueTypeDef
 
@@ -557,25 +579,25 @@ class DerivationMethodAttributesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'generate_as2805_kek_validation' function.
 class GenerateAs2805KekValidationInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
     KekValidationType: As2805KekValidationTypeTypeDef
     RandomKeySendVariantMask: RandomKeySendVariantMaskType
 
 
 # This class is the input for the 'generate_card_validation_data' function.
 class GenerateCardValidationDataInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
-    PrimaryAccountNumber: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
     GenerationAttributes: CardGenerationAttributesTypeDef
     ValidationDataLength: Optional[int] = None
 
 
 # This class is the input for the 'verify_card_validation_data' function.
 class VerifyCardValidationDataInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
-    PrimaryAccountNumber: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    PrimaryAccountNumber: Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
     VerificationAttributes: CardVerificationAttributesTypeDef
-    ValidationData: str
+    ValidationData: Annotated[str, _aws_pattern("PaymentCryptographyData", "ValidationDataType")]
 
 
 class IncomingKeyMaterialTypeDef(BaseValidatorModel):
@@ -597,9 +619,9 @@ class MacAttributesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'verify_auth_request_cryptogram' function.
 class VerifyAuthRequestCryptogramInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
-    TransactionData: str
-    AuthRequestCryptogram: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    TransactionData: Annotated[str, _aws_pattern("PaymentCryptographyData", "TransactionDataType")]
+    AuthRequestCryptogram: Annotated[str, _aws_pattern("PaymentCryptographyData", "AuthRequestCryptogramType")]
     MajorKeyDerivationMode: MajorKeyDerivationModeType
     SessionKeyDerivationAttributes: SessionKeyDerivationTypeDef
     AuthResponseAttributes: Optional[CryptogramAuthResponseTypeDef] = None
@@ -607,12 +629,16 @@ class VerifyAuthRequestCryptogramInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'generate_mac_emv_pin_change' function.
 class GenerateMacEmvPinChangeInputTypeDef(BaseValidatorModel):
-    NewPinPekIdentifier: str
-    NewEncryptedPinBlock: str
+    NewPinPekIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    NewEncryptedPinBlock: Annotated[str, _aws_pattern("PaymentCryptographyData", "PinBlockLengthEquals16")]
     PinBlockFormat: PinBlockFormatForEmvPinChangeType
-    SecureMessagingIntegrityKeyIdentifier: str
-    SecureMessagingConfidentialityKeyIdentifier: str
-    MessageData: str
+    SecureMessagingIntegrityKeyIdentifier: Annotated[
+        str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")
+    ]
+    SecureMessagingConfidentialityKeyIdentifier: Annotated[
+        str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")
+    ]
+    MessageData: Annotated[str, _aws_pattern("PaymentCryptographyData", "CommandMessageDataType")]
     DerivationMethodAttributes: DerivationMethodAttributesTypeDef
 
 
@@ -625,36 +651,38 @@ class TranslateKeyMaterialInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'decrypt_data' function.
 class DecryptDataInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
-    CipherText: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    CipherText: Annotated[str, _aws_pattern("PaymentCryptographyData", "CipherTextType")]
     DecryptionAttributes: EncryptionDecryptionAttributesTypeDef
     WrappedKey: Optional[WrappedKeyTypeDef] = None
 
 
 # This class is the input for the 'encrypt_data' function.
 class EncryptDataInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
-    PlainText: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    PlainText: Annotated[str, _aws_pattern("PaymentCryptographyData", "PlainTextType")]
     EncryptionAttributes: EncryptionDecryptionAttributesTypeDef
     WrappedKey: Optional[WrappedKeyTypeDef] = None
 
 
 # This class is the input for the 'generate_pin_data' function.
 class GeneratePinDataInputTypeDef(BaseValidatorModel):
-    GenerationKeyIdentifier: str
-    EncryptionKeyIdentifier: str
+    GenerationKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    EncryptionKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
     GenerationAttributes: PinGenerationAttributesTypeDef
     PinBlockFormat: PinBlockFormatForPinDataType
     PinDataLength: Optional[int] = None
-    PrimaryAccountNumber: Optional[str] = None
+    PrimaryAccountNumber: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    ] = None
     EncryptionWrappedKey: Optional[WrappedKeyTypeDef] = None
 
 
 # This class is the input for the 're_encrypt_data' function.
 class ReEncryptDataInputTypeDef(BaseValidatorModel):
-    IncomingKeyIdentifier: str
-    OutgoingKeyIdentifier: str
-    CipherText: str
+    IncomingKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    OutgoingKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    CipherText: Annotated[str, _aws_pattern("PaymentCryptographyData", "CipherTextType")]
     IncomingEncryptionAttributes: ReEncryptionAttributesTypeDef
     OutgoingEncryptionAttributes: ReEncryptionAttributesTypeDef
     IncomingWrappedKey: Optional[WrappedKeyTypeDef] = None
@@ -663,11 +691,11 @@ class ReEncryptDataInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'translate_pin_data' function.
 class TranslatePinDataInputTypeDef(BaseValidatorModel):
-    IncomingKeyIdentifier: str
-    OutgoingKeyIdentifier: str
+    IncomingKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    OutgoingKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
     IncomingTranslationAttributes: TranslationIsoFormatsTypeDef
     OutgoingTranslationAttributes: TranslationIsoFormatsTypeDef
-    EncryptedPinBlock: str
+    EncryptedPinBlock: Annotated[str, _aws_pattern("PaymentCryptographyData", "HexEvenLengthBetween16And32")]
     IncomingDukptAttributes: Optional[DukptDerivationAttributesTypeDef] = None
     OutgoingDukptAttributes: Optional[DukptDerivationAttributesTypeDef] = None
     IncomingWrappedKey: Optional[WrappedKeyTypeDef] = None
@@ -677,12 +705,14 @@ class TranslatePinDataInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'verify_pin_data' function.
 class VerifyPinDataInputTypeDef(BaseValidatorModel):
-    VerificationKeyIdentifier: str
-    EncryptionKeyIdentifier: str
+    VerificationKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    EncryptionKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
     VerificationAttributes: PinVerificationAttributesTypeDef
-    EncryptedPinBlock: str
+    EncryptedPinBlock: Annotated[str, _aws_pattern("PaymentCryptographyData", "EncryptedPinBlockType")]
     PinBlockFormat: PinBlockFormatForPinDataType
-    PrimaryAccountNumber: Optional[str] = None
+    PrimaryAccountNumber: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptographyData", "PrimaryAccountNumberType")]
+    ] = None
     PinDataLength: Optional[int] = None
     DukptAttributes: Optional[DukptAttributesTypeDef] = None
     EncryptionWrappedKey: Optional[WrappedKeyTypeDef] = None
@@ -690,16 +720,16 @@ class VerifyPinDataInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'generate_mac' function.
 class GenerateMacInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
-    MessageData: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    MessageData: Annotated[str, _aws_pattern("PaymentCryptographyData", "MessageDataType")]
     GenerationAttributes: MacAttributesTypeDef
     MacLength: Optional[int] = None
 
 
 # This class is the input for the 'verify_mac' function.
 class VerifyMacInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
-    MessageData: str
-    Mac: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptographyData", "KeyArnOrKeyAliasType")]
+    MessageData: Annotated[str, _aws_pattern("PaymentCryptographyData", "MessageDataType")]
+    Mac: Annotated[str, _aws_pattern("PaymentCryptographyData", "MacType")]
     VerificationAttributes: MacAttributesTypeDef
     MacLength: Optional[int] = None

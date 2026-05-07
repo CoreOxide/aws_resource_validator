@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.s3vectors.s3vectors_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 class EncryptionConfigurationTypeDef(BaseValidatorModel):
     sseType: Optional[SseTypeType] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("S3vectors", "KmsKeyArn")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -54,31 +56,31 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 class DeleteIndexInputTypeDef(BaseValidatorModel):
     vectorBucketName: Optional[str] = None
     indexName: Optional[str] = None
-    indexArn: Optional[str] = None
+    indexArn: Optional[Annotated[str, _aws_pattern("S3vectors", "IndexArn")]] = None
 
 
 class DeleteVectorBucketInputTypeDef(BaseValidatorModel):
     vectorBucketName: Optional[str] = None
-    vectorBucketArn: Optional[str] = None
+    vectorBucketArn: Optional[Annotated[str, _aws_pattern("S3vectors", "VectorBucketArn")]] = None
 
 
 class DeleteVectorBucketPolicyInputTypeDef(BaseValidatorModel):
     vectorBucketName: Optional[str] = None
-    vectorBucketArn: Optional[str] = None
+    vectorBucketArn: Optional[Annotated[str, _aws_pattern("S3vectors", "VectorBucketArn")]] = None
 
 
 class DeleteVectorsInputTypeDef(BaseValidatorModel):
     keys: List[str]
     vectorBucketName: Optional[str] = None
     indexName: Optional[str] = None
-    indexArn: Optional[str] = None
+    indexArn: Optional[Annotated[str, _aws_pattern("S3vectors", "IndexArn")]] = None
 
 
 # This class is the input for the 'get_index' function.
 class GetIndexInputTypeDef(BaseValidatorModel):
     vectorBucketName: Optional[str] = None
     indexName: Optional[str] = None
-    indexArn: Optional[str] = None
+    indexArn: Optional[Annotated[str, _aws_pattern("S3vectors", "IndexArn")]] = None
 
 
 class VectorDataOutputTypeDef(BaseValidatorModel):
@@ -88,13 +90,13 @@ class VectorDataOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_vector_bucket' function.
 class GetVectorBucketInputTypeDef(BaseValidatorModel):
     vectorBucketName: Optional[str] = None
-    vectorBucketArn: Optional[str] = None
+    vectorBucketArn: Optional[Annotated[str, _aws_pattern("S3vectors", "VectorBucketArn")]] = None
 
 
 # This class is the input for the 'get_vector_bucket_policy' function.
 class GetVectorBucketPolicyInputTypeDef(BaseValidatorModel):
     vectorBucketName: Optional[str] = None
-    vectorBucketArn: Optional[str] = None
+    vectorBucketArn: Optional[Annotated[str, _aws_pattern("S3vectors", "VectorBucketArn")]] = None
 
 
 # This class is the input for the 'get_vectors' function.
@@ -102,7 +104,7 @@ class GetVectorsInputTypeDef(BaseValidatorModel):
     keys: List[str]
     vectorBucketName: Optional[str] = None
     indexName: Optional[str] = None
-    indexArn: Optional[str] = None
+    indexArn: Optional[Annotated[str, _aws_pattern("S3vectors", "IndexArn")]] = None
     returnData: Optional[bool] = None
     returnMetadata: Optional[bool] = None
 
@@ -110,7 +112,7 @@ class GetVectorsInputTypeDef(BaseValidatorModel):
 class IndexSummaryTypeDef(BaseValidatorModel):
     vectorBucketName: str
     indexName: str
-    indexArn: str
+    indexArn: Annotated[str, _aws_pattern("S3vectors", "IndexArn")]
     creationTime: datetime
 
 
@@ -127,7 +129,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_indexes' function.
 class ListIndexesInputTypeDef(BaseValidatorModel):
     vectorBucketName: Optional[str] = None
-    vectorBucketArn: Optional[str] = None
+    vectorBucketArn: Optional[Annotated[str, _aws_pattern("S3vectors", "VectorBucketArn")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     prefix: Optional[str] = None
@@ -147,7 +149,7 @@ class ListVectorBucketsInputTypeDef(BaseValidatorModel):
 
 class VectorBucketSummaryTypeDef(BaseValidatorModel):
     vectorBucketName: str
-    vectorBucketArn: str
+    vectorBucketArn: Annotated[str, _aws_pattern("S3vectors", "VectorBucketArn")]
     creationTime: datetime
 
 
@@ -155,7 +157,7 @@ class VectorBucketSummaryTypeDef(BaseValidatorModel):
 class ListVectorsInputTypeDef(BaseValidatorModel):
     vectorBucketName: Optional[str] = None
     indexName: Optional[str] = None
-    indexArn: Optional[str] = None
+    indexArn: Optional[Annotated[str, _aws_pattern("S3vectors", "IndexArn")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     segmentCount: Optional[int] = None
@@ -171,7 +173,7 @@ class MetadataConfigurationTypeDef(BaseValidatorModel):
 class PutVectorBucketPolicyInputTypeDef(BaseValidatorModel):
     policy: str
     vectorBucketName: Optional[str] = None
-    vectorBucketArn: Optional[str] = None
+    vectorBucketArn: Optional[Annotated[str, _aws_pattern("S3vectors", "VectorBucketArn")]] = None
 
 
 class QueryOutputVectorTypeDef(BaseValidatorModel):
@@ -187,7 +189,7 @@ class TagResourceInputTypeDef(BaseValidatorModel):
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("S3vectors", "TagKey")]]
 
 
 class VectorDataTypeDef(BaseValidatorModel):
@@ -203,20 +205,20 @@ class CreateVectorBucketInputTypeDef(BaseValidatorModel):
 
 class VectorBucketTypeDef(BaseValidatorModel):
     vectorBucketName: str
-    vectorBucketArn: str
+    vectorBucketArn: Annotated[str, _aws_pattern("S3vectors", "VectorBucketArn")]
     creationTime: datetime
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
 
 # This class is the output for the 'create_index' function.
 class CreateIndexOutputTypeDef(BaseValidatorModel):
-    indexArn: str
+    indexArn: Annotated[str, _aws_pattern("S3vectors", "IndexArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_vector_bucket' function.
 class CreateVectorBucketOutputTypeDef(BaseValidatorModel):
-    vectorBucketArn: str
+    vectorBucketArn: Annotated[str, _aws_pattern("S3vectors", "VectorBucketArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -254,7 +256,7 @@ class ListIndexesOutputTypeDef(BaseValidatorModel):
 class IndexTypeDef(BaseValidatorModel):
     vectorBucketName: str
     indexName: str
-    indexArn: str
+    indexArn: Annotated[str, _aws_pattern("S3vectors", "IndexArn")]
     creationTime: datetime
     dataType: Literal["float32"]
     dimension: int
@@ -338,7 +340,7 @@ class CreateIndexInputTypeDef(BaseValidatorModel):
     dimension: int
     distanceMetric: DistanceMetricType
     vectorBucketName: Optional[str] = None
-    vectorBucketArn: Optional[str] = None
+    vectorBucketArn: Optional[Annotated[str, _aws_pattern("S3vectors", "VectorBucketArn")]] = None
     metadataConfiguration: Optional[MetadataConfigurationUnionTypeDef] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -356,7 +358,7 @@ class QueryVectorsInputTypeDef(BaseValidatorModel):
     queryVector: VectorDataUnionTypeDef
     vectorBucketName: Optional[str] = None
     indexName: Optional[str] = None
-    indexArn: Optional[str] = None
+    indexArn: Optional[Annotated[str, _aws_pattern("S3vectors", "IndexArn")]] = None
     filter: Optional[Dict[str, Any]] = None
     returnMetadata: Optional[bool] = None
     returnDistance: Optional[bool] = None
@@ -366,4 +368,4 @@ class PutVectorsInputTypeDef(BaseValidatorModel):
     vectors: List[PutInputVectorTypeDef]
     vectorBucketName: Optional[str] = None
     indexName: Optional[str] = None
-    indexArn: Optional[str] = None
+    indexArn: Optional[Annotated[str, _aws_pattern("S3vectors", "IndexArn")]] = None

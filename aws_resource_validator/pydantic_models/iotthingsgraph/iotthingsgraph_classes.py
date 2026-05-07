@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iotthingsgraph.iotthingsgraph_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class AssociateEntityToThingRequestTypeDef(BaseValidatorModel):
-    thingName: str
-    entityId: str
+    thingName: Annotated[str, _aws_pattern("Iotthingsgraph", "ThingName")]
+    entityId: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
     namespaceVersion: Optional[int] = None
 
 
@@ -50,7 +52,7 @@ class DefinitionDocumentTypeDef(BaseValidatorModel):
 
 
 class FlowTemplateSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]] = None
     arn: Optional[str] = None
     revisionNumber: Optional[int] = None
     createdAt: Optional[datetime] = None
@@ -70,12 +72,12 @@ class MetricsConfigurationTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
+    key: Annotated[str, _aws_pattern("Iotthingsgraph", "TagKey")]
     value: str
 
 
 class SystemInstanceSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]] = None
     arn: Optional[str] = None
     status: Optional[SystemInstanceDeploymentStatusType] = None
     target: Optional[DeploymentTargetType] = None
@@ -87,40 +89,40 @@ class SystemInstanceSummaryTypeDef(BaseValidatorModel):
 
 
 class SystemTemplateSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]] = None
     arn: Optional[str] = None
     revisionNumber: Optional[int] = None
     createdAt: Optional[datetime] = None
 
 
 class DeleteFlowTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
 
 
 class DeleteSystemInstanceRequestTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]] = None
 
 
 class DeleteSystemTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
 
 
 class DependencyRevisionTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]] = None
     revisionNumber: Optional[int] = None
 
 
 # This class is the input for the 'deploy_system_instance' function.
 class DeploySystemInstanceRequestTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]] = None
 
 
 class DeprecateFlowTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
 
 
 class DeprecateSystemTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
 
 
 # This class is the input for the 'describe_namespace' function.
@@ -129,7 +131,7 @@ class DescribeNamespaceRequestTypeDef(BaseValidatorModel):
 
 
 class DissociateEntityFromThingRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iotthingsgraph", "ThingName")]
     entityType: EntityTypeType
 
 
@@ -148,26 +150,26 @@ class FlowExecutionMessageTypeDef(BaseValidatorModel):
 class FlowExecutionSummaryTypeDef(BaseValidatorModel):
     flowExecutionId: Optional[str] = None
     status: Optional[FlowExecutionStatusType] = None
-    systemInstanceId: Optional[str] = None
-    flowTemplateId: Optional[str] = None
+    systemInstanceId: Optional[Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]] = None
+    flowTemplateId: Optional[Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
 
 class FlowTemplateFilterTypeDef(BaseValidatorModel):
     name: Literal["DEVICE_MODEL_ID"]
-    value: List[str]
+    value: List[Annotated[str, _aws_pattern("Iotthingsgraph", "FlowTemplateFilterValue")]]
 
 
 # This class is the input for the 'get_entities' function.
 class GetEntitiesRequestTypeDef(BaseValidatorModel):
-    ids: List[str]
+    ids: List[Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]]
     namespaceVersion: Optional[int] = None
 
 
 # This class is the input for the 'get_flow_template' function.
 class GetFlowTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
     revisionNumber: Optional[int] = None
 
 
@@ -179,25 +181,25 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_flow_template_revisions' function.
 class GetFlowTemplateRevisionsRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_system_instance' function.
 class GetSystemInstanceRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
 
 
 # This class is the input for the 'get_system_template' function.
 class GetSystemTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
     revisionNumber: Optional[int] = None
 
 
 # This class is the input for the 'get_system_template_revisions' function.
 class GetSystemTemplateRevisionsRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -231,12 +233,12 @@ class SystemInstanceFilterTypeDef(BaseValidatorModel):
 
 class SystemTemplateFilterTypeDef(BaseValidatorModel):
     name: Literal["FLOW_TEMPLATE_ID"]
-    value: List[str]
+    value: List[Annotated[str, _aws_pattern("Iotthingsgraph", "SystemTemplateFilterValue")]]
 
 
 # This class is the input for the 'search_things' function.
 class SearchThingsRequestTypeDef(BaseValidatorModel):
-    entityId: str
+    entityId: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     namespaceVersion: Optional[int] = None
@@ -244,17 +246,17 @@ class SearchThingsRequestTypeDef(BaseValidatorModel):
 
 class ThingTypeDef(BaseValidatorModel):
     thingArn: Optional[str] = None
-    thingName: Optional[str] = None
+    thingName: Optional[Annotated[str, _aws_pattern("Iotthingsgraph", "ThingName")]] = None
 
 
 # This class is the input for the 'undeploy_system_instance' function.
 class UndeploySystemInstanceRequestTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Iotthingsgraph", "TagKey")]]
 
 
 # This class is the input for the 'create_flow_template' function.
@@ -270,7 +272,7 @@ class CreateSystemTemplateRequestTypeDef(BaseValidatorModel):
 
 
 class EntityDescriptionTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]] = None
     arn: Optional[str] = None
     type: Optional[EntityTypeType] = None
     createdAt: Optional[datetime] = None
@@ -279,14 +281,14 @@ class EntityDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_flow_template' function.
 class UpdateFlowTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
     definition: DefinitionDocumentTypeDef
     compatibleNamespaceVersion: Optional[int] = None
 
 
 # This class is the input for the 'update_system_template' function.
 class UpdateSystemTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
     definition: DefinitionDocumentTypeDef
     compatibleNamespaceVersion: Optional[int] = None
 
@@ -542,7 +544,7 @@ class SearchFlowExecutionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_flow_executions' function.
 class SearchFlowExecutionsRequestTypeDef(BaseValidatorModel):
-    systemInstanceId: str
+    systemInstanceId: Annotated[str, _aws_pattern("Iotthingsgraph", "Urn")]
     flowExecutionId: Optional[str] = None
     startTime: Optional[TimestampTypeDef] = None
     endTime: Optional[TimestampTypeDef] = None

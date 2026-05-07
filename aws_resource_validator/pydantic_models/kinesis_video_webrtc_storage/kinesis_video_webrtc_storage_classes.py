@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kinesis_video_webrtc_storage.kinesis_video_webrtc_storage_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,13 +50,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'join_storage_session_as_viewer' function.
 class JoinStorageSessionAsViewerInputTypeDef(BaseValidatorModel):
-    channelArn: str
-    clientId: str
+    channelArn: Annotated[str, _aws_pattern("KinesisVideoWebrtcStorage", "ChannelArn")]
+    clientId: Annotated[str, _aws_pattern("KinesisVideoWebrtcStorage", "ClientId")]
 
 
 # This class is the input for the 'join_storage_session' function.
 class JoinStorageSessionInputTypeDef(BaseValidatorModel):
-    channelArn: str
+    channelArn: Annotated[str, _aws_pattern("KinesisVideoWebrtcStorage", "ChannelArn")]
 
 
 # This class is the output for the 'join_storage_session' function.

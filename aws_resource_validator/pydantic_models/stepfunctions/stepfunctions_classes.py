@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.stepfunctions.stepfunctions_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -439,7 +441,7 @@ class PublishStateMachineVersionInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'redrive_execution' function.
 class RedriveExecutionInputTypeDef(BaseValidatorModel):
     executionArn: str
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Stepfunctions", "ClientToken")]] = None
 
 
 class SendTaskFailureInputTypeDef(BaseValidatorModel):
@@ -462,7 +464,7 @@ class StartExecutionInputTypeDef(BaseValidatorModel):
     stateMachineArn: str
     name: Optional[str] = None
     input: Optional[str] = None
-    traceHeader: Optional[str] = None
+    traceHeader: Optional[Annotated[str, _aws_pattern("Stepfunctions", "TraceHeader")]] = None
 
 
 # This class is the input for the 'start_sync_execution' function.
@@ -470,7 +472,7 @@ class StartSyncExecutionInputTypeDef(BaseValidatorModel):
     stateMachineArn: str
     name: Optional[str] = None
     input: Optional[str] = None
-    traceHeader: Optional[str] = None
+    traceHeader: Optional[Annotated[str, _aws_pattern("Stepfunctions", "TraceHeader")]] = None
     includedData: Optional[IncludedDataType] = None
 
 
@@ -636,7 +638,7 @@ class DescribeExecutionOutputTypeDef(BaseValidatorModel):
     stopDate: Optional[datetime] = None
     output: Optional[str] = None
     outputDetails: Optional[CloudWatchEventsExecutionDataDetailsTypeDef] = None
-    traceHeader: Optional[str] = None
+    traceHeader: Optional[Annotated[str, _aws_pattern("Stepfunctions", "TraceHeader")]] = None
     mapRunArn: Optional[str] = None
     error: Optional[str] = None
     cause: Optional[str] = None
@@ -700,7 +702,7 @@ class StartSyncExecutionOutputTypeDef(BaseValidatorModel):
     inputDetails: CloudWatchEventsExecutionDataDetailsTypeDef
     output: str
     outputDetails: CloudWatchEventsExecutionDataDetailsTypeDef
-    traceHeader: str
+    traceHeader: Annotated[str, _aws_pattern("Stepfunctions", "TraceHeader")]
     billingDetails: BillingDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -727,7 +729,7 @@ class UpdateStateMachineOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_state_machine_alias' function.
 class CreateStateMachineAliasInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Stepfunctions", "CharacterRestrictedName")]
     routingConfiguration: List[RoutingConfigurationListItemTypeDef]
     description: Optional[str] = None
 

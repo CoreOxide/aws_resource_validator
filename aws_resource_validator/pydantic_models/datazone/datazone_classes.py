@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.datazone.datazone_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -58,13 +60,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AcceptedAssetScopeTypeDef(BaseValidatorModel):
-    assetId: str
-    filterIds: List[str]
+    assetId: Annotated[str, _aws_pattern("Datazone", "AssetId")]
+    filterIds: List[Annotated[str, _aws_pattern("Datazone", "FilterId")]]
 
 
 class FormOutputTypeDef(BaseValidatorModel):
-    formName: str
-    typeName: Optional[str] = None
+    formName: Annotated[str, _aws_pattern("Datazone", "FormName")]
+    typeName: Optional[Annotated[str, _aws_pattern("Datazone", "FormTypeName")]] = None
     typeRevision: Optional[str] = None
     content: Optional[str] = None
 
@@ -76,24 +78,24 @@ class AccountInfoOutputTypeDef(BaseValidatorModel):
 
 
 class AccountInfoTypeDef(BaseValidatorModel):
-    awsAccountId: str
-    supportedRegions: List[str]
+    awsAccountId: Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]
+    supportedRegions: List[Annotated[str, _aws_pattern("Datazone", "AwsRegion")]]
     awsAccountName: Optional[str] = None
 
 
 class AccountPoolSummaryTypeDef(BaseValidatorModel):
-    domainId: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
+    domainId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainId")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "AccountPoolId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "AccountPoolName")]] = None
     resolutionStrategy: Optional[Literal["MANUAL"]] = None
-    domainUnitId: Optional[str] = None
+    domainUnitId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]] = None
     createdBy: Optional[str] = None
     updatedBy: Optional[str] = None
 
 
 class CustomAccountPoolHandlerTypeDef(BaseValidatorModel):
-    lambdaFunctionArn: str
-    lambdaExecutionRoleArn: Optional[str] = None
+    lambdaFunctionArn: Annotated[str, _aws_pattern("Datazone", "LambdaFunctionArn")]
+    lambdaExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Datazone", "LambdaExecutionRoleArn")]] = None
 
 
 class AwsConsoleLinkParametersTypeDef(BaseValidatorModel):
@@ -105,7 +107,7 @@ class AddToProjectMemberPoolPolicyGrantDetailTypeDef(BaseValidatorModel):
 
 
 class AdditionalAttributesTypeDef(BaseValidatorModel):
-    formNames: Optional[List[str]] = None
+    formNames: Optional[List[Annotated[str, _aws_pattern("Datazone", "FormName")]]] = None
 
 
 class AggregationListItemTypeDef(BaseValidatorModel):
@@ -121,19 +123,19 @@ class AggregationOutputItemTypeDef(BaseValidatorModel):
 
 class AmazonQPropertiesInputTypeDef(BaseValidatorModel):
     isEnabled: bool
-    profileArn: Optional[str] = None
+    profileArn: Optional[Annotated[str, _aws_pattern("Datazone", "AmazonQPropertiesInputProfileArnString")]] = None
     authMode: Optional[str] = None
 
 
 class AmazonQPropertiesOutputTypeDef(BaseValidatorModel):
     isEnabled: bool
-    profileArn: Optional[str] = None
+    profileArn: Optional[Annotated[str, _aws_pattern("Datazone", "AmazonQPropertiesOutputProfileArnString")]] = None
     authMode: Optional[str] = None
 
 
 class AmazonQPropertiesPatchTypeDef(BaseValidatorModel):
     isEnabled: bool
-    profileArn: Optional[str] = None
+    profileArn: Optional[Annotated[str, _aws_pattern("Datazone", "AmazonQPropertiesPatchProfileArnString")]] = None
     authMode: Optional[str] = None
 
 
@@ -146,10 +148,10 @@ class ColumnFilterConfigurationTypeDef(BaseValidatorModel):
 
 
 class AssetFilterSummaryTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    assetId: str
-    name: str
+    id: Annotated[str, _aws_pattern("Datazone", "FilterId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    assetId: Annotated[str, _aws_pattern("Datazone", "AssetId")]
+    name: Annotated[str, _aws_pattern("Datazone", "FilterName")]
     description: Optional[str] = None
     status: Optional[FilterStatusType] = None
     effectiveColumnNames: Optional[List[str]] = None
@@ -166,15 +168,15 @@ class AssetInDataProductListingItemTypeDef(BaseValidatorModel):
 
 class TimeSeriesDataPointSummaryFormOutputTypeDef(BaseValidatorModel):
     formName: str
-    typeIdentifier: str
+    typeIdentifier: Annotated[str, _aws_pattern("Datazone", "FormTypeIdentifier")]
     timestamp: datetime
     typeRevision: Optional[str] = None
     contentSummary: Optional[str] = None
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "DataPointIdentifier")]] = None
 
 
 class AssetListingDetailsTypeDef(BaseValidatorModel):
-    listingId: str
+    listingId: Annotated[str, _aws_pattern("Datazone", "ListingId")]
     listingStatus: ListingStatusType
 
 
@@ -184,27 +186,27 @@ class DetailedGlossaryTermTypeDef(BaseValidatorModel):
 
 
 class AssetRevisionTypeDef(BaseValidatorModel):
-    domainId: Optional[str] = None
-    id: Optional[str] = None
+    domainId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainId")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "AssetId")]] = None
     revision: Optional[str] = None
     createdBy: Optional[str] = None
     createdAt: Optional[datetime] = None
 
 
 class AssetScopeTypeDef(BaseValidatorModel):
-    assetId: str
-    filterIds: List[str]
+    assetId: Annotated[str, _aws_pattern("Datazone", "AssetId")]
+    filterIds: List[Annotated[str, _aws_pattern("Datazone", "FilterId")]]
     status: str
     errorMessage: Optional[str] = None
 
 
 class AssetTargetNameMapTypeDef(BaseValidatorModel):
-    assetId: str
+    assetId: Annotated[str, _aws_pattern("Datazone", "AssetId")]
     targetName: str
 
 
 class FormEntryOutputTypeDef(BaseValidatorModel):
-    typeName: str
+    typeName: Annotated[str, _aws_pattern("Datazone", "FormTypeName")]
     typeRevision: str
     required: Optional[bool] = None
 
@@ -216,20 +218,20 @@ class AssetTypesForRuleOutputTypeDef(BaseValidatorModel):
 
 class AssetTypesForRuleTypeDef(BaseValidatorModel):
     selectionMode: RuleScopeSelectionModeType
-    specificAssetTypes: Optional[List[str]] = None
+    specificAssetTypes: Optional[List[Annotated[str, _aws_pattern("Datazone", "AssetTypeIdentifier")]]] = None
 
 
 class AssociateEnvironmentRoleInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     environmentRoleArn: str
 
 
 class AssociateGovernedTermsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    entityIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    entityIdentifier: Annotated[str, _aws_pattern("Datazone", "EntityIdentifier")]
     entityType: Literal["ASSET"]
-    governedGlossaryTerms: List[str]
+    governedGlossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
 
 
 class AthenaPropertiesInputTypeDef(BaseValidatorModel):
@@ -251,15 +253,15 @@ class AttributeErrorTypeDef(BaseValidatorModel):
 
 
 class FormInputTypeDef(BaseValidatorModel):
-    formName: str
-    typeIdentifier: Optional[str] = None
-    typeRevision: Optional[str] = None
+    formName: Annotated[str, _aws_pattern("Datazone", "FormName")]
+    typeIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "FormTypeIdentifier")]] = None
+    typeRevision: Optional[Annotated[str, _aws_pattern("Datazone", "RevisionInput")]] = None
     content: Optional[str] = None
 
 
 class BasicAuthenticationCredentialsTypeDef(BaseValidatorModel):
-    userName: Optional[str] = None
-    password: Optional[str] = None
+    userName: Optional[Annotated[str, _aws_pattern("Datazone", "BasicAuthenticationCredentialsUserNameString")]] = None
+    password: Optional[Annotated[str, _aws_pattern("Datazone", "BasicAuthenticationCredentialsPasswordString")]] = None
 
 
 class AuthorizationCodePropertiesTypeDef(BaseValidatorModel):
@@ -268,22 +270,22 @@ class AuthorizationCodePropertiesTypeDef(BaseValidatorModel):
 
 
 class AwsAccountTypeDef(BaseValidatorModel):
-    awsAccountId: Optional[str] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]] = None
     awsAccountIdPath: Optional[str] = None
 
 
 class AwsLocationTypeDef(BaseValidatorModel):
-    accessRole: Optional[str] = None
-    awsAccountId: Optional[str] = None
-    awsRegion: Optional[str] = None
+    accessRole: Optional[Annotated[str, _aws_pattern("Datazone", "AwsLocationAccessRoleString")]] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]] = None
+    awsRegion: Optional[Annotated[str, _aws_pattern("Datazone", "AwsRegion")]] = None
     iamConnectionId: Optional[str] = None
 
 
 # This class is the input for the 'batch_get_attributes_metadata' function.
 class BatchGetAttributesMetadataInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     entityType: AttributeEntityTypeType
-    entityIdentifier: str
+    entityIdentifier: Annotated[str, _aws_pattern("Datazone", "EntityId")]
     attributeIdentifiers: List[str]
     entityRevision: Optional[str] = None
 
@@ -300,18 +302,23 @@ class BusinessNameGenerationConfigurationTypeDef(BaseValidatorModel):
 
 
 class CancelMetadataGenerationRunInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "MetadataGenerationRunIdentifier")]
 
 
 # This class is the input for the 'cancel_subscription' function.
 class CancelSubscriptionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
 
 
 class CloudFormationPropertiesTypeDef(BaseValidatorModel):
     templateUrl: str
+
+
+class ComputeConfigTypeDef(BaseValidatorModel):
+    instanceType: Optional[Annotated[str, _aws_pattern("Datazone", "InstanceType")]] = None
+    environmentVersion: Optional[str] = None
 
 
 class ConfigurableActionParameterTypeDef(BaseValidatorModel):
@@ -325,7 +332,7 @@ class ConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class ConfigurationTypeDef(BaseValidatorModel):
-    classification: Optional[str] = None
+    classification: Optional[Annotated[str, _aws_pattern("Datazone", "ConfigurationClassificationString")]] = None
     properties: Optional[Dict[str, str]] = None
 
 
@@ -353,18 +360,18 @@ class MlflowPropertiesInputTypeDef(BaseValidatorModel):
 
 
 class S3PropertiesInputTypeDef(BaseValidatorModel):
-    s3Uri: str
-    s3AccessGrantLocationId: Optional[str] = None
+    s3Uri: Annotated[str, _aws_pattern("Datazone", "S3Uri")]
+    s3AccessGrantLocationId: Optional[Annotated[str, _aws_pattern("Datazone", "S3AccessGrantLocationId")]] = None
     registerS3AccessGrantLocation: Optional[bool] = None
 
 
 class SparkEmrPropertiesInputTypeDef(BaseValidatorModel):
-    computeArn: Optional[str] = None
+    computeArn: Optional[Annotated[str, _aws_pattern("Datazone", "SparkEmrPropertiesInputComputeArnString")]] = None
     instanceProfileArn: Optional[str] = None
     javaVirtualEnv: Optional[str] = None
     logUri: Optional[str] = None
     pythonVirtualEnv: Optional[str] = None
-    runtimeRole: Optional[str] = None
+    runtimeRole: Optional[Annotated[str, _aws_pattern("Datazone", "SparkEmrPropertiesInputRuntimeRoleString")]] = None
     trustedCertificatesS3Uri: Optional[str] = None
     managedEndpointArn: Optional[str] = None
 
@@ -398,8 +405,8 @@ class MlflowPropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class S3PropertiesOutputTypeDef(BaseValidatorModel):
-    s3Uri: str
-    s3AccessGrantLocationId: Optional[str] = None
+    s3Uri: Annotated[str, _aws_pattern("Datazone", "S3Uri")]
+    s3AccessGrantLocationId: Optional[Annotated[str, _aws_pattern("Datazone", "S3AccessGrantLocationId")]] = None
     registerS3AccessGrantLocation: Optional[bool] = None
     status: Optional[ConnectionStatusType] = None
     errorMessage: Optional[str] = None
@@ -422,24 +429,24 @@ class MlflowPropertiesPatchTypeDef(BaseValidatorModel):
 
 
 class S3PropertiesPatchTypeDef(BaseValidatorModel):
-    s3Uri: str
-    s3AccessGrantLocationId: Optional[str] = None
+    s3Uri: Annotated[str, _aws_pattern("Datazone", "S3Uri")]
+    s3AccessGrantLocationId: Optional[Annotated[str, _aws_pattern("Datazone", "S3AccessGrantLocationId")]] = None
     registerS3AccessGrantLocation: Optional[bool] = None
 
 
 class SparkEmrPropertiesPatchTypeDef(BaseValidatorModel):
-    computeArn: Optional[str] = None
+    computeArn: Optional[Annotated[str, _aws_pattern("Datazone", "SparkEmrPropertiesPatchComputeArnString")]] = None
     instanceProfileArn: Optional[str] = None
     javaVirtualEnv: Optional[str] = None
     logUri: Optional[str] = None
     pythonVirtualEnv: Optional[str] = None
-    runtimeRole: Optional[str] = None
+    runtimeRole: Optional[Annotated[str, _aws_pattern("Datazone", "SparkEmrPropertiesPatchRuntimeRoleString")]] = None
     trustedCertificatesS3Uri: Optional[str] = None
     managedEndpointArn: Optional[str] = None
 
 
 class FormEntryInputTypeDef(BaseValidatorModel):
-    typeIdentifier: str
+    typeIdentifier: Annotated[str, _aws_pattern("Datazone", "FormTypeIdentifier")]
     typeRevision: str
     required: Optional[bool] = None
 
@@ -461,7 +468,7 @@ class RecommendationConfigurationTypeDef(BaseValidatorModel):
 
 class ScheduleConfigurationTypeDef(BaseValidatorModel):
     timezone: Optional[TimezoneType] = None
-    schedule: Optional[str] = None
+    schedule: Optional[Annotated[str, _aws_pattern("Datazone", "CronString")]] = None
 
 
 class DataSourceErrorMessageTypeDef(BaseValidatorModel):
@@ -472,16 +479,16 @@ class DataSourceErrorMessageTypeDef(BaseValidatorModel):
 class SingleSignOnTypeDef(BaseValidatorModel):
     type: Optional[AuthTypeType] = None
     userAssignment: Optional[UserAssignmentType] = None
-    idcInstanceArn: Optional[str] = None
+    idcInstanceArn: Optional[Annotated[str, _aws_pattern("Datazone", "SingleSignOnIdcInstanceArnString")]] = None
 
 
 # This class is the input for the 'create_domain_unit' function.
 class CreateDomainUnitInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    name: str
-    parentDomainUnitIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "DomainUnitName")]
+    parentDomainUnitIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     description: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 class CreateDomainUnitPolicyGrantDetailTypeDef(BaseValidatorModel):
@@ -489,7 +496,7 @@ class CreateDomainUnitPolicyGrantDetailTypeDef(BaseValidatorModel):
 
 
 class CustomParameterTypeDef(BaseValidatorModel):
-    keyName: str
+    keyName: Annotated[str, _aws_pattern("Datazone", "CustomParameterKeyNameString")]
     fieldType: str
     description: Optional[str] = None
     defaultValue: Optional[str] = None
@@ -516,7 +523,7 @@ class ResourceTypeDef(BaseValidatorModel):
 
 
 class CreateEnvironmentProfilePolicyGrantDetailTypeDef(BaseValidatorModel):
-    domainUnitId: Optional[str] = None
+    domainUnitId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]] = None
 
 
 class ModelTypeDef(BaseValidatorModel):
@@ -529,13 +536,13 @@ class CreateFormTypePolicyGrantDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_glossary' function.
 class CreateGlossaryInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     name: str
-    owningProjectIdentifier: str
+    owningProjectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     description: Optional[str] = None
     status: Optional[GlossaryStatusType] = None
     usageRestrictions: Optional[List[Literal["ASSET_GOVERNED_TERMS"]]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 class CreateGlossaryPolicyGrantDetailTypeDef(BaseValidatorModel):
@@ -549,20 +556,20 @@ class TermRelationsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_group_profile' function.
 class CreateGroupProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    groupIdentifier: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    groupIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "GroupIdentifier")]] = None
     rolePrincipalArn: Optional[str] = None
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'create_listing_change_set' function.
 class CreateListingChangeSetInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    entityIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    entityIdentifier: Annotated[str, _aws_pattern("Datazone", "EntityIdentifier")]
     entityType: EntityTypeType
     action: ChangeActionType
     entityRevision: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 class CreateProjectFromProjectProfilePolicyGrantDetailOutputTypeDef(BaseValidatorModel):
@@ -586,8 +593,8 @@ class ProjectDeletionErrorTypeDef(BaseValidatorModel):
 
 
 class ResourceTagTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("Datazone", "TagKey")]
+    value: Annotated[str, _aws_pattern("Datazone", "TagValue")]
     source: ResourceTagSourceType
 
 
@@ -596,24 +603,24 @@ class CreateProjectPolicyGrantDetailTypeDef(BaseValidatorModel):
 
 
 class ResourceTagParameterTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("Datazone", "TagKey")]
+    value: Annotated[str, _aws_pattern("Datazone", "TagValue")]
     isValueEditable: bool
 
 
 class SubscribedListingInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Datazone", "ListingId")]
 
 
 class SubscriptionTargetFormTypeDef(BaseValidatorModel):
-    formName: str
+    formName: Annotated[str, _aws_pattern("Datazone", "FormName")]
     content: str
 
 
 # This class is the input for the 'create_user_profile' function.
 class CreateUserProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    userIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    userIdentifier: Annotated[str, _aws_pattern("Datazone", "UserIdentifier")]
     userType: Optional[UserTypeType] = None
     sessionName: Optional[str] = None
     clientToken: Optional[str] = None
@@ -621,14 +628,14 @@ class CreateUserProfileInputTypeDef(BaseValidatorModel):
 
 class DataProductItemTypeDef(BaseValidatorModel):
     itemType: Literal["ASSET"]
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Datazone", "EntityIdentifier")]
     revision: Optional[str] = None
-    glossaryTerms: Optional[List[str]] = None
+    glossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
 
 
 class DataProductRevisionTypeDef(BaseValidatorModel):
-    domainId: Optional[str] = None
-    id: Optional[str] = None
+    domainId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainId")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "DataProductId")]] = None
     revision: Optional[str] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
@@ -640,8 +647,10 @@ class SageMakerRunConfigurationInputTypeDef(BaseValidatorModel):
 
 class SageMakerRunConfigurationOutputTypeDef(BaseValidatorModel):
     trackingAssets: Dict[str, List[str]]
-    accountId: Optional[str] = None
-    region: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Datazone", "SageMakerRunConfigurationOutputAccountIdString")]] = (
+        None
+    )
+    region: Optional[Annotated[str, _aws_pattern("Datazone", "SageMakerRunConfigurationOutputRegionString")]] = None
 
 
 class LineageInfoTypeDef(BaseValidatorModel):
@@ -663,153 +672,153 @@ class RunStatisticsForAssetsTypeDef(BaseValidatorModel):
 
 
 class DeleteAccountPoolInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AccountPoolId")]
 
 
 # This class is the input for the 'delete_asset_filter' function.
 class DeleteAssetFilterInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    assetIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    assetIdentifier: Annotated[str, _aws_pattern("Datazone", "AssetId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "FilterId")]
 
 
 class DeleteAssetInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AssetIdentifier")]
 
 
 class DeleteAssetTypeInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AssetTypeIdentifier")]
 
 
 # This class is the input for the 'delete_connection' function.
 class DeleteConnectionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     identifier: str
 
 
 class DeleteDataExportConfigurationInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
 
 
 class DeleteDataProductInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DataProductId")]
 
 
 # This class is the input for the 'delete_data_source' function.
 class DeleteDataSourceInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
     clientToken: Optional[str] = None
     retainPermissionsOnRevokeFailure: Optional[bool] = None
 
 
 # This class is the input for the 'delete_domain' function.
 class DeleteDomainInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     clientToken: Optional[str] = None
     skipDeletionCheck: Optional[bool] = None
 
 
 class DeleteDomainUnitInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
 
 
 # This class is the input for the 'delete_environment_action' function.
 class DeleteEnvironmentActionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     identifier: str
 
 
 class DeleteEnvironmentBlueprintConfigurationInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentBlueprintIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentBlueprintIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
 
 
 # This class is the input for the 'delete_environment_blueprint' function.
 class DeleteEnvironmentBlueprintInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
 
 
 # This class is the input for the 'delete_environment' function.
 class DeleteEnvironmentInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
 
 
 # This class is the input for the 'delete_environment_profile' function.
 class DeleteEnvironmentProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]
 
 
 class DeleteFormTypeInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    formTypeIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    formTypeIdentifier: Annotated[str, _aws_pattern("Datazone", "FormTypeIdentifier")]
 
 
 class DeleteGlossaryInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "GlossaryId")]
 
 
 class DeleteGlossaryTermInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]
 
 
 class DeleteListingInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "ListingId")]
 
 
 class DeleteProjectInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     skipDeletionCheck: Optional[bool] = None
 
 
 class DeleteProjectProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "ProjectProfileId")]
 
 
 class DeleteRuleInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "RuleId")]
 
 
 # This class is the input for the 'delete_subscription_grant' function.
 class DeleteSubscriptionGrantInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionGrantId")]
 
 
 # This class is the input for the 'delete_subscription_request' function.
 class DeleteSubscriptionRequestInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
 
 
 # This class is the input for the 'delete_subscription_target' function.
 class DeleteSubscriptionTargetInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
 
 
 class DeleteTimeSeriesDataPointsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    entityIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    entityIdentifier: Annotated[str, _aws_pattern("Datazone", "EntityIdentifier")]
     entityType: TimeSeriesEntityTypeType
     formName: str
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 class EnvironmentErrorTypeDef(BaseValidatorModel):
@@ -818,20 +827,20 @@ class EnvironmentErrorTypeDef(BaseValidatorModel):
 
 
 class DisassociateEnvironmentRoleInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     environmentRoleArn: str
 
 
 class DisassociateGovernedTermsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    entityIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    entityIdentifier: Annotated[str, _aws_pattern("Datazone", "EntityIdentifier")]
     entityType: Literal["ASSET"]
-    governedGlossaryTerms: List[str]
+    governedGlossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
 
 
 class DomainSummaryTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     name: str
     arn: str
     managedAccountId: str
@@ -844,7 +853,7 @@ class DomainSummaryTypeDef(BaseValidatorModel):
 
 
 class DomainUnitFilterForProjectTypeDef(BaseValidatorModel):
-    domainUnit: str
+    domainUnit: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     includeChildDomainUnits: Optional[bool] = None
 
 
@@ -866,11 +875,11 @@ class DomainUnitUserPropertiesTypeDef(BaseValidatorModel):
 
 class DomainUnitSummaryTypeDef(BaseValidatorModel):
     name: str
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
 
 
 class DomainUnitTargetTypeDef(BaseValidatorModel):
-    domainUnitId: str
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     includeChildDomainUnits: Optional[bool] = None
 
 
@@ -879,53 +888,60 @@ class EncryptionConfigurationTypeDef(BaseValidatorModel):
     sseAlgorithm: Optional[str] = None
 
 
+class PackageConfigTypeDef(BaseValidatorModel):
+    packageManager: Literal["UV"]
+    packageSpecification: Optional[str] = None
+
+
 class RegionTypeDef(BaseValidatorModel):
-    regionName: Optional[str] = None
+    regionName: Optional[Annotated[str, _aws_pattern("Datazone", "RegionName")]] = None
     regionNamePath: Optional[str] = None
 
 
 class EnvironmentConfigurationParameterTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationParameterName")]] = None
     value: Optional[str] = None
     isEditable: Optional[bool] = None
 
 
 class EnvironmentResolvedAccountTypeDef(BaseValidatorModel):
-    awsAccountId: str
-    regionName: str
-    sourceAccountPoolId: Optional[str] = None
+    awsAccountId: Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]
+    regionName: Annotated[str, _aws_pattern("Datazone", "AwsRegion")]
+    sourceAccountPoolId: Optional[Annotated[str, _aws_pattern("Datazone", "AccountPoolId")]] = None
 
 
 class EnvironmentProfileSummaryTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     createdBy: str
-    name: str
-    environmentBlueprintId: str
-    awsAccountId: Optional[str] = None
-    awsAccountRegion: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileName")]
+    environmentBlueprintId: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]] = None
+    awsAccountRegion: Optional[Annotated[str, _aws_pattern("Datazone", "AwsRegion")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     description: Optional[str] = None
-    projectId: Optional[str] = None
+    projectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
 
 
 class EnvironmentSummaryTypeDef(BaseValidatorModel):
-    projectId: str
-    domainId: str
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     createdBy: str
-    name: str
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentName")]
     provider: str
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     description: Optional[str] = None
-    environmentProfileId: Optional[str] = None
-    awsAccountId: Optional[str] = None
-    awsAccountRegion: Optional[str] = None
+    environmentProfileId: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]] = None
+    awsAccountRegion: Optional[Annotated[str, _aws_pattern("Datazone", "AwsRegion")]] = None
     status: Optional[EnvironmentStatusType] = None
-    environmentConfigurationId: Optional[str] = None
-    environmentConfigurationName: Optional[str] = None
+    environmentConfigurationId: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationId")]] = None
+    environmentConfigurationName: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationName")]] = (
+        None
+    )
 
 
 class EqualToExpressionTypeDef(BaseValidatorModel):
@@ -950,150 +966,150 @@ class FilterExpressionTypeDef(BaseValidatorModel):
 
 
 class ImportTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Datazone", "FormTypeName")]
     revision: str
 
 
 # This class is the input for the 'get_account_pool' function.
 class GetAccountPoolInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AccountPoolId")]
 
 
 # This class is the input for the 'get_asset_filter' function.
 class GetAssetFilterInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    assetIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    assetIdentifier: Annotated[str, _aws_pattern("Datazone", "AssetId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "FilterId")]
 
 
 # This class is the input for the 'get_asset' function.
 class GetAssetInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AssetIdentifier")]
     revision: Optional[str] = None
 
 
 # This class is the input for the 'get_asset_type' function.
 class GetAssetTypeInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AssetTypeIdentifier")]
     revision: Optional[str] = None
 
 
 # This class is the input for the 'get_connection' function.
 class GetConnectionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     identifier: str
     withSecret: Optional[bool] = None
 
 
 # This class is the input for the 'get_data_export_configuration' function.
 class GetDataExportConfigurationInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
 
 
 # This class is the input for the 'get_data_product' function.
 class GetDataProductInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DataProductId")]
     revision: Optional[str] = None
 
 
 # This class is the input for the 'get_data_source' function.
 class GetDataSourceInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
 
 
 # This class is the input for the 'get_data_source_run' function.
 class GetDataSourceRunInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DataSourceRunId")]
 
 
 # This class is the input for the 'get_domain' function.
 class GetDomainInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
 
 
 # This class is the input for the 'get_domain_unit' function.
 class GetDomainUnitInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
 
 
 # This class is the input for the 'get_environment_action' function.
 class GetEnvironmentActionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     identifier: str
 
 
 # This class is the input for the 'get_environment_blueprint_configuration' function.
 class GetEnvironmentBlueprintConfigurationInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentBlueprintIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentBlueprintIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
 
 
 # This class is the input for the 'get_environment_blueprint' function.
 class GetEnvironmentBlueprintInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
 
 
 # This class is the input for the 'get_environment_credentials' function.
 class GetEnvironmentCredentialsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
 
 
 # This class is the input for the 'get_environment' function.
 class GetEnvironmentInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
 
 
 # This class is the input for the 'get_environment_profile' function.
 class GetEnvironmentProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]
 
 
 # This class is the input for the 'get_form_type' function.
 class GetFormTypeInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    formTypeIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    formTypeIdentifier: Annotated[str, _aws_pattern("Datazone", "FormTypeIdentifier")]
     revision: Optional[str] = None
 
 
 # This class is the input for the 'get_glossary' function.
 class GetGlossaryInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "GlossaryId")]
 
 
 # This class is the input for the 'get_glossary_term' function.
 class GetGlossaryTermInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]
 
 
 # This class is the input for the 'get_group_profile' function.
 class GetGroupProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    groupIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    groupIdentifier: Annotated[str, _aws_pattern("Datazone", "GroupIdentifier")]
 
 
 # This class is the input for the 'get_iam_portal_login_url' function.
 class GetIamPortalLoginUrlInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
 
 
 # This class is the input for the 'get_job_run' function.
 class GetJobRunInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "RunIdentifier")]
 
 
 class JobRunErrorTypeDef(BaseValidatorModel):
@@ -1102,29 +1118,29 @@ class JobRunErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_lineage_event' function.
 class GetLineageEventInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "LineageEventIdentifier")]
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class LineageNodeReferenceTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "LineageNodeId")]] = None
     eventTimestamp: Optional[datetime] = None
 
 
 # This class is the input for the 'get_listing' function.
 class GetListingInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "ListingId")]
     listingRevision: Optional[str] = None
 
 
 # This class is the input for the 'get_metadata_generation_run' function.
 class GetMetadataGenerationRunInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "MetadataGenerationRunIdentifier")]
     type: Optional[MetadataGenerationRunTypeType] = None
 
 
@@ -1140,72 +1156,103 @@ class MetadataGenerationRunTypeStatTypeDef(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'get_notebook_run' function.
+class GetNotebookRunInputTypeDef(BaseValidatorModel):
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "NotebookRunId")]
+
+
+class NetworkConfigOutputTypeDef(BaseValidatorModel):
+    networkAccessType: NetworkAccessTypeType
+    vpcId: Optional[str] = None
+    subnetIds: Optional[List[str]] = None
+    securityGroupIds: Optional[List[str]] = None
+
+
+class NotebookRunErrorTypeDef(BaseValidatorModel):
+    message: str
+
+
+class StorageConfigTypeDef(BaseValidatorModel):
+    projectS3Path: Optional[Annotated[str, _aws_pattern("Datazone", "S3Path")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Datazone", "KmsKeyArn")]] = None
+
+
+class TimeoutConfigTypeDef(BaseValidatorModel):
+    runTimeoutInMinutes: Optional[int] = None
+
+
+class TriggerSourceTypeDef(BaseValidatorModel):
+    type: Optional[TriggerSourceTypeType] = None
+    name: Optional[str] = None
+
+
 # This class is the input for the 'get_project' function.
 class GetProjectInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
 
 
 # This class is the input for the 'get_project_profile' function.
 class GetProjectProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "ProjectProfileId")]
 
 
 # This class is the input for the 'get_rule' function.
 class GetRuleInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "RuleId")]
     revision: Optional[str] = None
 
 
 # This class is the input for the 'get_subscription_grant' function.
 class GetSubscriptionGrantInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionGrantId")]
 
 
 # This class is the input for the 'get_subscription' function.
 class GetSubscriptionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
 
 
 # This class is the input for the 'get_subscription_request_details' function.
 class GetSubscriptionRequestDetailsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
 
 
 # This class is the input for the 'get_subscription_target' function.
 class GetSubscriptionTargetInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
 
 
 # This class is the input for the 'get_time_series_data_point' function.
 class GetTimeSeriesDataPointInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    entityIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    entityIdentifier: Annotated[str, _aws_pattern("Datazone", "EntityIdentifier")]
     entityType: TimeSeriesEntityTypeType
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Datazone", "TimeSeriesDataPointIdentifier")]
     formName: str
 
 
 class TimeSeriesDataPointFormOutputTypeDef(BaseValidatorModel):
     formName: str
-    typeIdentifier: str
+    typeIdentifier: Annotated[str, _aws_pattern("Datazone", "FormTypeIdentifier")]
     timestamp: datetime
     typeRevision: Optional[str] = None
     content: Optional[str] = None
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "DataPointIdentifier")]] = None
 
 
 # This class is the input for the 'get_user_profile' function.
 class GetUserProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    userIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    userIdentifier: Annotated[str, _aws_pattern("Datazone", "UserIdentifier")]
     type: Optional[UserProfileTypeType] = None
     sessionName: Optional[str] = None
 
@@ -1215,7 +1262,7 @@ class GlossaryTermEnforcementDetailOutputTypeDef(BaseValidatorModel):
 
 
 class GlossaryTermEnforcementDetailTypeDef(BaseValidatorModel):
-    requiredGlossaryTermIds: Optional[List[str]] = None
+    requiredGlossaryTermIds: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
 
 
 class PhysicalConnectionRequirementsOutputTypeDef(BaseValidatorModel):
@@ -1226,10 +1273,12 @@ class PhysicalConnectionRequirementsOutputTypeDef(BaseValidatorModel):
 
 
 class GlueOAuth2CredentialsTypeDef(BaseValidatorModel):
-    userManagedClientApplicationClientSecret: Optional[str] = None
-    accessToken: Optional[str] = None
-    refreshToken: Optional[str] = None
-    jwtToken: Optional[str] = None
+    userManagedClientApplicationClientSecret: Optional[
+        Annotated[str, _aws_pattern("Datazone", "GlueOAuth2CredentialsUserManagedClientApplicationClientSecretString")]
+    ] = None
+    accessToken: Optional[Annotated[str, _aws_pattern("Datazone", "GlueOAuth2CredentialsAccessTokenString")]] = None
+    refreshToken: Optional[Annotated[str, _aws_pattern("Datazone", "GlueOAuth2CredentialsRefreshTokenString")]] = None
+    jwtToken: Optional[Annotated[str, _aws_pattern("Datazone", "GlueOAuth2CredentialsJwtTokenString")]] = None
 
 
 class SelfGrantStatusDetailTypeDef(BaseValidatorModel):
@@ -1240,12 +1289,12 @@ class SelfGrantStatusDetailTypeDef(BaseValidatorModel):
 
 
 class ListingRevisionInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Datazone", "ListingId")]
     revision: str
 
 
 class ListingRevisionTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "ListingId")]
     revision: str
 
 
@@ -1264,14 +1313,14 @@ class GroupDetailsTypeDef(BaseValidatorModel):
 
 
 class GroupPolicyGrantPrincipalTypeDef(BaseValidatorModel):
-    groupIdentifier: Optional[str] = None
+    groupIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "GroupIdentifier")]] = None
 
 
 class GroupProfileSummaryTypeDef(BaseValidatorModel):
-    domainId: Optional[str] = None
-    id: Optional[str] = None
+    domainId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainId")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "GroupProfileId")]] = None
     status: Optional[GroupProfileStatusType] = None
-    groupName: Optional[str] = None
+    groupName: Optional[Annotated[str, _aws_pattern("Datazone", "GroupProfileName")]] = None
     rolePrincipalArn: Optional[str] = None
     rolePrincipalId: Optional[str] = None
 
@@ -1307,8 +1356,10 @@ class LakeFormationConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class LakeFormationConfigurationTypeDef(BaseValidatorModel):
-    locationRegistrationRole: Optional[str] = None
-    locationRegistrationExcludeS3Locations: Optional[List[str]] = None
+    locationRegistrationRole: Optional[Annotated[str, _aws_pattern("Datazone", "RoleArn")]] = None
+    locationRegistrationExcludeS3Locations: Optional[List[Annotated[str, _aws_pattern("Datazone", "S3Location")]]] = (
+        None
+    )
 
 
 class LessThanExpressionTypeDef(BaseValidatorModel):
@@ -1327,8 +1378,8 @@ class LikeExpressionTypeDef(BaseValidatorModel):
 
 
 class LineageNodeSummaryTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "LineageNodeId")]
     typeName: str
     name: Optional[str] = None
     description: Optional[str] = None
@@ -1350,7 +1401,7 @@ class LineageSqlQueryRunDetailsTypeDef(BaseValidatorModel):
 
 
 class LineageSyncScheduleTypeDef(BaseValidatorModel):
-    schedule: Optional[str] = None
+    schedule: Optional[Annotated[str, _aws_pattern("Datazone", "LineageSyncScheduleScheduleString")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -1361,8 +1412,8 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_account_pools' function.
 class ListAccountPoolsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    name: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "AccountPoolName")]] = None
     sortBy: Optional[Literal["NAME"]] = None
     sortOrder: Optional[SortOrderType] = None
     nextToken: Optional[str] = None
@@ -1371,16 +1422,16 @@ class ListAccountPoolsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_accounts_in_account_pool' function.
 class ListAccountsInAccountPoolInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AccountPoolId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_asset_filters' function.
 class ListAssetFiltersInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    assetIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    assetIdentifier: Annotated[str, _aws_pattern("Datazone", "AssetId")]
     status: Optional[FilterStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1388,38 +1439,38 @@ class ListAssetFiltersInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_asset_revisions' function.
 class ListAssetRevisionsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AssetIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_connections' function.
 class ListConnectionsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sortBy: Optional[Literal["NAME"]] = None
     sortOrder: Optional[SortOrderType] = None
     name: Optional[str] = None
-    environmentIdentifier: Optional[str] = None
-    projectIdentifier: Optional[str] = None
+    environmentIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]] = None
+    projectIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
     type: Optional[ConnectionTypeType] = None
     scope: Optional[ConnectionScopeType] = None
 
 
 # This class is the input for the 'list_data_product_revisions' function.
 class ListDataProductRevisionsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DataProductId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_data_source_run_activities' function.
 class ListDataSourceRunActivitiesInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DataSourceRunId")]
     status: Optional[DataAssetActivityStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1427,8 +1478,8 @@ class ListDataSourceRunActivitiesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_source_runs' function.
 class ListDataSourceRunsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    dataSourceIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    dataSourceIdentifier: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
     status: Optional[DataSourceRunStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1436,7 +1487,7 @@ class ListDataSourceRunsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_sources' function.
 class ListDataSourcesInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     projectIdentifier: str
     environmentIdentifier: Optional[str] = None
     connectionIdentifier: Optional[str] = None
@@ -1449,8 +1500,8 @@ class ListDataSourcesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_domain_units_for_parent' function.
 class ListDomainUnitsForParentInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    parentDomainUnitIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    parentDomainUnitIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -1464,7 +1515,7 @@ class ListDomainsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_entity_owners' function.
 class ListEntityOwnersInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     entityType: Literal["DOMAIN_UNIT"]
     entityIdentifier: str
     maxResults: Optional[int] = None
@@ -1473,49 +1524,49 @@ class ListEntityOwnersInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_environment_actions' function.
 class ListEnvironmentActionsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_environment_blueprint_configurations' function.
 class ListEnvironmentBlueprintConfigurationsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_environment_blueprints' function.
 class ListEnvironmentBlueprintsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintName")]] = None
     managed: Optional[bool] = None
 
 
 # This class is the input for the 'list_environment_profiles' function.
 class ListEnvironmentProfilesInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    awsAccountId: Optional[str] = None
-    awsAccountRegion: Optional[str] = None
-    environmentBlueprintIdentifier: Optional[str] = None
-    projectIdentifier: Optional[str] = None
-    name: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]] = None
+    awsAccountRegion: Optional[Annotated[str, _aws_pattern("Datazone", "AwsRegion")]] = None
+    environmentBlueprintIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]] = None
+    projectIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileName")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_environments' function.
 class ListEnvironmentsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    projectIdentifier: str
-    awsAccountId: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]] = None
     status: Optional[EnvironmentStatusType] = None
-    awsAccountRegion: Optional[str] = None
-    environmentProfileIdentifier: Optional[str] = None
-    environmentBlueprintIdentifier: Optional[str] = None
+    awsAccountRegion: Optional[Annotated[str, _aws_pattern("Datazone", "AwsRegion")]] = None
+    environmentProfileIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]] = None
+    environmentBlueprintIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]] = None
     provider: Optional[str] = None
     name: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1524,8 +1575,8 @@ class ListEnvironmentsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_job_runs' function.
 class ListJobRunsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    jobIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    jobIdentifier: Annotated[str, _aws_pattern("Datazone", "ListJobRunsInputJobIdentifierString")]
     status: Optional[JobRunStatusType] = None
     sortOrder: Optional[SortOrderType] = None
     nextToken: Optional[str] = None
@@ -1534,17 +1585,29 @@ class ListJobRunsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_metadata_generation_runs' function.
 class ListMetadataGenerationRunsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: Optional[MetadataGenerationRunStatusType] = None
     type: Optional[MetadataGenerationRunTypeType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    targetIdentifier: Optional[str] = None
+    targetIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "EntityId")]] = None
+
+
+# This class is the input for the 'list_notebook_runs' function.
+class ListNotebookRunsInputTypeDef(BaseValidatorModel):
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    owningProjectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    notebookIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "NotebookId")]] = None
+    status: Optional[NotebookRunStatusType] = None
+    scheduleIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "ScheduleId")]] = None
+    maxResults: Optional[int] = None
+    sortOrder: Optional[SortOrderType] = None
+    nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_policy_grants' function.
 class ListPolicyGrantsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     entityType: TargetEntityTypeType
     entityIdentifier: str
     policyType: ManagedPolicyTypeType
@@ -1554,8 +1617,8 @@ class ListPolicyGrantsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_project_memberships' function.
 class ListProjectMembershipsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    projectIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     sortBy: Optional[Literal["NAME"]] = None
     sortOrder: Optional[SortOrderType] = None
     nextToken: Optional[str] = None
@@ -1564,8 +1627,8 @@ class ListProjectMembershipsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_project_profiles' function.
 class ListProjectProfilesInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    name: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectProfileName")]] = None
     sortBy: Optional[Literal["NAME"]] = None
     sortOrder: Optional[SortOrderType] = None
     nextToken: Optional[str] = None
@@ -1573,23 +1636,23 @@ class ListProjectProfilesInputTypeDef(BaseValidatorModel):
 
 
 class ProjectProfileSummaryTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "ProjectProfileId")]
+    name: Annotated[str, _aws_pattern("Datazone", "ProjectProfileName")]
     createdBy: str
     description: Optional[str] = None
     status: Optional[StatusType] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
-    domainUnitId: Optional[str] = None
+    domainUnitId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]] = None
 
 
 # This class is the input for the 'list_projects' function.
 class ListProjectsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     userIdentifier: Optional[str] = None
     groupIdentifier: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectName")]] = None
     projectCategory: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1597,13 +1660,13 @@ class ListProjectsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_rules' function.
 class ListRulesInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     targetType: Literal["DOMAIN_UNIT"]
     targetIdentifier: str
     ruleType: Optional[RuleTypeType] = None
     action: Optional[RuleActionType] = None
-    projectIds: Optional[List[str]] = None
-    assetTypes: Optional[List[str]] = None
+    projectIds: Optional[List[Annotated[str, _aws_pattern("Datazone", "ProjectId")]]] = None
+    assetTypes: Optional[List[Annotated[str, _aws_pattern("Datazone", "AssetTypeIdentifier")]]] = None
     dataProduct: Optional[bool] = None
     includeCascaded: Optional[bool] = None
     maxResults: Optional[int] = None
@@ -1612,15 +1675,15 @@ class ListRulesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_subscription_grants' function.
 class ListSubscriptionGrantsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentId: Optional[str] = None
-    subscriptionTargetId: Optional[str] = None
-    subscribedListingId: Optional[str] = None
-    subscriptionId: Optional[str] = None
-    owningProjectId: Optional[str] = None
-    owningIamPrincipalArn: Optional[str] = None
-    owningUserId: Optional[str] = None
-    owningGroupId: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentId: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]] = None
+    subscriptionTargetId: Optional[Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]] = None
+    subscribedListingId: Optional[Annotated[str, _aws_pattern("Datazone", "ListingId")]] = None
+    subscriptionId: Optional[Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]] = None
+    owningProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
+    owningIamPrincipalArn: Optional[Annotated[str, _aws_pattern("Datazone", "IamPrincipalArn")]] = None
+    owningUserId: Optional[Annotated[str, _aws_pattern("Datazone", "UserProfileId")]] = None
+    owningGroupId: Optional[Annotated[str, _aws_pattern("Datazone", "GroupProfileId")]] = None
     sortBy: Optional[SortKeyType] = None
     sortOrder: Optional[SortOrderType] = None
     maxResults: Optional[int] = None
@@ -1629,14 +1692,14 @@ class ListSubscriptionGrantsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_subscription_requests' function.
 class ListSubscriptionRequestsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: Optional[SubscriptionRequestStatusType] = None
-    subscribedListingId: Optional[str] = None
-    owningProjectId: Optional[str] = None
-    owningIamPrincipalArn: Optional[str] = None
-    approverProjectId: Optional[str] = None
-    owningUserId: Optional[str] = None
-    owningGroupId: Optional[str] = None
+    subscribedListingId: Optional[Annotated[str, _aws_pattern("Datazone", "ListingId")]] = None
+    owningProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
+    owningIamPrincipalArn: Optional[Annotated[str, _aws_pattern("Datazone", "IamPrincipalArn")]] = None
+    approverProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
+    owningUserId: Optional[Annotated[str, _aws_pattern("Datazone", "UserProfileId")]] = None
+    owningGroupId: Optional[Annotated[str, _aws_pattern("Datazone", "GroupProfileId")]] = None
     sortBy: Optional[SortKeyType] = None
     sortOrder: Optional[SortOrderType] = None
     maxResults: Optional[int] = None
@@ -1645,8 +1708,8 @@ class ListSubscriptionRequestsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_subscription_targets' function.
 class ListSubscriptionTargetsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     sortBy: Optional[SortKeyType] = None
     sortOrder: Optional[SortOrderType] = None
     maxResults: Optional[int] = None
@@ -1655,15 +1718,15 @@ class ListSubscriptionTargetsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_subscriptions' function.
 class ListSubscriptionsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    subscriptionRequestIdentifier: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    subscriptionRequestIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]] = None
     status: Optional[SubscriptionStatusType] = None
-    subscribedListingId: Optional[str] = None
-    owningProjectId: Optional[str] = None
-    owningIamPrincipalArn: Optional[str] = None
-    owningUserId: Optional[str] = None
-    owningGroupId: Optional[str] = None
-    approverProjectId: Optional[str] = None
+    subscribedListingId: Optional[Annotated[str, _aws_pattern("Datazone", "ListingId")]] = None
+    owningProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
+    owningIamPrincipalArn: Optional[Annotated[str, _aws_pattern("Datazone", "IamPrincipalArn")]] = None
+    owningUserId: Optional[Annotated[str, _aws_pattern("Datazone", "UserProfileId")]] = None
+    owningGroupId: Optional[Annotated[str, _aws_pattern("Datazone", "GroupProfileId")]] = None
+    approverProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
     sortBy: Optional[SortKeyType] = None
     sortOrder: Optional[SortOrderType] = None
     maxResults: Optional[int] = None
@@ -1696,19 +1759,26 @@ class UserDetailsTypeDef(BaseValidatorModel):
 
 
 class MetadataFormReferenceTypeDef(BaseValidatorModel):
-    typeIdentifier: str
+    typeIdentifier: Annotated[str, _aws_pattern("Datazone", "FormTypeIdentifier")]
     typeRevision: str
 
 
 class MetadataFormSummaryTypeDef(BaseValidatorModel):
-    typeName: str
+    typeName: Annotated[str, _aws_pattern("Datazone", "FormTypeName")]
     typeRevision: str
-    formName: Optional[str] = None
+    formName: Optional[Annotated[str, _aws_pattern("Datazone", "FormName")]] = None
 
 
 class NameIdentifierTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     namespace: Optional[str] = None
+
+
+class NetworkConfigTypeDef(BaseValidatorModel):
+    networkAccessType: NetworkAccessTypeType
+    vpcId: Optional[str] = None
+    subnetIds: Optional[List[str]] = None
+    securityGroupIds: Optional[List[str]] = None
 
 
 class NotEqualToExpressionTypeDef(BaseValidatorModel):
@@ -1738,8 +1808,12 @@ class NotificationResourceTypeDef(BaseValidatorModel):
 
 
 class OAuth2ClientApplicationTypeDef(BaseValidatorModel):
-    userManagedClientApplicationClientId: Optional[str] = None
-    aWSManagedClientApplicationReference: Optional[str] = None
+    userManagedClientApplicationClientId: Optional[
+        Annotated[str, _aws_pattern("Datazone", "OAuth2ClientApplicationUserManagedClientApplicationClientIdString")]
+    ] = None
+    aWSManagedClientApplicationReference: Optional[
+        Annotated[str, _aws_pattern("Datazone", "OAuth2ClientApplicationAWSManagedClientApplicationReferenceString")]
+    ] = None
 
 
 class OverrideDomainUnitOwnersPolicyGrantDetailTypeDef(BaseValidatorModel):
@@ -1755,7 +1829,7 @@ class OwnerGroupPropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class OwnerGroupPropertiesTypeDef(BaseValidatorModel):
-    groupIdentifier: str
+    groupIdentifier: Annotated[str, _aws_pattern("Datazone", "GroupIdentifier")]
 
 
 class OwnerUserPropertiesOutputTypeDef(BaseValidatorModel):
@@ -1763,7 +1837,7 @@ class OwnerUserPropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class OwnerUserPropertiesTypeDef(BaseValidatorModel):
-    userIdentifier: str
+    userIdentifier: Annotated[str, _aws_pattern("Datazone", "UserIdentifier")]
 
 
 class PermissionsOutputTypeDef(BaseValidatorModel):
@@ -1775,14 +1849,14 @@ class PermissionsTypeDef(BaseValidatorModel):
 
 
 class PhysicalConnectionRequirementsTypeDef(BaseValidatorModel):
-    subnetId: Optional[str] = None
-    subnetIdList: Optional[List[str]] = None
+    subnetId: Optional[Annotated[str, _aws_pattern("Datazone", "SubnetId")]] = None
+    subnetIdList: Optional[List[Annotated[str, _aws_pattern("Datazone", "SubnetId")]]] = None
     securityGroupIdList: Optional[List[str]] = None
     availabilityZone: Optional[str] = None
 
 
 class UseAssetTypePolicyGrantDetailTypeDef(BaseValidatorModel):
-    domainUnitId: Optional[str] = None
+    domainUnitId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]] = None
 
 
 class UserPolicyGrantPrincipalOutputTypeDef(BaseValidatorModel):
@@ -1791,7 +1865,7 @@ class UserPolicyGrantPrincipalOutputTypeDef(BaseValidatorModel):
 
 
 class UserPolicyGrantPrincipalTypeDef(BaseValidatorModel):
-    userIdentifier: Optional[str] = None
+    userIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "UserIdentifier")]] = None
     allUsersGrantFilter: Optional[Dict[str, Any]] = None
 
 
@@ -1802,15 +1876,15 @@ class ProjectsForRuleOutputTypeDef(BaseValidatorModel):
 
 class ProjectsForRuleTypeDef(BaseValidatorModel):
     selectionMode: RuleScopeSelectionModeType
-    specificProjects: Optional[List[str]] = None
+    specificProjects: Optional[List[Annotated[str, _aws_pattern("Datazone", "ProjectId")]]] = None
 
 
 class RedshiftClusterStorageTypeDef(BaseValidatorModel):
-    clusterName: str
+    clusterName: Annotated[str, _aws_pattern("Datazone", "RedshiftClusterStorageClusterNameString")]
 
 
 class RedshiftCredentialConfigurationTypeDef(BaseValidatorModel):
-    secretManagerArn: str
+    secretManagerArn: Annotated[str, _aws_pattern("Datazone", "RedshiftCredentialConfigurationSecretManagerArnString")]
 
 
 class UsernamePasswordTypeDef(BaseValidatorModel):
@@ -1824,7 +1898,7 @@ class RedshiftStoragePropertiesTypeDef(BaseValidatorModel):
 
 
 class RedshiftServerlessStorageTypeDef(BaseValidatorModel):
-    workgroupName: str
+    workgroupName: Annotated[str, _aws_pattern("Datazone", "RedshiftServerlessStorageWorkgroupNameString")]
 
 
 class RejectChoiceTypeDef(BaseValidatorModel):
@@ -1839,21 +1913,21 @@ class RejectRuleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reject_subscription_request' function.
 class RejectSubscriptionRequestInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     decisionComment: Optional[str] = None
 
 
 # This class is the input for the 'revoke_subscription' function.
 class RevokeSubscriptionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     retainPermissions: Optional[bool] = None
 
 
 # This class is the input for the 'search_group_profiles' function.
 class SearchGroupProfilesInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     groupType: GroupSearchTypeType
     searchText: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1871,7 +1945,7 @@ class SearchSortTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_user_profiles' function.
 class SearchUserProfilesInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     userType: UserSearchTypeType
     searchText: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1883,46 +1957,53 @@ class SparkGlueArgsTypeDef(BaseValidatorModel):
 
 
 class SsoUserProfileDetailsTypeDef(BaseValidatorModel):
-    username: Optional[str] = None
+    username: Optional[Annotated[str, _aws_pattern("Datazone", "UserProfileName")]] = None
     firstName: Optional[str] = None
     lastName: Optional[str] = None
 
 
 # This class is the input for the 'start_data_source_run' function.
 class StartDataSourceRunInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    dataSourceIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    dataSourceIdentifier: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'stop_notebook_run' function.
+class StopNotebookRunInputTypeDef(BaseValidatorModel):
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "NotebookRunId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
+
+
 class SubscribedGroupInputTypeDef(BaseValidatorModel):
-    identifier: Optional[str] = None
+    identifier: Optional[Annotated[str, _aws_pattern("Datazone", "GroupProfileId")]] = None
 
 
 class SubscribedGroupTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "GroupProfileId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "GroupProfileName")]] = None
 
 
 class SubscribedIamPrincipalInputTypeDef(BaseValidatorModel):
-    identifier: Optional[str] = None
+    identifier: Optional[Annotated[str, _aws_pattern("Datazone", "IamPrincipalArn")]] = None
 
 
 class SubscribedIamPrincipalTypeDef(BaseValidatorModel):
-    principalArn: Optional[str] = None
+    principalArn: Optional[Annotated[str, _aws_pattern("Datazone", "IamPrincipalArn")]] = None
 
 
 class SubscribedProjectInputTypeDef(BaseValidatorModel):
-    identifier: Optional[str] = None
+    identifier: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
 
 
 class SubscribedUserInputTypeDef(BaseValidatorModel):
-    identifier: Optional[str] = None
+    identifier: Optional[Annotated[str, _aws_pattern("Datazone", "UserProfileId")]] = None
 
 
 class SubscribedProjectTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectName")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
@@ -1931,58 +2012,58 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 
 class TermRelationsTypeDef(BaseValidatorModel):
-    isA: Optional[List[str]] = None
-    classifies: Optional[List[str]] = None
+    isA: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
+    classifies: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Datazone", "TagKey")]]
 
 
 # This class is the input for the 'update_domain_unit' function.
 class UpdateDomainUnitInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     description: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "DomainUnitName")]] = None
 
 
 # This class is the input for the 'update_glossary' function.
 class UpdateGlossaryInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "GlossaryId")]
     name: Optional[str] = None
     description: Optional[str] = None
     status: Optional[GlossaryStatusType] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_group_profile' function.
 class UpdateGroupProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    groupIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    groupIdentifier: Annotated[str, _aws_pattern("Datazone", "GroupIdentifier")]
     status: GroupProfileStatusType
 
 
 class UpdateRootDomainUnitOwnerInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    currentOwner: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    currentOwner: Annotated[str, _aws_pattern("Datazone", "UserIdentifier")]
     newOwner: str
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_subscription_request' function.
 class UpdateSubscriptionRequestInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     requestReason: str
 
 
 # This class is the input for the 'update_user_profile' function.
 class UpdateUserProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    userIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    userIdentifier: Annotated[str, _aws_pattern("Datazone", "UserIdentifier")]
     status: UserProfileStatusType
     type: Optional[UserProfileTypeType] = None
     sessionName: Optional[str] = None
@@ -1990,46 +2071,46 @@ class UpdateUserProfileInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'accept_predictions' function.
 class AcceptPredictionsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AssetIdentifier")]
     revision: Optional[str] = None
     acceptRule: Optional[AcceptRuleTypeDef] = None
     acceptChoices: Optional[List[AcceptChoiceTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the output for the 'accept_predictions' function.
 class AcceptPredictionsOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    assetId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    assetId: Annotated[str, _aws_pattern("Datazone", "AssetId")]
     revision: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'add_policy_grant' function.
 class AddPolicyGrantOutputTypeDef(BaseValidatorModel):
-    grantId: str
+    grantId: Annotated[str, _aws_pattern("Datazone", "GrantIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_form_type' function.
 class CreateFormTypeOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "FormTypeName")]
     revision: str
     description: str
-    owningProjectId: str
-    originDomainId: str
-    originProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    originDomainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    originProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_glossary' function.
 class CreateGlossaryOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "GlossaryId")]
     name: str
-    owningProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     description: str
     status: GlossaryStatusType
     usageRestrictions: List[Literal["ASSET_GOVERNED_TERMS"]]
@@ -2038,10 +2119,10 @@ class CreateGlossaryOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_group_profile' function.
 class CreateGroupProfileOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "GroupProfileId")]
     status: GroupProfileStatusType
-    groupName: str
+    groupName: Annotated[str, _aws_pattern("Datazone", "GroupProfileName")]
     rolePrincipalArn: str
     rolePrincipalId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2049,7 +2130,7 @@ class CreateGroupProfileOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_listing_change_set' function.
 class CreateListingChangeSetOutputTypeDef(BaseValidatorModel):
-    listingId: str
+    listingId: Annotated[str, _aws_pattern("Datazone", "ListingId")]
     listingRevision: str
     status: ListingStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2083,9 +2164,9 @@ class GetEnvironmentCredentialsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_glossary' function.
 class GetGlossaryOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
-    owningProjectId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "GlossaryId")]
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     name: str
     description: str
     status: GlossaryStatusType
@@ -2099,10 +2180,10 @@ class GetGlossaryOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_group_profile' function.
 class GetGroupProfileOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "GroupProfileId")]
     status: GroupProfileStatusType
-    groupName: str
+    groupName: Annotated[str, _aws_pattern("Datazone", "GroupProfileName")]
     rolePrincipalArn: str
     rolePrincipalId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2117,8 +2198,8 @@ class GetIamPortalLoginUrlOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_lineage_event' function.
 class GetLineageEventOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "LineageEventIdentifier")]
     event: StreamingBody
     createdBy: str
     processingStatus: LineageEventProcessingStatusType
@@ -2135,38 +2216,47 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'post_lineage_event' function.
 class PostLineageEventOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
+    id: Annotated[str, _aws_pattern("Datazone", "LineageEventIdentifier")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'reject_predictions' function.
 class RejectPredictionsOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    assetId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    assetId: Annotated[str, _aws_pattern("Datazone", "AssetId")]
     assetRevision: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_metadata_generation_run' function.
 class StartMetadataGenerationRunOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "MetadataGenerationRunIdentifier")]
     status: MetadataGenerationRunStatusType
     type: MetadataGenerationRunTypeType
     types: List[MetadataGenerationRunTypeType]
     createdAt: datetime
     createdBy: str
-    owningProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'stop_notebook_run' function.
+class StopNotebookRunOutputTypeDef(BaseValidatorModel):
+    id: Annotated[str, _aws_pattern("Datazone", "NotebookRunId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    status: NotebookRunStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_glossary' function.
 class UpdateGlossaryOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "GlossaryId")]
     name: str
-    owningProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     description: str
     status: GlossaryStatusType
     usageRestrictions: List[Literal["ASSET_GOVERNED_TERMS"]]
@@ -2175,10 +2265,10 @@ class UpdateGlossaryOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_group_profile' function.
 class UpdateGroupProfileOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "GroupProfileId")]
     status: GroupProfileStatusType
-    groupName: str
+    groupName: Annotated[str, _aws_pattern("Datazone", "GroupProfileName")]
     rolePrincipalArn: str
     rolePrincipalId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2190,8 +2280,8 @@ class BatchGetAttributeOutputTypeDef(BaseValidatorModel):
 
 
 class LineageNodeItemTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "LineageNodeId")]
     typeName: str
     name: Optional[str] = None
     description: Optional[str] = None
@@ -2203,8 +2293,8 @@ class LineageNodeItemTypeDef(BaseValidatorModel):
     sourceIdentifier: Optional[str] = None
     eventTimestamp: Optional[datetime] = None
     formsOutput: Optional[List[FormOutputTypeDef]] = None
-    upstreamLineageNodeIds: Optional[List[str]] = None
-    downstreamLineageNodeIds: Optional[List[str]] = None
+    upstreamLineageNodeIds: Optional[List[Annotated[str, _aws_pattern("Datazone", "LineageNodeId")]]] = None
+    downstreamLineageNodeIds: Optional[List[Annotated[str, _aws_pattern("Datazone", "LineageNodeId")]]] = None
 
 
 # This class is the output for the 'list_accounts_in_account_pool' function.
@@ -2257,9 +2347,9 @@ class ListTimeSeriesDataPointsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_asset' function.
 class GetAssetOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "AssetId")]
     name: str
-    typeIdentifier: str
+    typeIdentifier: Annotated[str, _aws_pattern("Datazone", "AssetTypeIdentifier")]
     typeRevision: str
     externalIdentifier: str
     revision: str
@@ -2268,10 +2358,10 @@ class GetAssetOutputTypeDef(BaseValidatorModel):
     createdBy: str
     firstRevisionCreatedAt: datetime
     firstRevisionCreatedBy: str
-    glossaryTerms: List[str]
-    governedGlossaryTerms: List[str]
-    owningProjectId: str
-    domainId: str
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
+    governedGlossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     listing: AssetListingDetailsTypeDef
     formsOutput: List[FormOutputTypeDef]
     readOnlyFormsOutput: List[FormOutputTypeDef]
@@ -2280,31 +2370,31 @@ class GetAssetOutputTypeDef(BaseValidatorModel):
 
 
 class AssetListingTypeDef(BaseValidatorModel):
-    assetId: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Datazone", "AssetId")]] = None
     assetRevision: Optional[str] = None
-    assetType: Optional[str] = None
+    assetType: Optional[Annotated[str, _aws_pattern("Datazone", "TypeName")]] = None
     createdAt: Optional[datetime] = None
     forms: Optional[str] = None
     latestTimeSeriesDataPointForms: Optional[List[TimeSeriesDataPointSummaryFormOutputTypeDef]] = None
     glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
     governedGlossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
-    owningProjectId: Optional[str] = None
+    owningProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
 
 
 class ListingSummaryItemTypeDef(BaseValidatorModel):
-    listingId: Optional[str] = None
+    listingId: Optional[Annotated[str, _aws_pattern("Datazone", "ListingId")]] = None
     listingRevision: Optional[str] = None
     glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
 
 
 class ListingSummaryTypeDef(BaseValidatorModel):
-    listingId: Optional[str] = None
+    listingId: Optional[Annotated[str, _aws_pattern("Datazone", "ListingId")]] = None
     listingRevision: Optional[str] = None
     glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
 
 
 class SubscribedProductListingTypeDef(BaseValidatorModel):
-    entityId: Optional[str] = None
+    entityId: Optional[Annotated[str, _aws_pattern("Datazone", "AssetId")]] = None
     entityRevision: Optional[str] = None
     glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
     name: Optional[str] = None
@@ -2320,14 +2410,14 @@ class ListAssetRevisionsOutputTypeDef(BaseValidatorModel):
 
 
 class AssetTypeItemTypeDef(BaseValidatorModel):
-    domainId: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "TypeName")]
     revision: str
     formsOutput: Dict[str, FormEntryOutputTypeDef]
-    owningProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     description: Optional[str] = None
-    originDomainId: Optional[str] = None
-    originProjectId: Optional[str] = None
+    originDomainId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainId")]] = None
+    originProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     updatedAt: Optional[datetime] = None
@@ -2336,14 +2426,14 @@ class AssetTypeItemTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_asset_type' function.
 class CreateAssetTypeOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "TypeName")]
     revision: str
     description: str
     formsOutput: Dict[str, FormEntryOutputTypeDef]
-    owningProjectId: str
-    originDomainId: str
-    originProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    originDomainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    originProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     createdAt: datetime
     createdBy: str
     updatedAt: datetime
@@ -2353,14 +2443,14 @@ class CreateAssetTypeOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_asset_type' function.
 class GetAssetTypeOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "TypeName")]
     revision: str
     description: str
     formsOutput: Dict[str, FormEntryOutputTypeDef]
-    owningProjectId: str
-    originDomainId: str
-    originProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    originDomainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    originProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     createdAt: datetime
     createdBy: str
     updatedAt: datetime
@@ -2369,7 +2459,7 @@ class GetAssetTypeOutputTypeDef(BaseValidatorModel):
 
 
 class LineageNodeTypeItemTypeDef(BaseValidatorModel):
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     revision: str
     formsOutput: Dict[str, FormEntryOutputTypeDef]
     name: Optional[str] = None
@@ -2386,7 +2476,9 @@ class AttributeInputTypeDef(BaseValidatorModel):
 
 
 class AuthenticationConfigurationPatchTypeDef(BaseValidatorModel):
-    secretArn: Optional[str] = None
+    secretArn: Optional[Annotated[str, _aws_pattern("Datazone", "AuthenticationConfigurationPatchSecretArnString")]] = (
+        None
+    )
     basicAuthenticationCredentials: Optional[BasicAuthenticationCredentialsTypeDef] = None
 
 
@@ -2399,9 +2491,9 @@ class BatchPutAttributesMetadataOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'post_lineage_event' function.
 class PostLineageEventInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     event: BlobTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 class PredictionConfigurationTypeDef(BaseValidatorModel):
@@ -2423,23 +2515,23 @@ ConfigurationUnionTypeDef = Union[ConfigurationOutputTypeDef, ConfigurationTypeD
 
 # This class is the input for the 'create_asset_type' function.
 class CreateAssetTypeInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    name: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "TypeName")]
     formsInput: Dict[str, FormEntryInputTypeDef]
-    owningProjectIdentifier: str
+    owningProjectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     description: Optional[str] = None
 
 
 # This class is the output for the 'create_data_product' function.
 class CreateDataProductOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "DataProductId")]
     revision: str
-    owningProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     name: str
     status: DataProductStatusType
     description: str
-    glossaryTerms: List[str]
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
     items: List[DataProductItemOutputTypeDef]
     formsOutput: List[FormOutputTypeDef]
     createdAt: datetime
@@ -2451,14 +2543,14 @@ class CreateDataProductOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_data_product_revision' function.
 class CreateDataProductRevisionOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "DataProductId")]
     revision: str
-    owningProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     name: str
     status: DataProductStatusType
     description: str
-    glossaryTerms: List[str]
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
     items: List[DataProductItemOutputTypeDef]
     formsOutput: List[FormOutputTypeDef]
     createdAt: datetime
@@ -2470,14 +2562,14 @@ class CreateDataProductRevisionOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_data_product' function.
 class GetDataProductOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "DataProductId")]
     revision: str
-    owningProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     name: str
     status: DataProductStatusType
     description: str
-    glossaryTerms: List[str]
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
     items: List[DataProductItemOutputTypeDef]
     formsOutput: List[FormOutputTypeDef]
     createdAt: datetime
@@ -2488,8 +2580,8 @@ class GetDataProductOutputTypeDef(BaseValidatorModel):
 
 
 class DataSourceSummaryTypeDef(BaseValidatorModel):
-    domainId: str
-    dataSourceId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    dataSourceId: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
     name: str
     type: str
     status: DataSourceStatusType
@@ -2511,71 +2603,71 @@ class CreateDomainInputTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     singleSignOn: Optional[SingleSignOnTypeDef] = None
-    domainExecutionRole: Optional[str] = None
-    kmsKeyIdentifier: Optional[str] = None
+    domainExecutionRole: Optional[Annotated[str, _aws_pattern("Datazone", "RoleArn")]] = None
+    kmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "KmsKeyArn")]] = None
     tags: Optional[Dict[str, str]] = None
     domainVersion: Optional[DomainVersionType] = None
-    serviceRole: Optional[str] = None
+    serviceRole: Optional[Annotated[str, _aws_pattern("Datazone", "RoleArn")]] = None
     clientToken: Optional[str] = None
 
 
 # This class is the output for the 'create_domain' function.
 class CreateDomainOutputTypeDef(BaseValidatorModel):
-    id: str
-    rootDomainUnitId: str
+    id: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    rootDomainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     name: str
     description: str
     singleSignOn: SingleSignOnTypeDef
-    domainExecutionRole: str
+    domainExecutionRole: Annotated[str, _aws_pattern("Datazone", "RoleArn")]
     arn: str
-    kmsKeyIdentifier: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("Datazone", "KmsKeyArn")]
     status: DomainStatusType
     portalUrl: str
     tags: Dict[str, str]
     domainVersion: DomainVersionType
-    serviceRole: str
+    serviceRole: Annotated[str, _aws_pattern("Datazone", "RoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_domain' function.
 class GetDomainOutputTypeDef(BaseValidatorModel):
-    id: str
-    rootDomainUnitId: str
+    id: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    rootDomainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     name: str
     description: str
     singleSignOn: SingleSignOnTypeDef
-    domainExecutionRole: str
+    domainExecutionRole: Annotated[str, _aws_pattern("Datazone", "RoleArn")]
     arn: str
-    kmsKeyIdentifier: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("Datazone", "KmsKeyArn")]
     status: DomainStatusType
     portalUrl: str
     createdAt: datetime
     lastUpdatedAt: datetime
     tags: Dict[str, str]
     domainVersion: DomainVersionType
-    serviceRole: str
+    serviceRole: Annotated[str, _aws_pattern("Datazone", "RoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_domain' function.
 class UpdateDomainInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     description: Optional[str] = None
     singleSignOn: Optional[SingleSignOnTypeDef] = None
-    domainExecutionRole: Optional[str] = None
-    serviceRole: Optional[str] = None
+    domainExecutionRole: Optional[Annotated[str, _aws_pattern("Datazone", "RoleArn")]] = None
+    serviceRole: Optional[Annotated[str, _aws_pattern("Datazone", "RoleArn")]] = None
     name: Optional[str] = None
     clientToken: Optional[str] = None
 
 
 # This class is the output for the 'update_domain' function.
 class UpdateDomainOutputTypeDef(BaseValidatorModel):
-    id: str
-    rootDomainUnitId: str
+    id: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    rootDomainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     description: str
     singleSignOn: SingleSignOnTypeDef
-    domainExecutionRole: str
-    serviceRole: str
+    domainExecutionRole: Annotated[str, _aws_pattern("Datazone", "RoleArn")]
+    serviceRole: Annotated[str, _aws_pattern("Datazone", "RoleArn")]
     name: str
     lastUpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2583,122 +2675,126 @@ class UpdateDomainOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_environment_profile' function.
 class CreateEnvironmentProfileOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    awsAccountId: str
-    awsAccountRegion: str
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    awsAccountId: Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]
+    awsAccountRegion: Annotated[str, _aws_pattern("Datazone", "AwsRegion")]
     createdBy: str
     createdAt: datetime
     updatedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileName")]
     description: str
-    environmentBlueprintId: str
-    projectId: str
+    environmentBlueprintId: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     userParameters: List[CustomParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_environment_profile' function.
 class GetEnvironmentProfileOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    awsAccountId: str
-    awsAccountRegion: str
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    awsAccountId: Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]
+    awsAccountRegion: Annotated[str, _aws_pattern("Datazone", "AwsRegion")]
     createdBy: str
     createdAt: datetime
     updatedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileName")]
     description: str
-    environmentBlueprintId: str
-    projectId: str
+    environmentBlueprintId: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     userParameters: List[CustomParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_environment_profile' function.
 class UpdateEnvironmentProfileOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    awsAccountId: str
-    awsAccountRegion: str
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    awsAccountId: Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]
+    awsAccountRegion: Annotated[str, _aws_pattern("Datazone", "AwsRegion")]
     createdBy: str
     createdAt: datetime
     updatedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileName")]
     description: str
-    environmentBlueprintId: str
-    projectId: str
+    environmentBlueprintId: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     userParameters: List[CustomParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_environment' function.
 class CreateEnvironmentInputTypeDef(BaseValidatorModel):
-    projectIdentifier: str
-    domainIdentifier: str
+    projectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     name: str
     description: Optional[str] = None
-    environmentProfileIdentifier: Optional[str] = None
+    environmentProfileIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]] = None
     userParameters: Optional[List[EnvironmentParameterTypeDef]] = None
-    glossaryTerms: Optional[List[str]] = None
+    glossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
     environmentAccountIdentifier: Optional[str] = None
     environmentAccountRegion: Optional[str] = None
     environmentBlueprintIdentifier: Optional[str] = None
     deploymentOrder: Optional[int] = None
     environmentConfigurationId: Optional[str] = None
-    environmentConfigurationName: Optional[str] = None
+    environmentConfigurationName: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationName")]] = (
+        None
+    )
 
 
 # This class is the input for the 'create_environment_profile' function.
 class CreateEnvironmentProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    name: str
-    environmentBlueprintIdentifier: str
-    projectIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileName")]
+    environmentBlueprintIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    projectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     description: Optional[str] = None
     userParameters: Optional[List[EnvironmentParameterTypeDef]] = None
-    awsAccountId: Optional[str] = None
-    awsAccountRegion: Optional[str] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]] = None
+    awsAccountRegion: Optional[Annotated[str, _aws_pattern("Datazone", "AwsRegion")]] = None
 
 
 # This class is the input for the 'update_environment' function.
 class UpdateEnvironmentInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     name: Optional[str] = None
     description: Optional[str] = None
-    glossaryTerms: Optional[List[str]] = None
+    glossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
     blueprintVersion: Optional[str] = None
     userParameters: Optional[List[EnvironmentParameterTypeDef]] = None
-    environmentConfigurationName: Optional[str] = None
+    environmentConfigurationName: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationName")]] = (
+        None
+    )
 
 
 # This class is the input for the 'update_environment_profile' function.
 class UpdateEnvironmentProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
-    name: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileName")]] = None
     description: Optional[str] = None
     userParameters: Optional[List[EnvironmentParameterTypeDef]] = None
-    awsAccountId: Optional[str] = None
-    awsAccountRegion: Optional[str] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]] = None
+    awsAccountRegion: Optional[Annotated[str, _aws_pattern("Datazone", "AwsRegion")]] = None
 
 
 # This class is the input for the 'create_form_type' function.
 class CreateFormTypeInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    name: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "FormTypeName")]
     model: ModelTypeDef
-    owningProjectIdentifier: str
+    owningProjectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     status: Optional[FormTypeStatusType] = None
     description: Optional[str] = None
 
 
 # This class is the output for the 'create_glossary_term' function.
 class CreateGlossaryTermOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    glossaryId: str
+    id: Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    glossaryId: Annotated[str, _aws_pattern("Datazone", "GlossaryId")]
     name: str
     status: GlossaryTermStatusType
     shortDescription: str
@@ -2710,9 +2806,9 @@ class CreateGlossaryTermOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_glossary_term' function.
 class GetGlossaryTermOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    glossaryId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    glossaryId: Annotated[str, _aws_pattern("Datazone", "GlossaryId")]
+    id: Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]
     name: str
     shortDescription: str
     longDescription: str
@@ -2728,9 +2824,9 @@ class GetGlossaryTermOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_glossary_term' function.
 class UpdateGlossaryTermOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    glossaryId: str
+    id: Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    glossaryId: Annotated[str, _aws_pattern("Datazone", "GlossaryId")]
     name: str
     status: GlossaryTermStatusType
     shortDescription: str
@@ -2741,15 +2837,15 @@ class UpdateGlossaryTermOutputTypeDef(BaseValidatorModel):
 
 
 class CreateProjectMembershipInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    projectIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     member: MemberTypeDef
     designation: UserDesignationType
 
 
 class DeleteProjectMembershipInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    projectIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     member: MemberTypeDef
 
 
@@ -2759,29 +2855,29 @@ class ProjectMembershipAssignmentTypeDef(BaseValidatorModel):
 
 
 class ProjectSummaryTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    name: Annotated[str, _aws_pattern("Datazone", "ProjectName")]
     createdBy: str
     description: Optional[str] = None
     projectStatus: Optional[ProjectStatusType] = None
     failureReasons: Optional[List[ProjectDeletionErrorTypeDef]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
-    domainUnitId: Optional[str] = None
+    domainUnitId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]] = None
     projectCategory: Optional[str] = None
 
 
 # This class is the input for the 'create_subscription_target' function.
 class CreateSubscriptionTargetInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     name: str
     type: str
     subscriptionTargetConfig: List[SubscriptionTargetFormTypeDef]
-    authorizedPrincipals: List[str]
-    manageAccessRole: str
-    applicableAssetTypes: List[str]
+    authorizedPrincipals: List[Annotated[str, _aws_pattern("Datazone", "AuthorizedPrincipalIdentifier")]]
+    manageAccessRole: Annotated[str, _aws_pattern("Datazone", "IamRoleArn")]
+    applicableAssetTypes: List[Annotated[str, _aws_pattern("Datazone", "TypeName")]]
     provider: Optional[str] = None
     clientToken: Optional[str] = None
     subscriptionGrantCreationMode: Optional[SubscriptionGrantCreationModeType] = None
@@ -2789,19 +2885,19 @@ class CreateSubscriptionTargetInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_subscription_target' function.
 class CreateSubscriptionTargetOutputTypeDef(BaseValidatorModel):
-    id: str
-    authorizedPrincipals: List[str]
-    domainId: str
-    projectId: str
-    environmentId: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
+    authorizedPrincipals: List[Annotated[str, _aws_pattern("Datazone", "AuthorizedPrincipalIdentifier")]]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     name: str
     type: str
     createdBy: str
     updatedBy: str
     createdAt: datetime
     updatedAt: datetime
-    manageAccessRole: str
-    applicableAssetTypes: List[str]
+    manageAccessRole: Annotated[str, _aws_pattern("Datazone", "IamRoleArn")]
+    applicableAssetTypes: List[Annotated[str, _aws_pattern("Datazone", "TypeName")]]
     subscriptionTargetConfig: List[SubscriptionTargetFormTypeDef]
     provider: str
     subscriptionGrantCreationMode: SubscriptionGrantCreationModeType
@@ -2810,19 +2906,19 @@ class CreateSubscriptionTargetOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_subscription_target' function.
 class GetSubscriptionTargetOutputTypeDef(BaseValidatorModel):
-    id: str
-    authorizedPrincipals: List[str]
-    domainId: str
-    projectId: str
-    environmentId: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
+    authorizedPrincipals: List[Annotated[str, _aws_pattern("Datazone", "AuthorizedPrincipalIdentifier")]]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     name: str
     type: str
     createdBy: str
     updatedBy: str
     createdAt: datetime
     updatedAt: datetime
-    manageAccessRole: str
-    applicableAssetTypes: List[str]
+    manageAccessRole: Annotated[str, _aws_pattern("Datazone", "IamRoleArn")]
+    applicableAssetTypes: List[Annotated[str, _aws_pattern("Datazone", "TypeName")]]
     subscriptionTargetConfig: List[SubscriptionTargetFormTypeDef]
     provider: str
     subscriptionGrantCreationMode: SubscriptionGrantCreationModeType
@@ -2830,53 +2926,55 @@ class GetSubscriptionTargetOutputTypeDef(BaseValidatorModel):
 
 
 class SubscriptionTargetSummaryTypeDef(BaseValidatorModel):
-    id: str
-    authorizedPrincipals: List[str]
-    domainId: str
-    projectId: str
-    environmentId: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
+    authorizedPrincipals: List[Annotated[str, _aws_pattern("Datazone", "AuthorizedPrincipalIdentifier")]]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     name: str
     type: str
     createdBy: str
     createdAt: datetime
-    applicableAssetTypes: List[str]
+    applicableAssetTypes: List[Annotated[str, _aws_pattern("Datazone", "TypeName")]]
     subscriptionTargetConfig: List[SubscriptionTargetFormTypeDef]
     provider: str
     updatedBy: Optional[str] = None
     updatedAt: Optional[datetime] = None
-    manageAccessRole: Optional[str] = None
+    manageAccessRole: Optional[Annotated[str, _aws_pattern("Datazone", "IamRoleArn")]] = None
     subscriptionGrantCreationMode: Optional[SubscriptionGrantCreationModeType] = None
 
 
 # This class is the input for the 'update_subscription_target' function.
 class UpdateSubscriptionTargetInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
     name: Optional[str] = None
-    authorizedPrincipals: Optional[List[str]] = None
-    applicableAssetTypes: Optional[List[str]] = None
+    authorizedPrincipals: Optional[List[Annotated[str, _aws_pattern("Datazone", "AuthorizedPrincipalIdentifier")]]] = (
+        None
+    )
+    applicableAssetTypes: Optional[List[Annotated[str, _aws_pattern("Datazone", "TypeName")]]] = None
     subscriptionTargetConfig: Optional[List[SubscriptionTargetFormTypeDef]] = None
-    manageAccessRole: Optional[str] = None
+    manageAccessRole: Optional[Annotated[str, _aws_pattern("Datazone", "IamRoleArn")]] = None
     provider: Optional[str] = None
     subscriptionGrantCreationMode: Optional[SubscriptionGrantCreationModeType] = None
 
 
 # This class is the output for the 'update_subscription_target' function.
 class UpdateSubscriptionTargetOutputTypeDef(BaseValidatorModel):
-    id: str
-    authorizedPrincipals: List[str]
-    domainId: str
-    projectId: str
-    environmentId: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
+    authorizedPrincipals: List[Annotated[str, _aws_pattern("Datazone", "AuthorizedPrincipalIdentifier")]]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     name: str
     type: str
     createdBy: str
     updatedBy: str
     createdAt: datetime
     updatedAt: datetime
-    manageAccessRole: str
-    applicableAssetTypes: List[str]
+    manageAccessRole: Annotated[str, _aws_pattern("Datazone", "IamRoleArn")]
+    applicableAssetTypes: List[Annotated[str, _aws_pattern("Datazone", "TypeName")]]
     subscriptionTargetConfig: List[SubscriptionTargetFormTypeDef]
     provider: str
     subscriptionGrantCreationMode: SubscriptionGrantCreationModeType
@@ -2895,10 +2993,10 @@ class ListDataProductRevisionsOutputTypeDef(BaseValidatorModel):
 
 class DataSourceRunActivityTypeDef(BaseValidatorModel):
     database: str
-    dataSourceRunId: str
+    dataSourceRunId: Annotated[str, _aws_pattern("Datazone", "DataSourceRunId")]
     technicalName: str
     dataAssetStatus: DataAssetActivityStatusType
-    projectId: str
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     createdAt: datetime
     updatedAt: datetime
     dataAssetId: Optional[str] = None
@@ -2908,11 +3006,11 @@ class DataSourceRunActivityTypeDef(BaseValidatorModel):
 
 
 class DataSourceRunSummaryTypeDef(BaseValidatorModel):
-    id: str
-    dataSourceId: str
+    id: Annotated[str, _aws_pattern("Datazone", "DataSourceRunId")]
+    dataSourceId: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
     type: DataSourceRunTypeType
     status: DataSourceRunStatusType
-    projectId: str
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     createdAt: datetime
     updatedAt: datetime
     runStatisticsForAssets: Optional[RunStatisticsForAssetsTypeDef] = None
@@ -2924,10 +3022,10 @@ class DataSourceRunSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_data_source_run' function.
 class GetDataSourceRunOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    dataSourceId: str
-    id: str
-    projectId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    dataSourceId: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
+    id: Annotated[str, _aws_pattern("Datazone", "DataSourceRunId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     status: DataSourceRunStatusType
     type: DataSourceRunTypeType
     dataSourceConfigurationSnapshot: str
@@ -2943,10 +3041,10 @@ class GetDataSourceRunOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_data_source_run' function.
 class StartDataSourceRunOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    dataSourceId: str
-    id: str
-    projectId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    dataSourceId: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
+    id: Annotated[str, _aws_pattern("Datazone", "DataSourceRunId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     status: DataSourceRunStatusType
     type: DataSourceRunTypeType
     dataSourceConfigurationSnapshot: str
@@ -2997,7 +3095,7 @@ class DomainUnitPolicyGrantPrincipalOutputTypeDef(BaseValidatorModel):
 
 class DomainUnitPolicyGrantPrincipalTypeDef(BaseValidatorModel):
     domainUnitDesignation: Literal["OWNER"]
-    domainUnitIdentifier: Optional[str] = None
+    domainUnitIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]] = None
     domainUnitGrantFilter: Optional[DomainUnitGrantFilterTypeDef] = None
 
 
@@ -3029,10 +3127,15 @@ class GetDataExportConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class PutDataExportConfigurationInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     enableExport: bool
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
+
+
+class EnvironmentConfigTypeDef(BaseValidatorModel):
+    imageVersion: Optional[str] = None
+    packageConfig: Optional[PackageConfigTypeDef] = None
 
 
 class EnvironmentConfigurationParametersDetailsOutputTypeDef(BaseValidatorModel):
@@ -3055,9 +3158,11 @@ class EnvironmentConfigurationUserParameterOutputTypeDef(BaseValidatorModel):
 
 
 class EnvironmentConfigurationUserParameterTypeDef(BaseValidatorModel):
-    environmentId: Optional[str] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]] = None
     environmentResolvedAccount: Optional[EnvironmentResolvedAccountTypeDef] = None
-    environmentConfigurationName: Optional[str] = None
+    environmentConfigurationName: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationName")]] = (
+        None
+    )
     environmentParameters: Optional[List[EnvironmentParameterTypeDef]] = None
 
 
@@ -3077,9 +3182,9 @@ class ListEnvironmentsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_subscription_grant_status' function.
 class UpdateSubscriptionGrantStatusInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
-    assetIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionGrantId")]
+    assetIdentifier: Annotated[str, _aws_pattern("Datazone", "AssetId")]
     status: SubscriptionGrantStatusType
     failureCause: Optional[FailureCauseTypeDef] = None
     targetName: Optional[str] = None
@@ -3110,14 +3215,14 @@ class RelationalFilterConfigurationTypeDef(BaseValidatorModel):
 
 
 class FormTypeDataTypeDef(BaseValidatorModel):
-    domainId: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "FormTypeName")]
     revision: str
     model: Optional[ModelTypeDef] = None
     status: Optional[FormTypeStatusType] = None
-    owningProjectId: Optional[str] = None
-    originDomainId: Optional[str] = None
-    originProjectId: Optional[str] = None
+    owningProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
+    originDomainId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainId")]] = None
+    originProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     description: Optional[str] = None
@@ -3126,13 +3231,13 @@ class FormTypeDataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_form_type' function.
 class GetFormTypeOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "FormTypeName")]
     revision: str
     model: ModelTypeDef
-    owningProjectId: str
-    originDomainId: str
-    originProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    originDomainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    originProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     status: FormTypeStatusType
     createdAt: datetime
     createdBy: str
@@ -3142,7 +3247,7 @@ class GetFormTypeOutputTypeDef(BaseValidatorModel):
 
 
 class JobRunSummaryTypeDef(BaseValidatorModel):
-    domainId: Optional[str] = None
+    domainId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainId")]] = None
     jobId: Optional[str] = None
     jobType: Optional[Literal["LINEAGE"]] = None
     runId: Optional[str] = None
@@ -3157,14 +3262,14 @@ class JobRunSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_lineage_node' function.
 class GetLineageNodeInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     identifier: str
     eventTimestamp: Optional[TimestampTypeDef] = None
 
 
 # This class is the input for the 'list_lineage_events' function.
 class ListLineageEventsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     maxResults: Optional[int] = None
     timestampAfter: Optional[TimestampTypeDef] = None
     timestampBefore: Optional[TimestampTypeDef] = None
@@ -3175,7 +3280,7 @@ class ListLineageEventsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_lineage_node_history' function.
 class ListLineageNodeHistoryInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     identifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -3187,7 +3292,7 @@ class ListLineageNodeHistoryInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_notifications' function.
 class ListNotificationsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     type: NotificationTypeType
     afterTimestamp: Optional[TimestampTypeDef] = None
     beforeTimestamp: Optional[TimestampTypeDef] = None
@@ -3199,8 +3304,8 @@ class ListNotificationsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_time_series_data_points' function.
 class ListTimeSeriesDataPointsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    entityIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    entityIdentifier: Annotated[str, _aws_pattern("Datazone", "EntityIdentifier")]
     entityType: TimeSeriesEntityTypeType
     formName: str
     startedAt: Optional[TimestampTypeDef] = None
@@ -3211,7 +3316,7 @@ class ListTimeSeriesDataPointsInputTypeDef(BaseValidatorModel):
 
 class TimeSeriesDataPointFormInputTypeDef(BaseValidatorModel):
     formName: str
-    typeIdentifier: str
+    typeIdentifier: Annotated[str, _aws_pattern("Datazone", "FormTypeIdentifier")]
     timestamp: TimestampTypeDef
     typeRevision: Optional[str] = None
     content: Optional[str] = None
@@ -3219,14 +3324,14 @@ class TimeSeriesDataPointFormInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_lineage_node' function.
 class GetLineageNodeOutputTypeDef(BaseValidatorModel):
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     name: str
     description: str
     createdAt: datetime
     createdBy: str
     updatedAt: datetime
     updatedBy: str
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "LineageNodeId")]
     typeName: str
     typeRevision: str
     sourceIdentifier: str
@@ -3238,9 +3343,9 @@ class GetLineageNodeOutputTypeDef(BaseValidatorModel):
 
 
 class MetadataGenerationRunItemTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
-    owningProjectId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "MetadataGenerationRunIdentifier")]
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     target: Optional[MetadataGenerationRunTargetTypeDef] = None
     status: Optional[MetadataGenerationRunStatusType] = None
     type: Optional[MetadataGenerationRunTypeType] = None
@@ -3251,33 +3356,49 @@ class MetadataGenerationRunItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_metadata_generation_run' function.
 class StartMetadataGenerationRunInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     target: MetadataGenerationRunTargetTypeDef
-    owningProjectIdentifier: str
+    owningProjectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     type: Optional[MetadataGenerationRunTypeType] = None
     types: Optional[List[MetadataGenerationRunTypeType]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the output for the 'get_metadata_generation_run' function.
 class GetMetadataGenerationRunOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "MetadataGenerationRunIdentifier")]
     target: MetadataGenerationRunTargetTypeDef
     status: MetadataGenerationRunStatusType
     type: MetadataGenerationRunTypeType
     types: List[MetadataGenerationRunTypeType]
     createdAt: datetime
     createdBy: str
-    owningProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     typeStats: List[MetadataGenerationRunTypeStatTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
+class NotebookRunSummaryTypeDef(BaseValidatorModel):
+    id: Annotated[str, _aws_pattern("Datazone", "NotebookRunId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    notebookId: Annotated[str, _aws_pattern("Datazone", "NotebookId")]
+    status: NotebookRunStatusType
+    scheduleId: Optional[Annotated[str, _aws_pattern("Datazone", "ScheduleId")]] = None
+    triggerSource: Optional[TriggerSourceTypeDef] = None
+    createdAt: Optional[datetime] = None
+    createdBy: Optional[str] = None
+    updatedAt: Optional[datetime] = None
+    updatedBy: Optional[str] = None
+    startedAt: Optional[datetime] = None
+    completedAt: Optional[datetime] = None
+
+
 # This class is the output for the 'get_time_series_data_point' function.
 class GetTimeSeriesDataPointOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    entityId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    entityId: Annotated[str, _aws_pattern("Datazone", "EntityId")]
     entityType: TimeSeriesEntityTypeType
     formName: str
     form: TimeSeriesDataPointFormOutputTypeDef
@@ -3286,8 +3407,8 @@ class GetTimeSeriesDataPointOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'post_time_series_data_points' function.
 class PostTimeSeriesDataPointsOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    entityId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    entityId: Annotated[str, _aws_pattern("Datazone", "EntityId")]
     entityType: TimeSeriesEntityTypeType
     forms: List[TimeSeriesDataPointFormOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3511,6 +3632,16 @@ class ListMetadataGenerationRunsInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
+class ListNotebookRunsInputPaginateTypeDef(BaseValidatorModel):
+    domainIdentifier: str
+    owningProjectIdentifier: str
+    notebookIdentifier: Optional[str] = None
+    status: Optional[NotebookRunStatusType] = None
+    scheduleIdentifier: Optional[str] = None
+    sortOrder: Optional[SortOrderType] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
 class ListNotificationsInputPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     type: NotificationTypeType
@@ -3677,6 +3808,9 @@ class OpenLineageRunEventSummaryTypeDef(BaseValidatorModel):
     outputs: Optional[List[NameIdentifierTypeDef]] = None
 
 
+NetworkConfigUnionTypeDef = Union[NetworkConfigOutputTypeDef, NetworkConfigTypeDef]
+
+
 class RowFilterExpressionOutputTypeDef(BaseValidatorModel):
     equalTo: Optional[EqualToExpressionTypeDef] = None
     notEqualTo: Optional[NotEqualToExpressionTypeDef] = None
@@ -3725,7 +3859,7 @@ class OAuth2PropertiesOutputTypeDef(BaseValidatorModel):
 class OAuth2PropertiesTypeDef(BaseValidatorModel):
     oAuth2GrantType: Optional[OAuth2GrantTypeType] = None
     oAuth2ClientApplication: Optional[OAuth2ClientApplicationTypeDef] = None
-    tokenUrl: Optional[str] = None
+    tokenUrl: Optional[Annotated[str, _aws_pattern("Datazone", "OAuth2PropertiesTokenUrlString")]] = None
     tokenUrlParametersMap: Optional[Dict[str, str]] = None
     authorizationCodeProperties: Optional[AuthorizationCodePropertiesTypeDef] = None
     oAuth2Credentials: Optional[GlueOAuth2CredentialsTypeDef] = None
@@ -3742,9 +3876,9 @@ class OwnerPropertiesTypeDef(BaseValidatorModel):
 
 
 class SubscribedAssetListingTypeDef(BaseValidatorModel):
-    entityId: Optional[str] = None
+    entityId: Optional[Annotated[str, _aws_pattern("Datazone", "AssetId")]] = None
     entityRevision: Optional[str] = None
-    entityType: Optional[str] = None
+    entityType: Optional[Annotated[str, _aws_pattern("Datazone", "TypeName")]] = None
     forms: Optional[str] = None
     glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
     assetScope: Optional[AssetScopeTypeDef] = None
@@ -3752,7 +3886,7 @@ class SubscribedAssetListingTypeDef(BaseValidatorModel):
 
 
 class SubscribedAssetTypeDef(BaseValidatorModel):
-    assetId: str
+    assetId: Annotated[str, _aws_pattern("Datazone", "AssetId")]
     assetRevision: str
     status: SubscriptionGrantStatusType
     targetName: Optional[str] = None
@@ -3817,7 +3951,7 @@ class RuleScopeTypeDef(BaseValidatorModel):
 
 
 class RedshiftCredentialsTypeDef(BaseValidatorModel):
-    secretArn: Optional[str] = None
+    secretArn: Optional[Annotated[str, _aws_pattern("Datazone", "RedshiftCredentialsSecretArnString")]] = None
     usernamePassword: Optional[UsernamePasswordTypeDef] = None
 
 
@@ -3845,12 +3979,12 @@ class RedshiftStorageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reject_predictions' function.
 class RejectPredictionsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AssetIdentifier")]
     revision: Optional[str] = None
     rejectRule: Optional[RejectRuleTypeDef] = None
     rejectChoices: Optional[List[RejectChoiceTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 class SparkGluePropertiesInputTypeDef(BaseValidatorModel):
@@ -3905,9 +4039,9 @@ class ResultItemTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_account_pool' function.
 class CreateAccountPoolOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    name: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "AccountPoolName")]
+    id: Annotated[str, _aws_pattern("Datazone", "AccountPoolId")]
     description: str
     resolutionStrategy: Literal["MANUAL"]
     accountSource: AccountSourceOutputTypeDef
@@ -3915,15 +4049,15 @@ class CreateAccountPoolOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastUpdatedAt: datetime
     updatedBy: str
-    domainUnitId: str
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_account_pool' function.
 class GetAccountPoolOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    name: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "AccountPoolName")]
+    id: Annotated[str, _aws_pattern("Datazone", "AccountPoolId")]
     description: str
     resolutionStrategy: Literal["MANUAL"]
     accountSource: AccountSourceOutputTypeDef
@@ -3931,15 +4065,15 @@ class GetAccountPoolOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastUpdatedAt: datetime
     updatedBy: str
-    domainUnitId: str
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_account_pool' function.
 class UpdateAccountPoolOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    name: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "AccountPoolName")]
+    id: Annotated[str, _aws_pattern("Datazone", "AccountPoolId")]
     description: str
     resolutionStrategy: Literal["MANUAL"]
     accountSource: AccountSourceOutputTypeDef
@@ -3947,7 +4081,7 @@ class UpdateAccountPoolOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastUpdatedAt: datetime
     updatedBy: str
-    domainUnitId: str
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3956,8 +4090,8 @@ AccountSourceUnionTypeDef = Union[AccountSourceOutputTypeDef, AccountSourceTypeD
 
 # This class is the input for the 'create_environment_action' function.
 class CreateEnvironmentActionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     name: str
     parameters: ActionParametersTypeDef
     description: Optional[str] = None
@@ -3965,9 +4099,9 @@ class CreateEnvironmentActionInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_environment_action' function.
 class CreateEnvironmentActionOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    environmentId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentActionId")]
     name: str
     parameters: ActionParametersTypeDef
     description: str
@@ -3975,9 +4109,9 @@ class CreateEnvironmentActionOutputTypeDef(BaseValidatorModel):
 
 
 class EnvironmentActionSummaryTypeDef(BaseValidatorModel):
-    domainId: str
-    environmentId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentActionId")]
     name: str
     parameters: ActionParametersTypeDef
     description: Optional[str] = None
@@ -3985,9 +4119,9 @@ class EnvironmentActionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_environment_action' function.
 class GetEnvironmentActionOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    environmentId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentActionId")]
     name: str
     parameters: ActionParametersTypeDef
     description: str
@@ -3996,8 +4130,8 @@ class GetEnvironmentActionOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_environment_action' function.
 class UpdateEnvironmentActionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     identifier: str
     parameters: Optional[ActionParametersTypeDef] = None
     name: Optional[str] = None
@@ -4006,9 +4140,9 @@ class UpdateEnvironmentActionInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_environment_action' function.
 class UpdateEnvironmentActionOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    environmentId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentActionId")]
     name: str
     parameters: ActionParametersTypeDef
     description: str
@@ -4016,22 +4150,22 @@ class UpdateEnvironmentActionOutputTypeDef(BaseValidatorModel):
 
 
 class DataProductListingTypeDef(BaseValidatorModel):
-    dataProductId: Optional[str] = None
+    dataProductId: Optional[Annotated[str, _aws_pattern("Datazone", "DataProductId")]] = None
     dataProductRevision: Optional[str] = None
     createdAt: Optional[datetime] = None
     forms: Optional[str] = None
     glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
-    owningProjectId: Optional[str] = None
+    owningProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
     items: Optional[List[ListingSummaryTypeDef]] = None
 
 
 # This class is the input for the 'batch_put_attributes_metadata' function.
 class BatchPutAttributesMetadataInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     entityType: AttributeEntityTypeType
-    entityIdentifier: str
+    entityIdentifier: Annotated[str, _aws_pattern("Datazone", "EntityId")]
     attributes: List[AttributeInputTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 class GlueConnectionPatchTypeDef(BaseValidatorModel):
@@ -4043,23 +4177,23 @@ class GlueConnectionPatchTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_asset' function.
 class CreateAssetInputTypeDef(BaseValidatorModel):
     name: str
-    domainIdentifier: str
-    typeIdentifier: str
-    owningProjectIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    typeIdentifier: Annotated[str, _aws_pattern("Datazone", "AssetTypeIdentifier")]
+    owningProjectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     externalIdentifier: Optional[str] = None
     typeRevision: Optional[str] = None
     description: Optional[str] = None
-    glossaryTerms: Optional[List[str]] = None
+    glossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
     formsInput: Optional[List[FormInputTypeDef]] = None
     predictionConfiguration: Optional[PredictionConfigurationTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_asset' function.
 class CreateAssetOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "AssetId")]
     name: str
-    typeIdentifier: str
+    typeIdentifier: Annotated[str, _aws_pattern("Datazone", "AssetTypeIdentifier")]
     typeRevision: str
     externalIdentifier: str
     revision: str
@@ -4068,10 +4202,10 @@ class CreateAssetOutputTypeDef(BaseValidatorModel):
     createdBy: str
     firstRevisionCreatedAt: datetime
     firstRevisionCreatedBy: str
-    glossaryTerms: List[str]
-    governedGlossaryTerms: List[str]
-    owningProjectId: str
-    domainId: str
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
+    governedGlossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     listing: AssetListingDetailsTypeDef
     formsOutput: List[FormOutputTypeDef]
     readOnlyFormsOutput: List[FormOutputTypeDef]
@@ -4083,21 +4217,21 @@ class CreateAssetOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_asset_revision' function.
 class CreateAssetRevisionInputTypeDef(BaseValidatorModel):
     name: str
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AssetIdentifier")]
     typeRevision: Optional[str] = None
     description: Optional[str] = None
-    glossaryTerms: Optional[List[str]] = None
+    glossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
     formsInput: Optional[List[FormInputTypeDef]] = None
     predictionConfiguration: Optional[PredictionConfigurationTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_asset_revision' function.
 class CreateAssetRevisionOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "AssetId")]
     name: str
-    typeIdentifier: str
+    typeIdentifier: Annotated[str, _aws_pattern("Datazone", "AssetTypeIdentifier")]
     typeRevision: str
     externalIdentifier: str
     revision: str
@@ -4106,10 +4240,10 @@ class CreateAssetRevisionOutputTypeDef(BaseValidatorModel):
     createdBy: str
     firstRevisionCreatedAt: datetime
     firstRevisionCreatedBy: str
-    glossaryTerms: List[str]
-    governedGlossaryTerms: List[str]
-    owningProjectId: str
-    domainId: str
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
+    governedGlossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     listing: AssetListingDetailsTypeDef
     formsOutput: List[FormOutputTypeDef]
     readOnlyFormsOutput: List[FormOutputTypeDef]
@@ -4120,8 +4254,8 @@ class CreateAssetRevisionOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_environment_blueprint' function.
 class CreateEnvironmentBlueprintInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    name: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintName")]
     provisioningProperties: ProvisioningPropertiesTypeDef
     description: Optional[str] = None
     userParameters: Optional[List[CustomParameterTypeDef]] = None
@@ -4129,22 +4263,22 @@ class CreateEnvironmentBlueprintInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_environment_blueprint' function.
 class CreateEnvironmentBlueprintOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintName")]
     description: str
     provider: str
     provisioningProperties: ProvisioningPropertiesTypeDef
     deploymentProperties: DeploymentPropertiesTypeDef
     userParameters: List[CustomParameterTypeDef]
-    glossaryTerms: List[str]
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
     createdAt: datetime
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class EnvironmentBlueprintSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintName")]
     provider: str
     provisioningProperties: ProvisioningPropertiesTypeDef
     description: Optional[str] = None
@@ -4154,14 +4288,14 @@ class EnvironmentBlueprintSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_environment_blueprint' function.
 class GetEnvironmentBlueprintOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintName")]
     description: str
     provider: str
     provisioningProperties: ProvisioningPropertiesTypeDef
     deploymentProperties: DeploymentPropertiesTypeDef
     userParameters: List[CustomParameterTypeDef]
-    glossaryTerms: List[str]
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
     createdAt: datetime
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4169,8 +4303,8 @@ class GetEnvironmentBlueprintOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_environment_blueprint' function.
 class UpdateEnvironmentBlueprintInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
     description: Optional[str] = None
     provisioningProperties: Optional[ProvisioningPropertiesTypeDef] = None
     userParameters: Optional[List[CustomParameterTypeDef]] = None
@@ -4178,14 +4312,14 @@ class UpdateEnvironmentBlueprintInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_environment_blueprint' function.
 class UpdateEnvironmentBlueprintOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintName")]
     description: str
     provider: str
     provisioningProperties: ProvisioningPropertiesTypeDef
     deploymentProperties: DeploymentPropertiesTypeDef
     userParameters: List[CustomParameterTypeDef]
-    glossaryTerms: List[str]
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
     createdAt: datetime
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4214,26 +4348,26 @@ class ListSubscriptionTargetsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_product' function.
 class CreateDataProductInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     name: str
-    owningProjectIdentifier: str
+    owningProjectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     description: Optional[str] = None
-    glossaryTerms: Optional[List[str]] = None
+    glossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
     formsInput: Optional[List[FormInputTypeDef]] = None
     items: Optional[List[DataProductItemUnionTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_data_product_revision' function.
 class CreateDataProductRevisionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DataProductId")]
     name: str
     description: Optional[str] = None
-    glossaryTerms: Optional[List[str]] = None
+    glossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
     items: Optional[List[DataProductItemUnionTypeDef]] = None
     formsInput: Optional[List[FormInputTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the output for the 'list_data_source_run_activities' function.
@@ -4252,85 +4386,85 @@ class ListDataSourceRunsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_environment' function.
 class CreateEnvironmentOutputTypeDef(BaseValidatorModel):
-    projectId: str
-    id: str
-    domainId: str
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     createdBy: str
     createdAt: datetime
     updatedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentName")]
     description: str
-    environmentProfileId: str
-    awsAccountId: str
-    awsAccountRegion: str
+    environmentProfileId: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]
+    awsAccountId: Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]
+    awsAccountRegion: Annotated[str, _aws_pattern("Datazone", "AwsRegion")]
     provider: str
     provisionedResources: List[ResourceTypeDef]
     status: EnvironmentStatusType
     environmentActions: List[ConfigurableEnvironmentActionTypeDef]
-    glossaryTerms: List[str]
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
     userParameters: List[CustomParameterTypeDef]
     lastDeployment: DeploymentTypeDef
     provisioningProperties: ProvisioningPropertiesTypeDef
     deploymentProperties: DeploymentPropertiesTypeDef
-    environmentBlueprintId: str
-    environmentConfigurationId: str
-    environmentConfigurationName: str
+    environmentBlueprintId: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    environmentConfigurationId: Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationId")]
+    environmentConfigurationName: Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_environment' function.
 class GetEnvironmentOutputTypeDef(BaseValidatorModel):
-    projectId: str
-    id: str
-    domainId: str
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     createdBy: str
     createdAt: datetime
     updatedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentName")]
     description: str
-    environmentProfileId: str
-    awsAccountId: str
-    awsAccountRegion: str
+    environmentProfileId: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]
+    awsAccountId: Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]
+    awsAccountRegion: Annotated[str, _aws_pattern("Datazone", "AwsRegion")]
     provider: str
     provisionedResources: List[ResourceTypeDef]
     status: EnvironmentStatusType
     environmentActions: List[ConfigurableEnvironmentActionTypeDef]
-    glossaryTerms: List[str]
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
     userParameters: List[CustomParameterTypeDef]
     lastDeployment: DeploymentTypeDef
     provisioningProperties: ProvisioningPropertiesTypeDef
     deploymentProperties: DeploymentPropertiesTypeDef
-    environmentBlueprintId: str
-    environmentConfigurationId: str
-    environmentConfigurationName: str
+    environmentBlueprintId: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    environmentConfigurationId: Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationId")]
+    environmentConfigurationName: Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_environment' function.
 class UpdateEnvironmentOutputTypeDef(BaseValidatorModel):
-    projectId: str
-    id: str
-    domainId: str
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    id: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     createdBy: str
     createdAt: datetime
     updatedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentName")]
     description: str
-    environmentProfileId: str
-    awsAccountId: str
-    awsAccountRegion: str
+    environmentProfileId: Annotated[str, _aws_pattern("Datazone", "EnvironmentProfileId")]
+    awsAccountId: Annotated[str, _aws_pattern("Datazone", "AwsAccountId")]
+    awsAccountRegion: Annotated[str, _aws_pattern("Datazone", "AwsRegion")]
     provider: str
     provisionedResources: List[ResourceTypeDef]
     status: EnvironmentStatusType
     environmentActions: List[ConfigurableEnvironmentActionTypeDef]
-    glossaryTerms: List[str]
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
     userParameters: List[CustomParameterTypeDef]
     lastDeployment: DeploymentTypeDef
     provisioningProperties: ProvisioningPropertiesTypeDef
     deploymentProperties: DeploymentPropertiesTypeDef
-    environmentBlueprintId: str
-    environmentConfigurationId: str
-    environmentConfigurationName: str
+    environmentBlueprintId: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    environmentConfigurationId: Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationId")]
+    environmentConfigurationName: Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -4341,19 +4475,19 @@ EnvironmentDeploymentDetailsUnionTypeDef = Union[
 
 class ProjectPolicyGrantPrincipalTypeDef(BaseValidatorModel):
     projectDesignation: ProjectDesignationType
-    projectIdentifier: Optional[str] = None
+    projectIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
     projectGrantFilter: Optional[ProjectGrantFilterTypeDef] = None
 
 
 # This class is the output for the 'create_domain_unit' function.
 class CreateDomainUnitOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    name: str
-    parentDomainUnitId: str
+    id: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "DomainUnitName")]
+    parentDomainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     description: str
     owners: List[DomainUnitOwnerPropertiesTypeDef]
-    ancestorDomainUnitIds: List[str]
+    ancestorDomainUnitIds: List[Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]]
     createdAt: datetime
     createdBy: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4361,10 +4495,10 @@ class CreateDomainUnitOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_domain_unit' function.
 class GetDomainUnitOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    name: str
-    parentDomainUnitId: str
+    id: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "DomainUnitName")]
+    parentDomainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     description: str
     owners: List[DomainUnitOwnerPropertiesTypeDef]
     createdAt: datetime
@@ -4376,16 +4510,70 @@ class GetDomainUnitOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_domain_unit' function.
 class UpdateDomainUnitOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    name: str
+    id: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "DomainUnitName")]
     owners: List[DomainUnitOwnerPropertiesTypeDef]
     description: str
-    parentDomainUnitId: str
+    parentDomainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     createdAt: datetime
     lastUpdatedAt: datetime
     createdBy: str
     lastUpdatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'get_notebook_run' function.
+class GetNotebookRunOutputTypeDef(BaseValidatorModel):
+    id: Annotated[str, _aws_pattern("Datazone", "NotebookRunId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    notebookId: Annotated[str, _aws_pattern("Datazone", "NotebookId")]
+    scheduleId: Annotated[str, _aws_pattern("Datazone", "ScheduleId")]
+    status: NotebookRunStatusType
+    cellOrder: List[Dict[str, Any]]
+    metadata: Dict[str, str]
+    parameters: Dict[str, str]
+    computeConfiguration: ComputeConfigTypeDef
+    networkConfiguration: NetworkConfigOutputTypeDef
+    timeoutConfiguration: TimeoutConfigTypeDef
+    environmentConfiguration: EnvironmentConfigTypeDef
+    storageConfiguration: StorageConfigTypeDef
+    triggerSource: TriggerSourceTypeDef
+    error: NotebookRunErrorTypeDef
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    startedAt: datetime
+    completedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'start_notebook_run' function.
+class StartNotebookRunOutputTypeDef(BaseValidatorModel):
+    id: Annotated[str, _aws_pattern("Datazone", "NotebookRunId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    notebookId: Annotated[str, _aws_pattern("Datazone", "NotebookId")]
+    scheduleId: Annotated[str, _aws_pattern("Datazone", "ScheduleId")]
+    status: NotebookRunStatusType
+    cellOrder: List[Dict[str, Any]]
+    metadata: Dict[str, str]
+    parameters: Dict[str, str]
+    computeConfiguration: ComputeConfigTypeDef
+    networkConfiguration: NetworkConfigOutputTypeDef
+    timeoutConfiguration: TimeoutConfigTypeDef
+    environmentConfiguration: EnvironmentConfigTypeDef
+    storageConfiguration: StorageConfigTypeDef
+    triggerSource: TriggerSourceTypeDef
+    error: NotebookRunErrorTypeDef
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    startedAt: datetime
+    completedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -4409,9 +4597,9 @@ EnvironmentConfigurationParametersDetailsUnionTypeDef = Union[
 
 # This class is the output for the 'create_project' function.
 class CreateProjectOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    name: Annotated[str, _aws_pattern("Datazone", "ProjectName")]
     description: str
     projectStatus: ProjectStatusType
     failureReasons: List[ProjectDeletionErrorTypeDef]
@@ -4419,9 +4607,9 @@ class CreateProjectOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastUpdatedAt: datetime
     resourceTags: List[ResourceTagTypeDef]
-    glossaryTerms: List[str]
-    domainUnitId: str
-    projectProfileId: str
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
+    projectProfileId: Annotated[str, _aws_pattern("Datazone", "ProjectProfileId")]
     userParameters: List[EnvironmentConfigurationUserParameterOutputTypeDef]
     environmentDeploymentDetails: EnvironmentDeploymentDetailsOutputTypeDef
     projectCategory: str
@@ -4430,9 +4618,9 @@ class CreateProjectOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_project' function.
 class GetProjectOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    name: Annotated[str, _aws_pattern("Datazone", "ProjectName")]
     description: str
     projectStatus: ProjectStatusType
     failureReasons: List[ProjectDeletionErrorTypeDef]
@@ -4440,9 +4628,9 @@ class GetProjectOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastUpdatedAt: datetime
     resourceTags: List[ResourceTagTypeDef]
-    glossaryTerms: List[str]
-    domainUnitId: str
-    projectProfileId: str
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
+    projectProfileId: Annotated[str, _aws_pattern("Datazone", "ProjectProfileId")]
     userParameters: List[EnvironmentConfigurationUserParameterOutputTypeDef]
     environmentDeploymentDetails: EnvironmentDeploymentDetailsOutputTypeDef
     projectCategory: str
@@ -4451,9 +4639,9 @@ class GetProjectOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_project' function.
 class UpdateProjectOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    name: Annotated[str, _aws_pattern("Datazone", "ProjectName")]
     description: str
     projectStatus: ProjectStatusType
     failureReasons: List[ProjectDeletionErrorTypeDef]
@@ -4461,9 +4649,9 @@ class UpdateProjectOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastUpdatedAt: datetime
     resourceTags: List[ResourceTagTypeDef]
-    glossaryTerms: List[str]
-    domainUnitId: str
-    projectProfileId: str
+    glossaryTerms: List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
+    projectProfileId: Annotated[str, _aws_pattern("Datazone", "ProjectProfileId")]
     userParameters: List[EnvironmentConfigurationUserParameterOutputTypeDef]
     environmentDeploymentDetails: EnvironmentDeploymentDetailsOutputTypeDef
     projectCategory: str
@@ -4523,9 +4711,9 @@ class EntityPatternTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search' function.
 class SearchInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     searchScope: InventorySearchScopeType
-    owningProjectIdentifier: Optional[str] = None
+    owningProjectIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     searchText: Optional[str] = None
@@ -4537,7 +4725,7 @@ class SearchInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_listings' function.
 class SearchListingsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     searchText: Optional[str] = None
     searchIn: Optional[List[SearchInItemTypeDef]] = None
     maxResults: Optional[int] = None
@@ -4550,7 +4738,7 @@ class SearchListingsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_types' function.
 class SearchTypesInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     searchScope: TypesSearchScopeType
     managed: bool
     maxResults: Optional[int] = None
@@ -4563,9 +4751,11 @@ class SearchTypesInputTypeDef(BaseValidatorModel):
 
 class GlueRunConfigurationOutputTypeDef(BaseValidatorModel):
     relationalFilterConfigurations: List[RelationalFilterConfigurationOutputTypeDef]
-    accountId: Optional[str] = None
-    region: Optional[str] = None
-    dataAccessRole: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Datazone", "GlueRunConfigurationOutputAccountIdString")]] = None
+    region: Optional[Annotated[str, _aws_pattern("Datazone", "GlueRunConfigurationOutputRegionString")]] = None
+    dataAccessRole: Optional[
+        Annotated[str, _aws_pattern("Datazone", "GlueRunConfigurationOutputDataAccessRoleString")]
+    ] = None
     autoImportDataQualityResult: Optional[bool] = None
     catalogName: Optional[str] = None
 
@@ -4590,16 +4780,23 @@ class ListJobRunsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'post_time_series_data_points' function.
 class PostTimeSeriesDataPointsInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    entityIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    entityIdentifier: Annotated[str, _aws_pattern("Datazone", "EntityIdentifier")]
     entityType: TimeSeriesEntityTypeType
     forms: List[TimeSeriesDataPointFormInputTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the output for the 'list_metadata_generation_runs' function.
 class ListMetadataGenerationRunsOutputTypeDef(BaseValidatorModel):
     items: List[MetadataGenerationRunItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+# This class is the output for the 'list_notebook_runs' function.
+class ListNotebookRunsOutputTypeDef(BaseValidatorModel):
+    items: List[NotebookRunSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -4611,21 +4808,21 @@ class SelfGrantStatusOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_subscription_grant' function.
 class CreateSubscriptionGrantInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     grantedEntity: GrantedEntityInputTypeDef
-    subscriptionTargetIdentifier: Optional[str] = None
+    subscriptionTargetIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]] = None
     assetTargetNames: Optional[List[AssetTargetNameMapTypeDef]] = None
     clientToken: Optional[str] = None
 
 
 class EnvironmentBlueprintConfigurationItemTypeDef(BaseValidatorModel):
-    domainId: str
-    environmentBlueprintId: str
-    provisioningRoleArn: Optional[str] = None
-    environmentRolePermissionBoundary: Optional[str] = None
-    manageAccessRoleArn: Optional[str] = None
-    enabledRegions: Optional[List[str]] = None
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentBlueprintId: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    provisioningRoleArn: Optional[Annotated[str, _aws_pattern("Datazone", "RoleArn")]] = None
+    environmentRolePermissionBoundary: Optional[Annotated[str, _aws_pattern("Datazone", "PolicyArn")]] = None
+    manageAccessRoleArn: Optional[Annotated[str, _aws_pattern("Datazone", "RoleArn")]] = None
+    enabledRegions: Optional[List[Annotated[str, _aws_pattern("Datazone", "RegionName")]]] = None
     regionalParameters: Optional[Dict[str, Dict[str, str]]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
@@ -4634,12 +4831,12 @@ class EnvironmentBlueprintConfigurationItemTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_environment_blueprint_configuration' function.
 class GetEnvironmentBlueprintConfigurationOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    environmentBlueprintId: str
-    provisioningRoleArn: str
-    environmentRolePermissionBoundary: str
-    manageAccessRoleArn: str
-    enabledRegions: List[str]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentBlueprintId: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    provisioningRoleArn: Annotated[str, _aws_pattern("Datazone", "RoleArn")]
+    environmentRolePermissionBoundary: Annotated[str, _aws_pattern("Datazone", "PolicyArn")]
+    manageAccessRoleArn: Annotated[str, _aws_pattern("Datazone", "RoleArn")]
+    enabledRegions: List[Annotated[str, _aws_pattern("Datazone", "RegionName")]]
     regionalParameters: Dict[str, Dict[str, str]]
     createdAt: datetime
     updatedAt: datetime
@@ -4649,12 +4846,12 @@ class GetEnvironmentBlueprintConfigurationOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_environment_blueprint_configuration' function.
 class PutEnvironmentBlueprintConfigurationOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    environmentBlueprintId: str
-    provisioningRoleArn: str
-    environmentRolePermissionBoundary: str
-    manageAccessRoleArn: str
-    enabledRegions: List[str]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentBlueprintId: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    provisioningRoleArn: Annotated[str, _aws_pattern("Datazone", "RoleArn")]
+    environmentRolePermissionBoundary: Annotated[str, _aws_pattern("Datazone", "PolicyArn")]
+    manageAccessRoleArn: Annotated[str, _aws_pattern("Datazone", "RoleArn")]
+    enabledRegions: List[Annotated[str, _aws_pattern("Datazone", "RegionName")]]
     regionalParameters: Dict[str, Dict[str, str]]
     createdAt: datetime
     updatedAt: datetime
@@ -4693,6 +4890,21 @@ class EventSummaryTypeDef(BaseValidatorModel):
     openLineageRunEventSummary: Optional[OpenLineageRunEventSummaryTypeDef] = None
 
 
+# This class is the input for the 'start_notebook_run' function.
+class StartNotebookRunInputTypeDef(BaseValidatorModel):
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    owningProjectIdentifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    notebookIdentifier: Annotated[str, _aws_pattern("Datazone", "NotebookId")]
+    scheduleIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "ScheduleId")]] = None
+    computeConfiguration: Optional[ComputeConfigTypeDef] = None
+    networkConfiguration: Optional[NetworkConfigUnionTypeDef] = None
+    timeoutConfiguration: Optional[TimeoutConfigTypeDef] = None
+    triggerSource: Optional[TriggerSourceTypeDef] = None
+    metadata: Optional[Dict[str, str]] = None
+    parameters: Optional[Dict[str, str]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
+
+
 class RowFilterOutputTypeDef(BaseValidatorModel):
     expression: Optional[RowFilterExpressionOutputTypeDef] = None
     and_: Optional[List[Dict[str, Any]]] = Field(None, alias="and")
@@ -4706,8 +4918,8 @@ class RowFilterTypeDef(BaseValidatorModel):
 
 
 class NotificationOutputTypeDef(BaseValidatorModel):
-    identifier: str
-    domainIdentifier: str
+    identifier: Annotated[str, _aws_pattern("Datazone", "TaskId")]
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     type: NotificationTypeType
     topic: TopicTypeDef
     title: str
@@ -4721,7 +4933,7 @@ class NotificationOutputTypeDef(BaseValidatorModel):
 
 class AuthenticationConfigurationTypeDef(BaseValidatorModel):
     authenticationType: Optional[AuthenticationTypeType] = None
-    secretArn: Optional[str] = None
+    secretArn: Optional[Annotated[str, _aws_pattern("Datazone", "AuthenticationConfigurationSecretArnString")]] = None
     oAuth2Properties: Optional[OAuth2PropertiesOutputTypeDef] = None
 
 
@@ -4736,19 +4948,19 @@ class ListEntityOwnersOutputTypeDef(BaseValidatorModel):
 
 
 class AddEntityOwnerInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     entityType: Literal["DOMAIN_UNIT"]
     entityIdentifier: str
     owner: OwnerPropertiesTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 class RemoveEntityOwnerInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     entityType: Literal["DOMAIN_UNIT"]
     entityIdentifier: str
     owner: OwnerPropertiesTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 class SubscribedListingItemTypeDef(BaseValidatorModel):
@@ -4758,89 +4970,89 @@ class SubscribedListingItemTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_subscription_grant' function.
 class CreateSubscriptionGrantOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionGrantId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     createdAt: datetime
     updatedAt: datetime
-    environmentId: str
-    subscriptionTargetId: str
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    subscriptionTargetId: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
     grantedEntity: GrantedEntityTypeDef
     status: SubscriptionGrantOverallStatusType
     assets: List[SubscribedAssetTypeDef]
-    subscriptionId: str
+    subscriptionId: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_subscription_grant' function.
 class DeleteSubscriptionGrantOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionGrantId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     createdAt: datetime
     updatedAt: datetime
-    environmentId: str
-    subscriptionTargetId: str
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    subscriptionTargetId: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
     grantedEntity: GrantedEntityTypeDef
     status: SubscriptionGrantOverallStatusType
     assets: List[SubscribedAssetTypeDef]
-    subscriptionId: str
+    subscriptionId: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_subscription_grant' function.
 class GetSubscriptionGrantOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionGrantId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     createdAt: datetime
     updatedAt: datetime
-    environmentId: str
-    subscriptionTargetId: str
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    subscriptionTargetId: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
     grantedEntity: GrantedEntityTypeDef
     status: SubscriptionGrantOverallStatusType
     assets: List[SubscribedAssetTypeDef]
-    subscriptionId: str
+    subscriptionId: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class SubscriptionGrantSummaryTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionGrantId")]
     createdBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     createdAt: datetime
     updatedAt: datetime
-    subscriptionTargetId: str
+    subscriptionTargetId: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
     grantedEntity: GrantedEntityTypeDef
     status: SubscriptionGrantOverallStatusType
     updatedBy: Optional[str] = None
-    environmentId: Optional[str] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]] = None
     assets: Optional[List[SubscribedAssetTypeDef]] = None
-    subscriptionId: Optional[str] = None
+    subscriptionId: Optional[Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]] = None
 
 
 # This class is the output for the 'update_subscription_grant_status' function.
 class UpdateSubscriptionGrantStatusOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionGrantId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     createdAt: datetime
     updatedAt: datetime
-    environmentId: str
-    subscriptionTargetId: str
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
+    subscriptionTargetId: Annotated[str, _aws_pattern("Datazone", "SubscriptionTargetId")]
     grantedEntity: GrantedEntityTypeDef
     status: SubscriptionGrantOverallStatusType
     assets: List[SubscribedAssetTypeDef]
-    subscriptionId: str
+    subscriptionId: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class AssetPermissionTypeDef(BaseValidatorModel):
-    assetId: str
+    assetId: Annotated[str, _aws_pattern("Datazone", "AssetId")]
     permissions: PermissionsUnionTypeDef
 
 
@@ -4848,10 +5060,10 @@ PolicyGrantDetailUnionTypeDef = Union[PolicyGrantDetailOutputTypeDef, PolicyGran
 
 
 class RuleSummaryTypeDef(BaseValidatorModel):
-    identifier: Optional[str] = None
+    identifier: Optional[Annotated[str, _aws_pattern("Datazone", "RuleId")]] = None
     revision: Optional[str] = None
     ruleType: Optional[RuleTypeType] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "RuleName")]] = None
     targetType: Optional[Literal["DOMAIN_UNIT"]] = None
     target: Optional[RuleTargetTypeDef] = None
     action: Optional[RuleActionType] = None
@@ -4896,16 +5108,20 @@ class RedshiftPropertiesPatchTypeDef(BaseValidatorModel):
 class RedshiftRunConfigurationOutputTypeDef(BaseValidatorModel):
     relationalFilterConfigurations: List[RelationalFilterConfigurationOutputTypeDef]
     redshiftStorage: RedshiftStorageTypeDef
-    accountId: Optional[str] = None
-    region: Optional[str] = None
-    dataAccessRole: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Datazone", "RedshiftRunConfigurationOutputAccountIdString")]] = (
+        None
+    )
+    region: Optional[Annotated[str, _aws_pattern("Datazone", "RedshiftRunConfigurationOutputRegionString")]] = None
+    dataAccessRole: Optional[
+        Annotated[str, _aws_pattern("Datazone", "RedshiftRunConfigurationOutputDataAccessRoleString")]
+    ] = None
     redshiftCredentialConfiguration: Optional[RedshiftCredentialConfigurationTypeDef] = None
 
 
 # This class is the output for the 'create_user_profile' function.
 class CreateUserProfileOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "UserProfileId")]
     type: UserProfileTypeType
     status: UserProfileStatusType
     details: UserProfileDetailsTypeDef
@@ -4914,8 +5130,8 @@ class CreateUserProfileOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_user_profile' function.
 class GetUserProfileOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "UserProfileId")]
     type: UserProfileTypeType
     status: UserProfileStatusType
     details: UserProfileDetailsTypeDef
@@ -4923,14 +5139,14 @@ class GetUserProfileOutputTypeDef(BaseValidatorModel):
 
 
 class SubscribedUserTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "UserProfileId")]] = None
     details: Optional[UserProfileDetailsTypeDef] = None
 
 
 # This class is the output for the 'update_user_profile' function.
 class UpdateUserProfileOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "UserProfileId")]
     type: UserProfileTypeType
     status: UserProfileStatusType
     details: UserProfileDetailsTypeDef
@@ -4938,8 +5154,8 @@ class UpdateUserProfileOutputTypeDef(BaseValidatorModel):
 
 
 class UserProfileSummaryTypeDef(BaseValidatorModel):
-    domainId: Optional[str] = None
-    id: Optional[str] = None
+    domainId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainId")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "UserProfileId")]] = None
     type: Optional[UserProfileTypeType] = None
     status: Optional[UserProfileStatusType] = None
     details: Optional[UserProfileDetailsTypeDef] = None
@@ -4947,21 +5163,21 @@ class UserProfileSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_glossary_term' function.
 class CreateGlossaryTermInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    glossaryIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    glossaryIdentifier: Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]
     name: str
     status: Optional[GlossaryTermStatusType] = None
     shortDescription: Optional[str] = None
     longDescription: Optional[str] = None
     termRelations: Optional[TermRelationsUnionTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_glossary_term' function.
 class UpdateGlossaryTermInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
-    glossaryIdentifier: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]
+    glossaryIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]] = None
     name: Optional[str] = None
     shortDescription: Optional[str] = None
     longDescription: Optional[str] = None
@@ -4978,8 +5194,8 @@ class QueryGraphOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_account_pool' function.
 class CreateAccountPoolInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    name: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "AccountPoolName")]
     resolutionStrategy: Literal["MANUAL"]
     accountSource: AccountSourceUnionTypeDef
     description: Optional[str] = None
@@ -4987,9 +5203,9 @@ class CreateAccountPoolInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_account_pool' function.
 class UpdateAccountPoolInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
-    name: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AccountPoolId")]
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "AccountPoolName")]] = None
     description: Optional[str] = None
     resolutionStrategy: Optional[Literal["MANUAL"]] = None
     accountSource: Optional[AccountSourceUnionTypeDef] = None
@@ -5034,9 +5250,9 @@ class PolicyGrantPrincipalTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_project_profile' function.
 class CreateProjectProfileOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "ProjectProfileId")]
+    name: Annotated[str, _aws_pattern("Datazone", "ProjectProfileName")]
     description: str
     status: StatusType
     projectResourceTags: List[ResourceTagParameterTypeDef]
@@ -5046,15 +5262,15 @@ class CreateProjectProfileOutputTypeDef(BaseValidatorModel):
     createdBy: str
     createdAt: datetime
     lastUpdatedAt: datetime
-    domainUnitId: str
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_project_profile' function.
 class GetProjectProfileOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "ProjectProfileId")]
+    name: Annotated[str, _aws_pattern("Datazone", "ProjectProfileName")]
     description: str
     status: StatusType
     projectResourceTags: List[ResourceTagParameterTypeDef]
@@ -5064,15 +5280,15 @@ class GetProjectProfileOutputTypeDef(BaseValidatorModel):
     createdBy: str
     createdAt: datetime
     lastUpdatedAt: datetime
-    domainUnitId: str
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_project_profile' function.
 class UpdateProjectProfileOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
-    name: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "ProjectProfileId")]
+    name: Annotated[str, _aws_pattern("Datazone", "ProjectProfileName")]
     description: str
     status: StatusType
     projectResourceTags: List[ResourceTagParameterTypeDef]
@@ -5082,47 +5298,47 @@ class UpdateProjectProfileOutputTypeDef(BaseValidatorModel):
     createdBy: str
     createdAt: datetime
     lastUpdatedAt: datetime
-    domainUnitId: str
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class EnvironmentConfigurationTypeDef(BaseValidatorModel):
-    name: str
-    environmentBlueprintId: str
-    id: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationName")]
+    environmentBlueprintId: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentConfigurationId")]] = None
     description: Optional[str] = None
     deploymentMode: Optional[DeploymentModeType] = None
     configurationParameters: Optional[EnvironmentConfigurationParametersDetailsUnionTypeDef] = None
     awsAccount: Optional[AwsAccountTypeDef] = None
-    accountPools: Optional[List[str]] = None
+    accountPools: Optional[List[Annotated[str, _aws_pattern("Datazone", "AccountPoolId")]]] = None
     awsRegion: Optional[RegionTypeDef] = None
     deploymentOrder: Optional[int] = None
 
 
 # This class is the input for the 'create_project' function.
 class CreateProjectInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    name: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "ProjectName")]
     description: Optional[str] = None
     resourceTags: Optional[Dict[str, str]] = None
-    glossaryTerms: Optional[List[str]] = None
-    domainUnitId: Optional[str] = None
-    projectProfileId: Optional[str] = None
+    glossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
+    domainUnitId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]] = None
+    projectProfileId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectProfileId")]] = None
     userParameters: Optional[List[EnvironmentConfigurationUserParameterUnionTypeDef]] = None
     projectCategory: Optional[str] = None
-    projectExecutionRole: Optional[str] = None
+    projectExecutionRole: Optional[Annotated[str, _aws_pattern("Datazone", "RoleArn")]] = None
     membershipAssignments: Optional[List[ProjectMembershipAssignmentTypeDef]] = None
 
 
 # This class is the input for the 'update_project' function.
 class UpdateProjectInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
-    name: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectName")]] = None
     description: Optional[str] = None
     resourceTags: Optional[Dict[str, str]] = None
-    glossaryTerms: Optional[List[str]] = None
-    domainUnitId: Optional[str] = None
+    glossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
+    domainUnitId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]] = None
     environmentDeploymentDetails: Optional[EnvironmentDeploymentDetailsUnionTypeDef] = None
     userParameters: Optional[List[EnvironmentConfigurationUserParameterUnionTypeDef]] = None
     projectProfileVersion: Optional[str] = None
@@ -5140,14 +5356,18 @@ class MatchClauseTypeDef(BaseValidatorModel):
 
 class GlueRunConfigurationInputTypeDef(BaseValidatorModel):
     relationalFilterConfigurations: List[RelationalFilterConfigurationUnionTypeDef]
-    dataAccessRole: Optional[str] = None
+    dataAccessRole: Optional[
+        Annotated[str, _aws_pattern("Datazone", "GlueRunConfigurationInputDataAccessRoleString")]
+    ] = None
     autoImportDataQualityResult: Optional[bool] = None
     catalogName: Optional[str] = None
 
 
 class RedshiftRunConfigurationInputTypeDef(BaseValidatorModel):
     relationalFilterConfigurations: List[RelationalFilterConfigurationUnionTypeDef]
-    dataAccessRole: Optional[str] = None
+    dataAccessRole: Optional[
+        Annotated[str, _aws_pattern("Datazone", "RedshiftRunConfigurationInputDataAccessRoleString")]
+    ] = None
     redshiftCredentialConfiguration: Optional[RedshiftCredentialConfigurationTypeDef] = None
     redshiftStorage: Optional[RedshiftStorageTypeDef] = None
 
@@ -5172,7 +5392,7 @@ ProvisioningConfigurationUnionTypeDef = Union[ProvisioningConfigurationOutputTyp
 
 # This class is the output for the 'get_job_run' function.
 class GetJobRunOutputTypeDef(BaseValidatorModel):
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     id: str
     jobId: str
     jobType: Literal["LINEAGE"]
@@ -5226,8 +5446,8 @@ class ListProjectMembershipsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_rule' function.
 class CreateRuleOutputTypeDef(BaseValidatorModel):
-    identifier: str
-    name: str
+    identifier: Annotated[str, _aws_pattern("Datazone", "RuleId")]
+    name: Annotated[str, _aws_pattern("Datazone", "RuleName")]
     ruleType: RuleTypeType
     target: RuleTargetTypeDef
     action: RuleActionType
@@ -5242,9 +5462,9 @@ class CreateRuleOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_rule' function.
 class GetRuleOutputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Datazone", "RuleId")]
     revision: str
-    name: str
+    name: Annotated[str, _aws_pattern("Datazone", "RuleName")]
     ruleType: RuleTypeType
     target: RuleTargetTypeDef
     action: RuleActionType
@@ -5261,9 +5481,9 @@ class GetRuleOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_rule' function.
 class UpdateRuleOutputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Datazone", "RuleId")]
     revision: str
-    name: str
+    name: Annotated[str, _aws_pattern("Datazone", "RuleName")]
     ruleType: RuleTypeType
     target: RuleTargetTypeDef
     action: RuleActionType
@@ -5281,8 +5501,8 @@ RuleDetailUnionTypeDef = Union[RuleDetailOutputTypeDef, RuleDetailTypeDef]
 
 
 class LineageEventSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    domainId: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Datazone", "LineageEventIdentifier")]] = None
+    domainId: Optional[Annotated[str, _aws_pattern("Datazone", "DomainId")]] = None
     processingStatus: Optional[LineageEventProcessingStatusType] = None
     eventTime: Optional[datetime] = None
     eventSummary: Optional[EventSummaryTypeDef] = None
@@ -5331,18 +5551,22 @@ class GlueConnectionTypeDef(BaseValidatorModel):
 class AuthenticationConfigurationInputTypeDef(BaseValidatorModel):
     authenticationType: Optional[AuthenticationTypeType] = None
     oAuth2Properties: Optional[OAuth2PropertiesUnionTypeDef] = None
-    secretArn: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    secretArn: Optional[Annotated[str, _aws_pattern("Datazone", "AuthenticationConfigurationInputSecretArnString")]] = (
+        None
+    )
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Datazone", "AuthenticationConfigurationInputKmsKeyArnString")]] = (
+        None
+    )
     basicAuthenticationCredentials: Optional[BasicAuthenticationCredentialsTypeDef] = None
     customAuthenticationCredentials: Optional[Dict[str, str]] = None
 
 
 class SubscribedListingTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "ListingId")]
     name: str
     description: str
     item: SubscribedListingItemTypeDef
-    ownerProjectId: str
+    ownerProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     revision: Optional[str] = None
     ownerProjectName: Optional[str] = None
 
@@ -5356,8 +5580,8 @@ class ListSubscriptionGrantsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'accept_subscription_request' function.
 class AcceptSubscriptionRequestInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     decisionComment: Optional[str] = None
     assetScopes: Optional[List[AcceptedAssetScopeTypeDef]] = None
     assetPermissions: Optional[List[AssetPermissionTypeDef]] = None
@@ -5365,7 +5589,7 @@ class AcceptSubscriptionRequestInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_subscription_request' function.
 class CreateSubscriptionRequestInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     subscribedPrincipals: List[SubscribedPrincipalInputTypeDef]
     subscribedListings: List[SubscribedListingInputTypeDef]
     requestReason: str
@@ -5420,8 +5644,8 @@ class SearchUserProfilesOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_listing' function.
 class GetListingOutputTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "ListingId")]
     listingRevision: str
     createdAt: datetime
     updatedAt: datetime
@@ -5451,7 +5675,7 @@ class PolicyGrantMemberTypeDef(BaseValidatorModel):
     detail: Optional[PolicyGrantDetailOutputTypeDef] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
-    grantId: Optional[str] = None
+    grantId: Optional[Annotated[str, _aws_pattern("Datazone", "GrantIdentifier")]] = None
 
 
 PolicyGrantPrincipalUnionTypeDef = Union[PolicyGrantPrincipalOutputTypeDef, PolicyGrantPrincipalTypeDef]
@@ -5468,7 +5692,7 @@ class QueryGraphInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'query_graph' function.
 class QueryGraphInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     match_: List[MatchClauseTypeDef] = Field(..., alias="match")
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -5483,59 +5707,59 @@ class DataSourceConfigurationInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_environment_blueprint_configuration' function.
 class PutEnvironmentBlueprintConfigurationInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    environmentBlueprintIdentifier: str
-    enabledRegions: List[str]
-    provisioningRoleArn: Optional[str] = None
-    manageAccessRoleArn: Optional[str] = None
-    environmentRolePermissionBoundary: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    environmentBlueprintIdentifier: Annotated[str, _aws_pattern("Datazone", "EnvironmentBlueprintId")]
+    enabledRegions: List[Annotated[str, _aws_pattern("Datazone", "RegionName")]]
+    provisioningRoleArn: Optional[Annotated[str, _aws_pattern("Datazone", "RoleArn")]] = None
+    manageAccessRoleArn: Optional[Annotated[str, _aws_pattern("Datazone", "RoleArn")]] = None
+    environmentRolePermissionBoundary: Optional[Annotated[str, _aws_pattern("Datazone", "PolicyArn")]] = None
     regionalParameters: Optional[Dict[str, Dict[str, str]]] = None
     globalParameters: Optional[Dict[str, str]] = None
     provisioningConfigurations: Optional[List[ProvisioningConfigurationUnionTypeDef]] = None
 
 
 class AssetItemTypeDef(BaseValidatorModel):
-    domainId: str
-    identifier: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "AssetIdentifier")]
     name: str
-    typeIdentifier: str
+    typeIdentifier: Annotated[str, _aws_pattern("Datazone", "AssetTypeIdentifier")]
     typeRevision: str
-    owningProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     externalIdentifier: Optional[str] = None
     description: Optional[str] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     firstRevisionCreatedAt: Optional[datetime] = None
     firstRevisionCreatedBy: Optional[str] = None
-    glossaryTerms: Optional[List[str]] = None
+    glossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
     additionalAttributes: Optional[AssetItemAdditionalAttributesTypeDef] = None
-    governedGlossaryTerms: Optional[List[str]] = None
+    governedGlossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
 
 
 class AssetListingItemTypeDef(BaseValidatorModel):
-    listingId: Optional[str] = None
+    listingId: Optional[Annotated[str, _aws_pattern("Datazone", "ListingId")]] = None
     listingRevision: Optional[str] = None
     name: Optional[str] = None
-    entityId: Optional[str] = None
+    entityId: Optional[Annotated[str, _aws_pattern("Datazone", "AssetId")]] = None
     entityRevision: Optional[str] = None
-    entityType: Optional[str] = None
+    entityType: Optional[Annotated[str, _aws_pattern("Datazone", "TypeName")]] = None
     description: Optional[str] = None
     createdAt: Optional[datetime] = None
     listingCreatedBy: Optional[str] = None
     listingUpdatedBy: Optional[str] = None
     glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
     governedGlossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
-    owningProjectId: Optional[str] = None
+    owningProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
     additionalAttributes: Optional[AssetListingItemAdditionalAttributesTypeDef] = None
 
 
 class DataProductResultItemTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "DataProductId")]
     name: str
-    owningProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     description: Optional[str] = None
-    glossaryTerms: Optional[List[str]] = None
+    glossaryTerms: Optional[List[Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]]] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     firstRevisionCreatedAt: Optional[datetime] = None
@@ -5544,26 +5768,26 @@ class DataProductResultItemTypeDef(BaseValidatorModel):
 
 
 class DataProductListingItemTypeDef(BaseValidatorModel):
-    listingId: Optional[str] = None
+    listingId: Optional[Annotated[str, _aws_pattern("Datazone", "ListingId")]] = None
     listingRevision: Optional[str] = None
     name: Optional[str] = None
-    entityId: Optional[str] = None
+    entityId: Optional[Annotated[str, _aws_pattern("Datazone", "DataProductId")]] = None
     entityRevision: Optional[str] = None
     description: Optional[str] = None
     createdAt: Optional[datetime] = None
     listingCreatedBy: Optional[str] = None
     listingUpdatedBy: Optional[str] = None
     glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
-    owningProjectId: Optional[str] = None
+    owningProjectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
     additionalAttributes: Optional[DataProductListingItemAdditionalAttributesTypeDef] = None
     items: Optional[List[ListingSummaryItemTypeDef]] = None
 
 
 class GlossaryItemTypeDef(BaseValidatorModel):
-    domainId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    id: Annotated[str, _aws_pattern("Datazone", "GlossaryId")]
     name: str
-    owningProjectId: str
+    owningProjectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     status: GlossaryStatusType
     description: Optional[str] = None
     usageRestrictions: Optional[List[Literal["ASSET_GOVERNED_TERMS"]]] = None
@@ -5575,9 +5799,9 @@ class GlossaryItemTypeDef(BaseValidatorModel):
 
 
 class GlossaryTermItemTypeDef(BaseValidatorModel):
-    domainId: str
-    glossaryId: str
-    id: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    glossaryId: Annotated[str, _aws_pattern("Datazone", "GlossaryId")]
+    id: Annotated[str, _aws_pattern("Datazone", "GlossaryTermId")]
     name: str
     status: GlossaryTermStatusType
     shortDescription: Optional[str] = None
@@ -5593,21 +5817,21 @@ class GlossaryTermItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_rule' function.
 class CreateRuleInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    name: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "RuleName")]
     target: RuleTargetTypeDef
     action: RuleActionType
     scope: RuleScopeUnionTypeDef
     detail: RuleDetailUnionTypeDef
     description: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_rule' function.
 class UpdateRuleInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
-    name: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "RuleId")]
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "RuleName")]] = None
     description: Optional[str] = None
     scope: Optional[RuleScopeUnionTypeDef] = None
     detail: Optional[RuleDetailUnionTypeDef] = None
@@ -5660,14 +5884,14 @@ class GlueConnectionInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_data_source' function.
 class CreateDataSourceOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
     status: DataSourceStatusType
     type: str
     name: str
     description: str
-    domainId: str
-    projectId: str
-    environmentId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     connectionId: str
     configuration: DataSourceConfigurationOutputTypeDef
     recommendation: RecommendationConfigurationTypeDef
@@ -5686,14 +5910,14 @@ class CreateDataSourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_data_source' function.
 class DeleteDataSourceOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
     status: DataSourceStatusType
     type: str
     name: str
     description: str
-    domainId: str
-    projectId: str
-    environmentId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     connectionId: str
     configuration: DataSourceConfigurationOutputTypeDef
     enableSetting: EnableSettingType
@@ -5713,14 +5937,14 @@ class DeleteDataSourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_data_source' function.
 class GetDataSourceOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
     status: DataSourceStatusType
     type: str
     name: str
     description: str
-    domainId: str
-    projectId: str
-    environmentId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     connectionId: str
     configuration: DataSourceConfigurationOutputTypeDef
     recommendation: RecommendationConfigurationTypeDef
@@ -5741,14 +5965,14 @@ class GetDataSourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_data_source' function.
 class UpdateDataSourceOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
     status: DataSourceStatusType
     type: str
     name: str
     description: str
-    domainId: str
-    projectId: str
-    environmentId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     connectionId: str
     configuration: DataSourceConfigurationOutputTypeDef
     recommendation: RecommendationConfigurationTypeDef
@@ -5769,10 +5993,10 @@ class UpdateDataSourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'accept_subscription_request' function.
 class AcceptSubscriptionRequestOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: SubscriptionRequestStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -5781,33 +6005,33 @@ class AcceptSubscriptionRequestOutputTypeDef(BaseValidatorModel):
     subscribedListings: List[SubscribedListingTypeDef]
     reviewerId: str
     decisionComment: str
-    existingSubscriptionId: str
+    existingSubscriptionId: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     metadataForms: List[FormOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'cancel_subscription' function.
 class CancelSubscriptionOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: SubscriptionStatusType
     createdAt: datetime
     updatedAt: datetime
     subscribedPrincipal: SubscribedPrincipalTypeDef
     subscribedListing: SubscribedListingTypeDef
-    subscriptionRequestId: str
+    subscriptionRequestId: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     retainPermissions: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_subscription_request' function.
 class CreateSubscriptionRequestOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: SubscriptionRequestStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -5816,33 +6040,33 @@ class CreateSubscriptionRequestOutputTypeDef(BaseValidatorModel):
     subscribedListings: List[SubscribedListingTypeDef]
     reviewerId: str
     decisionComment: str
-    existingSubscriptionId: str
+    existingSubscriptionId: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     metadataForms: List[FormOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_subscription' function.
 class GetSubscriptionOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: SubscriptionStatusType
     createdAt: datetime
     updatedAt: datetime
     subscribedPrincipal: SubscribedPrincipalTypeDef
     subscribedListing: SubscribedListingTypeDef
-    subscriptionRequestId: str
+    subscriptionRequestId: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     retainPermissions: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_subscription_request_details' function.
 class GetSubscriptionRequestDetailsOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: SubscriptionRequestStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -5851,17 +6075,17 @@ class GetSubscriptionRequestDetailsOutputTypeDef(BaseValidatorModel):
     subscribedListings: List[SubscribedListingTypeDef]
     reviewerId: str
     decisionComment: str
-    existingSubscriptionId: str
+    existingSubscriptionId: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     metadataForms: List[FormOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'reject_subscription_request' function.
 class RejectSubscriptionRequestOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: SubscriptionRequestStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -5870,31 +6094,31 @@ class RejectSubscriptionRequestOutputTypeDef(BaseValidatorModel):
     subscribedListings: List[SubscribedListingTypeDef]
     reviewerId: str
     decisionComment: str
-    existingSubscriptionId: str
+    existingSubscriptionId: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     metadataForms: List[FormOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'revoke_subscription' function.
 class RevokeSubscriptionOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: SubscriptionStatusType
     createdAt: datetime
     updatedAt: datetime
     subscribedPrincipal: SubscribedPrincipalTypeDef
     subscribedListing: SubscribedListingTypeDef
-    subscriptionRequestId: str
+    subscriptionRequestId: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     retainPermissions: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class SubscriptionRequestSummaryTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     createdBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: SubscriptionRequestStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -5904,30 +6128,30 @@ class SubscriptionRequestSummaryTypeDef(BaseValidatorModel):
     updatedBy: Optional[str] = None
     reviewerId: Optional[str] = None
     decisionComment: Optional[str] = None
-    existingSubscriptionId: Optional[str] = None
+    existingSubscriptionId: Optional[Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]] = None
     metadataFormsSummary: Optional[List[MetadataFormSummaryTypeDef]] = None
 
 
 class SubscriptionSummaryTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     createdBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: SubscriptionStatusType
     createdAt: datetime
     updatedAt: datetime
     subscribedPrincipal: SubscribedPrincipalTypeDef
     subscribedListing: SubscribedListingTypeDef
     updatedBy: Optional[str] = None
-    subscriptionRequestId: Optional[str] = None
+    subscriptionRequestId: Optional[Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]] = None
     retainPermissions: Optional[bool] = None
 
 
 # This class is the output for the 'update_subscription_request' function.
 class UpdateSubscriptionRequestOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Datazone", "SubscriptionRequestId")]
     createdBy: str
     updatedBy: str
-    domainId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     status: SubscriptionRequestStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -5936,14 +6160,14 @@ class UpdateSubscriptionRequestOutputTypeDef(BaseValidatorModel):
     subscribedListings: List[SubscribedListingTypeDef]
     reviewerId: str
     decisionComment: str
-    existingSubscriptionId: str
+    existingSubscriptionId: Annotated[str, _aws_pattern("Datazone", "SubscriptionId")]
     metadataForms: List[FormOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_connection' function.
 class UpdateConnectionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     identifier: str
     configurations: Optional[List[ConfigurationUnionTypeDef]] = None
     description: Optional[str] = None
@@ -5960,61 +6184,65 @@ class ListPolicyGrantsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_policy_grant' function.
 class AddPolicyGrantInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     entityType: TargetEntityTypeType
     entityIdentifier: str
     policyType: ManagedPolicyTypeType
     principal: PolicyGrantPrincipalUnionTypeDef
     detail: PolicyGrantDetailUnionTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 class RemovePolicyGrantInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     entityType: TargetEntityTypeType
     entityIdentifier: str
     policyType: ManagedPolicyTypeType
     principal: PolicyGrantPrincipalUnionTypeDef
-    grantIdentifier: Optional[str] = None
-    clientToken: Optional[str] = None
+    grantIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "GrantIdentifier")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Datazone", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_project_profile' function.
 class CreateProjectProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    name: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    name: Annotated[str, _aws_pattern("Datazone", "ProjectProfileName")]
     description: Optional[str] = None
     status: Optional[StatusType] = None
     projectResourceTags: Optional[List[ResourceTagParameterTypeDef]] = None
     allowCustomProjectResourceTags: Optional[bool] = None
     projectResourceTagsDescription: Optional[str] = None
     environmentConfigurations: Optional[List[EnvironmentConfigurationUnionTypeDef]] = None
-    domainUnitIdentifier: Optional[str] = None
+    domainUnitIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]] = None
 
 
 # This class is the input for the 'update_project_profile' function.
 class UpdateProjectProfileInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
-    name: Optional[str] = None
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "ProjectProfileId")]
+    name: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectProfileName")]] = None
     description: Optional[str] = None
     status: Optional[StatusType] = None
     projectResourceTags: Optional[List[ResourceTagParameterTypeDef]] = None
     allowCustomProjectResourceTags: Optional[bool] = None
     projectResourceTagsDescription: Optional[str] = None
     environmentConfigurations: Optional[List[EnvironmentConfigurationUnionTypeDef]] = None
-    domainUnitIdentifier: Optional[str] = None
+    domainUnitIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]] = None
 
 
 # This class is the input for the 'create_data_source' function.
 class CreateDataSourceInputTypeDef(BaseValidatorModel):
     name: str
-    domainIdentifier: str
-    projectIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    projectIdentifier: Annotated[str, _aws_pattern("Datazone", "CreateDataSourceInputProjectIdentifierString")]
     type: str
     description: Optional[str] = None
-    environmentIdentifier: Optional[str] = None
-    connectionIdentifier: Optional[str] = None
+    environmentIdentifier: Optional[
+        Annotated[str, _aws_pattern("Datazone", "CreateDataSourceInputEnvironmentIdentifierString")]
+    ] = None
+    connectionIdentifier: Optional[
+        Annotated[str, _aws_pattern("Datazone", "CreateDataSourceInputConnectionIdentifierString")]
+    ] = None
     configuration: Optional[DataSourceConfigurationInputTypeDef] = None
     recommendation: Optional[RecommendationConfigurationTypeDef] = None
     enableSetting: Optional[EnableSettingType] = None
@@ -6026,8 +6254,8 @@ class CreateDataSourceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_data_source' function.
 class UpdateDataSourceInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "DataSourceId")]
     name: Optional[str] = None
     description: Optional[str] = None
     enableSetting: Optional[EnableSettingType] = None
@@ -6053,10 +6281,10 @@ class SearchInventoryResultItemTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_asset_filter' function.
 class CreateAssetFilterOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    assetId: str
-    name: str
+    id: Annotated[str, _aws_pattern("Datazone", "FilterId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    assetId: Annotated[str, _aws_pattern("Datazone", "AssetId")]
+    name: Annotated[str, _aws_pattern("Datazone", "FilterName")]
     description: str
     status: FilterStatusType
     configuration: AssetFilterConfigurationOutputTypeDef
@@ -6069,10 +6297,10 @@ class CreateAssetFilterOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_asset_filter' function.
 class GetAssetFilterOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    assetId: str
-    name: str
+    id: Annotated[str, _aws_pattern("Datazone", "FilterId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    assetId: Annotated[str, _aws_pattern("Datazone", "AssetId")]
+    name: Annotated[str, _aws_pattern("Datazone", "FilterName")]
     description: str
     status: FilterStatusType
     configuration: AssetFilterConfigurationOutputTypeDef
@@ -6085,10 +6313,10 @@ class GetAssetFilterOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_asset_filter' function.
 class UpdateAssetFilterOutputTypeDef(BaseValidatorModel):
-    id: str
-    domainId: str
-    assetId: str
-    name: str
+    id: Annotated[str, _aws_pattern("Datazone", "FilterId")]
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    assetId: Annotated[str, _aws_pattern("Datazone", "AssetId")]
+    name: Annotated[str, _aws_pattern("Datazone", "FilterName")]
     description: str
     status: FilterStatusType
     configuration: AssetFilterConfigurationOutputTypeDef
@@ -6104,14 +6332,14 @@ AssetFilterConfigurationUnionTypeDef = Union[AssetFilterConfigurationOutputTypeD
 
 class ConnectionSummaryTypeDef(BaseValidatorModel):
     connectionId: str
-    domainId: str
-    domainUnitId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
     name: str
     physicalEndpoints: List[PhysicalEndpointTypeDef]
     type: ConnectionTypeType
     configurations: Optional[List[ConfigurationOutputTypeDef]] = None
-    environmentId: Optional[str] = None
-    projectId: Optional[str] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]] = None
+    projectId: Optional[Annotated[str, _aws_pattern("Datazone", "ProjectId")]] = None
     props: Optional[ConnectionPropertiesOutputTypeDef] = None
     scope: Optional[ConnectionScopeType] = None
 
@@ -6121,12 +6349,12 @@ class CreateConnectionOutputTypeDef(BaseValidatorModel):
     connectionId: str
     configurations: List[ConfigurationOutputTypeDef]
     description: str
-    domainId: str
-    domainUnitId: str
-    environmentId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     name: str
     physicalEndpoints: List[PhysicalEndpointTypeDef]
-    projectId: str
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     props: ConnectionPropertiesOutputTypeDef
     type: ConnectionTypeType
     scope: ConnectionScopeType
@@ -6139,13 +6367,13 @@ class GetConnectionOutputTypeDef(BaseValidatorModel):
     configurations: List[ConfigurationOutputTypeDef]
     connectionId: str
     description: str
-    domainId: str
-    domainUnitId: str
-    environmentId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     environmentUserRole: str
     name: str
     physicalEndpoints: List[PhysicalEndpointTypeDef]
-    projectId: str
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     props: ConnectionPropertiesOutputTypeDef
     type: ConnectionTypeType
     scope: ConnectionScopeType
@@ -6157,12 +6385,12 @@ class UpdateConnectionOutputTypeDef(BaseValidatorModel):
     configurations: List[ConfigurationOutputTypeDef]
     connectionId: str
     description: str
-    domainId: str
-    domainUnitId: str
-    environmentId: str
+    domainId: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    domainUnitId: Annotated[str, _aws_pattern("Datazone", "DomainUnitId")]
+    environmentId: Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]
     name: str
     physicalEndpoints: List[PhysicalEndpointTypeDef]
-    projectId: str
+    projectId: Annotated[str, _aws_pattern("Datazone", "ProjectId")]
     props: ConnectionPropertiesOutputTypeDef
     type: ConnectionTypeType
     scope: ConnectionScopeType
@@ -6206,9 +6434,9 @@ class SearchOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_asset_filter' function.
 class CreateAssetFilterInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    assetIdentifier: str
-    name: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    assetIdentifier: Annotated[str, _aws_pattern("Datazone", "AssetId")]
+    name: Annotated[str, _aws_pattern("Datazone", "FilterName")]
     configuration: AssetFilterConfigurationUnionTypeDef
     description: Optional[str] = None
     clientToken: Optional[str] = None
@@ -6216,9 +6444,9 @@ class CreateAssetFilterInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_asset_filter' function.
 class UpdateAssetFilterInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
-    assetIdentifier: str
-    identifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
+    assetIdentifier: Annotated[str, _aws_pattern("Datazone", "AssetId")]
+    identifier: Annotated[str, _aws_pattern("Datazone", "FilterId")]
     name: Optional[str] = None
     description: Optional[str] = None
     configuration: Optional[AssetFilterConfigurationUnionTypeDef] = None
@@ -6249,13 +6477,13 @@ class ConnectionPropertiesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_connection' function.
 class CreateConnectionInputTypeDef(BaseValidatorModel):
-    domainIdentifier: str
+    domainIdentifier: Annotated[str, _aws_pattern("Datazone", "DomainId")]
     name: str
     awsLocation: Optional[AwsLocationTypeDef] = None
     clientToken: Optional[str] = None
     configurations: Optional[List[ConfigurationUnionTypeDef]] = None
     description: Optional[str] = None
-    environmentIdentifier: Optional[str] = None
+    environmentIdentifier: Optional[Annotated[str, _aws_pattern("Datazone", "EnvironmentId")]] = None
     props: Optional[ConnectionPropertiesInputTypeDef] = None
     enableTrustedIdentityPropagation: Optional[bool] = None
     scope: Optional[ConnectionScopeType] = None

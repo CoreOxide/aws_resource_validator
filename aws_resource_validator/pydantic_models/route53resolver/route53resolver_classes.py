@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.route53resolver.route53resolver_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,7 +50,7 @@ class FirewallRuleGroupAssociationTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     FirewallRuleGroupId: Optional[str] = None
     VpcId: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     Priority: Optional[int] = None
     MutationProtection: Optional[MutationProtectionStatusType] = None
     ManagedOwnerName: Optional[str] = None
@@ -78,7 +80,7 @@ class ResolverEndpointTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     CreatorRequestId: Optional[str] = None
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     SecurityGroupIds: Optional[List[str]] = None
     Direction: Optional[ResolverEndpointDirectionType] = None
     IpAddressCount: Optional[int] = None
@@ -87,7 +89,7 @@ class ResolverEndpointTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
     CreationTime: Optional[str] = None
     ModificationTime: Optional[str] = None
-    OutpostArn: Optional[str] = None
+    OutpostArn: Optional[Annotated[str, _aws_pattern("Route53resolver", "OutpostArn")]] = None
     PreferredInstanceType: Optional[str] = None
     ResolverEndpointType: Optional[ResolverEndpointTypeType] = None
     Protocols: Optional[List[ProtocolType]] = None
@@ -115,13 +117,13 @@ class ResolverQueryLogConfigAssociationTypeDef(BaseValidatorModel):
 class AssociateResolverRuleRequestTypeDef(BaseValidatorModel):
     ResolverRuleId: str
     VPCId: str
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
 
 
 class ResolverRuleAssociationTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     ResolverRuleId: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     VPCId: Optional[str] = None
     Status: Optional[ResolverRuleAssociationStatusType] = None
     StatusMessage: Optional[str] = None
@@ -130,7 +132,7 @@ class ResolverRuleAssociationTypeDef(BaseValidatorModel):
 class FirewallDomainListTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     DomainCount: Optional[int] = None
     Status: Optional[FirewallDomainListStatusType] = None
     StatusMessage: Optional[str] = None
@@ -143,7 +145,7 @@ class FirewallDomainListTypeDef(BaseValidatorModel):
 class FirewallRuleGroupTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     RuleCount: Optional[int] = None
     Status: Optional[FirewallRuleGroupStatusType] = None
     StatusMessage: Optional[str] = None
@@ -160,7 +162,7 @@ class CreateFirewallRuleRequestTypeDef(BaseValidatorModel):
     FirewallRuleGroupId: str
     Priority: int
     Action: ActionType
-    Name: str
+    Name: Annotated[str, _aws_pattern("Route53resolver", "Name")]
     FirewallDomainListId: Optional[str] = None
     BlockResponse: Optional[BlockResponseType] = None
     BlockOverrideDomain: Optional[str] = None
@@ -176,7 +178,7 @@ class FirewallRuleTypeDef(BaseValidatorModel):
     FirewallRuleGroupId: Optional[str] = None
     FirewallDomainListId: Optional[str] = None
     FirewallThreatProtectionId: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     Priority: Optional[int] = None
     Action: Optional[ActionType] = None
     BlockResponse: Optional[BlockResponseType] = None
@@ -203,7 +205,7 @@ class OutpostResolverTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[OutpostResolverStatusType] = None
     StatusMessage: Optional[str] = None
-    OutpostArn: Optional[str] = None
+    OutpostArn: Optional[Annotated[str, _aws_pattern("Route53resolver", "OutpostArn")]] = None
 
 
 class IpAddressRequestTypeDef(BaseValidatorModel):
@@ -219,7 +221,7 @@ class ResolverQueryLogConfigTypeDef(BaseValidatorModel):
     ShareStatus: Optional[ShareStatusType] = None
     AssociationCount: Optional[int] = None
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "ResolverQueryLogConfigName")]] = None
     DestinationArn: Optional[str] = None
     CreatorRequestId: Optional[str] = None
     CreationTime: Optional[str] = None
@@ -303,7 +305,7 @@ class FirewallConfigTypeDef(BaseValidatorModel):
 class FirewallDomainListMetadataTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     CreatorRequestId: Optional[str] = None
     ManagedOwnerName: Optional[str] = None
 
@@ -311,7 +313,7 @@ class FirewallDomainListMetadataTypeDef(BaseValidatorModel):
 class FirewallRuleGroupMetadataTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     OwnerId: Optional[str] = None
     CreatorRequestId: Optional[str] = None
     ShareStatus: Optional[ShareStatusType] = None
@@ -476,7 +478,7 @@ class ListFirewallRulesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_outpost_resolvers' function.
 class ListOutpostResolversRequestTypeDef(BaseValidatorModel):
-    OutpostArn: Optional[str] = None
+    OutpostArn: Optional[Annotated[str, _aws_pattern("Route53resolver", "OutpostArn")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -542,7 +544,7 @@ class UpdateFirewallRuleGroupAssociationRequestTypeDef(BaseValidatorModel):
     FirewallRuleGroupAssociationId: str
     Priority: Optional[int] = None
     MutationProtection: Optional[MutationProtectionStatusType] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
 
 
 # This class is the input for the 'update_firewall_rule' function.
@@ -556,7 +558,7 @@ class UpdateFirewallRuleRequestTypeDef(BaseValidatorModel):
     BlockOverrideDomain: Optional[str] = None
     BlockOverrideDnsType: Optional[Literal["CNAME"]] = None
     BlockOverrideTtl: Optional[int] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     FirewallDomainRedirectionAction: Optional[FirewallDomainRedirectionActionType] = None
     Qtype: Optional[str] = None
     DnsThreatProtection: Optional[DnsThreatProtectionType] = None
@@ -594,7 +596,7 @@ class AssociateFirewallRuleGroupRequestTypeDef(BaseValidatorModel):
     FirewallRuleGroupId: str
     VpcId: str
     Priority: int
-    Name: str
+    Name: Annotated[str, _aws_pattern("Route53resolver", "Name")]
     MutationProtection: Optional[MutationProtectionStatusType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -602,14 +604,14 @@ class AssociateFirewallRuleGroupRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_firewall_domain_list' function.
 class CreateFirewallDomainListRequestTypeDef(BaseValidatorModel):
     CreatorRequestId: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Route53resolver", "Name")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_firewall_rule_group' function.
 class CreateFirewallRuleGroupRequestTypeDef(BaseValidatorModel):
     CreatorRequestId: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Route53resolver", "Name")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -618,14 +620,14 @@ class CreateOutpostResolverRequestTypeDef(BaseValidatorModel):
     CreatorRequestId: str
     Name: str
     PreferredInstanceType: str
-    OutpostArn: str
+    OutpostArn: Annotated[str, _aws_pattern("Route53resolver", "OutpostArn")]
     InstanceCount: Optional[int] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_resolver_query_log_config' function.
 class CreateResolverQueryLogConfigRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Route53resolver", "ResolverQueryLogConfigName")]
     DestinationArn: str
     CreatorRequestId: str
     Tags: Optional[List[TagTypeDef]] = None
@@ -675,7 +677,7 @@ class GetResolverRulePolicyResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'import_firewall_domains' function.
 class ImportFirewallDomainsResponseTypeDef(BaseValidatorModel):
     Id: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Route53resolver", "Name")]
     Status: FirewallDomainListStatusType
     StatusMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -723,7 +725,7 @@ class PutResolverRulePolicyResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_firewall_domains' function.
 class UpdateFirewallDomainsResponseTypeDef(BaseValidatorModel):
     Id: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Route53resolver", "Name")]
     Status: FirewallDomainListStatusType
     StatusMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -942,8 +944,8 @@ class CreateResolverEndpointRequestTypeDef(BaseValidatorModel):
     SecurityGroupIds: List[str]
     Direction: ResolverEndpointDirectionType
     IpAddresses: List[IpAddressRequestTypeDef]
-    Name: Optional[str] = None
-    OutpostArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
+    OutpostArn: Optional[Annotated[str, _aws_pattern("Route53resolver", "OutpostArn")]] = None
     PreferredInstanceType: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     ResolverEndpointType: Optional[ResolverEndpointTypeType] = None
@@ -983,7 +985,7 @@ class ListResolverQueryLogConfigsResponseTypeDef(BaseValidatorModel):
 class CreateResolverRuleRequestTypeDef(BaseValidatorModel):
     CreatorRequestId: str
     RuleType: RuleTypeOptionType
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     DomainName: Optional[str] = None
     TargetIps: Optional[List[TargetAddressTypeDef]] = None
     ResolverEndpointId: Optional[str] = None
@@ -992,7 +994,7 @@ class CreateResolverRuleRequestTypeDef(BaseValidatorModel):
 
 
 class ResolverRuleConfigTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     TargetIps: Optional[List[TargetAddressTypeDef]] = None
     ResolverEndpointId: Optional[str] = None
 
@@ -1005,7 +1007,7 @@ class ResolverRuleTypeDef(BaseValidatorModel):
     Status: Optional[ResolverRuleStatusType] = None
     StatusMessage: Optional[str] = None
     RuleType: Optional[RuleTypeOptionType] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     TargetIps: Optional[List[TargetAddressTypeDef]] = None
     ResolverEndpointId: Optional[str] = None
     OwnerId: Optional[str] = None
@@ -1228,7 +1230,7 @@ class ListTagsForResourceRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_resolver_endpoint' function.
 class UpdateResolverEndpointRequestTypeDef(BaseValidatorModel):
     ResolverEndpointId: str
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53resolver", "Name")]] = None
     ResolverEndpointType: Optional[ResolverEndpointTypeType] = None
     UpdateIpAddresses: Optional[List[UpdateIpAddressTypeDef]] = None
     Protocols: Optional[List[ProtocolType]] = None

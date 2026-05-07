@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.macie2.macie2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -67,21 +69,25 @@ class AdminAccountTypeDef(BaseValidatorModel):
 
 
 class S3WordsListTypeDef(BaseValidatorModel):
-    bucketName: str
-    objectKey: str
+    bucketName: Annotated[str, _aws_pattern("Macie2", "__stringMin3Max255PatternAZaZ093255")]
+    objectKey: Annotated[str, _aws_pattern("Macie2", "__stringMin1Max1024PatternSS")]
 
 
 class AllowListStatusTypeDef(BaseValidatorModel):
     code: AllowListStatusCodeType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Macie2", "__stringMin1Max1024PatternSS")]] = None
 
 
 class AllowListSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[
+        Annotated[
+            str, _aws_pattern("Macie2", "__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922")
+        ]
+    ] = None
     createdAt: Optional[datetime] = None
-    description: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Macie2", "__stringMin1Max512PatternSS")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Macie2", "__stringMin22Max22PatternAZ0922")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Macie2", "__stringMin1Max128Pattern")]] = None
     updatedAt: Optional[datetime] = None
 
 
@@ -249,8 +255,8 @@ class ClassificationResultStatusTypeDef(BaseValidatorModel):
 
 
 class ClassificationScopeSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Macie2", "ClassificationScopeId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Macie2", "ClassificationScopeName")]] = None
 
 
 class SeverityLevelTypeDef(BaseValidatorModel):
@@ -494,7 +500,7 @@ class ResourceStatisticsTypeDef(BaseValidatorModel):
 class RetrievalConfigurationTypeDef(BaseValidatorModel):
     retrievalMode: RetrievalModeType
     externalId: Optional[str] = None
-    roleName: Optional[str] = None
+    roleName: Optional[Annotated[str, _aws_pattern("Macie2", "__stringMin1Max64PatternW")]] = None
 
 
 class RevealConfigurationTypeDef(BaseValidatorModel):
@@ -752,11 +758,11 @@ class ServerSideEncryptionTypeDef(BaseValidatorModel):
 
 
 class S3ClassificationScopeExclusionTypeDef(BaseValidatorModel):
-    bucketNames: List[str]
+    bucketNames: List[Annotated[str, _aws_pattern("Macie2", "S3BucketName")]]
 
 
 class S3ClassificationScopeExclusionUpdateTypeDef(BaseValidatorModel):
-    bucketNames: List[str]
+    bucketNames: List[Annotated[str, _aws_pattern("Macie2", "S3BucketName")]]
     operation: ClassificationScopeUpdateOperationType
 
 
@@ -870,7 +876,7 @@ class UpdateResourceProfileRequestTypeDef(BaseValidatorModel):
 
 class UpdateRetrievalConfigurationTypeDef(BaseValidatorModel):
     retrievalMode: RetrievalModeType
-    roleName: Optional[str] = None
+    roleName: Optional[Annotated[str, _aws_pattern("Macie2", "__stringMin1Max64PatternW")]] = None
 
 
 class UserIdentityRootTypeDef(BaseValidatorModel):
@@ -890,7 +896,7 @@ class AccountLevelPermissionsTypeDef(BaseValidatorModel):
 
 
 class AllowListCriteriaTypeDef(BaseValidatorModel):
-    regex: Optional[str] = None
+    regex: Optional[Annotated[str, _aws_pattern("Macie2", "__stringMin1Max512PatternSS")]] = None
     s3WordsList: Optional[S3WordsListTypeDef] = None
 
 
@@ -919,8 +925,10 @@ class BatchUpdateAutomatedDiscoveryAccountsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_allow_list' function.
 class CreateAllowListResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[
+        str, _aws_pattern("Macie2", "__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922")
+    ]
+    id: Annotated[str, _aws_pattern("Macie2", "__stringMin22Max22PatternAZ0922")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -958,7 +966,7 @@ class DescribeOrganizationConfigurationResponseTypeDef(BaseValidatorModel):
 
 class GetAutomatedDiscoveryConfigurationResponseTypeDef(BaseValidatorModel):
     autoEnableOrganizationMembers: AutoEnableModeType
-    classificationScopeId: str
+    classificationScopeId: Annotated[str, _aws_pattern("Macie2", "ClassificationScopeId")]
     disabledAt: datetime
     firstEnabledAt: datetime
     lastUpdatedAt: datetime
@@ -1044,8 +1052,10 @@ class TestCustomDataIdentifierResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_allow_list' function.
 class UpdateAllowListResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[
+        str, _aws_pattern("Macie2", "__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922")
+    ]
+    id: Annotated[str, _aws_pattern("Macie2", "__stringMin22Max22PatternAZ0922")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1104,7 +1114,7 @@ class ClassificationExportConfigurationTypeDef(BaseValidatorModel):
 class ListClassificationScopesResponseTypeDef(BaseValidatorModel):
     classificationScopes: List[ClassificationScopeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Macie2", "NextToken")]] = None
 
 
 # This class is the input for the 'create_custom_data_identifier' function.
@@ -1497,19 +1507,21 @@ class UpdateRevealConfigurationRequestTypeDef(BaseValidatorModel):
 class CreateAllowListRequestTypeDef(BaseValidatorModel):
     clientToken: str
     criteria: AllowListCriteriaTypeDef
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Macie2", "__stringMin1Max128Pattern")]
+    description: Optional[Annotated[str, _aws_pattern("Macie2", "__stringMin1Max512PatternSS")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'get_allow_list' function.
 class GetAllowListResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[
+        str, _aws_pattern("Macie2", "__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922")
+    ]
     createdAt: datetime
     criteria: AllowListCriteriaTypeDef
-    description: str
-    id: str
-    name: str
+    description: Annotated[str, _aws_pattern("Macie2", "__stringMin1Max512PatternSS")]
+    id: Annotated[str, _aws_pattern("Macie2", "__stringMin22Max22PatternAZ0922")]
+    name: Annotated[str, _aws_pattern("Macie2", "__stringMin1Max128Pattern")]
     status: AllowListStatusTypeDef
     tags: Dict[str, str]
     updatedAt: datetime
@@ -1520,8 +1532,8 @@ class GetAllowListResponseTypeDef(BaseValidatorModel):
 class UpdateAllowListRequestTypeDef(BaseValidatorModel):
     criteria: AllowListCriteriaTypeDef
     id: str
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Macie2", "__stringMin1Max128Pattern")]
+    description: Optional[Annotated[str, _aws_pattern("Macie2", "__stringMin1Max512PatternSS")]] = None
 
 
 class BucketPermissionConfigurationTypeDef(BaseValidatorModel):
@@ -1610,8 +1622,8 @@ class OccurrencesTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_classification_scope' function.
 class GetClassificationScopeResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Macie2", "ClassificationScopeId")]
+    name: Annotated[str, _aws_pattern("Macie2", "ClassificationScopeName")]
     s3: S3ClassificationScopeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

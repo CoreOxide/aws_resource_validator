@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.meteringmarketplace.meteringmarketplace_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -51,19 +53,19 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'register_usage' function.
 class RegisterUsageRequestTypeDef(BaseValidatorModel):
-    ProductCode: str
+    ProductCode: Annotated[str, _aws_pattern("Meteringmarketplace", "ProductCode")]
     PublicKeyVersion: int
-    Nonce: Optional[str] = None
+    Nonce: Optional[Annotated[str, _aws_pattern("Meteringmarketplace", "Nonce")]] = None
 
 
 # This class is the input for the 'resolve_customer' function.
 class ResolveCustomerRequestTypeDef(BaseValidatorModel):
-    RegistrationToken: str
+    RegistrationToken: Annotated[str, _aws_pattern("Meteringmarketplace", "NonEmptyString")]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Meteringmarketplace", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Meteringmarketplace", "TagValue")]
 
 
 # This class is the output for the 'meter_usage' function.
@@ -75,16 +77,16 @@ class MeterUsageResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'register_usage' function.
 class RegisterUsageResultTypeDef(BaseValidatorModel):
     PublicKeyRotationTimestamp: datetime
-    Signature: str
+    Signature: Annotated[str, _aws_pattern("Meteringmarketplace", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'resolve_customer' function.
 class ResolveCustomerResultTypeDef(BaseValidatorModel):
-    CustomerIdentifier: str
-    ProductCode: str
-    CustomerAWSAccountId: str
-    LicenseArn: str
+    CustomerIdentifier: Annotated[str, _aws_pattern("Meteringmarketplace", "CustomerIdentifier")]
+    ProductCode: Annotated[str, _aws_pattern("Meteringmarketplace", "ProductCode")]
+    CustomerAWSAccountId: Annotated[str, _aws_pattern("Meteringmarketplace", "CustomerAWSAccountId")]
+    LicenseArn: Annotated[str, _aws_pattern("Meteringmarketplace", "LicenseArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -119,9 +121,9 @@ class UsageRecordResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'meter_usage' function.
 class MeterUsageRequestTypeDef(BaseValidatorModel):
-    ProductCode: str
+    ProductCode: Annotated[str, _aws_pattern("Meteringmarketplace", "ProductCode")]
     Timestamp: TimestampTypeDef
-    UsageDimension: str
+    UsageDimension: Annotated[str, _aws_pattern("Meteringmarketplace", "UsageDimension")]
     UsageQuantity: Optional[int] = None
     DryRun: Optional[bool] = None
     UsageAllocations: Optional[List[UsageAllocationUnionTypeDef]] = None
@@ -130,12 +132,12 @@ class MeterUsageRequestTypeDef(BaseValidatorModel):
 
 class UsageRecordTypeDef(BaseValidatorModel):
     Timestamp: TimestampTypeDef
-    Dimension: str
-    CustomerIdentifier: Optional[str] = None
+    Dimension: Annotated[str, _aws_pattern("Meteringmarketplace", "UsageDimension")]
+    CustomerIdentifier: Optional[Annotated[str, _aws_pattern("Meteringmarketplace", "CustomerIdentifier")]] = None
     Quantity: Optional[int] = None
     UsageAllocations: Optional[List[UsageAllocationUnionTypeDef]] = None
-    CustomerAWSAccountId: Optional[str] = None
-    LicenseArn: Optional[str] = None
+    CustomerAWSAccountId: Optional[Annotated[str, _aws_pattern("Meteringmarketplace", "CustomerAWSAccountId")]] = None
+    LicenseArn: Optional[Annotated[str, _aws_pattern("Meteringmarketplace", "LicenseArn")]] = None
 
 
 # This class is the output for the 'batch_meter_usage' function.
@@ -151,4 +153,4 @@ UsageRecordUnionTypeDef = Union[UsageRecordOutputTypeDef, UsageRecordTypeDef]
 # This class is the input for the 'batch_meter_usage' function.
 class BatchMeterUsageRequestTypeDef(BaseValidatorModel):
     UsageRecords: List[UsageRecordUnionTypeDef]
-    ProductCode: Optional[str] = None
+    ProductCode: Optional[Annotated[str, _aws_pattern("Meteringmarketplace", "ProductCode")]] = None

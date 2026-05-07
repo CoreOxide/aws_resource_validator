@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.lex_runtime.lex_runtime_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -55,7 +57,7 @@ class ButtonTypeDef(BaseValidatorModel):
 class DeleteSessionRequestTypeDef(BaseValidatorModel):
     botName: str
     botAlias: str
-    userId: str
+    userId: Annotated[str, _aws_pattern("LexRuntime", "UserId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -90,8 +92,8 @@ class DialogActionTypeDef(BaseValidatorModel):
 class GetSessionRequestTypeDef(BaseValidatorModel):
     botName: str
     botAlias: str
-    userId: str
-    checkpointLabelFilter: Optional[str] = None
+    userId: Annotated[str, _aws_pattern("LexRuntime", "UserId")]
+    checkpointLabelFilter: Optional[Annotated[str, _aws_pattern("LexRuntime", "IntentSummaryCheckpointLabel")]] = None
 
 
 class IntentSummaryOutputTypeDef(BaseValidatorModel):
@@ -111,7 +113,7 @@ class IntentConfidenceTypeDef(BaseValidatorModel):
 class IntentSummaryTypeDef(BaseValidatorModel):
     dialogActionType: DialogActionTypeType
     intentName: Optional[str] = None
-    checkpointLabel: Optional[str] = None
+    checkpointLabel: Optional[Annotated[str, _aws_pattern("LexRuntime", "IntentSummaryCheckpointLabel")]] = None
     slots: Optional[Dict[str, str]] = None
     confirmationStatus: Optional[ConfirmationStatusType] = None
     fulfillmentState: Optional[FulfillmentStateType] = None
@@ -130,7 +132,7 @@ class ActiveContextOutputTypeDef(BaseValidatorModel):
 
 
 class ActiveContextTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexRuntime", "ActiveContextName")]
     timeToLive: ActiveContextTimeToLiveTypeDef
     parameters: Dict[str, str]
 
@@ -139,7 +141,7 @@ class ActiveContextTypeDef(BaseValidatorModel):
 class PostContentRequestTypeDef(BaseValidatorModel):
     botName: str
     botAlias: str
-    userId: str
+    userId: Annotated[str, _aws_pattern("LexRuntime", "UserId")]
     contentType: str
     inputStream: BlobTypeDef
     sessionAttributes: Optional[str] = None
@@ -160,7 +162,7 @@ class GenericAttachmentTypeDef(BaseValidatorModel):
 class DeleteSessionResponseTypeDef(BaseValidatorModel):
     botName: str
     botAlias: str
-    userId: str
+    userId: Annotated[str, _aws_pattern("LexRuntime", "UserId")]
     sessionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -182,7 +184,7 @@ class PostContentResponseTypeDef(BaseValidatorModel):
     inputTranscript: str
     encodedInputTranscript: str
     audioStream: StreamingBody
-    botVersion: str
+    botVersion: Annotated[str, _aws_pattern("LexRuntime", "BotVersion")]
     sessionId: str
     activeContexts: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -240,7 +242,7 @@ class ResponseCardTypeDef(BaseValidatorModel):
 class PostTextRequestTypeDef(BaseValidatorModel):
     botName: str
     botAlias: str
-    userId: str
+    userId: Annotated[str, _aws_pattern("LexRuntime", "UserId")]
     inputText: str
     sessionAttributes: Optional[Dict[str, str]] = None
     requestAttributes: Optional[Dict[str, str]] = None
@@ -251,7 +253,7 @@ class PostTextRequestTypeDef(BaseValidatorModel):
 class PutSessionRequestTypeDef(BaseValidatorModel):
     botName: str
     botAlias: str
-    userId: str
+    userId: Annotated[str, _aws_pattern("LexRuntime", "UserId")]
     sessionAttributes: Optional[Dict[str, str]] = None
     dialogAction: Optional[DialogActionUnionTypeDef] = None
     recentIntentSummaryView: Optional[List[IntentSummaryUnionTypeDef]] = None
@@ -273,6 +275,6 @@ class PostTextResponseTypeDef(BaseValidatorModel):
     slotToElicit: str
     responseCard: ResponseCardTypeDef
     sessionId: str
-    botVersion: str
+    botVersion: Annotated[str, _aws_pattern("LexRuntime", "BotVersion")]
     activeContexts: List[ActiveContextOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

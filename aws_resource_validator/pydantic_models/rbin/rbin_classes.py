@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.rbin.rbin_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class ResourceTagTypeDef(BaseValidatorModel):
-    ResourceTagKey: str
-    ResourceTagValue: Optional[str] = None
+    ResourceTagKey: Annotated[str, _aws_pattern("Rbin", "ResourceTagKey")]
+    ResourceTagValue: Optional[Annotated[str, _aws_pattern("Rbin", "ResourceTagValue")]] = None
 
 
 class RetentionPeriodTypeDef(BaseValidatorModel):
@@ -49,8 +51,8 @@ class RetentionPeriodTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Rbin", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Rbin", "TagValue")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -62,12 +64,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteRuleRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Rbin", "RuleIdentifier")]
 
 
 # This class is the input for the 'get_rule' function.
 class GetRuleRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Rbin", "RuleIdentifier")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -78,7 +80,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Rbin", "RuleArn")]
 
 
 class UnlockDelayTypeDef(BaseValidatorModel):
@@ -88,44 +90,44 @@ class UnlockDelayTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'unlock_rule' function.
 class UnlockRuleRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Rbin", "RuleIdentifier")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Rbin", "RuleArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Rbin", "TagKey")]]
 
 
 # This class is the input for the 'list_rules' function.
 class ListRulesRequestTypeDef(BaseValidatorModel):
     ResourceType: ResourceTypeType
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Rbin", "NextToken")]] = None
     ResourceTags: Optional[List[ResourceTagTypeDef]] = None
     LockState: Optional[LockStateType] = None
     ExcludeResourceTags: Optional[List[ResourceTagTypeDef]] = None
 
 
 class RuleSummaryTypeDef(BaseValidatorModel):
-    Identifier: Optional[str] = None
-    Description: Optional[str] = None
+    Identifier: Optional[Annotated[str, _aws_pattern("Rbin", "RuleIdentifier")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Rbin", "Description")]] = None
     RetentionPeriod: Optional[RetentionPeriodTypeDef] = None
     LockState: Optional[LockStateType] = None
-    RuleArn: Optional[str] = None
+    RuleArn: Optional[Annotated[str, _aws_pattern("Rbin", "RuleArn")]] = None
 
 
 # This class is the input for the 'update_rule' function.
 class UpdateRuleRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Rbin", "RuleIdentifier")]
     RetentionPeriod: Optional[RetentionPeriodTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Rbin", "Description")]] = None
     ResourceType: Optional[ResourceTypeType] = None
     ResourceTags: Optional[List[ResourceTagTypeDef]] = None
     ExcludeResourceTags: Optional[List[ResourceTagTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Rbin", "RuleArn")]
     Tags: List[TagTypeDef]
 
 
@@ -137,15 +139,15 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_rule' function.
 class UpdateRuleResponseTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Rbin", "RuleIdentifier")]
     RetentionPeriod: RetentionPeriodTypeDef
-    Description: str
+    Description: Annotated[str, _aws_pattern("Rbin", "Description")]
     ResourceType: ResourceTypeType
     ResourceTags: List[ResourceTagTypeDef]
     Status: RuleStatusType
     LockState: LockStateType
     LockEndTime: datetime
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Rbin", "RuleArn")]
     ExcludeResourceTags: List[ResourceTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -166,14 +168,14 @@ class LockConfigurationTypeDef(BaseValidatorModel):
 class ListRulesResponseTypeDef(BaseValidatorModel):
     Rules: List[RuleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Rbin", "NextToken")]] = None
 
 
 # This class is the input for the 'create_rule' function.
 class CreateRuleRequestTypeDef(BaseValidatorModel):
     RetentionPeriod: RetentionPeriodTypeDef
     ResourceType: ResourceTypeType
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Rbin", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     ResourceTags: Optional[List[ResourceTagTypeDef]] = None
     LockConfiguration: Optional[LockConfigurationTypeDef] = None
@@ -182,24 +184,24 @@ class CreateRuleRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_rule' function.
 class CreateRuleResponseTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Rbin", "RuleIdentifier")]
     RetentionPeriod: RetentionPeriodTypeDef
-    Description: str
+    Description: Annotated[str, _aws_pattern("Rbin", "Description")]
     Tags: List[TagTypeDef]
     ResourceType: ResourceTypeType
     ResourceTags: List[ResourceTagTypeDef]
     Status: RuleStatusType
     LockConfiguration: LockConfigurationTypeDef
     LockState: LockStateType
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Rbin", "RuleArn")]
     ExcludeResourceTags: List[ResourceTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_rule' function.
 class GetRuleResponseTypeDef(BaseValidatorModel):
-    Identifier: str
-    Description: str
+    Identifier: Annotated[str, _aws_pattern("Rbin", "RuleIdentifier")]
+    Description: Annotated[str, _aws_pattern("Rbin", "Description")]
     ResourceType: ResourceTypeType
     RetentionPeriod: RetentionPeriodTypeDef
     ResourceTags: List[ResourceTagTypeDef]
@@ -207,36 +209,36 @@ class GetRuleResponseTypeDef(BaseValidatorModel):
     LockConfiguration: LockConfigurationTypeDef
     LockState: LockStateType
     LockEndTime: datetime
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Rbin", "RuleArn")]
     ExcludeResourceTags: List[ResourceTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'lock_rule' function.
 class LockRuleRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Rbin", "RuleIdentifier")]
     LockConfiguration: LockConfigurationTypeDef
 
 
 # This class is the output for the 'lock_rule' function.
 class LockRuleResponseTypeDef(BaseValidatorModel):
-    Identifier: str
-    Description: str
+    Identifier: Annotated[str, _aws_pattern("Rbin", "RuleIdentifier")]
+    Description: Annotated[str, _aws_pattern("Rbin", "Description")]
     ResourceType: ResourceTypeType
     RetentionPeriod: RetentionPeriodTypeDef
     ResourceTags: List[ResourceTagTypeDef]
     Status: RuleStatusType
     LockConfiguration: LockConfigurationTypeDef
     LockState: LockStateType
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Rbin", "RuleArn")]
     ExcludeResourceTags: List[ResourceTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'unlock_rule' function.
 class UnlockRuleResponseTypeDef(BaseValidatorModel):
-    Identifier: str
-    Description: str
+    Identifier: Annotated[str, _aws_pattern("Rbin", "RuleIdentifier")]
+    Description: Annotated[str, _aws_pattern("Rbin", "Description")]
     ResourceType: ResourceTypeType
     RetentionPeriod: RetentionPeriodTypeDef
     ResourceTags: List[ResourceTagTypeDef]
@@ -244,6 +246,6 @@ class UnlockRuleResponseTypeDef(BaseValidatorModel):
     LockConfiguration: LockConfigurationTypeDef
     LockState: LockStateType
     LockEndTime: datetime
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Rbin", "RuleArn")]
     ExcludeResourceTags: List[ResourceTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

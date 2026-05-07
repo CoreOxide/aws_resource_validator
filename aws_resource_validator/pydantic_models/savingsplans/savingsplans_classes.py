@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.savingsplans.savingsplans_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -59,12 +61,12 @@ class SavingsPlanRateFilterTypeDef(BaseValidatorModel):
 
 class SavingsPlanOfferingRateFilterElementTypeDef(BaseValidatorModel):
     name: Optional[SavingsPlanRateFilterAttributeType] = None
-    values: Optional[List[str]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("Savingsplans", "JsonSafeFilterValueString")]]] = None
 
 
 class SavingsPlanOfferingFilterElementTypeDef(BaseValidatorModel):
     name: Optional[SavingsPlanOfferingFilterAttributeType] = None
-    values: Optional[List[str]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("Savingsplans", "JsonSafeFilterValueString")]]] = None
 
 
 class SavingsPlanFilterTypeDef(BaseValidatorModel):
@@ -75,7 +77,7 @@ class SavingsPlanFilterTypeDef(BaseValidatorModel):
 class SavingsPlanTypeDef(BaseValidatorModel):
     offeringId: Optional[str] = None
     savingsPlanId: Optional[str] = None
-    savingsPlanArn: Optional[str] = None
+    savingsPlanArn: Optional[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanArn")]] = None
     description: Optional[str] = None
     start: Optional[str] = None
     end: Optional[str] = None
@@ -96,16 +98,16 @@ class SavingsPlanTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanArn")]
 
 
 class ParentSavingsPlanOfferingTypeDef(BaseValidatorModel):
-    offeringId: Optional[str] = None
+    offeringId: Optional[Annotated[str, _aws_pattern("Savingsplans", "UUID")]] = None
     paymentOption: Optional[SavingsPlanPaymentOptionType] = None
     planType: Optional[SavingsPlanTypeType] = None
     durationSeconds: Optional[int] = None
     currency: Optional[CurrencyCodeType] = None
-    planDescription: Optional[str] = None
+    planDescription: Optional[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanDescription")]] = None
 
 
 # This class is the input for the 'return_savings_plan' function.
@@ -116,26 +118,26 @@ class ReturnSavingsPlanRequestTypeDef(BaseValidatorModel):
 
 class SavingsPlanOfferingPropertyTypeDef(BaseValidatorModel):
     name: Optional[SavingsPlanOfferingPropertyKeyType] = None
-    value: Optional[str] = None
+    value: Optional[Annotated[str, _aws_pattern("Savingsplans", "JsonSafeFilterValueString")]] = None
 
 
 class SavingsPlanOfferingRatePropertyTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    value: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Savingsplans", "JsonSafeFilterValueString")]] = None
+    value: Optional[Annotated[str, _aws_pattern("Savingsplans", "JsonSafeFilterValueString")]] = None
 
 
 class SavingsPlanRatePropertyTypeDef(BaseValidatorModel):
     name: Optional[SavingsPlanRatePropertyKeyType] = None
-    value: Optional[str] = None
+    value: Optional[Annotated[str, _aws_pattern("Savingsplans", "JsonSafeFilterValueString")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanArn")]
     tagKeys: List[str]
 
 
@@ -171,46 +173,46 @@ class ReturnSavingsPlanResponseTypeDef(BaseValidatorModel):
 class DescribeSavingsPlanRatesRequestTypeDef(BaseValidatorModel):
     savingsPlanId: str
     filters: Optional[List[SavingsPlanRateFilterTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Savingsplans", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_savings_plans_offering_rates' function.
 class DescribeSavingsPlansOfferingRatesRequestTypeDef(BaseValidatorModel):
-    savingsPlanOfferingIds: Optional[List[str]] = None
+    savingsPlanOfferingIds: Optional[List[Annotated[str, _aws_pattern("Savingsplans", "UUID")]]] = None
     savingsPlanPaymentOptions: Optional[List[SavingsPlanPaymentOptionType]] = None
     savingsPlanTypes: Optional[List[SavingsPlanTypeType]] = None
     products: Optional[List[SavingsPlanProductTypeType]] = None
     serviceCodes: Optional[List[SavingsPlanRateServiceCodeType]] = None
-    usageTypes: Optional[List[str]] = None
-    operations: Optional[List[str]] = None
+    usageTypes: Optional[List[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanRateUsageType")]]] = None
+    operations: Optional[List[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanRateOperation")]]] = None
     filters: Optional[List[SavingsPlanOfferingRateFilterElementTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Savingsplans", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_savings_plans_offerings' function.
 class DescribeSavingsPlansOfferingsRequestTypeDef(BaseValidatorModel):
-    offeringIds: Optional[List[str]] = None
+    offeringIds: Optional[List[Annotated[str, _aws_pattern("Savingsplans", "UUID")]]] = None
     paymentOptions: Optional[List[SavingsPlanPaymentOptionType]] = None
     productType: Optional[SavingsPlanProductTypeType] = None
     planTypes: Optional[List[SavingsPlanTypeType]] = None
     durations: Optional[List[int]] = None
     currencies: Optional[List[CurrencyCodeType]] = None
-    descriptions: Optional[List[str]] = None
-    serviceCodes: Optional[List[str]] = None
-    usageTypes: Optional[List[str]] = None
-    operations: Optional[List[str]] = None
+    descriptions: Optional[List[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanDescription")]]] = None
+    serviceCodes: Optional[List[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanServiceCode")]]] = None
+    usageTypes: Optional[List[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanUsageType")]]] = None
+    operations: Optional[List[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanOperation")]]] = None
     filters: Optional[List[SavingsPlanOfferingFilterElementTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Savingsplans", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_savings_plans' function.
 class DescribeSavingsPlansRequestTypeDef(BaseValidatorModel):
-    savingsPlanArns: Optional[List[str]] = None
+    savingsPlanArns: Optional[List[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanArn")]]] = None
     savingsPlanIds: Optional[List[str]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Savingsplans", "PaginationToken")]] = None
     maxResults: Optional[int] = None
     states: Optional[List[SavingsPlanStateType]] = None
     filters: Optional[List[SavingsPlanFilterTypeDef]] = None
@@ -220,20 +222,20 @@ class DescribeSavingsPlansRequestTypeDef(BaseValidatorModel):
 class DescribeSavingsPlansResponseTypeDef(BaseValidatorModel):
     savingsPlans: List[SavingsPlanTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Savingsplans", "PaginationToken")]] = None
 
 
 class SavingsPlanOfferingTypeDef(BaseValidatorModel):
-    offeringId: Optional[str] = None
+    offeringId: Optional[Annotated[str, _aws_pattern("Savingsplans", "UUID")]] = None
     productTypes: Optional[List[SavingsPlanProductTypeType]] = None
     planType: Optional[SavingsPlanTypeType] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanDescription")]] = None
     paymentOption: Optional[SavingsPlanPaymentOptionType] = None
     durationSeconds: Optional[int] = None
     currency: Optional[CurrencyCodeType] = None
-    serviceCode: Optional[str] = None
-    usageType: Optional[str] = None
-    operation: Optional[str] = None
+    serviceCode: Optional[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanServiceCode")]] = None
+    usageType: Optional[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanUsageType")]] = None
+    operation: Optional[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanOperation")]] = None
     properties: Optional[List[SavingsPlanOfferingPropertyTypeDef]] = None
 
 
@@ -243,8 +245,8 @@ class SavingsPlanOfferingRateTypeDef(BaseValidatorModel):
     unit: Optional[SavingsPlanRateUnitType] = None
     productType: Optional[SavingsPlanProductTypeType] = None
     serviceCode: Optional[SavingsPlanRateServiceCodeType] = None
-    usageType: Optional[str] = None
-    operation: Optional[str] = None
+    usageType: Optional[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanRateUsageType")]] = None
+    operation: Optional[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanRateOperation")]] = None
     properties: Optional[List[SavingsPlanOfferingRatePropertyTypeDef]] = None
 
 
@@ -254,8 +256,8 @@ class SavingsPlanRateTypeDef(BaseValidatorModel):
     unit: Optional[SavingsPlanRateUnitType] = None
     productType: Optional[SavingsPlanProductTypeType] = None
     serviceCode: Optional[SavingsPlanRateServiceCodeType] = None
-    usageType: Optional[str] = None
-    operation: Optional[str] = None
+    usageType: Optional[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanRateUsageType")]] = None
+    operation: Optional[Annotated[str, _aws_pattern("Savingsplans", "SavingsPlanRateOperation")]] = None
     properties: Optional[List[SavingsPlanRatePropertyTypeDef]] = None
 
 
@@ -263,14 +265,14 @@ class SavingsPlanRateTypeDef(BaseValidatorModel):
 class DescribeSavingsPlansOfferingsResponseTypeDef(BaseValidatorModel):
     searchResults: List[SavingsPlanOfferingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Savingsplans", "PaginationToken")]] = None
 
 
 # This class is the output for the 'describe_savings_plans_offering_rates' function.
 class DescribeSavingsPlansOfferingRatesResponseTypeDef(BaseValidatorModel):
     searchResults: List[SavingsPlanOfferingRateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Savingsplans", "PaginationToken")]] = None
 
 
 # This class is the output for the 'describe_savings_plan_rates' function.
@@ -278,4 +280,4 @@ class DescribeSavingsPlanRatesResponseTypeDef(BaseValidatorModel):
     savingsPlanId: str
     searchResults: List[SavingsPlanRateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Savingsplans", "PaginationToken")]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class CognitoIdentityProviderTypeDef(BaseValidatorModel):
-    ProviderName: Optional[str] = None
-    ClientId: Optional[str] = None
+    ProviderName: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "CognitoIdentityProviderName")]] = None
+    ClientId: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "CognitoIdentityProviderClientId")]] = None
     ServerSideTokenCheck: Optional[bool] = None
 
 
@@ -53,7 +55,7 @@ class CredentialsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_identities' function.
 class DeleteIdentitiesInputTypeDef(BaseValidatorModel):
-    IdentityIdsToDelete: List[str]
+    IdentityIdsToDelete: List[Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -65,82 +67,82 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class UnprocessedIdentityIdTypeDef(BaseValidatorModel):
-    IdentityId: Optional[str] = None
+    IdentityId: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]] = None
     ErrorCode: Optional[ErrorCodeType] = None
 
 
 # This class is the input for the 'delete_identity_pool' function.
 class DeleteIdentityPoolInputTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
 
 
 # This class is the input for the 'describe_identity' function.
 class DescribeIdentityInputTypeDef(BaseValidatorModel):
-    IdentityId: str
+    IdentityId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]
 
 
 # This class is the input for the 'describe_identity_pool' function.
 class DescribeIdentityPoolInputTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
 
 
 # This class is the input for the 'get_credentials_for_identity' function.
 class GetCredentialsForIdentityInputTypeDef(BaseValidatorModel):
-    IdentityId: str
+    IdentityId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]
     Logins: Optional[Dict[str, str]] = None
     CustomRoleArn: Optional[str] = None
 
 
 # This class is the input for the 'get_id' function.
 class GetIdInputTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    AccountId: Optional[str] = None
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
+    AccountId: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "AccountId")]] = None
     Logins: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'get_identity_pool_roles' function.
 class GetIdentityPoolRolesInputTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
 
 
 # This class is the input for the 'get_open_id_token_for_developer_identity' function.
 class GetOpenIdTokenForDeveloperIdentityInputTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
     Logins: Dict[str, str]
-    IdentityId: Optional[str] = None
+    IdentityId: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]] = None
     PrincipalTags: Optional[Dict[str, str]] = None
     TokenDuration: Optional[int] = None
 
 
 # This class is the input for the 'get_open_id_token' function.
 class GetOpenIdTokenInputTypeDef(BaseValidatorModel):
-    IdentityId: str
+    IdentityId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]
     Logins: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'get_principal_tag_attribute_map' function.
 class GetPrincipalTagAttributeMapInputTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
     IdentityProviderName: str
 
 
 class IdentityDescriptionTypeDef(BaseValidatorModel):
-    IdentityId: Optional[str] = None
+    IdentityId: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]] = None
     Logins: Optional[List[str]] = None
     CreationDate: Optional[datetime] = None
     LastModifiedDate: Optional[datetime] = None
 
 
 class IdentityPoolShortDescriptionTypeDef(BaseValidatorModel):
-    IdentityPoolId: Optional[str] = None
-    IdentityPoolName: Optional[str] = None
+    IdentityPoolId: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]] = None
+    IdentityPoolName: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolName")]] = None
 
 
 # This class is the input for the 'list_identities' function.
 class ListIdentitiesInputTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
     MaxResults: int
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "PaginationKey")]] = None
     HideDisabled: Optional[bool] = None
 
 
@@ -153,7 +155,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_identity_pools' function.
 class ListIdentityPoolsInputTypeDef(BaseValidatorModel):
     MaxResults: int
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "PaginationKey")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -163,15 +165,15 @@ class ListTagsForResourceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'lookup_developer_identity' function.
 class LookupDeveloperIdentityInputTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    IdentityId: Optional[str] = None
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
+    IdentityId: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]] = None
     DeveloperUserIdentifier: Optional[str] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "PaginationKey")]] = None
 
 
 class MappingRuleTypeDef(BaseValidatorModel):
-    Claim: str
+    Claim: Annotated[str, _aws_pattern("CognitoIdentity", "ClaimName")]
     MatchType: MappingRuleMatchTypeType
     Value: str
     RoleARN: str
@@ -181,13 +183,13 @@ class MappingRuleTypeDef(BaseValidatorModel):
 class MergeDeveloperIdentitiesInputTypeDef(BaseValidatorModel):
     SourceUserIdentifier: str
     DestinationUserIdentifier: str
-    DeveloperProviderName: str
-    IdentityPoolId: str
+    DeveloperProviderName: Annotated[str, _aws_pattern("CognitoIdentity", "DeveloperProviderName")]
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
 
 
 # This class is the input for the 'set_principal_tag_attribute_map' function.
 class SetPrincipalTagAttributeMapInputTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
     IdentityProviderName: str
     UseDefaults: Optional[bool] = None
     PrincipalTags: Optional[Dict[str, str]] = None
@@ -200,15 +202,15 @@ class TagResourceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'unlink_developer_identity' function.
 class UnlinkDeveloperIdentityInputTypeDef(BaseValidatorModel):
-    IdentityId: str
-    IdentityPoolId: str
-    DeveloperProviderName: str
+    IdentityId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
+    DeveloperProviderName: Annotated[str, _aws_pattern("CognitoIdentity", "DeveloperProviderName")]
     DeveloperUserIdentifier: str
 
 
 # This class is the input for the 'unlink_identity' function.
 class UnlinkIdentityInputTypeDef(BaseValidatorModel):
-    IdentityId: str
+    IdentityId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]
     Logins: Dict[str, str]
     LoginsToRemove: List[str]
 
@@ -220,11 +222,11 @@ class UntagResourceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_identity_pool' function.
 class CreateIdentityPoolInputTypeDef(BaseValidatorModel):
-    IdentityPoolName: str
+    IdentityPoolName: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolName")]
     AllowUnauthenticatedIdentities: bool
     AllowClassicFlow: Optional[bool] = None
     SupportedLoginProviders: Optional[Dict[str, str]] = None
-    DeveloperProviderName: Optional[str] = None
+    DeveloperProviderName: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "DeveloperProviderName")]] = None
     OpenIdConnectProviderARNs: Optional[List[str]] = None
     CognitoIdentityProviders: Optional[List[CognitoIdentityProviderTypeDef]] = None
     SamlProviderARNs: Optional[List[str]] = None
@@ -252,34 +254,34 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_credentials_for_identity' function.
 class GetCredentialsForIdentityResponseTypeDef(BaseValidatorModel):
-    IdentityId: str
+    IdentityId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]
     Credentials: CredentialsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_id' function.
 class GetIdResponseTypeDef(BaseValidatorModel):
-    IdentityId: str
+    IdentityId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_open_id_token_for_developer_identity' function.
 class GetOpenIdTokenForDeveloperIdentityResponseTypeDef(BaseValidatorModel):
-    IdentityId: str
+    IdentityId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]
     Token: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_open_id_token' function.
 class GetOpenIdTokenResponseTypeDef(BaseValidatorModel):
-    IdentityId: str
+    IdentityId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]
     Token: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_principal_tag_attribute_map' function.
 class GetPrincipalTagAttributeMapResponseTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
     IdentityProviderName: str
     UseDefaults: bool
     PrincipalTags: Dict[str, str]
@@ -297,12 +299,12 @@ class IdentityDescriptionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_identity_pool' function.
 class IdentityPoolTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    IdentityPoolName: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
+    IdentityPoolName: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolName")]
     AllowUnauthenticatedIdentities: bool
     AllowClassicFlow: bool
     SupportedLoginProviders: Dict[str, str]
-    DeveloperProviderName: str
+    DeveloperProviderName: Annotated[str, _aws_pattern("CognitoIdentity", "DeveloperProviderName")]
     OpenIdConnectProviderARNs: List[str]
     CognitoIdentityProviders: List[CognitoIdentityProviderTypeDef]
     SamlProviderARNs: List[str]
@@ -318,21 +320,21 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'lookup_developer_identity' function.
 class LookupDeveloperIdentityResponseTypeDef(BaseValidatorModel):
-    IdentityId: str
+    IdentityId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]
     DeveloperUserIdentifierList: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "PaginationKey")]] = None
 
 
 # This class is the output for the 'merge_developer_identities' function.
 class MergeDeveloperIdentitiesResponseTypeDef(BaseValidatorModel):
-    IdentityId: str
+    IdentityId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'set_principal_tag_attribute_map' function.
 class SetPrincipalTagAttributeMapResponseTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
     IdentityProviderName: str
     UseDefaults: bool
     PrincipalTags: Dict[str, str]
@@ -347,17 +349,17 @@ class DeleteIdentitiesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_identities' function.
 class ListIdentitiesResponseTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
     Identities: List[IdentityDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "PaginationKey")]] = None
 
 
 # This class is the output for the 'list_identity_pools' function.
 class ListIdentityPoolsResponseTypeDef(BaseValidatorModel):
     IdentityPools: List[IdentityPoolShortDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CognitoIdentity", "PaginationKey")]] = None
 
 
 class ListIdentityPoolsInputPaginateTypeDef(BaseValidatorModel):
@@ -383,7 +385,7 @@ RulesConfigurationTypeUnionTypeDef = Union[RulesConfigurationTypeOutputTypeDef, 
 
 # This class is the output for the 'get_identity_pool_roles' function.
 class GetIdentityPoolRolesResponseTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
     Roles: Dict[str, str]
     RoleMappings: Dict[str, RoleMappingOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -400,6 +402,6 @@ RoleMappingUnionTypeDef = Union[RoleMappingOutputTypeDef, RoleMappingTypeDef]
 
 # This class is the input for the 'set_identity_pool_roles' function.
 class SetIdentityPoolRolesInputTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
+    IdentityPoolId: Annotated[str, _aws_pattern("CognitoIdentity", "IdentityPoolId")]
     Roles: Dict[str, str]
     RoleMappings: Optional[Dict[str, RoleMappingUnionTypeDef]] = None

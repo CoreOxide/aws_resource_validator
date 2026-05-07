@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.neptune.neptune_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -299,7 +301,7 @@ class DeleteEventSubscriptionMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_global_cluster' function.
 class DeleteGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Neptune", "GlobalClusterIdentifier")]
 
 
 class FilterTypeDef(BaseValidatorModel):
@@ -328,7 +330,7 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'describe_global_clusters' function.
 class DescribeGlobalClustersMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: Optional[str] = None
+    GlobalClusterIdentifier: Optional[Annotated[str, _aws_pattern("Neptune", "GlobalClusterIdentifier")]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
@@ -365,7 +367,7 @@ class FailoverDBClusterMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'failover_global_cluster' function.
 class FailoverGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Neptune", "GlobalClusterIdentifier")]
     TargetDbClusterIdentifier: str
     AllowDataLoss: Optional[bool] = None
     Switchover: Optional[bool] = None
@@ -418,8 +420,8 @@ class ModifyEventSubscriptionMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_global_cluster' function.
 class ModifyGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
-    NewGlobalClusterIdentifier: Optional[str] = None
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Neptune", "GlobalClusterIdentifier")]
+    NewGlobalClusterIdentifier: Optional[Annotated[str, _aws_pattern("Neptune", "GlobalClusterIdentifier")]] = None
     DeletionProtection: Optional[bool] = None
     EngineVersion: Optional[str] = None
     AllowMajorVersionUpgrade: Optional[bool] = None
@@ -453,7 +455,7 @@ class RebootDBInstanceMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'remove_from_global_cluster' function.
 class RemoveFromGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Neptune", "GlobalClusterIdentifier")]
     DbClusterIdentifier: str
 
 
@@ -488,7 +490,7 @@ class StopDBClusterMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'switchover_global_cluster' function.
 class SwitchoverGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Neptune", "GlobalClusterIdentifier")]
     TargetDbClusterIdentifier: str
 
 
@@ -725,7 +727,7 @@ class CreateEventSubscriptionMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_global_cluster' function.
 class CreateGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Neptune", "GlobalClusterIdentifier")]
     SourceDBClusterIdentifier: Optional[str] = None
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
@@ -931,7 +933,7 @@ class CreateDBClusterMessageTypeDef(BaseValidatorModel):
     EnableCloudwatchLogsExports: Optional[List[str]] = None
     DeletionProtection: Optional[bool] = None
     ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfigurationTypeDef] = None
-    GlobalClusterIdentifier: Optional[str] = None
+    GlobalClusterIdentifier: Optional[Annotated[str, _aws_pattern("Neptune", "GlobalClusterIdentifier")]] = None
     StorageType: Optional[str] = None
     SourceRegion: Optional[str] = None
 
@@ -1385,7 +1387,7 @@ class EventsMessageTypeDef(BaseValidatorModel):
 
 
 class GlobalClusterTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: Optional[str] = None
+    GlobalClusterIdentifier: Optional[Annotated[str, _aws_pattern("Neptune", "GlobalClusterIdentifier")]] = None
     GlobalClusterResourceId: Optional[str] = None
     GlobalClusterArn: Optional[str] = None
     Status: Optional[str] = None
@@ -1470,7 +1472,7 @@ class DBClusterTypeDef(BaseValidatorModel):
     CrossAccountClone: Optional[bool] = None
     AutomaticRestartTime: Optional[datetime] = None
     ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfigurationInfoTypeDef] = None
-    GlobalClusterIdentifier: Optional[str] = None
+    GlobalClusterIdentifier: Optional[Annotated[str, _aws_pattern("Neptune", "GlobalClusterIdentifier")]] = None
     IOOptimizedNextAllowedModificationTime: Optional[datetime] = None
     StorageType: Optional[str] = None
 

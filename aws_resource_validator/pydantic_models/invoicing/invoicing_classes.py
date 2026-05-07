@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.invoicing.invoicing_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'batch_get_invoice_profile' function.
 class BatchGetInvoiceProfileRequestTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -57,8 +59,8 @@ class BillingPeriodTypeDef(BaseValidatorModel):
 
 
 class ContactTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Email: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    Email: Optional[Annotated[str, _aws_pattern("Invoicing", "EmailString")]] = None
 
 
 class ResourceTagTypeDef(BaseValidatorModel):
@@ -68,17 +70,19 @@ class ResourceTagTypeDef(BaseValidatorModel):
 
 class TestEnvPreferenceInputTypeDef(BaseValidatorModel):
     BuyerDomain: Literal["NetworkID"]
-    BuyerIdentifier: str
+    BuyerIdentifier: Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
     SupplierDomain: Literal["NetworkID"]
-    SupplierIdentifier: str
-    ProcurementPortalSharedSecret: Optional[str] = None
-    ProcurementPortalInstanceEndpoint: Optional[str] = None
+    SupplierIdentifier: Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
+    ProcurementPortalSharedSecret: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]] = None
+    ProcurementPortalInstanceEndpoint: Optional[
+        Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
+    ] = None
 
 
 class CurrencyExchangeDetailsTypeDef(BaseValidatorModel):
-    SourceCurrencyCode: Optional[str] = None
-    TargetCurrencyCode: Optional[str] = None
-    Rate: Optional[str] = None
+    SourceCurrencyCode: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    TargetCurrencyCode: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    Rate: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -86,18 +90,18 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'delete_invoice_unit' function.
 class DeleteInvoiceUnitRequestTypeDef(BaseValidatorModel):
-    InvoiceUnitArn: str
+    InvoiceUnitArn: Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitArnString")]
 
 
 # This class is the input for the 'delete_procurement_portal_preference' function.
 class DeleteProcurementPortalPreferenceRequestTypeDef(BaseValidatorModel):
-    ProcurementPortalPreferenceArn: str
+    ProcurementPortalPreferenceArn: Annotated[str, _aws_pattern("Invoicing", "ProcurementPortalPreferenceArnString")]
 
 
 class DiscountsBreakdownAmountTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
-    Amount: Optional[str] = None
-    Rate: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    Amount: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    Rate: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
 
 
 class PurchaseOrderDataSourceTypeDef(BaseValidatorModel):
@@ -106,25 +110,25 @@ class PurchaseOrderDataSourceTypeDef(BaseValidatorModel):
 
 
 class EntityTypeDef(BaseValidatorModel):
-    InvoicingEntity: Optional[str] = None
+    InvoicingEntity: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
 
 
 class FeesBreakdownAmountTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
-    Amount: Optional[str] = None
-    Rate: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    Amount: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    Rate: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
 
 
 class FiltersTypeDef(BaseValidatorModel):
-    Names: Optional[List[str]] = None
-    InvoiceReceivers: Optional[List[str]] = None
-    Accounts: Optional[List[str]] = None
-    BillSourceAccounts: Optional[List[str]] = None
+    Names: Optional[List[Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitName")]]] = None
+    InvoiceReceivers: Optional[List[Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]]] = None
+    Accounts: Optional[List[Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]]] = None
+    BillSourceAccounts: Optional[List[Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]]] = None
 
 
 # This class is the input for the 'get_invoice_pdf' function.
 class GetInvoicePDFRequestTypeDef(BaseValidatorModel):
-    InvoiceId: str
+    InvoiceId: Annotated[str, _aws_pattern("Invoicing", "StringWithoutNewLine")]
 
 
 class InvoiceUnitRuleOutputTypeDef(BaseValidatorModel):
@@ -134,34 +138,34 @@ class InvoiceUnitRuleOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_procurement_portal_preference' function.
 class GetProcurementPortalPreferenceRequestTypeDef(BaseValidatorModel):
-    ProcurementPortalPreferenceArn: str
+    ProcurementPortalPreferenceArn: Annotated[str, _aws_pattern("Invoicing", "ProcurementPortalPreferenceArnString")]
 
 
 class SupplementalDocumentTypeDef(BaseValidatorModel):
-    DocumentUrl: Optional[str] = None
+    DocumentUrl: Optional[Annotated[str, _aws_pattern("Invoicing", "StringWithoutNewLine")]] = None
     DocumentUrlExpirationDate: Optional[datetime] = None
 
 
 class ReceiverAddressTypeDef(BaseValidatorModel):
-    AddressLine1: Optional[str] = None
-    AddressLine2: Optional[str] = None
-    AddressLine3: Optional[str] = None
-    DistrictOrCounty: Optional[str] = None
-    City: Optional[str] = None
-    StateOrRegion: Optional[str] = None
-    CountryCode: Optional[str] = None
-    CompanyName: Optional[str] = None
-    PostalCode: Optional[str] = None
+    AddressLine1: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    AddressLine2: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    AddressLine3: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    DistrictOrCounty: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    City: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    StateOrRegion: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    CountryCode: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    CompanyName: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    PostalCode: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
 
 
 class InvoiceSummariesSelectorTypeDef(BaseValidatorModel):
     ResourceType: ListInvoiceSummariesResourceTypeType
-    Value: str
+    Value: Annotated[str, _aws_pattern("Invoicing", "StringWithoutNewLine")]
 
 
 class InvoiceUnitRuleTypeDef(BaseValidatorModel):
-    LinkedAccounts: Optional[List[str]] = None
-    BillSourceAccounts: Optional[List[str]] = None
+    LinkedAccounts: Optional[List[Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]]] = None
+    BillSourceAccounts: Optional[List[Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -172,13 +176,13 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_procurement_portal_preferences' function.
 class ListProcurementPortalPreferencesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Invoicing", "TagrisArn")]
 
 
 class ProcurementPortalPreferenceSelectorOutputTypeDef(BaseValidatorModel):
@@ -187,79 +191,85 @@ class ProcurementPortalPreferenceSelectorOutputTypeDef(BaseValidatorModel):
 
 
 class ProcurementPortalPreferenceSelectorTypeDef(BaseValidatorModel):
-    InvoiceUnitArns: Optional[List[str]] = None
-    SellerOfRecords: Optional[List[str]] = None
+    InvoiceUnitArns: Optional[List[Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitArnString")]]] = None
+    SellerOfRecords: Optional[List[Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]]] = None
 
 
 class TestEnvPreferenceTypeDef(BaseValidatorModel):
     BuyerDomain: Literal["NetworkID"]
-    BuyerIdentifier: str
+    BuyerIdentifier: Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
     SupplierDomain: Literal["NetworkID"]
-    SupplierIdentifier: str
-    ProcurementPortalSharedSecret: Optional[str] = None
-    ProcurementPortalInstanceEndpoint: Optional[str] = None
-    PurchaseOrderRetrievalEndpoint: Optional[str] = None
+    SupplierIdentifier: Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
+    ProcurementPortalSharedSecret: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]] = None
+    ProcurementPortalInstanceEndpoint: Optional[
+        Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
+    ] = None
+    PurchaseOrderRetrievalEndpoint: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]] = (
+        None
+    )
 
 
 class TaxesBreakdownAmountTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
-    Amount: Optional[str] = None
-    Rate: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    Amount: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    Rate: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Invoicing", "TagrisArn")]
     ResourceTagKeys: List[str]
 
 
 # This class is the input for the 'update_procurement_portal_preference_status' function.
 class UpdateProcurementPortalPreferenceStatusRequestTypeDef(BaseValidatorModel):
-    ProcurementPortalPreferenceArn: str
+    ProcurementPortalPreferenceArn: Annotated[str, _aws_pattern("Invoicing", "ProcurementPortalPreferenceArnString")]
     EinvoiceDeliveryPreferenceStatus: Optional[ProcurementPortalPreferenceStatusType] = None
-    EinvoiceDeliveryPreferenceStatusReason: Optional[str] = None
+    EinvoiceDeliveryPreferenceStatusReason: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
     PurchaseOrderRetrievalPreferenceStatus: Optional[ProcurementPortalPreferenceStatusType] = None
-    PurchaseOrderRetrievalPreferenceStatusReason: Optional[str] = None
+    PurchaseOrderRetrievalPreferenceStatusReason: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = (
+        None
+    )
 
 
 # This class is the output for the 'create_invoice_unit' function.
 class CreateInvoiceUnitResponseTypeDef(BaseValidatorModel):
-    InvoiceUnitArn: str
+    InvoiceUnitArn: Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitArnString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_procurement_portal_preference' function.
 class CreateProcurementPortalPreferenceResponseTypeDef(BaseValidatorModel):
-    ProcurementPortalPreferenceArn: str
+    ProcurementPortalPreferenceArn: Annotated[str, _aws_pattern("Invoicing", "ProcurementPortalPreferenceArnString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_invoice_unit' function.
 class DeleteInvoiceUnitResponseTypeDef(BaseValidatorModel):
-    InvoiceUnitArn: str
+    InvoiceUnitArn: Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitArnString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_procurement_portal_preference' function.
 class DeleteProcurementPortalPreferenceResponseTypeDef(BaseValidatorModel):
-    ProcurementPortalPreferenceArn: str
+    ProcurementPortalPreferenceArn: Annotated[str, _aws_pattern("Invoicing", "ProcurementPortalPreferenceArnString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_procurement_portal_preference' function.
 class PutProcurementPortalPreferenceResponseTypeDef(BaseValidatorModel):
-    ProcurementPortalPreferenceArn: str
+    ProcurementPortalPreferenceArn: Annotated[str, _aws_pattern("Invoicing", "ProcurementPortalPreferenceArnString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_invoice_unit' function.
 class UpdateInvoiceUnitResponseTypeDef(BaseValidatorModel):
-    InvoiceUnitArn: str
+    InvoiceUnitArn: Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitArnString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_procurement_portal_preference_status' function.
 class UpdateProcurementPortalPreferenceStatusResponseTypeDef(BaseValidatorModel):
-    ProcurementPortalPreferenceArn: str
+    ProcurementPortalPreferenceArn: Annotated[str, _aws_pattern("Invoicing", "ProcurementPortalPreferenceArnString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -270,7 +280,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Invoicing", "TagrisArn")]
     ResourceTags: List[ResourceTagTypeDef]
 
 
@@ -281,13 +291,13 @@ class DateIntervalTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_invoice_unit' function.
 class GetInvoiceUnitRequestTypeDef(BaseValidatorModel):
-    InvoiceUnitArn: str
+    InvoiceUnitArn: Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitArnString")]
     AsOf: Optional[TimestampTypeDef] = None
 
 
 class DiscountsBreakdownTypeDef(BaseValidatorModel):
     Breakdown: Optional[List[DiscountsBreakdownAmountTypeDef]] = None
-    TotalAmount: Optional[str] = None
+    TotalAmount: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
 
 
 class EinvoiceDeliveryPreferenceOutputTypeDef(BaseValidatorModel):
@@ -310,23 +320,23 @@ class EinvoiceDeliveryPreferenceTypeDef(BaseValidatorModel):
 
 class FeesBreakdownTypeDef(BaseValidatorModel):
     Breakdown: Optional[List[FeesBreakdownAmountTypeDef]] = None
-    TotalAmount: Optional[str] = None
+    TotalAmount: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
 
 
 # This class is the input for the 'list_invoice_units' function.
 class ListInvoiceUnitsRequestTypeDef(BaseValidatorModel):
     Filters: Optional[FiltersTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Invoicing", "NextTokenString")]] = None
     MaxResults: Optional[int] = None
     AsOf: Optional[TimestampTypeDef] = None
 
 
 # This class is the output for the 'get_invoice_unit' function.
 class GetInvoiceUnitResponseTypeDef(BaseValidatorModel):
-    InvoiceUnitArn: str
-    InvoiceReceiver: str
-    Name: str
-    Description: str
+    InvoiceUnitArn: Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitArnString")]
+    InvoiceReceiver: Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]
+    Name: Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitName")]
+    Description: Annotated[str, _aws_pattern("Invoicing", "DescriptionString")]
     TaxInheritanceDisabled: bool
     Rule: InvoiceUnitRuleOutputTypeDef
     LastModified: datetime
@@ -334,29 +344,31 @@ class GetInvoiceUnitResponseTypeDef(BaseValidatorModel):
 
 
 class InvoiceUnitTypeDef(BaseValidatorModel):
-    InvoiceUnitArn: Optional[str] = None
-    InvoiceReceiver: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    InvoiceUnitArn: Optional[Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitArnString")]] = None
+    InvoiceReceiver: Optional[Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Invoicing", "DescriptionString")]] = None
     TaxInheritanceDisabled: Optional[bool] = None
     Rule: Optional[InvoiceUnitRuleOutputTypeDef] = None
     LastModified: Optional[datetime] = None
 
 
 class InvoicePDFTypeDef(BaseValidatorModel):
-    InvoiceId: Optional[str] = None
-    DocumentUrl: Optional[str] = None
+    InvoiceId: Optional[Annotated[str, _aws_pattern("Invoicing", "StringWithoutNewLine")]] = None
+    DocumentUrl: Optional[Annotated[str, _aws_pattern("Invoicing", "StringWithoutNewLine")]] = None
     DocumentUrlExpirationDate: Optional[datetime] = None
     SupplementalDocuments: Optional[List[SupplementalDocumentTypeDef]] = None
 
 
 class InvoiceProfileTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    ReceiverName: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]] = None
+    ReceiverName: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]] = None
     ReceiverAddress: Optional[ReceiverAddressTypeDef] = None
-    ReceiverEmail: Optional[str] = None
-    Issuer: Optional[str] = None
-    TaxRegistrationNumber: Optional[str] = None
+    ReceiverEmail: Optional[Annotated[str, _aws_pattern("Invoicing", "SensitiveBasicStringWithoutSpace")]] = None
+    Issuer: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]] = None
+    TaxRegistrationNumber: Optional[Annotated[str, _aws_pattern("Invoicing", "SensitiveBasicStringWithoutSpace")]] = (
+        None
+    )
 
 
 InvoiceUnitRuleUnionTypeDef = Union[InvoiceUnitRuleOutputTypeDef, InvoiceUnitRuleTypeDef]
@@ -373,13 +385,13 @@ class ListProcurementPortalPreferencesRequestPaginateTypeDef(BaseValidatorModel)
 
 
 class ProcurementPortalPreferenceSummaryTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ProcurementPortalPreferenceArn: str
+    AwsAccountId: Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]
+    ProcurementPortalPreferenceArn: Annotated[str, _aws_pattern("Invoicing", "ProcurementPortalPreferenceArnString")]
     ProcurementPortalName: ProcurementPortalNameType
     BuyerDomain: Literal["NetworkID"]
-    BuyerIdentifier: str
+    BuyerIdentifier: Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
     SupplierDomain: Literal["NetworkID"]
-    SupplierIdentifier: str
+    SupplierIdentifier: Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
     EinvoiceDeliveryEnabled: bool
     PurchaseOrderRetrievalEnabled: bool
     Version: int
@@ -387,9 +399,11 @@ class ProcurementPortalPreferenceSummaryTypeDef(BaseValidatorModel):
     LastUpdateDate: datetime
     Selector: Optional[ProcurementPortalPreferenceSelectorOutputTypeDef] = None
     EinvoiceDeliveryPreferenceStatus: Optional[ProcurementPortalPreferenceStatusType] = None
-    EinvoiceDeliveryPreferenceStatusReason: Optional[str] = None
+    EinvoiceDeliveryPreferenceStatusReason: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
     PurchaseOrderRetrievalPreferenceStatus: Optional[ProcurementPortalPreferenceStatusType] = None
-    PurchaseOrderRetrievalPreferenceStatusReason: Optional[str] = None
+    PurchaseOrderRetrievalPreferenceStatusReason: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = (
+        None
+    )
 
 
 ProcurementPortalPreferenceSelectorUnionTypeDef = Union[
@@ -399,39 +413,45 @@ ProcurementPortalPreferenceSelectorUnionTypeDef = Union[
 
 class TaxesBreakdownTypeDef(BaseValidatorModel):
     Breakdown: Optional[List[TaxesBreakdownAmountTypeDef]] = None
-    TotalAmount: Optional[str] = None
+    TotalAmount: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
 
 
 class InvoiceSummariesFilterTypeDef(BaseValidatorModel):
     TimeInterval: Optional[DateIntervalTypeDef] = None
     BillingPeriod: Optional[BillingPeriodTypeDef] = None
-    InvoicingEntity: Optional[str] = None
+    InvoicingEntity: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
 
 
 class ProcurementPortalPreferenceTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ProcurementPortalPreferenceArn: str
+    AwsAccountId: Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]
+    ProcurementPortalPreferenceArn: Annotated[str, _aws_pattern("Invoicing", "ProcurementPortalPreferenceArnString")]
     ProcurementPortalName: ProcurementPortalNameType
     BuyerDomain: Literal["NetworkID"]
-    BuyerIdentifier: str
+    BuyerIdentifier: Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
     SupplierDomain: Literal["NetworkID"]
-    SupplierIdentifier: str
+    SupplierIdentifier: Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
     EinvoiceDeliveryEnabled: bool
     PurchaseOrderRetrievalEnabled: bool
     Version: int
     CreateDate: datetime
     LastUpdateDate: datetime
     Selector: Optional[ProcurementPortalPreferenceSelectorOutputTypeDef] = None
-    ProcurementPortalSharedSecret: Optional[str] = None
-    ProcurementPortalInstanceEndpoint: Optional[str] = None
-    PurchaseOrderRetrievalEndpoint: Optional[str] = None
+    ProcurementPortalSharedSecret: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]] = None
+    ProcurementPortalInstanceEndpoint: Optional[
+        Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
+    ] = None
+    PurchaseOrderRetrievalEndpoint: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]] = (
+        None
+    )
     TestEnvPreference: Optional[TestEnvPreferenceTypeDef] = None
     EinvoiceDeliveryPreference: Optional[EinvoiceDeliveryPreferenceOutputTypeDef] = None
     Contacts: Optional[List[ContactTypeDef]] = None
     EinvoiceDeliveryPreferenceStatus: Optional[ProcurementPortalPreferenceStatusType] = None
-    EinvoiceDeliveryPreferenceStatusReason: Optional[str] = None
+    EinvoiceDeliveryPreferenceStatusReason: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
     PurchaseOrderRetrievalPreferenceStatus: Optional[ProcurementPortalPreferenceStatusType] = None
-    PurchaseOrderRetrievalPreferenceStatusReason: Optional[str] = None
+    PurchaseOrderRetrievalPreferenceStatusReason: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = (
+        None
+    )
 
 
 EinvoiceDeliveryPreferenceUnionTypeDef = Union[
@@ -443,7 +463,7 @@ EinvoiceDeliveryPreferenceUnionTypeDef = Union[
 class ListInvoiceUnitsResponseTypeDef(BaseValidatorModel):
     InvoiceUnits: List[InvoiceUnitTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Invoicing", "NextTokenString")]] = None
 
 
 # This class is the output for the 'get_invoice_pdf' function.
@@ -460,18 +480,18 @@ class BatchGetInvoiceProfileResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_invoice_unit' function.
 class CreateInvoiceUnitRequestTypeDef(BaseValidatorModel):
-    Name: str
-    InvoiceReceiver: str
+    Name: Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitName")]
+    InvoiceReceiver: Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]
     Rule: InvoiceUnitRuleUnionTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Invoicing", "DescriptionString")]] = None
     TaxInheritanceDisabled: Optional[bool] = None
     ResourceTags: Optional[List[ResourceTagTypeDef]] = None
 
 
 # This class is the input for the 'update_invoice_unit' function.
 class UpdateInvoiceUnitRequestTypeDef(BaseValidatorModel):
-    InvoiceUnitArn: str
-    Description: Optional[str] = None
+    InvoiceUnitArn: Annotated[str, _aws_pattern("Invoicing", "InvoiceUnitArnString")]
+    Description: Optional[Annotated[str, _aws_pattern("Invoicing", "DescriptionString")]] = None
     TaxInheritanceDisabled: Optional[bool] = None
     Rule: Optional[InvoiceUnitRuleUnionTypeDef] = None
 
@@ -480,11 +500,11 @@ class UpdateInvoiceUnitRequestTypeDef(BaseValidatorModel):
 class ListProcurementPortalPreferencesResponseTypeDef(BaseValidatorModel):
     ProcurementPortalPreferences: List[ProcurementPortalPreferenceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]] = None
 
 
 class AmountBreakdownTypeDef(BaseValidatorModel):
-    SubTotalAmount: Optional[str] = None
+    SubTotalAmount: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
     Discounts: Optional[DiscountsBreakdownTypeDef] = None
     Taxes: Optional[TaxesBreakdownTypeDef] = None
     Fees: Optional[FeesBreakdownTypeDef] = None
@@ -500,7 +520,7 @@ class ListInvoiceSummariesRequestPaginateTypeDef(BaseValidatorModel):
 class ListInvoiceSummariesRequestTypeDef(BaseValidatorModel):
     Selector: InvoiceSummariesSelectorTypeDef
     Filter: Optional[InvoiceSummariesFilterTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Invoicing", "NextTokenString")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -514,52 +534,60 @@ class GetProcurementPortalPreferenceResponseTypeDef(BaseValidatorModel):
 class CreateProcurementPortalPreferenceRequestTypeDef(BaseValidatorModel):
     ProcurementPortalName: ProcurementPortalNameType
     BuyerDomain: Literal["NetworkID"]
-    BuyerIdentifier: str
+    BuyerIdentifier: Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
     SupplierDomain: Literal["NetworkID"]
-    SupplierIdentifier: str
+    SupplierIdentifier: Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
     EinvoiceDeliveryEnabled: bool
     PurchaseOrderRetrievalEnabled: bool
     Contacts: List[ContactTypeDef]
     Selector: Optional[ProcurementPortalPreferenceSelectorUnionTypeDef] = None
-    ProcurementPortalSharedSecret: Optional[str] = None
-    ProcurementPortalInstanceEndpoint: Optional[str] = None
+    ProcurementPortalSharedSecret: Optional[
+        Annotated[str, _aws_pattern("Invoicing", "SensitiveBasicStringWithoutSpace")]
+    ] = None
+    ProcurementPortalInstanceEndpoint: Optional[
+        Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
+    ] = None
     TestEnvPreference: Optional[TestEnvPreferenceInputTypeDef] = None
     EinvoiceDeliveryPreference: Optional[EinvoiceDeliveryPreferenceUnionTypeDef] = None
     ResourceTags: Optional[List[ResourceTagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]] = None
 
 
 # This class is the input for the 'put_procurement_portal_preference' function.
 class PutProcurementPortalPreferenceRequestTypeDef(BaseValidatorModel):
-    ProcurementPortalPreferenceArn: str
+    ProcurementPortalPreferenceArn: Annotated[str, _aws_pattern("Invoicing", "ProcurementPortalPreferenceArnString")]
     EinvoiceDeliveryEnabled: bool
     PurchaseOrderRetrievalEnabled: bool
     Contacts: List[ContactTypeDef]
     Selector: Optional[ProcurementPortalPreferenceSelectorUnionTypeDef] = None
-    ProcurementPortalSharedSecret: Optional[str] = None
-    ProcurementPortalInstanceEndpoint: Optional[str] = None
+    ProcurementPortalSharedSecret: Optional[
+        Annotated[str, _aws_pattern("Invoicing", "SensitiveBasicStringWithoutSpace")]
+    ] = None
+    ProcurementPortalInstanceEndpoint: Optional[
+        Annotated[str, _aws_pattern("Invoicing", "BasicStringWithoutSpace")]
+    ] = None
     TestEnvPreference: Optional[TestEnvPreferenceInputTypeDef] = None
     EinvoiceDeliveryPreference: Optional[EinvoiceDeliveryPreferenceUnionTypeDef] = None
 
 
 class InvoiceCurrencyAmountTypeDef(BaseValidatorModel):
-    TotalAmount: Optional[str] = None
-    TotalAmountBeforeTax: Optional[str] = None
+    TotalAmount: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    TotalAmountBeforeTax: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
     CurrencyCode: Optional[str] = None
     AmountBreakdown: Optional[AmountBreakdownTypeDef] = None
     CurrencyExchangeDetails: Optional[CurrencyExchangeDetailsTypeDef] = None
 
 
 class InvoiceSummaryTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    InvoiceId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Invoicing", "AccountIdString")]] = None
+    InvoiceId: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
     IssuedDate: Optional[datetime] = None
     DueDate: Optional[datetime] = None
     Entity: Optional[EntityTypeDef] = None
     BillingPeriod: Optional[BillingPeriodTypeDef] = None
     InvoiceType: Optional[InvoiceTypeType] = None
-    OriginalInvoiceId: Optional[str] = None
-    PurchaseOrderNumber: Optional[str] = None
+    OriginalInvoiceId: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
+    PurchaseOrderNumber: Optional[Annotated[str, _aws_pattern("Invoicing", "BasicString")]] = None
     BaseCurrencyAmount: Optional[InvoiceCurrencyAmountTypeDef] = None
     TaxCurrencyAmount: Optional[InvoiceCurrencyAmountTypeDef] = None
     PaymentCurrencyAmount: Optional[InvoiceCurrencyAmountTypeDef] = None
@@ -569,4 +597,4 @@ class InvoiceSummaryTypeDef(BaseValidatorModel):
 class ListInvoiceSummariesResponseTypeDef(BaseValidatorModel):
     InvoiceSummaries: List[InvoiceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Invoicing", "NextTokenString")]] = None

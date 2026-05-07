@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,29 +41,29 @@ except ImportError:  # pragma: no cover
 
 
 class TagQueryConfigurationTypeDef(BaseValidatorModel):
-    tagKey: Optional[str] = None
+    tagKey: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "TagKeyConfig")]] = None
 
 
 class ApplicationSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Name")]] = None
     description: Optional[str] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
 
 
 class ResourcesListItemTypeDef(BaseValidatorModel):
-    resourceArn: Optional[str] = None
+    resourceArn: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Arn")]] = None
     errorMessage: Optional[str] = None
     status: Optional[str] = None
-    resourceType: Optional[str] = None
+    resourceType: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ResourceItemType")]] = None
 
 
 class ApplicationTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Name")]] = None
     description: Optional[str] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
@@ -71,8 +73,8 @@ class ApplicationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_attribute_group' function.
 class AssociateAttributeGroupRequestTypeDef(BaseValidatorModel):
-    application: str
-    attributeGroup: str
+    application: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationSpecifier")]
+    attributeGroup: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupSpecifier")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -85,33 +87,33 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_resource' function.
 class AssociateResourceRequestTypeDef(BaseValidatorModel):
-    application: str
+    application: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationSpecifier")]
     resourceType: ResourceTypeType
-    resource: str
+    resource: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ResourceSpecifier")]
     options: Optional[List[AssociationOptionType]] = None
 
 
 class AttributeGroupDetailsTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    createdBy: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Name")]] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "CreatedBy")]] = None
 
 
 class AttributeGroupSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Name")]] = None
     description: Optional[str] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
-    createdBy: Optional[str] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "CreatedBy")]] = None
 
 
 class AttributeGroupTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Name")]] = None
     description: Optional[str] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
@@ -120,67 +122,67 @@ class AttributeGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    name: str
-    clientToken: str
+    name: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Name")]
+    clientToken: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ClientToken")]
     description: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_attribute_group' function.
 class CreateAttributeGroupRequestTypeDef(BaseValidatorModel):
-    name: str
-    attributes: str
-    clientToken: str
+    name: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Name")]
+    attributes: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Attributes")]
+    clientToken: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ClientToken")]
     description: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'delete_application' function.
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    application: str
+    application: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationSpecifier")]
 
 
 # This class is the input for the 'delete_attribute_group' function.
 class DeleteAttributeGroupRequestTypeDef(BaseValidatorModel):
-    attributeGroup: str
+    attributeGroup: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupSpecifier")]
 
 
 # This class is the input for the 'disassociate_attribute_group' function.
 class DisassociateAttributeGroupRequestTypeDef(BaseValidatorModel):
-    application: str
-    attributeGroup: str
+    application: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationSpecifier")]
+    attributeGroup: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupSpecifier")]
 
 
 # This class is the input for the 'disassociate_resource' function.
 class DisassociateResourceRequestTypeDef(BaseValidatorModel):
-    application: str
+    application: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationSpecifier")]
     resourceType: ResourceTypeType
-    resource: str
+    resource: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ResourceSpecifier")]
 
 
 # This class is the input for the 'get_application' function.
 class GetApplicationRequestTypeDef(BaseValidatorModel):
-    application: str
+    application: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationSpecifier")]
 
 
 # This class is the input for the 'get_associated_resource' function.
 class GetAssociatedResourceRequestTypeDef(BaseValidatorModel):
-    application: str
+    application: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationSpecifier")]
     resourceType: ResourceTypeType
-    resource: str
-    nextToken: Optional[str] = None
+    resource: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ResourceSpecifier")]
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
     resourceTagStatus: Optional[List[ResourceItemStatusType]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_attribute_group' function.
 class GetAttributeGroupRequestTypeDef(BaseValidatorModel):
-    attributeGroup: str
+    attributeGroup: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupSpecifier")]
 
 
 class ResourceGroupTypeDef(BaseValidatorModel):
     state: Optional[ResourceGroupStateType] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Arn")]] = None
     errorMessage: Optional[str] = None
 
 
@@ -192,75 +194,75 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_applications' function.
 class ListApplicationsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_associated_attribute_groups' function.
 class ListAssociatedAttributeGroupsRequestTypeDef(BaseValidatorModel):
-    application: str
-    nextToken: Optional[str] = None
+    application: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationSpecifier")]
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_associated_resources' function.
 class ListAssociatedResourcesRequestTypeDef(BaseValidatorModel):
-    application: str
-    nextToken: Optional[str] = None
+    application: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationSpecifier")]
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_attribute_groups_for_application' function.
 class ListAttributeGroupsForApplicationRequestTypeDef(BaseValidatorModel):
-    application: str
-    nextToken: Optional[str] = None
+    application: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationSpecifier")]
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_attribute_groups' function.
 class ListAttributeGroupsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Arn")]
 
 
 class ResourceDetailsTypeDef(BaseValidatorModel):
-    tagValue: Optional[str] = None
+    tagValue: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "TagValue")]] = None
 
 
 # This class is the input for the 'sync_resource' function.
 class SyncResourceRequestTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
-    resource: str
+    resource: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ResourceSpecifier")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "TagKey")]]
 
 
 # This class is the input for the 'update_application' function.
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    application: str
-    name: Optional[str] = None
+    application: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationSpecifier")]
+    name: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Name")]] = None
     description: Optional[str] = None
 
 
 # This class is the input for the 'update_attribute_group' function.
 class UpdateAttributeGroupRequestTypeDef(BaseValidatorModel):
-    attributeGroup: str
-    name: Optional[str] = None
+    attributeGroup: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupSpecifier")]
+    name: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Name")]] = None
     description: Optional[str] = None
-    attributes: Optional[str] = None
+    attributes: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Attributes")]] = None
 
 
 class AppRegistryConfigurationTypeDef(BaseValidatorModel):
@@ -271,20 +273,20 @@ class ApplicationTagResultTypeDef(BaseValidatorModel):
     applicationTagStatus: Optional[ApplicationTagStatusType] = None
     errorMessage: Optional[str] = None
     resources: Optional[List[ResourcesListItemTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
 
 
 # This class is the output for the 'associate_attribute_group' function.
 class AssociateAttributeGroupResponseTypeDef(BaseValidatorModel):
-    applicationArn: str
-    attributeGroupArn: str
+    applicationArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationArn")]
+    attributeGroupArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_resource' function.
 class AssociateResourceResponseTypeDef(BaseValidatorModel):
-    applicationArn: str
-    resourceArn: str
+    applicationArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationArn")]
+    resourceArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Arn")]
     options: List[AssociationOptionType]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -303,15 +305,15 @@ class DeleteApplicationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'disassociate_attribute_group' function.
 class DisassociateAttributeGroupResponseTypeDef(BaseValidatorModel):
-    applicationArn: str
-    attributeGroupArn: str
+    applicationArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationArn")]
+    attributeGroupArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disassociate_resource' function.
 class DisassociateResourceResponseTypeDef(BaseValidatorModel):
-    applicationArn: str
-    resourceArn: str
+    applicationArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationArn")]
+    resourceArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -322,15 +324,15 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_attribute_group' function.
 class GetAttributeGroupResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupId")]
+    arn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupArn")]
+    name: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Name")]
     description: str
-    attributes: str
+    attributes: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Attributes")]
     creationTime: datetime
     lastUpdateTime: datetime
     tags: Dict[str, str]
-    createdBy: str
+    createdBy: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "CreatedBy")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -338,14 +340,14 @@ class GetAttributeGroupResponseTypeDef(BaseValidatorModel):
 class ListApplicationsResponseTypeDef(BaseValidatorModel):
     applications: List[ApplicationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
 
 
 # This class is the output for the 'list_associated_attribute_groups' function.
 class ListAssociatedAttributeGroupsResponseTypeDef(BaseValidatorModel):
-    attributeGroups: List[str]
+    attributeGroups: List[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "AttributeGroupId")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -356,8 +358,8 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'sync_resource' function.
 class SyncResourceResponseTypeDef(BaseValidatorModel):
-    applicationArn: str
-    resourceArn: str
+    applicationArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationArn")]
+    resourceArn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Arn")]
     actionTaken: SyncActionType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -372,7 +374,7 @@ class UpdateApplicationResponseTypeDef(BaseValidatorModel):
 class ListAttributeGroupsForApplicationResponseTypeDef(BaseValidatorModel):
     attributeGroupsDetails: List[AttributeGroupDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
 
 
 # This class is the output for the 'delete_attribute_group' function.
@@ -385,7 +387,7 @@ class DeleteAttributeGroupResponseTypeDef(BaseValidatorModel):
 class ListAttributeGroupsResponseTypeDef(BaseValidatorModel):
     attributeGroups: List[AttributeGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
 
 
 # This class is the output for the 'create_attribute_group' function.
@@ -433,8 +435,8 @@ class ListAttributeGroupsRequestPaginateTypeDef(BaseValidatorModel):
 
 
 class ResourceInfoTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ResourceSpecifier")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Arn")]] = None
     resourceType: Optional[ResourceTypeType] = None
     resourceDetails: Optional[ResourceDetailsTypeDef] = None
     options: Optional[List[AssociationOptionType]] = None
@@ -452,9 +454,9 @@ class PutConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_application' function.
 class GetApplicationResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationId")]
+    arn: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ApplicationArn")]
+    name: Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Name")]
     description: str
     creationTime: datetime
     lastUpdateTime: datetime
@@ -466,8 +468,8 @@ class GetApplicationResponseTypeDef(BaseValidatorModel):
 
 
 class ResourceTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "ResourceSpecifier")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "Arn")]] = None
     associationTime: Optional[datetime] = None
     integrations: Optional[ResourceIntegrationsTypeDef] = None
 
@@ -476,7 +478,7 @@ class ResourceTypeDef(BaseValidatorModel):
 class ListAssociatedResourcesResponseTypeDef(BaseValidatorModel):
     resources: List[ResourceInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ServicecatalogAppregistry", "NextToken")]] = None
 
 
 # This class is the output for the 'get_associated_resource' function.

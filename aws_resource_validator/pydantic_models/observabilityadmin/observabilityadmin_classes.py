@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.observabilityadmin.observabilityadmin_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -69,8 +71,8 @@ class SourceLogsConfigurationTypeDef(BaseValidatorModel):
 
 
 class CentralizationRuleSummaryTypeDef(BaseValidatorModel):
-    RuleName: Optional[str] = None
-    RuleArn: Optional[str] = None
+    RuleName: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "RuleName")]] = None
+    RuleArn: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]] = None
     CreatorAccountId: Optional[str] = None
     CreatedTimeStamp: Optional[int] = None
     CreatedRegion: Optional[str] = None
@@ -82,7 +84,7 @@ class CentralizationRuleSummaryTypeDef(BaseValidatorModel):
 
 
 class LabelNameConditionTypeDef(BaseValidatorModel):
-    LabelName: Optional[str] = None
+    LabelName: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "LabelNameConditionLabelNameString")]] = None
 
 
 class DataSourceTypeDef(BaseValidatorModel):
@@ -104,7 +106,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 class EncryptionTypeDef(BaseValidatorModel):
     SseAlgorithm: SSEAlgorithmType
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]] = None
 
 
 class TelemetryPipelineConfigurationTypeDef(BaseValidatorModel):
@@ -118,7 +120,7 @@ class DeleteCentralizationRuleForOrganizationInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_s3_table_integration' function.
 class DeleteS3TableIntegrationInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
 
 
 class DeleteTelemetryPipelineInputTypeDef(BaseValidatorModel):
@@ -136,17 +138,17 @@ class DeleteTelemetryRuleInputTypeDef(BaseValidatorModel):
 
 
 class LogGroupNameConfigurationTypeDef(BaseValidatorModel):
-    LogGroupNamePattern: str
+    LogGroupNamePattern: Annotated[str, _aws_pattern("Observabilityadmin", "LogGroupNamePattern")]
 
 
 class LogsBackupConfigurationTypeDef(BaseValidatorModel):
     Region: str
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]] = None
 
 
 class LogsEncryptionConfigurationTypeDef(BaseValidatorModel):
     EncryptionStrategy: EncryptionStrategyType
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]] = None
     EncryptionConflictResolutionStrategy: Optional[EncryptionConflictResolutionStrategyType] = None
 
 
@@ -166,14 +168,14 @@ class GetCentralizationRuleForOrganizationInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_s3_table_integration' function.
 class GetS3TableIntegrationInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
 
 
 class RegionStatusTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
     Status: Optional[str] = None
     FailureReason: Optional[str] = None
-    RuleArn: Optional[str] = None
+    RuleArn: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]] = None
 
 
 # This class is the input for the 'get_telemetry_pipeline' function.
@@ -192,7 +194,7 @@ class GetTelemetryRuleInputTypeDef(BaseValidatorModel):
 
 
 class IntegrationSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]] = None
     Status: Optional[IntegrationStatusType] = None
 
 
@@ -212,7 +214,7 @@ class ListCentralizationRulesForOrganizationInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_resource_telemetry_for_organization' function.
 class ListResourceTelemetryForOrganizationInputTypeDef(BaseValidatorModel):
-    AccountIdentifiers: Optional[List[str]] = None
+    AccountIdentifiers: Optional[List[Annotated[str, _aws_pattern("Observabilityadmin", "AccountIdentifier")]]] = None
     ResourceIdentifierPrefix: Optional[str] = None
     ResourceTypes: Optional[List[ResourceTypeType]] = None
     TelemetryConfigurationState: Optional[Dict[TelemetryTypeType, TelemetryStateType]] = None
@@ -222,7 +224,7 @@ class ListResourceTelemetryForOrganizationInputTypeDef(BaseValidatorModel):
 
 
 class TelemetryConfigurationTypeDef(BaseValidatorModel):
-    AccountIdentifier: Optional[str] = None
+    AccountIdentifier: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "AccountIdentifier")]] = None
     TelemetryConfigurationState: Optional[Dict[TelemetryTypeType, TelemetryStateType]] = None
     ResourceType: Optional[ResourceTypeType] = None
     ResourceIdentifier: Optional[str] = None
@@ -249,7 +251,7 @@ class ListS3TableIntegrationsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
 
 
 # This class is the input for the 'list_telemetry_pipelines' function.
@@ -261,15 +263,17 @@ class ListTelemetryPipelinesInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_telemetry_rules_for_organization' function.
 class ListTelemetryRulesForOrganizationInputTypeDef(BaseValidatorModel):
     RuleNamePrefix: Optional[str] = None
-    SourceAccountIds: Optional[List[str]] = None
-    SourceOrganizationUnitIds: Optional[List[str]] = None
+    SourceAccountIds: Optional[List[Annotated[str, _aws_pattern("Observabilityadmin", "AccountIdentifier")]]] = None
+    SourceOrganizationUnitIds: Optional[
+        List[Annotated[str, _aws_pattern("Observabilityadmin", "OrganizationUnitIdentifier")]]
+    ] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class TelemetryRuleSummaryTypeDef(BaseValidatorModel):
-    RuleName: Optional[str] = None
-    RuleArn: Optional[str] = None
+    RuleName: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "RuleName")]] = None
+    RuleArn: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]] = None
     CreatedTimeStamp: Optional[int] = None
     LastUpdateTimeStamp: Optional[int] = None
     ResourceType: Optional[ResourceTypeType] = None
@@ -290,6 +294,10 @@ class LogDeliveryParametersOutputTypeDef(BaseValidatorModel):
 
 class LogDeliveryParametersTypeDef(BaseValidatorModel):
     LogTypes: Optional[List[LogTypeType]] = None
+
+
+class MskMonitoringParametersTypeDef(BaseValidatorModel):
+    EnhancedMonitoring: Optional[MskEnhancedMonitoringLevelType] = None
 
 
 class PipelineOutputErrorTypeDef(BaseValidatorModel):
@@ -315,7 +323,7 @@ class StartTelemetryEvaluationInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     Tags: Dict[str, str]
 
 
@@ -331,8 +339,8 @@ class TelemetryPipelineStatusReasonTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    TagKeys: List[str]
+    ResourceARN: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Observabilityadmin", "TagKey")]]
 
 
 class ValidationErrorTypeDef(BaseValidatorModel):
@@ -378,31 +386,31 @@ class ConfigurationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_centralization_rule_for_organization' function.
 class CreateCentralizationRuleForOrganizationOutputTypeDef(BaseValidatorModel):
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_s3_table_integration' function.
 class CreateS3TableIntegrationOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_telemetry_pipeline' function.
 class CreateTelemetryPipelineOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_telemetry_rule_for_organization' function.
 class CreateTelemetryRuleForOrganizationOutputTypeDef(BaseValidatorModel):
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_telemetry_rule' function.
 class CreateTelemetryRuleOutputTypeDef(BaseValidatorModel):
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -413,7 +421,9 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 class GetTelemetryEnrichmentStatusOutputTypeDef(BaseValidatorModel):
     Status: TelemetryEnrichmentStatusType
-    AwsResourceExplorerManagedViewArn: str
+    AwsResourceExplorerManagedViewArn: Annotated[
+        str, _aws_pattern("Observabilityadmin", "AwsResourceExplorerManagedViewArn")
+    ]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -432,7 +442,9 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 class StartTelemetryEnrichmentOutputTypeDef(BaseValidatorModel):
     Status: TelemetryEnrichmentStatusType
-    AwsResourceExplorerManagedViewArn: str
+    AwsResourceExplorerManagedViewArn: Annotated[
+        str, _aws_pattern("Observabilityadmin", "AwsResourceExplorerManagedViewArn")
+    ]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -443,43 +455,43 @@ class StopTelemetryEnrichmentOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_centralization_rule_for_organization' function.
 class UpdateCentralizationRuleForOrganizationOutputTypeDef(BaseValidatorModel):
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_telemetry_rule_for_organization' function.
 class UpdateTelemetryRuleForOrganizationOutputTypeDef(BaseValidatorModel):
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_telemetry_rule' function.
 class UpdateTelemetryRuleOutputTypeDef(BaseValidatorModel):
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_s3_table_integration' function.
 class CreateS3TableIntegrationInputTypeDef(BaseValidatorModel):
     Encryption: EncryptionTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'get_s3_table_integration' function.
 class GetS3TableIntegrationOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    RoleArn: str
+    Arn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
+    RoleArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     Status: IntegrationStatusType
     Encryption: EncryptionTypeDef
-    DestinationTableBucketArn: str
+    DestinationTableBucketArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     CreatedTimeStamp: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_telemetry_pipeline' function.
 class CreateTelemetryPipelineInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Observabilityadmin", "TelemetryPipelineName")]
     Configuration: TelemetryPipelineConfigurationTypeDef
     Tags: Optional[Dict[str, str]] = None
 
@@ -615,8 +627,8 @@ class TestTelemetryPipelineInputTypeDef(BaseValidatorModel):
 class TelemetryPipelineTypeDef(BaseValidatorModel):
     CreatedTimeStamp: Optional[int] = None
     LastUpdateTimeStamp: Optional[int] = None
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "TelemetryPipelineName")]] = None
     Configuration: Optional[TelemetryPipelineConfigurationTypeDef] = None
     Status: Optional[TelemetryPipelineStatusType] = None
     StatusReason: Optional[TelemetryPipelineStatusReasonTypeDef] = None
@@ -652,8 +664,8 @@ class FilterTypeDef(BaseValidatorModel):
 class TelemetryPipelineSummaryTypeDef(BaseValidatorModel):
     CreatedTimeStamp: Optional[int] = None
     LastUpdateTimeStamp: Optional[int] = None
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "TelemetryPipelineName")]] = None
     Status: Optional[TelemetryPipelineStatusType] = None
     Tags: Optional[Dict[str, str]] = None
     ConfigurationSummary: Optional[ConfigurationSummaryTypeDef] = None
@@ -661,7 +673,7 @@ class TelemetryPipelineSummaryTypeDef(BaseValidatorModel):
 
 class CentralizationRuleDestinationTypeDef(BaseValidatorModel):
     Region: str
-    Account: Optional[str] = None
+    Account: Optional[Annotated[str, _aws_pattern("Observabilityadmin", "AccountIdentifier")]] = None
     DestinationLogsConfiguration: Optional[DestinationLogsConfigurationTypeDef] = None
 
 
@@ -718,8 +730,8 @@ class WAFLoggingParametersTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_centralization_rule_for_organization' function.
 class GetCentralizationRuleForOrganizationOutputTypeDef(BaseValidatorModel):
-    RuleName: str
-    RuleArn: str
+    RuleName: Annotated[str, _aws_pattern("Observabilityadmin", "RuleName")]
+    RuleArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     CreatorAccountId: str
     CreatedTimeStamp: int
     CreatedRegion: str
@@ -742,6 +754,7 @@ class TelemetryDestinationConfigurationOutputTypeDef(BaseValidatorModel):
     ELBLoadBalancerLoggingParameters: Optional[ELBLoadBalancerLoggingParametersTypeDef] = None
     WAFLoggingParameters: Optional[WAFLoggingParametersOutputTypeDef] = None
     LogDeliveryParameters: Optional[LogDeliveryParametersOutputTypeDef] = None
+    MskMonitoringParameters: Optional[MskMonitoringParametersTypeDef] = None
 
 
 class TelemetryDestinationConfigurationTypeDef(BaseValidatorModel):
@@ -753,11 +766,12 @@ class TelemetryDestinationConfigurationTypeDef(BaseValidatorModel):
     ELBLoadBalancerLoggingParameters: Optional[ELBLoadBalancerLoggingParametersTypeDef] = None
     WAFLoggingParameters: Optional[WAFLoggingParametersTypeDef] = None
     LogDeliveryParameters: Optional[LogDeliveryParametersTypeDef] = None
+    MskMonitoringParameters: Optional[MskMonitoringParametersTypeDef] = None
 
 
 # This class is the input for the 'create_centralization_rule_for_organization' function.
 class CreateCentralizationRuleForOrganizationInputTypeDef(BaseValidatorModel):
-    RuleName: str
+    RuleName: Annotated[str, _aws_pattern("Observabilityadmin", "RuleName")]
     Rule: CentralizationRuleUnionTypeDef
     Tags: Optional[Dict[str, str]] = None
 
@@ -794,8 +808,8 @@ class TelemetryRuleTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_telemetry_rule_for_organization' function.
 class GetTelemetryRuleForOrganizationOutputTypeDef(BaseValidatorModel):
-    RuleName: str
-    RuleArn: str
+    RuleName: Annotated[str, _aws_pattern("Observabilityadmin", "RuleName")]
+    RuleArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     CreatedTimeStamp: int
     LastUpdateTimeStamp: int
     TelemetryRule: TelemetryRuleOutputTypeDef
@@ -807,8 +821,8 @@ class GetTelemetryRuleForOrganizationOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_telemetry_rule' function.
 class GetTelemetryRuleOutputTypeDef(BaseValidatorModel):
-    RuleName: str
-    RuleArn: str
+    RuleName: Annotated[str, _aws_pattern("Observabilityadmin", "RuleName")]
+    RuleArn: Annotated[str, _aws_pattern("Observabilityadmin", "ResourceArn")]
     CreatedTimeStamp: int
     LastUpdateTimeStamp: int
     TelemetryRule: TelemetryRuleOutputTypeDef
@@ -823,14 +837,14 @@ TelemetryRuleUnionTypeDef = Union[TelemetryRuleOutputTypeDef, TelemetryRuleTypeD
 
 # This class is the input for the 'create_telemetry_rule_for_organization' function.
 class CreateTelemetryRuleForOrganizationInputTypeDef(BaseValidatorModel):
-    RuleName: str
+    RuleName: Annotated[str, _aws_pattern("Observabilityadmin", "RuleName")]
     Rule: TelemetryRuleUnionTypeDef
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_telemetry_rule' function.
 class CreateTelemetryRuleInputTypeDef(BaseValidatorModel):
-    RuleName: str
+    RuleName: Annotated[str, _aws_pattern("Observabilityadmin", "RuleName")]
     Rule: TelemetryRuleUnionTypeDef
     Tags: Optional[Dict[str, str]] = None
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.panorama.panorama_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -46,15 +48,15 @@ class ReportedRuntimeContextStateTypeDef(BaseValidatorModel):
     DesiredState: DesiredStateType
     DeviceReportedStatus: DeviceReportedStatusType
     DeviceReportedTime: datetime
-    RuntimeContextName: str
+    RuntimeContextName: Annotated[str, _aws_pattern("Panorama", "RuntimeContextName")]
 
 
 class ManifestOverridesPayloadTypeDef(BaseValidatorModel):
-    PayloadData: Optional[str] = None
+    PayloadData: Optional[Annotated[str, _aws_pattern("Panorama", "ManifestOverridesPayloadData")]] = None
 
 
 class ManifestPayloadTypeDef(BaseValidatorModel):
-    PayloadData: Optional[str] = None
+    PayloadData: Optional[Annotated[str, _aws_pattern("Panorama", "ManifestPayloadData")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -66,13 +68,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class JobTypeDef(BaseValidatorModel):
-    DeviceId: Optional[str] = None
-    JobId: Optional[str] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Panorama", "DeviceId")]] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Panorama", "JobId")]] = None
 
 
 # This class is the input for the 'create_package' function.
 class CreatePackageRequestTypeDef(BaseValidatorModel):
-    PackageName: str
+    PackageName: Annotated[str, _aws_pattern("Panorama", "NodePackageName")]
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -86,51 +88,51 @@ class StorageLocationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_device' function.
 class DeleteDeviceRequestTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Panorama", "DeviceId")]
 
 
 class DeletePackageRequestTypeDef(BaseValidatorModel):
-    PackageId: str
+    PackageId: Annotated[str, _aws_pattern("Panorama", "NodePackageId")]
     ForceDelete: Optional[bool] = None
 
 
 class DeregisterPackageVersionRequestTypeDef(BaseValidatorModel):
-    PackageId: str
-    PackageVersion: str
-    PatchVersion: str
-    OwnerAccount: Optional[str] = None
-    UpdatedLatestPatchVersion: Optional[str] = None
+    PackageId: Annotated[str, _aws_pattern("Panorama", "NodePackageId")]
+    PackageVersion: Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]
+    PatchVersion: Annotated[str, _aws_pattern("Panorama", "NodePackagePatchVersion")]
+    OwnerAccount: Optional[Annotated[str, _aws_pattern("Panorama", "PackageOwnerAccount")]] = None
+    UpdatedLatestPatchVersion: Optional[Annotated[str, _aws_pattern("Panorama", "NodePackagePatchVersion")]] = None
 
 
 # This class is the input for the 'describe_application_instance_details' function.
 class DescribeApplicationInstanceDetailsRequestTypeDef(BaseValidatorModel):
-    ApplicationInstanceId: str
+    ApplicationInstanceId: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
 
 
 # This class is the input for the 'describe_application_instance' function.
 class DescribeApplicationInstanceRequestTypeDef(BaseValidatorModel):
-    ApplicationInstanceId: str
+    ApplicationInstanceId: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
 
 
 # This class is the input for the 'describe_device_job' function.
 class DescribeDeviceJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Panorama", "JobId")]
 
 
 # This class is the input for the 'describe_device' function.
 class DescribeDeviceRequestTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Panorama", "DeviceId")]
 
 
 class LatestDeviceJobTypeDef(BaseValidatorModel):
-    ImageVersion: Optional[str] = None
+    ImageVersion: Optional[Annotated[str, _aws_pattern("Panorama", "ImageVersion")]] = None
     JobType: Optional[JobTypeType] = None
     Status: Optional[UpdateProgressType] = None
 
 
 # This class is the input for the 'describe_node_from_template_job' function.
 class DescribeNodeFromTemplateJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Panorama", "JobId")]
 
 
 class JobResourceTagsOutputTypeDef(BaseValidatorModel):
@@ -140,38 +142,38 @@ class JobResourceTagsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_node' function.
 class DescribeNodeRequestTypeDef(BaseValidatorModel):
-    NodeId: str
-    OwnerAccount: Optional[str] = None
+    NodeId: Annotated[str, _aws_pattern("Panorama", "NodeId")]
+    OwnerAccount: Optional[Annotated[str, _aws_pattern("Panorama", "PackageOwnerAccount")]] = None
 
 
 # This class is the input for the 'describe_package_import_job' function.
 class DescribePackageImportJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Panorama", "JobId")]
 
 
 # This class is the input for the 'describe_package' function.
 class DescribePackageRequestTypeDef(BaseValidatorModel):
-    PackageId: str
+    PackageId: Annotated[str, _aws_pattern("Panorama", "NodePackageId")]
 
 
 # This class is the input for the 'describe_package_version' function.
 class DescribePackageVersionRequestTypeDef(BaseValidatorModel):
-    PackageId: str
-    PackageVersion: str
-    OwnerAccount: Optional[str] = None
-    PatchVersion: Optional[str] = None
+    PackageId: Annotated[str, _aws_pattern("Panorama", "NodePackageId")]
+    PackageVersion: Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]
+    OwnerAccount: Optional[Annotated[str, _aws_pattern("Panorama", "PackageOwnerAccount")]] = None
+    PatchVersion: Optional[Annotated[str, _aws_pattern("Panorama", "NodePackagePatchVersion")]] = None
 
 
 class OTAJobConfigTypeDef(BaseValidatorModel):
-    ImageVersion: str
+    ImageVersion: Annotated[str, _aws_pattern("Panorama", "ImageVersion")]
     AllowMajorVersionUpdate: Optional[bool] = None
 
 
 class DeviceJobTypeDef(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
-    DeviceId: Optional[str] = None
-    DeviceName: Optional[str] = None
-    JobId: Optional[str] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Panorama", "DeviceId")]] = None
+    DeviceName: Optional[Annotated[str, _aws_pattern("Panorama", "DeviceName")]] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Panorama", "JobId")]] = None
     JobType: Optional[JobTypeType] = None
 
 
@@ -183,16 +185,16 @@ class StaticIpConnectionInfoOutputTypeDef(BaseValidatorModel):
 
 
 class StaticIpConnectionInfoTypeDef(BaseValidatorModel):
-    DefaultGateway: str
-    Dns: List[str]
-    IpAddress: str
-    Mask: str
+    DefaultGateway: Annotated[str, _aws_pattern("Panorama", "DefaultGateway")]
+    Dns: List[Annotated[str, _aws_pattern("Panorama", "Dns")]]
+    IpAddress: Annotated[str, _aws_pattern("Panorama", "IpAddress")]
+    Mask: Annotated[str, _aws_pattern("Panorama", "Mask")]
 
 
 class EthernetStatusTypeDef(BaseValidatorModel):
     ConnectionStatus: Optional[NetworkConnectionStatusType] = None
     HwAddress: Optional[str] = None
-    IpAddress: Optional[str] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Panorama", "IpAddress")]] = None
 
 
 class JobResourceTagsTypeDef(BaseValidatorModel):
@@ -202,47 +204,47 @@ class JobResourceTagsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_application_instance_dependencies' function.
 class ListApplicationInstanceDependenciesRequestTypeDef(BaseValidatorModel):
-    ApplicationInstanceId: str
+    ApplicationInstanceId: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 class PackageObjectTypeDef(BaseValidatorModel):
-    Name: str
-    PackageVersion: str
-    PatchVersion: str
+    Name: Annotated[str, _aws_pattern("Panorama", "NodePackageName")]
+    PackageVersion: Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]
+    PatchVersion: Annotated[str, _aws_pattern("Panorama", "NodePackagePatchVersion")]
 
 
 # This class is the input for the 'list_application_instance_node_instances' function.
 class ListApplicationInstanceNodeInstancesRequestTypeDef(BaseValidatorModel):
-    ApplicationInstanceId: str
+    ApplicationInstanceId: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 class NodeInstanceTypeDef(BaseValidatorModel):
     CurrentStatus: NodeInstanceStatusType
-    NodeInstanceId: str
-    NodeId: Optional[str] = None
-    NodeName: Optional[str] = None
-    PackageName: Optional[str] = None
-    PackagePatchVersion: Optional[str] = None
-    PackageVersion: Optional[str] = None
+    NodeInstanceId: Annotated[str, _aws_pattern("Panorama", "NodeInstanceId")]
+    NodeId: Optional[Annotated[str, _aws_pattern("Panorama", "NodeId")]] = None
+    NodeName: Optional[Annotated[str, _aws_pattern("Panorama", "NodeName")]] = None
+    PackageName: Optional[Annotated[str, _aws_pattern("Panorama", "NodePackageName")]] = None
+    PackagePatchVersion: Optional[Annotated[str, _aws_pattern("Panorama", "NodePackagePatchVersion")]] = None
+    PackageVersion: Optional[Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]] = None
 
 
 # This class is the input for the 'list_application_instances' function.
 class ListApplicationInstancesRequestTypeDef(BaseValidatorModel):
-    DeviceId: Optional[str] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Panorama", "DeviceId")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
     StatusFilter: Optional[StatusFilterType] = None
 
 
 # This class is the input for the 'list_devices_jobs' function.
 class ListDevicesJobsRequestTypeDef(BaseValidatorModel):
-    DeviceId: Optional[str] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Panorama", "DeviceId")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 # This class is the input for the 'list_devices' function.
@@ -250,7 +252,7 @@ class ListDevicesRequestTypeDef(BaseValidatorModel):
     DeviceAggregatedStatusFilter: Optional[DeviceAggregatedStatusType] = None
     MaxResults: Optional[int] = None
     NameFilter: Optional[str] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
     SortBy: Optional[ListDevicesSortByType] = None
     SortOrder: Optional[SortOrderType] = None
 
@@ -258,13 +260,13 @@ class ListDevicesRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_node_from_template_jobs' function.
 class ListNodeFromTemplateJobsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 class NodeFromTemplateJobTypeDef(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
-    JobId: Optional[str] = None
-    NodeName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Panorama", "JobId")]] = None
+    NodeName: Optional[Annotated[str, _aws_pattern("Panorama", "NodeName")]] = None
     Status: Optional[NodeFromTemplateJobStatusType] = None
     StatusMessage: Optional[str] = None
     TemplateType: Optional[Literal["RTSP_CAMERA_STREAM"]] = None
@@ -274,36 +276,36 @@ class NodeFromTemplateJobTypeDef(BaseValidatorModel):
 class ListNodesRequestTypeDef(BaseValidatorModel):
     Category: Optional[NodeCategoryType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    OwnerAccount: Optional[str] = None
-    PackageName: Optional[str] = None
-    PackageVersion: Optional[str] = None
-    PatchVersion: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "Token")]] = None
+    OwnerAccount: Optional[Annotated[str, _aws_pattern("Panorama", "PackageOwnerAccount")]] = None
+    PackageName: Optional[Annotated[str, _aws_pattern("Panorama", "NodePackageName")]] = None
+    PackageVersion: Optional[Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]] = None
+    PatchVersion: Optional[Annotated[str, _aws_pattern("Panorama", "NodePackagePatchVersion")]] = None
 
 
 class NodeTypeDef(BaseValidatorModel):
     Category: NodeCategoryType
     CreatedTime: datetime
-    Name: str
-    NodeId: str
-    PackageId: str
-    PackageName: str
-    PackageVersion: str
-    PatchVersion: str
-    Description: Optional[str] = None
-    OwnerAccount: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Panorama", "NodeName")]
+    NodeId: Annotated[str, _aws_pattern("Panorama", "NodeId")]
+    PackageId: Annotated[str, _aws_pattern("Panorama", "NodePackageId")]
+    PackageName: Annotated[str, _aws_pattern("Panorama", "NodePackageName")]
+    PackageVersion: Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]
+    PatchVersion: Annotated[str, _aws_pattern("Panorama", "NodePackagePatchVersion")]
+    Description: Optional[Annotated[str, _aws_pattern("Panorama", "Description")]] = None
+    OwnerAccount: Optional[Annotated[str, _aws_pattern("Panorama", "PackageOwnerAccount")]] = None
     PackageArn: Optional[str] = None
 
 
 # This class is the input for the 'list_package_import_jobs' function.
 class ListPackageImportJobsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 class PackageImportJobTypeDef(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
-    JobId: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Panorama", "JobId")]] = None
     JobType: Optional[PackageImportJobTypeType] = None
     LastUpdatedTime: Optional[datetime] = None
     Status: Optional[PackageImportJobStatusType] = None
@@ -313,20 +315,20 @@ class PackageImportJobTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_packages' function.
 class ListPackagesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "Token")]] = None
 
 
 class PackageListItemTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
-    PackageId: Optional[str] = None
-    PackageName: Optional[str] = None
+    PackageId: Optional[Annotated[str, _aws_pattern("Panorama", "NodePackageId")]] = None
+    PackageName: Optional[Annotated[str, _aws_pattern("Panorama", "NodePackageName")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Panorama", "ResourceArn")]
 
 
 class NtpPayloadOutputTypeDef(BaseValidatorModel):
@@ -334,88 +336,90 @@ class NtpPayloadOutputTypeDef(BaseValidatorModel):
 
 
 class NtpPayloadTypeDef(BaseValidatorModel):
-    NtpServers: List[str]
+    NtpServers: List[Annotated[str, _aws_pattern("Panorama", "IpAddressOrServerName")]]
 
 
 class NtpStatusTypeDef(BaseValidatorModel):
     ConnectionStatus: Optional[NetworkConnectionStatusType] = None
-    IpAddress: Optional[str] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Panorama", "IpAddress")]] = None
     NtpServerName: Optional[str] = None
 
 
 class NodeInputPortTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Panorama", "Description")]] = None
     MaxConnections: Optional[int] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Panorama", "PortName")]] = None
     Type: Optional[PortTypeType] = None
 
 
 class NodeOutputPortTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
-    Name: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Panorama", "Description")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Panorama", "PortName")]] = None
     Type: Optional[PortTypeType] = None
 
 
 class NodeSignalTypeDef(BaseValidatorModel):
-    NodeInstanceId: str
+    NodeInstanceId: Annotated[str, _aws_pattern("Panorama", "NodeInstanceId")]
     Signal: NodeSignalValueType
 
 
 class OutPutS3LocationTypeDef(BaseValidatorModel):
-    BucketName: str
-    ObjectKey: str
+    BucketName: Annotated[str, _aws_pattern("Panorama", "BucketName")]
+    ObjectKey: Annotated[str, _aws_pattern("Panorama", "ObjectKey")]
 
 
 class PackageVersionOutputConfigTypeDef(BaseValidatorModel):
-    PackageName: str
-    PackageVersion: str
+    PackageName: Annotated[str, _aws_pattern("Panorama", "NodePackageName")]
+    PackageVersion: Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]
     MarkLatest: Optional[bool] = None
 
 
 class S3LocationTypeDef(BaseValidatorModel):
-    BucketName: str
-    ObjectKey: str
-    Region: Optional[str] = None
+    BucketName: Annotated[str, _aws_pattern("Panorama", "BucketName")]
+    ObjectKey: Annotated[str, _aws_pattern("Panorama", "ObjectKey")]
+    Region: Optional[Annotated[str, _aws_pattern("Panorama", "Region")]] = None
 
 
 class RegisterPackageVersionRequestTypeDef(BaseValidatorModel):
-    PackageId: str
-    PackageVersion: str
-    PatchVersion: str
+    PackageId: Annotated[str, _aws_pattern("Panorama", "NodePackageId")]
+    PackageVersion: Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]
+    PatchVersion: Annotated[str, _aws_pattern("Panorama", "NodePackagePatchVersion")]
     MarkLatest: Optional[bool] = None
-    OwnerAccount: Optional[str] = None
+    OwnerAccount: Optional[Annotated[str, _aws_pattern("Panorama", "PackageOwnerAccount")]] = None
 
 
 class RemoveApplicationInstanceRequestTypeDef(BaseValidatorModel):
-    ApplicationInstanceId: str
+    ApplicationInstanceId: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Panorama", "ResourceArn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Panorama", "ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Panorama", "TagKey")]]
 
 
 # This class is the input for the 'update_device_metadata' function.
 class UpdateDeviceMetadataRequestTypeDef(BaseValidatorModel):
-    DeviceId: str
-    Description: Optional[str] = None
+    DeviceId: Annotated[str, _aws_pattern("Panorama", "DeviceId")]
+    Description: Optional[Annotated[str, _aws_pattern("Panorama", "Description")]] = None
 
 
 class ApplicationInstanceTypeDef(BaseValidatorModel):
-    ApplicationInstanceId: Optional[str] = None
+    ApplicationInstanceId: Optional[Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]] = None
     Arn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
-    DefaultRuntimeContextDevice: Optional[str] = None
-    DefaultRuntimeContextDeviceName: Optional[str] = None
-    Description: Optional[str] = None
+    DefaultRuntimeContextDevice: Optional[Annotated[str, _aws_pattern("Panorama", "DefaultRuntimeContextDevice")]] = (
+        None
+    )
+    DefaultRuntimeContextDeviceName: Optional[Annotated[str, _aws_pattern("Panorama", "DeviceName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Panorama", "Description")]] = None
     HealthStatus: Optional[ApplicationInstanceHealthStatusType] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceName")]] = None
     RuntimeContextStates: Optional[List[ReportedRuntimeContextStateTypeDef]] = None
     Status: Optional[ApplicationInstanceStatusType] = None
     StatusDescription: Optional[str] = None
@@ -424,67 +428,67 @@ class ApplicationInstanceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_application_instance' function.
 class CreateApplicationInstanceRequestTypeDef(BaseValidatorModel):
-    DefaultRuntimeContextDevice: str
+    DefaultRuntimeContextDevice: Annotated[str, _aws_pattern("Panorama", "DefaultRuntimeContextDevice")]
     ManifestPayload: ManifestPayloadTypeDef
-    ApplicationInstanceIdToReplace: Optional[str] = None
-    Description: Optional[str] = None
+    ApplicationInstanceIdToReplace: Optional[Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Panorama", "Description")]] = None
     ManifestOverridesPayload: Optional[ManifestOverridesPayloadTypeDef] = None
-    Name: Optional[str] = None
-    RuntimeRoleArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceName")]] = None
+    RuntimeRoleArn: Optional[Annotated[str, _aws_pattern("Panorama", "RuntimeRoleArn")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'create_application_instance' function.
 class CreateApplicationInstanceResponseTypeDef(BaseValidatorModel):
-    ApplicationInstanceId: str
+    ApplicationInstanceId: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_node_from_template_job' function.
 class CreateNodeFromTemplateJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Panorama", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_package_import_job' function.
 class CreatePackageImportJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Panorama", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_device' function.
 class DeleteDeviceResponseTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Panorama", "DeviceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_application_instance_details' function.
 class DescribeApplicationInstanceDetailsResponseTypeDef(BaseValidatorModel):
-    ApplicationInstanceId: str
-    ApplicationInstanceIdToReplace: str
+    ApplicationInstanceId: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
+    ApplicationInstanceIdToReplace: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
     CreatedTime: datetime
-    DefaultRuntimeContextDevice: str
-    Description: str
+    DefaultRuntimeContextDevice: Annotated[str, _aws_pattern("Panorama", "DefaultRuntimeContextDevice")]
+    Description: Annotated[str, _aws_pattern("Panorama", "Description")]
     ManifestOverridesPayload: ManifestOverridesPayloadTypeDef
     ManifestPayload: ManifestPayloadTypeDef
-    Name: str
+    Name: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_application_instance' function.
 class DescribeApplicationInstanceResponseTypeDef(BaseValidatorModel):
-    ApplicationInstanceId: str
-    ApplicationInstanceIdToReplace: str
+    ApplicationInstanceId: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
+    ApplicationInstanceIdToReplace: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
     Arn: str
     CreatedTime: datetime
-    DefaultRuntimeContextDevice: str
-    DefaultRuntimeContextDeviceName: str
-    Description: str
+    DefaultRuntimeContextDevice: Annotated[str, _aws_pattern("Panorama", "DefaultRuntimeContextDevice")]
+    DefaultRuntimeContextDeviceName: Annotated[str, _aws_pattern("Panorama", "DeviceName")]
+    Description: Annotated[str, _aws_pattern("Panorama", "Description")]
     HealthStatus: ApplicationInstanceHealthStatusType
     LastUpdatedTime: datetime
-    Name: str
+    Name: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceName")]
     RuntimeContextStates: List[ReportedRuntimeContextStateTypeDef]
-    RuntimeRoleArn: str
+    RuntimeRoleArn: Annotated[str, _aws_pattern("Panorama", "RuntimeRoleArn")]
     Status: ApplicationInstanceStatusType
     StatusDescription: str
     Tags: Dict[str, str]
@@ -495,11 +499,11 @@ class DescribeApplicationInstanceResponseTypeDef(BaseValidatorModel):
 class DescribeDeviceJobResponseTypeDef(BaseValidatorModel):
     CreatedTime: datetime
     DeviceArn: str
-    DeviceId: str
-    DeviceName: str
+    DeviceId: Annotated[str, _aws_pattern("Panorama", "DeviceId")]
+    DeviceName: Annotated[str, _aws_pattern("Panorama", "DeviceName")]
     DeviceType: DeviceTypeType
-    ImageVersion: str
-    JobId: str
+    ImageVersion: Annotated[str, _aws_pattern("Panorama", "ImageVersion")]
+    JobId: Annotated[str, _aws_pattern("Panorama", "JobId")]
     JobType: JobTypeType
     Status: UpdateProgressType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -508,12 +512,12 @@ class DescribeDeviceJobResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_package_version' function.
 class DescribePackageVersionResponseTypeDef(BaseValidatorModel):
     IsLatestPatch: bool
-    OwnerAccount: str
+    OwnerAccount: Annotated[str, _aws_pattern("Panorama", "PackageOwnerAccount")]
     PackageArn: str
-    PackageId: str
-    PackageName: str
-    PackageVersion: str
-    PatchVersion: str
+    PackageId: Annotated[str, _aws_pattern("Panorama", "NodePackageId")]
+    PackageName: Annotated[str, _aws_pattern("Panorama", "NodePackageName")]
+    PackageVersion: Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]
+    PatchVersion: Annotated[str, _aws_pattern("Panorama", "NodePackagePatchVersion")]
     RegisteredTime: datetime
     Status: PackageVersionStatusType
     StatusDescription: str
@@ -530,7 +534,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 class ProvisionDeviceResponseTypeDef(BaseValidatorModel):
     Arn: str
     Certificates: bytes
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Panorama", "DeviceId")]
     IotThingName: str
     Status: DeviceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -538,13 +542,13 @@ class ProvisionDeviceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'signal_application_instance_node_instances' function.
 class SignalApplicationInstanceNodeInstancesResponseTypeDef(BaseValidatorModel):
-    ApplicationInstanceId: str
+    ApplicationInstanceId: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_device_metadata' function.
 class UpdateDeviceMetadataResponseTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Panorama", "DeviceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -557,7 +561,7 @@ class CreateJobForDevicesResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_package' function.
 class CreatePackageResponseTypeDef(BaseValidatorModel):
     Arn: str
-    PackageId: str
+    PackageId: Annotated[str, _aws_pattern("Panorama", "NodePackageId")]
     StorageLocation: StorageLocationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -566,12 +570,12 @@ class CreatePackageResponseTypeDef(BaseValidatorModel):
 class DescribePackageResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedTime: datetime
-    PackageId: str
-    PackageName: str
-    ReadAccessPrincipalArns: List[str]
+    PackageId: Annotated[str, _aws_pattern("Panorama", "NodePackageId")]
+    PackageName: Annotated[str, _aws_pattern("Panorama", "NodePackageName")]
+    ReadAccessPrincipalArns: List[Annotated[str, _aws_pattern("Panorama", "PrincipalArn")]]
     StorageLocation: StorageLocationTypeDef
     Tags: Dict[str, str]
-    WriteAccessPrincipalArns: List[str]
+    WriteAccessPrincipalArns: List[Annotated[str, _aws_pattern("Panorama", "PrincipalArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -579,13 +583,13 @@ class DeviceTypeDef(BaseValidatorModel):
     Brand: Optional[DeviceBrandType] = None
     CreatedTime: Optional[datetime] = None
     CurrentSoftware: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Panorama", "Description")]] = None
     DeviceAggregatedStatus: Optional[DeviceAggregatedStatusType] = None
-    DeviceId: Optional[str] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Panorama", "DeviceId")]] = None
     LastUpdatedTime: Optional[datetime] = None
     LatestDeviceJob: Optional[LatestDeviceJobTypeDef] = None
     LeaseExpirationTime: Optional[datetime] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Panorama", "DeviceName")]] = None
     ProvisioningStatus: Optional[DeviceStatusType] = None
     Tags: Optional[Dict[str, str]] = None
     Type: Optional[DeviceTypeType] = None
@@ -594,13 +598,13 @@ class DeviceTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_node_from_template_job' function.
 class DescribeNodeFromTemplateJobResponseTypeDef(BaseValidatorModel):
     CreatedTime: datetime
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Panorama", "JobId")]
     JobTags: List[JobResourceTagsOutputTypeDef]
     LastUpdatedTime: datetime
-    NodeDescription: str
-    NodeName: str
-    OutputPackageName: str
-    OutputPackageVersion: str
+    NodeDescription: Annotated[str, _aws_pattern("Panorama", "Description")]
+    NodeName: Annotated[str, _aws_pattern("Panorama", "NodeName")]
+    OutputPackageName: Annotated[str, _aws_pattern("Panorama", "NodePackageName")]
+    OutputPackageVersion: Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]
     Status: NodeFromTemplateJobStatusType
     StatusMessage: str
     TemplateParameters: Dict[str, str]
@@ -616,7 +620,7 @@ class DeviceJobConfigTypeDef(BaseValidatorModel):
 class ListDevicesJobsResponseTypeDef(BaseValidatorModel):
     DeviceJobs: List[DeviceJobTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 class EthernetPayloadOutputTypeDef(BaseValidatorModel):
@@ -636,42 +640,42 @@ JobResourceTagsUnionTypeDef = Union[JobResourceTagsOutputTypeDef, JobResourceTag
 class ListApplicationInstanceDependenciesResponseTypeDef(BaseValidatorModel):
     PackageObjects: List[PackageObjectTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 # This class is the output for the 'list_application_instance_node_instances' function.
 class ListApplicationInstanceNodeInstancesResponseTypeDef(BaseValidatorModel):
     NodeInstances: List[NodeInstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 # This class is the output for the 'list_node_from_template_jobs' function.
 class ListNodeFromTemplateJobsResponseTypeDef(BaseValidatorModel):
     NodeFromTemplateJobs: List[NodeFromTemplateJobTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 # This class is the output for the 'list_nodes' function.
 class ListNodesResponseTypeDef(BaseValidatorModel):
     Nodes: List[NodeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "Token")]] = None
 
 
 # This class is the output for the 'list_package_import_jobs' function.
 class ListPackageImportJobsResponseTypeDef(BaseValidatorModel):
     PackageImportJobs: List[PackageImportJobTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 # This class is the output for the 'list_packages' function.
 class ListPackagesResponseTypeDef(BaseValidatorModel):
     Packages: List[PackageListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 class NetworkStatusTypeDef(BaseValidatorModel):
@@ -688,15 +692,15 @@ class NodeInterfaceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'signal_application_instance_node_instances' function.
 class SignalApplicationInstanceNodeInstancesRequestTypeDef(BaseValidatorModel):
-    ApplicationInstanceId: str
+    ApplicationInstanceId: Annotated[str, _aws_pattern("Panorama", "ApplicationInstanceId")]
     NodeSignals: List[NodeSignalTypeDef]
 
 
 class PackageImportJobOutputTypeDef(BaseValidatorModel):
     OutputS3Location: OutPutS3LocationTypeDef
-    PackageId: str
-    PackageVersion: str
-    PatchVersion: str
+    PackageId: Annotated[str, _aws_pattern("Panorama", "NodePackageId")]
+    PackageVersion: Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]
+    PatchVersion: Annotated[str, _aws_pattern("Panorama", "NodePackagePatchVersion")]
 
 
 class PackageImportJobOutputConfigTypeDef(BaseValidatorModel):
@@ -711,19 +715,19 @@ class PackageVersionInputConfigTypeDef(BaseValidatorModel):
 class ListApplicationInstancesResponseTypeDef(BaseValidatorModel):
     ApplicationInstances: List[ApplicationInstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 # This class is the output for the 'list_devices' function.
 class ListDevicesResponseTypeDef(BaseValidatorModel):
     Devices: List[DeviceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Panorama", "NextToken")]] = None
 
 
 # This class is the input for the 'create_job_for_devices' function.
 class CreateJobForDevicesRequestTypeDef(BaseValidatorModel):
-    DeviceIds: List[str]
+    DeviceIds: List[Annotated[str, _aws_pattern("Panorama", "DeviceId")]]
     JobType: JobTypeType
     DeviceJobConfig: Optional[DeviceJobConfigTypeDef] = None
 
@@ -742,31 +746,31 @@ class NetworkPayloadTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_node_from_template_job' function.
 class CreateNodeFromTemplateJobRequestTypeDef(BaseValidatorModel):
-    NodeName: str
-    OutputPackageName: str
-    OutputPackageVersion: str
+    NodeName: Annotated[str, _aws_pattern("Panorama", "NodeName")]
+    OutputPackageName: Annotated[str, _aws_pattern("Panorama", "NodePackageName")]
+    OutputPackageVersion: Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]
     TemplateParameters: Dict[str, str]
     TemplateType: Literal["RTSP_CAMERA_STREAM"]
     JobTags: Optional[List[JobResourceTagsUnionTypeDef]] = None
-    NodeDescription: Optional[str] = None
+    NodeDescription: Optional[Annotated[str, _aws_pattern("Panorama", "Description")]] = None
 
 
 # This class is the output for the 'describe_node' function.
 class DescribeNodeResponseTypeDef(BaseValidatorModel):
-    AssetName: str
+    AssetName: Annotated[str, _aws_pattern("Panorama", "NodeAssetName")]
     Category: NodeCategoryType
     CreatedTime: datetime
-    Description: str
+    Description: Annotated[str, _aws_pattern("Panorama", "Description")]
     LastUpdatedTime: datetime
-    Name: str
-    NodeId: str
+    Name: Annotated[str, _aws_pattern("Panorama", "NodeName")]
+    NodeId: Annotated[str, _aws_pattern("Panorama", "NodeId")]
     NodeInterface: NodeInterfaceTypeDef
-    OwnerAccount: str
+    OwnerAccount: Annotated[str, _aws_pattern("Panorama", "PackageOwnerAccount")]
     PackageArn: str
-    PackageId: str
-    PackageName: str
-    PackageVersion: str
-    PatchVersion: str
+    PackageId: Annotated[str, _aws_pattern("Panorama", "NodePackageId")]
+    PackageName: Annotated[str, _aws_pattern("Panorama", "NodePackageName")]
+    PackageVersion: Annotated[str, _aws_pattern("Panorama", "NodePackageVersion")]
+    PatchVersion: Annotated[str, _aws_pattern("Panorama", "NodePackagePatchVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -782,18 +786,18 @@ class DescribeDeviceResponseTypeDef(BaseValidatorModel):
     CreatedTime: datetime
     CurrentNetworkingStatus: NetworkStatusTypeDef
     CurrentSoftware: str
-    Description: str
+    Description: Annotated[str, _aws_pattern("Panorama", "Description")]
     DeviceAggregatedStatus: DeviceAggregatedStatusType
     DeviceConnectionStatus: DeviceConnectionStatusType
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Panorama", "DeviceId")]
     LatestAlternateSoftware: str
     LatestDeviceJob: LatestDeviceJobTypeDef
     LatestSoftware: str
     LeaseExpirationTime: datetime
-    Name: str
+    Name: Annotated[str, _aws_pattern("Panorama", "DeviceName")]
     NetworkingConfiguration: NetworkPayloadOutputTypeDef
     ProvisioningStatus: DeviceStatusType
-    SerialNumber: str
+    SerialNumber: Annotated[str, _aws_pattern("Panorama", "DeviceSerialNumber")]
     Tags: Dict[str, str]
     Type: DeviceTypeType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -804,7 +808,7 @@ NetworkPayloadUnionTypeDef = Union[NetworkPayloadOutputTypeDef, NetworkPayloadTy
 
 # This class is the input for the 'create_package_import_job' function.
 class CreatePackageImportJobRequestTypeDef(BaseValidatorModel):
-    ClientToken: str
+    ClientToken: Annotated[str, _aws_pattern("Panorama", "ClientToken")]
     InputConfig: PackageImportJobInputConfigTypeDef
     JobType: PackageImportJobTypeType
     OutputConfig: PackageImportJobOutputConfigTypeDef
@@ -813,10 +817,10 @@ class CreatePackageImportJobRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_package_import_job' function.
 class DescribePackageImportJobResponseTypeDef(BaseValidatorModel):
-    ClientToken: str
+    ClientToken: Annotated[str, _aws_pattern("Panorama", "ClientToken")]
     CreatedTime: datetime
     InputConfig: PackageImportJobInputConfigTypeDef
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Panorama", "JobId")]
     JobTags: List[JobResourceTagsOutputTypeDef]
     JobType: PackageImportJobTypeType
     LastUpdatedTime: datetime
@@ -829,7 +833,7 @@ class DescribePackageImportJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'provision_device' function.
 class ProvisionDeviceRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Panorama", "DeviceName")]
+    Description: Optional[Annotated[str, _aws_pattern("Panorama", "Description")]] = None
     NetworkingConfiguration: Optional[NetworkPayloadUnionTypeDef] = None
     Tags: Optional[Dict[str, str]] = None

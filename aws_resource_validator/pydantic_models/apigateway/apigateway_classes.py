@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.apigateway.apigateway_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -152,7 +154,7 @@ class DocumentationPartLocationTypeDef(BaseValidatorModel):
     type: DocumentationPartTypeType
     path: Optional[str] = None
     method: Optional[str] = None
-    statusCode: Optional[str] = None
+    statusCode: Optional[Annotated[str, _aws_pattern("Apigateway", "DocumentationPartLocationStatusCode")]] = None
     name: Optional[str] = None
 
 
@@ -292,7 +294,7 @@ class DeleteIntegrationResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
-    statusCode: str
+    statusCode: Annotated[str, _aws_pattern("Apigateway", "StatusCode")]
 
 
 # This class is the input for the 'delete_method' function.
@@ -307,7 +309,7 @@ class DeleteMethodResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
-    statusCode: str
+    statusCode: Annotated[str, _aws_pattern("Apigateway", "StatusCode")]
 
 
 # This class is the input for the 'delete_model' function.
@@ -406,7 +408,7 @@ class FlushStageCacheRequestTypeDef(BaseValidatorModel):
 
 class GatewayResponseTypeDef(BaseValidatorModel):
     responseType: Optional[GatewayResponseTypeType] = None
-    statusCode: Optional[str] = None
+    statusCode: Optional[Annotated[str, _aws_pattern("Apigateway", "StatusCode")]] = None
     responseParameters: Optional[Dict[str, str]] = None
     responseTemplates: Optional[Dict[str, str]] = None
     defaultResponse: Optional[bool] = None
@@ -576,7 +578,7 @@ class GetIntegrationResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
-    statusCode: str
+    statusCode: Annotated[str, _aws_pattern("Apigateway", "StatusCode")]
 
 
 # This class is the input for the 'get_method' function.
@@ -591,7 +593,7 @@ class GetMethodResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
-    statusCode: str
+    statusCode: Annotated[str, _aws_pattern("Apigateway", "StatusCode")]
 
 
 # This class is the input for the 'get_model' function.
@@ -739,7 +741,7 @@ class GetVpcLinksRequestTypeDef(BaseValidatorModel):
 
 
 class IntegrationResponseTypeDef(BaseValidatorModel):
-    statusCode: Optional[str] = None
+    statusCode: Optional[Annotated[str, _aws_pattern("Apigateway", "StatusCode")]] = None
     selectionPattern: Optional[str] = None
     responseParameters: Optional[Dict[str, str]] = None
     responseTemplates: Optional[Dict[str, str]] = None
@@ -751,7 +753,7 @@ class TlsConfigTypeDef(BaseValidatorModel):
 
 
 class MethodResponseTypeDef(BaseValidatorModel):
-    statusCode: Optional[str] = None
+    statusCode: Optional[Annotated[str, _aws_pattern("Apigateway", "StatusCode")]] = None
     responseParameters: Optional[Dict[str, bool]] = None
     responseModels: Optional[Dict[str, str]] = None
 
@@ -788,7 +790,7 @@ class PatchOperationTypeDef(BaseValidatorModel):
 class PutGatewayResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     responseType: GatewayResponseTypeType
-    statusCode: Optional[str] = None
+    statusCode: Optional[Annotated[str, _aws_pattern("Apigateway", "StatusCode")]] = None
     responseParameters: Optional[Dict[str, str]] = None
     responseTemplates: Optional[Dict[str, str]] = None
 
@@ -798,7 +800,7 @@ class PutIntegrationResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
-    statusCode: str
+    statusCode: Annotated[str, _aws_pattern("Apigateway", "StatusCode")]
     selectionPattern: Optional[str] = None
     responseParameters: Optional[Dict[str, str]] = None
     responseTemplates: Optional[Dict[str, str]] = None
@@ -825,7 +827,7 @@ class PutMethodResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
-    statusCode: str
+    statusCode: Annotated[str, _aws_pattern("Apigateway", "StatusCode")]
     responseParameters: Optional[Dict[str, bool]] = None
     responseModels: Optional[Dict[str, str]] = None
 
@@ -1680,7 +1682,7 @@ class UpdateIntegrationResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
-    statusCode: str
+    statusCode: Annotated[str, _aws_pattern("Apigateway", "StatusCode")]
     patchOperations: Optional[List[PatchOperationTypeDef]] = None
 
 
@@ -1697,7 +1699,7 @@ class UpdateMethodResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
-    statusCode: str
+    statusCode: Annotated[str, _aws_pattern("Apigateway", "StatusCode")]
     patchOperations: Optional[List[PatchOperationTypeDef]] = None
 
 

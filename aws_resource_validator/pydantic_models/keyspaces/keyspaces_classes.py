@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.keyspaces.keyspaces_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -123,41 +125,41 @@ class FieldDefinitionTypeDef(BaseValidatorModel):
 
 
 class DeleteKeyspaceRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
 
 
 class DeleteTableRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
-    tableName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    tableName: Annotated[str, _aws_pattern("Keyspaces", "TableName")]
 
 
 # This class is the input for the 'delete_type' function.
 class DeleteTypeRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
     typeName: str
 
 
 # This class is the input for the 'get_keyspace' function.
 class GetKeyspaceRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
 
 
 class ReplicationGroupStatusTypeDef(BaseValidatorModel):
     region: str
     keyspaceStatus: KeyspaceStatusType
-    tablesReplicationProgress: Optional[str] = None
+    tablesReplicationProgress: Optional[Annotated[str, _aws_pattern("Keyspaces", "TablesReplicationProgress")]] = None
 
 
 # This class is the input for the 'get_table_auto_scaling_settings' function.
 class GetTableAutoScalingSettingsRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
-    tableName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    tableName: Annotated[str, _aws_pattern("Keyspaces", "TableName")]
 
 
 # This class is the input for the 'get_table' function.
 class GetTableRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
-    tableName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    tableName: Annotated[str, _aws_pattern("Keyspaces", "TableName")]
 
 
 class PointInTimeRecoverySummaryTypeDef(BaseValidatorModel):
@@ -173,13 +175,13 @@ class WarmThroughputSpecificationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_type' function.
 class GetTypeRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
     typeName: str
 
 
 class KeyspaceSummaryTypeDef(BaseValidatorModel):
-    keyspaceName: str
-    resourceArn: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     replicationStrategy: RsType
     replicationRegions: Optional[List[str]] = None
 
@@ -198,27 +200,27 @@ class ListKeyspacesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tables' function.
 class ListTablesRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class TableSummaryTypeDef(BaseValidatorModel):
-    keyspaceName: str
-    tableName: str
-    resourceArn: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    tableName: Annotated[str, _aws_pattern("Keyspaces", "TableName")]
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_types' function.
 class ListTypesRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -246,51 +248,51 @@ class CdcSpecificationTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     tags: List[TagTypeDef]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     tags: List[TagTypeDef]
 
 
 # This class is the input for the 'create_keyspace' function.
 class CreateKeyspaceRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
     tags: Optional[List[TagTypeDef]] = None
     replicationSpecification: Optional[ReplicationSpecificationTypeDef] = None
 
 
 # This class is the input for the 'update_keyspace' function.
 class UpdateKeyspaceRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
     replicationSpecification: ReplicationSpecificationTypeDef
     clientSideTimestamps: Optional[ClientSideTimestampsTypeDef] = None
 
 
 # This class is the output for the 'create_keyspace' function.
 class CreateKeyspaceResponseTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_table' function.
 class CreateTableResponseTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_type' function.
 class CreateTypeResponseTypeDef(BaseValidatorModel):
-    keyspaceArn: str
+    keyspaceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     typeName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_type' function.
 class DeleteTypeResponseTypeDef(BaseValidatorModel):
-    keyspaceArn: str
+    keyspaceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     typeName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -311,47 +313,47 @@ class ListTypesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'restore_table' function.
 class RestoreTableResponseTypeDef(BaseValidatorModel):
-    restoredTableARN: str
+    restoredTableARN: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_keyspace' function.
 class UpdateKeyspaceResponseTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_table' function.
 class UpdateTableResponseTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_type' function.
 class CreateTypeRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
     typeName: str
     fieldDefinitions: List[FieldDefinitionTypeDef]
 
 
 # This class is the output for the 'get_type' function.
 class GetTypeResponseTypeDef(BaseValidatorModel):
-    keyspaceName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
     typeName: str
     fieldDefinitions: List[FieldDefinitionTypeDef]
     lastModifiedTimestamp: datetime
     status: TypeStatusType
-    directReferringTables: List[str]
+    directReferringTables: List[Annotated[str, _aws_pattern("Keyspaces", "TableName")]]
     directParentTypes: List[str]
     maxNestingDepth: int
-    keyspaceArn: str
+    keyspaceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_keyspace' function.
 class GetKeyspaceResponseTypeDef(BaseValidatorModel):
-    keyspaceName: str
-    resourceArn: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     replicationStrategy: RsType
     replicationRegions: List[str]
     replicationGroupStatuses: List[ReplicationGroupStatusTypeDef]
@@ -421,9 +423,9 @@ class AutoScalingSettingsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_table' function.
 class GetTableResponseTypeDef(BaseValidatorModel):
-    keyspaceName: str
-    tableName: str
-    resourceArn: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    tableName: Annotated[str, _aws_pattern("Keyspaces", "TableName")]
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     creationTimestamp: datetime
     status: TableStatusType
     schemaDefinition: SchemaDefinitionOutputTypeDef
@@ -435,7 +437,7 @@ class GetTableResponseTypeDef(BaseValidatorModel):
     comment: CommentTypeDef
     clientSideTimestamps: ClientSideTimestampsTypeDef
     replicaSpecifications: List[ReplicaSpecificationSummaryTypeDef]
-    latestStreamArn: str
+    latestStreamArn: Annotated[str, _aws_pattern("Keyspaces", "StreamArn")]
     cdcSpecification: CdcSpecificationSummaryTypeDef
     warmThroughputSpecification: WarmThroughputSpecificationSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -462,8 +464,8 @@ class ReplicaAutoScalingSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_table' function.
 class CreateTableRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
-    tableName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    tableName: Annotated[str, _aws_pattern("Keyspaces", "TableName")]
     schemaDefinition: SchemaDefinitionUnionTypeDef
     comment: Optional[CommentTypeDef] = None
     capacitySpecification: Optional[CapacitySpecificationTypeDef] = None
@@ -481,10 +483,10 @@ class CreateTableRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'restore_table' function.
 class RestoreTableRequestTypeDef(BaseValidatorModel):
-    sourceKeyspaceName: str
-    sourceTableName: str
-    targetKeyspaceName: str
-    targetTableName: str
+    sourceKeyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    sourceTableName: Annotated[str, _aws_pattern("Keyspaces", "TableName")]
+    targetKeyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    targetTableName: Annotated[str, _aws_pattern("Keyspaces", "TableName")]
     restoreTimestamp: Optional[TimestampTypeDef] = None
     capacitySpecificationOverride: Optional[CapacitySpecificationTypeDef] = None
     encryptionSpecificationOverride: Optional[EncryptionSpecificationTypeDef] = None
@@ -496,8 +498,8 @@ class RestoreTableRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_table' function.
 class UpdateTableRequestTypeDef(BaseValidatorModel):
-    keyspaceName: str
-    tableName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    tableName: Annotated[str, _aws_pattern("Keyspaces", "TableName")]
     addColumns: Optional[List[ColumnDefinitionTypeDef]] = None
     capacitySpecification: Optional[CapacitySpecificationTypeDef] = None
     encryptionSpecification: Optional[EncryptionSpecificationTypeDef] = None
@@ -513,9 +515,9 @@ class UpdateTableRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_table_auto_scaling_settings' function.
 class GetTableAutoScalingSettingsResponseTypeDef(BaseValidatorModel):
-    keyspaceName: str
-    tableName: str
-    resourceArn: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspaces", "KeyspaceName")]
+    tableName: Annotated[str, _aws_pattern("Keyspaces", "TableName")]
+    resourceArn: Annotated[str, _aws_pattern("Keyspaces", "ARN")]
     autoScalingSpecification: AutoScalingSpecificationTypeDef
     replicaSpecifications: List[ReplicaAutoScalingSpecificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

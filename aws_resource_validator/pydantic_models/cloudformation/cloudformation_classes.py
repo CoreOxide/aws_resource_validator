@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cloudformation.cloudformation_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -49,8 +51,8 @@ class AccountLimitTypeDef(BaseValidatorModel):
 
 
 class LoggingConfigTypeDef(BaseValidatorModel):
-    LogRoleArn: str
-    LogGroupName: str
+    LogRoleArn: Annotated[str, _aws_pattern("Cloudformation", "RoleArn")]
+    LogGroupName: Annotated[str, _aws_pattern("Cloudformation", "LogGroupName")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -83,20 +85,20 @@ class AutoDeploymentTypeDef(BaseValidatorModel):
 
 
 class TypeConfigurationIdentifierTypeDef(BaseValidatorModel):
-    TypeArn: Optional[str] = None
-    TypeConfigurationAlias: Optional[str] = None
-    TypeConfigurationArn: Optional[str] = None
+    TypeArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]] = None
+    TypeConfigurationAlias: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeConfigurationAlias")]] = None
+    TypeConfigurationArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeConfigurationArn")]] = None
     Type: Optional[ThirdPartyTypeType] = None
-    TypeName: Optional[str] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
 
 
 class TypeConfigurationDetailsTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Alias: Optional[str] = None
-    Configuration: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeConfigurationArn")]] = None
+    Alias: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeConfigurationAlias")]] = None
+    Configuration: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeConfiguration")]] = None
     LastUpdated: Optional[datetime] = None
-    TypeArn: Optional[str] = None
-    TypeName: Optional[str] = None
+    TypeArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
     IsDefaultConfiguration: Optional[bool] = None
 
 
@@ -107,36 +109,36 @@ class CancelUpdateStackInputStackCancelUpdateTypeDef(BaseValidatorModel):
 # This class is the input for the 'cancel_update_stack' function.
 class CancelUpdateStackInputTypeDef(BaseValidatorModel):
     StackName: str
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
 
 
 class ChangeSetHookResourceTargetDetailsTypeDef(BaseValidatorModel):
     LogicalResourceId: Optional[str] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Cloudformation", "HookTargetTypeName")]] = None
     ResourceAction: Optional[ChangeActionType] = None
 
 
 class ChangeSetSummaryTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     StackName: Optional[str] = None
-    ChangeSetId: Optional[str] = None
-    ChangeSetName: Optional[str] = None
+    ChangeSetId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ChangeSetId")]] = None
+    ChangeSetName: Optional[Annotated[str, _aws_pattern("Cloudformation", "ChangeSetName")]] = None
     ExecutionStatus: Optional[ExecutionStatusType] = None
     Status: Optional[ChangeSetStatusType] = None
     StatusReason: Optional[str] = None
     CreationTime: Optional[datetime] = None
     Description: Optional[str] = None
     IncludeNestedStacks: Optional[bool] = None
-    ParentChangeSetId: Optional[str] = None
-    RootChangeSetId: Optional[str] = None
+    ParentChangeSetId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ChangeSetId")]] = None
+    RootChangeSetId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ChangeSetId")]] = None
     ImportExistingResources: Optional[bool] = None
 
 
 class ContinueUpdateRollbackInputTypeDef(BaseValidatorModel):
-    StackName: str
+    StackName: Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]
     RoleARN: Optional[str] = None
-    ResourcesToSkip: Optional[List[str]] = None
-    ClientRequestToken: Optional[str] = None
+    ResourcesToSkip: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "ResourceToSkip")]]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
 
 
 class ParameterTypeDef(BaseValidatorModel):
@@ -179,14 +181,14 @@ class ManagedExecutionTypeDef(BaseValidatorModel):
 
 
 class DeactivateTypeInputTypeDef(BaseValidatorModel):
-    TypeName: Optional[str] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
     Type: Optional[ThirdPartyTypeType] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Cloudformation", "PrivateTypeArn")]] = None
 
 
 class DeleteChangeSetInputTypeDef(BaseValidatorModel):
-    ChangeSetName: str
-    StackName: Optional[str] = None
+    ChangeSetName: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetNameOrId")]
+    StackName: Optional[Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]] = None
 
 
 # This class is the input for the 'delete_generated_template' function.
@@ -206,7 +208,7 @@ class DeleteStackInputTypeDef(BaseValidatorModel):
     StackName: str
     RetainResources: Optional[List[str]] = None
     RoleARN: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     DeletionMode: Optional[DeletionModeType] = None
 
 
@@ -223,17 +225,17 @@ class DeploymentTargetsOutputTypeDef(BaseValidatorModel):
 
 
 class DeploymentTargetsTypeDef(BaseValidatorModel):
-    Accounts: Optional[List[str]] = None
-    AccountsUrl: Optional[str] = None
-    OrganizationalUnitIds: Optional[List[str]] = None
+    Accounts: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "Account")]]] = None
+    AccountsUrl: Optional[Annotated[str, _aws_pattern("Cloudformation", "AccountsUrl")]] = None
+    OrganizationalUnitIds: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "OrganizationalUnitId")]]] = None
     AccountFilterType: Optional[AccountFilterTypeType] = None
 
 
 class DeregisterTypeInputTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Cloudformation", "PrivateTypeArn")]] = None
     Type: Optional[RegistryTypeType] = None
-    TypeName: Optional[str] = None
-    VersionId: Optional[str] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeVersionId")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -249,16 +251,16 @@ class DescribeAccountLimitsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_change_set_hooks' function.
 class DescribeChangeSetHooksInputTypeDef(BaseValidatorModel):
-    ChangeSetName: str
-    StackName: Optional[str] = None
+    ChangeSetName: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetNameOrId")]
+    StackName: Optional[Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]] = None
     NextToken: Optional[str] = None
     LogicalResourceId: Optional[str] = None
 
 
 # This class is the input for the 'describe_change_set' function.
 class DescribeChangeSetInputTypeDef(BaseValidatorModel):
-    ChangeSetName: str
-    StackName: Optional[str] = None
+    ChangeSetName: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetNameOrId")]
+    StackName: Optional[Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]] = None
     NextToken: Optional[str] = None
     IncludePropertyValues: Optional[bool] = None
 
@@ -288,7 +290,7 @@ class OperationEventTypeDef(BaseValidatorModel):
     ResourceStatus: Optional[ResourceStatusType] = None
     ResourceStatusReason: Optional[str] = None
     ResourceProperties: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     HookType: Optional[str] = None
     HookStatus: Optional[HookStatusType] = None
     HookStatusReason: Optional[str] = None
@@ -321,7 +323,7 @@ class DescribeOrganizationsAccessInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_publisher' function.
 class DescribePublisherInputTypeDef(BaseValidatorModel):
-    PublisherId: Optional[str] = None
+    PublisherId: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublisherId")]] = None
 
 
 # This class is the input for the 'describe_resource_scan' function.
@@ -356,12 +358,12 @@ class StackEventTypeDef(BaseValidatorModel):
     ResourceStatus: Optional[ResourceStatusType] = None
     ResourceStatusReason: Optional[str] = None
     ResourceProperties: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     HookType: Optional[str] = None
     HookStatus: Optional[HookStatusType] = None
     HookStatusReason: Optional[str] = None
     HookInvocationPoint: Optional[Literal["PRE_PROVISION"]] = None
-    HookInvocationId: Optional[str] = None
+    HookInvocationId: Optional[Annotated[str, _aws_pattern("Cloudformation", "HookInvocationId")]] = None
     HookFailureMode: Optional[HookFailureModeType] = None
     DetailedStatus: Optional[DetailedStatusType] = None
 
@@ -369,8 +371,8 @@ class StackEventTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_stack_instance' function.
 class DescribeStackInstanceInputTypeDef(BaseValidatorModel):
     StackSetName: str
-    StackInstanceAccount: str
-    StackInstanceRegion: str
+    StackInstanceAccount: Annotated[str, _aws_pattern("Cloudformation", "Account")]
+    StackInstanceRegion: Annotated[str, _aws_pattern("Cloudformation", "Region")]
     CallAs: Optional[CallAsType] = None
 
 
@@ -381,7 +383,7 @@ class DescribeStackRefactorInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_stack_resource_drifts' function.
 class DescribeStackResourceDriftsInputTypeDef(BaseValidatorModel):
-    StackName: str
+    StackName: Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]
     StackResourceDriftStatusFilters: Optional[List[StackResourceDriftStatusType]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -409,7 +411,7 @@ class DescribeStackSetInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_stack_set_operation' function.
 class DescribeStackSetOperationInputTypeDef(BaseValidatorModel):
     StackSetName: str
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]
     CallAs: Optional[CallAsType] = None
 
 
@@ -422,41 +424,41 @@ class DescribeStacksInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_type' function.
 class DescribeTypeInputTypeDef(BaseValidatorModel):
     Type: Optional[RegistryTypeType] = None
-    TypeName: Optional[str] = None
-    Arn: Optional[str] = None
-    VersionId: Optional[str] = None
-    PublisherId: Optional[str] = None
-    PublicVersionNumber: Optional[str] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeVersionId")]] = None
+    PublisherId: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublisherId")]] = None
+    PublicVersionNumber: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublicVersionNumber")]] = None
 
 
 class RequiredActivatedTypeTypeDef(BaseValidatorModel):
-    TypeNameAlias: Optional[str] = None
-    OriginalTypeName: Optional[str] = None
-    PublisherId: Optional[str] = None
+    TypeNameAlias: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    OriginalTypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    PublisherId: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublisherId")]] = None
     SupportedMajorVersions: Optional[List[int]] = None
 
 
 # This class is the input for the 'describe_type_registration' function.
 class DescribeTypeRegistrationInputTypeDef(BaseValidatorModel):
-    RegistrationToken: str
+    RegistrationToken: Annotated[str, _aws_pattern("Cloudformation", "RegistrationToken")]
 
 
 # This class is the input for the 'detect_stack_drift' function.
 class DetectStackDriftInputTypeDef(BaseValidatorModel):
-    StackName: str
+    StackName: Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]
     LogicalResourceIds: Optional[List[str]] = None
 
 
 # This class is the input for the 'detect_stack_resource_drift' function.
 class DetectStackResourceDriftInputTypeDef(BaseValidatorModel):
-    StackName: str
+    StackName: Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]
     LogicalResourceId: str
 
 
 class ExecuteChangeSetInputTypeDef(BaseValidatorModel):
-    ChangeSetName: str
-    StackName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ChangeSetName: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetNameOrId")]
+    StackName: Optional[Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     DisableRollback: Optional[bool] = None
     RetainExceptOnCreate: Optional[bool] = None
 
@@ -480,13 +482,13 @@ class GetGeneratedTemplateInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_hook_result' function.
 class GetHookResultInputTypeDef(BaseValidatorModel):
-    HookResultId: Optional[str] = None
+    HookResultId: Optional[Annotated[str, _aws_pattern("Cloudformation", "HookInvocationId")]] = None
 
 
 class HookTargetTypeDef(BaseValidatorModel):
     TargetType: Literal["RESOURCE"]
-    TargetTypeName: str
-    TargetId: str
+    TargetTypeName: Annotated[str, _aws_pattern("Cloudformation", "HookTargetTypeName")]
+    TargetId: Annotated[str, _aws_pattern("Cloudformation", "HookTargetId")]
     Action: HookTargetActionType
 
 
@@ -498,7 +500,7 @@ class GetStackPolicyInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_template' function.
 class GetTemplateInputTypeDef(BaseValidatorModel):
     StackName: Optional[str] = None
-    ChangeSetName: Optional[str] = None
+    ChangeSetName: Optional[Annotated[str, _aws_pattern("Cloudformation", "ChangeSetNameOrId")]] = None
     TemplateStage: Optional[TemplateStageType] = None
 
 
@@ -517,24 +519,26 @@ class WarningsTypeDef(BaseValidatorModel):
 
 
 class HookResultSummaryTypeDef(BaseValidatorModel):
-    HookResultId: Optional[str] = None
+    HookResultId: Optional[Annotated[str, _aws_pattern("Cloudformation", "HookInvocationId")]] = None
     InvocationPoint: Optional[Literal["PRE_PROVISION"]] = None
     FailureMode: Optional[HookFailureModeType] = None
     TypeName: Optional[str] = None
-    TypeVersionId: Optional[str] = None
-    TypeConfigurationVersionId: Optional[str] = None
+    TypeVersionId: Optional[Annotated[str, _aws_pattern("Cloudformation", "HookTypeVersionId")]] = None
+    TypeConfigurationVersionId: Optional[
+        Annotated[str, _aws_pattern("Cloudformation", "HookTypeConfigurationVersionId")]
+    ] = None
     Status: Optional[HookStatusType] = None
     HookStatusReason: Optional[str] = None
     InvokedAt: Optional[datetime] = None
     TargetType: Optional[ListHookResultsTargetTypeType] = None
-    TargetId: Optional[str] = None
-    TypeArn: Optional[str] = None
-    HookExecutionTarget: Optional[str] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("Cloudformation", "HookResultId")]] = None
+    TypeArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "HookTypeArn")]] = None
+    HookExecutionTarget: Optional[Annotated[str, _aws_pattern("Cloudformation", "HookResultId")]] = None
 
 
 # This class is the input for the 'list_change_sets' function.
 class ListChangeSetsInputTypeDef(BaseValidatorModel):
-    StackName: str
+    StackName: Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]
     NextToken: Optional[str] = None
 
 
@@ -562,8 +566,8 @@ class TemplateSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_hook_results' function.
 class ListHookResultsInputTypeDef(BaseValidatorModel):
     TargetType: Optional[ListHookResultsTargetTypeType] = None
-    TargetId: Optional[str] = None
-    TypeArn: Optional[str] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("Cloudformation", "HookResultId")]] = None
+    TypeArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "HookTypeArn")]] = None
     Status: Optional[HookStatusType] = None
     NextToken: Optional[str] = None
 
@@ -615,10 +619,10 @@ class ResourceScanSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_stack_instance_resource_drifts' function.
 class ListStackInstanceResourceDriftsInputTypeDef(BaseValidatorModel):
-    StackSetName: str
-    StackInstanceAccount: str
-    StackInstanceRegion: str
-    OperationId: str
+    StackSetName: Annotated[str, _aws_pattern("Cloudformation", "StackSetNameOrId")]
+    StackInstanceAccount: Annotated[str, _aws_pattern("Cloudformation", "Account")]
+    StackInstanceRegion: Annotated[str, _aws_pattern("Cloudformation", "Region")]
+    OperationId: Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     StackInstanceResourceDriftStatuses: Optional[List[StackResourceDriftStatusType]] = None
@@ -627,7 +631,7 @@ class ListStackInstanceResourceDriftsInputTypeDef(BaseValidatorModel):
 
 class StackInstanceFilterTypeDef(BaseValidatorModel):
     Name: Optional[StackInstanceFilterNameType] = None
-    Values: Optional[str] = None
+    Values: Optional[Annotated[str, _aws_pattern("Cloudformation", "StackInstanceFilterValues")]] = None
 
 
 # This class is the input for the 'list_stack_refactor_actions' function.
@@ -661,20 +665,20 @@ class ListStackResourcesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_stack_set_auto_deployment_targets' function.
 class ListStackSetAutoDeploymentTargetsInputTypeDef(BaseValidatorModel):
-    StackSetName: str
+    StackSetName: Annotated[str, _aws_pattern("Cloudformation", "StackSetNameOrId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     CallAs: Optional[CallAsType] = None
 
 
 class StackSetAutoDeploymentTargetSummaryTypeDef(BaseValidatorModel):
-    OrganizationalUnitId: Optional[str] = None
-    Regions: Optional[List[str]] = None
+    OrganizationalUnitId: Optional[Annotated[str, _aws_pattern("Cloudformation", "OrganizationalUnitId")]] = None
+    Regions: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "Region")]]] = None
 
 
 class OperationResultFilterTypeDef(BaseValidatorModel):
     Name: Optional[Literal["OPERATION_RESULT_STATUS"]] = None
-    Values: Optional[str] = None
+    Values: Optional[Annotated[str, _aws_pattern("Cloudformation", "OperationResultFilterValues")]] = None
 
 
 # This class is the input for the 'list_stack_set_operations' function.
@@ -702,8 +706,8 @@ class ListStacksInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_type_registrations' function.
 class ListTypeRegistrationsInputTypeDef(BaseValidatorModel):
     Type: Optional[RegistryTypeType] = None
-    TypeName: Optional[str] = None
-    TypeArn: Optional[str] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    TypeArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]] = None
     RegistrationStatusFilter: Optional[RegistrationStatusType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -712,44 +716,44 @@ class ListTypeRegistrationsInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_type_versions' function.
 class ListTypeVersionsInputTypeDef(BaseValidatorModel):
     Type: Optional[RegistryTypeType] = None
-    TypeName: Optional[str] = None
-    Arn: Optional[str] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DeprecatedStatus: Optional[DeprecatedStatusType] = None
-    PublisherId: Optional[str] = None
+    PublisherId: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublisherId")]] = None
 
 
 class TypeVersionSummaryTypeDef(BaseValidatorModel):
     Type: Optional[RegistryTypeType] = None
-    TypeName: Optional[str] = None
-    VersionId: Optional[str] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeVersionId")]] = None
     IsDefaultVersion: Optional[bool] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]] = None
     TimeCreated: Optional[datetime] = None
     Description: Optional[str] = None
-    PublicVersionNumber: Optional[str] = None
+    PublicVersionNumber: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublicVersionNumber")]] = None
 
 
 class TypeFiltersTypeDef(BaseValidatorModel):
     Category: Optional[CategoryType] = None
-    PublisherId: Optional[str] = None
-    TypeNamePrefix: Optional[str] = None
+    PublisherId: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublisherId")]] = None
+    TypeNamePrefix: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeNamePrefix")]] = None
 
 
 class TypeSummaryTypeDef(BaseValidatorModel):
     Type: Optional[RegistryTypeType] = None
-    TypeName: Optional[str] = None
-    DefaultVersionId: Optional[str] = None
-    TypeArn: Optional[str] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    DefaultVersionId: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeVersionId")]] = None
+    TypeArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]] = None
     LastUpdated: Optional[datetime] = None
     Description: Optional[str] = None
-    PublisherId: Optional[str] = None
-    OriginalTypeName: Optional[str] = None
-    PublicVersionNumber: Optional[str] = None
-    LatestPublicVersion: Optional[str] = None
+    PublisherId: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublisherId")]] = None
+    OriginalTypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    PublicVersionNumber: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublicVersionNumber")]] = None
+    LatestPublicVersion: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublicVersionNumber")]] = None
     PublisherIdentity: Optional[IdentityProviderType] = None
-    PublisherName: Optional[str] = None
+    PublisherName: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublisherName")]] = None
     IsActivated: Optional[bool] = None
 
 
@@ -795,9 +799,9 @@ class PropertyDifferenceTypeDef(BaseValidatorModel):
 # This class is the input for the 'publish_type' function.
 class PublishTypeInputTypeDef(BaseValidatorModel):
     Type: Optional[ThirdPartyTypeType] = None
-    Arn: Optional[str] = None
-    TypeName: Optional[str] = None
-    PublicVersionNumber: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Cloudformation", "PrivateTypeArn")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    PublicVersionNumber: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublicVersionNumber")]] = None
 
 
 class RecordHandlerProgressInputTypeDef(BaseValidatorModel):
@@ -807,13 +811,13 @@ class RecordHandlerProgressInputTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
     ErrorCode: Optional[HandlerErrorCodeType] = None
     ResourceModel: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
 
 
 # This class is the input for the 'register_publisher' function.
 class RegisterPublisherInputTypeDef(BaseValidatorModel):
     AcceptTermsAndConditions: Optional[bool] = None
-    ConnectionArn: Optional[str] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "ConnectionArn")]] = None
 
 
 class ResourceDriftIgnoredAttributeTypeDef(BaseValidatorModel):
@@ -833,9 +837,9 @@ class RollbackTriggerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'rollback_stack' function.
 class RollbackStackInputTypeDef(BaseValidatorModel):
-    StackName: str
+    StackName: Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]
     RoleARN: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     RetainExceptOnCreate: Optional[bool] = None
 
 
@@ -852,23 +856,23 @@ class SetStackPolicyInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'set_type_configuration' function.
 class SetTypeConfigurationInputTypeDef(BaseValidatorModel):
-    Configuration: str
-    TypeArn: Optional[str] = None
-    ConfigurationAlias: Optional[str] = None
-    TypeName: Optional[str] = None
+    Configuration: Annotated[str, _aws_pattern("Cloudformation", "TypeConfiguration")]
+    TypeArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]] = None
+    ConfigurationAlias: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeConfigurationAlias")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
     Type: Optional[ThirdPartyTypeType] = None
 
 
 class SetTypeDefaultVersionInputTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Cloudformation", "PrivateTypeArn")]] = None
     Type: Optional[RegistryTypeType] = None
-    TypeName: Optional[str] = None
-    VersionId: Optional[str] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeVersionId")]] = None
 
 
 # This class is the input for the 'signal_resource' function.
 class SignalResourceInputTypeDef(BaseValidatorModel):
-    StackName: str
+    StackName: Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]
     LogicalResourceId: str
     UniqueId: str
     Status: ResourceSignalStatusType
@@ -921,7 +925,7 @@ class StackSetOperationPreferencesOutputTypeDef(BaseValidatorModel):
 
 class StackSetOperationPreferencesTypeDef(BaseValidatorModel):
     RegionConcurrencyType: Optional[RegionConcurrencyTypeType] = None
-    RegionOrder: Optional[List[str]] = None
+    RegionOrder: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "Region")]]] = None
     FailureToleranceCount: Optional[int] = None
     FailureTolerancePercentage: Optional[int] = None
     MaxConcurrentCount: Optional[int] = None
@@ -935,7 +939,7 @@ class StackSetOperationStatusDetailsTypeDef(BaseValidatorModel):
 
 class StopStackSetOperationInputTypeDef(BaseValidatorModel):
     StackSetName: str
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]
     CallAs: Optional[CallAsType] = None
 
 
@@ -948,17 +952,17 @@ class TemplateParameterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'test_type' function.
 class TestTypeInputTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]] = None
     Type: Optional[ThirdPartyTypeType] = None
-    TypeName: Optional[str] = None
-    VersionId: Optional[str] = None
-    LogDeliveryBucket: Optional[str] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeVersionId")]] = None
+    LogDeliveryBucket: Optional[Annotated[str, _aws_pattern("Cloudformation", "S3Bucket")]] = None
 
 
 # This class is the input for the 'update_termination_protection' function.
 class UpdateTerminationProtectionInputTypeDef(BaseValidatorModel):
     EnableTerminationProtection: bool
-    StackName: str
+    StackName: Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]
 
 
 # This class is the input for the 'validate_template' function.
@@ -974,47 +978,47 @@ class WarningPropertyTypeDef(BaseValidatorModel):
 
 
 class StackSetOperationResultSummaryTypeDef(BaseValidatorModel):
-    Account: Optional[str] = None
-    Region: Optional[str] = None
+    Account: Optional[Annotated[str, _aws_pattern("Cloudformation", "Account")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Cloudformation", "Region")]] = None
     Status: Optional[StackSetOperationResultStatusType] = None
     StatusReason: Optional[str] = None
     AccountGateResult: Optional[AccountGateResultTypeDef] = None
-    OrganizationalUnitId: Optional[str] = None
+    OrganizationalUnitId: Optional[Annotated[str, _aws_pattern("Cloudformation", "OrganizationalUnitId")]] = None
 
 
 # This class is the input for the 'activate_type' function.
 class ActivateTypeInputTypeDef(BaseValidatorModel):
     Type: Optional[ThirdPartyTypeType] = None
-    PublicTypeArn: Optional[str] = None
-    PublisherId: Optional[str] = None
-    TypeName: Optional[str] = None
-    TypeNameAlias: Optional[str] = None
+    PublicTypeArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "ThirdPartyTypeArn")]] = None
+    PublisherId: Optional[Annotated[str, _aws_pattern("Cloudformation", "PublisherId")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
+    TypeNameAlias: Optional[Annotated[str, _aws_pattern("Cloudformation", "TypeName")]] = None
     AutoUpdate: Optional[bool] = None
     LoggingConfig: Optional[LoggingConfigTypeDef] = None
-    ExecutionRoleArn: Optional[str] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "RoleArn")]] = None
     VersionBump: Optional[VersionBumpType] = None
     MajorVersion: Optional[int] = None
 
 
 # This class is the input for the 'register_type' function.
 class RegisterTypeInputTypeDef(BaseValidatorModel):
-    TypeName: str
+    TypeName: Annotated[str, _aws_pattern("Cloudformation", "TypeName")]
     SchemaHandlerPackage: str
     Type: Optional[RegistryTypeType] = None
     LoggingConfig: Optional[LoggingConfigTypeDef] = None
-    ExecutionRoleArn: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Cloudformation", "RoleArn")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "RequestToken")]] = None
 
 
 # This class is the output for the 'activate_type' function.
 class ActivateTypeOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Cloudformation", "PrivateTypeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_change_set' function.
 class CreateChangeSetOutputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetId")]
     StackId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1027,7 +1031,7 @@ class CreateGeneratedTemplateOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_stack_instances' function.
 class CreateStackInstancesOutputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1052,7 +1056,7 @@ class CreateStackSetOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_stack_instances' function.
 class DeleteStackInstancesOutputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1071,10 +1075,10 @@ class DescribeOrganizationsAccessOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_publisher' function.
 class DescribePublisherOutputTypeDef(BaseValidatorModel):
-    PublisherId: str
+    PublisherId: Annotated[str, _aws_pattern("Cloudformation", "PublisherId")]
     PublisherStatus: PublisherStatusType
     IdentityProvider: IdentityProviderType
-    PublisherProfile: str
+    PublisherProfile: Annotated[str, _aws_pattern("Cloudformation", "PublisherProfile")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1106,8 +1110,8 @@ class DescribeStackRefactorOutputTypeDef(BaseValidatorModel):
 class DescribeTypeRegistrationOutputTypeDef(BaseValidatorModel):
     ProgressStatus: RegistrationStatusType
     Description: str
-    TypeArn: str
-    TypeVersionArn: str
+    TypeArn: Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]
+    TypeVersionArn: Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1119,7 +1123,7 @@ class DetectStackDriftOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'detect_stack_set_drift' function.
 class DetectStackSetDriftOutputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1156,7 +1160,7 @@ class GetTemplateOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'import_stacks_to_stack_set' function.
 class ImportStacksToStackSetOutputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1169,26 +1173,26 @@ class ListImportsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_type_registrations' function.
 class ListTypeRegistrationsOutputTypeDef(BaseValidatorModel):
-    RegistrationTokenList: List[str]
+    RegistrationTokenList: List[Annotated[str, _aws_pattern("Cloudformation", "RegistrationToken")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'publish_type' function.
 class PublishTypeOutputTypeDef(BaseValidatorModel):
-    PublicTypeArn: str
+    PublicTypeArn: Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_publisher' function.
 class RegisterPublisherOutputTypeDef(BaseValidatorModel):
-    PublisherId: str
+    PublisherId: Annotated[str, _aws_pattern("Cloudformation", "PublisherId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_type' function.
 class RegisterTypeOutputTypeDef(BaseValidatorModel):
-    RegistrationToken: str
+    RegistrationToken: Annotated[str, _aws_pattern("Cloudformation", "RegistrationToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1201,7 +1205,7 @@ class RollbackStackOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'set_type_configuration' function.
 class SetTypeConfigurationOutputTypeDef(BaseValidatorModel):
-    ConfigurationArn: str
+    ConfigurationArn: Annotated[str, _aws_pattern("Cloudformation", "TypeConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1213,7 +1217,7 @@ class StartResourceScanOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'test_type' function.
 class TestTypeOutputTypeDef(BaseValidatorModel):
-    TypeVersionArn: str
+    TypeVersionArn: Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1225,7 +1229,7 @@ class UpdateGeneratedTemplateOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_stack_instances' function.
 class UpdateStackInstancesOutputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1238,7 +1242,7 @@ class UpdateStackOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_stack_set' function.
 class UpdateStackSetOutputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1468,8 +1472,8 @@ class DescribeEventsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_events' function.
 class DescribeEventsInputTypeDef(BaseValidatorModel):
-    StackName: Optional[str] = None
-    ChangeSetName: Optional[str] = None
+    StackName: Optional[Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]] = None
+    ChangeSetName: Optional[Annotated[str, _aws_pattern("Cloudformation", "ChangeSetNameOrId")]] = None
     OperationId: Optional[str] = None
     Filters: Optional[EventFilterTypeDef] = None
     NextToken: Optional[str] = None
@@ -1506,31 +1510,31 @@ class DescribeStackEventsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_type' function.
 class DescribeTypeOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]
     Type: RegistryTypeType
-    TypeName: str
-    DefaultVersionId: str
+    TypeName: Annotated[str, _aws_pattern("Cloudformation", "TypeName")]
+    DefaultVersionId: Annotated[str, _aws_pattern("Cloudformation", "TypeVersionId")]
     IsDefaultVersion: bool
     TypeTestsStatus: TypeTestsStatusType
-    TypeTestsStatusDescription: str
+    TypeTestsStatusDescription: Annotated[str, _aws_pattern("Cloudformation", "TypeTestsStatusDescription")]
     Description: str
     Schema: str
     ProvisioningType: ProvisioningTypeType
     DeprecatedStatus: DeprecatedStatusType
     LoggingConfig: LoggingConfigTypeDef
     RequiredActivatedTypes: List[RequiredActivatedTypeTypeDef]
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("Cloudformation", "RoleArn")]
     Visibility: VisibilityType
     SourceUrl: str
     DocumentationUrl: str
     LastUpdated: datetime
     TimeCreated: datetime
-    ConfigurationSchema: str
-    PublisherId: str
-    OriginalTypeName: str
-    OriginalTypeArn: str
-    PublicVersionNumber: str
-    LatestPublicVersion: str
+    ConfigurationSchema: Annotated[str, _aws_pattern("Cloudformation", "ConfigurationSchema")]
+    PublisherId: Annotated[str, _aws_pattern("Cloudformation", "PublisherId")]
+    OriginalTypeName: Annotated[str, _aws_pattern("Cloudformation", "TypeName")]
+    OriginalTypeArn: Annotated[str, _aws_pattern("Cloudformation", "TypeArn")]
+    PublicVersionNumber: Annotated[str, _aws_pattern("Cloudformation", "PublicVersionNumber")]
+    LatestPublicVersion: Annotated[str, _aws_pattern("Cloudformation", "PublicVersionNumber")]
     IsActivated: bool
     AutoUpdate: bool
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1545,14 +1549,14 @@ class ListExportsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_hook_result' function.
 class GetHookResultOutputTypeDef(BaseValidatorModel):
-    HookResultId: str
+    HookResultId: Annotated[str, _aws_pattern("Cloudformation", "HookInvocationId")]
     InvocationPoint: Literal["PRE_PROVISION"]
     FailureMode: HookFailureModeType
     TypeName: str
     OriginalTypeName: str
-    TypeVersionId: str
-    TypeConfigurationVersionId: str
-    TypeArn: str
+    TypeVersionId: Annotated[str, _aws_pattern("Cloudformation", "HookTypeVersionId")]
+    TypeConfigurationVersionId: Annotated[str, _aws_pattern("Cloudformation", "HookTypeConfigurationVersionId")]
+    TypeArn: Annotated[str, _aws_pattern("Cloudformation", "HookTypeArn")]
     Status: HookStatusType
     HookStatusReason: str
     InvokedAt: datetime
@@ -1565,8 +1569,8 @@ class GetHookResultOutputTypeDef(BaseValidatorModel):
 class GetTemplateSummaryInputTypeDef(BaseValidatorModel):
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
-    StackName: Optional[str] = None
-    StackSetName: Optional[str] = None
+    StackName: Optional[Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]] = None
+    StackSetName: Optional[Annotated[str, _aws_pattern("Cloudformation", "StackSetNameOrId")]] = None
     CallAs: Optional[CallAsType] = None
     TemplateSummaryConfig: Optional[TemplateSummaryConfigTypeDef] = None
 
@@ -1574,7 +1578,7 @@ class GetTemplateSummaryInputTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_hook_results' function.
 class ListHookResultsOutputTypeDef(BaseValidatorModel):
     TargetType: ListHookResultsTargetTypeType
-    TargetId: str
+    TargetId: Annotated[str, _aws_pattern("Cloudformation", "HookResultId")]
     HookResults: List[HookResultSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1637,8 +1641,8 @@ class ListStackInstancesInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[StackInstanceFilterTypeDef]] = None
-    StackInstanceAccount: Optional[str] = None
-    StackInstanceRegion: Optional[str] = None
+    StackInstanceAccount: Optional[Annotated[str, _aws_pattern("Cloudformation", "Account")]] = None
+    StackInstanceRegion: Optional[Annotated[str, _aws_pattern("Cloudformation", "Region")]] = None
     CallAs: Optional[CallAsType] = None
 
 
@@ -1667,7 +1671,7 @@ class ListStackSetOperationResultsInputPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_stack_set_operation_results' function.
 class ListStackSetOperationResultsInputTypeDef(BaseValidatorModel):
     StackSetName: str
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     CallAs: Optional[CallAsType] = None
@@ -1791,31 +1795,31 @@ class StackSummaryTypeDef(BaseValidatorModel):
 
 class StackInstanceSummaryTypeDef(BaseValidatorModel):
     StackSetId: Optional[str] = None
-    Region: Optional[str] = None
-    Account: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Cloudformation", "Region")]] = None
+    Account: Optional[Annotated[str, _aws_pattern("Cloudformation", "Account")]] = None
     StackId: Optional[str] = None
     Status: Optional[StackInstanceStatusType] = None
     StatusReason: Optional[str] = None
     StackInstanceStatus: Optional[StackInstanceComprehensiveStatusTypeDef] = None
-    OrganizationalUnitId: Optional[str] = None
+    OrganizationalUnitId: Optional[Annotated[str, _aws_pattern("Cloudformation", "OrganizationalUnitId")]] = None
     DriftStatus: Optional[StackDriftStatusType] = None
     LastDriftCheckTimestamp: Optional[datetime] = None
-    LastOperationId: Optional[str] = None
+    LastOperationId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
 
 
 class StackInstanceTypeDef(BaseValidatorModel):
     StackSetId: Optional[str] = None
-    Region: Optional[str] = None
-    Account: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Cloudformation", "Region")]] = None
+    Account: Optional[Annotated[str, _aws_pattern("Cloudformation", "Account")]] = None
     StackId: Optional[str] = None
     ParameterOverrides: Optional[List[ParameterTypeDef]] = None
     Status: Optional[StackInstanceStatusType] = None
     StackInstanceStatus: Optional[StackInstanceComprehensiveStatusTypeDef] = None
     StatusReason: Optional[str] = None
-    OrganizationalUnitId: Optional[str] = None
+    OrganizationalUnitId: Optional[Annotated[str, _aws_pattern("Cloudformation", "OrganizationalUnitId")]] = None
     DriftStatus: Optional[StackDriftStatusType] = None
     LastDriftCheckTimestamp: Optional[datetime] = None
-    LastOperationId: Optional[str] = None
+    LastOperationId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
 
 
 class StackResourceDetailTypeDef(BaseValidatorModel):
@@ -1869,13 +1873,13 @@ class StackSetTypeDef(BaseValidatorModel):
     Tags: Optional[List[TagTypeDef]] = None
     StackSetARN: Optional[str] = None
     AdministrationRoleARN: Optional[str] = None
-    ExecutionRoleName: Optional[str] = None
+    ExecutionRoleName: Optional[Annotated[str, _aws_pattern("Cloudformation", "ExecutionRoleName")]] = None
     StackSetDriftDetectionDetails: Optional[StackSetDriftDetectionDetailsTypeDef] = None
     AutoDeployment: Optional[AutoDeploymentOutputTypeDef] = None
     PermissionModel: Optional[PermissionModelsType] = None
-    OrganizationalUnitIds: Optional[List[str]] = None
+    OrganizationalUnitIds: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "OrganizationalUnitId")]]] = None
     ManagedExecution: Optional[ManagedExecutionTypeDef] = None
-    Regions: Optional[List[str]] = None
+    Regions: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "Region")]]] = None
 
 
 StackSetOperationPreferencesUnionTypeDef = Union[
@@ -1884,7 +1888,7 @@ StackSetOperationPreferencesUnionTypeDef = Union[
 
 
 class StackSetOperationSummaryTypeDef(BaseValidatorModel):
-    OperationId: Optional[str] = None
+    OperationId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     Action: Optional[StackSetOperationActionType] = None
     Status: Optional[StackSetOperationStatusType] = None
     CreationTimestamp: Optional[datetime] = None
@@ -1895,14 +1899,14 @@ class StackSetOperationSummaryTypeDef(BaseValidatorModel):
 
 
 class StackSetOperationTypeDef(BaseValidatorModel):
-    OperationId: Optional[str] = None
+    OperationId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     StackSetId: Optional[str] = None
     Action: Optional[StackSetOperationActionType] = None
     Status: Optional[StackSetOperationStatusType] = None
     OperationPreferences: Optional[StackSetOperationPreferencesOutputTypeDef] = None
     RetainStacks: Optional[bool] = None
     AdministrationRoleARN: Optional[str] = None
-    ExecutionRoleName: Optional[str] = None
+    ExecutionRoleName: Optional[Annotated[str, _aws_pattern("Cloudformation", "ExecutionRoleName")]] = None
     CreationTimestamp: Optional[datetime] = None
     EndTimestamp: Optional[datetime] = None
     DeploymentTargets: Optional[DeploymentTargetsOutputTypeDef] = None
@@ -1944,11 +1948,11 @@ class CreateStackSetInputTypeDef(BaseValidatorModel):
     Capabilities: Optional[List[CapabilityType]] = None
     Tags: Optional[List[TagTypeDef]] = None
     AdministrationRoleARN: Optional[str] = None
-    ExecutionRoleName: Optional[str] = None
+    ExecutionRoleName: Optional[Annotated[str, _aws_pattern("Cloudformation", "ExecutionRoleName")]] = None
     PermissionModel: Optional[PermissionModelsType] = None
     AutoDeployment: Optional[AutoDeploymentUnionTypeDef] = None
     CallAs: Optional[CallAsType] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     ManagedExecution: Optional[ManagedExecutionTypeDef] = None
 
 
@@ -1964,8 +1968,10 @@ class ChangeSetHookTypeDef(BaseValidatorModel):
     InvocationPoint: Optional[Literal["PRE_PROVISION"]] = None
     FailureMode: Optional[HookFailureModeType] = None
     TypeName: Optional[str] = None
-    TypeVersionId: Optional[str] = None
-    TypeConfigurationVersionId: Optional[str] = None
+    TypeVersionId: Optional[Annotated[str, _aws_pattern("Cloudformation", "HookTypeVersionId")]] = None
+    TypeConfigurationVersionId: Optional[
+        Annotated[str, _aws_pattern("Cloudformation", "HookTypeConfigurationVersionId")]
+    ] = None
     TargetDetails: Optional[ChangeSetHookTargetDetailsTypeDef] = None
 
 
@@ -2044,7 +2050,7 @@ class StackTypeDef(BaseValidatorModel):
     CreationTime: datetime
     StackStatus: StackStatusType
     StackId: Optional[str] = None
-    ChangeSetId: Optional[str] = None
+    ChangeSetId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ChangeSetId")]] = None
     Description: Optional[str] = None
     Parameters: Optional[List[ParameterTypeDef]] = None
     DeletionTime: Optional[datetime] = None
@@ -2073,7 +2079,7 @@ RollbackConfigurationUnionTypeDef = Union[RollbackConfigurationOutputTypeDef, Ro
 
 # This class is the input for the 'start_resource_scan' function.
 class StartResourceScanInputTypeDef(BaseValidatorModel):
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     ScanFilters: Optional[List[ScanFilterUnionTypeDef]] = None
 
 
@@ -2125,55 +2131,55 @@ class DescribeStackSetOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_stack_instances' function.
 class CreateStackInstancesInputTypeDef(BaseValidatorModel):
     StackSetName: str
-    Regions: List[str]
-    Accounts: Optional[List[str]] = None
+    Regions: List[Annotated[str, _aws_pattern("Cloudformation", "Region")]]
+    Accounts: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "Account")]]] = None
     DeploymentTargets: Optional[DeploymentTargetsUnionTypeDef] = None
     ParameterOverrides: Optional[List[ParameterTypeDef]] = None
     OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
-    OperationId: Optional[str] = None
+    OperationId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     CallAs: Optional[CallAsType] = None
 
 
 # This class is the input for the 'delete_stack_instances' function.
 class DeleteStackInstancesInputTypeDef(BaseValidatorModel):
     StackSetName: str
-    Regions: List[str]
+    Regions: List[Annotated[str, _aws_pattern("Cloudformation", "Region")]]
     RetainStacks: bool
-    Accounts: Optional[List[str]] = None
+    Accounts: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "Account")]]] = None
     DeploymentTargets: Optional[DeploymentTargetsUnionTypeDef] = None
     OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
-    OperationId: Optional[str] = None
+    OperationId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     CallAs: Optional[CallAsType] = None
 
 
 # This class is the input for the 'detect_stack_set_drift' function.
 class DetectStackSetDriftInputTypeDef(BaseValidatorModel):
-    StackSetName: str
+    StackSetName: Annotated[str, _aws_pattern("Cloudformation", "StackSetNameOrId")]
     OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
-    OperationId: Optional[str] = None
+    OperationId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     CallAs: Optional[CallAsType] = None
 
 
 # This class is the input for the 'import_stacks_to_stack_set' function.
 class ImportStacksToStackSetInputTypeDef(BaseValidatorModel):
-    StackSetName: str
+    StackSetName: Annotated[str, _aws_pattern("Cloudformation", "StackSetNameOrId")]
     StackIds: Optional[List[str]] = None
-    StackIdsUrl: Optional[str] = None
-    OrganizationalUnitIds: Optional[List[str]] = None
+    StackIdsUrl: Optional[Annotated[str, _aws_pattern("Cloudformation", "StackIdsUrl")]] = None
+    OrganizationalUnitIds: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "OrganizationalUnitId")]]] = None
     OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
-    OperationId: Optional[str] = None
+    OperationId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     CallAs: Optional[CallAsType] = None
 
 
 # This class is the input for the 'update_stack_instances' function.
 class UpdateStackInstancesInputTypeDef(BaseValidatorModel):
-    StackSetName: str
-    Regions: List[str]
-    Accounts: Optional[List[str]] = None
+    StackSetName: Annotated[str, _aws_pattern("Cloudformation", "StackSetNameOrId")]
+    Regions: List[Annotated[str, _aws_pattern("Cloudformation", "Region")]]
+    Accounts: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "Account")]]] = None
     DeploymentTargets: Optional[DeploymentTargetsUnionTypeDef] = None
     ParameterOverrides: Optional[List[ParameterTypeDef]] = None
     OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
-    OperationId: Optional[str] = None
+    OperationId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     CallAs: Optional[CallAsType] = None
 
 
@@ -2189,13 +2195,13 @@ class UpdateStackSetInputTypeDef(BaseValidatorModel):
     Tags: Optional[List[TagTypeDef]] = None
     OperationPreferences: Optional[StackSetOperationPreferencesUnionTypeDef] = None
     AdministrationRoleARN: Optional[str] = None
-    ExecutionRoleName: Optional[str] = None
+    ExecutionRoleName: Optional[Annotated[str, _aws_pattern("Cloudformation", "ExecutionRoleName")]] = None
     DeploymentTargets: Optional[DeploymentTargetsUnionTypeDef] = None
     PermissionModel: Optional[PermissionModelsType] = None
     AutoDeployment: Optional[AutoDeploymentUnionTypeDef] = None
-    OperationId: Optional[str] = None
-    Accounts: Optional[List[str]] = None
-    Regions: Optional[List[str]] = None
+    OperationId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
+    Accounts: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "Account")]]] = None
+    Regions: Optional[List[Annotated[str, _aws_pattern("Cloudformation", "Region")]]] = None
     CallAs: Optional[CallAsType] = None
     ManagedExecution: Optional[ManagedExecutionTypeDef] = None
 
@@ -2224,8 +2230,8 @@ class ResourceDetailTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_change_set_hooks' function.
 class DescribeChangeSetHooksOutputTypeDef(BaseValidatorModel):
-    ChangeSetId: str
-    ChangeSetName: str
+    ChangeSetId: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetId")]
+    ChangeSetName: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetName")]
     Hooks: List[ChangeSetHookTypeDef]
     Status: ChangeSetHooksStatusType
     StackId: str
@@ -2245,7 +2251,7 @@ class ResourceChangeTypeDef(BaseValidatorModel):
     ResourceDriftStatus: Optional[StackResourceDriftStatusType] = None
     ResourceDriftIgnoredAttributes: Optional[List[ResourceDriftIgnoredAttributeTypeDef]] = None
     Details: Optional[List[ResourceChangeDetailTypeDef]] = None
-    ChangeSetId: Optional[str] = None
+    ChangeSetId: Optional[Annotated[str, _aws_pattern("Cloudformation", "ChangeSetId")]] = None
     ModuleInfo: Optional[ModuleInfoTypeDef] = None
     BeforeContext: Optional[str] = None
     AfterContext: Optional[str] = None
@@ -2268,8 +2274,8 @@ class DescribeStacksOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_change_set' function.
 class CreateChangeSetInputTypeDef(BaseValidatorModel):
-    StackName: str
-    ChangeSetName: str
+    StackName: Annotated[str, _aws_pattern("Cloudformation", "StackNameOrId")]
+    ChangeSetName: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetName")]
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
     UsePreviousTemplate: Optional[bool] = None
@@ -2328,7 +2334,7 @@ class CreateStackInputTypeDef(BaseValidatorModel):
     StackPolicyBody: Optional[str] = None
     StackPolicyURL: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     EnableTerminationProtection: Optional[bool] = None
     RetainExceptOnCreate: Optional[bool] = None
 
@@ -2371,7 +2377,7 @@ class UpdateStackInputTypeDef(BaseValidatorModel):
     NotificationARNs: Optional[List[str]] = None
     Tags: Optional[List[TagTypeDef]] = None
     DisableRollback: Optional[bool] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Cloudformation", "ClientRequestToken")]] = None
     RetainExceptOnCreate: Optional[bool] = None
 
 
@@ -2399,8 +2405,8 @@ class ChangeTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_change_set' function.
 class DescribeChangeSetOutputTypeDef(BaseValidatorModel):
-    ChangeSetName: str
-    ChangeSetId: str
+    ChangeSetName: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetName")]
+    ChangeSetId: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetId")]
     StackId: str
     StackName: str
     Description: str
@@ -2416,8 +2422,8 @@ class DescribeChangeSetOutputTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     Changes: List[ChangeTypeDef]
     IncludeNestedStacks: bool
-    ParentChangeSetId: str
-    RootChangeSetId: str
+    ParentChangeSetId: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetId")]
+    RootChangeSetId: Annotated[str, _aws_pattern("Cloudformation", "ChangeSetId")]
     OnStackFailure: OnStackFailureType
     ImportExistingResources: bool
     DeploymentMode: Literal["REVERT_DRIFT"]

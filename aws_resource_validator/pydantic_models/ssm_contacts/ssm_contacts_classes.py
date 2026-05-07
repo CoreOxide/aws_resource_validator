@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,21 +41,21 @@ except ImportError:  # pragma: no cover
 
 
 class AcceptPageRequestTypeDef(BaseValidatorModel):
-    PageId: str
+    PageId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
     AcceptType: AcceptTypeType
-    AcceptCode: str
-    ContactChannelId: Optional[str] = None
-    Note: Optional[str] = None
+    AcceptCode: Annotated[str, _aws_pattern("SsmContacts", "AcceptCode")]
+    ContactChannelId: Optional[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]] = None
+    Note: Optional[Annotated[str, _aws_pattern("SsmContacts", "ReceiptInfo")]] = None
     AcceptCodeValidation: Optional[AcceptCodeValidationType] = None
 
 
 class ActivateContactChannelRequestTypeDef(BaseValidatorModel):
-    ContactChannelId: str
-    ActivationCode: str
+    ContactChannelId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    ActivationCode: Annotated[str, _aws_pattern("SsmContacts", "ActivationCode")]
 
 
 class ChannelTargetInfoTypeDef(BaseValidatorModel):
-    ContactChannelId: str
+    ContactChannelId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
     RetryIntervalInMinutes: Optional[int] = None
 
 
@@ -63,14 +65,14 @@ class ContactChannelAddressTypeDef(BaseValidatorModel):
 
 class ContactTargetInfoTypeDef(BaseValidatorModel):
     IsEssential: bool
-    ContactId: Optional[str] = None
+    ContactId: Optional[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]] = None
 
 
 class ContactTypeDef(BaseValidatorModel):
-    ContactArn: str
-    Alias: str
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Alias: Annotated[str, _aws_pattern("SsmContacts", "ContactAlias")]
     Type: ContactTypeType
-    DisplayName: Optional[str] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("SsmContacts", "ContactName")]] = None
 
 
 class HandOffTimeTypeDef(BaseValidatorModel):
@@ -87,77 +89,77 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("SsmContacts", "TagKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("SsmContacts", "TagValue")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class DeactivateContactChannelRequestTypeDef(BaseValidatorModel):
-    ContactChannelId: str
+    ContactChannelId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
 
 
 class DeleteContactChannelRequestTypeDef(BaseValidatorModel):
-    ContactChannelId: str
+    ContactChannelId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
 
 
 class DeleteContactRequestTypeDef(BaseValidatorModel):
-    ContactId: str
+    ContactId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
 
 
 class DeleteRotationOverrideRequestTypeDef(BaseValidatorModel):
-    RotationId: str
-    RotationOverrideId: str
+    RotationId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    RotationOverrideId: Annotated[str, _aws_pattern("SsmContacts", "Uuid")]
 
 
 class DeleteRotationRequestTypeDef(BaseValidatorModel):
-    RotationId: str
+    RotationId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
 
 
 # This class is the input for the 'describe_engagement' function.
 class DescribeEngagementRequestTypeDef(BaseValidatorModel):
-    EngagementId: str
+    EngagementId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
 
 
 # This class is the input for the 'describe_page' function.
 class DescribePageRequestTypeDef(BaseValidatorModel):
-    PageId: str
+    PageId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
 
 
 class EngagementTypeDef(BaseValidatorModel):
-    EngagementArn: str
-    ContactArn: str
-    Sender: str
-    IncidentId: Optional[str] = None
+    EngagementArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Sender: Annotated[str, _aws_pattern("SsmContacts", "Sender")]
+    IncidentId: Optional[Annotated[str, _aws_pattern("SsmContacts", "IncidentId")]] = None
     StartTime: Optional[datetime] = None
     StopTime: Optional[datetime] = None
 
 
 # This class is the input for the 'get_contact_channel' function.
 class GetContactChannelRequestTypeDef(BaseValidatorModel):
-    ContactChannelId: str
+    ContactChannelId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
 
 
 # This class is the input for the 'get_contact_policy' function.
 class GetContactPolicyRequestTypeDef(BaseValidatorModel):
-    ContactArn: str
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
 
 
 # This class is the input for the 'get_contact' function.
 class GetContactRequestTypeDef(BaseValidatorModel):
-    ContactId: str
+    ContactId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
 
 
 # This class is the input for the 'get_rotation_override' function.
 class GetRotationOverrideRequestTypeDef(BaseValidatorModel):
-    RotationId: str
-    RotationOverrideId: str
+    RotationId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    RotationOverrideId: Annotated[str, _aws_pattern("SsmContacts", "Uuid")]
 
 
 # This class is the input for the 'get_rotation' function.
 class GetRotationRequestTypeDef(BaseValidatorModel):
-    RotationId: str
+    RotationId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -168,58 +170,58 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_contact_channels' function.
 class ListContactChannelsRequestTypeDef(BaseValidatorModel):
-    ContactId: str
-    NextToken: Optional[str] = None
+    ContactId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_contacts' function.
 class ListContactsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
-    AliasPrefix: Optional[str] = None
+    AliasPrefix: Optional[Annotated[str, _aws_pattern("SsmContacts", "ContactAlias")]] = None
     Type: Optional[ContactTypeType] = None
 
 
 # This class is the input for the 'list_page_receipts' function.
 class ListPageReceiptsRequestTypeDef(BaseValidatorModel):
-    PageId: str
-    NextToken: Optional[str] = None
+    PageId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ReceiptTypeDef(BaseValidatorModel):
     ReceiptType: ReceiptTypeType
     ReceiptTime: datetime
-    ContactChannelArn: Optional[str] = None
-    ReceiptInfo: Optional[str] = None
+    ContactChannelArn: Optional[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]] = None
+    ReceiptInfo: Optional[Annotated[str, _aws_pattern("SsmContacts", "ReceiptInfo")]] = None
 
 
 # This class is the input for the 'list_page_resolutions' function.
 class ListPageResolutionsRequestTypeDef(BaseValidatorModel):
-    PageId: str
-    NextToken: Optional[str] = None
+    PageId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 class ResolutionContactTypeDef(BaseValidatorModel):
-    ContactArn: str
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
     Type: ContactTypeType
     StageIndex: Optional[int] = None
 
 
 # This class is the input for the 'list_pages_by_contact' function.
 class ListPagesByContactRequestTypeDef(BaseValidatorModel):
-    ContactId: str
-    NextToken: Optional[str] = None
+    ContactId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class PageTypeDef(BaseValidatorModel):
-    PageArn: str
-    EngagementArn: str
-    ContactArn: str
-    Sender: str
-    IncidentId: Optional[str] = None
+    PageArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    EngagementArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Sender: Annotated[str, _aws_pattern("SsmContacts", "Sender")]
+    IncidentId: Optional[Annotated[str, _aws_pattern("SsmContacts", "IncidentId")]] = None
     SentTime: Optional[datetime] = None
     DeliveryTime: Optional[datetime] = None
     ReadTime: Optional[datetime] = None
@@ -227,14 +229,14 @@ class PageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pages_by_engagement' function.
 class ListPagesByEngagementRequestTypeDef(BaseValidatorModel):
-    EngagementId: str
-    NextToken: Optional[str] = None
+    EngagementId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class RotationOverrideTypeDef(BaseValidatorModel):
-    RotationOverrideId: str
-    NewContactIds: List[str]
+    RotationOverrideId: Annotated[str, _aws_pattern("SsmContacts", "Uuid")]
+    NewContactIds: List[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]]
     StartTime: datetime
     EndTime: datetime
     CreateTime: datetime
@@ -242,8 +244,8 @@ class RotationOverrideTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_rotations' function.
 class ListRotationsRequestTypeDef(BaseValidatorModel):
-    RotationNamePrefix: Optional[str] = None
-    NextToken: Optional[str] = None
+    RotationNamePrefix: Optional[Annotated[str, _aws_pattern("SsmContacts", "RotationName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -253,44 +255,44 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 
 class PutContactPolicyRequestTypeDef(BaseValidatorModel):
-    ContactArn: str
-    Policy: str
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Policy: Annotated[str, _aws_pattern("SsmContacts", "Policy")]
 
 
 class ShiftDetailsTypeDef(BaseValidatorModel):
-    OverriddenContactIds: List[str]
+    OverriddenContactIds: List[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]]
 
 
 class SendActivationCodeRequestTypeDef(BaseValidatorModel):
-    ContactChannelId: str
+    ContactChannelId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
 
 
 # This class is the input for the 'start_engagement' function.
 class StartEngagementRequestTypeDef(BaseValidatorModel):
-    ContactId: str
-    Sender: str
-    Subject: str
-    Content: str
-    PublicSubject: Optional[str] = None
-    PublicContent: Optional[str] = None
-    IncidentId: Optional[str] = None
-    IdempotencyToken: Optional[str] = None
+    ContactId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Sender: Annotated[str, _aws_pattern("SsmContacts", "Sender")]
+    Subject: Annotated[str, _aws_pattern("SsmContacts", "Subject")]
+    Content: Annotated[str, _aws_pattern("SsmContacts", "Content")]
+    PublicSubject: Optional[Annotated[str, _aws_pattern("SsmContacts", "PublicSubject")]] = None
+    PublicContent: Optional[Annotated[str, _aws_pattern("SsmContacts", "PublicContent")]] = None
+    IncidentId: Optional[Annotated[str, _aws_pattern("SsmContacts", "IncidentId")]] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "IdempotencyToken")]] = None
 
 
 class StopEngagementRequestTypeDef(BaseValidatorModel):
-    EngagementId: str
-    Reason: Optional[str] = None
+    EngagementId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Reason: Optional[Annotated[str, _aws_pattern("SsmContacts", "StopReason")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("SsmContacts", "TagKey")]]
 
 
 class ContactChannelTypeDef(BaseValidatorModel):
-    ContactChannelArn: str
-    ContactArn: str
-    Name: str
+    ContactChannelArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Name: Annotated[str, _aws_pattern("SsmContacts", "ChannelName")]
     DeliveryAddress: ContactChannelAddressTypeDef
     ActivationStatus: ActivationStatusType
     Type: Optional[ChannelTypeType] = None
@@ -298,17 +300,17 @@ class ContactChannelTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_contact_channel' function.
 class CreateContactChannelRequestTypeDef(BaseValidatorModel):
-    ContactId: str
-    Name: str
+    ContactId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Name: Annotated[str, _aws_pattern("SsmContacts", "ChannelName")]
     Type: ChannelTypeType
     DeliveryAddress: ContactChannelAddressTypeDef
     DeferActivation: Optional[bool] = None
-    IdempotencyToken: Optional[str] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "IdempotencyToken")]] = None
 
 
 class UpdateContactChannelRequestTypeDef(BaseValidatorModel):
-    ContactChannelId: str
-    Name: Optional[str] = None
+    ContactChannelId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Name: Optional[Annotated[str, _aws_pattern("SsmContacts", "ChannelName")]] = None
     DeliveryAddress: Optional[ContactChannelAddressTypeDef] = None
 
 
@@ -334,38 +336,38 @@ class WeeklySettingTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_contact_channel' function.
 class CreateContactChannelResultTypeDef(BaseValidatorModel):
-    ContactChannelArn: str
+    ContactChannelArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_contact' function.
 class CreateContactResultTypeDef(BaseValidatorModel):
-    ContactArn: str
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_rotation_override' function.
 class CreateRotationOverrideResultTypeDef(BaseValidatorModel):
-    RotationOverrideId: str
+    RotationOverrideId: Annotated[str, _aws_pattern("SsmContacts", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_rotation' function.
 class CreateRotationResultTypeDef(BaseValidatorModel):
-    RotationArn: str
+    RotationArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_engagement' function.
 class DescribeEngagementResultTypeDef(BaseValidatorModel):
-    ContactArn: str
-    EngagementArn: str
-    Sender: str
-    Subject: str
-    Content: str
-    PublicSubject: str
-    PublicContent: str
-    IncidentId: str
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    EngagementArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Sender: Annotated[str, _aws_pattern("SsmContacts", "Sender")]
+    Subject: Annotated[str, _aws_pattern("SsmContacts", "Subject")]
+    Content: Annotated[str, _aws_pattern("SsmContacts", "Content")]
+    PublicSubject: Annotated[str, _aws_pattern("SsmContacts", "PublicSubject")]
+    PublicContent: Annotated[str, _aws_pattern("SsmContacts", "PublicContent")]
+    IncidentId: Annotated[str, _aws_pattern("SsmContacts", "IncidentId")]
     StartTime: datetime
     StopTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -373,15 +375,15 @@ class DescribeEngagementResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_page' function.
 class DescribePageResultTypeDef(BaseValidatorModel):
-    PageArn: str
-    EngagementArn: str
-    ContactArn: str
-    Sender: str
-    Subject: str
-    Content: str
-    PublicSubject: str
-    PublicContent: str
-    IncidentId: str
+    PageArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    EngagementArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Sender: Annotated[str, _aws_pattern("SsmContacts", "Sender")]
+    Subject: Annotated[str, _aws_pattern("SsmContacts", "Subject")]
+    Content: Annotated[str, _aws_pattern("SsmContacts", "Content")]
+    PublicSubject: Annotated[str, _aws_pattern("SsmContacts", "PublicSubject")]
+    PublicContent: Annotated[str, _aws_pattern("SsmContacts", "PublicContent")]
+    IncidentId: Annotated[str, _aws_pattern("SsmContacts", "IncidentId")]
     SentTime: datetime
     ReadTime: datetime
     DeliveryTime: datetime
@@ -390,9 +392,9 @@ class DescribePageResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_contact_channel' function.
 class GetContactChannelResultTypeDef(BaseValidatorModel):
-    ContactArn: str
-    ContactChannelArn: str
-    Name: str
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    ContactChannelArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Name: Annotated[str, _aws_pattern("SsmContacts", "ChannelName")]
     Type: ChannelTypeType
     DeliveryAddress: ContactChannelAddressTypeDef
     ActivationStatus: ActivationStatusType
@@ -401,16 +403,16 @@ class GetContactChannelResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_contact_policy' function.
 class GetContactPolicyResultTypeDef(BaseValidatorModel):
-    ContactArn: str
-    Policy: str
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Policy: Annotated[str, _aws_pattern("SsmContacts", "Policy")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_rotation_override' function.
 class GetRotationOverrideResultTypeDef(BaseValidatorModel):
-    RotationOverrideId: str
-    RotationArn: str
-    NewContactIds: List[str]
+    RotationOverrideId: Annotated[str, _aws_pattern("SsmContacts", "Uuid")]
+    RotationArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    NewContactIds: List[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]]
     StartTime: datetime
     EndTime: datetime
     CreateTime: datetime
@@ -421,12 +423,12 @@ class GetRotationOverrideResultTypeDef(BaseValidatorModel):
 class ListContactsResultTypeDef(BaseValidatorModel):
     Contacts: List[ContactTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 # This class is the output for the 'start_engagement' function.
 class StartEngagementResultTypeDef(BaseValidatorModel):
-    EngagementArn: str
+    EngagementArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -443,33 +445,33 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_rotation_override' function.
 class CreateRotationOverrideRequestTypeDef(BaseValidatorModel):
-    RotationId: str
-    NewContactIds: List[str]
+    RotationId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    NewContactIds: List[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
-    IdempotencyToken: Optional[str] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'list_rotation_overrides' function.
 class ListRotationOverridesRequestTypeDef(BaseValidatorModel):
-    RotationId: str
+    RotationId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_rotation_shifts' function.
 class ListRotationShiftsRequestTypeDef(BaseValidatorModel):
-    RotationId: str
+    RotationId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
     EndTime: TimestampTypeDef
     StartTime: Optional[TimestampTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class PreviewOverrideTypeDef(BaseValidatorModel):
-    NewMembers: Optional[List[str]] = None
+    NewMembers: Optional[List[Annotated[str, _aws_pattern("SsmContacts", "Member")]]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
 
@@ -483,7 +485,7 @@ class TimeRangeTypeDef(BaseValidatorModel):
 class ListEngagementsResultTypeDef(BaseValidatorModel):
     Engagements: List[EngagementTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 class ListContactChannelsRequestPaginateTypeDef(BaseValidatorModel):
@@ -540,41 +542,41 @@ class ListRotationsRequestPaginateTypeDef(BaseValidatorModel):
 class ListPageReceiptsResultTypeDef(BaseValidatorModel):
     Receipts: List[ReceiptTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_page_resolutions' function.
 class ListPageResolutionsResultTypeDef(BaseValidatorModel):
     PageResolutions: List[ResolutionContactTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_pages_by_contact' function.
 class ListPagesByContactResultTypeDef(BaseValidatorModel):
     Pages: List[PageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_pages_by_engagement' function.
 class ListPagesByEngagementResultTypeDef(BaseValidatorModel):
     Pages: List[PageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_rotation_overrides' function.
 class ListRotationOverridesResultTypeDef(BaseValidatorModel):
     RotationOverrides: List[RotationOverrideTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 class RotationShiftTypeDef(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
-    ContactIds: Optional[List[str]] = None
+    ContactIds: Optional[List[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]]] = None
     Type: Optional[ShiftTypeType] = None
     ShiftDetails: Optional[ShiftDetailsTypeDef] = None
 
@@ -583,7 +585,7 @@ class RotationShiftTypeDef(BaseValidatorModel):
 class ListContactChannelsResultTypeDef(BaseValidatorModel):
     ContactChannels: List[ContactChannelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 class StageOutputTypeDef(BaseValidatorModel):
@@ -622,9 +624,9 @@ class ListEngagementsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_engagements' function.
 class ListEngagementsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
-    IncidentId: Optional[str] = None
+    IncidentId: Optional[Annotated[str, _aws_pattern("SsmContacts", "IncidentId")]] = None
     TimeRangeValue: Optional[TimeRangeTypeDef] = None
 
 
@@ -632,14 +634,14 @@ class ListEngagementsRequestTypeDef(BaseValidatorModel):
 class ListPreviewRotationShiftsResultTypeDef(BaseValidatorModel):
     RotationShifts: List[RotationShiftTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_rotation_shifts' function.
 class ListRotationShiftsResultTypeDef(BaseValidatorModel):
     RotationShifts: List[RotationShiftTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 class PlanOutputTypeDef(BaseValidatorModel):
@@ -649,26 +651,26 @@ class PlanOutputTypeDef(BaseValidatorModel):
 
 class PlanTypeDef(BaseValidatorModel):
     Stages: Optional[List[StageTypeDef]] = None
-    RotationIds: Optional[List[str]] = None
+    RotationIds: Optional[List[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]]] = None
 
 
 # This class is the output for the 'get_rotation' function.
 class GetRotationResultTypeDef(BaseValidatorModel):
-    RotationArn: str
-    Name: str
-    ContactIds: List[str]
+    RotationArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Name: Annotated[str, _aws_pattern("SsmContacts", "RotationName")]
+    ContactIds: List[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]]
     StartTime: datetime
-    TimeZoneId: str
+    TimeZoneId: Annotated[str, _aws_pattern("SsmContacts", "TimeZoneId")]
     Recurrence: RecurrenceSettingsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class RotationTypeDef(BaseValidatorModel):
-    RotationArn: str
-    Name: str
-    ContactIds: Optional[List[str]] = None
+    RotationArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Name: Annotated[str, _aws_pattern("SsmContacts", "RotationName")]
+    ContactIds: Optional[List[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]]] = None
     StartTime: Optional[datetime] = None
-    TimeZoneId: Optional[str] = None
+    TimeZoneId: Optional[Annotated[str, _aws_pattern("SsmContacts", "TimeZoneId")]] = None
     Recurrence: Optional[RecurrenceSettingsOutputTypeDef] = None
 
 
@@ -677,9 +679,9 @@ RecurrenceSettingsUnionTypeDef = Union[RecurrenceSettingsOutputTypeDef, Recurren
 
 # This class is the output for the 'get_contact' function.
 class GetContactResultTypeDef(BaseValidatorModel):
-    ContactArn: str
-    Alias: str
-    DisplayName: str
+    ContactArn: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    Alias: Annotated[str, _aws_pattern("SsmContacts", "ContactAlias")]
+    DisplayName: Annotated[str, _aws_pattern("SsmContacts", "ContactName")]
     Type: ContactTypeType
     Plan: PlanOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -692,18 +694,18 @@ PlanUnionTypeDef = Union[PlanOutputTypeDef, PlanTypeDef]
 class ListRotationsResultTypeDef(BaseValidatorModel):
     Rotations: List[RotationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
 
 
 # This class is the input for the 'create_rotation' function.
 class CreateRotationRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ContactIds: List[str]
-    TimeZoneId: str
+    Name: Annotated[str, _aws_pattern("SsmContacts", "RotationName")]
+    ContactIds: List[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]]
+    TimeZoneId: Annotated[str, _aws_pattern("SsmContacts", "TimeZoneId")]
     Recurrence: RecurrenceSettingsUnionTypeDef
     StartTime: Optional[TimestampTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    IdempotencyToken: Optional[str] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "IdempotencyToken")]] = None
 
 
 class ListPreviewRotationShiftsRequestPaginateTypeDef(BaseValidatorModel):
@@ -720,35 +722,35 @@ class ListPreviewRotationShiftsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_preview_rotation_shifts' function.
 class ListPreviewRotationShiftsRequestTypeDef(BaseValidatorModel):
     EndTime: TimestampTypeDef
-    Members: List[str]
-    TimeZoneId: str
+    Members: List[Annotated[str, _aws_pattern("SsmContacts", "Member")]]
+    TimeZoneId: Annotated[str, _aws_pattern("SsmContacts", "TimeZoneId")]
     Recurrence: RecurrenceSettingsUnionTypeDef
     RotationStartTime: Optional[TimestampTypeDef] = None
     StartTime: Optional[TimestampTypeDef] = None
     Overrides: Optional[List[PreviewOverrideTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class UpdateRotationRequestTypeDef(BaseValidatorModel):
-    RotationId: str
+    RotationId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
     Recurrence: RecurrenceSettingsUnionTypeDef
-    ContactIds: Optional[List[str]] = None
+    ContactIds: Optional[List[Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]]] = None
     StartTime: Optional[TimestampTypeDef] = None
-    TimeZoneId: Optional[str] = None
+    TimeZoneId: Optional[Annotated[str, _aws_pattern("SsmContacts", "TimeZoneId")]] = None
 
 
 # This class is the input for the 'create_contact' function.
 class CreateContactRequestTypeDef(BaseValidatorModel):
-    Alias: str
+    Alias: Annotated[str, _aws_pattern("SsmContacts", "ContactAlias")]
     Type: ContactTypeType
     Plan: PlanUnionTypeDef
-    DisplayName: Optional[str] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("SsmContacts", "ContactName")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    IdempotencyToken: Optional[str] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("SsmContacts", "IdempotencyToken")]] = None
 
 
 class UpdateContactRequestTypeDef(BaseValidatorModel):
-    ContactId: str
-    DisplayName: Optional[str] = None
+    ContactId: Annotated[str, _aws_pattern("SsmContacts", "SsmContactsArn")]
+    DisplayName: Optional[Annotated[str, _aws_pattern("SsmContacts", "ContactName")]] = None
     Plan: Optional[PlanUnionTypeDef] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.billing.billing_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -42,8 +44,8 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'associate_source_views' function.
 class AssociateSourceViewsRequestTypeDef(BaseValidatorModel):
-    arn: str
-    sourceViews: List[str]
+    arn: Annotated[str, _aws_pattern("Billing", "BillingViewArn")]
+    sourceViews: List[Annotated[str, _aws_pattern("Billing", "BillingViewArn")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -65,8 +67,8 @@ class CostCategoryValuesOutputTypeDef(BaseValidatorModel):
 
 
 class CostCategoryValuesTypeDef(BaseValidatorModel):
-    key: str
-    values: List[str]
+    key: Annotated[str, _aws_pattern("Billing", "CostCategoryName")]
+    values: List[Annotated[str, _aws_pattern("Billing", "Value")]]
 
 
 class ResourceTagTypeDef(BaseValidatorModel):
@@ -76,7 +78,7 @@ class ResourceTagTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_billing_view' function.
 class DeleteBillingViewRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Billing", "BillingViewArn")]
     force: Optional[bool] = None
 
 
@@ -87,13 +89,13 @@ class DimensionValuesOutputTypeDef(BaseValidatorModel):
 
 class DimensionValuesTypeDef(BaseValidatorModel):
     key: Literal["LINKED_ACCOUNT"]
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("Billing", "Value")]]
 
 
 # This class is the input for the 'disassociate_source_views' function.
 class DisassociateSourceViewsRequestTypeDef(BaseValidatorModel):
-    arn: str
-    sourceViews: List[str]
+    arn: Annotated[str, _aws_pattern("Billing", "BillingViewArn")]
+    sourceViews: List[Annotated[str, _aws_pattern("Billing", "BillingViewArn")]]
 
 
 class TagValuesOutputTypeDef(BaseValidatorModel):
@@ -107,18 +109,18 @@ class TimeRangeOutputTypeDef(BaseValidatorModel):
 
 
 class TagValuesTypeDef(BaseValidatorModel):
-    key: str
-    values: List[str]
+    key: Annotated[str, _aws_pattern("Billing", "TagKey")]
+    values: List[Annotated[str, _aws_pattern("Billing", "Value")]]
 
 
 # This class is the input for the 'get_billing_view' function.
 class GetBillingViewRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Billing", "BillingViewArn")]
 
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Billing", "ResourceArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -129,23 +131,23 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 class StringSearchTypeDef(BaseValidatorModel):
     searchOption: Literal["STARTS_WITH"]
-    searchValue: str
+    searchValue: Annotated[str, _aws_pattern("Billing", "SearchValue")]
 
 
 # This class is the input for the 'list_source_views_for_billing_view' function.
 class ListSourceViewsForBillingViewRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Billing", "BillingViewArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Billing", "ResourceArn")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Billing", "ResourceArn")]
     resourceTagKeys: List[str]
 
 
@@ -161,56 +163,56 @@ class TimeRangeTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'associate_source_views' function.
 class AssociateSourceViewsResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Billing", "BillingViewArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_billing_view' function.
 class CreateBillingViewResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Billing", "BillingViewArn")]
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_billing_view' function.
 class DeleteBillingViewResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Billing", "BillingViewArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disassociate_source_views' function.
 class DisassociateSourceViewsResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Billing", "BillingViewArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Billing", "ResourceArn")]
     policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_source_views_for_billing_view' function.
 class ListSourceViewsForBillingViewResponseTypeDef(BaseValidatorModel):
-    sourceViews: List[str]
+    sourceViews: List[Annotated[str, _aws_pattern("Billing", "BillingViewArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
 
 # This class is the output for the 'update_billing_view' function.
 class UpdateBillingViewResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Billing", "BillingViewArn")]
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class BillingViewListElementTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    ownerAccountId: Optional[str] = None
-    sourceAccountId: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Billing", "BillingViewArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Billing", "BillingViewName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Billing", "BillingViewDescription")]] = None
+    ownerAccountId: Optional[Annotated[str, _aws_pattern("Billing", "AccountId")]] = None
+    sourceAccountId: Optional[Annotated[str, _aws_pattern("Billing", "AccountId")]] = None
     billingViewType: Optional[BillingViewTypeType] = None
     healthStatus: Optional[BillingViewHealthStatusTypeDef] = None
 
@@ -222,7 +224,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Billing", "ResourceArn")]
     resourceTags: List[ResourceTagTypeDef]
 
 
@@ -251,11 +253,11 @@ class ListBillingViewsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_billing_views' function.
 class ListBillingViewsRequestTypeDef(BaseValidatorModel):
     activeTimeRange: Optional[ActiveTimeRangeTypeDef] = None
-    arns: Optional[List[str]] = None
+    arns: Optional[List[Annotated[str, _aws_pattern("Billing", "BillingViewArn")]]] = None
     billingViewTypes: Optional[List[BillingViewTypeType]] = None
     names: Optional[List[StringSearchTypeDef]] = None
-    ownerAccountId: Optional[str] = None
-    sourceAccountId: Optional[str] = None
+    ownerAccountId: Optional[Annotated[str, _aws_pattern("Billing", "AccountId")]] = None
+    sourceAccountId: Optional[Annotated[str, _aws_pattern("Billing", "AccountId")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -275,12 +277,12 @@ class ListBillingViewsResponseTypeDef(BaseValidatorModel):
 
 
 class BillingViewElementTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Billing", "BillingViewArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Billing", "BillingViewName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Billing", "BillingViewDescription")]] = None
     billingViewType: Optional[BillingViewTypeType] = None
-    ownerAccountId: Optional[str] = None
-    sourceAccountId: Optional[str] = None
+    ownerAccountId: Optional[Annotated[str, _aws_pattern("Billing", "AccountId")]] = None
+    sourceAccountId: Optional[Annotated[str, _aws_pattern("Billing", "AccountId")]] = None
     dataFilterExpression: Optional[ExpressionOutputTypeDef] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
@@ -301,17 +303,17 @@ class GetBillingViewResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_billing_view' function.
 class CreateBillingViewRequestTypeDef(BaseValidatorModel):
-    name: str
-    sourceViews: List[str]
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Billing", "BillingViewName")]
+    sourceViews: List[Annotated[str, _aws_pattern("Billing", "BillingViewArn")]]
+    description: Optional[Annotated[str, _aws_pattern("Billing", "BillingViewDescription")]] = None
     dataFilterExpression: Optional[ExpressionUnionTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Billing", "ClientToken")]] = None
     resourceTags: Optional[List[ResourceTagTypeDef]] = None
 
 
 # This class is the input for the 'update_billing_view' function.
 class UpdateBillingViewRequestTypeDef(BaseValidatorModel):
-    arn: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("Billing", "BillingViewArn")]
+    name: Optional[Annotated[str, _aws_pattern("Billing", "BillingViewName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Billing", "BillingViewDescription")]] = None
     dataFilterExpression: Optional[ExpressionUnionTypeDef] = None

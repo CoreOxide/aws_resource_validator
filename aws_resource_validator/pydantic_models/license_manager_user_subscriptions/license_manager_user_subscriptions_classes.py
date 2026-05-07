@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -43,7 +45,7 @@ class DomainNetworkSettingsOutputTypeDef(BaseValidatorModel):
 
 
 class DomainNetworkSettingsTypeDef(BaseValidatorModel):
-    Subnets: List[str]
+    Subnets: List[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Subnet")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -60,7 +62,7 @@ class SecretsManagerCredentialsProviderTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_license_server_endpoint' function.
 class DeleteLicenseServerEndpointRequestTypeDef(BaseValidatorModel):
-    LicenseServerEndpointArn: str
+    LicenseServerEndpointArn: Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]
     ServerType: Literal["RDS_SAL"]
 
 
@@ -94,34 +96,34 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "ResourceArn")]
 
 
 class SettingsTypeDef(BaseValidatorModel):
-    Subnets: List[str]
-    SecurityGroupId: str
+    Subnets: List[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Subnet")]]
+    SecurityGroupId: Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "SecurityGroup")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "ResourceArn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "ResourceArn")]
     TagKeys: List[str]
 
 
 class UpdateSettingsTypeDef(BaseValidatorModel):
-    AddSubnets: List[str]
-    RemoveSubnets: List[str]
-    SecurityGroupId: Optional[str] = None
+    AddSubnets: List[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Subnet")]]
+    RemoveSubnets: List[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Subnet")]]
+    SecurityGroupId: Optional[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "SecurityGroup")]] = None
 
 
 # This class is the output for the 'create_license_server_endpoint' function.
 class CreateLicenseServerEndpointResponseTypeDef(BaseValidatorModel):
-    IdentityProviderArn: str
-    LicenseServerEndpointArn: str
+    IdentityProviderArn: Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]
+    LicenseServerEndpointArn: Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -162,7 +164,7 @@ class LicenseServerEndpointTypeDef(BaseValidatorModel):
     ServerEndpoint: Optional[ServerEndpointTypeDef] = None
     StatusMessage: Optional[str] = None
     LicenseServerEndpointId: Optional[str] = None
-    LicenseServerEndpointArn: Optional[str] = None
+    LicenseServerEndpointArn: Optional[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]] = None
     LicenseServerEndpointProvisioningStatus: Optional[LicenseServerEndpointProvisioningStatusType] = None
     LicenseServers: Optional[List[LicenseServerTypeDef]] = None
     CreationTime: Optional[datetime] = None
@@ -196,8 +198,8 @@ class ActiveDirectorySettingsOutputTypeDef(BaseValidatorModel):
 
 class ActiveDirectorySettingsTypeDef(BaseValidatorModel):
     DomainName: Optional[str] = None
-    DomainIpv4List: Optional[List[str]] = None
-    DomainIpv6List: Optional[List[str]] = None
+    DomainIpv4List: Optional[List[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "IpV4")]]] = None
+    DomainIpv6List: Optional[List[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "IpV6")]]] = None
     DomainCredentialsProvider: Optional[CredentialsProviderTypeDef] = None
     DomainNetworkSettings: Optional[DomainNetworkSettingsTypeDef] = None
 
@@ -227,7 +229,7 @@ class ActiveDirectoryIdentityProviderOutputTypeDef(BaseValidatorModel):
 
 
 class ActiveDirectoryIdentityProviderTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Directory")]] = None
     ActiveDirectorySettings: Optional[ActiveDirectorySettingsTypeDef] = None
     ActiveDirectoryType: Optional[ActiveDirectoryTypeType] = None
     IsSharedActiveDirectory: Optional[bool] = None
@@ -255,7 +257,7 @@ class IdentityProviderSummaryTypeDef(BaseValidatorModel):
     Settings: SettingsOutputTypeDef
     Product: str
     Status: str
-    IdentityProviderArn: Optional[str] = None
+    IdentityProviderArn: Optional[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]] = None
     FailureMessage: Optional[str] = None
     OwnerAccountId: Optional[str] = None
 
@@ -275,7 +277,7 @@ class InstanceUserSummaryTypeDef(BaseValidatorModel):
     InstanceId: str
     IdentityProvider: IdentityProviderOutputTypeDef
     Status: str
-    InstanceUserArn: Optional[str] = None
+    InstanceUserArn: Optional[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]] = None
     StatusMessage: Optional[str] = None
     Domain: Optional[str] = None
     AssociationDate: Optional[str] = None
@@ -287,7 +289,7 @@ class ProductUserSummaryTypeDef(BaseValidatorModel):
     Product: str
     IdentityProvider: IdentityProviderOutputTypeDef
     Status: str
-    ProductUserArn: Optional[str] = None
+    ProductUserArn: Optional[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]] = None
     StatusMessage: Optional[str] = None
     Domain: Optional[str] = None
     SubscriptionStartDate: Optional[str] = None
@@ -299,7 +301,7 @@ IdentityProviderUnionTypeDef = Union[IdentityProviderOutputTypeDef, IdentityProv
 
 # This class is the input for the 'create_license_server_endpoint' function.
 class CreateLicenseServerEndpointRequestTypeDef(BaseValidatorModel):
-    IdentityProviderArn: str
+    IdentityProviderArn: Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]
     LicenseServerSettings: LicenseServerSettingsTypeDef
     Tags: Optional[Dict[str, str]] = None
 
@@ -387,7 +389,7 @@ class AssociateUserRequestTypeDef(BaseValidatorModel):
 class DeregisterIdentityProviderRequestTypeDef(BaseValidatorModel):
     IdentityProvider: Optional[IdentityProviderUnionTypeDef] = None
     Product: Optional[str] = None
-    IdentityProviderArn: Optional[str] = None
+    IdentityProviderArn: Optional[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]] = None
 
 
 # This class is the input for the 'disassociate_user' function.
@@ -395,7 +397,7 @@ class DisassociateUserRequestTypeDef(BaseValidatorModel):
     Username: Optional[str] = None
     InstanceId: Optional[str] = None
     IdentityProvider: Optional[IdentityProviderUnionTypeDef] = None
-    InstanceUserArn: Optional[str] = None
+    InstanceUserArn: Optional[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]] = None
     Domain: Optional[str] = None
 
 
@@ -453,7 +455,7 @@ class StopProductSubscriptionRequestTypeDef(BaseValidatorModel):
     Username: Optional[str] = None
     IdentityProvider: Optional[IdentityProviderUnionTypeDef] = None
     Product: Optional[str] = None
-    ProductUserArn: Optional[str] = None
+    ProductUserArn: Optional[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]] = None
     Domain: Optional[str] = None
 
 
@@ -462,4 +464,4 @@ class UpdateIdentityProviderSettingsRequestTypeDef(BaseValidatorModel):
     UpdateSettings: UpdateSettingsTypeDef
     IdentityProvider: Optional[IdentityProviderUnionTypeDef] = None
     Product: Optional[str] = None
-    IdentityProviderArn: Optional[str] = None
+    IdentityProviderArn: Optional[Annotated[str, _aws_pattern("LicenseManagerUserSubscriptions", "Arn")]] = None

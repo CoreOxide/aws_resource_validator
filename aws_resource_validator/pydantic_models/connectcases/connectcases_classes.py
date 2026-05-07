@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.connectcases.connectcases_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,7 +50,7 @@ class AuditEventFieldValueUnionTypeDef(BaseValidatorModel):
 
 class UserUnionTypeDef(BaseValidatorModel):
     userArn: Optional[str] = None
-    customEntity: Optional[str] = None
+    customEntity: Optional[Annotated[str, _aws_pattern("Connectcases", "CustomEntity")]] = None
 
 
 class CaseRuleIdentifierTypeDef(BaseValidatorModel):
@@ -80,15 +82,15 @@ class FieldErrorTypeDef(BaseValidatorModel):
 
 
 class FieldOptionTypeDef(BaseValidatorModel):
-    name: str
-    value: str
+    name: Annotated[str, _aws_pattern("Connectcases", "FieldOptionName")]
+    value: Annotated[str, _aws_pattern("Connectcases", "FieldOptionValue")]
     active: bool
 
 
 class FieldOptionErrorTypeDef(BaseValidatorModel):
     message: str
     errorCode: str
-    value: str
+    value: Annotated[str, _aws_pattern("Connectcases", "FieldOptionValue")]
 
 
 class CompoundConditionOutputTypeDef(BaseValidatorModel):
@@ -119,7 +121,7 @@ class OperandTwoTypeDef(BaseValidatorModel):
 
 class CaseRuleSummaryTypeDef(BaseValidatorModel):
     caseRuleId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "CaseRuleName")]
     caseRuleArn: str
     ruleType: RuleTypeType
     description: Optional[str] = None
@@ -169,7 +171,7 @@ class ContactTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_domain' function.
 class CreateDomainRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "DomainName")]
 
 
 class LayoutConfigurationTypeDef(BaseValidatorModel):
@@ -223,7 +225,7 @@ class DeleteTemplateRequestTypeDef(BaseValidatorModel):
 class DomainSummaryTypeDef(BaseValidatorModel):
     domainId: str
     domainArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "DomainName")]
 
 
 class RelatedItemEventIncludedDataTypeDef(BaseValidatorModel):
@@ -244,8 +246,8 @@ class ParentChildFieldOptionsMappingOutputTypeDef(BaseValidatorModel):
 
 
 class ParentChildFieldOptionsMappingTypeDef(BaseValidatorModel):
-    parentFieldOptionValue: str
-    childFieldOptionValues: List[str]
+    parentFieldOptionValue: Annotated[str, _aws_pattern("Connectcases", "ParentChildFieldOptionValue")]
+    childFieldOptionValues: List[Annotated[str, _aws_pattern("Connectcases", "ParentChildFieldOptionValue")]]
 
 
 class FieldValueUnionOutputTypeDef(BaseValidatorModel):
@@ -310,7 +312,7 @@ class TagPropagationConfigurationOutputTypeDef(BaseValidatorModel):
 class LayoutSummaryTypeDef(BaseValidatorModel):
     layoutId: str
     layoutArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "LayoutName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -377,7 +379,7 @@ class ListTemplatesRequestTypeDef(BaseValidatorModel):
 
 
 class SlaFilterTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Connectcases", "SlaName")]] = None
     status: Optional[SlaStatusType] = None
 
 
@@ -392,8 +394,8 @@ class SortTypeDef(BaseValidatorModel):
 
 
 class TagValueTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
-    value: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("Connectcases", "SearchTagKey")]] = None
+    value: Optional[Annotated[str, _aws_pattern("Connectcases", "TagValueString")]] = None
 
 
 class TagPropagationConfigurationTypeDef(BaseValidatorModel):
@@ -410,7 +412,7 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     arn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Connectcases", "TagKey")]]
 
 
 class AuditEventFieldTypeDef(BaseValidatorModel):
@@ -489,7 +491,7 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 class GetDomainResponseTypeDef(BaseValidatorModel):
     domainId: str
     domainArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "DomainName")]
     createdTime: datetime
     domainStatus: DomainStatusType
     tags: Dict[str, str]
@@ -609,7 +611,7 @@ class FieldValueOutputTypeDef(BaseValidatorModel):
 
 
 class SlaConfigurationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "SlaName")]
     type: Literal["CaseField"]
     status: SlaStatusType
     targetTime: datetime
@@ -625,7 +627,7 @@ FieldValueUnionUnionTypeDef = Union[FieldValueUnionOutputTypeDef, FieldValueUnio
 class GetTemplateResponseTypeDef(BaseValidatorModel):
     templateId: str
     templateArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "TemplateName")]
     description: str
     layoutConfiguration: LayoutConfigurationTypeDef
     requiredFields: List[RequiredFieldTypeDef]
@@ -642,7 +644,7 @@ class GetTemplateResponseTypeDef(BaseValidatorModel):
 class TemplateSummaryTypeDef(BaseValidatorModel):
     templateId: str
     templateArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "TemplateName")]
     status: TemplateStatusType
     tagPropagationConfigurations: Optional[List[TagPropagationConfigurationOutputTypeDef]] = None
 
@@ -704,7 +706,7 @@ class BooleanConditionTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_field' function.
 class CreateFieldRequestTypeDef(BaseValidatorModel):
     domainId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "FieldName")]
     type: FieldTypeType
     description: Optional[str] = None
     attributes: Optional[FieldAttributesTypeDef] = None
@@ -713,7 +715,7 @@ class CreateFieldRequestTypeDef(BaseValidatorModel):
 class FieldSummaryTypeDef(BaseValidatorModel):
     fieldId: str
     fieldArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "FieldName")]
     type: FieldTypeType
     namespace: FieldNamespaceType
     attributes: Optional[FieldAttributesTypeDef] = None
@@ -721,7 +723,7 @@ class FieldSummaryTypeDef(BaseValidatorModel):
 
 class GetFieldResponseTypeDef(BaseValidatorModel):
     fieldId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "FieldName")]
     fieldArn: str
     type: FieldTypeType
     namespace: FieldNamespaceType
@@ -736,7 +738,7 @@ class GetFieldResponseTypeDef(BaseValidatorModel):
 class UpdateFieldRequestTypeDef(BaseValidatorModel):
     domainId: str
     fieldId: str
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Connectcases", "FieldName")]] = None
     description: Optional[str] = None
     attributes: Optional[FieldAttributesTypeDef] = None
 
@@ -779,7 +781,7 @@ class FieldValueTypeDef(BaseValidatorModel):
 
 
 class SlaInputConfigurationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "SlaName")]
     type: Literal["CaseField"]
     targetSlaMinutes: int
     fieldId: Optional[str] = None
@@ -796,7 +798,7 @@ class ListTemplatesResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_template' function.
 class CreateTemplateRequestTypeDef(BaseValidatorModel):
     domainId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "TemplateName")]
     description: Optional[str] = None
     layoutConfiguration: Optional[LayoutConfigurationTypeDef] = None
     requiredFields: Optional[List[RequiredFieldTypeDef]] = None
@@ -808,7 +810,7 @@ class CreateTemplateRequestTypeDef(BaseValidatorModel):
 class UpdateTemplateRequestTypeDef(BaseValidatorModel):
     domainId: str
     templateId: str
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Connectcases", "TemplateName")]] = None
     description: Optional[str] = None
     layoutConfiguration: Optional[LayoutConfigurationTypeDef] = None
     requiredFields: Optional[List[RequiredFieldTypeDef]] = None
@@ -1004,7 +1006,7 @@ class PutCaseEventConfigurationRequestTypeDef(BaseValidatorModel):
 
 class GetCaseRuleResponseTypeDef(BaseValidatorModel):
     caseRuleId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "CaseRuleName")]
     caseRuleArn: str
     rule: CaseRuleDetailsOutputTypeDef
     description: Optional[str] = None
@@ -1094,7 +1096,7 @@ class BatchGetCaseRuleResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_case_rule' function.
 class CreateCaseRuleRequestTypeDef(BaseValidatorModel):
     domainId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "CaseRuleName")]
     rule: CaseRuleDetailsUnionTypeDef
     description: Optional[str] = None
 
@@ -1102,7 +1104,7 @@ class CreateCaseRuleRequestTypeDef(BaseValidatorModel):
 class UpdateCaseRuleRequestTypeDef(BaseValidatorModel):
     domainId: str
     caseRuleId: str
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Connectcases", "CaseRuleName")]] = None
     description: Optional[str] = None
     rule: Optional[CaseRuleDetailsUnionTypeDef] = None
 
@@ -1111,7 +1113,7 @@ class UpdateCaseRuleRequestTypeDef(BaseValidatorModel):
 class GetLayoutResponseTypeDef(BaseValidatorModel):
     layoutId: str
     layoutArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "LayoutName")]
     content: LayoutContentOutputTypeDef
     tags: Dict[str, str]
     deleted: bool
@@ -1172,14 +1174,14 @@ class CustomFilterTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_layout' function.
 class CreateLayoutRequestTypeDef(BaseValidatorModel):
     domainId: str
-    name: str
+    name: Annotated[str, _aws_pattern("Connectcases", "LayoutName")]
     content: LayoutContentUnionTypeDef
 
 
 class UpdateLayoutRequestTypeDef(BaseValidatorModel):
     domainId: str
     layoutId: str
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Connectcases", "LayoutName")]] = None
     content: Optional[LayoutContentUnionTypeDef] = None
 
 

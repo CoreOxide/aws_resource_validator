@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.partnercentral_channel.partnercentral_channel_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,15 +41,15 @@ except ImportError:  # pragma: no cover
 
 
 class AcceptChannelHandshakeDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ChannelHandshakeId")]] = None
     arn: Optional[str] = None
     status: Optional[HandshakeStatusType] = None
 
 
 # This class is the input for the 'accept_channel_handshake' function.
 class AcceptChannelHandshakeRequestTypeDef(BaseValidatorModel):
-    catalog: str
-    identifier: str
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
+    identifier: Annotated[str, _aws_pattern("PartnercentralChannel", "ChannelHandshakeIdentifier")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -59,71 +61,79 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class CancelChannelHandshakeDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ChannelHandshakeId")]] = None
     arn: Optional[str] = None
     status: Optional[HandshakeStatusType] = None
 
 
 # This class is the input for the 'cancel_channel_handshake' function.
 class CancelChannelHandshakeRequestTypeDef(BaseValidatorModel):
-    catalog: str
-    identifier: str
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
+    identifier: Annotated[str, _aws_pattern("PartnercentralChannel", "ChannelHandshakeIdentifier")]
 
 
 class RevokeServicePeriodPayloadTypeDef(BaseValidatorModel):
-    programManagementAccountIdentifier: str
-    note: Optional[str] = None
+    programManagementAccountIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountIdentifier")
+    ]
+    note: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Note")]] = None
 
 
 class CreateChannelHandshakeDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ChannelHandshakeId")]] = None
     arn: Optional[str] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("PartnercentralChannel", "TagKey")]
+    value: Annotated[str, _aws_pattern("PartnercentralChannel", "TagValue")]
 
 
 class CreateProgramManagementAccountDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountId")]] = None
     arn: Optional[str] = None
 
 
 class CreateRelationshipDetailTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipId")]] = None
 
 
 class DeleteProgramManagementAccountRequestTypeDef(BaseValidatorModel):
-    catalog: str
-    identifier: str
-    clientToken: Optional[str] = None
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
+    identifier: Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountIdentifier")]
+    clientToken: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ClientToken")]] = None
 
 
 class DeleteRelationshipRequestTypeDef(BaseValidatorModel):
-    catalog: str
-    identifier: str
-    programManagementAccountIdentifier: str
-    clientToken: Optional[str] = None
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
+    identifier: Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipIdentifier")]
+    programManagementAccountIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountIdentifier")
+    ]
+    clientToken: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ClientToken")]] = None
 
 
 # This class is the input for the 'get_relationship' function.
 class GetRelationshipRequestTypeDef(BaseValidatorModel):
-    catalog: str
-    programManagementAccountIdentifier: str
-    identifier: str
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
+    programManagementAccountIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountIdentifier")
+    ]
+    identifier: Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipIdentifier")]
 
 
 class RelationshipDetailTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
-    id: Optional[str] = None
-    revision: Optional[str] = None
-    catalog: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipId")]] = None
+    revision: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Revision")]] = None
+    catalog: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]] = None
     associationType: Optional[AssociationTypeType] = None
-    programManagementAccountId: Optional[str] = None
-    associatedAccountId: Optional[str] = None
-    displayName: Optional[str] = None
+    programManagementAccountId: Optional[
+        Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountId")]
+    ] = None
+    associatedAccountId: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipDisplayName")]] = None
     resaleAccountModel: Optional[ResaleAccountModelType] = None
     sector: Optional[SectorType] = None
     createdAt: Optional[datetime] = None
@@ -136,17 +146,17 @@ class ProgramManagementAccountHandshakeDetailTypeDef(BaseValidatorModel):
 
 
 class RevokeServicePeriodHandshakeDetailTypeDef(BaseValidatorModel):
-    note: Optional[str] = None
+    note: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Note")]] = None
     servicePeriodType: Optional[ServicePeriodTypeType] = None
-    minimumNoticeDays: Optional[str] = None
+    minimumNoticeDays: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "MinimumNoticeDays")]] = None
     startDate: Optional[datetime] = None
     endDate: Optional[datetime] = None
 
 
 class StartServicePeriodHandshakeDetailTypeDef(BaseValidatorModel):
-    note: Optional[str] = None
+    note: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Note")]] = None
     servicePeriodType: Optional[ServicePeriodTypeType] = None
-    minimumNoticeDays: Optional[str] = None
+    minimumNoticeDays: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "MinimumNoticeDays")]] = None
     startDate: Optional[datetime] = None
     endDate: Optional[datetime] = None
 
@@ -190,12 +200,14 @@ class ListProgramManagementAccountsSortBaseTypeDef(BaseValidatorModel):
 
 
 class ProgramManagementAccountSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    revision: Optional[str] = None
-    catalog: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountId")]] = None
+    revision: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Revision")]] = None
+    catalog: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]] = None
     program: Optional[ProgramType] = None
-    displayName: Optional[str] = None
-    accountId: Optional[str] = None
+    displayName: Optional[
+        Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountDisplayName")]
+    ] = None
+    accountId: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
@@ -210,13 +222,15 @@ class ListRelationshipsSortBaseTypeDef(BaseValidatorModel):
 
 class RelationshipSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
-    id: Optional[str] = None
-    revision: Optional[str] = None
-    catalog: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipId")]] = None
+    revision: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Revision")]] = None
+    catalog: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]] = None
     associationType: Optional[AssociationTypeType] = None
-    programManagementAccountId: Optional[str] = None
-    associatedAccountId: Optional[str] = None
-    displayName: Optional[str] = None
+    programManagementAccountId: Optional[
+        Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountId")]
+    ] = None
+    associatedAccountId: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipDisplayName")]] = None
     sector: Optional[SectorType] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
@@ -225,7 +239,7 @@ class RelationshipSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("PartnercentralChannel", "TaggableArn")]
 
 
 class PartnerLedSupportTypeDef(BaseValidatorModel):
@@ -235,57 +249,61 @@ class PartnerLedSupportTypeDef(BaseValidatorModel):
 
 
 class RejectChannelHandshakeDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ChannelHandshakeId")]] = None
     arn: Optional[str] = None
     status: Optional[HandshakeStatusType] = None
 
 
 # This class is the input for the 'reject_channel_handshake' function.
 class RejectChannelHandshakeRequestTypeDef(BaseValidatorModel):
-    catalog: str
-    identifier: str
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
+    identifier: Annotated[str, _aws_pattern("PartnercentralChannel", "ChannelHandshakeIdentifier")]
 
 
 class ResoldEnterpriseTypeDef(BaseValidatorModel):
     coverage: CoverageType
     tamLocation: str
-    chargeAccountId: Optional[str] = None
+    chargeAccountId: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]] = None
 
 
 class ResoldUnifiedOperationsTypeDef(BaseValidatorModel):
     coverage: CoverageType
     tamLocation: str
-    chargeAccountId: Optional[str] = None
+    chargeAccountId: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("PartnercentralChannel", "TaggableArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("PartnercentralChannel", "TagKey")]]
 
 
 class UpdateProgramManagementAccountDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountId")]] = None
     arn: Optional[str] = None
-    revision: Optional[str] = None
-    displayName: Optional[str] = None
+    revision: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Revision")]] = None
+    displayName: Optional[
+        Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountDisplayName")]
+    ] = None
 
 
 # This class is the input for the 'update_program_management_account' function.
 class UpdateProgramManagementAccountRequestTypeDef(BaseValidatorModel):
-    catalog: str
-    identifier: str
-    revision: Optional[str] = None
-    displayName: Optional[str] = None
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
+    identifier: Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountIdentifier")]
+    revision: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Revision")]] = None
+    displayName: Optional[
+        Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountDisplayName")]
+    ] = None
 
 
 class UpdateRelationshipDetailTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
-    id: Optional[str] = None
-    revision: Optional[str] = None
-    displayName: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipId")]] = None
+    revision: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Revision")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipDisplayName")]] = None
 
 
 # This class is the output for the 'accept_channel_handshake' function.
@@ -308,11 +326,11 @@ class CreateChannelHandshakeResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_program_management_account' function.
 class CreateProgramManagementAccountRequestTypeDef(BaseValidatorModel):
-    catalog: str
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
     program: ProgramType
-    displayName: str
-    accountId: str
-    clientToken: Optional[str] = None
+    displayName: Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountDisplayName")]
+    accountId: Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ClientToken")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -323,7 +341,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("PartnercentralChannel", "TaggableArn")]
     tags: List[TagTypeDef]
 
 
@@ -375,21 +393,23 @@ class ListProgramManagementAccountsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_program_management_accounts' function.
 class ListProgramManagementAccountsRequestTypeDef(BaseValidatorModel):
-    catalog: str
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
     maxResults: Optional[int] = None
-    displayNames: Optional[List[str]] = None
+    displayNames: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountDisplayName")]]
+    ] = None
     programs: Optional[List[ProgramType]] = None
-    accountIds: Optional[List[str]] = None
+    accountIds: Optional[List[Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]]] = None
     statuses: Optional[List[ProgramManagementAccountStatusType]] = None
     sort: Optional[ListProgramManagementAccountsSortBaseTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "NextToken")]] = None
 
 
 # This class is the output for the 'list_program_management_accounts' function.
 class ListProgramManagementAccountsResponseTypeDef(BaseValidatorModel):
     items: List[ProgramManagementAccountSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "NextToken")]] = None
 
 
 class ListRelationshipsRequestPaginateTypeDef(BaseValidatorModel):
@@ -404,21 +424,25 @@ class ListRelationshipsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_relationships' function.
 class ListRelationshipsRequestTypeDef(BaseValidatorModel):
-    catalog: str
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
     maxResults: Optional[int] = None
-    associatedAccountIds: Optional[List[str]] = None
+    associatedAccountIds: Optional[List[Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]]] = None
     associationTypes: Optional[List[AssociationTypeType]] = None
-    displayNames: Optional[List[str]] = None
-    programManagementAccountIdentifiers: Optional[List[str]] = None
+    displayNames: Optional[List[Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipDisplayName")]]] = (
+        None
+    )
+    programManagementAccountIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountIdentifier")]]
+    ] = None
     sort: Optional[ListRelationshipsSortBaseTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "NextToken")]] = None
 
 
 # This class is the output for the 'list_relationships' function.
 class ListRelationshipsResponseTypeDef(BaseValidatorModel):
     items: List[RelationshipSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "NextToken")]] = None
 
 
 # This class is the output for the 'reject_channel_handshake' function.
@@ -434,10 +458,12 @@ class SupportPlanTypeDef(BaseValidatorModel):
 
 
 class StartServicePeriodPayloadTypeDef(BaseValidatorModel):
-    programManagementAccountIdentifier: str
+    programManagementAccountIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountIdentifier")
+    ]
     servicePeriodType: ServicePeriodTypeType
-    note: Optional[str] = None
-    minimumNoticeDays: Optional[str] = None
+    note: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Note")]] = None
+    minimumNoticeDays: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "MinimumNoticeDays")]] = None
     endDate: Optional[TimestampTypeDef] = None
 
 
@@ -454,15 +480,17 @@ class UpdateRelationshipResponseTypeDef(BaseValidatorModel):
 
 
 class ChannelHandshakeSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ChannelHandshakeId")]] = None
     arn: Optional[str] = None
-    catalog: Optional[str] = None
+    catalog: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]] = None
     handshakeType: Optional[HandshakeTypeType] = None
-    ownerAccountId: Optional[str] = None
-    senderAccountId: Optional[str] = None
-    senderDisplayName: Optional[str] = None
-    receiverAccountId: Optional[str] = None
-    associatedResourceId: Optional[str] = None
+    ownerAccountId: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]] = None
+    senderAccountId: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]] = None
+    senderDisplayName: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "PartnerProfileDisplayName")]] = (
+        None
+    )
+    receiverAccountId: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]] = None
+    associatedResourceId: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "AssociatedResourceId")]] = None
     detail: Optional[HandshakeDetailTypeDef] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
@@ -483,37 +511,43 @@ class ListChannelHandshakesRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_channel_handshakes' function.
 class ListChannelHandshakesRequestTypeDef(BaseValidatorModel):
     handshakeType: HandshakeTypeType
-    catalog: str
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
     participantType: ParticipantTypeType
     maxResults: Optional[int] = None
     statuses: Optional[List[HandshakeStatusType]] = None
-    associatedResourceIdentifiers: Optional[List[str]] = None
+    associatedResourceIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralChannel", "AssociatedResourceIdentifier")]]
+    ] = None
     handshakeTypeFilters: Optional[ListChannelHandshakesTypeFiltersTypeDef] = None
     handshakeTypeSort: Optional[ListChannelHandshakesTypeSortTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "NextToken")]] = None
 
 
 # This class is the input for the 'create_relationship' function.
 class CreateRelationshipRequestTypeDef(BaseValidatorModel):
-    catalog: str
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
     associationType: AssociationTypeType
-    programManagementAccountIdentifier: str
-    associatedAccountId: str
-    displayName: str
+    programManagementAccountIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountIdentifier")
+    ]
+    associatedAccountId: Annotated[str, _aws_pattern("PartnercentralChannel", "AccountId")]
+    displayName: Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipDisplayName")]
     sector: SectorType
     resaleAccountModel: Optional[ResaleAccountModelType] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ClientToken")]] = None
     tags: Optional[List[TagTypeDef]] = None
     requestedSupportPlan: Optional[SupportPlanTypeDef] = None
 
 
 # This class is the input for the 'update_relationship' function.
 class UpdateRelationshipRequestTypeDef(BaseValidatorModel):
-    catalog: str
-    identifier: str
-    programManagementAccountIdentifier: str
-    revision: Optional[str] = None
-    displayName: Optional[str] = None
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
+    identifier: Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipIdentifier")]
+    programManagementAccountIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralChannel", "ProgramManagementAccountIdentifier")
+    ]
+    revision: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "Revision")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "RelationshipDisplayName")]] = None
     requestedSupportPlan: Optional[SupportPlanTypeDef] = None
 
 
@@ -526,14 +560,14 @@ class ChannelHandshakePayloadTypeDef(BaseValidatorModel):
 class ListChannelHandshakesResponseTypeDef(BaseValidatorModel):
     items: List[ChannelHandshakeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "NextToken")]] = None
 
 
 # This class is the input for the 'create_channel_handshake' function.
 class CreateChannelHandshakeRequestTypeDef(BaseValidatorModel):
     handshakeType: HandshakeTypeType
-    catalog: str
-    associatedResourceIdentifier: str
+    catalog: Annotated[str, _aws_pattern("PartnercentralChannel", "Catalog")]
+    associatedResourceIdentifier: Annotated[str, _aws_pattern("PartnercentralChannel", "AssociatedResourceIdentifier")]
     payload: Optional[ChannelHandshakePayloadTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("PartnercentralChannel", "ClientToken")]] = None
     tags: Optional[List[TagTypeDef]] = None

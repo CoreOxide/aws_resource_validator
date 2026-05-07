@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.payment_cryptography.payment_cryptography_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,8 +42,8 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'add_key_replication_regions' function.
 class AddKeyReplicationRegionsInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
-    ReplicationRegions: List[str]
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+    ReplicationRegions: List[Annotated[str, _aws_pattern("PaymentCryptography", "Region")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -53,24 +55,39 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AliasTypeDef(BaseValidatorModel):
-    AliasName: str
-    KeyArn: Optional[str] = None
+    AliasName: Annotated[str, _aws_pattern("PaymentCryptography", "AliasName")]
+    KeyArn: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "KeyArn")]] = None
+
+
+# This class is the input for the 'associate_mpa_team' function.
+class AssociateMpaTeamInputTypeDef(BaseValidatorModel):
+    Action: Literal["IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE"]
+    MpaTeamArn: Annotated[str, _aws_pattern("PaymentCryptography", "MpaTeamArn")]
+    RequesterComment: Optional[str] = None
 
 
 class CertificateSubjectTypeTypeDef(BaseValidatorModel):
-    CommonName: str
-    OrganizationUnit: Optional[str] = None
-    Organization: Optional[str] = None
-    City: Optional[str] = None
-    Country: Optional[str] = None
-    StateOrProvince: Optional[str] = None
-    EmailAddress: Optional[str] = None
+    CommonName: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateSubjectTypeCommonNameString")]
+    OrganizationUnit: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptography", "CertificateSubjectTypeOrganizationUnitString")]
+    ] = None
+    Organization: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptography", "CertificateSubjectTypeOrganizationString")]
+    ] = None
+    City: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "CertificateSubjectTypeCityString")]] = None
+    Country: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "CertificateSubjectTypeCountryString")]] = None
+    StateOrProvince: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptography", "CertificateSubjectTypeStateOrProvinceString")]
+    ] = None
+    EmailAddress: Optional[
+        Annotated[str, _aws_pattern("PaymentCryptography", "CertificateSubjectTypeEmailAddressString")]
+    ] = None
 
 
 # This class is the input for the 'create_alias' function.
 class CreateAliasInputTypeDef(BaseValidatorModel):
-    AliasName: str
-    KeyArn: Optional[str] = None
+    AliasName: Annotated[str, _aws_pattern("PaymentCryptography", "AliasName")]
+    KeyArn: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "KeyArn")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -79,60 +96,75 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class DeleteAliasInputTypeDef(BaseValidatorModel):
-    AliasName: str
+    AliasName: Annotated[str, _aws_pattern("PaymentCryptography", "AliasName")]
 
 
 # This class is the input for the 'delete_key' function.
 class DeleteKeyInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
     DeleteKeyInDays: Optional[int] = None
 
 
+class DeleteResourcePolicyInputTypeDef(BaseValidatorModel):
+    ResourceArn: Annotated[str, _aws_pattern("PaymentCryptography", "ResourceArn")]
+
+
 class DiffieHellmanDerivationDataTypeDef(BaseValidatorModel):
-    SharedInformation: Optional[str] = None
+    SharedInformation: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "SharedInformation")]] = None
 
 
 # This class is the input for the 'disable_default_key_replication_regions' function.
 class DisableDefaultKeyReplicationRegionsInputTypeDef(BaseValidatorModel):
-    ReplicationRegions: List[str]
+    ReplicationRegions: List[Annotated[str, _aws_pattern("PaymentCryptography", "Region")]]
+
+
+# This class is the input for the 'disassociate_mpa_team' function.
+class DisassociateMpaTeamInputTypeDef(BaseValidatorModel):
+    Action: Literal["IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE"]
+    RequesterComment: Optional[str] = None
 
 
 # This class is the input for the 'enable_default_key_replication_regions' function.
 class EnableDefaultKeyReplicationRegionsInputTypeDef(BaseValidatorModel):
-    ReplicationRegions: List[str]
+    ReplicationRegions: List[Annotated[str, _aws_pattern("PaymentCryptography", "Region")]]
 
 
 class ExportAs2805KeyCryptogramTypeDef(BaseValidatorModel):
-    WrappingKeyIdentifier: str
+    WrappingKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
     As2805KeyVariant: As2805KeyVariantType
 
 
 class ExportDukptInitialKeyTypeDef(BaseValidatorModel):
-    KeySerialNumber: str
+    KeySerialNumber: Annotated[str, _aws_pattern("PaymentCryptography", "HexLength20Or24")]
 
 
 class ExportKeyCryptogramTypeDef(BaseValidatorModel):
-    CertificateAuthorityPublicKeyIdentifier: str
-    WrappingKeyCertificate: str
+    CertificateAuthorityPublicKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+    WrappingKeyCertificate: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
     WrappingSpec: Optional[WrappingKeySpecType] = None
 
 
 class WrappedKeyTypeDef(BaseValidatorModel):
-    WrappingKeyArn: str
+    WrappingKeyArn: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArn")]
     WrappedKeyMaterialFormat: WrappedKeyMaterialFormatType
     KeyMaterial: str
-    KeyCheckValue: Optional[str] = None
+    KeyCheckValue: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "KeyCheckValue")]] = None
     KeyCheckValueAlgorithm: Optional[KeyCheckValueAlgorithmType] = None
 
 
 # This class is the input for the 'get_alias' function.
 class GetAliasInputTypeDef(BaseValidatorModel):
-    AliasName: str
+    AliasName: Annotated[str, _aws_pattern("PaymentCryptography", "AliasName")]
 
 
 # This class is the input for the 'get_key' function.
 class GetKeyInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+
+
+# This class is the input for the 'get_mpa_team_association' function.
+class GetMpaTeamAssociationInputTypeDef(BaseValidatorModel):
+    Action: Literal["IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE"]
 
 
 # This class is the input for the 'get_parameters_for_export' function.
@@ -151,7 +183,12 @@ class GetParametersForImportInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_public_key_certificate' function.
 class GetPublicKeyCertificateInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+
+
+# This class is the input for the 'get_resource_policy' function.
+class GetResourcePolicyInputTypeDef(BaseValidatorModel):
+    ResourceArn: Annotated[str, _aws_pattern("PaymentCryptography", "ResourceArn")]
 
 
 class KeyModesOfUseTypeDef(BaseValidatorModel):
@@ -167,19 +204,26 @@ class KeyModesOfUseTypeDef(BaseValidatorModel):
 
 
 class ImportTr31KeyBlockTypeDef(BaseValidatorModel):
-    WrappingKeyIdentifier: str
-    WrappedKeyBlock: str
+    WrappingKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+    WrappedKeyBlock: Annotated[str, _aws_pattern("PaymentCryptography", "Tr31WrappedKeyBlock")]
 
 
 class ImportTr34KeyBlockTypeDef(BaseValidatorModel):
-    CertificateAuthorityPublicKeyIdentifier: str
-    SigningKeyCertificate: str
-    WrappedKeyBlock: str
+    CertificateAuthorityPublicKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+    SigningKeyCertificate: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
+    WrappedKeyBlock: Annotated[str, _aws_pattern("PaymentCryptography", "Tr34WrappedKeyBlock")]
     KeyBlockFormat: Literal["X9_TR34_2012"]
-    ImportToken: Optional[str] = None
-    WrappingKeyIdentifier: Optional[str] = None
-    WrappingKeyCertificate: Optional[str] = None
-    RandomNonce: Optional[str] = None
+    ImportToken: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "ImportTokenId")]] = None
+    WrappingKeyIdentifier: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]] = None
+    WrappingKeyCertificate: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]] = None
+    RandomNonce: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "EvenHexLengthBetween16And32")]] = None
+
+
+class MpaStatusTypeDef(BaseValidatorModel):
+    MpaSessionArn: Annotated[str, _aws_pattern("PaymentCryptography", "MpaSessionArn")]
+    Status: SessionStatusType
+    InitiationDate: datetime
+    StatusMessage: Optional[str] = None
 
 
 class ReplicationStatusTypeTypeDef(BaseValidatorModel):
@@ -195,7 +239,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_aliases' function.
 class ListAliasesInputTypeDef(BaseValidatorModel):
-    KeyArn: Optional[str] = None
+    KeyArn: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "KeyArn")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -209,90 +253,110 @@ class ListKeysInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PaymentCryptography", "ResourceArn")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
+class PutResourcePolicyInputTypeDef(BaseValidatorModel):
+    ResourceArn: Annotated[str, _aws_pattern("PaymentCryptography", "ResourceArn")]
+    Policy: Annotated[str, _aws_pattern("PaymentCryptography", "ResourcePolicy")]
+
+
 # This class is the input for the 'remove_key_replication_regions' function.
 class RemoveKeyReplicationRegionsInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
-    ReplicationRegions: List[str]
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+    ReplicationRegions: List[Annotated[str, _aws_pattern("PaymentCryptography", "Region")]]
 
 
 # This class is the input for the 'restore_key' function.
 class RestoreKeyInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
 
 
 # This class is the input for the 'start_key_usage' function.
 class StartKeyUsageInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
 
 
 # This class is the input for the 'stop_key_usage' function.
 class StopKeyUsageInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PaymentCryptography", "ResourceArn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_alias' function.
 class UpdateAliasInputTypeDef(BaseValidatorModel):
-    AliasName: str
-    KeyArn: Optional[str] = None
+    AliasName: Annotated[str, _aws_pattern("PaymentCryptography", "AliasName")]
+    KeyArn: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "KeyArn")]] = None
 
 
 # This class is the output for the 'disable_default_key_replication_regions' function.
 class DisableDefaultKeyReplicationRegionsOutputTypeDef(BaseValidatorModel):
-    EnabledReplicationRegions: List[str]
+    EnabledReplicationRegions: List[Annotated[str, _aws_pattern("PaymentCryptography", "Region")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'enable_default_key_replication_regions' function.
 class EnableDefaultKeyReplicationRegionsOutputTypeDef(BaseValidatorModel):
-    EnabledReplicationRegions: List[str]
+    EnabledReplicationRegions: List[Annotated[str, _aws_pattern("PaymentCryptography", "Region")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_certificate_signing_request' function.
 class GetCertificateSigningRequestOutputTypeDef(BaseValidatorModel):
-    CertificateSigningRequest: str
+    CertificateSigningRequest: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateSigningRequestType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class GetDefaultKeyReplicationRegionsOutputTypeDef(BaseValidatorModel):
-    EnabledReplicationRegions: List[str]
+    EnabledReplicationRegions: List[Annotated[str, _aws_pattern("PaymentCryptography", "Region")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_parameters_for_export' function.
 class GetParametersForExportOutputTypeDef(BaseValidatorModel):
-    SigningKeyCertificate: str
-    SigningKeyCertificateChain: str
+    SigningKeyCertificate: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
+    SigningKeyCertificateChain: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
     SigningKeyAlgorithm: KeyAlgorithmType
-    ExportToken: str
+    ExportToken: Annotated[str, _aws_pattern("PaymentCryptography", "ExportTokenId")]
     ParametersValidUntilTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_parameters_for_import' function.
 class GetParametersForImportOutputTypeDef(BaseValidatorModel):
-    WrappingKeyCertificate: str
-    WrappingKeyCertificateChain: str
+    WrappingKeyCertificate: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
+    WrappingKeyCertificateChain: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
     WrappingKeyAlgorithm: KeyAlgorithmType
-    ImportToken: str
+    ImportToken: Annotated[str, _aws_pattern("PaymentCryptography", "ImportTokenId")]
     ParametersValidUntilTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_public_key_certificate' function.
 class GetPublicKeyCertificateOutputTypeDef(BaseValidatorModel):
-    KeyCertificate: str
-    KeyCertificateChain: str
+    KeyCertificate: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
+    KeyCertificateChain: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'get_resource_policy' function.
+class GetResourcePolicyOutputTypeDef(BaseValidatorModel):
+    ResourceArn: Annotated[str, _aws_pattern("PaymentCryptography", "ResourceArn")]
+    Policy: Annotated[str, _aws_pattern("PaymentCryptography", "ResourcePolicy")]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'put_resource_policy' function.
+class PutResourcePolicyOutputTypeDef(BaseValidatorModel):
+    ResourceArn: Annotated[str, _aws_pattern("PaymentCryptography", "ResourceArn")]
+    Policy: Annotated[str, _aws_pattern("PaymentCryptography", "ResourcePolicy")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -323,7 +387,7 @@ class UpdateAliasOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_certificate_signing_request' function.
 class GetCertificateSigningRequestInputTypeDef(BaseValidatorModel):
-    KeyIdentifier: str
+    KeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
     SigningAlgorithm: SigningAlgorithmTypeType
     CertificateSubject: CertificateSubjectTypeTypeDef
 
@@ -336,19 +400,19 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PaymentCryptography", "ResourceArn")]
     Tags: List[TagTypeDef]
 
 
 class ImportDiffieHellmanTr31KeyBlockTypeDef(BaseValidatorModel):
-    PrivateKeyIdentifier: str
-    CertificateAuthorityPublicKeyIdentifier: str
-    PublicKeyCertificate: str
+    PrivateKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+    CertificateAuthorityPublicKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+    PublicKeyCertificate: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
     DeriveKeyAlgorithm: SymmetricKeyAlgorithmType
     KeyDerivationFunction: KeyDerivationFunctionType
     KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithmType
     DerivationData: DiffieHellmanDerivationDataTypeDef
-    WrappedKeyBlock: str
+    WrappedKeyBlock: Annotated[str, _aws_pattern("PaymentCryptography", "Tr31WrappedKeyBlock")]
 
 
 class ExportAttributesTypeDef(BaseValidatorModel):
@@ -367,8 +431,8 @@ class ImportAs2805KeyCryptogramTypeDef(BaseValidatorModel):
     KeyModesOfUse: KeyModesOfUseTypeDef
     KeyAlgorithm: KeyAlgorithmType
     Exportable: bool
-    WrappingKeyIdentifier: str
-    WrappedKeyCryptogram: str
+    WrappingKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+    WrappedKeyCryptogram: Annotated[str, _aws_pattern("PaymentCryptography", "WrappedKeyCryptogram")]
 
 
 class KeyAttributesTypeDef(BaseValidatorModel):
@@ -381,8 +445,15 @@ class KeyAttributesTypeDef(BaseValidatorModel):
 class KeyBlockHeadersTypeDef(BaseValidatorModel):
     KeyModesOfUse: Optional[KeyModesOfUseTypeDef] = None
     KeyExportability: Optional[KeyExportabilityType] = None
-    KeyVersion: Optional[str] = None
+    KeyVersion: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "KeyVersion")]] = None
     OptionalBlocks: Optional[Dict[str, str]] = None
+
+
+class MpaTeamAssociationTypeDef(BaseValidatorModel):
+    Action: Literal["IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE"]
+    MpaTeamArn: Annotated[str, _aws_pattern("PaymentCryptography", "MpaTeamArn")]
+    AssociationState: AssociationStateType
+    MpaStatus: Optional[MpaStatusTypeDef] = None
 
 
 class ListAliasesInputPaginateTypeDef(BaseValidatorModel):
@@ -408,32 +479,32 @@ class CreateKeyInputTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
     DeriveKeyUsage: Optional[DeriveKeyUsageType] = None
-    ReplicationRegions: Optional[List[str]] = None
+    ReplicationRegions: Optional[List[Annotated[str, _aws_pattern("PaymentCryptography", "Region")]]] = None
 
 
 class ImportKeyCryptogramTypeDef(BaseValidatorModel):
     KeyAttributes: KeyAttributesTypeDef
     Exportable: bool
-    WrappedKeyCryptogram: str
-    ImportToken: str
+    WrappedKeyCryptogram: Annotated[str, _aws_pattern("PaymentCryptography", "WrappedKeyCryptogram")]
+    ImportToken: Annotated[str, _aws_pattern("PaymentCryptography", "ImportTokenId")]
     WrappingSpec: Optional[WrappingKeySpecType] = None
 
 
 class KeySummaryTypeDef(BaseValidatorModel):
-    KeyArn: str
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArn")]
     KeyState: KeyStateType
     KeyAttributes: KeyAttributesTypeDef
-    KeyCheckValue: str
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptography", "KeyCheckValue")]
     Exportable: bool
     Enabled: bool
     MultiRegionKeyType: Optional[MultiRegionKeyTypeType] = None
-    PrimaryRegion: Optional[str] = None
+    PrimaryRegion: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "Region")]] = None
 
 
 class KeyTypeDef(BaseValidatorModel):
-    KeyArn: str
+    KeyArn: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArn")]
     KeyAttributes: KeyAttributesTypeDef
-    KeyCheckValue: str
+    KeyCheckValue: Annotated[str, _aws_pattern("PaymentCryptography", "KeyCheckValue")]
     KeyCheckValueAlgorithm: KeyCheckValueAlgorithmType
     Enabled: bool
     Exportable: bool
@@ -446,26 +517,27 @@ class KeyTypeDef(BaseValidatorModel):
     DeleteTimestamp: Optional[datetime] = None
     DeriveKeyUsage: Optional[DeriveKeyUsageType] = None
     MultiRegionKeyType: Optional[MultiRegionKeyTypeType] = None
-    PrimaryRegion: Optional[str] = None
+    PrimaryRegion: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "Region")]] = None
     ReplicationStatus: Optional[Dict[str, ReplicationStatusTypeTypeDef]] = None
     UsingDefaultReplicationRegions: Optional[bool] = None
+    MpaStatus: Optional[MpaStatusTypeDef] = None
 
 
 class RootCertificatePublicKeyTypeDef(BaseValidatorModel):
     KeyAttributes: KeyAttributesTypeDef
-    PublicKeyCertificate: str
+    PublicKeyCertificate: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
 
 
 class TrustedCertificatePublicKeyTypeDef(BaseValidatorModel):
     KeyAttributes: KeyAttributesTypeDef
-    PublicKeyCertificate: str
-    CertificateAuthorityPublicKeyIdentifier: str
+    PublicKeyCertificate: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
+    CertificateAuthorityPublicKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
 
 
 class ExportDiffieHellmanTr31KeyBlockTypeDef(BaseValidatorModel):
-    PrivateKeyIdentifier: str
-    CertificateAuthorityPublicKeyIdentifier: str
-    PublicKeyCertificate: str
+    PrivateKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+    CertificateAuthorityPublicKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+    PublicKeyCertificate: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
     DeriveKeyAlgorithm: SymmetricKeyAlgorithmType
     KeyDerivationFunction: KeyDerivationFunctionType
     KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithmType
@@ -474,19 +546,37 @@ class ExportDiffieHellmanTr31KeyBlockTypeDef(BaseValidatorModel):
 
 
 class ExportTr31KeyBlockTypeDef(BaseValidatorModel):
-    WrappingKeyIdentifier: str
+    WrappingKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
     KeyBlockHeaders: Optional[KeyBlockHeadersTypeDef] = None
 
 
 class ExportTr34KeyBlockTypeDef(BaseValidatorModel):
-    CertificateAuthorityPublicKeyIdentifier: str
-    WrappingKeyCertificate: str
+    CertificateAuthorityPublicKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
+    WrappingKeyCertificate: Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]
     KeyBlockFormat: Literal["X9_TR34_2012"]
-    ExportToken: Optional[str] = None
-    SigningKeyIdentifier: Optional[str] = None
-    SigningKeyCertificate: Optional[str] = None
-    RandomNonce: Optional[str] = None
+    ExportToken: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "ExportTokenId")]] = None
+    SigningKeyIdentifier: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]] = None
+    SigningKeyCertificate: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "CertificateType")]] = None
+    RandomNonce: Optional[Annotated[str, _aws_pattern("PaymentCryptography", "EvenHexLengthBetween16And32")]] = None
     KeyBlockHeaders: Optional[KeyBlockHeadersTypeDef] = None
+
+
+# This class is the output for the 'associate_mpa_team' function.
+class AssociateMpaTeamOutputTypeDef(BaseValidatorModel):
+    MpaTeamAssociation: MpaTeamAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'disassociate_mpa_team' function.
+class DisassociateMpaTeamOutputTypeDef(BaseValidatorModel):
+    MpaTeamAssociation: MpaTeamAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'get_mpa_team_association' function.
+class GetMpaTeamAssociationOutputTypeDef(BaseValidatorModel):
+    MpaTeamAssociation: MpaTeamAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_keys' function.
@@ -574,11 +664,12 @@ class ImportKeyInputTypeDef(BaseValidatorModel):
     KeyCheckValueAlgorithm: Optional[KeyCheckValueAlgorithmType] = None
     Enabled: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ReplicationRegions: Optional[List[str]] = None
+    ReplicationRegions: Optional[List[Annotated[str, _aws_pattern("PaymentCryptography", "Region")]]] = None
+    RequesterComment: Optional[str] = None
 
 
 # This class is the input for the 'export_key' function.
 class ExportKeyInputTypeDef(BaseValidatorModel):
     KeyMaterial: ExportKeyMaterialTypeDef
-    ExportKeyIdentifier: str
+    ExportKeyIdentifier: Annotated[str, _aws_pattern("PaymentCryptography", "KeyArnOrKeyAliasType")]
     ExportAttributes: Optional[ExportAttributesTypeDef] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mpa.mpa_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,11 +50,11 @@ class ApprovalTeamRequestApproverTypeDef(BaseValidatorModel):
 
 
 class CancelSessionRequestTypeDef(BaseValidatorModel):
-    SessionArn: str
+    SessionArn: Annotated[str, _aws_pattern("Mpa", "SessionArn")]
 
 
 class PolicyReferenceTypeDef(BaseValidatorModel):
-    PolicyArn: str
+    PolicyArn: Annotated[str, _aws_pattern("Mpa", "QualifiedPolicyArn")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -69,7 +71,7 @@ class DeleteIdentitySourceRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteInactiveApprovalTeamVersionRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mpa", "ApprovalTeamArn")]
     VersionId: str
 
 
@@ -81,7 +83,7 @@ class FilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_approval_team' function.
 class GetApprovalTeamRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mpa", "ApprovalTeamArn")]
 
 
 class MfaMethodTypeDef(BaseValidatorModel):
@@ -96,12 +98,12 @@ class GetIdentitySourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_policy_version' function.
 class GetPolicyVersionRequestTypeDef(BaseValidatorModel):
-    PolicyVersionArn: str
+    PolicyVersionArn: Annotated[str, _aws_pattern("Mpa", "QualifiedPolicyArn")]
 
 
 class PolicyVersionTypeDef(BaseValidatorModel):
-    Arn: str
-    PolicyArn: str
+    Arn: Annotated[str, _aws_pattern("Mpa", "QualifiedPolicyArn")]
+    PolicyArn: Annotated[str, _aws_pattern("Mpa", "UnqualifiedPolicyArn")]
     VersionId: int
     PolicyType: PolicyTypeType
     IsDefault: bool
@@ -121,7 +123,7 @@ class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_session' function.
 class GetSessionRequestTypeDef(BaseValidatorModel):
-    SessionArn: str
+    SessionArn: Annotated[str, _aws_pattern("Mpa", "SessionArn")]
 
 
 class GetSessionResponseApproverResponseTypeDef(BaseValidatorModel):
@@ -145,7 +147,7 @@ class IamIdentityCenterForListTypeDef(BaseValidatorModel):
 
 
 class IamIdentityCenterTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("Mpa", "IdcInstanceArn")]
     Region: str
 
 
@@ -174,7 +176,7 @@ class ListPoliciesRequestTypeDef(BaseValidatorModel):
 
 
 class PolicyTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mpa", "UnqualifiedPolicyArn")]
     DefaultVersion: int
     PolicyType: PolicyTypeType
     Name: str
@@ -182,14 +184,14 @@ class PolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_policy_versions' function.
 class ListPolicyVersionsRequestTypeDef(BaseValidatorModel):
-    PolicyArn: str
+    PolicyArn: Annotated[str, _aws_pattern("Mpa", "UnqualifiedPolicyArn")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class PolicyVersionSummaryTypeDef(BaseValidatorModel):
-    Arn: str
-    PolicyArn: str
+    Arn: Annotated[str, _aws_pattern("Mpa", "QualifiedPolicyArn")]
+    PolicyArn: Annotated[str, _aws_pattern("Mpa", "UnqualifiedPolicyArn")]
     VersionId: int
     PolicyType: PolicyTypeType
     IsDefault: bool
@@ -213,9 +215,9 @@ class ListResourcePoliciesResponseResourcePolicyTypeDef(BaseValidatorModel):
 
 
 class ListSessionsResponseSessionTypeDef(BaseValidatorModel):
-    SessionArn: Optional[str] = None
-    ApprovalTeamName: Optional[str] = None
-    ApprovalTeamArn: Optional[str] = None
+    SessionArn: Optional[Annotated[str, _aws_pattern("Mpa", "SessionArn")]] = None
+    ApprovalTeamName: Optional[Annotated[str, _aws_pattern("Mpa", "ApprovalTeamName")]] = None
+    ApprovalTeamArn: Optional[Annotated[str, _aws_pattern("Mpa", "ApprovalTeamArn")]] = None
     InitiationTime: Optional[datetime] = None
     ExpirationTime: Optional[datetime] = None
     CompletionTime: Optional[datetime] = None
@@ -225,7 +227,7 @@ class ListSessionsResponseSessionTypeDef(BaseValidatorModel):
     RequesterServicePrincipal: Optional[str] = None
     RequesterPrincipalArn: Optional[str] = None
     RequesterRegion: Optional[str] = None
-    RequesterAccountId: Optional[str] = None
+    RequesterAccountId: Optional[Annotated[str, _aws_pattern("Mpa", "AccountId")]] = None
     Status: Optional[SessionStatusType] = None
     StatusCode: Optional[SessionStatusCodeType] = None
     StatusMessage: Optional[str] = None
@@ -240,13 +242,13 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_active_approval_team_deletion' function.
 class StartActiveApprovalTeamDeletionRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mpa", "ApprovalTeamArn")]
     PendingWindowDays: Optional[int] = None
 
 
 # This class is the input for the 'start_approval_team_baseline' function.
 class StartApprovalTeamBaselineRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mpa", "ApprovalTeamArn")]
     ApproverIds: Optional[List[str]] = None
 
 
@@ -271,7 +273,7 @@ class ApprovalStrategyTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_approval_team' function.
 class CreateApprovalTeamResponseTypeDef(BaseValidatorModel):
     CreationTime: datetime
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mpa", "ApprovalTeamArn")]
     Name: str
     VersionId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -315,7 +317,7 @@ class StartActiveApprovalTeamDeletionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_approval_team_baseline' function.
 class StartApprovalTeamBaselineResponseTypeDef(BaseValidatorModel):
-    BaselineSessionArn: str
+    BaselineSessionArn: Annotated[str, _aws_pattern("Mpa", "SessionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -327,7 +329,7 @@ class UpdateApprovalTeamResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_sessions' function.
 class ListSessionsRequestTypeDef(BaseValidatorModel):
-    ApprovalTeamArn: str
+    ApprovalTeamArn: Annotated[str, _aws_pattern("Mpa", "ApprovalTeamArn")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[FilterTypeDef]] = None
@@ -341,7 +343,7 @@ class GetApprovalTeamResponseApproverTypeDef(BaseValidatorModel):
     PrimaryIdentityStatus: Optional[IdentityStatusType] = None
     LastActivity: Optional[ApproverLastActivityType] = None
     LastActivityTime: Optional[datetime] = None
-    PendingBaselineSessionArn: Optional[str] = None
+    PendingBaselineSessionArn: Optional[Annotated[str, _aws_pattern("Mpa", "SessionArn")]] = None
     MfaMethods: Optional[List[MfaMethodTypeDef]] = None
 
 
@@ -421,9 +423,9 @@ class ListSessionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_session' function.
 class GetSessionResponseTypeDef(BaseValidatorModel):
-    SessionArn: str
-    ApprovalTeamArn: str
-    ApprovalTeamName: str
+    SessionArn: Annotated[str, _aws_pattern("Mpa", "SessionArn")]
+    ApprovalTeamArn: Annotated[str, _aws_pattern("Mpa", "ApprovalTeamArn")]
+    ApprovalTeamName: Annotated[str, _aws_pattern("Mpa", "ApprovalTeamName")]
     ProtectedResourceArn: str
     ApprovalStrategy: ApprovalStrategyResponseTypeDef
     NumberOfApprovers: int
@@ -439,7 +441,7 @@ class GetSessionResponseTypeDef(BaseValidatorModel):
     ActionName: str
     RequesterServicePrincipal: str
     RequesterPrincipalArn: str
-    RequesterAccountId: str
+    RequesterAccountId: Annotated[str, _aws_pattern("Mpa", "AccountId")]
     RequesterRegion: str
     RequesterComment: str
     ActionCompletionStrategy: Literal["AUTO_COMPLETION_UPON_APPROVAL"]
@@ -452,8 +454,8 @@ class ListApprovalTeamsResponseApprovalTeamTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     ApprovalStrategy: Optional[ApprovalStrategyResponseTypeDef] = None
     NumberOfApprovers: Optional[int] = None
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Mpa", "ApprovalTeamArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Mpa", "ApprovalTeamName")]] = None
     Description: Optional[str] = None
     Status: Optional[ApprovalTeamStatusType] = None
     StatusCode: Optional[ApprovalTeamStatusCodeType] = None
@@ -466,14 +468,14 @@ class CreateApprovalTeamRequestTypeDef(BaseValidatorModel):
     Approvers: List[ApprovalTeamRequestApproverTypeDef]
     Description: str
     Policies: List[PolicyReferenceTypeDef]
-    Name: str
+    Name: Annotated[str, _aws_pattern("Mpa", "ApprovalTeamName")]
     ClientToken: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_approval_team' function.
 class UpdateApprovalTeamRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mpa", "ApprovalTeamArn")]
     ApprovalStrategy: Optional[ApprovalStrategyTypeDef] = None
     Approvers: Optional[List[ApprovalTeamRequestApproverTypeDef]] = None
     Description: Optional[str] = None

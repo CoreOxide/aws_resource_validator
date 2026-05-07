@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.personalize_events.personalize_events_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -54,7 +56,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class MetricAttributionTypeDef(BaseValidatorModel):
-    eventAttributionSource: str
+    eventAttributionSource: Annotated[str, _aws_pattern("PersonalizeEvents", "EventAttributionSource")]
 
 
 class ItemTypeDef(BaseValidatorModel):
@@ -81,7 +83,7 @@ class ActionInteractionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_actions' function.
 class PutActionsRequestTypeDef(BaseValidatorModel):
-    datasetArn: str
+    datasetArn: Annotated[str, _aws_pattern("PersonalizeEvents", "Arn")]
     actions: List[ActionTypeDef]
 
 
@@ -104,13 +106,13 @@ class EventTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_items' function.
 class PutItemsRequestTypeDef(BaseValidatorModel):
-    datasetArn: str
+    datasetArn: Annotated[str, _aws_pattern("PersonalizeEvents", "Arn")]
     items: List[ItemTypeDef]
 
 
 # This class is the input for the 'put_users' function.
 class PutUsersRequestTypeDef(BaseValidatorModel):
-    datasetArn: str
+    datasetArn: Annotated[str, _aws_pattern("PersonalizeEvents", "Arn")]
     users: List[UserTypeDef]
 
 

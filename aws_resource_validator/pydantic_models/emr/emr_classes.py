@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.emr.emr_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -102,8 +104,8 @@ class CancelStepsInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_steps' function.
 class CancelStepsInputTypeDef(BaseValidatorModel):
-    ClusterId: str
-    StepIds: List[str]
+    ClusterId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
+    StepIds: List[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]]
     StepCancellationOption: Optional[StepCancellationOptionType] = None
 
 
@@ -122,9 +124,9 @@ class CloudWatchLogConfigurationOutputTypeDef(BaseValidatorModel):
 
 class CloudWatchLogConfigurationTypeDef(BaseValidatorModel):
     Enabled: bool
-    LogGroupName: Optional[str] = None
-    LogStreamNamePrefix: Optional[str] = None
-    EncryptionKeyArn: Optional[str] = None
+    LogGroupName: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    LogStreamNamePrefix: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    EncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
     LogTypes: Optional[Dict[str, List[str]]] = None
 
 
@@ -154,9 +156,9 @@ class ConfigurationOutputTypeDef(BaseValidatorModel):
 class Ec2InstanceAttributesTypeDef(BaseValidatorModel):
     Ec2KeyName: Optional[str] = None
     Ec2SubnetId: Optional[str] = None
-    RequestedEc2SubnetIds: Optional[List[str]] = None
+    RequestedEc2SubnetIds: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]]] = None
     Ec2AvailabilityZone: Optional[str] = None
-    RequestedEc2AvailabilityZones: Optional[List[str]] = None
+    RequestedEc2AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]]] = None
     IamInstanceProfile: Optional[str] = None
     EmrManagedMasterSecurityGroup: Optional[str] = None
     EmrManagedSlaveSecurityGroup: Optional[str] = None
@@ -166,11 +168,11 @@ class Ec2InstanceAttributesTypeDef(BaseValidatorModel):
 
 
 class KerberosAttributesTypeDef(BaseValidatorModel):
-    Realm: str
-    KdcAdminPassword: str
-    CrossRealmTrustPrincipalPassword: Optional[str] = None
-    ADDomainJoinUser: Optional[str] = None
-    ADDomainJoinPassword: Optional[str] = None
+    Realm: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
+    KdcAdminPassword: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
+    CrossRealmTrustPrincipalPassword: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    ADDomainJoinUser: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    ADDomainJoinPassword: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 class PlacementGroupConfigTypeDef(BaseValidatorModel):
@@ -205,44 +207,44 @@ class ConfigurationTypeDef(BaseValidatorModel):
 
 
 class EMRContainersConfigTypeDef(BaseValidatorModel):
-    JobRunId: Optional[str] = None
+    JobRunId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 # This class is the input for the 'create_security_configuration' function.
 class CreateSecurityConfigurationInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Emr", "XmlString")]
     SecurityConfiguration: str
 
 
 # This class is the input for the 'create_studio_session_mapping' function.
 class CreateStudioSessionMappingInputTypeDef(BaseValidatorModel):
-    StudioId: str
+    StudioId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     IdentityType: IdentityTypeType
-    SessionPolicyArn: str
-    IdentityId: Optional[str] = None
-    IdentityName: Optional[str] = None
+    SessionPolicyArn: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
+    IdentityId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    IdentityName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 class UsernamePasswordTypeDef(BaseValidatorModel):
-    Username: Optional[str] = None
-    Password: Optional[str] = None
+    Username: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 class DeleteSecurityConfigurationInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Emr", "XmlString")]
 
 
 # This class is the input for the 'delete_studio' function.
 class DeleteStudioInputTypeDef(BaseValidatorModel):
-    StudioId: str
+    StudioId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
 
 
 # This class is the input for the 'delete_studio_session_mapping' function.
 class DeleteStudioSessionMappingInputTypeDef(BaseValidatorModel):
-    StudioId: str
+    StudioId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     IdentityType: IdentityTypeType
-    IdentityId: Optional[str] = None
-    IdentityName: Optional[str] = None
+    IdentityId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    IdentityName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 # This class is the input for the 'describe_cluster' function.
@@ -260,12 +262,12 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'describe_notebook_execution' function.
 class DescribeNotebookExecutionInputTypeDef(BaseValidatorModel):
-    NotebookExecutionId: str
+    NotebookExecutionId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
 
 
 # This class is the input for the 'describe_persistent_app_ui' function.
 class DescribePersistentAppUIInputTypeDef(BaseValidatorModel):
-    PersistentAppUIId: str
+    PersistentAppUIId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
 
 
 # This class is the input for the 'describe_release_label' function.
@@ -286,7 +288,7 @@ class SimplifiedApplicationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_security_configuration' function.
 class DescribeSecurityConfigurationInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Emr", "XmlString")]
 
 
 # This class is the input for the 'describe_step' function.
@@ -297,7 +299,7 @@ class DescribeStepInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_studio' function.
 class DescribeStudioInputTypeDef(BaseValidatorModel):
-    StudioId: str
+    StudioId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
 
 
 class VolumeSpecificationTypeDef(BaseValidatorModel):
@@ -313,10 +315,10 @@ class EbsVolumeTypeDef(BaseValidatorModel):
 
 
 class ExecutionEngineConfigTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     Type: Optional[Literal["EMR"]] = None
-    MasterInstanceSecurityGroupId: Optional[str] = None
-    ExecutionRoleArn: Optional[str] = None
+    MasterInstanceSecurityGroupId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Emr", "IAMRoleArn")]] = None
 
 
 class FailureDetailsTypeDef(BaseValidatorModel):
@@ -332,7 +334,7 @@ class GetAutoTerminationPolicyInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_cluster_session_credentials' function.
 class GetClusterSessionCredentialsInputTypeDef(BaseValidatorModel):
-    ClusterId: str
+    ClusterId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     ExecutionRoleArn: Optional[str] = None
 
 
@@ -343,43 +345,43 @@ class GetManagedScalingPolicyInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_on_cluster_app_ui_presigned_url' function.
 class GetOnClusterAppUIPresignedURLInputTypeDef(BaseValidatorModel):
-    ClusterId: str
+    ClusterId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     OnClusterAppUIType: Optional[OnClusterAppUITypeType] = None
-    ApplicationId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     DryRun: Optional[bool] = None
     ExecutionRoleArn: Optional[str] = None
 
 
 # This class is the input for the 'get_persistent_app_ui_presigned_url' function.
 class GetPersistentAppUIPresignedURLInputTypeDef(BaseValidatorModel):
-    PersistentAppUIId: str
+    PersistentAppUIId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     PersistentAppUIType: Optional[PersistentAppUITypeType] = None
-    ApplicationId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     AuthProxyCall: Optional[bool] = None
     ExecutionRoleArn: Optional[str] = None
 
 
 # This class is the input for the 'get_studio_session_mapping' function.
 class GetStudioSessionMappingInputTypeDef(BaseValidatorModel):
-    StudioId: str
+    StudioId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     IdentityType: IdentityTypeType
-    IdentityId: Optional[str] = None
-    IdentityName: Optional[str] = None
+    IdentityId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    IdentityName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 class SessionMappingDetailTypeDef(BaseValidatorModel):
-    StudioId: Optional[str] = None
-    IdentityId: Optional[str] = None
-    IdentityName: Optional[str] = None
+    StudioId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    IdentityId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    IdentityName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     IdentityType: Optional[IdentityTypeType] = None
-    SessionPolicyArn: Optional[str] = None
+    SessionPolicyArn: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
 class KeyValueTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
 
 
 class HadoopStepConfigTypeDef(BaseValidatorModel):
@@ -415,19 +417,19 @@ class InstanceFleetTimelineTypeDef(BaseValidatorModel):
 class InstanceGroupDetailTypeDef(BaseValidatorModel):
     Market: MarketTypeType
     InstanceRole: InstanceRoleTypeType
-    InstanceType: str
+    InstanceType: Annotated[str, _aws_pattern("Emr", "InstanceType")]
     InstanceRequestCount: int
     InstanceRunningCount: int
     State: InstanceGroupStateType
     CreationDateTime: datetime
-    InstanceGroupId: Optional[str] = None
-    Name: Optional[str] = None
-    BidPrice: Optional[str] = None
-    LastStateChangeReason: Optional[str] = None
+    InstanceGroupId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    BidPrice: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    LastStateChangeReason: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
     StartDateTime: Optional[datetime] = None
     ReadyDateTime: Optional[datetime] = None
     EndDateTime: Optional[datetime] = None
-    CustomAmiId: Optional[str] = None
+    CustomAmiId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 class InstanceGroupStateChangeReasonTypeDef(BaseValidatorModel):
@@ -470,7 +472,7 @@ class JobFlowExecutionStatusDetailTypeDef(BaseValidatorModel):
     StartDateTime: Optional[datetime] = None
     ReadyDateTime: Optional[datetime] = None
     EndDateTime: Optional[datetime] = None
-    LastStateChangeReason: Optional[str] = None
+    LastStateChangeReason: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
 
 
 class PlacementTypeOutputTypeDef(BaseValidatorModel):
@@ -524,7 +526,7 @@ class ListSecurityConfigurationsInputTypeDef(BaseValidatorModel):
 
 
 class SecurityConfigurationSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
     CreationDateTime: Optional[datetime] = None
 
 
@@ -532,23 +534,23 @@ class SecurityConfigurationSummaryTypeDef(BaseValidatorModel):
 class ListStepsInputTypeDef(BaseValidatorModel):
     ClusterId: str
     StepStates: Optional[List[StepStateType]] = None
-    StepIds: Optional[List[str]] = None
+    StepIds: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlString")]]] = None
     Marker: Optional[str] = None
 
 
 # This class is the input for the 'list_studio_session_mappings' function.
 class ListStudioSessionMappingsInputTypeDef(BaseValidatorModel):
-    StudioId: Optional[str] = None
+    StudioId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     IdentityType: Optional[IdentityTypeType] = None
     Marker: Optional[str] = None
 
 
 class SessionMappingSummaryTypeDef(BaseValidatorModel):
-    StudioId: Optional[str] = None
-    IdentityId: Optional[str] = None
-    IdentityName: Optional[str] = None
+    StudioId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    IdentityId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    IdentityName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     IdentityType: Optional[IdentityTypeType] = None
-    SessionPolicyArn: Optional[str] = None
+    SessionPolicyArn: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     CreationTime: Optional[datetime] = None
 
 
@@ -558,11 +560,11 @@ class ListStudiosInputTypeDef(BaseValidatorModel):
 
 
 class StudioSummaryTypeDef(BaseValidatorModel):
-    StudioId: Optional[str] = None
-    Name: Optional[str] = None
-    VpcId: Optional[str] = None
-    Description: Optional[str] = None
-    Url: Optional[str] = None
+    StudioId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Url: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     AuthMode: Optional[AuthModeType] = None
     CreationTime: Optional[datetime] = None
 
@@ -603,34 +605,34 @@ class S3LoggingConfigurationTypeDef(BaseValidatorModel):
 
 
 class NotebookS3LocationForOutputTypeDef(BaseValidatorModel):
-    Bucket: Optional[str] = None
-    Key: Optional[str] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Emr", "UriString")]] = None
 
 
 class OutputNotebookS3LocationForOutputTypeDef(BaseValidatorModel):
-    Bucket: Optional[str] = None
-    Key: Optional[str] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Emr", "UriString")]] = None
 
 
 class NotebookS3LocationFromInputTypeDef(BaseValidatorModel):
-    Bucket: Optional[str] = None
-    Key: Optional[str] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Emr", "UriString")]] = None
 
 
 class OnDemandCapacityReservationOptionsTypeDef(BaseValidatorModel):
     UsageStrategy: Optional[Literal["use-capacity-reservations-first"]] = None
     CapacityReservationPreference: Optional[OnDemandCapacityReservationPreferenceType] = None
-    CapacityReservationResourceGroupArn: Optional[str] = None
+    CapacityReservationResourceGroupArn: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 class OutputNotebookS3LocationFromInputTypeDef(BaseValidatorModel):
-    Bucket: Optional[str] = None
-    Key: Optional[str] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Emr", "UriString")]] = None
 
 
 class PlacementTypeTypeDef(BaseValidatorModel):
-    AvailabilityZone: Optional[str] = None
-    AvailabilityZones: Optional[List[str]] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]]] = None
 
 
 class RemoveAutoScalingPolicyInputTypeDef(BaseValidatorModel):
@@ -652,13 +654,13 @@ class RemoveTagsInputTypeDef(BaseValidatorModel):
 
 
 class SupportedProductConfigTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Args: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Args: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlString")]]] = None
 
 
 class S3MonitoringConfigurationTypeDef(BaseValidatorModel):
-    LogUri: Optional[str] = None
-    EncryptionKeyArn: Optional[str] = None
+    LogUri: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    EncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
 
 
 class SimpleScalingPolicyConfigurationTypeDef(BaseValidatorModel):
@@ -668,31 +670,31 @@ class SimpleScalingPolicyConfigurationTypeDef(BaseValidatorModel):
 
 
 class ScriptBootstrapActionConfigTypeDef(BaseValidatorModel):
-    Path: str
-    Args: Optional[List[str]] = None
+    Path: Annotated[str, _aws_pattern("Emr", "XmlString")]
+    Args: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlString")]]] = None
 
 
 # This class is the input for the 'set_keep_job_flow_alive_when_no_steps' function.
 class SetKeepJobFlowAliveWhenNoStepsInputTypeDef(BaseValidatorModel):
-    JobFlowIds: List[str]
+    JobFlowIds: List[Annotated[str, _aws_pattern("Emr", "XmlString")]]
     KeepJobFlowAliveWhenNoSteps: bool
 
 
 # This class is the input for the 'set_termination_protection' function.
 class SetTerminationProtectionInputTypeDef(BaseValidatorModel):
-    JobFlowIds: List[str]
+    JobFlowIds: List[Annotated[str, _aws_pattern("Emr", "XmlString")]]
     TerminationProtected: bool
 
 
 # This class is the input for the 'set_unhealthy_node_replacement' function.
 class SetUnhealthyNodeReplacementInputTypeDef(BaseValidatorModel):
-    JobFlowIds: List[str]
+    JobFlowIds: List[Annotated[str, _aws_pattern("Emr", "XmlString")]]
     UnhealthyNodeReplacement: bool
 
 
 # This class is the input for the 'set_visible_to_all_users' function.
 class SetVisibleToAllUsersInputTypeDef(BaseValidatorModel):
-    JobFlowIds: List[str]
+    JobFlowIds: List[Annotated[str, _aws_pattern("Emr", "XmlString")]]
     VisibleToAllUsers: bool
 
 
@@ -701,7 +703,7 @@ class StepExecutionStatusDetailTypeDef(BaseValidatorModel):
     CreationDateTime: datetime
     StartDateTime: Optional[datetime] = None
     EndDateTime: Optional[datetime] = None
-    LastStateChangeReason: Optional[str] = None
+    LastStateChangeReason: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
 
 
 class StepStateChangeReasonTypeDef(BaseValidatorModel):
@@ -717,36 +719,36 @@ class StepTimelineTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'stop_notebook_execution' function.
 class StopNotebookExecutionInputTypeDef(BaseValidatorModel):
-    NotebookExecutionId: str
+    NotebookExecutionId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
 
 
 # This class is the input for the 'terminate_job_flows' function.
 class TerminateJobFlowsInputTypeDef(BaseValidatorModel):
-    JobFlowIds: List[str]
+    JobFlowIds: List[Annotated[str, _aws_pattern("Emr", "XmlString")]]
 
 
 # This class is the input for the 'update_studio' function.
 class UpdateStudioInputTypeDef(BaseValidatorModel):
-    StudioId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    StudioId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
+    Name: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     SubnetIds: Optional[List[str]] = None
-    DefaultS3Location: Optional[str] = None
-    EncryptionKeyArn: Optional[str] = None
+    DefaultS3Location: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    EncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
 
 
 # This class is the input for the 'update_studio_session_mapping' function.
 class UpdateStudioSessionMappingInputTypeDef(BaseValidatorModel):
-    StudioId: str
+    StudioId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     IdentityType: IdentityTypeType
-    SessionPolicyArn: str
-    IdentityId: Optional[str] = None
-    IdentityName: Optional[str] = None
+    SessionPolicyArn: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
+    IdentityId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    IdentityName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 # This class is the output for the 'add_instance_fleet' function.
 class AddInstanceFleetOutputTypeDef(BaseValidatorModel):
-    ClusterId: str
+    ClusterId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     InstanceFleetId: str
     ClusterArn: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -754,42 +756,42 @@ class AddInstanceFleetOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'add_instance_groups' function.
 class AddInstanceGroupsOutputTypeDef(BaseValidatorModel):
-    JobFlowId: str
-    InstanceGroupIds: List[str]
+    JobFlowId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
+    InstanceGroupIds: List[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]]
     ClusterArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'add_job_flow_steps' function.
 class AddJobFlowStepsOutputTypeDef(BaseValidatorModel):
-    StepIds: List[str]
+    StepIds: List[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_persistent_app_ui' function.
 class CreatePersistentAppUIOutputTypeDef(BaseValidatorModel):
-    PersistentAppUIId: str
+    PersistentAppUIId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     RuntimeRoleEnabledCluster: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_security_configuration' function.
 class CreateSecurityConfigurationOutputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Emr", "XmlString")]
     CreationDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_studio' function.
 class CreateStudioOutputTypeDef(BaseValidatorModel):
-    StudioId: str
-    Url: str
+    StudioId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
+    Url: Annotated[str, _aws_pattern("Emr", "XmlString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_security_configuration' function.
 class DescribeSecurityConfigurationOutputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Emr", "XmlString")]
     SecurityConfiguration: str
     CreationDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -803,14 +805,14 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_on_cluster_app_ui_presigned_url' function.
 class GetOnClusterAppUIPresignedURLOutputTypeDef(BaseValidatorModel):
     PresignedURLReady: bool
-    PresignedURL: str
+    PresignedURL: Annotated[str, _aws_pattern("Emr", "XmlString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_persistent_app_ui_presigned_url' function.
 class GetPersistentAppUIPresignedURLOutputTypeDef(BaseValidatorModel):
     PresignedURLReady: bool
-    PresignedURL: str
+    PresignedURL: Annotated[str, _aws_pattern("Emr", "XmlString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -830,14 +832,14 @@ class ModifyClusterOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'run_job_flow' function.
 class RunJobFlowOutputTypeDef(BaseValidatorModel):
-    JobFlowId: str
+    JobFlowId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     ClusterArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_notebook_execution' function.
 class StartNotebookExecutionOutputTypeDef(BaseValidatorModel):
-    NotebookExecutionId: str
+    NotebookExecutionId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -848,58 +850,58 @@ class AddTagsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_studio' function.
 class CreateStudioInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     AuthMode: AuthModeType
-    VpcId: str
+    VpcId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     SubnetIds: List[str]
-    ServiceRole: str
-    WorkspaceSecurityGroupId: str
-    EngineSecurityGroupId: str
-    DefaultS3Location: str
-    Description: Optional[str] = None
-    UserRole: Optional[str] = None
-    IdpAuthUrl: Optional[str] = None
-    IdpRelayStateParameterName: Optional[str] = None
+    ServiceRole: Annotated[str, _aws_pattern("Emr", "XmlString")]
+    WorkspaceSecurityGroupId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
+    EngineSecurityGroupId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
+    DefaultS3Location: Annotated[str, _aws_pattern("Emr", "XmlString")]
+    Description: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    UserRole: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    IdpAuthUrl: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    IdpRelayStateParameterName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     TrustedIdentityPropagationEnabled: Optional[bool] = None
     IdcUserAssignment: Optional[IdcUserAssignmentType] = None
     IdcInstanceArn: Optional[str] = None
-    EncryptionKeyArn: Optional[str] = None
+    EncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
 
 
 class PersistentAppUITypeDef(BaseValidatorModel):
-    PersistentAppUIId: Optional[str] = None
+    PersistentAppUIId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     PersistentAppUITypeList: Optional[List[PersistentAppUITypeType]] = None
-    PersistentAppUIStatus: Optional[str] = None
-    AuthorId: Optional[str] = None
+    PersistentAppUIStatus: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    AuthorId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    LastStateChangeReason: Optional[str] = None
+    LastStateChangeReason: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class StudioTypeDef(BaseValidatorModel):
-    StudioId: Optional[str] = None
-    StudioArn: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    StudioId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    StudioArn: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     AuthMode: Optional[AuthModeType] = None
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     SubnetIds: Optional[List[str]] = None
-    ServiceRole: Optional[str] = None
-    UserRole: Optional[str] = None
-    WorkspaceSecurityGroupId: Optional[str] = None
-    EngineSecurityGroupId: Optional[str] = None
-    Url: Optional[str] = None
+    ServiceRole: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    UserRole: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    WorkspaceSecurityGroupId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    EngineSecurityGroupId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Url: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
     CreationTime: Optional[datetime] = None
-    DefaultS3Location: Optional[str] = None
-    IdpAuthUrl: Optional[str] = None
-    IdpRelayStateParameterName: Optional[str] = None
+    DefaultS3Location: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    IdpAuthUrl: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    IdpRelayStateParameterName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     IdcInstanceArn: Optional[str] = None
     TrustedIdentityPropagationEnabled: Optional[bool] = None
     IdcUserAssignment: Optional[IdcUserAssignmentType] = None
-    EncryptionKeyArn: Optional[str] = None
+    EncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
 
 
 ApplicationUnionTypeDef = Union[ApplicationOutputTypeDef, ApplicationTypeDef]
@@ -1022,7 +1024,7 @@ class DescribeStepInputWaitTypeDef(BaseValidatorModel):
 class DescribeJobFlowsInputTypeDef(BaseValidatorModel):
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
-    JobFlowIds: Optional[List[str]] = None
+    JobFlowIds: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlString")]]] = None
     JobFlowStates: Optional[List[JobFlowExecutionStateType]] = None
 
 
@@ -1036,12 +1038,12 @@ class ListClustersInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_notebook_executions' function.
 class ListNotebookExecutionsInputTypeDef(BaseValidatorModel):
-    EditorId: Optional[str] = None
+    EditorId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Status: Optional[NotebookExecutionStatusType] = None
     From: Optional[TimestampTypeDef] = None
     To: Optional[TimestampTypeDef] = None
     Marker: Optional[str] = None
-    ExecutionEngineId: Optional[str] = None
+    ExecutionEngineId: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
 
 
 # This class is the output for the 'describe_release_label' function.
@@ -1077,10 +1079,10 @@ class HadoopJarStepConfigOutputTypeDef(BaseValidatorModel):
 
 
 class HadoopJarStepConfigTypeDef(BaseValidatorModel):
-    Jar: str
+    Jar: Annotated[str, _aws_pattern("Emr", "XmlString")]
     Properties: Optional[List[KeyValueTypeDef]] = None
-    MainClass: Optional[str] = None
-    Args: Optional[List[str]] = None
+    MainClass: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    Args: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlString")]]] = None
 
 
 class InstanceFleetStatusTypeDef(BaseValidatorModel):
@@ -1110,20 +1112,20 @@ class InstanceStatusTypeDef(BaseValidatorModel):
 
 
 class JobFlowInstancesDetailTypeDef(BaseValidatorModel):
-    MasterInstanceType: str
-    SlaveInstanceType: str
+    MasterInstanceType: Annotated[str, _aws_pattern("Emr", "InstanceType")]
+    SlaveInstanceType: Annotated[str, _aws_pattern("Emr", "InstanceType")]
     InstanceCount: int
-    MasterPublicDnsName: Optional[str] = None
-    MasterInstanceId: Optional[str] = None
+    MasterPublicDnsName: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    MasterInstanceId: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
     InstanceGroups: Optional[List[InstanceGroupDetailTypeDef]] = None
     NormalizedInstanceHours: Optional[int] = None
-    Ec2KeyName: Optional[str] = None
-    Ec2SubnetId: Optional[str] = None
+    Ec2KeyName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Ec2SubnetId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Placement: Optional[PlacementTypeOutputTypeDef] = None
     KeepJobFlowAliveWhenNoSteps: Optional[bool] = None
     TerminationProtected: Optional[bool] = None
     UnhealthyNodeReplacement: Optional[bool] = None
-    HadoopVersion: Optional[str] = None
+    HadoopVersion: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 class ListBootstrapActionsInputPaginateTypeDef(BaseValidatorModel):
@@ -1234,29 +1236,29 @@ class MonitoringConfigurationTypeDef(BaseValidatorModel):
 
 
 class NotebookExecutionSummaryTypeDef(BaseValidatorModel):
-    NotebookExecutionId: Optional[str] = None
-    EditorId: Optional[str] = None
-    NotebookExecutionName: Optional[str] = None
+    NotebookExecutionId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    EditorId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    NotebookExecutionName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Status: Optional[NotebookExecutionStatusType] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     NotebookS3Location: Optional[NotebookS3LocationForOutputTypeDef] = None
-    ExecutionEngineId: Optional[str] = None
+    ExecutionEngineId: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
 
 
 class NotebookExecutionTypeDef(BaseValidatorModel):
-    NotebookExecutionId: Optional[str] = None
-    EditorId: Optional[str] = None
+    NotebookExecutionId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    EditorId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     ExecutionEngine: Optional[ExecutionEngineConfigTypeDef] = None
-    NotebookExecutionName: Optional[str] = None
-    NotebookParams: Optional[str] = None
+    NotebookExecutionName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    NotebookParams: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
     Status: Optional[NotebookExecutionStatusType] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    Arn: Optional[str] = None
-    OutputNotebookURI: Optional[str] = None
-    LastStateChangeReason: Optional[str] = None
-    NotebookInstanceSecurityGroupId: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    OutputNotebookURI: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    LastStateChangeReason: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    NotebookInstanceSecurityGroupId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     NotebookS3Location: Optional[NotebookS3LocationForOutputTypeDef] = None
     OutputNotebookS3Location: Optional[OutputNotebookS3LocationForOutputTypeDef] = None
@@ -1278,12 +1280,12 @@ class OnDemandResizingSpecificationTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_notebook_execution' function.
 class StartNotebookExecutionInputTypeDef(BaseValidatorModel):
     ExecutionEngine: ExecutionEngineConfigTypeDef
-    ServiceRole: str
-    EditorId: Optional[str] = None
-    RelativePath: Optional[str] = None
-    NotebookExecutionName: Optional[str] = None
-    NotebookParams: Optional[str] = None
-    NotebookInstanceSecurityGroupId: Optional[str] = None
+    ServiceRole: Annotated[str, _aws_pattern("Emr", "XmlString")]
+    EditorId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    RelativePath: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    NotebookExecutionName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    NotebookParams: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    NotebookInstanceSecurityGroupId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     NotebookS3Location: Optional[NotebookS3LocationFromInputTypeDef] = None
     OutputNotebookS3Location: Optional[OutputNotebookS3LocationFromInputTypeDef] = None
@@ -1394,14 +1396,14 @@ class InstanceTypeSpecificationPaginatorTypeDef(BaseValidatorModel):
 
 
 class InstanceTypeSpecificationTypeDef(BaseValidatorModel):
-    InstanceType: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Emr", "InstanceType")]] = None
     WeightedCapacity: Optional[int] = None
-    BidPrice: Optional[str] = None
+    BidPrice: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     BidPriceAsPercentageOfOnDemandPrice: Optional[float] = None
     Configurations: Optional[List[ConfigurationOutputTypeDef]] = None
     EbsBlockDevices: Optional[List[EbsBlockDeviceTypeDef]] = None
     EbsOptimized: Optional[bool] = None
-    CustomAmiId: Optional[str] = None
+    CustomAmiId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Priority: Optional[float] = None
 
 
@@ -1424,7 +1426,7 @@ class InstanceTypeDef(BaseValidatorModel):
     InstanceGroupId: Optional[str] = None
     InstanceFleetId: Optional[str] = None
     Market: Optional[MarketTypeType] = None
-    InstanceType: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Emr", "InstanceType")]] = None
     EbsVolumes: Optional[List[EbsVolumeTypeDef]] = None
 
 
@@ -1449,10 +1451,10 @@ class ClusterTypeDef(BaseValidatorModel):
     NormalizedInstanceHours: Optional[int] = None
     MasterPublicDnsName: Optional[str] = None
     Configurations: Optional[List[ConfigurationOutputTypeDef]] = None
-    SecurityConfiguration: Optional[str] = None
-    AutoScalingRole: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    AutoScalingRole: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
     ScaleDownBehavior: Optional[ScaleDownBehaviorType] = None
-    CustomAmiId: Optional[str] = None
+    CustomAmiId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     EbsRootVolumeSize: Optional[int] = None
     RepoUpgradeOnBoot: Optional[RepoUpgradeOnBootType] = None
     KerberosAttributes: Optional[KerberosAttributesTypeDef] = None
@@ -1501,7 +1503,7 @@ class StepConfigOutputTypeDef(BaseValidatorModel):
 
 
 class BootstrapActionConfigTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     ScriptBootstrapAction: ScriptBootstrapActionConfigUnionTypeDef
 
 
@@ -1549,18 +1551,18 @@ class ListClustersOutputTypeDef(BaseValidatorModel):
 
 
 class InstanceTypeConfigTypeDef(BaseValidatorModel):
-    InstanceType: str
+    InstanceType: Annotated[str, _aws_pattern("Emr", "InstanceType")]
     WeightedCapacity: Optional[int] = None
-    BidPrice: Optional[str] = None
+    BidPrice: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     BidPriceAsPercentageOfOnDemandPrice: Optional[float] = None
     EbsConfiguration: Optional[EbsConfigurationTypeDef] = None
     Configurations: Optional[List[ConfigurationUnionTypeDef]] = None
-    CustomAmiId: Optional[str] = None
+    CustomAmiId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Priority: Optional[float] = None
 
 
 class StepConfigTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     HadoopJarStep: HadoopJarStepConfigUnionTypeDef
     ActionOnFailure: Optional[ActionOnFailureType] = None
     StepMonitoringConfiguration: Optional[StepMonitoringConfigurationTypeDef] = None
@@ -1599,7 +1601,7 @@ class InstanceFleetPaginatorTypeDef(BaseValidatorModel):
 
 class InstanceFleetTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Status: Optional[InstanceFleetStatusTypeDef] = None
     InstanceFleetType: Optional[InstanceFleetTypeType] = None
     TargetOnDemandCapacity: Optional[int] = None
@@ -1609,7 +1611,7 @@ class InstanceFleetTypeDef(BaseValidatorModel):
     InstanceTypeSpecifications: Optional[List[InstanceTypeSpecificationTypeDef]] = None
     LaunchSpecifications: Optional[InstanceFleetProvisioningSpecificationsTypeDef] = None
     ResizeSpecifications: Optional[InstanceFleetResizingSpecificationsTypeDef] = None
-    Context: Optional[str] = None
+    Context: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 class StepDetailTypeDef(BaseValidatorModel):
@@ -1644,13 +1646,13 @@ ScalingTriggerUnionTypeDef = Union[ScalingTriggerOutputTypeDef, ScalingTriggerTy
 
 class InstanceFleetConfigTypeDef(BaseValidatorModel):
     InstanceFleetType: InstanceFleetTypeType
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     TargetOnDemandCapacity: Optional[int] = None
     TargetSpotCapacity: Optional[int] = None
     InstanceTypeConfigs: Optional[List[InstanceTypeConfigTypeDef]] = None
     LaunchSpecifications: Optional[InstanceFleetProvisioningSpecificationsTypeDef] = None
     ResizeSpecifications: Optional[InstanceFleetResizingSpecificationsTypeDef] = None
-    Context: Optional[str] = None
+    Context: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 class InstanceFleetModifyConfigTypeDef(BaseValidatorModel):
@@ -1659,14 +1661,14 @@ class InstanceFleetModifyConfigTypeDef(BaseValidatorModel):
     TargetSpotCapacity: Optional[int] = None
     ResizeSpecifications: Optional[InstanceFleetResizingSpecificationsTypeDef] = None
     InstanceTypeConfigs: Optional[List[InstanceTypeConfigTypeDef]] = None
-    Context: Optional[str] = None
+    Context: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 StepConfigUnionTypeDef = Union[StepConfigOutputTypeDef, StepConfigTypeDef]
 
 
 class InstanceGroupModifyConfigTypeDef(BaseValidatorModel):
-    InstanceGroupId: str
+    InstanceGroupId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     InstanceCount: Optional[int] = None
     EC2InstanceIdsToTerminate: Optional[List[str]] = None
     ShrinkPolicy: Optional[ShrinkPolicyUnionTypeDef] = None
@@ -1688,20 +1690,20 @@ class ListInstanceFleetsOutputTypeDef(BaseValidatorModel):
 
 
 class JobFlowDetailTypeDef(BaseValidatorModel):
-    JobFlowId: str
-    Name: str
+    JobFlowId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
+    Name: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     ExecutionStatusDetail: JobFlowExecutionStatusDetailTypeDef
     Instances: JobFlowInstancesDetailTypeDef
-    LogUri: Optional[str] = None
-    LogEncryptionKmsKeyId: Optional[str] = None
-    AmiVersion: Optional[str] = None
+    LogUri: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    LogEncryptionKmsKeyId: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    AmiVersion: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Steps: Optional[List[StepDetailTypeDef]] = None
     BootstrapActions: Optional[List[BootstrapActionDetailTypeDef]] = None
-    SupportedProducts: Optional[List[str]] = None
+    SupportedProducts: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]]] = None
     VisibleToAllUsers: Optional[bool] = None
-    JobFlowRole: Optional[str] = None
-    ServiceRole: Optional[str] = None
-    AutoScalingRole: Optional[str] = None
+    JobFlowRole: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    ServiceRole: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    AutoScalingRole: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
     ScaleDownBehavior: Optional[ScaleDownBehaviorType] = None
 
 
@@ -1732,7 +1734,7 @@ class InstanceGroupTypeDef(BaseValidatorModel):
     Market: Optional[MarketTypeType] = None
     InstanceGroupType: Optional[InstanceGroupTypeType] = None
     BidPrice: Optional[str] = None
-    InstanceType: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Emr", "InstanceType")]] = None
     RequestedInstanceCount: Optional[int] = None
     RunningInstanceCount: Optional[int] = None
     Status: Optional[InstanceGroupStatusTypeDef] = None
@@ -1744,7 +1746,7 @@ class InstanceGroupTypeDef(BaseValidatorModel):
     EbsOptimized: Optional[bool] = None
     ShrinkPolicy: Optional[ShrinkPolicyOutputTypeDef] = None
     AutoScalingPolicy: Optional[AutoScalingPolicyDescriptionTypeDef] = None
-    CustomAmiId: Optional[str] = None
+    CustomAmiId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 # This class is the output for the 'put_auto_scaling_policy' function.
@@ -1765,7 +1767,7 @@ class ScalingRuleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_instance_fleet' function.
 class AddInstanceFleetInputTypeDef(BaseValidatorModel):
-    ClusterId: str
+    ClusterId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     InstanceFleet: InstanceFleetConfigTypeDef
 
 
@@ -1777,7 +1779,7 @@ class ModifyInstanceFleetInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_job_flow_steps' function.
 class AddJobFlowStepsInputTypeDef(BaseValidatorModel):
-    JobFlowId: str
+    JobFlowId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     Steps: List[StepConfigUnionTypeDef]
     ExecutionRoleArn: Optional[str] = None
 
@@ -1817,15 +1819,15 @@ class AutoScalingPolicyTypeDef(BaseValidatorModel):
 
 class InstanceGroupConfigTypeDef(BaseValidatorModel):
     InstanceRole: InstanceRoleTypeType
-    InstanceType: str
+    InstanceType: Annotated[str, _aws_pattern("Emr", "InstanceType")]
     InstanceCount: int
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Market: Optional[MarketTypeType] = None
-    BidPrice: Optional[str] = None
+    BidPrice: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Configurations: Optional[List[ConfigurationUnionTypeDef]] = None
     EbsConfiguration: Optional[EbsConfigurationTypeDef] = None
     AutoScalingPolicy: Optional[AutoScalingPolicyTypeDef] = None
-    CustomAmiId: Optional[str] = None
+    CustomAmiId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
 
 
 # This class is the input for the 'put_auto_scaling_policy' function.
@@ -1838,54 +1840,54 @@ class PutAutoScalingPolicyInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'add_instance_groups' function.
 class AddInstanceGroupsInputTypeDef(BaseValidatorModel):
     InstanceGroups: List[InstanceGroupConfigTypeDef]
-    JobFlowId: str
+    JobFlowId: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
 
 
 class JobFlowInstancesConfigTypeDef(BaseValidatorModel):
-    MasterInstanceType: Optional[str] = None
-    SlaveInstanceType: Optional[str] = None
+    MasterInstanceType: Optional[Annotated[str, _aws_pattern("Emr", "InstanceType")]] = None
+    SlaveInstanceType: Optional[Annotated[str, _aws_pattern("Emr", "InstanceType")]] = None
     InstanceCount: Optional[int] = None
     InstanceGroups: Optional[List[InstanceGroupConfigTypeDef]] = None
     InstanceFleets: Optional[List[InstanceFleetConfigTypeDef]] = None
-    Ec2KeyName: Optional[str] = None
+    Ec2KeyName: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Placement: Optional[PlacementTypeUnionTypeDef] = None
     KeepJobFlowAliveWhenNoSteps: Optional[bool] = None
     TerminationProtected: Optional[bool] = None
     UnhealthyNodeReplacement: Optional[bool] = None
-    HadoopVersion: Optional[str] = None
-    Ec2SubnetId: Optional[str] = None
-    Ec2SubnetIds: Optional[List[str]] = None
-    EmrManagedMasterSecurityGroup: Optional[str] = None
-    EmrManagedSlaveSecurityGroup: Optional[str] = None
-    ServiceAccessSecurityGroup: Optional[str] = None
-    AdditionalMasterSecurityGroups: Optional[List[str]] = None
-    AdditionalSlaveSecurityGroups: Optional[List[str]] = None
+    HadoopVersion: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Ec2SubnetId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    Ec2SubnetIds: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]]] = None
+    EmrManagedMasterSecurityGroup: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    EmrManagedSlaveSecurityGroup: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    ServiceAccessSecurityGroup: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    AdditionalMasterSecurityGroups: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]]] = None
+    AdditionalSlaveSecurityGroups: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]]] = None
 
 
 # This class is the input for the 'run_job_flow' function.
 class RunJobFlowInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]
     Instances: JobFlowInstancesConfigTypeDef
-    LogUri: Optional[str] = None
-    LogEncryptionKmsKeyId: Optional[str] = None
-    AdditionalInfo: Optional[str] = None
-    AmiVersion: Optional[str] = None
-    ReleaseLabel: Optional[str] = None
+    LogUri: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    LogEncryptionKmsKeyId: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    AdditionalInfo: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    AmiVersion: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
+    ReleaseLabel: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     Steps: Optional[List[StepConfigUnionTypeDef]] = None
     StepExecutionRoleArn: Optional[str] = None
     BootstrapActions: Optional[List[BootstrapActionConfigUnionTypeDef]] = None
-    SupportedProducts: Optional[List[str]] = None
+    SupportedProducts: Optional[List[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]]] = None
     NewSupportedProducts: Optional[List[SupportedProductConfigTypeDef]] = None
     Applications: Optional[List[ApplicationUnionTypeDef]] = None
     Configurations: Optional[List[ConfigurationUnionTypeDef]] = None
     VisibleToAllUsers: Optional[bool] = None
-    JobFlowRole: Optional[str] = None
-    ServiceRole: Optional[str] = None
+    JobFlowRole: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    ServiceRole: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    SecurityConfiguration: Optional[str] = None
-    AutoScalingRole: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
+    AutoScalingRole: Optional[Annotated[str, _aws_pattern("Emr", "XmlString")]] = None
     ScaleDownBehavior: Optional[ScaleDownBehaviorType] = None
-    CustomAmiId: Optional[str] = None
+    CustomAmiId: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     EbsRootVolumeSize: Optional[int] = None
     RepoUpgradeOnBoot: Optional[RepoUpgradeOnBootType] = None
     KerberosAttributes: Optional[KerberosAttributesTypeDef] = None
@@ -1893,7 +1895,7 @@ class RunJobFlowInputTypeDef(BaseValidatorModel):
     ManagedScalingPolicy: Optional[ManagedScalingPolicyTypeDef] = None
     PlacementGroupConfigs: Optional[List[PlacementGroupConfigTypeDef]] = None
     AutoTerminationPolicy: Optional[AutoTerminationPolicyTypeDef] = None
-    OSReleaseLabel: Optional[str] = None
+    OSReleaseLabel: Optional[Annotated[str, _aws_pattern("Emr", "XmlStringMaxLen256")]] = None
     EbsRootVolumeIops: Optional[int] = None
     EbsRootVolumeThroughput: Optional[int] = None
     ExtendedSupport: Optional[bool] = None

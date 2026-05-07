@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -660,7 +662,7 @@ class PortalProductSummaryTypeDef(BaseValidatorModel):
     DisplayName: str
     LastModified: datetime
     PortalProductArn: str
-    PortalProductId: str
+    PortalProductId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -682,7 +684,7 @@ class ProductPageSummaryNoBodyTypeDef(BaseValidatorModel):
     LastModified: datetime
     PageTitle: str
     ProductPageArn: str
-    ProductPageId: str
+    ProductPageId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
 
 
 # This class is the input for the 'list_product_rest_endpoint_pages' function.
@@ -1054,7 +1056,7 @@ class GetModelTemplateResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_portal_product_sharing_policy' function.
 class GetPortalProductSharingPolicyResponseTypeDef(BaseValidatorModel):
     PolicyDocument: str
-    PortalProductId: str
+    PortalProductId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1421,7 +1423,7 @@ class CreateProductPageResponseTypeDef(BaseValidatorModel):
     DisplayContent: DisplayContentTypeDef
     LastModified: datetime
     ProductPageArn: str
-    ProductPageId: str
+    ProductPageId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1430,7 +1432,7 @@ class GetProductPageResponseTypeDef(BaseValidatorModel):
     DisplayContent: DisplayContentTypeDef
     LastModified: datetime
     ProductPageArn: str
-    ProductPageId: str
+    ProductPageId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1446,7 +1448,7 @@ class UpdateProductPageResponseTypeDef(BaseValidatorModel):
     DisplayContent: DisplayContentTypeDef
     LastModified: datetime
     ProductPageArn: str
-    ProductPageId: str
+    ProductPageId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -2005,7 +2007,7 @@ class CreatePortalProductResponseTypeDef(BaseValidatorModel):
     DisplayOrder: DisplayOrderOutputTypeDef
     LastModified: datetime
     PortalProductArn: str
-    PortalProductId: str
+    PortalProductId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2017,7 +2019,7 @@ class GetPortalProductResponseTypeDef(BaseValidatorModel):
     DisplayOrder: DisplayOrderOutputTypeDef
     LastModified: datetime
     PortalProductArn: str
-    PortalProductId: str
+    PortalProductId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2029,7 +2031,7 @@ class UpdatePortalProductResponseTypeDef(BaseValidatorModel):
     DisplayOrder: DisplayOrderOutputTypeDef
     LastModified: datetime
     PortalProductArn: str
-    PortalProductId: str
+    PortalProductId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2058,7 +2060,7 @@ class CreateProductRestEndpointPageResponseTypeDef(BaseValidatorModel):
     DisplayContent: EndpointDisplayContentResponseTypeDef
     LastModified: datetime
     ProductRestEndpointPageArn: str
-    ProductRestEndpointPageId: str
+    ProductRestEndpointPageId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     RestEndpointIdentifier: RestEndpointIdentifierTypeDef
     Status: StatusType
     StatusException: StatusExceptionTypeDef
@@ -2071,7 +2073,7 @@ class GetProductRestEndpointPageResponseTypeDef(BaseValidatorModel):
     DisplayContent: EndpointDisplayContentResponseTypeDef
     LastModified: datetime
     ProductRestEndpointPageArn: str
-    ProductRestEndpointPageId: str
+    ProductRestEndpointPageId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     RawDisplayContent: str
     RestEndpointIdentifier: RestEndpointIdentifierTypeDef
     Status: StatusType
@@ -2084,7 +2086,7 @@ class ProductRestEndpointPageSummaryNoBodyTypeDef(BaseValidatorModel):
     Endpoint: str
     LastModified: datetime
     ProductRestEndpointPageArn: str
-    ProductRestEndpointPageId: str
+    ProductRestEndpointPageId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     RestEndpointIdentifier: RestEndpointIdentifierTypeDef
     Status: StatusType
     TryItState: TryItStateType
@@ -2097,7 +2099,7 @@ class UpdateProductRestEndpointPageResponseTypeDef(BaseValidatorModel):
     DisplayContent: EndpointDisplayContentResponseTypeDef
     LastModified: datetime
     ProductRestEndpointPageArn: str
-    ProductRestEndpointPageId: str
+    ProductRestEndpointPageId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     RestEndpointIdentifier: RestEndpointIdentifierTypeDef
     Status: StatusType
     StatusException: StatusExceptionTypeDef
@@ -2154,7 +2156,7 @@ class CreatePortalResponseTypeDef(BaseValidatorModel):
     LastPublishedDescription: str
     PortalArn: str
     PortalContent: PortalContentOutputTypeDef
-    PortalId: str
+    PortalId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     PublishStatus: PublishStatusType
     RumAppMonitorName: str
     StatusException: StatusExceptionTypeDef
@@ -2172,7 +2174,7 @@ class GetPortalResponseTypeDef(BaseValidatorModel):
     LastPublishedDescription: str
     PortalArn: str
     PortalContent: PortalContentOutputTypeDef
-    PortalId: str
+    PortalId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     Preview: PreviewTypeDef
     PublishStatus: PublishStatusType
     RumAppMonitorName: str
@@ -2188,7 +2190,7 @@ class PortalSummaryTypeDef(BaseValidatorModel):
     LastModified: datetime
     PortalArn: str
     PortalContent: PortalContentOutputTypeDef
-    PortalId: str
+    PortalId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     LastPublished: Optional[datetime] = None
     LastPublishedDescription: Optional[str] = None
     Preview: Optional[PreviewTypeDef] = None
@@ -2208,7 +2210,7 @@ class UpdatePortalResponseTypeDef(BaseValidatorModel):
     LastPublishedDescription: str
     PortalArn: str
     PortalContent: PortalContentOutputTypeDef
-    PortalId: str
+    PortalId: Annotated[str, _aws_pattern("Apigatewayv2", "__stringMin10Max30PatternAZ09")]
     Preview: PreviewTypeDef
     PublishStatus: PublishStatusType
     RumAppMonitorName: str

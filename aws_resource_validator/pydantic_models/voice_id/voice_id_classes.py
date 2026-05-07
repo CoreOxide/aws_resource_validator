@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.voice_id.voice_id_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,16 +42,16 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'associate_fraudster' function.
 class AssociateFraudsterRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    FraudsterId: str
-    WatchlistId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    FraudsterId: Annotated[str, _aws_pattern("VoiceId", "FraudsterId")]
+    WatchlistId: Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]
 
 
 class FraudsterTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
-    DomainId: Optional[str] = None
-    GeneratedFraudsterId: Optional[str] = None
-    WatchlistIds: Optional[List[str]] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
+    GeneratedFraudsterId: Optional[Annotated[str, _aws_pattern("VoiceId", "GeneratedFraudsterId")]] = None
+    WatchlistIds: Optional[List[Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -69,85 +71,85 @@ class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("VoiceId", "TagKey")]
+    Value: Annotated[str, _aws_pattern("VoiceId", "TagValue")]
 
 
 # This class is the input for the 'create_watchlist' function.
 class CreateWatchlistRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    Name: str
-    ClientToken: Optional[str] = None
-    Description: Optional[str] = None
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    Name: Annotated[str, _aws_pattern("VoiceId", "WatchlistName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("VoiceId", "ClientTokenString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("VoiceId", "WatchlistDescription")]] = None
 
 
 class WatchlistTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     DefaultWatchlist: Optional[bool] = None
-    Description: Optional[str] = None
-    DomainId: Optional[str] = None
-    Name: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("VoiceId", "WatchlistDescription")]] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("VoiceId", "WatchlistName")]] = None
     UpdatedAt: Optional[datetime] = None
-    WatchlistId: Optional[str] = None
+    WatchlistId: Optional[Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]] = None
 
 
 # This class is the input for the 'delete_domain' function.
 class DeleteDomainRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
 
 
 # This class is the input for the 'delete_fraudster' function.
 class DeleteFraudsterRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    FraudsterId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    FraudsterId: Annotated[str, _aws_pattern("VoiceId", "FraudsterId")]
 
 
 # This class is the input for the 'delete_speaker' function.
 class DeleteSpeakerRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    SpeakerId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    SpeakerId: Annotated[str, _aws_pattern("VoiceId", "SpeakerId")]
 
 
 # This class is the input for the 'delete_watchlist' function.
 class DeleteWatchlistRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    WatchlistId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    WatchlistId: Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]
 
 
 # This class is the input for the 'describe_domain' function.
 class DescribeDomainRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
 
 
 # This class is the input for the 'describe_fraudster_registration_job' function.
 class DescribeFraudsterRegistrationJobRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    JobId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    JobId: Annotated[str, _aws_pattern("VoiceId", "JobId")]
 
 
 # This class is the input for the 'describe_fraudster' function.
 class DescribeFraudsterRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    FraudsterId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    FraudsterId: Annotated[str, _aws_pattern("VoiceId", "FraudsterId")]
 
 
 # This class is the input for the 'describe_speaker_enrollment_job' function.
 class DescribeSpeakerEnrollmentJobRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    JobId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    JobId: Annotated[str, _aws_pattern("VoiceId", "JobId")]
 
 
 # This class is the input for the 'describe_speaker' function.
 class DescribeSpeakerRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    SpeakerId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    SpeakerId: Annotated[str, _aws_pattern("VoiceId", "SpeakerId")]
 
 
 class SpeakerTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
-    CustomerSpeakerId: Optional[str] = None
-    DomainId: Optional[str] = None
-    GeneratedSpeakerId: Optional[str] = None
+    CustomerSpeakerId: Optional[Annotated[str, _aws_pattern("VoiceId", "CustomerSpeakerId")]] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
+    GeneratedSpeakerId: Optional[Annotated[str, _aws_pattern("VoiceId", "GeneratedSpeakerId")]] = None
     LastAccessedAt: Optional[datetime] = None
     Status: Optional[SpeakerStatusType] = None
     UpdatedAt: Optional[datetime] = None
@@ -155,15 +157,15 @@ class SpeakerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_watchlist' function.
 class DescribeWatchlistRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    WatchlistId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    WatchlistId: Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]
 
 
 # This class is the input for the 'disassociate_fraudster' function.
 class DisassociateFraudsterRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    FraudsterId: str
-    WatchlistId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    FraudsterId: Annotated[str, _aws_pattern("VoiceId", "FraudsterId")]
+    WatchlistId: Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]
 
 
 class ServerSideEncryptionUpdateDetailsTypeDef(BaseValidatorModel):
@@ -173,7 +175,7 @@ class ServerSideEncryptionUpdateDetailsTypeDef(BaseValidatorModel):
 
 
 class WatchlistDetailsTypeDef(BaseValidatorModel):
-    DefaultWatchlistId: str
+    DefaultWatchlistId: Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]
 
 
 class EnrollmentJobFraudDetectionConfigOutputTypeDef(BaseValidatorModel):
@@ -185,13 +187,13 @@ class EnrollmentJobFraudDetectionConfigOutputTypeDef(BaseValidatorModel):
 class EnrollmentJobFraudDetectionConfigTypeDef(BaseValidatorModel):
     FraudDetectionAction: Optional[FraudDetectionActionType] = None
     RiskThreshold: Optional[int] = None
-    WatchlistIds: Optional[List[str]] = None
+    WatchlistIds: Optional[List[Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]]] = None
 
 
 # This class is the input for the 'evaluate_session' function.
 class EvaluateSessionRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    SessionNameOrId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    SessionNameOrId: Annotated[str, _aws_pattern("VoiceId", "SessionNameOrId")]
 
 
 class FailureDetailsTypeDef(BaseValidatorModel):
@@ -201,12 +203,12 @@ class FailureDetailsTypeDef(BaseValidatorModel):
 
 class FraudDetectionConfigurationTypeDef(BaseValidatorModel):
     RiskThreshold: Optional[int] = None
-    WatchlistId: Optional[str] = None
+    WatchlistId: Optional[Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]] = None
 
 
 class KnownFraudsterRiskTypeDef(BaseValidatorModel):
     RiskScore: int
-    GeneratedFraudsterId: Optional[str] = None
+    GeneratedFraudsterId: Optional[Annotated[str, _aws_pattern("VoiceId", "GeneratedFraudsterId")]] = None
 
 
 class VoiceSpoofingRiskTypeDef(BaseValidatorModel):
@@ -218,11 +220,11 @@ class JobProgressTypeDef(BaseValidatorModel):
 
 
 class InputDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("VoiceId", "S3Uri")]
 
 
 class OutputDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("VoiceId", "S3Uri")]
     KmsKeyId: Optional[str] = None
 
 
@@ -234,9 +236,9 @@ class RegistrationConfigOutputTypeDef(BaseValidatorModel):
 
 class FraudsterSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
-    DomainId: Optional[str] = None
-    GeneratedFraudsterId: Optional[str] = None
-    WatchlistIds: Optional[List[str]] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
+    GeneratedFraudsterId: Optional[Annotated[str, _aws_pattern("VoiceId", "GeneratedFraudsterId")]] = None
+    WatchlistIds: Optional[List[Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -248,45 +250,45 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_domains' function.
 class ListDomainsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("VoiceId", "NextToken")]] = None
 
 
 # This class is the input for the 'list_fraudster_registration_jobs' function.
 class ListFraudsterRegistrationJobsRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
     JobStatus: Optional[FraudsterRegistrationJobStatusType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("VoiceId", "NextToken")]] = None
 
 
 # This class is the input for the 'list_fraudsters' function.
 class ListFraudstersRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    WatchlistId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("VoiceId", "NextToken")]] = None
+    WatchlistId: Optional[Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]] = None
 
 
 # This class is the input for the 'list_speaker_enrollment_jobs' function.
 class ListSpeakerEnrollmentJobsRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
     JobStatus: Optional[SpeakerEnrollmentJobStatusType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("VoiceId", "NextToken")]] = None
 
 
 # This class is the input for the 'list_speakers' function.
 class ListSpeakersRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("VoiceId", "NextToken")]] = None
 
 
 class SpeakerSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
-    CustomerSpeakerId: Optional[str] = None
-    DomainId: Optional[str] = None
-    GeneratedSpeakerId: Optional[str] = None
+    CustomerSpeakerId: Optional[Annotated[str, _aws_pattern("VoiceId", "CustomerSpeakerId")]] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
+    GeneratedSpeakerId: Optional[Annotated[str, _aws_pattern("VoiceId", "GeneratedSpeakerId")]] = None
     LastAccessedAt: Optional[datetime] = None
     Status: Optional[SpeakerStatusType] = None
     UpdatedAt: Optional[datetime] = None
@@ -294,49 +296,49 @@ class SpeakerSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("VoiceId", "AmazonResourceName")]
 
 
 # This class is the input for the 'list_watchlists' function.
 class ListWatchlistsRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("VoiceId", "NextToken")]] = None
 
 
 class WatchlistSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     DefaultWatchlist: Optional[bool] = None
-    Description: Optional[str] = None
-    DomainId: Optional[str] = None
-    Name: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("VoiceId", "WatchlistDescription")]] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("VoiceId", "WatchlistName")]] = None
     UpdatedAt: Optional[datetime] = None
-    WatchlistId: Optional[str] = None
+    WatchlistId: Optional[Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]] = None
 
 
 # This class is the input for the 'opt_out_speaker' function.
 class OptOutSpeakerRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    SpeakerId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    SpeakerId: Annotated[str, _aws_pattern("VoiceId", "SpeakerId")]
 
 
 class RegistrationConfigTypeDef(BaseValidatorModel):
     DuplicateRegistrationAction: Optional[DuplicateRegistrationActionType] = None
     FraudsterSimilarityThreshold: Optional[int] = None
-    WatchlistIds: Optional[List[str]] = None
+    WatchlistIds: Optional[List[Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("VoiceId", "AmazonResourceName")]
+    TagKeys: List[Annotated[str, _aws_pattern("VoiceId", "TagKey")]]
 
 
 # This class is the input for the 'update_watchlist' function.
 class UpdateWatchlistRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    WatchlistId: str
-    Description: Optional[str] = None
-    Name: Optional[str] = None
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    WatchlistId: Annotated[str, _aws_pattern("VoiceId", "WatchlistId")]
+    Description: Optional[Annotated[str, _aws_pattern("VoiceId", "WatchlistDescription")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("VoiceId", "WatchlistName")]] = None
 
 
 # This class is the output for the 'associate_fraudster' function.
@@ -365,28 +367,28 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 class AuthenticationResultTypeDef(BaseValidatorModel):
     AudioAggregationEndedAt: Optional[datetime] = None
     AudioAggregationStartedAt: Optional[datetime] = None
-    AuthenticationResultId: Optional[str] = None
+    AuthenticationResultId: Optional[Annotated[str, _aws_pattern("VoiceId", "UniqueIdLarge")]] = None
     Configuration: Optional[AuthenticationConfigurationTypeDef] = None
-    CustomerSpeakerId: Optional[str] = None
+    CustomerSpeakerId: Optional[Annotated[str, _aws_pattern("VoiceId", "CustomerSpeakerId")]] = None
     Decision: Optional[AuthenticationDecisionType] = None
-    GeneratedSpeakerId: Optional[str] = None
+    GeneratedSpeakerId: Optional[Annotated[str, _aws_pattern("VoiceId", "GeneratedSpeakerId")]] = None
     Score: Optional[int] = None
 
 
 # This class is the input for the 'update_domain' function.
 class UpdateDomainRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    Name: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
+    Name: Annotated[str, _aws_pattern("VoiceId", "DomainName")]
     ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("VoiceId", "Description")]] = None
 
 
 # This class is the input for the 'create_domain' function.
 class CreateDomainRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("VoiceId", "DomainName")]
     ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
-    ClientToken: Optional[str] = None
-    Description: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("VoiceId", "ClientTokenString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("VoiceId", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -397,7 +399,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("VoiceId", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
@@ -432,12 +434,12 @@ class OptOutSpeakerResponseTypeDef(BaseValidatorModel):
 
 
 class DomainSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("VoiceId", "Arn")]] = None
     CreatedAt: Optional[datetime] = None
-    Description: Optional[str] = None
-    DomainId: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("VoiceId", "Description")]] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
     DomainStatus: Optional[DomainStatusType] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainName")]] = None
     ServerSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     ServerSideEncryptionUpdateDetails: Optional[ServerSideEncryptionUpdateDetailsTypeDef] = None
     UpdatedAt: Optional[datetime] = None
@@ -445,12 +447,12 @@ class DomainSummaryTypeDef(BaseValidatorModel):
 
 
 class DomainTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("VoiceId", "Arn")]] = None
     CreatedAt: Optional[datetime] = None
-    Description: Optional[str] = None
-    DomainId: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("VoiceId", "Description")]] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
     DomainStatus: Optional[DomainStatusType] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainName")]] = None
     ServerSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     ServerSideEncryptionUpdateDetails: Optional[ServerSideEncryptionUpdateDetailsTypeDef] = None
     UpdatedAt: Optional[datetime] = None
@@ -474,35 +476,35 @@ class FraudRiskDetailsTypeDef(BaseValidatorModel):
 
 class FraudsterRegistrationJobSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
-    DomainId: Optional[str] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
     EndedAt: Optional[datetime] = None
     FailureDetails: Optional[FailureDetailsTypeDef] = None
-    JobId: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("VoiceId", "JobId")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("VoiceId", "JobName")]] = None
     JobProgress: Optional[JobProgressTypeDef] = None
     JobStatus: Optional[FraudsterRegistrationJobStatusType] = None
 
 
 class SpeakerEnrollmentJobSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
-    DomainId: Optional[str] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
     EndedAt: Optional[datetime] = None
     FailureDetails: Optional[FailureDetailsTypeDef] = None
-    JobId: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("VoiceId", "JobId")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("VoiceId", "JobName")]] = None
     JobProgress: Optional[JobProgressTypeDef] = None
     JobStatus: Optional[SpeakerEnrollmentJobStatusType] = None
 
 
 class FraudsterRegistrationJobTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
-    DataAccessRoleArn: Optional[str] = None
-    DomainId: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("VoiceId", "IamRoleArn")]] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
     EndedAt: Optional[datetime] = None
     FailureDetails: Optional[FailureDetailsTypeDef] = None
     InputDataConfig: Optional[InputDataConfigTypeDef] = None
-    JobId: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("VoiceId", "JobId")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("VoiceId", "JobName")]] = None
     JobProgress: Optional[JobProgressTypeDef] = None
     JobStatus: Optional[FraudsterRegistrationJobStatusType] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
@@ -592,14 +594,14 @@ class UpdateDomainResponseTypeDef(BaseValidatorModel):
 
 class SpeakerEnrollmentJobTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
-    DataAccessRoleArn: Optional[str] = None
-    DomainId: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("VoiceId", "IamRoleArn")]] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("VoiceId", "DomainId")]] = None
     EndedAt: Optional[datetime] = None
     EnrollmentConfig: Optional[EnrollmentConfigOutputTypeDef] = None
     FailureDetails: Optional[FailureDetailsTypeDef] = None
     InputDataConfig: Optional[InputDataConfigTypeDef] = None
-    JobId: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("VoiceId", "JobId")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("VoiceId", "JobName")]] = None
     JobProgress: Optional[JobProgressTypeDef] = None
     JobStatus: Optional[SpeakerEnrollmentJobStatusType] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
@@ -613,7 +615,7 @@ class FraudDetectionResultTypeDef(BaseValidatorModel):
     AudioAggregationStartedAt: Optional[datetime] = None
     Configuration: Optional[FraudDetectionConfigurationTypeDef] = None
     Decision: Optional[FraudDetectionDecisionType] = None
-    FraudDetectionResultId: Optional[str] = None
+    FraudDetectionResultId: Optional[Annotated[str, _aws_pattern("VoiceId", "UniqueIdLarge")]] = None
     Reasons: Optional[List[FraudDetectionReasonType]] = None
     RiskDetails: Optional[FraudRiskDetailsTypeDef] = None
 
@@ -646,12 +648,12 @@ class StartFraudsterRegistrationJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_fraudster_registration_job' function.
 class StartFraudsterRegistrationJobRequestTypeDef(BaseValidatorModel):
-    DataAccessRoleArn: str
-    DomainId: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("VoiceId", "IamRoleArn")]
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
     InputDataConfig: InputDataConfigTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    ClientToken: Optional[str] = None
-    JobName: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("VoiceId", "ClientTokenString")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("VoiceId", "JobName")]] = None
     RegistrationConfig: Optional[RegistrationConfigUnionTypeDef] = None
 
 
@@ -669,21 +671,21 @@ class StartSpeakerEnrollmentJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_speaker_enrollment_job' function.
 class StartSpeakerEnrollmentJobRequestTypeDef(BaseValidatorModel):
-    DataAccessRoleArn: str
-    DomainId: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("VoiceId", "IamRoleArn")]
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
     InputDataConfig: InputDataConfigTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("VoiceId", "ClientTokenString")]] = None
     EnrollmentConfig: Optional[EnrollmentConfigUnionTypeDef] = None
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("VoiceId", "JobName")]] = None
 
 
 # This class is the output for the 'evaluate_session' function.
 class EvaluateSessionResponseTypeDef(BaseValidatorModel):
     AuthenticationResult: AuthenticationResultTypeDef
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("VoiceId", "DomainId")]
     FraudDetectionResult: FraudDetectionResultTypeDef
-    SessionId: str
-    SessionName: str
+    SessionId: Annotated[str, _aws_pattern("VoiceId", "SessionId")]
+    SessionName: Annotated[str, _aws_pattern("VoiceId", "SessionName")]
     StreamingStatus: StreamingStatusType
     ResponseMetadata: ResponseMetadataTypeDef

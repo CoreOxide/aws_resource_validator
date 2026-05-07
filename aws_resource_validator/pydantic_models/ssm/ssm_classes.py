@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ssm.ssm_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,27 +41,27 @@ except ImportError:  # pragma: no cover
 
 
 class AccountSharingInfoTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    SharedDocumentVersion: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Ssm", "AccountId")]] = None
+    SharedDocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "SharedDocumentVersion")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Ssm", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Ssm", "TagValue")]
 
 
 class AlarmTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "AlarmName")]
 
 
 class AlarmStateInformationTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "AlarmName")]
     State: ExternalAlarmStateType
 
 
 # This class is the input for the 'associate_ops_item_related_item' function.
 class AssociateOpsItemRelatedItemRequestTypeDef(BaseValidatorModel):
-    OpsItemId: str
+    OpsItemId: Annotated[str, _aws_pattern("Ssm", "OpsItemId")]
     AssociationType: str
     ResourceType: str
     ResourceUri: str
@@ -116,7 +118,7 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class AttachmentContentTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "AttachmentName")]] = None
     Size: Optional[int] = None
     Hash: Optional[str] = None
     HashType: Optional[Literal["Sha256"]] = None
@@ -124,13 +126,13 @@ class AttachmentContentTypeDef(BaseValidatorModel):
 
 
 class AttachmentInformationTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "AttachmentName")]] = None
 
 
 class AttachmentsSourceTypeDef(BaseValidatorModel):
     Key: Optional[AttachmentsSourceKeyType] = None
     Values: Optional[List[str]] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "AttachmentIdentifier")]] = None
 
 
 class AutomationExecutionFilterTypeDef(BaseValidatorModel):
@@ -161,12 +163,12 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 class CancelCommandRequestTypeDef(BaseValidatorModel):
     CommandId: str
-    InstanceIds: Optional[List[str]] = None
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Ssm", "InstanceId")]]] = None
 
 
 # This class is the input for the 'cancel_maintenance_window_execution' function.
 class CancelMaintenanceWindowExecutionRequestTypeDef(BaseValidatorModel):
-    WindowExecutionId: str
+    WindowExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]
 
 
 class CloudWatchOutputConfigTypeDef(BaseValidatorModel):
@@ -230,19 +232,19 @@ class SeveritySummaryTypeDef(BaseValidatorModel):
 
 
 class RegistrationMetadataItemTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Ssm", "RegistrationMetadataKey")]
+    Value: Annotated[str, _aws_pattern("Ssm", "RegistrationMetadataValue")]
 
 
 class DocumentRequiresTypeDef(BaseValidatorModel):
-    Name: str
-    Version: Optional[str] = None
-    RequireType: Optional[str] = None
-    VersionName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
+    Version: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
+    RequireType: Optional[Annotated[str, _aws_pattern("Ssm", "RequireType")]] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersionName")]] = None
 
 
 class OpsItemDataValueTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemDataValueString")]] = None
     Type: Optional[OpsItemDataTypeType] = None
 
 
@@ -259,48 +261,48 @@ class MetadataValueTypeDef(BaseValidatorModel):
 
 
 class CredentialsTypeDef(BaseValidatorModel):
-    AccessKeyId: str
+    AccessKeyId: Annotated[str, _aws_pattern("Ssm", "AccessKeyIdType")]
     SecretAccessKey: str
     SessionToken: str
     ExpirationTime: datetime
 
 
 class DeleteActivationRequestTypeDef(BaseValidatorModel):
-    ActivationId: str
+    ActivationId: Annotated[str, _aws_pattern("Ssm", "ActivationId")]
 
 
 class DeleteAssociationRequestTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    InstanceId: Optional[str] = None
-    AssociationId: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentARN")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationId")]] = None
 
 
 class DeleteDocumentRequestTypeDef(BaseValidatorModel):
-    Name: str
-    DocumentVersion: Optional[str] = None
-    VersionName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentName")]
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersionName")]] = None
     Force: Optional[bool] = None
 
 
 # This class is the input for the 'delete_inventory' function.
 class DeleteInventoryRequestTypeDef(BaseValidatorModel):
-    TypeName: str
+    TypeName: Annotated[str, _aws_pattern("Ssm", "InventoryItemTypeName")]
     SchemaDeleteOption: Optional[InventorySchemaDeleteOptionType] = None
     DryRun: Optional[bool] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Ssm", "UUID")]] = None
 
 
 # This class is the input for the 'delete_maintenance_window' function.
 class DeleteMaintenanceWindowRequestTypeDef(BaseValidatorModel):
-    WindowId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
 
 
 class DeleteOpsItemRequestTypeDef(BaseValidatorModel):
-    OpsItemId: str
+    OpsItemId: Annotated[str, _aws_pattern("Ssm", "OpsItemId")]
 
 
 class DeleteOpsMetadataRequestTypeDef(BaseValidatorModel):
-    OpsMetadataArn: str
+    OpsMetadataArn: Annotated[str, _aws_pattern("Ssm", "OpsMetadataArn")]
 
 
 class DeleteParameterRequestTypeDef(BaseValidatorModel):
@@ -314,7 +316,7 @@ class DeleteParametersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_patch_baseline' function.
 class DeletePatchBaselineRequestTypeDef(BaseValidatorModel):
-    BaselineId: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
 
 
 class DeleteResourceDataSyncRequestTypeDef(BaseValidatorModel):
@@ -329,26 +331,26 @@ class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 
 class DeregisterManagedInstanceRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "ManagedInstanceId")]
 
 
 # This class is the input for the 'deregister_patch_baseline_for_patch_group' function.
 class DeregisterPatchBaselineForPatchGroupRequestTypeDef(BaseValidatorModel):
-    BaselineId: str
-    PatchGroup: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
+    PatchGroup: Annotated[str, _aws_pattern("Ssm", "PatchGroup")]
 
 
 # This class is the input for the 'deregister_target_from_maintenance_window' function.
 class DeregisterTargetFromMaintenanceWindowRequestTypeDef(BaseValidatorModel):
-    WindowId: str
-    WindowTargetId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    WindowTargetId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTargetId")]
     Safe: Optional[bool] = None
 
 
 # This class is the input for the 'deregister_task_from_maintenance_window' function.
 class DeregisterTaskFromMaintenanceWindowRequestTypeDef(BaseValidatorModel):
-    WindowId: str
-    WindowTaskId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    WindowTaskId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTaskId")]
 
 
 class DescribeActivationsFilterTypeDef(BaseValidatorModel):
@@ -364,10 +366,10 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_association' function.
 class DescribeAssociationRequestTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    InstanceId: Optional[str] = None
-    AssociationId: Optional[str] = None
-    AssociationVersion: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentARN")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationId")]] = None
+    AssociationVersion: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationVersion")]] = None
 
 
 class StepExecutionFilterTypeDef(BaseValidatorModel):
@@ -408,7 +410,7 @@ class PatchTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_document_permission' function.
 class DescribeDocumentPermissionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentName")]
     PermissionType: Literal["Share"]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -416,35 +418,35 @@ class DescribeDocumentPermissionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_document' function.
 class DescribeDocumentRequestTypeDef(BaseValidatorModel):
-    Name: str
-    DocumentVersion: Optional[str] = None
-    VersionName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersionName")]] = None
 
 
 # This class is the input for the 'describe_effective_instance_associations' function.
 class DescribeEffectiveInstanceAssociationsRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class InstanceAssociationTypeDef(BaseValidatorModel):
-    AssociationId: Optional[str] = None
-    InstanceId: Optional[str] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationId")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
     Content: Optional[str] = None
-    AssociationVersion: Optional[str] = None
+    AssociationVersion: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationVersion")]] = None
 
 
 # This class is the input for the 'describe_effective_patches_for_patch_baseline' function.
 class DescribeEffectivePatchesForPatchBaselineRequestTypeDef(BaseValidatorModel):
-    BaselineId: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_instance_associations_status' function.
 class DescribeInstanceAssociationsStatusRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -466,14 +468,14 @@ class InstancePatchStateFilterTypeDef(BaseValidatorModel):
 
 
 class InstancePatchStateTypeDef(BaseValidatorModel):
-    InstanceId: str
-    PatchGroup: str
-    BaselineId: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
+    PatchGroup: Annotated[str, _aws_pattern("Ssm", "PatchGroup")]
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
     OperationStartTime: datetime
     OperationEndTime: datetime
     Operation: PatchOperationTypeType
-    SnapshotId: Optional[str] = None
-    InstallOverrideList: Optional[str] = None
+    SnapshotId: Optional[Annotated[str, _aws_pattern("Ssm", "SnapshotId")]] = None
+    InstallOverrideList: Optional[Annotated[str, _aws_pattern("Ssm", "InstallOverrideList")]] = None
     OwnerInformation: Optional[str] = None
     InstalledCount: Optional[int] = None
     InstalledOtherCount: Optional[int] = None
@@ -493,7 +495,7 @@ class InstancePatchStateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_instance_patch_states' function.
 class DescribeInstancePatchStatesRequestTypeDef(BaseValidatorModel):
-    InstanceIds: List[str]
+    InstanceIds: List[Annotated[str, _aws_pattern("Ssm", "InstanceId")]]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -510,18 +512,18 @@ class PatchComplianceDataTypeDef(BaseValidatorModel):
 
 class InstancePropertyFilterTypeDef(BaseValidatorModel):
     key: InstancePropertyFilterKeyType
-    valueSet: List[str]
+    valueSet: List[Annotated[str, _aws_pattern("Ssm", "InstancePropertyFilterValue")]]
 
 
 class InstancePropertyStringFilterTypeDef(BaseValidatorModel):
-    Key: str
-    Values: List[str]
+    Key: Annotated[str, _aws_pattern("Ssm", "InstancePropertyStringFilterKey")]
+    Values: List[Annotated[str, _aws_pattern("Ssm", "InstancePropertyFilterValue")]]
     Operator: Optional[InstancePropertyFilterOperatorType] = None
 
 
 # This class is the input for the 'describe_inventory_deletions' function.
 class DescribeInventoryDeletionsRequestTypeDef(BaseValidatorModel):
-    DeletionId: Optional[str] = None
+    DeletionId: Optional[Annotated[str, _aws_pattern("Ssm", "UUID")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -532,9 +534,9 @@ class MaintenanceWindowFilterTypeDef(BaseValidatorModel):
 
 
 class MaintenanceWindowExecutionTaskInvocationIdentityTypeDef(BaseValidatorModel):
-    WindowExecutionId: Optional[str] = None
-    TaskExecutionId: Optional[str] = None
-    InvocationId: Optional[str] = None
+    WindowExecutionId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]] = None
+    TaskExecutionId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionTaskId")]] = None
+    InvocationId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionTaskInvocationId")]] = None
     ExecutionId: Optional[str] = None
     TaskType: Optional[MaintenanceWindowTaskTypeType] = None
     Parameters: Optional[str] = None
@@ -547,8 +549,8 @@ class MaintenanceWindowExecutionTaskInvocationIdentityTypeDef(BaseValidatorModel
 
 
 class MaintenanceWindowExecutionTypeDef(BaseValidatorModel):
-    WindowId: Optional[str] = None
-    WindowExecutionId: Optional[str] = None
+    WindowId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]] = None
+    WindowExecutionId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]] = None
     Status: Optional[MaintenanceWindowExecutionStatusType] = None
     StatusDetails: Optional[str] = None
     StartTime: Optional[datetime] = None
@@ -556,19 +558,19 @@ class MaintenanceWindowExecutionTypeDef(BaseValidatorModel):
 
 
 class ScheduledWindowExecutionTypeDef(BaseValidatorModel):
-    WindowId: Optional[str] = None
-    Name: Optional[str] = None
+    WindowId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]] = None
     ExecutionTime: Optional[str] = None
 
 
 class MaintenanceWindowIdentityForTargetTypeDef(BaseValidatorModel):
-    WindowId: Optional[str] = None
-    Name: Optional[str] = None
+    WindowId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]] = None
 
 
 class MaintenanceWindowIdentityTypeDef(BaseValidatorModel):
-    WindowId: Optional[str] = None
-    Name: Optional[str] = None
+    WindowId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]] = None
     Description: Optional[str] = None
     Enabled: Optional[bool] = None
     Duration: Optional[int] = None
@@ -588,7 +590,7 @@ class OpsItemFilterTypeDef(BaseValidatorModel):
 
 
 class ParameterStringFilterTypeDef(BaseValidatorModel):
-    Key: str
+    Key: Annotated[str, _aws_pattern("Ssm", "ParameterStringFilterKey")]
     Option: Optional[str] = None
     Values: Optional[List[str]] = None
 
@@ -599,8 +601,8 @@ class ParametersFilterTypeDef(BaseValidatorModel):
 
 
 class PatchBaselineIdentityTypeDef(BaseValidatorModel):
-    BaselineId: Optional[str] = None
-    BaselineName: Optional[str] = None
+    BaselineId: Optional[Annotated[str, _aws_pattern("Ssm", "BaselineId")]] = None
+    BaselineName: Optional[Annotated[str, _aws_pattern("Ssm", "BaselineName")]] = None
     OperatingSystem: Optional[OperatingSystemType] = None
     BaselineDescription: Optional[str] = None
     DefaultBaseline: Optional[bool] = None
@@ -608,7 +610,7 @@ class PatchBaselineIdentityTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_patch_group_state' function.
 class DescribePatchGroupStateRequestTypeDef(BaseValidatorModel):
-    PatchGroup: str
+    PatchGroup: Annotated[str, _aws_pattern("Ssm", "PatchGroup")]
 
 
 # This class is the input for the 'describe_patch_properties' function.
@@ -626,14 +628,14 @@ class SessionFilterTypeDef(BaseValidatorModel):
 
 
 class DisassociateOpsItemRelatedItemRequestTypeDef(BaseValidatorModel):
-    OpsItemId: str
+    OpsItemId: Annotated[str, _aws_pattern("Ssm", "OpsItemId")]
     AssociationId: str
 
 
 class DocumentDefaultVersionDescriptionTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    DefaultVersion: Optional[str] = None
-    DefaultVersionName: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentName")]] = None
+    DefaultVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
+    DefaultVersionName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersionName")]] = None
 
 
 class DocumentParameterTypeDef(BaseValidatorModel):
@@ -646,7 +648,7 @@ class DocumentParameterTypeDef(BaseValidatorModel):
 class ReviewInformationTypeDef(BaseValidatorModel):
     ReviewedTime: Optional[datetime] = None
     Status: Optional[ReviewStatusType] = None
-    Reviewer: Optional[str] = None
+    Reviewer: Optional[Annotated[str, _aws_pattern("Ssm", "Reviewer")]] = None
 
 
 class DocumentFilterTypeDef(BaseValidatorModel):
@@ -661,14 +663,14 @@ class DocumentKeyValuesFilterTypeDef(BaseValidatorModel):
 
 class DocumentReviewCommentSourceTypeDef(BaseValidatorModel):
     Type: Optional[Literal["Comment"]] = None
-    Content: Optional[str] = None
+    Content: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentReviewComment")]] = None
 
 
 class DocumentVersionInfoTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    DisplayName: Optional[str] = None
-    DocumentVersion: Optional[str] = None
-    VersionName: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentName")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentDisplayName")]] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersionName")]] = None
     CreatedDate: Optional[datetime] = None
     IsDefaultVersion: Optional[bool] = None
     DocumentFormat: Optional[DocumentFormatType] = None
@@ -691,7 +693,7 @@ class FailureDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_access_token' function.
 class GetAccessTokenRequestTypeDef(BaseValidatorModel):
-    AccessRequestId: str
+    AccessRequestId: Annotated[str, _aws_pattern("Ssm", "AccessRequestId")]
 
 
 # This class is the input for the 'get_automation_execution' function.
@@ -708,7 +710,7 @@ class GetCalendarStateRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_command_invocation' function.
 class GetCommandInvocationRequestTypeDef(BaseValidatorModel):
     CommandId: str
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
     PluginName: Optional[str] = None
 
 
@@ -729,15 +731,15 @@ class GetDefaultPatchBaselineRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_document' function.
 class GetDocumentRequestTypeDef(BaseValidatorModel):
-    Name: str
-    VersionName: Optional[str] = None
-    DocumentVersion: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
+    VersionName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersionName")]] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     DocumentFormat: Optional[DocumentFormatType] = None
 
 
 # This class is the input for the 'get_execution_preview' function.
 class GetExecutionPreviewRequestTypeDef(BaseValidatorModel):
-    ExecutionPreviewId: str
+    ExecutionPreviewId: Annotated[str, _aws_pattern("Ssm", "ExecutionPreviewId")]
 
 
 class InventoryFilterTypeDef(BaseValidatorModel):
@@ -747,7 +749,7 @@ class InventoryFilterTypeDef(BaseValidatorModel):
 
 
 class ResultAttributeTypeDef(BaseValidatorModel):
-    TypeName: str
+    TypeName: Annotated[str, _aws_pattern("Ssm", "InventoryItemTypeName")]
 
 
 # This class is the input for the 'get_inventory_schema' function.
@@ -761,20 +763,20 @@ class GetInventorySchemaRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_maintenance_window_execution' function.
 class GetMaintenanceWindowExecutionRequestTypeDef(BaseValidatorModel):
-    WindowExecutionId: str
+    WindowExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]
 
 
 # This class is the input for the 'get_maintenance_window_execution_task_invocation' function.
 class GetMaintenanceWindowExecutionTaskInvocationRequestTypeDef(BaseValidatorModel):
-    WindowExecutionId: str
-    TaskId: str
-    InvocationId: str
+    WindowExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]
+    TaskId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionTaskId")]
+    InvocationId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionTaskInvocationId")]
 
 
 # This class is the input for the 'get_maintenance_window_execution_task' function.
 class GetMaintenanceWindowExecutionTaskRequestTypeDef(BaseValidatorModel):
-    WindowExecutionId: str
-    TaskId: str
+    WindowExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]
+    TaskId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionTaskId")]
 
 
 class MaintenanceWindowTaskParameterValueExpressionOutputTypeDef(BaseValidatorModel):
@@ -783,13 +785,13 @@ class MaintenanceWindowTaskParameterValueExpressionOutputTypeDef(BaseValidatorMo
 
 # This class is the input for the 'get_maintenance_window' function.
 class GetMaintenanceWindowRequestTypeDef(BaseValidatorModel):
-    WindowId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
 
 
 # This class is the input for the 'get_maintenance_window_task' function.
 class GetMaintenanceWindowTaskRequestTypeDef(BaseValidatorModel):
-    WindowId: str
-    WindowTaskId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    WindowTaskId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTaskId")]
 
 
 class LoggingInfoTypeDef(BaseValidatorModel):
@@ -800,13 +802,13 @@ class LoggingInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_ops_item' function.
 class GetOpsItemRequestTypeDef(BaseValidatorModel):
-    OpsItemId: str
-    OpsItemArn: Optional[str] = None
+    OpsItemId: Annotated[str, _aws_pattern("Ssm", "OpsItemId")]
+    OpsItemArn: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemArn")]] = None
 
 
 # This class is the input for the 'get_ops_metadata' function.
 class GetOpsMetadataRequestTypeDef(BaseValidatorModel):
-    OpsMetadataArn: str
+    OpsMetadataArn: Annotated[str, _aws_pattern("Ssm", "OpsMetadataArn")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -818,7 +820,7 @@ class OpsFilterTypeDef(BaseValidatorModel):
 
 
 class OpsResultAttributeTypeDef(BaseValidatorModel):
-    TypeName: str
+    TypeName: Annotated[str, _aws_pattern("Ssm", "OpsDataTypeName")]
 
 
 # This class is the input for the 'get_parameter_history' function.
@@ -855,13 +857,13 @@ class GetParametersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_patch_baseline_for_patch_group' function.
 class GetPatchBaselineForPatchGroupRequestTypeDef(BaseValidatorModel):
-    PatchGroup: str
+    PatchGroup: Annotated[str, _aws_pattern("Ssm", "PatchGroup")]
     OperatingSystem: Optional[OperatingSystemType] = None
 
 
 # This class is the input for the 'get_patch_baseline' function.
 class GetPatchBaselineRequestTypeDef(BaseValidatorModel):
-    BaselineId: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
 
 
 class PatchSourceOutputTypeDef(BaseValidatorModel):
@@ -880,7 +882,7 @@ class GetResourcePoliciesRequestTypeDef(BaseValidatorModel):
 class GetResourcePoliciesResponseEntryTypeDef(BaseValidatorModel):
     PolicyId: Optional[str] = None
     PolicyHash: Optional[str] = None
-    Policy: Optional[str] = None
+    Policy: Optional[Annotated[str, _aws_pattern("Ssm", "Policy")]] = None
 
 
 # This class is the input for the 'get_service_setting' function.
@@ -914,7 +916,7 @@ class S3OutputUrlTypeDef(BaseValidatorModel):
 
 class InstanceInfoTypeDef(BaseValidatorModel):
     AgentType: Optional[str] = None
-    AgentVersion: Optional[str] = None
+    AgentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "AgentVersion")]] = None
     ComputerName: Optional[str] = None
     InstanceStatus: Optional[str] = None
     IpAddress: Optional[str] = None
@@ -926,7 +928,7 @@ class InstanceInfoTypeDef(BaseValidatorModel):
 
 
 class InventoryDeletionSummaryItemTypeDef(BaseValidatorModel):
-    Version: Optional[str] = None
+    Version: Optional[Annotated[str, _aws_pattern("Ssm", "InventoryItemSchemaVersion")]] = None
     Count: Optional[int] = None
     RemainingCount: Optional[int] = None
 
@@ -937,19 +939,19 @@ class InventoryItemAttributeTypeDef(BaseValidatorModel):
 
 
 class InventoryItemTypeDef(BaseValidatorModel):
-    TypeName: str
-    SchemaVersion: str
-    CaptureTime: str
+    TypeName: Annotated[str, _aws_pattern("Ssm", "InventoryItemTypeName")]
+    SchemaVersion: Annotated[str, _aws_pattern("Ssm", "InventoryItemSchemaVersion")]
+    CaptureTime: Annotated[str, _aws_pattern("Ssm", "InventoryItemCaptureTime")]
     ContentHash: Optional[str] = None
     Content: Optional[List[Dict[str, str]]] = None
     Context: Optional[Dict[str, str]] = None
 
 
 class InventoryResultItemTypeDef(BaseValidatorModel):
-    TypeName: str
-    SchemaVersion: str
+    TypeName: Annotated[str, _aws_pattern("Ssm", "InventoryItemTypeName")]
+    SchemaVersion: Annotated[str, _aws_pattern("Ssm", "InventoryItemSchemaVersion")]
     Content: List[Dict[str, str]]
-    CaptureTime: Optional[str] = None
+    CaptureTime: Optional[Annotated[str, _aws_pattern("Ssm", "InventoryItemCaptureTime")]] = None
     ContentHash: Optional[str] = None
 
 
@@ -962,30 +964,30 @@ class LabelParameterVersionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_association_versions' function.
 class ListAssociationVersionsRequestTypeDef(BaseValidatorModel):
-    AssociationId: str
+    AssociationId: Annotated[str, _aws_pattern("Ssm", "AssociationId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_document_metadata_history' function.
 class ListDocumentMetadataHistoryRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentName")]
     Metadata: Literal["DocumentReviews"]
-    DocumentVersion: Optional[str] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_document_versions' function.
 class ListDocumentVersionsRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class NodeFilterTypeDef(BaseValidatorModel):
     Key: NodeFilterKeyType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Ssm", "NodeFilterValue")]]
     Type: Optional[NodeFilterOperatorTypeType] = None
 
 
@@ -1005,7 +1007,7 @@ class NodeAggregatorTypeDef(BaseValidatorModel):
 
 class OpsItemEventFilterTypeDef(BaseValidatorModel):
     Key: Literal["OpsItemId"]
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Ssm", "OpsItemEventFilterValue")]]
     Operator: Literal["Equal"]
 
 
@@ -1016,13 +1018,13 @@ class OpsItemRelatedItemsFilterTypeDef(BaseValidatorModel):
 
 
 class OpsMetadataFilterTypeDef(BaseValidatorModel):
-    Key: str
+    Key: Annotated[str, _aws_pattern("Ssm", "OpsMetadataFilterKey")]
     Values: List[str]
 
 
 class OpsMetadataTypeDef(BaseValidatorModel):
-    ResourceId: Optional[str] = None
-    OpsMetadataArn: Optional[str] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Ssm", "OpsMetadataResourceId")]] = None
+    OpsMetadataArn: Optional[Annotated[str, _aws_pattern("Ssm", "OpsMetadataArn")]] = None
     LastModifiedDate: Optional[datetime] = None
     LastModifiedUser: Optional[str] = None
     CreationDate: Optional[datetime] = None
@@ -1047,7 +1049,7 @@ class MaintenanceWindowAutomationParametersOutputTypeDef(BaseValidatorModel):
 
 
 class MaintenanceWindowAutomationParametersTypeDef(BaseValidatorModel):
-    DocumentVersion: Optional[str] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     Parameters: Optional[Dict[str, List[str]]] = None
 
 
@@ -1073,21 +1075,21 @@ class MaintenanceWindowTaskParameterValueExpressionTypeDef(BaseValidatorModel):
 
 
 class ModifyDocumentPermissionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentName")]
     PermissionType: Literal["Share"]
-    AccountIdsToAdd: Optional[List[str]] = None
-    AccountIdsToRemove: Optional[List[str]] = None
-    SharedDocumentVersion: Optional[str] = None
+    AccountIdsToAdd: Optional[List[Annotated[str, _aws_pattern("Ssm", "AccountId")]]] = None
+    AccountIdsToRemove: Optional[List[Annotated[str, _aws_pattern("Ssm", "AccountId")]]] = None
+    SharedDocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "SharedDocumentVersion")]] = None
 
 
 class NodeOwnerInfoTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    OrganizationalUnitId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Ssm", "NodeAccountId")]] = None
+    OrganizationalUnitId: Optional[Annotated[str, _aws_pattern("Ssm", "NodeOrganizationalUnitId")]] = None
     OrganizationalUnitPath: Optional[str] = None
 
 
 class OpsEntityItemTypeDef(BaseValidatorModel):
-    CaptureTime: Optional[str] = None
+    CaptureTime: Optional[Annotated[str, _aws_pattern("Ssm", "OpsEntityItemCaptureTime")]] = None
     Content: Optional[List[Dict[str, str]]] = None
 
 
@@ -1104,7 +1106,7 @@ class ParameterInlinePolicyTypeDef(BaseValidatorModel):
 class ParentStepDetailsTypeDef(BaseValidatorModel):
     StepExecutionId: Optional[str] = None
     StepName: Optional[str] = None
-    Action: Optional[str] = None
+    Action: Optional[Annotated[str, _aws_pattern("Ssm", "AutomationActionName")]] = None
     Iteration: Optional[int] = None
     IteratorValue: Optional[str] = None
 
@@ -1120,7 +1122,7 @@ class PatchFilterTypeDef(BaseValidatorModel):
 
 
 class PatchSourceTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "PatchSourceName")]
     Products: List[str]
     Configuration: str
 
@@ -1128,26 +1130,26 @@ class PatchSourceTypeDef(BaseValidatorModel):
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
-    Policy: str
+    Policy: Annotated[str, _aws_pattern("Ssm", "Policy")]
     PolicyId: Optional[str] = None
     PolicyHash: Optional[str] = None
 
 
 # This class is the input for the 'register_default_patch_baseline' function.
 class RegisterDefaultPatchBaselineRequestTypeDef(BaseValidatorModel):
-    BaselineId: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
 
 
 # This class is the input for the 'register_patch_baseline_for_patch_group' function.
 class RegisterPatchBaselineForPatchGroupRequestTypeDef(BaseValidatorModel):
-    BaselineId: str
-    PatchGroup: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
+    PatchGroup: Annotated[str, _aws_pattern("Ssm", "PatchGroup")]
 
 
 class RemoveTagsFromResourceRequestTypeDef(BaseValidatorModel):
     ResourceType: ResourceTypeForTaggingType
     ResourceId: str
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("Ssm", "TagKey")]]
 
 
 # This class is the input for the 'reset_service_setting' function.
@@ -1156,7 +1158,7 @@ class ResetServiceSettingRequestTypeDef(BaseValidatorModel):
 
 
 class ResourceDataSyncOrganizationalUnitTypeDef(BaseValidatorModel):
-    OrganizationalUnitId: Optional[str] = None
+    OrganizationalUnitId: Optional[Annotated[str, _aws_pattern("Ssm", "ResourceDataSyncOrganizationalUnitId")]] = None
 
 
 class ResourceDataSyncDestinationDataSharingTypeDef(BaseValidatorModel):
@@ -1180,14 +1182,14 @@ class SessionManagerOutputUrlTypeDef(BaseValidatorModel):
 
 
 class StartAssociationsOnceRequestTypeDef(BaseValidatorModel):
-    AssociationIds: List[str]
+    AssociationIds: List[Annotated[str, _aws_pattern("Ssm", "AssociationId")]]
 
 
 # This class is the input for the 'start_session' function.
 class StartSessionRequestTypeDef(BaseValidatorModel):
     Target: str
-    DocumentName: Optional[str] = None
-    Reason: Optional[str] = None
+    DocumentName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentARN")]] = None
+    Reason: Optional[Annotated[str, _aws_pattern("Ssm", "SessionReason")]] = None
     Parameters: Optional[Dict[str, List[str]]] = None
 
 
@@ -1197,7 +1199,7 @@ class StopAutomationExecutionRequestTypeDef(BaseValidatorModel):
 
 
 class TargetTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Ssm", "TargetKey")]] = None
     Values: Optional[List[str]] = None
 
 
@@ -1215,14 +1217,14 @@ class UnlabelParameterVersionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_document_default_version' function.
 class UpdateDocumentDefaultVersionRequestTypeDef(BaseValidatorModel):
-    Name: str
-    DocumentVersion: str
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentName")]
+    DocumentVersion: Annotated[str, _aws_pattern("Ssm", "DocumentVersionNumber")]
 
 
 # This class is the input for the 'update_maintenance_window' function.
 class UpdateMaintenanceWindowRequestTypeDef(BaseValidatorModel):
-    WindowId: str
-    Name: Optional[str] = None
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]] = None
     Description: Optional[str] = None
     StartDate: Optional[str] = None
     EndDate: Optional[str] = None
@@ -1237,7 +1239,7 @@ class UpdateMaintenanceWindowRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateManagedInstanceRoleRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "ManagedInstanceId")]
     IamRole: str
 
 
@@ -1247,9 +1249,9 @@ class UpdateServiceSettingRequestTypeDef(BaseValidatorModel):
 
 
 class ActivationTypeDef(BaseValidatorModel):
-    ActivationId: Optional[str] = None
+    ActivationId: Optional[Annotated[str, _aws_pattern("Ssm", "ActivationId")]] = None
     Description: Optional[str] = None
-    DefaultInstanceName: Optional[str] = None
+    DefaultInstanceName: Optional[Annotated[str, _aws_pattern("Ssm", "DefaultInstanceName")]] = None
     IamRole: Optional[str] = None
     RegistrationLimit: Optional[int] = None
     RegistrationsCount: Optional[int] = None
@@ -1267,7 +1269,7 @@ class AddTagsToResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_maintenance_window' function.
 class CreateMaintenanceWindowRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]
     Schedule: str
     Duration: int
     Cutoff: int
@@ -1287,7 +1289,7 @@ class PutParameterRequestTypeDef(BaseValidatorModel):
     Value: str
     Description: Optional[str] = None
     Type: Optional[ParameterTypeType] = None
-    KeyId: Optional[str] = None
+    KeyId: Optional[Annotated[str, _aws_pattern("Ssm", "ParameterKeyId")]] = None
     Overwrite: Optional[bool] = None
     AllowedPattern: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -1314,45 +1316,45 @@ class AssociateOpsItemRelatedItemResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_maintenance_window_execution' function.
 class CancelMaintenanceWindowExecutionResultTypeDef(BaseValidatorModel):
-    WindowExecutionId: str
+    WindowExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_activation' function.
 class CreateActivationResultTypeDef(BaseValidatorModel):
-    ActivationId: str
+    ActivationId: Annotated[str, _aws_pattern("Ssm", "ActivationId")]
     ActivationCode: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_maintenance_window' function.
 class CreateMaintenanceWindowResultTypeDef(BaseValidatorModel):
-    WindowId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ops_item' function.
 class CreateOpsItemResponseTypeDef(BaseValidatorModel):
     OpsItemId: str
-    OpsItemArn: str
+    OpsItemArn: Annotated[str, _aws_pattern("Ssm", "OpsItemArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ops_metadata' function.
 class CreateOpsMetadataResultTypeDef(BaseValidatorModel):
-    OpsMetadataArn: str
+    OpsMetadataArn: Annotated[str, _aws_pattern("Ssm", "OpsMetadataArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_patch_baseline' function.
 class CreatePatchBaselineResultTypeDef(BaseValidatorModel):
-    BaselineId: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_maintenance_window' function.
 class DeleteMaintenanceWindowResultTypeDef(BaseValidatorModel):
-    WindowId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1365,34 +1367,34 @@ class DeleteParametersResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_patch_baseline' function.
 class DeletePatchBaselineResultTypeDef(BaseValidatorModel):
-    BaselineId: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'deregister_patch_baseline_for_patch_group' function.
 class DeregisterPatchBaselineForPatchGroupResultTypeDef(BaseValidatorModel):
-    BaselineId: str
-    PatchGroup: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
+    PatchGroup: Annotated[str, _aws_pattern("Ssm", "PatchGroup")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'deregister_target_from_maintenance_window' function.
 class DeregisterTargetFromMaintenanceWindowResultTypeDef(BaseValidatorModel):
-    WindowId: str
-    WindowTargetId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    WindowTargetId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTargetId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'deregister_task_from_maintenance_window' function.
 class DeregisterTaskFromMaintenanceWindowResultTypeDef(BaseValidatorModel):
-    WindowId: str
-    WindowTaskId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    WindowTaskId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTaskId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_document_permission' function.
 class DescribeDocumentPermissionResponseTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("Ssm", "AccountId")]]
     AccountSharingInfoList: List[AccountSharingInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1440,15 +1442,15 @@ class GetConnectionStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_default_patch_baseline' function.
 class GetDefaultPatchBaselineResultTypeDef(BaseValidatorModel):
-    BaselineId: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
     OperatingSystem: OperatingSystemType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_deployable_patch_snapshot_for_instance' function.
 class GetDeployablePatchSnapshotForInstanceResultTypeDef(BaseValidatorModel):
-    InstanceId: str
-    SnapshotId: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
+    SnapshotId: Annotated[str, _aws_pattern("Ssm", "SnapshotId")]
     SnapshotDownloadUrl: str
     Product: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1456,8 +1458,8 @@ class GetDeployablePatchSnapshotForInstanceResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_maintenance_window_execution' function.
 class GetMaintenanceWindowExecutionResultTypeDef(BaseValidatorModel):
-    WindowExecutionId: str
-    TaskIds: List[str]
+    WindowExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]
+    TaskIds: List[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionTaskId")]]
     Status: MaintenanceWindowExecutionStatusType
     StatusDetails: str
     StartTime: datetime
@@ -1467,9 +1469,9 @@ class GetMaintenanceWindowExecutionResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_maintenance_window_execution_task_invocation' function.
 class GetMaintenanceWindowExecutionTaskInvocationResultTypeDef(BaseValidatorModel):
-    WindowExecutionId: str
-    TaskExecutionId: str
-    InvocationId: str
+    WindowExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]
+    TaskExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionTaskId")]
+    InvocationId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionTaskInvocationId")]
     ExecutionId: str
     TaskType: MaintenanceWindowTaskTypeType
     Parameters: str
@@ -1484,8 +1486,8 @@ class GetMaintenanceWindowExecutionTaskInvocationResultTypeDef(BaseValidatorMode
 
 # This class is the output for the 'get_maintenance_window' function.
 class GetMaintenanceWindowResultTypeDef(BaseValidatorModel):
-    WindowId: str
-    Name: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    Name: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]
     Description: str
     StartDate: str
     EndDate: str
@@ -1504,8 +1506,8 @@ class GetMaintenanceWindowResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_patch_baseline_for_patch_group' function.
 class GetPatchBaselineForPatchGroupResultTypeDef(BaseValidatorModel):
-    BaselineId: str
-    PatchGroup: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
+    PatchGroup: Annotated[str, _aws_pattern("Ssm", "PatchGroup")]
     OperatingSystem: OperatingSystemType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1519,10 +1521,10 @@ class LabelParameterVersionResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_inventory_entries' function.
 class ListInventoryEntriesResultTypeDef(BaseValidatorModel):
-    TypeName: str
-    InstanceId: str
-    SchemaVersion: str
-    CaptureTime: str
+    TypeName: Annotated[str, _aws_pattern("Ssm", "InventoryItemTypeName")]
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
+    SchemaVersion: Annotated[str, _aws_pattern("Ssm", "InventoryItemSchemaVersion")]
+    CaptureTime: Annotated[str, _aws_pattern("Ssm", "InventoryItemCaptureTime")]
     Entries: List[Dict[str, str]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1563,26 +1565,26 @@ class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'register_default_patch_baseline' function.
 class RegisterDefaultPatchBaselineResultTypeDef(BaseValidatorModel):
-    BaselineId: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_patch_baseline_for_patch_group' function.
 class RegisterPatchBaselineForPatchGroupResultTypeDef(BaseValidatorModel):
-    BaselineId: str
-    PatchGroup: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
+    PatchGroup: Annotated[str, _aws_pattern("Ssm", "PatchGroup")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_target_with_maintenance_window' function.
 class RegisterTargetWithMaintenanceWindowResultTypeDef(BaseValidatorModel):
-    WindowTargetId: str
+    WindowTargetId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTargetId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_task_with_maintenance_window' function.
 class RegisterTaskWithMaintenanceWindowResultTypeDef(BaseValidatorModel):
-    WindowTaskId: str
+    WindowTaskId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTaskId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1596,7 +1598,7 @@ class ResumeSessionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_access_request' function.
 class StartAccessRequestResponseTypeDef(BaseValidatorModel):
-    AccessRequestId: str
+    AccessRequestId: Annotated[str, _aws_pattern("Ssm", "AccessRequestId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1614,7 +1616,7 @@ class StartChangeRequestExecutionResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_execution_preview' function.
 class StartExecutionPreviewResponseTypeDef(BaseValidatorModel):
-    ExecutionPreviewId: str
+    ExecutionPreviewId: Annotated[str, _aws_pattern("Ssm", "ExecutionPreviewId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1641,8 +1643,8 @@ class UnlabelParameterVersionResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_maintenance_window' function.
 class UpdateMaintenanceWindowResultTypeDef(BaseValidatorModel):
-    WindowId: str
-    Name: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    Name: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]
     Description: str
     StartDate: str
     EndDate: str
@@ -1658,59 +1660,59 @@ class UpdateMaintenanceWindowResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_ops_metadata' function.
 class UpdateOpsMetadataResultTypeDef(BaseValidatorModel):
-    OpsMetadataArn: str
+    OpsMetadataArn: Annotated[str, _aws_pattern("Ssm", "OpsMetadataArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class AssociationTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    InstanceId: Optional[str] = None
-    AssociationId: Optional[str] = None
-    AssociationVersion: Optional[str] = None
-    DocumentVersion: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentARN")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationId")]] = None
+    AssociationVersion: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationVersion")]] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     Targets: Optional[List[TargetOutputTypeDef]] = None
     LastExecutionDate: Optional[datetime] = None
     Overview: Optional[AssociationOverviewTypeDef] = None
     ScheduleExpression: Optional[str] = None
-    AssociationName: Optional[str] = None
+    AssociationName: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationName")]] = None
     ScheduleOffset: Optional[int] = None
     Duration: Optional[int] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
 
 
 class MaintenanceWindowTargetTypeDef(BaseValidatorModel):
-    WindowId: Optional[str] = None
-    WindowTargetId: Optional[str] = None
+    WindowId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]] = None
+    WindowTargetId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTargetId")]] = None
     ResourceType: Optional[MaintenanceWindowResourceTypeType] = None
     Targets: Optional[List[TargetOutputTypeDef]] = None
     OwnerInformation: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]] = None
     Description: Optional[str] = None
 
 
 # This class is the output for the 'update_maintenance_window_target' function.
 class UpdateMaintenanceWindowTargetResultTypeDef(BaseValidatorModel):
-    WindowId: str
-    WindowTargetId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    WindowTargetId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTargetId")]
     Targets: List[TargetOutputTypeDef]
     OwnerInformation: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]
     Description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'describe_association_executions' function.
 class DescribeAssociationExecutionsRequestTypeDef(BaseValidatorModel):
-    AssociationId: str
+    AssociationId: Annotated[str, _aws_pattern("Ssm", "AssociationId")]
     Filters: Optional[List[AssociationExecutionFilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class AssociationExecutionTargetTypeDef(BaseValidatorModel):
-    AssociationId: Optional[str] = None
-    AssociationVersion: Optional[str] = None
-    ExecutionId: Optional[str] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationId")]] = None
+    AssociationVersion: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationVersion")]] = None
+    ExecutionId: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationExecutionId")]] = None
     ResourceId: Optional[str] = None
     ResourceType: Optional[str] = None
     Status: Optional[str] = None
@@ -1721,8 +1723,8 @@ class AssociationExecutionTargetTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_association_execution_targets' function.
 class DescribeAssociationExecutionTargetsRequestTypeDef(BaseValidatorModel):
-    AssociationId: str
-    ExecutionId: str
+    AssociationId: Annotated[str, _aws_pattern("Ssm", "AssociationId")]
+    ExecutionId: Annotated[str, _aws_pattern("Ssm", "AssociationExecutionId")]
     Filters: Optional[List[AssociationExecutionTargetsFilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1751,13 +1753,13 @@ class ComplianceExecutionSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_document' function.
 class UpdateDocumentRequestTypeDef(BaseValidatorModel):
     Content: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentName")]
     Attachments: Optional[List[AttachmentsSourceTypeDef]] = None
-    DisplayName: Optional[str] = None
-    VersionName: Optional[str] = None
-    DocumentVersion: Optional[str] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentDisplayName")]] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersionName")]] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     DocumentFormat: Optional[DocumentFormatType] = None
-    TargetType: Optional[str] = None
+    TargetType: Optional[Annotated[str, _aws_pattern("Ssm", "TargetType")]] = None
 
 
 # This class is the input for the 'describe_automation_executions' function.
@@ -1783,15 +1785,15 @@ class MaintenanceWindowLambdaParametersTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_command_invocation' function.
 class GetCommandInvocationResultTypeDef(BaseValidatorModel):
     CommandId: str
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
     Comment: str
-    DocumentName: str
-    DocumentVersion: str
+    DocumentName: Annotated[str, _aws_pattern("Ssm", "DocumentName")]
+    DocumentVersion: Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]
     PluginName: str
     ResponseCode: int
-    ExecutionStartDateTime: str
-    ExecutionElapsedTime: str
-    ExecutionEndDateTime: str
+    ExecutionStartDateTime: Annotated[str, _aws_pattern("Ssm", "StringDateTime")]
+    ExecutionElapsedTime: Annotated[str, _aws_pattern("Ssm", "StringDateTime")]
+    ExecutionEndDateTime: Annotated[str, _aws_pattern("Ssm", "StringDateTime")]
     Status: CommandInvocationStatusType
     StatusDetails: str
     StandardOutputContent: str
@@ -1805,7 +1807,7 @@ class GetCommandInvocationResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_command_invocations' function.
 class ListCommandInvocationsRequestTypeDef(BaseValidatorModel):
     CommandId: Optional[str] = None
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[CommandFilterTypeDef]] = None
@@ -1815,7 +1817,7 @@ class ListCommandInvocationsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_commands' function.
 class ListCommandsRequestTypeDef(BaseValidatorModel):
     CommandId: Optional[str] = None
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[CommandFilterTypeDef]] = None
@@ -1823,11 +1825,11 @@ class ListCommandsRequestTypeDef(BaseValidatorModel):
 
 class CommandInvocationTypeDef(BaseValidatorModel):
     CommandId: Optional[str] = None
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
     InstanceName: Optional[str] = None
     Comment: Optional[str] = None
-    DocumentName: Optional[str] = None
-    DocumentVersion: Optional[str] = None
+    DocumentName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentName")]] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     RequestedDateTime: Optional[datetime] = None
     Status: Optional[CommandInvocationStatusType] = None
     StatusDetails: Optional[str] = None
@@ -1855,7 +1857,7 @@ class MaintenanceWindowRunCommandParametersOutputTypeDef(BaseValidatorModel):
 
 
 class ComplianceItemTypeDef(BaseValidatorModel):
-    ComplianceType: Optional[str] = None
+    ComplianceType: Optional[Annotated[str, _aws_pattern("Ssm", "ComplianceTypeName")]] = None
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
     Id: Optional[str] = None
@@ -1903,7 +1905,7 @@ class NonCompliantSummaryTypeDef(BaseValidatorModel):
 class CreateActivationRequestTypeDef(BaseValidatorModel):
     IamRole: str
     Description: Optional[str] = None
-    DefaultInstanceName: Optional[str] = None
+    DefaultInstanceName: Optional[Annotated[str, _aws_pattern("Ssm", "DefaultInstanceName")]] = None
     RegistrationLimit: Optional[int] = None
     ExpirationDate: Optional[TimestampTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -1913,29 +1915,29 @@ class CreateActivationRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_document' function.
 class CreateDocumentRequestTypeDef(BaseValidatorModel):
     Content: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentName")]
     Requires: Optional[List[DocumentRequiresTypeDef]] = None
     Attachments: Optional[List[AttachmentsSourceTypeDef]] = None
-    DisplayName: Optional[str] = None
-    VersionName: Optional[str] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentDisplayName")]] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersionName")]] = None
     DocumentType: Optional[DocumentTypeType] = None
     DocumentFormat: Optional[DocumentFormatType] = None
-    TargetType: Optional[str] = None
+    TargetType: Optional[Annotated[str, _aws_pattern("Ssm", "TargetType")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class DocumentIdentifierTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentARN")]] = None
     CreatedDate: Optional[datetime] = None
-    DisplayName: Optional[str] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentDisplayName")]] = None
     Owner: Optional[str] = None
-    VersionName: Optional[str] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersionName")]] = None
     PlatformTypes: Optional[List[PlatformTypeType]] = None
-    DocumentVersion: Optional[str] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     DocumentType: Optional[DocumentTypeType] = None
-    SchemaVersion: Optional[str] = None
+    SchemaVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentSchemaVersion")]] = None
     DocumentFormat: Optional[DocumentFormatType] = None
-    TargetType: Optional[str] = None
+    TargetType: Optional[Annotated[str, _aws_pattern("Ssm", "TargetType")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     Requires: Optional[List[DocumentRequiresTypeDef]] = None
     ReviewStatus: Optional[ReviewStatusType] = None
@@ -1944,11 +1946,11 @@ class DocumentIdentifierTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_document' function.
 class GetDocumentResultTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
     CreatedDate: datetime
-    DisplayName: str
-    VersionName: str
-    DocumentVersion: str
+    DisplayName: Annotated[str, _aws_pattern("Ssm", "DocumentDisplayName")]
+    VersionName: Annotated[str, _aws_pattern("Ssm", "DocumentVersionName")]
+    DocumentVersion: Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]
     Status: DocumentStatusType
     StatusInformation: str
     Content: str
@@ -1966,13 +1968,13 @@ class OpsItemSummaryTypeDef(BaseValidatorModel):
     LastModifiedBy: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
     Priority: Optional[int] = None
-    Source: Optional[str] = None
+    Source: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemSource")]] = None
     Status: Optional[OpsItemStatusType] = None
-    OpsItemId: Optional[str] = None
-    Title: Optional[str] = None
+    OpsItemId: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemId")]] = None
+    Title: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemTitle")]] = None
     OperationalData: Optional[Dict[str, OpsItemDataValueTypeDef]] = None
-    Category: Optional[str] = None
-    Severity: Optional[str] = None
+    Category: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemCategory")]] = None
+    Severity: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemSeverity")]] = None
     OpsItemType: Optional[str] = None
     ActualStartTime: Optional[datetime] = None
     ActualEndTime: Optional[datetime] = None
@@ -1982,78 +1984,78 @@ class OpsItemSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_ops_item' function.
 class CreateOpsItemRequestTypeDef(BaseValidatorModel):
-    Description: str
-    Source: str
-    Title: str
+    Description: Annotated[str, _aws_pattern("Ssm", "OpsItemDescription")]
+    Source: Annotated[str, _aws_pattern("Ssm", "OpsItemSource")]
+    Title: Annotated[str, _aws_pattern("Ssm", "OpsItemTitle")]
     OpsItemType: Optional[str] = None
     OperationalData: Optional[Dict[str, OpsItemDataValueTypeDef]] = None
     Notifications: Optional[List[OpsItemNotificationTypeDef]] = None
     Priority: Optional[int] = None
     RelatedOpsItems: Optional[List[RelatedOpsItemTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    Category: Optional[str] = None
-    Severity: Optional[str] = None
+    Category: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemCategory")]] = None
+    Severity: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemSeverity")]] = None
     ActualStartTime: Optional[TimestampTypeDef] = None
     ActualEndTime: Optional[TimestampTypeDef] = None
     PlannedStartTime: Optional[TimestampTypeDef] = None
     PlannedEndTime: Optional[TimestampTypeDef] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemAccountId")]] = None
 
 
 class OpsItemTypeDef(BaseValidatorModel):
     CreatedBy: Optional[str] = None
     OpsItemType: Optional[str] = None
     CreatedTime: Optional[datetime] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemDescription")]] = None
     LastModifiedBy: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
     Notifications: Optional[List[OpsItemNotificationTypeDef]] = None
     Priority: Optional[int] = None
     RelatedOpsItems: Optional[List[RelatedOpsItemTypeDef]] = None
     Status: Optional[OpsItemStatusType] = None
-    OpsItemId: Optional[str] = None
+    OpsItemId: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemId")]] = None
     Version: Optional[str] = None
-    Title: Optional[str] = None
-    Source: Optional[str] = None
+    Title: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemTitle")]] = None
+    Source: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemSource")]] = None
     OperationalData: Optional[Dict[str, OpsItemDataValueTypeDef]] = None
-    Category: Optional[str] = None
-    Severity: Optional[str] = None
+    Category: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemCategory")]] = None
+    Severity: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemSeverity")]] = None
     ActualStartTime: Optional[datetime] = None
     ActualEndTime: Optional[datetime] = None
     PlannedStartTime: Optional[datetime] = None
     PlannedEndTime: Optional[datetime] = None
-    OpsItemArn: Optional[str] = None
+    OpsItemArn: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemArn")]] = None
 
 
 class UpdateOpsItemRequestTypeDef(BaseValidatorModel):
-    OpsItemId: str
-    Description: Optional[str] = None
+    OpsItemId: Annotated[str, _aws_pattern("Ssm", "OpsItemId")]
+    Description: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemDescription")]] = None
     OperationalData: Optional[Dict[str, OpsItemDataValueTypeDef]] = None
     OperationalDataToDelete: Optional[List[str]] = None
     Notifications: Optional[List[OpsItemNotificationTypeDef]] = None
     Priority: Optional[int] = None
     RelatedOpsItems: Optional[List[RelatedOpsItemTypeDef]] = None
     Status: Optional[OpsItemStatusType] = None
-    Title: Optional[str] = None
-    Category: Optional[str] = None
-    Severity: Optional[str] = None
+    Title: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemTitle")]] = None
+    Category: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemCategory")]] = None
+    Severity: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemSeverity")]] = None
     ActualStartTime: Optional[TimestampTypeDef] = None
     ActualEndTime: Optional[TimestampTypeDef] = None
     PlannedStartTime: Optional[TimestampTypeDef] = None
     PlannedEndTime: Optional[TimestampTypeDef] = None
-    OpsItemArn: Optional[str] = None
+    OpsItemArn: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemArn")]] = None
 
 
 # This class is the input for the 'create_ops_metadata' function.
 class CreateOpsMetadataRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Ssm", "OpsMetadataResourceId")]
     Metadata: Optional[Dict[str, MetadataValueTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'get_ops_metadata' function.
 class GetOpsMetadataResultTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Ssm", "OpsMetadataResourceId")]
     Metadata: Dict[str, MetadataValueTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -2061,9 +2063,9 @@ class GetOpsMetadataResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_ops_metadata' function.
 class UpdateOpsMetadataRequestTypeDef(BaseValidatorModel):
-    OpsMetadataArn: str
+    OpsMetadataArn: Annotated[str, _aws_pattern("Ssm", "OpsMetadataArn")]
     MetadataToUpdate: Optional[Dict[str, MetadataValueTypeDef]] = None
-    KeysToDelete: Optional[List[str]] = None
+    KeysToDelete: Optional[List[Annotated[str, _aws_pattern("Ssm", "MetadataKey")]]] = None
 
 
 # This class is the output for the 'get_access_token' function.
@@ -2241,7 +2243,7 @@ class DescribeInstancePatchesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_instance_patches' function.
 class DescribeInstancePatchesRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
     Filters: Optional[List[PatchOrchestratorFilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2307,7 +2309,7 @@ class DescribeInstancePatchStatesForPatchGroupRequestPaginateTypeDef(BaseValidat
 
 # This class is the input for the 'describe_instance_patch_states_for_patch_group' function.
 class DescribeInstancePatchStatesForPatchGroupRequestTypeDef(BaseValidatorModel):
-    PatchGroup: str
+    PatchGroup: Annotated[str, _aws_pattern("Ssm", "PatchGroup")]
     Filters: Optional[List[InstancePatchStateFilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2357,8 +2359,8 @@ class DescribeMaintenanceWindowExecutionTaskInvocationsRequestPaginateTypeDef(Ba
 
 # This class is the input for the 'describe_maintenance_window_execution_task_invocations' function.
 class DescribeMaintenanceWindowExecutionTaskInvocationsRequestTypeDef(BaseValidatorModel):
-    WindowExecutionId: str
-    TaskId: str
+    WindowExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]
+    TaskId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionTaskId")]
     Filters: Optional[List[MaintenanceWindowFilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -2372,7 +2374,7 @@ class DescribeMaintenanceWindowExecutionTasksRequestPaginateTypeDef(BaseValidato
 
 # This class is the input for the 'describe_maintenance_window_execution_tasks' function.
 class DescribeMaintenanceWindowExecutionTasksRequestTypeDef(BaseValidatorModel):
-    WindowExecutionId: str
+    WindowExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]
     Filters: Optional[List[MaintenanceWindowFilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -2386,7 +2388,7 @@ class DescribeMaintenanceWindowExecutionsRequestPaginateTypeDef(BaseValidatorMod
 
 # This class is the input for the 'describe_maintenance_window_executions' function.
 class DescribeMaintenanceWindowExecutionsRequestTypeDef(BaseValidatorModel):
-    WindowId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
     Filters: Optional[List[MaintenanceWindowFilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -2400,7 +2402,7 @@ class DescribeMaintenanceWindowTargetsRequestPaginateTypeDef(BaseValidatorModel)
 
 # This class is the input for the 'describe_maintenance_window_targets' function.
 class DescribeMaintenanceWindowTargetsRequestTypeDef(BaseValidatorModel):
-    WindowId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
     Filters: Optional[List[MaintenanceWindowFilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -2414,7 +2416,7 @@ class DescribeMaintenanceWindowTasksRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_maintenance_window_tasks' function.
 class DescribeMaintenanceWindowTasksRequestTypeDef(BaseValidatorModel):
-    WindowId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
     Filters: Optional[List[MaintenanceWindowFilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -2521,7 +2523,7 @@ class DescribePatchBaselinesResultTypeDef(BaseValidatorModel):
 
 
 class PatchGroupPatchBaselineMappingTypeDef(BaseValidatorModel):
-    PatchGroup: Optional[str] = None
+    PatchGroup: Optional[Annotated[str, _aws_pattern("Ssm", "PatchGroup")]] = None
     BaselineIdentity: Optional[PatchBaselineIdentityTypeDef] = None
 
 
@@ -2549,30 +2551,30 @@ class DocumentDescriptionTypeDef(BaseValidatorModel):
     Sha1: Optional[str] = None
     Hash: Optional[str] = None
     HashType: Optional[DocumentHashTypeType] = None
-    Name: Optional[str] = None
-    DisplayName: Optional[str] = None
-    VersionName: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentARN")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentDisplayName")]] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersionName")]] = None
     Owner: Optional[str] = None
     CreatedDate: Optional[datetime] = None
     Status: Optional[DocumentStatusType] = None
     StatusInformation: Optional[str] = None
-    DocumentVersion: Optional[str] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     Description: Optional[str] = None
     Parameters: Optional[List[DocumentParameterTypeDef]] = None
     PlatformTypes: Optional[List[PlatformTypeType]] = None
     DocumentType: Optional[DocumentTypeType] = None
-    SchemaVersion: Optional[str] = None
-    LatestVersion: Optional[str] = None
-    DefaultVersion: Optional[str] = None
+    SchemaVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentSchemaVersion")]] = None
+    LatestVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
+    DefaultVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     DocumentFormat: Optional[DocumentFormatType] = None
-    TargetType: Optional[str] = None
+    TargetType: Optional[Annotated[str, _aws_pattern("Ssm", "TargetType")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     AttachmentsInformation: Optional[List[AttachmentInformationTypeDef]] = None
     Requires: Optional[List[DocumentRequiresTypeDef]] = None
     Author: Optional[str] = None
     ReviewInformation: Optional[List[ReviewInformationTypeDef]] = None
-    ApprovedVersion: Optional[str] = None
-    PendingReviewVersion: Optional[str] = None
+    ApprovedVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
+    PendingReviewVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     ReviewStatus: Optional[ReviewStatusType] = None
     Category: Optional[List[str]] = None
     CategoryEnum: Optional[List[str]] = None
@@ -2597,7 +2599,7 @@ class DocumentReviewerResponseSourceTypeDef(BaseValidatorModel):
     UpdatedTime: Optional[datetime] = None
     ReviewStatus: Optional[ReviewStatusType] = None
     Comment: Optional[List[DocumentReviewCommentSourceTypeDef]] = None
-    Reviewer: Optional[str] = None
+    Reviewer: Optional[Annotated[str, _aws_pattern("Ssm", "Reviewer")]] = None
 
 
 class DocumentReviewsTypeDef(BaseValidatorModel):
@@ -2631,8 +2633,8 @@ class InventoryGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_inventory_entries' function.
 class ListInventoryEntriesRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    TypeName: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
+    TypeName: Annotated[str, _aws_pattern("Ssm", "InventoryItemTypeName")]
     Filters: Optional[List[InventoryFilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2648,8 +2650,8 @@ class OpsAggregatorPaginatorTypeDef(BaseValidatorModel):
 
 
 class OpsAggregatorTypeDef(BaseValidatorModel):
-    AggregatorType: Optional[str] = None
-    TypeName: Optional[str] = None
+    AggregatorType: Optional[Annotated[str, _aws_pattern("Ssm", "OpsAggregatorType")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Ssm", "OpsDataTypeName")]] = None
     AttributeName: Optional[str] = None
     Values: Optional[Dict[str, str]] = None
     Filters: Optional[List[OpsFilterTypeDef]] = None
@@ -2696,15 +2698,15 @@ class ResetServiceSettingResultTypeDef(BaseValidatorModel):
 
 
 class InstanceInformationTypeDef(BaseValidatorModel):
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
     PingStatus: Optional[PingStatusType] = None
     LastPingDateTime: Optional[datetime] = None
-    AgentVersion: Optional[str] = None
+    AgentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "Version")]] = None
     IsLatestVersion: Optional[bool] = None
     PlatformType: Optional[PlatformTypeType] = None
     PlatformName: Optional[str] = None
     PlatformVersion: Optional[str] = None
-    ActivationId: Optional[str] = None
+    ActivationId: Optional[Annotated[str, _aws_pattern("Ssm", "ActivationId")]] = None
     IamRole: Optional[str] = None
     RegistrationDate: Optional[datetime] = None
     ResourceType: Optional[ResourceTypeType] = None
@@ -2715,13 +2717,13 @@ class InstanceInformationTypeDef(BaseValidatorModel):
     LastAssociationExecutionDate: Optional[datetime] = None
     LastSuccessfulAssociationExecutionDate: Optional[datetime] = None
     AssociationOverview: Optional[InstanceAggregatedAssociationOverviewTypeDef] = None
-    SourceId: Optional[str] = None
+    SourceId: Optional[Annotated[str, _aws_pattern("Ssm", "SourceId")]] = None
     SourceType: Optional[SourceTypeType] = None
 
 
 class InstancePropertyTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
     InstanceType: Optional[str] = None
     InstanceRole: Optional[str] = None
     KeyName: Optional[str] = None
@@ -2731,11 +2733,11 @@ class InstancePropertyTypeDef(BaseValidatorModel):
     LaunchTime: Optional[datetime] = None
     PingStatus: Optional[PingStatusType] = None
     LastPingDateTime: Optional[datetime] = None
-    AgentVersion: Optional[str] = None
+    AgentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "Version")]] = None
     PlatformType: Optional[PlatformTypeType] = None
     PlatformName: Optional[str] = None
     PlatformVersion: Optional[str] = None
-    ActivationId: Optional[str] = None
+    ActivationId: Optional[Annotated[str, _aws_pattern("Ssm", "ActivationId")]] = None
     IamRole: Optional[str] = None
     RegistrationDate: Optional[datetime] = None
     ResourceType: Optional[str] = None
@@ -2744,7 +2746,7 @@ class InstancePropertyTypeDef(BaseValidatorModel):
     LastAssociationExecutionDate: Optional[datetime] = None
     LastSuccessfulAssociationExecutionDate: Optional[datetime] = None
     AssociationOverview: Optional[InstanceAggregatedAssociationOverviewTypeDef] = None
-    SourceId: Optional[str] = None
+    SourceId: Optional[Annotated[str, _aws_pattern("Ssm", "SourceId")]] = None
     SourceType: Optional[SourceTypeType] = None
 
 
@@ -2767,15 +2769,15 @@ class InventoryDeletionSummaryTypeDef(BaseValidatorModel):
 
 
 class InventoryItemSchemaTypeDef(BaseValidatorModel):
-    TypeName: str
+    TypeName: Annotated[str, _aws_pattern("Ssm", "InventoryItemTypeName")]
     Attributes: List[InventoryItemAttributeTypeDef]
-    Version: Optional[str] = None
+    Version: Optional[Annotated[str, _aws_pattern("Ssm", "InventoryItemSchemaVersion")]] = None
     DisplayName: Optional[str] = None
 
 
 # This class is the input for the 'put_inventory' function.
 class PutInventoryRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
     Items: List[InventoryItemTypeDef]
 
 
@@ -2834,7 +2836,7 @@ class ListOpsItemRelatedItemsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_ops_item_related_items' function.
 class ListOpsItemRelatedItemsRequestTypeDef(BaseValidatorModel):
-    OpsItemId: Optional[str] = None
+    OpsItemId: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemId")]] = None
     Filters: Optional[List[OpsItemRelatedItemsFilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -2864,7 +2866,7 @@ class MaintenanceWindowRunCommandParametersTypeDef(BaseValidatorModel):
     CloudWatchOutputConfig: Optional[CloudWatchOutputConfigTypeDef] = None
     DocumentHash: Optional[str] = None
     DocumentHashType: Optional[DocumentHashTypeType] = None
-    DocumentVersion: Optional[str] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     NotificationConfig: Optional[NotificationConfigTypeDef] = None
     OutputS3BucketName: Optional[str] = None
     OutputS3KeyPrefix: Optional[str] = None
@@ -2896,7 +2898,7 @@ class OpsItemEventSummaryTypeDef(BaseValidatorModel):
 
 
 class OpsItemRelatedItemSummaryTypeDef(BaseValidatorModel):
-    OpsItemId: Optional[str] = None
+    OpsItemId: Optional[Annotated[str, _aws_pattern("Ssm", "OpsItemId")]] = None
     AssociationId: Optional[str] = None
     ResourceType: Optional[str] = None
     AssociationType: Optional[str] = None
@@ -2910,7 +2912,7 @@ class OpsItemRelatedItemSummaryTypeDef(BaseValidatorModel):
 class ParameterHistoryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Type: Optional[ParameterTypeType] = None
-    KeyId: Optional[str] = None
+    KeyId: Optional[Annotated[str, _aws_pattern("Ssm", "ParameterKeyId")]] = None
     LastModifiedDate: Optional[datetime] = None
     LastModifiedUser: Optional[str] = None
     Description: Optional[str] = None
@@ -2927,7 +2929,7 @@ class ParameterMetadataTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     ARN: Optional[str] = None
     Type: Optional[ParameterTypeType] = None
-    KeyId: Optional[str] = None
+    KeyId: Optional[Annotated[str, _aws_pattern("Ssm", "ParameterKeyId")]] = None
     LastModifiedDate: Optional[datetime] = None
     LastModifiedUser: Optional[str] = None
     Description: Optional[str] = None
@@ -2962,7 +2964,7 @@ class ResourceDataSyncS3DestinationTypeDef(BaseValidatorModel):
     SyncFormat: Literal["JsonSerDe"]
     Region: str
     Prefix: Optional[str] = None
-    AWSKMSKeyARN: Optional[str] = None
+    AWSKMSKeyARN: Optional[Annotated[str, _aws_pattern("Ssm", "ResourceDataSyncAWSKMSKeyARN")]] = None
     DestinationDataSharing: Optional[ResourceDataSyncDestinationDataSharingTypeDef] = None
 
 
@@ -2972,12 +2974,12 @@ class SessionTypeDef(BaseValidatorModel):
     Status: Optional[SessionStatusType] = None
     StartDate: Optional[datetime] = None
     EndDate: Optional[datetime] = None
-    DocumentName: Optional[str] = None
+    DocumentName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentName")]] = None
     Owner: Optional[str] = None
-    Reason: Optional[str] = None
+    Reason: Optional[Annotated[str, _aws_pattern("Ssm", "SessionReason")]] = None
     Details: Optional[str] = None
     OutputUrl: Optional[SessionManagerOutputUrlTypeDef] = None
-    MaxSessionDuration: Optional[str] = None
+    MaxSessionDuration: Optional[Annotated[str, _aws_pattern("Ssm", "MaxSessionDuration")]] = None
     AccessType: Optional[AccessTypeType] = None
 
 
@@ -2992,9 +2994,9 @@ class DescribeActivationsResultTypeDef(BaseValidatorModel):
 
 
 class AssociationExecutionTypeDef(BaseValidatorModel):
-    AssociationId: Optional[str] = None
-    AssociationVersion: Optional[str] = None
-    ExecutionId: Optional[str] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationId")]] = None
+    AssociationVersion: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationVersion")]] = None
+    ExecutionId: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationExecutionId")]] = None
     Status: Optional[str] = None
     DetailedStatus: Optional[str] = None
     CreatedTime: Optional[datetime] = None
@@ -3006,12 +3008,12 @@ class AssociationExecutionTypeDef(BaseValidatorModel):
 
 class CommandTypeDef(BaseValidatorModel):
     CommandId: Optional[str] = None
-    DocumentName: Optional[str] = None
-    DocumentVersion: Optional[str] = None
+    DocumentName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentName")]] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     Comment: Optional[str] = None
     ExpiresAfter: Optional[datetime] = None
     Parameters: Optional[Dict[str, List[str]]] = None
-    InstanceIds: Optional[List[str]] = None
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Ssm", "InstanceId")]]] = None
     Targets: Optional[List[TargetOutputTypeDef]] = None
     RequestedDateTime: Optional[datetime] = None
     Status: Optional[CommandStatusType] = None
@@ -3019,8 +3021,8 @@ class CommandTypeDef(BaseValidatorModel):
     OutputS3Region: Optional[str] = None
     OutputS3BucketName: Optional[str] = None
     OutputS3KeyPrefix: Optional[str] = None
-    MaxConcurrency: Optional[str] = None
-    MaxErrors: Optional[str] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
     TargetCount: Optional[int] = None
     CompletedCount: Optional[int] = None
     ErrorCount: Optional[int] = None
@@ -3035,15 +3037,15 @@ class CommandTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_maintenance_window_execution_task' function.
 class GetMaintenanceWindowExecutionTaskResultTypeDef(BaseValidatorModel):
-    WindowExecutionId: str
-    TaskExecutionId: str
+    WindowExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]
+    TaskExecutionId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionTaskId")]
     TaskArn: str
     ServiceRole: str
     Type: MaintenanceWindowTaskTypeType
     TaskParameters: List[Dict[str, MaintenanceWindowTaskParameterValueExpressionOutputTypeDef]]
     Priority: int
-    MaxConcurrency: str
-    MaxErrors: str
+    MaxConcurrency: Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]
+    MaxErrors: Annotated[str, _aws_pattern("Ssm", "MaxErrors")]
     Status: MaintenanceWindowExecutionStatusType
     StatusDetails: str
     StartTime: datetime
@@ -3054,8 +3056,8 @@ class GetMaintenanceWindowExecutionTaskResultTypeDef(BaseValidatorModel):
 
 
 class MaintenanceWindowExecutionTaskIdentityTypeDef(BaseValidatorModel):
-    WindowExecutionId: Optional[str] = None
-    TaskExecutionId: Optional[str] = None
+    WindowExecutionId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionId")]] = None
+    TaskExecutionId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowExecutionTaskId")]] = None
     Status: Optional[MaintenanceWindowExecutionStatusType] = None
     StatusDetails: Optional[str] = None
     StartTime: Optional[datetime] = None
@@ -3067,8 +3069,8 @@ class MaintenanceWindowExecutionTaskIdentityTypeDef(BaseValidatorModel):
 
 
 class MaintenanceWindowTaskTypeDef(BaseValidatorModel):
-    WindowId: Optional[str] = None
-    WindowTaskId: Optional[str] = None
+    WindowId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]] = None
+    WindowTaskId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTaskId")]] = None
     TaskArn: Optional[str] = None
     Type: Optional[MaintenanceWindowTaskTypeType] = None
     Targets: Optional[List[TargetOutputTypeDef]] = None
@@ -3076,9 +3078,9 @@ class MaintenanceWindowTaskTypeDef(BaseValidatorModel):
     Priority: Optional[int] = None
     LoggingInfo: Optional[LoggingInfoTypeDef] = None
     ServiceRoleArn: Optional[str] = None
-    MaxConcurrency: Optional[str] = None
-    MaxErrors: Optional[str] = None
-    Name: Optional[str] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]] = None
     Description: Optional[str] = None
     CutoffBehavior: Optional[MaintenanceWindowTaskCutoffBehaviorType] = None
     AlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
@@ -3155,13 +3157,13 @@ class ListComplianceItemsResultTypeDef(BaseValidatorModel):
 
 
 class ComplianceSummaryItemTypeDef(BaseValidatorModel):
-    ComplianceType: Optional[str] = None
+    ComplianceType: Optional[Annotated[str, _aws_pattern("Ssm", "ComplianceTypeName")]] = None
     CompliantSummary: Optional[CompliantSummaryTypeDef] = None
     NonCompliantSummary: Optional[NonCompliantSummaryTypeDef] = None
 
 
 class ResourceComplianceSummaryItemTypeDef(BaseValidatorModel):
-    ComplianceType: Optional[str] = None
+    ComplianceType: Optional[Annotated[str, _aws_pattern("Ssm", "ComplianceTypeName")]] = None
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
     Status: Optional[ComplianceStatusType] = None
@@ -3221,9 +3223,9 @@ class DocumentMetadataResponseInfoTypeDef(BaseValidatorModel):
 
 
 class UpdateDocumentMetadataRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentName")]
     DocumentReviews: DocumentReviewsTypeDef
-    DocumentVersion: Optional[str] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
 
 
 # This class is the output for the 'describe_effective_patches_for_patch_baseline' function.
@@ -3278,23 +3280,23 @@ class DescribeInstancePropertiesResultTypeDef(BaseValidatorModel):
 
 
 class InstanceAssociationStatusInfoTypeDef(BaseValidatorModel):
-    AssociationId: Optional[str] = None
-    Name: Optional[str] = None
-    DocumentVersion: Optional[str] = None
-    AssociationVersion: Optional[str] = None
-    InstanceId: Optional[str] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentARN")]] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
+    AssociationVersion: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationVersion")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
     ExecutionDate: Optional[datetime] = None
     Status: Optional[str] = None
     DetailedStatus: Optional[str] = None
     ExecutionSummary: Optional[str] = None
     ErrorCode: Optional[str] = None
     OutputUrl: Optional[InstanceAssociationOutputUrlTypeDef] = None
-    AssociationName: Optional[str] = None
+    AssociationName: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationName")]] = None
 
 
 class NodeTypeDef(BaseValidatorModel):
     CaptureTime: Optional[datetime] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Ssm", "NodeId")]] = None
     Owner: Optional[NodeOwnerInfoTypeDef] = None
     Region: Optional[str] = None
     NodeType: Optional[NodeTypeTypeDef] = None
@@ -3302,15 +3304,15 @@ class NodeTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_inventory' function.
 class DeleteInventoryResultTypeDef(BaseValidatorModel):
-    DeletionId: str
-    TypeName: str
+    DeletionId: Annotated[str, _aws_pattern("Ssm", "UUID")]
+    TypeName: Annotated[str, _aws_pattern("Ssm", "InventoryItemTypeName")]
     DeletionSummary: InventoryDeletionSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class InventoryDeletionStatusItemTypeDef(BaseValidatorModel):
-    DeletionId: Optional[str] = None
-    TypeName: Optional[str] = None
+    DeletionId: Optional[Annotated[str, _aws_pattern("Ssm", "UUID")]] = None
+    TypeName: Optional[Annotated[str, _aws_pattern("Ssm", "InventoryItemTypeName")]] = None
     DeletionStartTime: Optional[datetime] = None
     LastStatus: Optional[InventoryDeletionStatusType] = None
     LastStatusMessage: Optional[str] = None
@@ -3417,7 +3419,7 @@ class DescribeMaintenanceWindowScheduleRequestPaginateTypeDef(BaseValidatorModel
 
 # This class is the input for the 'describe_maintenance_window_schedule' function.
 class DescribeMaintenanceWindowScheduleRequestTypeDef(BaseValidatorModel):
-    WindowId: Optional[str] = None
+    WindowId: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]] = None
     Targets: Optional[List[TargetUnionTypeDef]] = None
     ResourceType: Optional[MaintenanceWindowResourceTypeType] = None
     Filters: Optional[List[PatchOrchestratorFilterTypeDef]] = None
@@ -3441,11 +3443,11 @@ class DescribeMaintenanceWindowsForTargetRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_target_with_maintenance_window' function.
 class RegisterTargetWithMaintenanceWindowRequestTypeDef(BaseValidatorModel):
-    WindowId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
     ResourceType: MaintenanceWindowResourceTypeType
     Targets: List[TargetUnionTypeDef]
     OwnerInformation: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]] = None
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
 
@@ -3459,11 +3461,11 @@ class StartAccessRequestRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_maintenance_window_target' function.
 class UpdateMaintenanceWindowTargetRequestTypeDef(BaseValidatorModel):
-    WindowId: str
-    WindowTargetId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    WindowTargetId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTargetId")]
     Targets: Optional[List[TargetUnionTypeDef]] = None
     OwnerInformation: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]] = None
     Description: Optional[str] = None
     Replace: Optional[bool] = None
 
@@ -3503,25 +3505,25 @@ class DescribeMaintenanceWindowTasksResultTypeDef(BaseValidatorModel):
 
 
 class AssociationDescriptionTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    InstanceId: Optional[str] = None
-    AssociationVersion: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentARN")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
+    AssociationVersion: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationVersion")]] = None
     Date: Optional[datetime] = None
     LastUpdateAssociationDate: Optional[datetime] = None
     Status: Optional[AssociationStatusOutputTypeDef] = None
     Overview: Optional[AssociationOverviewTypeDef] = None
-    DocumentVersion: Optional[str] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     AutomationTargetParameterName: Optional[str] = None
     Parameters: Optional[Dict[str, List[str]]] = None
-    AssociationId: Optional[str] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationId")]] = None
     Targets: Optional[List[TargetOutputTypeDef]] = None
     ScheduleExpression: Optional[str] = None
     OutputLocation: Optional[InstanceAssociationOutputLocationTypeDef] = None
     LastExecutionDate: Optional[datetime] = None
     LastSuccessfulExecutionDate: Optional[datetime] = None
-    AssociationName: Optional[str] = None
-    MaxErrors: Optional[str] = None
-    MaxConcurrency: Optional[str] = None
+    AssociationName: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationName")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
     ComplianceSeverity: Optional[AssociationComplianceSeverityType] = None
     SyncCompliance: Optional[AssociationSyncComplianceType] = None
     ApplyOnlyAtCronInterval: Optional[bool] = None
@@ -3532,22 +3534,24 @@ class AssociationDescriptionTypeDef(BaseValidatorModel):
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
     AlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
     TriggeredAlarms: Optional[List[AlarmStateInformationTypeDef]] = None
-    AssociationDispatchAssumeRole: Optional[str] = None
+    AssociationDispatchAssumeRole: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationDispatchAssumeRoleArn")]] = (
+        None
+    )
 
 
 class AssociationVersionInfoTypeDef(BaseValidatorModel):
-    AssociationId: Optional[str] = None
-    AssociationVersion: Optional[str] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationId")]] = None
+    AssociationVersion: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationVersion")]] = None
     CreatedDate: Optional[datetime] = None
-    Name: Optional[str] = None
-    DocumentVersion: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentARN")]] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     Parameters: Optional[Dict[str, List[str]]] = None
     Targets: Optional[List[TargetOutputTypeDef]] = None
     ScheduleExpression: Optional[str] = None
     OutputLocation: Optional[InstanceAssociationOutputLocationTypeDef] = None
-    AssociationName: Optional[str] = None
-    MaxErrors: Optional[str] = None
-    MaxConcurrency: Optional[str] = None
+    AssociationName: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationName")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
     ComplianceSeverity: Optional[AssociationComplianceSeverityType] = None
     SyncCompliance: Optional[AssociationSyncComplianceType] = None
     ApplyOnlyAtCronInterval: Optional[bool] = None
@@ -3556,7 +3560,9 @@ class AssociationVersionInfoTypeDef(BaseValidatorModel):
     ScheduleOffset: Optional[int] = None
     Duration: Optional[int] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
-    AssociationDispatchAssumeRole: Optional[str] = None
+    AssociationDispatchAssumeRole: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationDispatchAssumeRoleArn")]] = (
+        None
+    )
 
 
 class CreateAssociationBatchRequestEntryOutputTypeDef(BaseValidatorModel):
@@ -3596,7 +3602,7 @@ class RunbookOutputTypeDef(BaseValidatorModel):
 
 class StepExecutionTypeDef(BaseValidatorModel):
     StepName: Optional[str] = None
-    Action: Optional[str] = None
+    Action: Optional[Annotated[str, _aws_pattern("Ssm", "AutomationActionName")]] = None
     TimeoutSeconds: Optional[int] = None
     OnFailure: Optional[str] = None
     MaxAttempts: Optional[int] = None
@@ -3623,10 +3629,10 @@ class StepExecutionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'send_command' function.
 class SendCommandRequestTypeDef(BaseValidatorModel):
-    DocumentName: str
-    InstanceIds: Optional[List[str]] = None
+    DocumentName: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Ssm", "InstanceId")]]] = None
     Targets: Optional[List[TargetUnionTypeDef]] = None
-    DocumentVersion: Optional[str] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     DocumentHash: Optional[str] = None
     DocumentHashType: Optional[DocumentHashTypeType] = None
     TimeoutSeconds: Optional[int] = None
@@ -3635,8 +3641,8 @@ class SendCommandRequestTypeDef(BaseValidatorModel):
     OutputS3Region: Optional[str] = None
     OutputS3BucketName: Optional[str] = None
     OutputS3KeyPrefix: Optional[str] = None
-    MaxConcurrency: Optional[str] = None
-    MaxErrors: Optional[str] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
     ServiceRoleArn: Optional[str] = None
     NotificationConfig: Optional[NotificationConfigUnionTypeDef] = None
     CloudWatchOutputConfig: Optional[CloudWatchOutputConfigTypeDef] = None
@@ -3646,28 +3652,28 @@ class SendCommandRequestTypeDef(BaseValidatorModel):
 class TargetLocationTypeDef(BaseValidatorModel):
     Accounts: Optional[List[str]] = None
     Regions: Optional[List[str]] = None
-    TargetLocationMaxConcurrency: Optional[str] = None
-    TargetLocationMaxErrors: Optional[str] = None
-    ExecutionRoleName: Optional[str] = None
+    TargetLocationMaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
+    TargetLocationMaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
+    ExecutionRoleName: Optional[Annotated[str, _aws_pattern("Ssm", "ExecutionRoleName")]] = None
     TargetLocationAlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
     IncludeChildOrganizationUnits: Optional[bool] = None
-    ExcludeAccounts: Optional[List[str]] = None
+    ExcludeAccounts: Optional[List[Annotated[str, _aws_pattern("Ssm", "ExcludeAccount")]]] = None
     Targets: Optional[List[TargetUnionTypeDef]] = None
-    TargetsMaxConcurrency: Optional[str] = None
-    TargetsMaxErrors: Optional[str] = None
+    TargetsMaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
+    TargetsMaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
 
 
 # This class is the input for the 'update_association_status' function.
 class UpdateAssociationStatusRequestTypeDef(BaseValidatorModel):
-    Name: str
-    InstanceId: str
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
     AssociationStatus: AssociationStatusUnionTypeDef
 
 
 class PutComplianceItemsRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     ResourceType: str
-    ComplianceType: str
+    ComplianceType: Annotated[str, _aws_pattern("Ssm", "ComplianceTypeName")]
     ExecutionSummary: ComplianceExecutionSummaryUnionTypeDef
     Items: List[ComplianceItemEntryTypeDef]
     ItemContentHash: Optional[str] = None
@@ -3676,7 +3682,7 @@ class PutComplianceItemsRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_execution_preview' function.
 class GetExecutionPreviewResponseTypeDef(BaseValidatorModel):
-    ExecutionPreviewId: str
+    ExecutionPreviewId: Annotated[str, _aws_pattern("Ssm", "ExecutionPreviewId")]
     EndedAt: datetime
     Status: ExecutionPreviewStatusType
     StatusMessage: str
@@ -3686,8 +3692,8 @@ class GetExecutionPreviewResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_maintenance_window_task' function.
 class GetMaintenanceWindowTaskResultTypeDef(BaseValidatorModel):
-    WindowId: str
-    WindowTaskId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    WindowTaskId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTaskId")]
     Targets: List[TargetOutputTypeDef]
     TaskArn: str
     ServiceRoleArn: str
@@ -3695,10 +3701,10 @@ class GetMaintenanceWindowTaskResultTypeDef(BaseValidatorModel):
     TaskParameters: Dict[str, MaintenanceWindowTaskParameterValueExpressionOutputTypeDef]
     TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersOutputTypeDef
     Priority: int
-    MaxConcurrency: str
-    MaxErrors: str
+    MaxConcurrency: Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]
+    MaxErrors: Annotated[str, _aws_pattern("Ssm", "MaxErrors")]
     LoggingInfo: LoggingInfoTypeDef
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]
     Description: str
     CutoffBehavior: MaintenanceWindowTaskCutoffBehaviorType
     AlarmConfiguration: AlarmConfigurationOutputTypeDef
@@ -3707,18 +3713,18 @@ class GetMaintenanceWindowTaskResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_maintenance_window_task' function.
 class UpdateMaintenanceWindowTaskResultTypeDef(BaseValidatorModel):
-    WindowId: str
-    WindowTaskId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    WindowTaskId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTaskId")]
     Targets: List[TargetOutputTypeDef]
     TaskArn: str
     ServiceRoleArn: str
     TaskParameters: Dict[str, MaintenanceWindowTaskParameterValueExpressionOutputTypeDef]
     TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersOutputTypeDef
     Priority: int
-    MaxConcurrency: str
-    MaxErrors: str
+    MaxConcurrency: Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]
+    MaxErrors: Annotated[str, _aws_pattern("Ssm", "MaxErrors")]
     LoggingInfo: LoggingInfoTypeDef
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]
     Description: str
     CutoffBehavior: MaintenanceWindowTaskCutoffBehaviorType
     AlarmConfiguration: AlarmConfigurationOutputTypeDef
@@ -3741,8 +3747,8 @@ class ListResourceComplianceSummariesResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_document_metadata_history' function.
 class ListDocumentMetadataHistoryResponseTypeDef(BaseValidatorModel):
-    Name: str
-    DocumentVersion: str
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentName")]
+    DocumentVersion: Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]
     Author: str
     Metadata: DocumentMetadataResponseInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3858,8 +3864,8 @@ class FailedCreateAssociationTypeDef(BaseValidatorModel):
 
 class AutomationExecutionMetadataTypeDef(BaseValidatorModel):
     AutomationExecutionId: Optional[str] = None
-    DocumentName: Optional[str] = None
-    DocumentVersion: Optional[str] = None
+    DocumentName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentName")]] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     AutomationExecutionStatus: Optional[AutomationExecutionStatusType] = None
     ExecutionStartTime: Optional[datetime] = None
     ExecutionEndTime: Optional[datetime] = None
@@ -3875,13 +3881,13 @@ class AutomationExecutionMetadataTypeDef(BaseValidatorModel):
     Targets: Optional[List[TargetOutputTypeDef]] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
     ResolvedTargets: Optional[ResolvedTargetsTypeDef] = None
-    MaxConcurrency: Optional[str] = None
-    MaxErrors: Optional[str] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
     Target: Optional[str] = None
     AutomationType: Optional[AutomationTypeType] = None
     AlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
     TriggeredAlarms: Optional[List[AlarmStateInformationTypeDef]] = None
-    TargetLocationsURL: Optional[str] = None
+    TargetLocationsURL: Optional[Annotated[str, _aws_pattern("Ssm", "TargetLocationsURL")]] = None
     AutomationSubtype: Optional[AutomationSubtypeType] = None
     ScheduledTime: Optional[datetime] = None
     Runbooks: Optional[List[RunbookOutputTypeDef]] = None
@@ -3892,8 +3898,8 @@ class AutomationExecutionMetadataTypeDef(BaseValidatorModel):
 
 class AutomationExecutionTypeDef(BaseValidatorModel):
     AutomationExecutionId: Optional[str] = None
-    DocumentName: Optional[str] = None
-    DocumentVersion: Optional[str] = None
+    DocumentName: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentName")]] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     ExecutionStartTime: Optional[datetime] = None
     ExecutionEndTime: Optional[datetime] = None
     AutomationExecutionStatus: Optional[AutomationExecutionStatusType] = None
@@ -3911,14 +3917,14 @@ class AutomationExecutionTypeDef(BaseValidatorModel):
     Targets: Optional[List[TargetOutputTypeDef]] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
     ResolvedTargets: Optional[ResolvedTargetsTypeDef] = None
-    MaxConcurrency: Optional[str] = None
-    MaxErrors: Optional[str] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
     Target: Optional[str] = None
     TargetLocations: Optional[List[TargetLocationOutputTypeDef]] = None
     ProgressCounters: Optional[ProgressCountersTypeDef] = None
     AlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
     TriggeredAlarms: Optional[List[AlarmStateInformationTypeDef]] = None
-    TargetLocationsURL: Optional[str] = None
+    TargetLocationsURL: Optional[Annotated[str, _aws_pattern("Ssm", "TargetLocationsURL")]] = None
     AutomationSubtype: Optional[AutomationSubtypeType] = None
     ScheduledTime: Optional[datetime] = None
     Runbooks: Optional[List[RunbookOutputTypeDef]] = None
@@ -3940,7 +3946,7 @@ TargetLocationUnionTypeDef = Union[TargetLocationOutputTypeDef, TargetLocationTy
 
 # This class is the input for the 'register_task_with_maintenance_window' function.
 class RegisterTaskWithMaintenanceWindowRequestTypeDef(BaseValidatorModel):
-    WindowId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
     TaskArn: str
     TaskType: MaintenanceWindowTaskTypeType
     Targets: Optional[List[TargetUnionTypeDef]] = None
@@ -3948,10 +3954,10 @@ class RegisterTaskWithMaintenanceWindowRequestTypeDef(BaseValidatorModel):
     TaskParameters: Optional[Dict[str, MaintenanceWindowTaskParameterValueExpressionUnionTypeDef]] = None
     TaskInvocationParameters: Optional[MaintenanceWindowTaskInvocationParametersUnionTypeDef] = None
     Priority: Optional[int] = None
-    MaxConcurrency: Optional[str] = None
-    MaxErrors: Optional[str] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
     LoggingInfo: Optional[LoggingInfoTypeDef] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]] = None
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
     CutoffBehavior: Optional[MaintenanceWindowTaskCutoffBehaviorType] = None
@@ -3960,18 +3966,18 @@ class RegisterTaskWithMaintenanceWindowRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_maintenance_window_task' function.
 class UpdateMaintenanceWindowTaskRequestTypeDef(BaseValidatorModel):
-    WindowId: str
-    WindowTaskId: str
+    WindowId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowId")]
+    WindowTaskId: Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowTaskId")]
     Targets: Optional[List[TargetUnionTypeDef]] = None
     TaskArn: Optional[str] = None
     ServiceRoleArn: Optional[str] = None
     TaskParameters: Optional[Dict[str, MaintenanceWindowTaskParameterValueExpressionUnionTypeDef]] = None
     TaskInvocationParameters: Optional[MaintenanceWindowTaskInvocationParametersUnionTypeDef] = None
     Priority: Optional[int] = None
-    MaxConcurrency: Optional[str] = None
-    MaxErrors: Optional[str] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
     LoggingInfo: Optional[LoggingInfoTypeDef] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "MaintenanceWindowName")]] = None
     Description: Optional[str] = None
     Replace: Optional[bool] = None
     CutoffBehavior: Optional[MaintenanceWindowTaskCutoffBehaviorType] = None
@@ -3980,8 +3986,8 @@ class UpdateMaintenanceWindowTaskRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_patch_baseline' function.
 class GetPatchBaselineResultTypeDef(BaseValidatorModel):
-    BaselineId: str
-    Name: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
+    Name: Annotated[str, _aws_pattern("Ssm", "BaselineName")]
     OperatingSystem: OperatingSystemType
     GlobalFilters: PatchFilterGroupOutputTypeDef
     ApprovalRules: PatchRuleGroupOutputTypeDef
@@ -3990,7 +3996,7 @@ class GetPatchBaselineResultTypeDef(BaseValidatorModel):
     ApprovedPatchesEnableNonSecurity: bool
     RejectedPatches: List[str]
     RejectedPatchesAction: PatchActionType
-    PatchGroups: List[str]
+    PatchGroups: List[Annotated[str, _aws_pattern("Ssm", "PatchGroup")]]
     CreatedDate: datetime
     ModifiedDate: datetime
     Description: str
@@ -4001,8 +4007,8 @@ class GetPatchBaselineResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_patch_baseline' function.
 class UpdatePatchBaselineResultTypeDef(BaseValidatorModel):
-    BaselineId: str
-    Name: str
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
+    Name: Annotated[str, _aws_pattern("Ssm", "BaselineName")]
     OperatingSystem: OperatingSystemType
     GlobalFilters: PatchFilterGroupOutputTypeDef
     ApprovalRules: PatchRuleGroupOutputTypeDef
@@ -4073,21 +4079,21 @@ class AutomationExecutionInputsTypeDef(BaseValidatorModel):
     Targets: Optional[List[TargetUnionTypeDef]] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
     TargetLocations: Optional[List[TargetLocationUnionTypeDef]] = None
-    TargetLocationsURL: Optional[str] = None
+    TargetLocationsURL: Optional[Annotated[str, _aws_pattern("Ssm", "TargetLocationsURL")]] = None
 
 
 class CreateAssociationBatchRequestEntryTypeDef(BaseValidatorModel):
-    Name: str
-    InstanceId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
     Parameters: Optional[Dict[str, List[str]]] = None
     AutomationTargetParameterName: Optional[str] = None
-    DocumentVersion: Optional[str] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     Targets: Optional[List[TargetUnionTypeDef]] = None
     ScheduleExpression: Optional[str] = None
     OutputLocation: Optional[InstanceAssociationOutputLocationTypeDef] = None
-    AssociationName: Optional[str] = None
-    MaxErrors: Optional[str] = None
-    MaxConcurrency: Optional[str] = None
+    AssociationName: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationName")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
     ComplianceSeverity: Optional[AssociationComplianceSeverityType] = None
     SyncCompliance: Optional[AssociationSyncComplianceType] = None
     ApplyOnlyAtCronInterval: Optional[bool] = None
@@ -4101,17 +4107,17 @@ class CreateAssociationBatchRequestEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_association' function.
 class CreateAssociationRequestTypeDef(BaseValidatorModel):
-    Name: str
-    DocumentVersion: Optional[str] = None
-    InstanceId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Ssm", "InstanceId")]] = None
     Parameters: Optional[Dict[str, List[str]]] = None
     Targets: Optional[List[TargetUnionTypeDef]] = None
     ScheduleExpression: Optional[str] = None
     OutputLocation: Optional[InstanceAssociationOutputLocationTypeDef] = None
-    AssociationName: Optional[str] = None
+    AssociationName: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationName")]] = None
     AutomationTargetParameterName: Optional[str] = None
-    MaxErrors: Optional[str] = None
-    MaxConcurrency: Optional[str] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
     ComplianceSeverity: Optional[AssociationComplianceSeverityType] = None
     SyncCompliance: Optional[AssociationSyncComplianceType] = None
     ApplyOnlyAtCronInterval: Optional[bool] = None
@@ -4122,53 +4128,55 @@ class CreateAssociationRequestTypeDef(BaseValidatorModel):
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
     Tags: Optional[List[TagTypeDef]] = None
     AlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
-    AssociationDispatchAssumeRole: Optional[str] = None
+    AssociationDispatchAssumeRole: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationDispatchAssumeRoleArn")]] = (
+        None
+    )
 
 
 class RunbookTypeDef(BaseValidatorModel):
-    DocumentName: str
-    DocumentVersion: Optional[str] = None
+    DocumentName: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     Parameters: Optional[Dict[str, List[str]]] = None
     TargetParameterName: Optional[str] = None
     Targets: Optional[List[TargetUnionTypeDef]] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
-    MaxConcurrency: Optional[str] = None
-    MaxErrors: Optional[str] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
     TargetLocations: Optional[List[TargetLocationUnionTypeDef]] = None
 
 
 # This class is the input for the 'start_automation_execution' function.
 class StartAutomationExecutionRequestTypeDef(BaseValidatorModel):
-    DocumentName: str
-    DocumentVersion: Optional[str] = None
+    DocumentName: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     Parameters: Optional[Dict[str, List[str]]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Ssm", "IdempotencyToken")]] = None
     Mode: Optional[ExecutionModeType] = None
     TargetParameterName: Optional[str] = None
     Targets: Optional[List[TargetUnionTypeDef]] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
-    MaxConcurrency: Optional[str] = None
-    MaxErrors: Optional[str] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
     TargetLocations: Optional[List[TargetLocationUnionTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
     AlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
-    TargetLocationsURL: Optional[str] = None
+    TargetLocationsURL: Optional[Annotated[str, _aws_pattern("Ssm", "TargetLocationsURL")]] = None
 
 
 # This class is the input for the 'update_association' function.
 class UpdateAssociationRequestTypeDef(BaseValidatorModel):
-    AssociationId: str
+    AssociationId: Annotated[str, _aws_pattern("Ssm", "AssociationId")]
     Parameters: Optional[Dict[str, List[str]]] = None
-    DocumentVersion: Optional[str] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     ScheduleExpression: Optional[str] = None
     OutputLocation: Optional[InstanceAssociationOutputLocationTypeDef] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentARN")]] = None
     Targets: Optional[List[TargetUnionTypeDef]] = None
-    AssociationName: Optional[str] = None
-    AssociationVersion: Optional[str] = None
+    AssociationName: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationName")]] = None
+    AssociationVersion: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationVersion")]] = None
     AutomationTargetParameterName: Optional[str] = None
-    MaxErrors: Optional[str] = None
-    MaxConcurrency: Optional[str] = None
+    MaxErrors: Optional[Annotated[str, _aws_pattern("Ssm", "MaxErrors")]] = None
+    MaxConcurrency: Optional[Annotated[str, _aws_pattern("Ssm", "MaxConcurrency")]] = None
     ComplianceSeverity: Optional[AssociationComplianceSeverityType] = None
     SyncCompliance: Optional[AssociationSyncComplianceType] = None
     ApplyOnlyAtCronInterval: Optional[bool] = None
@@ -4178,7 +4186,9 @@ class UpdateAssociationRequestTypeDef(BaseValidatorModel):
     Duration: Optional[int] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
     AlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
-    AssociationDispatchAssumeRole: Optional[str] = None
+    AssociationDispatchAssumeRole: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationDispatchAssumeRoleArn")]] = (
+        None
+    )
 
 
 PatchRuleUnionTypeDef = Union[PatchRuleOutputTypeDef, PatchRuleTypeDef]
@@ -4201,26 +4211,28 @@ class PatchRuleGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_execution_preview' function.
 class StartExecutionPreviewRequestTypeDef(BaseValidatorModel):
-    DocumentName: str
-    DocumentVersion: Optional[str] = None
+    DocumentName: Annotated[str, _aws_pattern("Ssm", "DocumentName")]
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     ExecutionInputs: Optional[ExecutionInputsTypeDef] = None
 
 
 # This class is the input for the 'create_association_batch' function.
 class CreateAssociationBatchRequestTypeDef(BaseValidatorModel):
     Entries: List[CreateAssociationBatchRequestEntryUnionTypeDef]
-    AssociationDispatchAssumeRole: Optional[str] = None
+    AssociationDispatchAssumeRole: Optional[Annotated[str, _aws_pattern("Ssm", "AssociationDispatchAssumeRoleArn")]] = (
+        None
+    )
 
 
 # This class is the input for the 'start_change_request_execution' function.
 class StartChangeRequestExecutionRequestTypeDef(BaseValidatorModel):
-    DocumentName: str
+    DocumentName: Annotated[str, _aws_pattern("Ssm", "DocumentARN")]
     Runbooks: List[RunbookUnionTypeDef]
     ScheduledTime: Optional[TimestampTypeDef] = None
-    DocumentVersion: Optional[str] = None
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Ssm", "DocumentVersion")]] = None
     Parameters: Optional[Dict[str, List[str]]] = None
     ChangeRequestName: Optional[str] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Ssm", "IdempotencyToken")]] = None
     AutoApprove: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
     ScheduledEndTime: Optional[TimestampTypeDef] = None
@@ -4245,7 +4257,7 @@ class BaselineOverrideTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_patch_baseline' function.
 class CreatePatchBaselineRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ssm", "BaselineName")]
     OperatingSystem: Optional[OperatingSystemType] = None
     GlobalFilters: Optional[PatchFilterGroupUnionTypeDef] = None
     ApprovalRules: Optional[PatchRuleGroupUnionTypeDef] = None
@@ -4263,8 +4275,8 @@ class CreatePatchBaselineRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_patch_baseline' function.
 class UpdatePatchBaselineRequestTypeDef(BaseValidatorModel):
-    BaselineId: str
-    Name: Optional[str] = None
+    BaselineId: Annotated[str, _aws_pattern("Ssm", "BaselineId")]
+    Name: Optional[Annotated[str, _aws_pattern("Ssm", "BaselineName")]] = None
     GlobalFilters: Optional[PatchFilterGroupUnionTypeDef] = None
     ApprovalRules: Optional[PatchRuleGroupUnionTypeDef] = None
     ApprovedPatches: Optional[List[str]] = None
@@ -4280,7 +4292,7 @@ class UpdatePatchBaselineRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_deployable_patch_snapshot_for_instance' function.
 class GetDeployablePatchSnapshotForInstanceRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    SnapshotId: str
+    InstanceId: Annotated[str, _aws_pattern("Ssm", "InstanceId")]
+    SnapshotId: Annotated[str, _aws_pattern("Ssm", "SnapshotId")]
     BaselineOverride: Optional[BaselineOverrideTypeDef] = None
     UseS3DualStackEndpoint: Optional[bool] = None

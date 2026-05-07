@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.appintegrations.appintegrations_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,9 +41,9 @@ except ImportError:  # pragma: no cover
 
 
 class ApplicationAssociationSummaryTypeDef(BaseValidatorModel):
-    ApplicationAssociationArn: Optional[str] = None
-    ApplicationArn: Optional[str] = None
-    ClientId: Optional[str] = None
+    ApplicationAssociationArn: Optional[Annotated[str, _aws_pattern("Appintegrations", "Arn")]] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("Appintegrations", "Arn")]] = None
+    ClientId: Optional[Annotated[str, _aws_pattern("Appintegrations", "ClientId")]] = None
 
 
 class ContactHandlingTypeDef(BaseValidatorModel):
@@ -54,15 +56,15 @@ class ExternalUrlConfigOutputTypeDef(BaseValidatorModel):
 
 
 class ExternalUrlConfigTypeDef(BaseValidatorModel):
-    AccessUrl: str
-    ApprovedOrigins: Optional[List[str]] = None
+    AccessUrl: Annotated[str, _aws_pattern("Appintegrations", "URL")]
+    ApprovedOrigins: Optional[List[Annotated[str, _aws_pattern("Appintegrations", "ApplicationTrustedSource")]]] = None
 
 
 class ApplicationSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Id: Optional[str] = None
-    Name: Optional[str] = None
-    Namespace: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Appintegrations", "Arn")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Appintegrations", "UUID")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Appintegrations", "ApplicationName")]] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Appintegrations", "ApplicationNamespace")]] = None
     CreatedTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     IsService: Optional[bool] = None
@@ -70,14 +72,14 @@ class ApplicationSummaryTypeDef(BaseValidatorModel):
 
 
 class PublicationTypeDef(BaseValidatorModel):
-    Event: str
-    Schema: str
-    Description: Optional[str] = None
+    Event: Annotated[str, _aws_pattern("Appintegrations", "EventName")]
+    Schema: Annotated[str, _aws_pattern("Appintegrations", "EventDefinitionSchema")]
+    Description: Optional[Annotated[str, _aws_pattern("Appintegrations", "Description")]] = None
 
 
 class SubscriptionTypeDef(BaseValidatorModel):
-    Event: str
-    Description: Optional[str] = None
+    Event: Annotated[str, _aws_pattern("Appintegrations", "EventName")]
+    Description: Optional[Annotated[str, _aws_pattern("Appintegrations", "Description")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -89,9 +91,9 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ScheduleConfigurationTypeDef(BaseValidatorModel):
-    ScheduleExpression: str
-    FirstExecutionFrom: Optional[str] = None
-    Object: Optional[str] = None
+    ScheduleExpression: Annotated[str, _aws_pattern("Appintegrations", "NonBlankString")]
+    FirstExecutionFrom: Optional[Annotated[str, _aws_pattern("Appintegrations", "NonBlankString")]] = None
+    Object: Optional[Annotated[str, _aws_pattern("Appintegrations", "Object")]] = None
 
 
 class FileConfigurationOutputTypeDef(BaseValidatorModel):
@@ -100,54 +102,54 @@ class FileConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class EventFilterTypeDef(BaseValidatorModel):
-    Source: str
+    Source: Annotated[str, _aws_pattern("Appintegrations", "Source")]
 
 
 class LastExecutionStatusTypeDef(BaseValidatorModel):
     ExecutionStatus: Optional[ExecutionStatusType] = None
-    StatusMessage: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Appintegrations", "NonBlankString")]] = None
 
 
 class DataIntegrationSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
-    SourceURI: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Appintegrations", "Arn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Appintegrations", "Name")]] = None
+    SourceURI: Optional[Annotated[str, _aws_pattern("Appintegrations", "SourceURI")]] = None
 
 
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Appintegrations", "ArnOrUUID")]
 
 
 class DeleteDataIntegrationRequestTypeDef(BaseValidatorModel):
-    DataIntegrationIdentifier: str
+    DataIntegrationIdentifier: Annotated[str, _aws_pattern("Appintegrations", "Identifier")]
 
 
 class DeleteEventIntegrationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appintegrations", "Name")]
 
 
 class EventIntegrationAssociationTypeDef(BaseValidatorModel):
-    EventIntegrationAssociationArn: Optional[str] = None
-    EventIntegrationAssociationId: Optional[str] = None
-    EventIntegrationName: Optional[str] = None
-    ClientId: Optional[str] = None
-    EventBridgeRuleName: Optional[str] = None
+    EventIntegrationAssociationArn: Optional[Annotated[str, _aws_pattern("Appintegrations", "Arn")]] = None
+    EventIntegrationAssociationId: Optional[Annotated[str, _aws_pattern("Appintegrations", "UUID")]] = None
+    EventIntegrationName: Optional[Annotated[str, _aws_pattern("Appintegrations", "Name")]] = None
+    ClientId: Optional[Annotated[str, _aws_pattern("Appintegrations", "ClientId")]] = None
+    EventBridgeRuleName: Optional[Annotated[str, _aws_pattern("Appintegrations", "EventBridgeRuleName")]] = None
     ClientAssociationMetadata: Optional[Dict[str, str]] = None
 
 
 class OnDemandConfigurationTypeDef(BaseValidatorModel):
-    StartTime: str
-    EndTime: Optional[str] = None
+    StartTime: Annotated[str, _aws_pattern("Appintegrations", "NonBlankString")]
+    EndTime: Optional[Annotated[str, _aws_pattern("Appintegrations", "NonBlankString")]] = None
 
 
 class FileConfigurationTypeDef(BaseValidatorModel):
-    Folders: List[str]
+    Folders: List[Annotated[str, _aws_pattern("Appintegrations", "NonBlankLongString")]]
     Filters: Optional[Dict[str, List[str]]] = None
 
 
 # This class is the input for the 'get_application' function.
 class GetApplicationRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Appintegrations", "ArnOrUUID")]
 
 
 class IframeConfigOutputTypeDef(BaseValidatorModel):
@@ -157,17 +159,17 @@ class IframeConfigOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_data_integration' function.
 class GetDataIntegrationRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Appintegrations", "Identifier")]
 
 
 # This class is the input for the 'get_event_integration' function.
 class GetEventIntegrationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appintegrations", "Name")]
 
 
 class IframeConfigTypeDef(BaseValidatorModel):
-    Allow: Optional[List[str]] = None
-    Sandbox: Optional[List[str]] = None
+    Allow: Optional[List[Annotated[str, _aws_pattern("Appintegrations", "IframePermission")]]] = None
+    Sandbox: Optional[List[Annotated[str, _aws_pattern("Appintegrations", "IframePermission")]]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -178,68 +180,68 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_application_associations' function.
 class ListApplicationAssociationsRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    NextToken: Optional[str] = None
+    ApplicationId: Annotated[str, _aws_pattern("Appintegrations", "ArnOrUUID")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_applications' function.
 class ListApplicationsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
     ApplicationType: Optional[ApplicationTypeType] = None
 
 
 # This class is the input for the 'list_data_integration_associations' function.
 class ListDataIntegrationAssociationsRequestTypeDef(BaseValidatorModel):
-    DataIntegrationIdentifier: str
-    NextToken: Optional[str] = None
+    DataIntegrationIdentifier: Annotated[str, _aws_pattern("Appintegrations", "Identifier")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_data_integrations' function.
 class ListDataIntegrationsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_event_integration_associations' function.
 class ListEventIntegrationAssociationsRequestTypeDef(BaseValidatorModel):
-    EventIntegrationName: str
-    NextToken: Optional[str] = None
+    EventIntegrationName: Annotated[str, _aws_pattern("Appintegrations", "Name")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_event_integrations' function.
 class ListEventIntegrationsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Appintegrations", "Arn")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Appintegrations", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Appintegrations", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Appintegrations", "TagKey")]]
 
 
 class UpdateDataIntegrationRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("Appintegrations", "Identifier")]
+    Name: Optional[Annotated[str, _aws_pattern("Appintegrations", "Name")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Appintegrations", "Description")]] = None
 
 
 class UpdateEventIntegrationRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Appintegrations", "Name")]
+    Description: Optional[Annotated[str, _aws_pattern("Appintegrations", "Description")]] = None
 
 
 class ApplicationConfigTypeDef(BaseValidatorModel):
@@ -256,21 +258,21 @@ class ApplicationSourceConfigTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_application' function.
 class CreateApplicationResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Id: str
+    Arn: Annotated[str, _aws_pattern("Appintegrations", "Arn")]
+    Id: Annotated[str, _aws_pattern("Appintegrations", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_integration_association' function.
 class CreateDataIntegrationAssociationResponseTypeDef(BaseValidatorModel):
-    DataIntegrationAssociationId: str
-    DataIntegrationArn: str
+    DataIntegrationAssociationId: Annotated[str, _aws_pattern("Appintegrations", "UUID")]
+    DataIntegrationArn: Annotated[str, _aws_pattern("Appintegrations", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_event_integration' function.
 class CreateEventIntegrationResponseTypeDef(BaseValidatorModel):
-    EventIntegrationArn: str
+    EventIntegrationArn: Annotated[str, _aws_pattern("Appintegrations", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -278,14 +280,14 @@ class CreateEventIntegrationResponseTypeDef(BaseValidatorModel):
 class ListApplicationAssociationsResponseTypeDef(BaseValidatorModel):
     ApplicationAssociations: List[ApplicationAssociationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_applications' function.
 class ListApplicationsResponseTypeDef(BaseValidatorModel):
     Applications: List[ApplicationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -296,15 +298,15 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_data_integration' function.
 class CreateDataIntegrationResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Id: str
-    Name: str
-    Description: str
-    KmsKey: str
-    SourceURI: str
+    Arn: Annotated[str, _aws_pattern("Appintegrations", "Arn")]
+    Id: Annotated[str, _aws_pattern("Appintegrations", "UUID")]
+    Name: Annotated[str, _aws_pattern("Appintegrations", "Name")]
+    Description: Annotated[str, _aws_pattern("Appintegrations", "Description")]
+    KmsKey: Annotated[str, _aws_pattern("Appintegrations", "NonBlankString")]
+    SourceURI: Annotated[str, _aws_pattern("Appintegrations", "SourceURI")]
     ScheduleConfiguration: ScheduleConfigurationTypeDef
     Tags: Dict[str, str]
-    ClientToken: str
+    ClientToken: Annotated[str, _aws_pattern("Appintegrations", "IdempotencyToken")]
     FileConfiguration: FileConfigurationOutputTypeDef
     ObjectConfiguration: Dict[str, Dict[str, List[str]]]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -312,12 +314,12 @@ class CreateDataIntegrationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_data_integration' function.
 class GetDataIntegrationResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Id: str
-    Name: str
-    Description: str
-    KmsKey: str
-    SourceURI: str
+    Arn: Annotated[str, _aws_pattern("Appintegrations", "Arn")]
+    Id: Annotated[str, _aws_pattern("Appintegrations", "UUID")]
+    Name: Annotated[str, _aws_pattern("Appintegrations", "Name")]
+    Description: Annotated[str, _aws_pattern("Appintegrations", "Description")]
+    KmsKey: Annotated[str, _aws_pattern("Appintegrations", "NonBlankString")]
+    SourceURI: Annotated[str, _aws_pattern("Appintegrations", "SourceURI")]
     ScheduleConfiguration: ScheduleConfigurationTypeDef
     Tags: Dict[str, str]
     FileConfiguration: FileConfigurationOutputTypeDef
@@ -327,29 +329,29 @@ class GetDataIntegrationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_event_integration' function.
 class CreateEventIntegrationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appintegrations", "Name")]
     EventFilter: EventFilterTypeDef
-    EventBridgeBus: str
-    Description: Optional[str] = None
-    ClientToken: Optional[str] = None
+    EventBridgeBus: Annotated[str, _aws_pattern("Appintegrations", "EventBridgeBus")]
+    Description: Optional[Annotated[str, _aws_pattern("Appintegrations", "Description")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "IdempotencyToken")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class EventIntegrationTypeDef(BaseValidatorModel):
-    EventIntegrationArn: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    EventIntegrationArn: Optional[Annotated[str, _aws_pattern("Appintegrations", "Arn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Appintegrations", "Name")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Appintegrations", "Description")]] = None
     EventFilter: Optional[EventFilterTypeDef] = None
-    EventBridgeBus: Optional[str] = None
+    EventBridgeBus: Optional[Annotated[str, _aws_pattern("Appintegrations", "EventBridgeBus")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'get_event_integration' function.
 class GetEventIntegrationResponseTypeDef(BaseValidatorModel):
-    Name: str
-    Description: str
-    EventIntegrationArn: str
-    EventBridgeBus: str
+    Name: Annotated[str, _aws_pattern("Appintegrations", "Name")]
+    Description: Annotated[str, _aws_pattern("Appintegrations", "Description")]
+    EventIntegrationArn: Annotated[str, _aws_pattern("Appintegrations", "Arn")]
+    EventBridgeBus: Annotated[str, _aws_pattern("Appintegrations", "EventBridgeBus")]
     EventFilter: EventFilterTypeDef
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -359,14 +361,14 @@ class GetEventIntegrationResponseTypeDef(BaseValidatorModel):
 class ListDataIntegrationsResponseTypeDef(BaseValidatorModel):
     DataIntegrations: List[DataIntegrationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_event_integration_associations' function.
 class ListEventIntegrationAssociationsResponseTypeDef(BaseValidatorModel):
     EventIntegrationAssociations: List[EventIntegrationAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None
 
 
 class ExecutionConfigurationTypeDef(BaseValidatorModel):
@@ -410,18 +412,18 @@ class ListEventIntegrationsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_application' function.
 class GetApplicationResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Id: str
-    Name: str
-    Namespace: str
-    Description: str
+    Arn: Annotated[str, _aws_pattern("Appintegrations", "Arn")]
+    Id: Annotated[str, _aws_pattern("Appintegrations", "UUID")]
+    Name: Annotated[str, _aws_pattern("Appintegrations", "ApplicationName")]
+    Namespace: Annotated[str, _aws_pattern("Appintegrations", "ApplicationNamespace")]
+    Description: Annotated[str, _aws_pattern("Appintegrations", "Description")]
     ApplicationSourceConfig: ApplicationSourceConfigOutputTypeDef
     Subscriptions: List[SubscriptionTypeDef]
     Publications: List[PublicationTypeDef]
     CreatedTime: datetime
     LastModifiedTime: datetime
     Tags: Dict[str, str]
-    Permissions: List[str]
+    Permissions: List[Annotated[str, _aws_pattern("Appintegrations", "Permission")]]
     IsService: bool
     InitializationTimeout: int
     ApplicationConfig: ApplicationConfigTypeDef
@@ -437,59 +439,59 @@ ApplicationSourceConfigUnionTypeDef = Union[ApplicationSourceConfigOutputTypeDef
 class ListEventIntegrationsResponseTypeDef(BaseValidatorModel):
     EventIntegrations: List[EventIntegrationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None
 
 
 # This class is the input for the 'create_data_integration_association' function.
 class CreateDataIntegrationAssociationRequestTypeDef(BaseValidatorModel):
-    DataIntegrationIdentifier: str
-    ClientId: Optional[str] = None
+    DataIntegrationIdentifier: Annotated[str, _aws_pattern("Appintegrations", "Identifier")]
+    ClientId: Optional[Annotated[str, _aws_pattern("Appintegrations", "ClientId")]] = None
     ObjectConfiguration: Optional[Dict[str, Dict[str, List[str]]]] = None
-    DestinationURI: Optional[str] = None
+    DestinationURI: Optional[Annotated[str, _aws_pattern("Appintegrations", "DestinationURI")]] = None
     ClientAssociationMetadata: Optional[Dict[str, str]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "IdempotencyToken")]] = None
     ExecutionConfiguration: Optional[ExecutionConfigurationTypeDef] = None
 
 
 class DataIntegrationAssociationSummaryTypeDef(BaseValidatorModel):
-    DataIntegrationAssociationArn: Optional[str] = None
-    DataIntegrationArn: Optional[str] = None
-    ClientId: Optional[str] = None
-    DestinationURI: Optional[str] = None
+    DataIntegrationAssociationArn: Optional[Annotated[str, _aws_pattern("Appintegrations", "Arn")]] = None
+    DataIntegrationArn: Optional[Annotated[str, _aws_pattern("Appintegrations", "Arn")]] = None
+    ClientId: Optional[Annotated[str, _aws_pattern("Appintegrations", "ClientId")]] = None
+    DestinationURI: Optional[Annotated[str, _aws_pattern("Appintegrations", "DestinationURI")]] = None
     LastExecutionStatus: Optional[LastExecutionStatusTypeDef] = None
     ExecutionConfiguration: Optional[ExecutionConfigurationTypeDef] = None
 
 
 class UpdateDataIntegrationAssociationRequestTypeDef(BaseValidatorModel):
-    DataIntegrationIdentifier: str
-    DataIntegrationAssociationIdentifier: str
+    DataIntegrationIdentifier: Annotated[str, _aws_pattern("Appintegrations", "Identifier")]
+    DataIntegrationAssociationIdentifier: Annotated[str, _aws_pattern("Appintegrations", "Identifier")]
     ExecutionConfiguration: ExecutionConfigurationTypeDef
 
 
 # This class is the input for the 'create_data_integration' function.
 class CreateDataIntegrationRequestTypeDef(BaseValidatorModel):
-    Name: str
-    KmsKey: str
-    Description: Optional[str] = None
-    SourceURI: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Appintegrations", "Name")]
+    KmsKey: Annotated[str, _aws_pattern("Appintegrations", "NonBlankString")]
+    Description: Optional[Annotated[str, _aws_pattern("Appintegrations", "Description")]] = None
+    SourceURI: Optional[Annotated[str, _aws_pattern("Appintegrations", "SourceURI")]] = None
     ScheduleConfig: Optional[ScheduleConfigurationTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "IdempotencyToken")]] = None
     FileConfiguration: Optional[FileConfigurationUnionTypeDef] = None
     ObjectConfiguration: Optional[Dict[str, Dict[str, List[str]]]] = None
 
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Namespace: str
+    Name: Annotated[str, _aws_pattern("Appintegrations", "ApplicationName")]
+    Namespace: Annotated[str, _aws_pattern("Appintegrations", "ApplicationNamespace")]
     ApplicationSourceConfig: ApplicationSourceConfigUnionTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Appintegrations", "Description")]] = None
     Subscriptions: Optional[List[SubscriptionTypeDef]] = None
     Publications: Optional[List[PublicationTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "IdempotencyToken")]] = None
     Tags: Optional[Dict[str, str]] = None
-    Permissions: Optional[List[str]] = None
+    Permissions: Optional[List[Annotated[str, _aws_pattern("Appintegrations", "Permission")]]] = None
     IsService: Optional[bool] = None
     InitializationTimeout: Optional[int] = None
     ApplicationConfig: Optional[ApplicationConfigTypeDef] = None
@@ -498,13 +500,13 @@ class CreateApplicationRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Appintegrations", "ArnOrUUID")]
+    Name: Optional[Annotated[str, _aws_pattern("Appintegrations", "ApplicationName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Appintegrations", "Description")]] = None
     ApplicationSourceConfig: Optional[ApplicationSourceConfigUnionTypeDef] = None
     Subscriptions: Optional[List[SubscriptionTypeDef]] = None
     Publications: Optional[List[PublicationTypeDef]] = None
-    Permissions: Optional[List[str]] = None
+    Permissions: Optional[List[Annotated[str, _aws_pattern("Appintegrations", "Permission")]]] = None
     IsService: Optional[bool] = None
     InitializationTimeout: Optional[int] = None
     ApplicationConfig: Optional[ApplicationConfigTypeDef] = None
@@ -516,4 +518,4 @@ class UpdateApplicationRequestTypeDef(BaseValidatorModel):
 class ListDataIntegrationAssociationsResponseTypeDef(BaseValidatorModel):
     DataIntegrationAssociations: List[DataIntegrationAssociationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Appintegrations", "NextToken")]] = None

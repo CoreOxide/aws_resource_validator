@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.efs.efs_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -53,8 +55,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Efs", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Efs", "TagValue")]
 
 
 class BackupPolicyTypeDef(BaseValidatorModel):
@@ -63,58 +65,58 @@ class BackupPolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_mount_target' function.
 class CreateMountTargetRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
-    SubnetId: str
-    IpAddress: Optional[str] = None
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
+    SubnetId: Annotated[str, _aws_pattern("Efs", "SubnetId")]
+    IpAddress: Optional[Annotated[str, _aws_pattern("Efs", "IpAddress")]] = None
     Ipv6Address: Optional[str] = None
     IpAddressType: Optional[IpAddressTypeType] = None
-    SecurityGroups: Optional[List[str]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Efs", "SecurityGroup")]]] = None
 
 
 class DestinationToCreateTypeDef(BaseValidatorModel):
-    Region: Optional[str] = None
-    AvailabilityZoneName: Optional[str] = None
-    KmsKeyId: Optional[str] = None
-    FileSystemId: Optional[str] = None
-    RoleArn: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Efs", "RegionName")]] = None
+    AvailabilityZoneName: Optional[Annotated[str, _aws_pattern("Efs", "AvailabilityZoneName")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Efs", "KmsKeyId")]] = None
+    FileSystemId: Optional[Annotated[str, _aws_pattern("Efs", "FileSystemId")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Efs", "RoleArn")]] = None
 
 
 class CreationInfoTypeDef(BaseValidatorModel):
     OwnerUid: int
     OwnerGid: int
-    Permissions: str
+    Permissions: Annotated[str, _aws_pattern("Efs", "Permissions")]
 
 
 # This class is the input for the 'delete_access_point' function.
 class DeleteAccessPointRequestTypeDef(BaseValidatorModel):
-    AccessPointId: str
+    AccessPointId: Annotated[str, _aws_pattern("Efs", "AccessPointId")]
 
 
 # This class is the input for the 'delete_file_system_policy' function.
 class DeleteFileSystemPolicyRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
 
 
 # This class is the input for the 'delete_file_system' function.
 class DeleteFileSystemRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
 
 
 # This class is the input for the 'delete_mount_target' function.
 class DeleteMountTargetRequestTypeDef(BaseValidatorModel):
-    MountTargetId: str
+    MountTargetId: Annotated[str, _aws_pattern("Efs", "MountTargetId")]
 
 
 # This class is the input for the 'delete_replication_configuration' function.
 class DeleteReplicationConfigurationRequestTypeDef(BaseValidatorModel):
-    SourceFileSystemId: str
+    SourceFileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
     DeletionMode: Optional[DeletionModeType] = None
 
 
 # This class is the input for the 'delete_tags' function.
 class DeleteTagsRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
-    TagKeys: List[str]
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
+    TagKeys: List[Annotated[str, _aws_pattern("Efs", "TagKey")]]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -126,14 +128,14 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_access_points' function.
 class DescribeAccessPointsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    AccessPointId: Optional[str] = None
-    FileSystemId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Efs", "Token")]] = None
+    AccessPointId: Optional[Annotated[str, _aws_pattern("Efs", "AccessPointId")]] = None
+    FileSystemId: Optional[Annotated[str, _aws_pattern("Efs", "FileSystemId")]] = None
 
 
 # This class is the input for the 'describe_account_preferences' function.
 class DescribeAccountPreferencesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Efs", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -144,77 +146,77 @@ class ResourceIdPreferenceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_backup_policy' function.
 class DescribeBackupPolicyRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
 
 
 # This class is the input for the 'describe_file_system_policy' function.
 class DescribeFileSystemPolicyRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
 
 
 # This class is the input for the 'describe_file_systems' function.
 class DescribeFileSystemsRequestTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
-    Marker: Optional[str] = None
-    CreationToken: Optional[str] = None
-    FileSystemId: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Efs", "Marker")]] = None
+    CreationToken: Optional[Annotated[str, _aws_pattern("Efs", "CreationToken")]] = None
+    FileSystemId: Optional[Annotated[str, _aws_pattern("Efs", "FileSystemId")]] = None
 
 
 # This class is the input for the 'describe_lifecycle_configuration' function.
 class DescribeLifecycleConfigurationRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
 
 
 # This class is the input for the 'describe_mount_target_security_groups' function.
 class DescribeMountTargetSecurityGroupsRequestTypeDef(BaseValidatorModel):
-    MountTargetId: str
+    MountTargetId: Annotated[str, _aws_pattern("Efs", "MountTargetId")]
 
 
 # This class is the input for the 'describe_mount_targets' function.
 class DescribeMountTargetsRequestTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
-    Marker: Optional[str] = None
-    FileSystemId: Optional[str] = None
-    MountTargetId: Optional[str] = None
-    AccessPointId: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Efs", "Marker")]] = None
+    FileSystemId: Optional[Annotated[str, _aws_pattern("Efs", "FileSystemId")]] = None
+    MountTargetId: Optional[Annotated[str, _aws_pattern("Efs", "MountTargetId")]] = None
+    AccessPointId: Optional[Annotated[str, _aws_pattern("Efs", "AccessPointId")]] = None
 
 
 class MountTargetDescriptionTypeDef(BaseValidatorModel):
-    MountTargetId: str
-    FileSystemId: str
-    SubnetId: str
+    MountTargetId: Annotated[str, _aws_pattern("Efs", "MountTargetId")]
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
+    SubnetId: Annotated[str, _aws_pattern("Efs", "SubnetId")]
     LifeCycleState: LifeCycleStateType
-    OwnerId: Optional[str] = None
-    IpAddress: Optional[str] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Efs", "AwsAccountId")]] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Efs", "IpAddress")]] = None
     Ipv6Address: Optional[str] = None
     NetworkInterfaceId: Optional[str] = None
     AvailabilityZoneId: Optional[str] = None
-    AvailabilityZoneName: Optional[str] = None
+    AvailabilityZoneName: Optional[Annotated[str, _aws_pattern("Efs", "AvailabilityZoneName")]] = None
     VpcId: Optional[str] = None
 
 
 # This class is the input for the 'describe_replication_configurations' function.
 class DescribeReplicationConfigurationsRequestTypeDef(BaseValidatorModel):
-    FileSystemId: Optional[str] = None
-    NextToken: Optional[str] = None
+    FileSystemId: Optional[Annotated[str, _aws_pattern("Efs", "FileSystemId")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Efs", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_tags' function.
 class DescribeTagsRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
     MaxItems: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Efs", "Marker")]] = None
 
 
 class DestinationTypeDef(BaseValidatorModel):
     Status: ReplicationStatusType
-    FileSystemId: str
-    Region: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
+    Region: Annotated[str, _aws_pattern("Efs", "RegionName")]
     LastReplicatedTimestamp: Optional[datetime] = None
-    OwnerId: Optional[str] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Efs", "AwsAccountId")]] = None
     StatusMessage: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Efs", "RoleArn")]] = None
 
 
 class FileSystemProtectionDescriptionTypeDef(BaseValidatorModel):
@@ -237,15 +239,15 @@ class LifecyclePolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Efs", "ResourceId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Efs", "Token")]] = None
 
 
 # This class is the input for the 'modify_mount_target_security_groups' function.
 class ModifyMountTargetSecurityGroupsRequestTypeDef(BaseValidatorModel):
-    MountTargetId: str
-    SecurityGroups: Optional[List[str]] = None
+    MountTargetId: Annotated[str, _aws_pattern("Efs", "MountTargetId")]
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Efs", "SecurityGroup")]]] = None
 
 
 class PosixUserTypeDef(BaseValidatorModel):
@@ -261,33 +263,33 @@ class PutAccountPreferencesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_file_system_policy' function.
 class PutFileSystemPolicyRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
-    Policy: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
+    Policy: Annotated[str, _aws_pattern("Efs", "Policy")]
     BypassPolicyLockoutSafetyCheck: Optional[bool] = None
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
-    TagKeys: List[str]
+    ResourceId: Annotated[str, _aws_pattern("Efs", "ResourceId")]
+    TagKeys: List[Annotated[str, _aws_pattern("Efs", "TagKey")]]
 
 
 # This class is the input for the 'update_file_system_protection' function.
 class UpdateFileSystemProtectionRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
     ReplicationOverwriteProtection: Optional[ReplicationOverwriteProtectionType] = None
 
 
 # This class is the input for the 'update_file_system' function.
 class UpdateFileSystemRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
     ThroughputMode: Optional[ThroughputModeType] = None
     ProvisionedThroughputInMibps: Optional[float] = None
 
 
 # This class is the output for the 'describe_mount_target_security_groups' function.
 class DescribeMountTargetSecurityGroupsResponseTypeDef(BaseValidatorModel):
-    SecurityGroups: List[str]
+    SecurityGroups: List[Annotated[str, _aws_pattern("Efs", "SecurityGroup")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -298,8 +300,8 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_file_system_policy' function.
 class FileSystemPolicyDescriptionTypeDef(BaseValidatorModel):
-    FileSystemId: str
-    Policy: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
+    Policy: Annotated[str, _aws_pattern("Efs", "Policy")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -327,28 +329,28 @@ class MountTargetDescriptionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_file_system' function.
 class CreateFileSystemRequestTypeDef(BaseValidatorModel):
-    CreationToken: str
+    CreationToken: Annotated[str, _aws_pattern("Efs", "CreationToken")]
     PerformanceMode: Optional[PerformanceModeType] = None
     Encrypted: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Efs", "KmsKeyId")]] = None
     ThroughputMode: Optional[ThroughputModeType] = None
     ProvisionedThroughputInMibps: Optional[float] = None
-    AvailabilityZoneName: Optional[str] = None
+    AvailabilityZoneName: Optional[Annotated[str, _aws_pattern("Efs", "AvailabilityZoneName")]] = None
     Backup: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_tags' function.
 class CreateTagsRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'describe_tags' function.
 class DescribeTagsResponseTypeDef(BaseValidatorModel):
-    Marker: str
+    Marker: Annotated[str, _aws_pattern("Efs", "Marker")]
     Tags: List[TagTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Efs", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -356,12 +358,12 @@ class DescribeTagsResponseTypeDef(BaseValidatorModel):
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Efs", "Token")]] = None
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Efs", "ResourceId")]
     Tags: List[TagTypeDef]
 
 
@@ -373,18 +375,18 @@ class BackupPolicyDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_backup_policy' function.
 class PutBackupPolicyRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
     BackupPolicy: BackupPolicyTypeDef
 
 
 # This class is the input for the 'create_replication_configuration' function.
 class CreateReplicationConfigurationRequestTypeDef(BaseValidatorModel):
-    SourceFileSystemId: str
+    SourceFileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
     Destinations: List[DestinationToCreateTypeDef]
 
 
 class RootDirectoryTypeDef(BaseValidatorModel):
-    Path: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Efs", "Path")]] = None
     CreationInfo: Optional[CreationInfoTypeDef] = None
 
 
@@ -421,7 +423,7 @@ class DescribeTagsRequestPaginateTypeDef(BaseValidatorModel):
 class DescribeAccountPreferencesResponseTypeDef(BaseValidatorModel):
     ResourceIdPreference: ResourceIdPreferenceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Efs", "Token")]] = None
 
 
 # This class is the output for the 'put_account_preferences' function.
@@ -432,9 +434,9 @@ class PutAccountPreferencesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_mount_targets' function.
 class DescribeMountTargetsResponseTypeDef(BaseValidatorModel):
-    Marker: str
+    Marker: Annotated[str, _aws_pattern("Efs", "Marker")]
     MountTargets: List[MountTargetDescriptionTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Efs", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -451,13 +453,13 @@ class ReplicationConfigurationDescriptionResponseTypeDef(BaseValidatorModel):
 
 
 class ReplicationConfigurationDescriptionTypeDef(BaseValidatorModel):
-    SourceFileSystemId: str
-    SourceFileSystemRegion: str
+    SourceFileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
+    SourceFileSystemRegion: Annotated[str, _aws_pattern("Efs", "RegionName")]
     SourceFileSystemArn: str
     OriginalSourceFileSystemArn: str
     CreationTime: datetime
     Destinations: List[DestinationTypeDef]
-    SourceFileSystemOwnerId: Optional[str] = None
+    SourceFileSystemOwnerId: Optional[Annotated[str, _aws_pattern("Efs", "AwsAccountId")]] = None
 
 
 # This class is the output for the 'create_file_system' function.
@@ -484,9 +486,9 @@ class FileSystemDescriptionResponseTypeDef(BaseValidatorModel):
 
 
 class FileSystemDescriptionTypeDef(BaseValidatorModel):
-    OwnerId: str
-    CreationToken: str
-    FileSystemId: str
+    OwnerId: Annotated[str, _aws_pattern("Efs", "AwsAccountId")]
+    CreationToken: Annotated[str, _aws_pattern("Efs", "CreationToken")]
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
     CreationTime: datetime
     LifeCycleState: LifeCycleStateType
     NumberOfMountTargets: int
@@ -494,12 +496,12 @@ class FileSystemDescriptionTypeDef(BaseValidatorModel):
     PerformanceMode: PerformanceModeType
     Tags: List[TagTypeDef]
     FileSystemArn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Efs", "TagValue")]] = None
     Encrypted: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Efs", "KmsKeyId")]] = None
     ThroughputMode: Optional[ThroughputModeType] = None
     ProvisionedThroughputInMibps: Optional[float] = None
-    AvailabilityZoneName: Optional[str] = None
+    AvailabilityZoneName: Optional[Annotated[str, _aws_pattern("Efs", "AvailabilityZoneName")]] = None
     AvailabilityZoneId: Optional[str] = None
     FileSystemProtection: Optional[FileSystemProtectionDescriptionTypeDef] = None
 
@@ -512,7 +514,7 @@ class LifecycleConfigurationDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_lifecycle_configuration' function.
 class PutLifecycleConfigurationRequestTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
     LifecyclePolicies: List[LifecyclePolicyTypeDef]
 
 
@@ -535,15 +537,15 @@ class AccessPointDescriptionResponseTypeDef(BaseValidatorModel):
 
 
 class AccessPointDescriptionTypeDef(BaseValidatorModel):
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Efs", "ClientToken")]] = None
     Name: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
-    AccessPointId: Optional[str] = None
-    AccessPointArn: Optional[str] = None
-    FileSystemId: Optional[str] = None
+    AccessPointId: Optional[Annotated[str, _aws_pattern("Efs", "AccessPointId")]] = None
+    AccessPointArn: Optional[Annotated[str, _aws_pattern("Efs", "AccessPointArn")]] = None
+    FileSystemId: Optional[Annotated[str, _aws_pattern("Efs", "FileSystemId")]] = None
     PosixUser: Optional[PosixUserOutputTypeDef] = None
     RootDirectory: Optional[RootDirectoryTypeDef] = None
-    OwnerId: Optional[str] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Efs", "AwsAccountId")]] = None
     LifeCycleState: Optional[LifeCycleStateType] = None
 
 
@@ -551,21 +553,21 @@ class AccessPointDescriptionTypeDef(BaseValidatorModel):
 class DescribeReplicationConfigurationsResponseTypeDef(BaseValidatorModel):
     Replications: List[ReplicationConfigurationDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Efs", "Token")]] = None
 
 
 # This class is the output for the 'describe_file_systems' function.
 class DescribeFileSystemsResponseTypeDef(BaseValidatorModel):
-    Marker: str
+    Marker: Annotated[str, _aws_pattern("Efs", "Marker")]
     FileSystems: List[FileSystemDescriptionTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Efs", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_access_point' function.
 class CreateAccessPointRequestTypeDef(BaseValidatorModel):
-    ClientToken: str
-    FileSystemId: str
+    ClientToken: Annotated[str, _aws_pattern("Efs", "ClientToken")]
+    FileSystemId: Annotated[str, _aws_pattern("Efs", "FileSystemId")]
     Tags: Optional[List[TagTypeDef]] = None
     PosixUser: Optional[PosixUserUnionTypeDef] = None
     RootDirectory: Optional[RootDirectoryTypeDef] = None
@@ -575,4 +577,4 @@ class CreateAccessPointRequestTypeDef(BaseValidatorModel):
 class DescribeAccessPointsResponseTypeDef(BaseValidatorModel):
     AccessPoints: List[AccessPointDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Efs", "Token")]] = None

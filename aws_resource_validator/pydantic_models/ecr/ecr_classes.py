@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ecr.ecr_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,7 +46,7 @@ class AttributeTypeDef(BaseValidatorModel):
 
 
 class AuthorizationDataTypeDef(BaseValidatorModel):
-    authorizationToken: Optional[str] = None
+    authorizationToken: Optional[Annotated[str, _aws_pattern("Ecr", "Base64")]] = None
     expiresAt: Optional[datetime] = None
     proxyEndpoint: Optional[str] = None
 
@@ -58,15 +60,15 @@ class AwsEcrContainerImageDetailsTypeDef(BaseValidatorModel):
     pushedAt: Optional[datetime] = None
     lastInUseAt: Optional[datetime] = None
     inUseCount: Optional[int] = None
-    registry: Optional[str] = None
-    repositoryName: Optional[str] = None
+    registry: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Ecr", "RepositoryName")]] = None
 
 
 # This class is the input for the 'batch_check_layer_availability' function.
 class BatchCheckLayerAvailabilityRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     layerDigests: List[str]
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 class LayerFailureTypeDef(BaseValidatorModel):
@@ -76,7 +78,7 @@ class LayerFailureTypeDef(BaseValidatorModel):
 
 
 class LayerTypeDef(BaseValidatorModel):
-    layerDigest: Optional[str] = None
+    layerDigest: Optional[Annotated[str, _aws_pattern("Ecr", "LayerDigest")]] = None
     layerAvailability: Optional[LayerAvailabilityType] = None
     layerSize: Optional[int] = None
     mediaType: Optional[str] = None
@@ -97,11 +99,11 @@ class ImageIdentifierTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_get_repository_scanning_configuration' function.
 class BatchGetRepositoryScanningConfigurationRequestTypeDef(BaseValidatorModel):
-    repositoryNames: List[str]
+    repositoryNames: List[Annotated[str, _aws_pattern("Ecr", "RepositoryName")]]
 
 
 class RepositoryScanningConfigurationFailureTypeDef(BaseValidatorModel):
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Ecr", "RepositoryName")]] = None
     failureCode: Optional[Literal["REPOSITORY_NOT_FOUND"]] = None
     failureReason: Optional[str] = None
 
@@ -111,31 +113,33 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'complete_layer_upload' function.
 class CompleteLayerUploadRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    uploadId: str
-    layerDigests: List[str]
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    uploadId: Annotated[str, _aws_pattern("Ecr", "UploadId")]
+    layerDigests: List[Annotated[str, _aws_pattern("Ecr", "LayerDigest")]]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the input for the 'create_pull_through_cache_rule' function.
 class CreatePullThroughCacheRuleRequestTypeDef(BaseValidatorModel):
-    ecrRepositoryPrefix: str
+    ecrRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
     upstreamRegistryUrl: str
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     upstreamRegistry: Optional[UpstreamRegistryType] = None
-    credentialArn: Optional[str] = None
+    credentialArn: Optional[Annotated[str, _aws_pattern("Ecr", "CredentialArn")]] = None
     customRoleArn: Optional[str] = None
-    upstreamRepositoryPrefix: Optional[str] = None
+    upstreamRepositoryPrefix: Optional[Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]] = (
+        None
+    )
 
 
 class EncryptionConfigurationForRepositoryCreationTemplateTypeDef(BaseValidatorModel):
     encryptionType: EncryptionTypeType
-    kmsKey: Optional[str] = None
+    kmsKey: Optional[Annotated[str, _aws_pattern("Ecr", "KmsKeyForRepositoryCreationTemplate")]] = None
 
 
 class ImageTagMutabilityExclusionFilterTypeDef(BaseValidatorModel):
     filterType: Literal["WILDCARD"]
-    filter: str
+    filter: Annotated[str, _aws_pattern("Ecr", "ImageTagMutabilityExclusionFilterValue")]
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -166,42 +170,42 @@ class CvssScoreTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_lifecycle_policy' function.
 class DeleteLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the input for the 'delete_pull_through_cache_rule' function.
 class DeletePullThroughCacheRuleRequestTypeDef(BaseValidatorModel):
-    ecrRepositoryPrefix: str
-    registryId: Optional[str] = None
+    ecrRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the input for the 'delete_repository_creation_template' function.
 class DeleteRepositoryCreationTemplateRequestTypeDef(BaseValidatorModel):
-    prefix: str
+    prefix: Annotated[str, _aws_pattern("Ecr", "Prefix")]
 
 
 # This class is the input for the 'delete_repository_policy' function.
 class DeleteRepositoryPolicyRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the input for the 'delete_repository' function.
 class DeleteRepositoryRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     force: Optional[bool] = None
 
 
 # This class is the input for the 'deregister_pull_time_update_exclusion' function.
 class DeregisterPullTimeUpdateExclusionRequestTypeDef(BaseValidatorModel):
-    principalArn: str
+    principalArn: Annotated[str, _aws_pattern("Ecr", "PrincipalArn")]
 
 
 class ImageReplicationStatusTypeDef(BaseValidatorModel):
-    region: Optional[str] = None
-    registryId: Optional[str] = None
+    region: Optional[Annotated[str, _aws_pattern("Ecr", "Region")]] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     status: Optional[ReplicationStatusType] = None
     failureCode: Optional[str] = None
 
@@ -223,7 +227,7 @@ class ImageScanStatusTypeDef(BaseValidatorModel):
 
 
 class ImageSigningStatusTypeDef(BaseValidatorModel):
-    signingProfileArn: Optional[str] = None
+    signingProfileArn: Optional[Annotated[str, _aws_pattern("Ecr", "SigningProfileArn")]] = None
     failureCode: Optional[str] = None
     failureReason: Optional[str] = None
     status: Optional[SigningStatusType] = None
@@ -236,35 +240,39 @@ class DescribeImagesFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_pull_through_cache_rules' function.
 class DescribePullThroughCacheRulesRequestTypeDef(BaseValidatorModel):
-    registryId: Optional[str] = None
-    ecrRepositoryPrefixes: Optional[List[str]] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
+    ecrRepositoryPrefixes: Optional[
+        List[Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]]
+    ] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class PullThroughCacheRuleTypeDef(BaseValidatorModel):
-    ecrRepositoryPrefix: Optional[str] = None
+    ecrRepositoryPrefix: Optional[Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]] = None
     upstreamRegistryUrl: Optional[str] = None
     createdAt: Optional[datetime] = None
-    registryId: Optional[str] = None
-    credentialArn: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
+    credentialArn: Optional[Annotated[str, _aws_pattern("Ecr", "CredentialArn")]] = None
     customRoleArn: Optional[str] = None
-    upstreamRepositoryPrefix: Optional[str] = None
+    upstreamRepositoryPrefix: Optional[Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]] = (
+        None
+    )
     upstreamRegistry: Optional[UpstreamRegistryType] = None
     updatedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'describe_repositories' function.
 class DescribeRepositoriesRequestTypeDef(BaseValidatorModel):
-    registryId: Optional[str] = None
-    repositoryNames: Optional[List[str]] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
+    repositoryNames: Optional[List[Annotated[str, _aws_pattern("Ecr", "RepositoryName")]]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_repository_creation_templates' function.
 class DescribeRepositoryCreationTemplatesRequestTypeDef(BaseValidatorModel):
-    prefixes: Optional[List[str]] = None
+    prefixes: Optional[List[Annotated[str, _aws_pattern("Ecr", "Prefix")]]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -276,14 +284,14 @@ class GetAccountSettingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_authorization_token' function.
 class GetAuthorizationTokenRequestTypeDef(BaseValidatorModel):
-    registryIds: Optional[List[str]] = None
+    registryIds: Optional[List[Annotated[str, _aws_pattern("Ecr", "RegistryId")]]] = None
 
 
 # This class is the input for the 'get_download_url_for_layer' function.
 class GetDownloadUrlForLayerRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    layerDigest: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    layerDigest: Annotated[str, _aws_pattern("Ecr", "LayerDigest")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 class LifecyclePolicyPreviewFilterTypeDef(BaseValidatorModel):
@@ -292,14 +300,14 @@ class LifecyclePolicyPreviewFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the input for the 'get_repository_policy' function.
 class GetRepositoryPolicyRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 class ImageScanFindingsSummaryTypeDef(BaseValidatorModel):
@@ -319,8 +327,8 @@ class ImageReferrerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'initiate_layer_upload' function.
 class InitiateLayerUploadRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 class LifecyclePolicyRuleActionTypeDef(BaseValidatorModel):
@@ -378,9 +386,9 @@ class PutAccountSettingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_image' function.
 class PutImageRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageManifest: str
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     imageManifestMediaType: Optional[str] = None
     imageTag: Optional[str] = None
     imageDigest: Optional[str] = None
@@ -388,9 +396,9 @@ class PutImageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_lifecycle_policy' function.
 class PutLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     lifecyclePolicyText: str
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the input for the 'put_registry_policy' function.
@@ -405,41 +413,41 @@ class RecommendationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_pull_time_update_exclusion' function.
 class RegisterPullTimeUpdateExclusionRequestTypeDef(BaseValidatorModel):
-    principalArn: str
+    principalArn: Annotated[str, _aws_pattern("Ecr", "PrincipalArn")]
 
 
 class ScanningRepositoryFilterTypeDef(BaseValidatorModel):
-    filter: str
+    filter: Annotated[str, _aws_pattern("Ecr", "ScanningRepositoryFilterValue")]
     filterType: Literal["WILDCARD"]
 
 
 class ReplicationDestinationTypeDef(BaseValidatorModel):
-    region: str
-    registryId: str
+    region: Annotated[str, _aws_pattern("Ecr", "Region")]
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
 
 
 class RepositoryFilterTypeDef(BaseValidatorModel):
-    filter: str
+    filter: Annotated[str, _aws_pattern("Ecr", "RepositoryFilterValue")]
     filterType: Literal["PREFIX_MATCH"]
 
 
 # This class is the input for the 'set_repository_policy' function.
 class SetRepositoryPolicyRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     policyText: str
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     force: Optional[bool] = None
 
 
 class SigningRepositoryFilterTypeDef(BaseValidatorModel):
-    filter: str
+    filter: Annotated[str, _aws_pattern("Ecr", "SigningRepositoryFilterValue")]
     filterType: Literal["WILDCARD_MATCH"]
 
 
 # This class is the input for the 'start_lifecycle_policy_preview' function.
 class StartLifecyclePolicyPreviewRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     lifecyclePolicyText: Optional[str] = None
 
 
@@ -450,16 +458,16 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_pull_through_cache_rule' function.
 class UpdatePullThroughCacheRuleRequestTypeDef(BaseValidatorModel):
-    ecrRepositoryPrefix: str
-    registryId: Optional[str] = None
-    credentialArn: Optional[str] = None
+    ecrRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
+    credentialArn: Optional[Annotated[str, _aws_pattern("Ecr", "CredentialArn")]] = None
     customRoleArn: Optional[str] = None
 
 
 # This class is the input for the 'validate_pull_through_cache_rule' function.
 class ValidatePullThroughCacheRuleRequestTypeDef(BaseValidatorModel):
-    ecrRepositoryPrefix: str
-    registryId: Optional[str] = None
+    ecrRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 class ImageScanFindingTypeDef(BaseValidatorModel):
@@ -483,30 +491,30 @@ class BatchCheckLayerAvailabilityResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'complete_layer_upload' function.
 class CompleteLayerUploadResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
-    uploadId: str
-    layerDigest: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    uploadId: Annotated[str, _aws_pattern("Ecr", "UploadId")]
+    layerDigest: Annotated[str, _aws_pattern("Ecr", "LayerDigest")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_pull_through_cache_rule' function.
 class CreatePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
-    ecrRepositoryPrefix: str
+    ecrRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
     upstreamRegistryUrl: str
     createdAt: datetime
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     upstreamRegistry: UpstreamRegistryType
-    credentialArn: str
+    credentialArn: Annotated[str, _aws_pattern("Ecr", "CredentialArn")]
     customRoleArn: str
-    upstreamRepositoryPrefix: str
+    upstreamRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_lifecycle_policy' function.
 class DeleteLifecyclePolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     lifecyclePolicyText: str
     lastEvaluatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -514,33 +522,33 @@ class DeleteLifecyclePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_pull_through_cache_rule' function.
 class DeletePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
-    ecrRepositoryPrefix: str
+    ecrRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
     upstreamRegistryUrl: str
     createdAt: datetime
-    registryId: str
-    credentialArn: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    credentialArn: Annotated[str, _aws_pattern("Ecr", "CredentialArn")]
     customRoleArn: str
-    upstreamRepositoryPrefix: str
+    upstreamRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DeleteRegistryPolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_repository_policy' function.
 class DeleteRepositoryPolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'deregister_pull_time_update_exclusion' function.
 class DeregisterPullTimeUpdateExclusionResponseTypeDef(BaseValidatorModel):
-    principalArn: str
+    principalArn: Annotated[str, _aws_pattern("Ecr", "PrincipalArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -560,43 +568,43 @@ class GetAuthorizationTokenResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_download_url_for_layer' function.
 class GetDownloadUrlForLayerResponseTypeDef(BaseValidatorModel):
     downloadUrl: str
-    layerDigest: str
+    layerDigest: Annotated[str, _aws_pattern("Ecr", "LayerDigest")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     lifecyclePolicyText: str
     lastEvaluatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class GetRegistryPolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_repository_policy' function.
 class GetRepositoryPolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'initiate_layer_upload' function.
 class InitiateLayerUploadResponseTypeDef(BaseValidatorModel):
-    uploadId: str
+    uploadId: Annotated[str, _aws_pattern("Ecr", "UploadId")]
     partSize: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_pull_time_update_exclusions' function.
 class ListPullTimeUpdateExclusionsResponseTypeDef(BaseValidatorModel):
-    pullTimeUpdateExclusions: List[str]
+    pullTimeUpdateExclusions: List[Annotated[str, _aws_pattern("Ecr", "PrincipalArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -610,38 +618,38 @@ class PutAccountSettingResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_lifecycle_policy' function.
 class PutLifecyclePolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     lifecyclePolicyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_registry_policy' function.
 class PutRegistryPolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_pull_time_update_exclusion' function.
 class RegisterPullTimeUpdateExclusionResponseTypeDef(BaseValidatorModel):
-    principalArn: str
+    principalArn: Annotated[str, _aws_pattern("Ecr", "PrincipalArn")]
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'set_repository_policy' function.
 class SetRepositoryPolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_lifecycle_policy_preview' function.
 class StartLifecyclePolicyPreviewResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     lifecyclePolicyText: str
     status: LifecyclePolicyPreviewStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -649,32 +657,32 @@ class StartLifecyclePolicyPreviewResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_pull_through_cache_rule' function.
 class UpdatePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
-    ecrRepositoryPrefix: str
-    registryId: str
+    ecrRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     updatedAt: datetime
-    credentialArn: str
+    credentialArn: Annotated[str, _aws_pattern("Ecr", "CredentialArn")]
     customRoleArn: str
-    upstreamRepositoryPrefix: str
+    upstreamRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'upload_layer_part' function.
 class UploadLayerPartResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
-    uploadId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    uploadId: Annotated[str, _aws_pattern("Ecr", "UploadId")]
     lastByteReceived: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'validate_pull_through_cache_rule' function.
 class ValidatePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
-    ecrRepositoryPrefix: str
-    registryId: str
+    ecrRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     upstreamRegistryUrl: str
-    credentialArn: str
+    credentialArn: Annotated[str, _aws_pattern("Ecr", "CredentialArn")]
     customRoleArn: str
-    upstreamRepositoryPrefix: str
+    upstreamRepositoryPrefix: Annotated[str, _aws_pattern("Ecr", "PullThroughCacheRuleRepositoryPrefix")]
     isValid: bool
     failure: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -682,40 +690,40 @@ class ValidatePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_delete_image' function.
 class BatchDeleteImageRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageIds: List[ImageIdentifierTypeDef]
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the input for the 'batch_get_image' function.
 class BatchGetImageRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageIds: List[ImageIdentifierTypeDef]
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     acceptedMediaTypes: Optional[List[str]] = None
 
 
 # This class is the input for the 'describe_image_replication_status' function.
 class DescribeImageReplicationStatusRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageId: ImageIdentifierTypeDef
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the input for the 'describe_image_scan_findings' function.
 class DescribeImageScanFindingsRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageId: ImageIdentifierTypeDef
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_image_signing_status' function.
 class DescribeImageSigningStatusRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageId: ImageIdentifierTypeDef
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 class ImageFailureTypeDef(BaseValidatorModel):
@@ -725,8 +733,8 @@ class ImageFailureTypeDef(BaseValidatorModel):
 
 
 class ImageTypeDef(BaseValidatorModel):
-    registryId: Optional[str] = None
-    repositoryName: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Ecr", "RepositoryName")]] = None
     imageId: Optional[ImageIdentifierTypeDef] = None
     imageManifest: Optional[str] = None
     imageManifestMediaType: Optional[str] = None
@@ -741,23 +749,23 @@ class ListImagesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_image_scan' function.
 class StartImageScanRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageId: ImageIdentifierTypeDef
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the input for the 'update_image_storage_class' function.
 class UpdateImageStorageClassRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageId: ImageIdentifierTypeDef
     targetStorageClass: TargetStorageClassType
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the output for the 'update_image_storage_class' function.
 class UpdateImageStorageClassResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageId: ImageIdentifierTypeDef
     imageStatus: ImageStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -765,26 +773,26 @@ class UpdateImageStorageClassResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'upload_layer_part' function.
 class UploadLayerPartRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    uploadId: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    uploadId: Annotated[str, _aws_pattern("Ecr", "UploadId")]
     partFirstByte: int
     partLastByte: int
     layerPartBlob: BlobTypeDef
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the input for the 'put_image_tag_mutability' function.
 class PutImageTagMutabilityRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageTagMutability: ImageTagMutabilityType
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     imageTagMutabilityExclusionFilters: Optional[List[ImageTagMutabilityExclusionFilterTypeDef]] = None
 
 
 # This class is the output for the 'put_image_tag_mutability' function.
 class PutImageTagMutabilityResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageTagMutability: ImageTagMutabilityType
     imageTagMutabilityExclusionFilters: List[ImageTagMutabilityExclusionFilterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -792,7 +800,7 @@ class PutImageTagMutabilityResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_repository_creation_template' function.
 class CreateRepositoryCreationTemplateRequestTypeDef(BaseValidatorModel):
-    prefix: str
+    prefix: Annotated[str, _aws_pattern("Ecr", "Prefix")]
     appliedFor: List[RCTAppliedForType]
     description: Optional[str] = None
     encryptionConfiguration: Optional[EncryptionConfigurationForRepositoryCreationTemplateTypeDef] = None
@@ -811,7 +819,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class RepositoryCreationTemplateTypeDef(BaseValidatorModel):
-    prefix: Optional[str] = None
+    prefix: Optional[Annotated[str, _aws_pattern("Ecr", "Prefix")]] = None
     description: Optional[str] = None
     encryptionConfiguration: Optional[EncryptionConfigurationForRepositoryCreationTemplateTypeDef] = None
     resourceTags: Optional[List[TagTypeDef]] = None
@@ -832,7 +840,7 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_repository_creation_template' function.
 class UpdateRepositoryCreationTemplateRequestTypeDef(BaseValidatorModel):
-    prefix: str
+    prefix: Annotated[str, _aws_pattern("Ecr", "Prefix")]
     description: Optional[str] = None
     encryptionConfiguration: Optional[EncryptionConfigurationForRepositoryCreationTemplateTypeDef] = None
     resourceTags: Optional[List[TagTypeDef]] = None
@@ -846,8 +854,8 @@ class UpdateRepositoryCreationTemplateRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_repository' function.
 class CreateRepositoryRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     tags: Optional[List[TagTypeDef]] = None
     imageTagMutability: Optional[ImageTagMutabilityType] = None
     imageTagMutabilityExclusionFilters: Optional[List[ImageTagMutabilityExclusionFilterTypeDef]] = None
@@ -857,23 +865,23 @@ class CreateRepositoryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_image_scanning_configuration' function.
 class PutImageScanningConfigurationRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageScanningConfiguration: ImageScanningConfigurationTypeDef
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
 
 
 # This class is the output for the 'put_image_scanning_configuration' function.
 class PutImageScanningConfigurationResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageScanningConfiguration: ImageScanningConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class RepositoryTypeDef(BaseValidatorModel):
     repositoryArn: Optional[str] = None
-    registryId: Optional[str] = None
-    repositoryName: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Ecr", "RepositoryName")]] = None
     repositoryUri: Optional[str] = None
     createdAt: Optional[datetime] = None
     imageTagMutability: Optional[ImageTagMutabilityType] = None
@@ -892,7 +900,7 @@ class CvssScoreDetailsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_image_replication_status' function.
 class DescribeImageReplicationStatusResponseTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageId: ImageIdentifierTypeDef
     replicationStatuses: List[ImageReplicationStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -933,8 +941,8 @@ class DescribeImageScanFindingsRequestWaitTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_image_scan' function.
 class StartImageScanResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageId: ImageIdentifierTypeDef
     imageScanStatus: ImageScanStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -942,9 +950,9 @@ class StartImageScanResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_image_signing_status' function.
 class DescribeImageSigningStatusResponseTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageId: ImageIdentifierTypeDef
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     signingStatuses: List[ImageSigningStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -959,8 +967,8 @@ class DescribeImagesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_images' function.
 class DescribeImagesRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     imageIds: Optional[List[ImageIdentifierTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -984,8 +992,8 @@ class GetLifecyclePolicyPreviewRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_lifecycle_policy_preview' function.
 class GetLifecyclePolicyPreviewRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     imageIds: Optional[List[ImageIdentifierTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1003,8 +1011,8 @@ class GetLifecyclePolicyPreviewRequestWaitTypeDef(BaseValidatorModel):
 
 
 class ImageDetailTypeDef(BaseValidatorModel):
-    registryId: Optional[str] = None
-    repositoryName: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Ecr", "RepositoryName")]] = None
     imageDigest: Optional[str] = None
     imageTags: Optional[List[str]] = None
     imageSizeInBytes: Optional[int] = None
@@ -1043,9 +1051,9 @@ class LifecyclePolicyPreviewSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_image_referrers' function.
 class ListImageReferrersRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     subjectId: SubjectIdentifierTypeDef
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     filter: Optional[ListImageReferrersFilterTypeDef] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1060,8 +1068,8 @@ class ListImagesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_images' function.
 class ListImagesRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filter: Optional[ListImagesFilterTypeDef] = None
@@ -1096,7 +1104,7 @@ class RegistryScanningRuleTypeDef(BaseValidatorModel):
 
 class RepositoryScanningConfigurationTypeDef(BaseValidatorModel):
     repositoryArn: Optional[str] = None
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("Ecr", "RepositoryName")]] = None
     scanOnPush: Optional[bool] = None
     scanFrequency: Optional[ScanFrequencyType] = None
     appliedScanFilters: Optional[List[ScanningRepositoryFilterTypeDef]] = None
@@ -1118,7 +1126,7 @@ class SigningRuleOutputTypeDef(BaseValidatorModel):
 
 
 class SigningRuleTypeDef(BaseValidatorModel):
-    signingProfileArn: str
+    signingProfileArn: Annotated[str, _aws_pattern("Ecr", "SigningProfileArn")]
     repositoryFilters: Optional[List[SigningRepositoryFilterTypeDef]] = None
 
 
@@ -1151,21 +1159,21 @@ class PutImageResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_repository_creation_template' function.
 class CreateRepositoryCreationTemplateResponseTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     repositoryCreationTemplate: RepositoryCreationTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_repository_creation_template' function.
 class DeleteRepositoryCreationTemplateResponseTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     repositoryCreationTemplate: RepositoryCreationTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_repository_creation_templates' function.
 class DescribeRepositoryCreationTemplatesResponseTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     repositoryCreationTemplates: List[RepositoryCreationTemplateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -1173,7 +1181,7 @@ class DescribeRepositoryCreationTemplatesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_repository_creation_template' function.
 class UpdateRepositoryCreationTemplateResponseTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     repositoryCreationTemplate: RepositoryCreationTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1210,8 +1218,8 @@ class DescribeImagesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_lifecycle_policy_preview' function.
 class GetLifecyclePolicyPreviewResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     lifecyclePolicyText: str
     status: LifecyclePolicyPreviewStatusType
     previewResults: List[LifecyclePolicyPreviewResultTypeDef]
@@ -1252,7 +1260,7 @@ class SigningConfigurationTypeDef(BaseValidatorModel):
 
 
 class EnhancedImageScanFindingTypeDef(BaseValidatorModel):
-    awsAccountId: Optional[str] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Ecr", "RegistryId")]] = None
     description: Optional[str] = None
     findingArn: Optional[str] = None
     firstObservedAt: Optional[datetime] = None
@@ -1272,7 +1280,7 @@ class EnhancedImageScanFindingTypeDef(BaseValidatorModel):
 
 
 class GetRegistryScanningConfigurationResponseTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     scanningConfiguration: RegistryScanningConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1290,7 +1298,7 @@ class PutRegistryScanningConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class DescribeRegistryResponseTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     replicationConfiguration: ReplicationConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1305,13 +1313,13 @@ ReplicationConfigurationUnionTypeDef = Union[ReplicationConfigurationOutputTypeD
 
 
 class DeleteSigningConfigurationResponseTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     signingConfiguration: SigningConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class GetSigningConfigurationResponseTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
     signingConfiguration: SigningConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1345,8 +1353,8 @@ class PutSigningConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_image_scan_findings' function.
 class DescribeImageScanFindingsResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("Ecr", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("Ecr", "RepositoryName")]
     imageId: ImageIdentifierTypeDef
     imageScanStatus: ImageScanStatusTypeDef
     imageScanFindings: ImageScanFindingsTypeDef

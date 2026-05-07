@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,14 +41,14 @@ except ImportError:  # pragma: no cover
 
 
 class IdentityTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ResourceName")]] = None
 
 
 class AppInstanceBotSummaryTypeDef(BaseValidatorModel):
-    AppInstanceBotArn: Optional[str] = None
-    Name: Optional[str] = None
-    Metadata: Optional[str] = None
+    AppInstanceBotArn: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ResourceName")]] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]] = None
 
 
 class ChannelRetentionSettingsTypeDef(BaseValidatorModel):
@@ -54,17 +56,17 @@ class ChannelRetentionSettingsTypeDef(BaseValidatorModel):
 
 
 class AppInstanceSummaryTypeDef(BaseValidatorModel):
-    AppInstanceArn: Optional[str] = None
-    Name: Optional[str] = None
-    Metadata: Optional[str] = None
+    AppInstanceArn: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NonEmptyResourceName")]] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]] = None
 
 
 class AppInstanceTypeDef(BaseValidatorModel):
-    AppInstanceArn: Optional[str] = None
-    Name: Optional[str] = None
+    AppInstanceArn: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NonEmptyResourceName")]] = None
     CreatedTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
-    Metadata: Optional[str] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]] = None
 
 
 class EndpointStateTypeDef(BaseValidatorModel):
@@ -73,14 +75,14 @@ class EndpointStateTypeDef(BaseValidatorModel):
 
 
 class EndpointAttributesTypeDef(BaseValidatorModel):
-    DeviceToken: str
-    VoipDeviceToken: Optional[str] = None
+    DeviceToken: Annotated[str, _aws_pattern("ChimeSdkIdentity", "NonEmptySensitiveString1600")]
+    VoipDeviceToken: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NonEmptySensitiveString1600")]] = None
 
 
 class AppInstanceUserSummaryTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: Optional[str] = None
-    Name: Optional[str] = None
-    Metadata: Optional[str] = None
+    AppInstanceUserArn: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "UserName")]] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]] = None
 
 
 class ExpirationSettingsTypeDef(BaseValidatorModel):
@@ -90,8 +92,8 @@ class ExpirationSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_app_instance_admin' function.
 class CreateAppInstanceAdminRequestTypeDef(BaseValidatorModel):
-    AppInstanceAdminArn: str
-    AppInstanceArn: str
+    AppInstanceAdminArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -109,61 +111,61 @@ class TagTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_app_instance_admin' function.
 class DeleteAppInstanceAdminRequestTypeDef(BaseValidatorModel):
-    AppInstanceAdminArn: str
-    AppInstanceArn: str
+    AppInstanceAdminArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
 
 
 # This class is the input for the 'delete_app_instance_bot' function.
 class DeleteAppInstanceBotRequestTypeDef(BaseValidatorModel):
-    AppInstanceBotArn: str
+    AppInstanceBotArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
 
 
 # This class is the input for the 'delete_app_instance' function.
 class DeleteAppInstanceRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
 
 
 # This class is the input for the 'delete_app_instance_user' function.
 class DeleteAppInstanceUserRequestTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
 
 
 # This class is the input for the 'deregister_app_instance_user_endpoint' function.
 class DeregisterAppInstanceUserEndpointRequestTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
-    EndpointId: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    EndpointId: Annotated[str, _aws_pattern("ChimeSdkIdentity", "String64")]
 
 
 # This class is the input for the 'describe_app_instance_admin' function.
 class DescribeAppInstanceAdminRequestTypeDef(BaseValidatorModel):
-    AppInstanceAdminArn: str
-    AppInstanceArn: str
+    AppInstanceAdminArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
 
 
 # This class is the input for the 'describe_app_instance_bot' function.
 class DescribeAppInstanceBotRequestTypeDef(BaseValidatorModel):
-    AppInstanceBotArn: str
+    AppInstanceBotArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
 
 
 # This class is the input for the 'describe_app_instance' function.
 class DescribeAppInstanceRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
 
 
 # This class is the input for the 'describe_app_instance_user_endpoint' function.
 class DescribeAppInstanceUserEndpointRequestTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
-    EndpointId: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "String1600")]
+    EndpointId: Annotated[str, _aws_pattern("ChimeSdkIdentity", "String64")]
 
 
 # This class is the input for the 'describe_app_instance_user' function.
 class DescribeAppInstanceUserRequestTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
 
 
 # This class is the input for the 'get_app_instance_retention_settings' function.
 class GetAppInstanceRetentionSettingsRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
 
 
 class InvokedByTypeDef(BaseValidatorModel):
@@ -173,69 +175,69 @@ class InvokedByTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_app_instance_admins' function.
 class ListAppInstanceAdminsRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NextToken")]] = None
 
 
 # This class is the input for the 'list_app_instance_bots' function.
 class ListAppInstanceBotsRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NextToken")]] = None
 
 
 # This class is the input for the 'list_app_instance_user_endpoints' function.
 class ListAppInstanceUserEndpointsRequestTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "SensitiveChimeArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NextToken")]] = None
 
 
 # This class is the input for the 'list_app_instance_users' function.
 class ListAppInstanceUsersRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NextToken")]] = None
 
 
 # This class is the input for the 'list_app_instances' function.
 class ListAppInstancesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_app_instance' function.
 class UpdateAppInstanceRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
-    Name: str
-    Metadata: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    Name: Annotated[str, _aws_pattern("ChimeSdkIdentity", "NonEmptyResourceName")]
+    Metadata: Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]
 
 
 # This class is the input for the 'update_app_instance_user_endpoint' function.
 class UpdateAppInstanceUserEndpointRequestTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
-    EndpointId: str
-    Name: Optional[str] = None
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    EndpointId: Annotated[str, _aws_pattern("ChimeSdkIdentity", "String64")]
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "SensitiveString1600")]] = None
     AllowMessages: Optional[AllowMessagesType] = None
 
 
 # This class is the input for the 'update_app_instance_user' function.
 class UpdateAppInstanceUserRequestTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
-    Name: str
-    Metadata: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    Name: Annotated[str, _aws_pattern("ChimeSdkIdentity", "UserName")]
+    Metadata: Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]
 
 
 class AppInstanceAdminSummaryTypeDef(BaseValidatorModel):
@@ -244,7 +246,7 @@ class AppInstanceAdminSummaryTypeDef(BaseValidatorModel):
 
 class AppInstanceAdminTypeDef(BaseValidatorModel):
     Admin: Optional[IdentityTypeDef] = None
-    AppInstanceArn: Optional[str] = None
+    AppInstanceArn: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]] = None
     CreatedTimestamp: Optional[datetime] = None
 
 
@@ -253,20 +255,20 @@ class AppInstanceRetentionSettingsTypeDef(BaseValidatorModel):
 
 
 class AppInstanceUserEndpointSummaryTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: Optional[str] = None
-    EndpointId: Optional[str] = None
-    Name: Optional[str] = None
+    AppInstanceUserArn: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]] = None
+    EndpointId: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "String64")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "SensitiveString1600")]] = None
     Type: Optional[AppInstanceUserEndpointTypeType] = None
     AllowMessages: Optional[AllowMessagesType] = None
     EndpointState: Optional[EndpointStateTypeDef] = None
 
 
 class AppInstanceUserEndpointTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: Optional[str] = None
-    EndpointId: Optional[str] = None
-    Name: Optional[str] = None
+    AppInstanceUserArn: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]] = None
+    EndpointId: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "String64")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "SensitiveString1600")]] = None
     Type: Optional[AppInstanceUserEndpointTypeType] = None
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]] = None
     EndpointAttributes: Optional[EndpointAttributesTypeDef] = None
     CreatedTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
@@ -276,19 +278,19 @@ class AppInstanceUserEndpointTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_app_instance_user_endpoint' function.
 class RegisterAppInstanceUserEndpointRequestTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "SensitiveChimeArn")]
     Type: AppInstanceUserEndpointTypeType
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     EndpointAttributes: EndpointAttributesTypeDef
-    ClientRequestToken: str
-    Name: Optional[str] = None
+    ClientRequestToken: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ClientRequestToken")]
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "SensitiveString1600")]] = None
     AllowMessages: Optional[AllowMessagesType] = None
 
 
 class AppInstanceUserTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: Optional[str] = None
-    Name: Optional[str] = None
-    Metadata: Optional[str] = None
+    AppInstanceUserArn: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "UserName")]] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]] = None
     CreatedTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
     ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
@@ -296,32 +298,32 @@ class AppInstanceUserTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_app_instance_user_expiration_settings' function.
 class PutAppInstanceUserExpirationSettingsRequestTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
 
 
 # This class is the output for the 'create_app_instance_admin' function.
 class CreateAppInstanceAdminResponseTypeDef(BaseValidatorModel):
     AppInstanceAdmin: IdentityTypeDef
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_app_instance_bot' function.
 class CreateAppInstanceBotResponseTypeDef(BaseValidatorModel):
-    AppInstanceBotArn: str
+    AppInstanceBotArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_app_instance' function.
 class CreateAppInstanceResponseTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_app_instance_user' function.
 class CreateAppInstanceUserResponseTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -338,81 +340,81 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_app_instance_bots' function.
 class ListAppInstanceBotsResponseTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     AppInstanceBots: List[AppInstanceBotSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NextToken")]] = None
 
 
 # This class is the output for the 'list_app_instance_users' function.
 class ListAppInstanceUsersResponseTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     AppInstanceUsers: List[AppInstanceUserSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NextToken")]] = None
 
 
 # This class is the output for the 'list_app_instances' function.
 class ListAppInstancesResponseTypeDef(BaseValidatorModel):
     AppInstances: List[AppInstanceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NextToken")]] = None
 
 
 # This class is the output for the 'put_app_instance_user_expiration_settings' function.
 class PutAppInstanceUserExpirationSettingsResponseTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     ExpirationSettings: ExpirationSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_app_instance_user_endpoint' function.
 class RegisterAppInstanceUserEndpointResponseTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
-    EndpointId: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    EndpointId: Annotated[str, _aws_pattern("ChimeSdkIdentity", "String64")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_app_instance_bot' function.
 class UpdateAppInstanceBotResponseTypeDef(BaseValidatorModel):
-    AppInstanceBotArn: str
+    AppInstanceBotArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_app_instance' function.
 class UpdateAppInstanceResponseTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_app_instance_user_endpoint' function.
 class UpdateAppInstanceUserEndpointResponseTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
-    EndpointId: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    EndpointId: Annotated[str, _aws_pattern("ChimeSdkIdentity", "String64")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_app_instance_user' function.
 class UpdateAppInstanceUserResponseTypeDef(BaseValidatorModel):
-    AppInstanceUserArn: str
+    AppInstanceUserArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_app_instance' function.
 class CreateAppInstanceRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ClientRequestToken: str
-    Metadata: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("ChimeSdkIdentity", "NonEmptyResourceName")]
+    ClientRequestToken: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ClientRequestToken")]
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_app_instance_user' function.
 class CreateAppInstanceUserRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
-    AppInstanceUserId: str
-    Name: str
-    ClientRequestToken: str
-    Metadata: Optional[str] = None
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    AppInstanceUserId: Annotated[str, _aws_pattern("ChimeSdkIdentity", "UserId")]
+    Name: Annotated[str, _aws_pattern("ChimeSdkIdentity", "UserName")]
+    ClientRequestToken: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ClientRequestToken")]
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
 
@@ -425,24 +427,24 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     Tags: List[TagTypeDef]
 
 
 class LexConfigurationTypeDef(BaseValidatorModel):
-    LexBotAliasArn: str
+    LexBotAliasArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "LexBotAliasArn")]
     LocaleId: str
     RespondsTo: Optional[Literal["STANDARD_MESSAGES"]] = None
     InvokedBy: Optional[InvokedByTypeDef] = None
-    WelcomeIntent: Optional[str] = None
+    WelcomeIntent: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "LexIntentName")]] = None
 
 
 # This class is the output for the 'list_app_instance_admins' function.
 class ListAppInstanceAdminsResponseTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     AppInstanceAdmins: List[AppInstanceAdminSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_app_instance_admin' function.
@@ -460,7 +462,7 @@ class GetAppInstanceRetentionSettingsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_app_instance_retention_settings' function.
 class PutAppInstanceRetentionSettingsRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
     AppInstanceRetentionSettings: AppInstanceRetentionSettingsTypeDef
 
 
@@ -475,7 +477,7 @@ class PutAppInstanceRetentionSettingsResponseTypeDef(BaseValidatorModel):
 class ListAppInstanceUserEndpointsResponseTypeDef(BaseValidatorModel):
     AppInstanceUserEndpoints: List[AppInstanceUserEndpointSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_app_instance_user_endpoint' function.
@@ -495,29 +497,29 @@ class ConfigurationTypeDef(BaseValidatorModel):
 
 
 class AppInstanceBotTypeDef(BaseValidatorModel):
-    AppInstanceBotArn: Optional[str] = None
-    Name: Optional[str] = None
+    AppInstanceBotArn: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ResourceName")]] = None
     Configuration: Optional[ConfigurationTypeDef] = None
     CreatedTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
-    Metadata: Optional[str] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]] = None
 
 
 # This class is the input for the 'create_app_instance_bot' function.
 class CreateAppInstanceBotRequestTypeDef(BaseValidatorModel):
-    AppInstanceArn: str
-    ClientRequestToken: str
+    AppInstanceArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    ClientRequestToken: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ClientRequestToken")]
     Configuration: ConfigurationTypeDef
-    Name: Optional[str] = None
-    Metadata: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "ResourceName")]] = None
+    Metadata: Optional[Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_app_instance_bot' function.
 class UpdateAppInstanceBotRequestTypeDef(BaseValidatorModel):
-    AppInstanceBotArn: str
-    Name: str
-    Metadata: str
+    AppInstanceBotArn: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ChimeArn")]
+    Name: Annotated[str, _aws_pattern("ChimeSdkIdentity", "ResourceName")]
+    Metadata: Annotated[str, _aws_pattern("ChimeSdkIdentity", "Metadata")]
     Configuration: Optional[ConfigurationTypeDef] = None
 
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mediaconvert.mediaconvert_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -261,7 +263,9 @@ class Av1QvbrSettingsTypeDef(BaseValidatorModel):
 
 
 class AvailBlankingTypeDef(BaseValidatorModel):
-    AvailBlankingImage: Optional[str] = None
+    AvailBlankingImage: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin14PatternS3BmpBMPPngPNGHttpsBmpBMPPngPNG")]
+    ] = None
 
 
 class AvcIntraUhdSettingsTypeDef(BaseValidatorModel):
@@ -280,15 +284,15 @@ class BurninDestinationSettingsTypeDef(BaseValidatorModel):
     BackgroundOpacity: Optional[int] = None
     FallbackFont: Optional[BurninSubtitleFallbackFontType] = None
     FontColor: Optional[BurninSubtitleFontColorType] = None
-    FontFileBold: Optional[str] = None
+    FontFileBold: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3TtfHttpsTtf")]] = None
     FontFileBoldItalic: Optional[str] = None
-    FontFileItalic: Optional[str] = None
-    FontFileRegular: Optional[str] = None
+    FontFileItalic: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3TtfHttpsTtf")]] = None
+    FontFileRegular: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3TtfHttpsTtf")]] = None
     FontOpacity: Optional[int] = None
     FontResolution: Optional[int] = None
     FontScript: Optional[FontScriptType] = None
     FontSize: Optional[int] = None
-    HexFontColor: Optional[str] = None
+    HexFontColor: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin6Max8Pattern09aFAF609aFAF2")]] = None
     OutlineColor: Optional[BurninSubtitleOutlineColorType] = None
     OutlineSize: Optional[int] = None
     RemoveRubyReserveAttributes: Optional[RemoveRubyReserveAttributesType] = None
@@ -316,16 +320,16 @@ class DvbSubDestinationSettingsTypeDef(BaseValidatorModel):
     DdsYCoordinate: Optional[int] = None
     FallbackFont: Optional[DvbSubSubtitleFallbackFontType] = None
     FontColor: Optional[DvbSubtitleFontColorType] = None
-    FontFileBold: Optional[str] = None
-    FontFileBoldItalic: Optional[str] = None
-    FontFileItalic: Optional[str] = None
-    FontFileRegular: Optional[str] = None
+    FontFileBold: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3TtfHttpsTtf")]] = None
+    FontFileBoldItalic: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3TtfHttpsTtf")]] = None
+    FontFileItalic: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3TtfHttpsTtf")]] = None
+    FontFileRegular: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3TtfHttpsTtf")]] = None
     FontOpacity: Optional[int] = None
     FontResolution: Optional[int] = None
     FontScript: Optional[FontScriptType] = None
     FontSize: Optional[int] = None
     Height: Optional[int] = None
-    HexFontColor: Optional[str] = None
+    HexFontColor: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin6Max8Pattern09aFAF609aFAF2")]] = None
     OutlineColor: Optional[DvbSubtitleOutlineColorType] = None
     OutlineSize: Optional[int] = None
     ShadowColor: Optional[DvbSubtitleShadowColorType] = None
@@ -373,7 +377,7 @@ class WebvttDestinationSettingsTypeDef(BaseValidatorModel):
 
 
 class TeletextDestinationSettingsTypeDef(BaseValidatorModel):
-    PageNumber: Optional[str] = None
+    PageNumber: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin3Max3Pattern1809aFAF09aEAE")]] = None
     PageTypes: Optional[List[TeletextPageTypeType]] = None
 
 
@@ -394,7 +398,7 @@ class EmbeddedSourceSettingsTypeDef(BaseValidatorModel):
 
 
 class TeletextSourceSettingsTypeDef(BaseValidatorModel):
-    PageNumber: Optional[str] = None
+    PageNumber: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin3Max3Pattern1809aFAF09aEAE")]] = None
 
 
 class TrackSourceSettingsTypeDef(BaseValidatorModel):
@@ -436,9 +440,9 @@ class CmafAdditionalManifestTypeDef(BaseValidatorModel):
 
 
 class StaticKeyProviderTypeDef(BaseValidatorModel):
-    KeyFormat: Optional[str] = None
-    KeyFormatVersions: Optional[str] = None
-    StaticKeyValue: Optional[str] = None
+    KeyFormat: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternIdentityAZaZ26AZaZ09163")]] = None
+    KeyFormatVersions: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternDD")]] = None
+    StaticKeyValue: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternAZaZ0932")]] = None
     Url: Optional[str] = None
 
 
@@ -457,14 +461,24 @@ class CmfcSettingsTypeDef(BaseValidatorModel):
     AudioRenditionSets: Optional[str] = None
     AudioTrackType: Optional[CmfcAudioTrackTypeType] = None
     C2paManifest: Optional[CmfcC2paManifestType] = None
-    CertificateSecret: Optional[str] = None
+    CertificateSecret: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin1Max2048PatternArnAZSecretsmanagerWD12SecretAZAZ09")]
+    ] = None
     DescriptiveVideoServiceFlag: Optional[CmfcDescriptiveVideoServiceFlagType] = None
     IFrameOnlyManifest: Optional[CmfcIFrameOnlyManifestType] = None
     KlvMetadata: Optional[CmfcKlvMetadataType] = None
     ManifestMetadataSignaling: Optional[CmfcManifestMetadataSignalingType] = None
     Scte35Esam: Optional[CmfcScte35EsamType] = None
     Scte35Source: Optional[CmfcScte35SourceType] = None
-    SigningKmsKey: Optional[str] = None
+    SigningKmsKey: Optional[
+        Annotated[
+            str,
+            _aws_pattern(
+                "Mediaconvert",
+                "__stringMin1PatternArnAwsUsGovCnKmsAZ26EastWestCentralNorthSouthEastWest1912D12KeyAFAF098AFAF094AFAF094AFAF094AFAF0912MrkAFAF0932",
+            ),
+        ]
+    ] = None
     TimedMetadata: Optional[CmfcTimedMetadataType] = None
     TimedMetadataBoxVersion: Optional[CmfcTimedMetadataBoxVersionType] = None
     TimedMetadataSchemeIdUri: Optional[str] = None
@@ -472,7 +486,9 @@ class CmfcSettingsTypeDef(BaseValidatorModel):
 
 
 class ColorConversion3DLUTSettingTypeDef(BaseValidatorModel):
-    FileInput: Optional[str] = None
+    FileInput: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin14PatternS3CubeCUBEHttpsCubeCUBE")]] = (
+        None
+    )
     InputColorSpace: Optional[ColorSpaceType] = None
     InputMasteringLuminance: Optional[int] = None
     OutputColorSpace: Optional[ColorSpaceType] = None
@@ -534,13 +550,23 @@ class MovSettingsTypeDef(BaseValidatorModel):
 class Mp4SettingsTypeDef(BaseValidatorModel):
     AudioDuration: Optional[CmfcAudioDurationType] = None
     C2paManifest: Optional[Mp4C2paManifestType] = None
-    CertificateSecret: Optional[str] = None
+    CertificateSecret: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin1Max2048PatternArnAZSecretsmanagerWD12SecretAZAZ09")]
+    ] = None
     CslgAtom: Optional[Mp4CslgAtomType] = None
     CttsVersion: Optional[int] = None
     FreeSpaceBox: Optional[Mp4FreeSpaceBoxType] = None
     MoovPlacement: Optional[Mp4MoovPlacementType] = None
     Mp4MajorBrand: Optional[str] = None
-    SigningKmsKey: Optional[str] = None
+    SigningKmsKey: Optional[
+        Annotated[
+            str,
+            _aws_pattern(
+                "Mediaconvert",
+                "__stringMin1PatternArnAwsUsGovCnKmsAZ26EastWestCentralNorthSouthEastWest1912D12KeyAFAF098AFAF094AFAF094AFAF094AFAF0912MrkAFAF0932",
+            ),
+        ]
+    ] = None
 
 
 class MpdSettingsTypeDef(BaseValidatorModel):
@@ -548,12 +574,22 @@ class MpdSettingsTypeDef(BaseValidatorModel):
     AudioDuration: Optional[MpdAudioDurationType] = None
     C2paManifest: Optional[MpdC2paManifestType] = None
     CaptionContainerType: Optional[MpdCaptionContainerTypeType] = None
-    CertificateSecret: Optional[str] = None
+    CertificateSecret: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin1Max2048PatternArnAZSecretsmanagerWD12SecretAZAZ09")]
+    ] = None
     KlvMetadata: Optional[MpdKlvMetadataType] = None
     ManifestMetadataSignaling: Optional[MpdManifestMetadataSignalingType] = None
     Scte35Esam: Optional[MpdScte35EsamType] = None
     Scte35Source: Optional[MpdScte35SourceType] = None
-    SigningKmsKey: Optional[str] = None
+    SigningKmsKey: Optional[
+        Annotated[
+            str,
+            _aws_pattern(
+                "Mediaconvert",
+                "__stringMin1PatternArnAwsUsGovCnKmsAZ26EastWestCentralNorthSouthEastWest1912D12KeyAFAF098AFAF094AFAF094AFAF094AFAF0912MrkAFAF0932",
+            ),
+        ]
+    ] = None
     TimedMetadata: Optional[MpdTimedMetadataType] = None
     TimedMetadataBoxVersion: Optional[MpdTimedMetadataBoxVersionType] = None
     TimedMetadataSchemeIdUri: Optional[str] = None
@@ -696,7 +732,7 @@ class DvbTdtSettingsTypeDef(BaseValidatorModel):
 
 class DynamicAudioSelectorTypeDef(BaseValidatorModel):
     AudioDurationCorrection: Optional[AudioDurationCorrectionType] = None
-    ExternalAudioFileInput: Optional[str] = None
+    ExternalAudioFileInput: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3Https")]] = None
     LanguageCode: Optional[LanguageCodeType] = None
     Offset: Optional[int] = None
     SelectorType: Optional[DynamicAudioSelectorTypeType] = None
@@ -713,11 +749,15 @@ class EncryptionContractConfigurationTypeDef(BaseValidatorModel):
 
 
 class EsamManifestConfirmConditionNotificationTypeDef(BaseValidatorModel):
-    MccXml: Optional[str] = None
+    MccXml: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternSNManifestConfirmConditionNotificationNS")]
+    ] = None
 
 
 class EsamSignalProcessingNotificationTypeDef(BaseValidatorModel):
-    SccXml: Optional[str] = None
+    SccXml: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternSNSignalProcessingNotificationNS")]
+    ] = None
 
 
 class ExtendedDataServicesTypeDef(BaseValidatorModel):
@@ -799,7 +839,7 @@ class HlsAdditionalManifestTypeDef(BaseValidatorModel):
 
 class HlsCaptionLanguageMappingTypeDef(BaseValidatorModel):
     CaptionChannel: Optional[int] = None
-    CustomLanguageCode: Optional[str] = None
+    CustomLanguageCode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin3Max3PatternAZaZ3")]] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LanguageDescription: Optional[str] = None
 
@@ -824,8 +864,8 @@ class HlsSettingsTypeDef(BaseValidatorModel):
 
 
 class Id3InsertionTypeDef(BaseValidatorModel):
-    Id3: Optional[str] = None
-    Timecode: Optional[str] = None
+    Id3: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternAZaZ0902")]] = None
+    Timecode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern010920405090509092")]] = None
 
 
 class InsertableImageTypeDef(BaseValidatorModel):
@@ -833,32 +873,48 @@ class InsertableImageTypeDef(BaseValidatorModel):
     FadeIn: Optional[int] = None
     FadeOut: Optional[int] = None
     Height: Optional[int] = None
-    ImageInserterInput: Optional[str] = None
+    ImageInserterInput: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin14PatternS3BmpBMPPngPNGTgaTGAHttpsBmpBMPPngPNGTgaTGA")]
+    ] = None
     ImageX: Optional[int] = None
     ImageY: Optional[int] = None
     Layer: Optional[int] = None
     Opacity: Optional[int] = None
-    StartTime: Optional[str] = None
+    StartTime: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern01D20305D205D")]] = None
     Width: Optional[int] = None
 
 
 class InputClippingTypeDef(BaseValidatorModel):
-    EndTimecode: Optional[str] = None
-    StartTimecode: Optional[str] = None
+    EndTimecode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern010920405090509092090909")]] = (
+        None
+    )
+    StartTimecode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern010920405090509092090909")]] = (
+        None
+    )
 
 
 class InputDecryptionSettingsTypeDef(BaseValidatorModel):
     DecryptionMode: Optional[DecryptionModeType] = None
-    EncryptedDecryptionKey: Optional[str] = None
-    InitializationVector: Optional[str] = None
-    KmsKeyRegion: Optional[str] = None
+    EncryptedDecryptionKey: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin24Max512PatternAZaZ0902")]
+    ] = None
+    InitializationVector: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin16Max24PatternAZaZ0922AZaZ0916")]
+    ] = None
+    KmsKeyRegion: Optional[
+        Annotated[
+            str, _aws_pattern("Mediaconvert", "__stringMin9Max19PatternAZ26EastWestCentralNorthSouthEastWest1912")
+        ]
+    ] = None
 
 
 class InputTamsSettingsTypeDef(BaseValidatorModel):
-    AuthConnectionArn: Optional[str] = None
+    AuthConnectionArn: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternArnAwsAZ09EventsAZ090912ConnectionAZAZ09AF0936")]
+    ] = None
     GapHandling: Optional[TamsGapHandlingType] = None
     SourceId: Optional[str] = None
-    Timerange: Optional[str] = None
+    Timerange: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern019090190908019090190908")]] = None
 
 
 class InputVideoGeneratorTypeDef(BaseValidatorModel):
@@ -867,7 +923,9 @@ class InputVideoGeneratorTypeDef(BaseValidatorModel):
     FramerateDenominator: Optional[int] = None
     FramerateNumerator: Optional[int] = None
     Height: Optional[int] = None
-    ImageInput: Optional[str] = None
+    ImageInput: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin14PatternS3BmpBMPPngPNGTgaTGAHttpsBmpBMPPngPNGTgaTGA")]
+    ] = None
     SampleRate: Optional[int] = None
     Width: Optional[int] = None
 
@@ -891,12 +949,14 @@ class JobMessagesTypeDef(BaseValidatorModel):
 
 class KantarWatermarkSettingsTypeDef(BaseValidatorModel):
     ChannelName: Optional[str] = None
-    ContentReference: Optional[str] = None
-    CredentialsSecretName: Optional[str] = None
+    ContentReference: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin1Max50PatternAZAZ09")]] = None
+    CredentialsSecretName: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin1Max2048PatternArnAZSecretsmanagerWD12SecretAZAZ09")]
+    ] = None
     FileOffset: Optional[float] = None
     KantarLicenseId: Optional[int] = None
-    KantarServerUrl: Optional[str] = None
-    LogDestination: Optional[str] = None
+    KantarServerUrl: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternHttpsKantarmedia")]] = None
+    LogDestination: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3")]] = None
     Metadata3: Optional[str] = None
     Metadata4: Optional[str] = None
     Metadata5: Optional[str] = None
@@ -912,23 +972,23 @@ class NielsenConfigurationTypeDef(BaseValidatorModel):
 
 class NielsenNonLinearWatermarkSettingsTypeDef(BaseValidatorModel):
     ActiveWatermarkProcess: Optional[NielsenActiveWatermarkProcessTypeType] = None
-    AdiFilename: Optional[str] = None
+    AdiFilename: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3")]] = None
     AssetId: Optional[str] = None
     AssetName: Optional[str] = None
-    CbetSourceId: Optional[str] = None
+    CbetSourceId: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern0xAFaF0908190908")]] = None
     EpisodeId: Optional[str] = None
-    MetadataDestination: Optional[str] = None
+    MetadataDestination: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3")]] = None
     SourceId: Optional[int] = None
     SourceWatermarkStatus: Optional[NielsenSourceWatermarkStatusTypeType] = None
-    TicServerUrl: Optional[str] = None
+    TicServerUrl: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternHttps")]] = None
     UniqueTicPerAudioTrack: Optional[NielsenUniqueTicPerAudioTrackTypeType] = None
 
 
 class TimecodeConfigTypeDef(BaseValidatorModel):
-    Anchor: Optional[str] = None
+    Anchor: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern010920405090509092")]] = None
     Source: Optional[TimecodeSourceType] = None
-    Start: Optional[str] = None
-    TimestampOffset: Optional[str] = None
+    Start: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern010920405090509092")]] = None
+    TimestampOffset: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern0940191020191209301")]] = None
 
 
 class QueueTransitionTypeDef(BaseValidatorModel):
@@ -1110,7 +1170,7 @@ class MsSmoothAdditionalManifestTypeDef(BaseValidatorModel):
 
 
 class MultiViewInputTypeDef(BaseValidatorModel):
-    FileInput: Optional[str] = None
+    FileInput: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3Https")]] = None
 
 
 class MxfXavcProfileSettingsTypeDef(BaseValidatorModel):
@@ -1219,8 +1279,16 @@ class S3DestinationAccessControlTypeDef(BaseValidatorModel):
 
 class S3EncryptionSettingsTypeDef(BaseValidatorModel):
     EncryptionType: Optional[S3ServerSideEncryptionTypeType] = None
-    KmsEncryptionContext: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
+    KmsEncryptionContext: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternAZaZ0902")]] = None
+    KmsKeyArn: Optional[
+        Annotated[
+            str,
+            _aws_pattern(
+                "Mediaconvert",
+                "__stringPatternArnAwsUsGovCnKmsAZ26EastWestCentralNorthSouthEastWest1912D12KeyAFAF098AFAF094AFAF094AFAF094AFAF0912MrkAFAF0932",
+            ),
+        ]
+    ] = None
 
 
 # This class is the input for the 'search_jobs' function.
@@ -1241,7 +1309,7 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 class TimecodeBurninTypeDef(BaseValidatorModel):
     FontSize: Optional[int] = None
     Position: Optional[TimecodeBurninPositionType] = None
-    Prefix: Optional[str] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern")]] = None
 
 
 class UncompressedSettingsTypeDef(BaseValidatorModel):
@@ -1314,8 +1382,12 @@ class VideoOverlayCropTypeDef(BaseValidatorModel):
 
 
 class VideoOverlayInputClippingTypeDef(BaseValidatorModel):
-    EndTimecode: Optional[str] = None
-    StartTimecode: Optional[str] = None
+    EndTimecode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern010920405090509092090909")]] = (
+        None
+    )
+    StartTimecode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern010920405090509092090909")]] = (
+        None
+    )
 
 
 class VideoOverlayPositionTypeDef(BaseValidatorModel):
@@ -1512,7 +1584,15 @@ class FileSourceSettingsTypeDef(BaseValidatorModel):
     Convert608To708: Optional[FileSourceConvert608To708Type] = None
     ConvertPaintToPop: Optional[CaptionSourceConvertPaintOnToPopOnType] = None
     Framerate: Optional[CaptionSourceFramerateTypeDef] = None
-    SourceFile: Optional[str] = None
+    SourceFile: Optional[
+        Annotated[
+            str,
+            _aws_pattern(
+                "Mediaconvert",
+                "__stringMin14PatternS3SccSCCTtmlTTMLDfxpDFXPStlSTLSrtSRTXmlXMLSmiSMIVttVTTWebvttWEBVTTHttpsSccSCCTtmlTTMLDfxpDFXPStlSTLSrtSRTXmlXMLSmiSMIVttVTTWebvttWEBVTT",
+            ),
+        ]
+    ] = None
     TimeDelta: Optional[int] = None
     TimeDeltaUnits: Optional[FileSourceTimeDeltaUnitsType] = None
     UpconvertSTLToTeletext: Optional[CaptionSourceUpconvertSTLToTeletextType] = None
@@ -1674,12 +1754,24 @@ class SpekeKeyProviderCmafOutputTypeDef(BaseValidatorModel):
 
 
 class SpekeKeyProviderCmafTypeDef(BaseValidatorModel):
-    CertificateArn: Optional[str] = None
-    DashSignaledSystemIds: Optional[List[str]] = None
+    CertificateArn: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternArnAwsUsGovAcm")]] = None
+    DashSignaledSystemIds: Optional[
+        List[
+            Annotated[
+                str, _aws_pattern("Mediaconvert", "__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12")
+            ]
+        ]
+    ] = None
     EncryptionContractConfiguration: Optional[EncryptionContractConfigurationTypeDef] = None
-    HlsSignaledSystemIds: Optional[List[str]] = None
-    ResourceId: Optional[str] = None
-    Url: Optional[str] = None
+    HlsSignaledSystemIds: Optional[
+        List[
+            Annotated[
+                str, _aws_pattern("Mediaconvert", "__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12")
+            ]
+        ]
+    ] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternW")]] = None
+    Url: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternHttpsD")]] = None
 
 
 class SpekeKeyProviderOutputTypeDef(BaseValidatorModel):
@@ -1691,11 +1783,13 @@ class SpekeKeyProviderOutputTypeDef(BaseValidatorModel):
 
 
 class SpekeKeyProviderTypeDef(BaseValidatorModel):
-    CertificateArn: Optional[str] = None
+    CertificateArn: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternArnAwsUsGovAcm")]] = None
     EncryptionContractConfiguration: Optional[EncryptionContractConfigurationTypeDef] = None
     ResourceId: Optional[str] = None
-    SystemIds: Optional[List[str]] = None
-    Url: Optional[str] = None
+    SystemIds: Optional[
+        List[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12")]]
+    ] = None
+    Url: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternHttpsD")]] = None
 
 
 class EsamSettingsTypeDef(BaseValidatorModel):
@@ -2063,11 +2157,11 @@ class M2tsSettingsTypeDef(BaseValidatorModel):
 
 class MotionImageInserterTypeDef(BaseValidatorModel):
     Framerate: Optional[MotionImageInsertionFramerateTypeDef] = None
-    Input: Optional[str] = None
+    Input: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin14PatternS3Mov09PngHttpsMov09Png")]] = None
     InsertionMode: Optional[MotionImageInsertionModeType] = None
     Offset: Optional[MotionImageInsertionOffsetTypeDef] = None
     Playback: Optional[MotionImagePlaybackType] = None
-    StartTime: Optional[str] = None
+    StartTime: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin11Max11Pattern01D20305D205D")]] = None
 
 
 class MultiViewSettingsTypeDef(BaseValidatorModel):
@@ -2127,8 +2221,8 @@ class S3DestinationSettingsTypeDef(BaseValidatorModel):
 
 class VideoOverlayTransitionTypeDef(BaseValidatorModel):
     EndPosition: Optional[VideoOverlayPositionTypeDef] = None
-    EndTimecode: Optional[str] = None
-    StartTimecode: Optional[str] = None
+    EndTimecode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern010920405090509092")]] = None
+    StartTimecode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern010920405090509092")]] = None
 
 
 class XavcSettingsOutputTypeDef(BaseValidatorModel):
@@ -2215,7 +2309,7 @@ class CaptionDescriptionPresetOutputTypeDef(BaseValidatorModel):
 
 
 class CaptionDescriptionPresetTypeDef(BaseValidatorModel):
-    CustomLanguageCode: Optional[str] = None
+    CustomLanguageCode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternAZaZ23AZaZ")]] = None
     DestinationSettings: Optional[CaptionDestinationSettingsTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LanguageDescription: Optional[str] = None
@@ -2223,7 +2317,7 @@ class CaptionDescriptionPresetTypeDef(BaseValidatorModel):
 
 class CaptionDescriptionTypeDef(BaseValidatorModel):
     CaptionSelectorName: Optional[str] = None
-    CustomLanguageCode: Optional[str] = None
+    CustomLanguageCode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternAZaZ23AZaZ")]] = None
     DestinationSettings: Optional[CaptionDestinationSettingsTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LanguageDescription: Optional[str] = None
@@ -2268,7 +2362,9 @@ class CmafEncryptionSettingsOutputTypeDef(BaseValidatorModel):
 
 class CmafEncryptionSettingsTypeDef(BaseValidatorModel):
     ClearLead: Optional[HlsClearLeadType] = None
-    ConstantInitializationVector: Optional[str] = None
+    ConstantInitializationVector: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin32Max32Pattern09aFAF32")]
+    ] = None
     EncryptionMethod: Optional[CmafEncryptionTypeType] = None
     InitializationVectorInManifest: Optional[CmafInitializationVectorInManifestType] = None
     SpekeKeyProvider: Optional[SpekeKeyProviderCmafTypeDef] = None
@@ -2301,7 +2397,9 @@ class DashIsoEncryptionSettingsTypeDef(BaseValidatorModel):
 
 
 class HlsEncryptionSettingsTypeDef(BaseValidatorModel):
-    ConstantInitializationVector: Optional[str] = None
+    ConstantInitializationVector: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin32Max32Pattern09aFAF32")]
+    ] = None
     EncryptionMethod: Optional[HlsEncryptionTypeType] = None
     InitializationVectorInManifest: Optional[HlsInitializationVectorInManifestType] = None
     OfflineEncrypted: Optional[HlsOfflineEncryptedType] = None
@@ -2450,7 +2548,7 @@ class AutomatedEncodingSettingsTypeDef(BaseValidatorModel):
 
 
 class CaptionSelectorTypeDef(BaseValidatorModel):
-    CustomLanguageCode: Optional[str] = None
+    CustomLanguageCode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin3Max3PatternAZaZ3")]] = None
     LanguageCode: Optional[LanguageCodeType] = None
     SourceSettings: Optional[CaptionSourceSettingsTypeDef] = None
 
@@ -2494,18 +2592,18 @@ class AudioDescriptionTypeDef(BaseValidatorModel):
     AudioType: Optional[int] = None
     AudioTypeControl: Optional[AudioTypeControlType] = None
     CodecSettings: Optional[AudioCodecSettingsTypeDef] = None
-    CustomLanguageCode: Optional[str] = None
+    CustomLanguageCode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternAZaZ23AZaZ09")]] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LanguageCodeControl: Optional[AudioLanguageCodeControlType] = None
     RemixSettings: Optional[RemixSettingsTypeDef] = None
-    StreamName: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternWS")]] = None
 
 
 class AudioSelectorTypeDef(BaseValidatorModel):
     AudioDurationCorrection: Optional[AudioDurationCorrectionType] = None
-    CustomLanguageCode: Optional[str] = None
+    CustomLanguageCode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin3Max3PatternAZaZ3")]] = None
     DefaultSelection: Optional[AudioDefaultSelectionType] = None
-    ExternalAudioFileInput: Optional[str] = None
+    ExternalAudioFileInput: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3Https")]] = None
     HlsRenditionGroupSettings: Optional[HlsRenditionGroupSettingsTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
     Offset: Optional[int] = None
@@ -2555,7 +2653,7 @@ class CmafGroupSettingsTypeDef(BaseValidatorModel):
     CodecSpecification: Optional[CmafCodecSpecificationType] = None
     DashIFrameTrickPlayNameModifier: Optional[str] = None
     DashManifestStyle: Optional[DashManifestStyleType] = None
-    Destination: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3")]] = None
     DestinationSettings: Optional[DestinationSettingsTypeDef] = None
     Encryption: Optional[CmafEncryptionSettingsTypeDef] = None
     FragmentLength: Optional[int] = None
@@ -2610,7 +2708,7 @@ class DashIsoGroupSettingsTypeDef(BaseValidatorModel):
     BaseUrl: Optional[str] = None
     DashIFrameTrickPlayNameModifier: Optional[str] = None
     DashManifestStyle: Optional[DashManifestStyleType] = None
-    Destination: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3")]] = None
     DestinationSettings: Optional[DestinationSettingsTypeDef] = None
     Encryption: Optional[DashIsoEncryptionSettingsTypeDef] = None
     FragmentLength: Optional[int] = None
@@ -2630,7 +2728,7 @@ class DashIsoGroupSettingsTypeDef(BaseValidatorModel):
 
 
 class FileGroupSettingsTypeDef(BaseValidatorModel):
-    Destination: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3")]] = None
     DestinationSettings: Optional[DestinationSettingsTypeDef] = None
 
 
@@ -2679,7 +2777,7 @@ class HlsGroupSettingsTypeDef(BaseValidatorModel):
     CaptionSegmentLengthControl: Optional[HlsCaptionSegmentLengthControlType] = None
     ClientCache: Optional[HlsClientCacheType] = None
     CodecSpecification: Optional[HlsCodecSpecificationType] = None
-    Destination: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3")]] = None
     DestinationSettings: Optional[DestinationSettingsTypeDef] = None
     DirectoryStructure: Optional[HlsDirectoryStructureType] = None
     Encryption: Optional[HlsEncryptionSettingsTypeDef] = None
@@ -2718,7 +2816,7 @@ class MsSmoothGroupSettingsOutputTypeDef(BaseValidatorModel):
 class MsSmoothGroupSettingsTypeDef(BaseValidatorModel):
     AdditionalManifests: Optional[List[MsSmoothAdditionalManifestTypeDef]] = None
     AudioDeduplication: Optional[MsSmoothAudioDeduplicationType] = None
-    Destination: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3")]] = None
     DestinationSettings: Optional[DestinationSettingsTypeDef] = None
     Encryption: Optional[MsSmoothEncryptionSettingsTypeDef] = None
     FragmentLength: Optional[int] = None
@@ -2783,10 +2881,12 @@ class VideoOverlayInputOutputTypeDef(BaseValidatorModel):
 
 class VideoOverlayInputTypeDef(BaseValidatorModel):
     AudioSelectors: Optional[Dict[str, AudioSelectorTypeDef]] = None
-    FileInput: Optional[str] = None
+    FileInput: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3Https")]] = None
     InputClippings: Optional[List[VideoOverlayInputClippingTypeDef]] = None
     TimecodeSource: Optional[InputTimecodeSourceType] = None
-    TimecodeStart: Optional[str] = None
+    TimecodeStart: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin11Max11Pattern01D20305D205D")]] = (
+        None
+    )
 
 
 class OutputGroupSettingsOutputTypeDef(BaseValidatorModel):
@@ -2863,11 +2963,11 @@ class VideoOverlayOutputTypeDef(BaseValidatorModel):
 
 class VideoOverlayTypeDef(BaseValidatorModel):
     Crop: Optional[VideoOverlayCropTypeDef] = None
-    EndTimecode: Optional[str] = None
+    EndTimecode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern010920405090509092")]] = None
     InitialPosition: Optional[VideoOverlayPositionTypeDef] = None
     Input: Optional[VideoOverlayInputTypeDef] = None
     Playback: Optional[VideoOverlayPlayBackModeType] = None
-    StartTimecode: Optional[str] = None
+    StartTimecode: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringPattern010920405090509092")]] = None
     Transitions: Optional[List[VideoOverlayTransitionTypeDef]] = None
 
 
@@ -2973,7 +3073,9 @@ class InputTemplateTypeDef(BaseValidatorModel):
     Crop: Optional[RectangleTypeDef] = None
     DeblockFilter: Optional[InputDeblockFilterType] = None
     DenoiseFilter: Optional[InputDenoiseFilterType] = None
-    DolbyVisionMetadataXml: Optional[str] = None
+    DolbyVisionMetadataXml: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin14PatternS3XmlXMLHttpsXmlXML")]
+    ] = None
     DynamicAudioSelectors: Optional[Dict[str, DynamicAudioSelectorTypeDef]] = None
     FilterEnable: Optional[InputFilterEnableType] = None
     FilterStrength: Optional[int] = None
@@ -2985,7 +3087,9 @@ class InputTemplateTypeDef(BaseValidatorModel):
     ProgramNumber: Optional[int] = None
     PsiControl: Optional[InputPsiControlType] = None
     TimecodeSource: Optional[InputTimecodeSourceType] = None
-    TimecodeStart: Optional[str] = None
+    TimecodeStart: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin11Max11Pattern01D20305D205D")]] = (
+        None
+    )
     VideoOverlays: Optional[List[VideoOverlayTypeDef]] = None
     VideoSelector: Optional[VideoSelectorTypeDef] = None
 
@@ -3000,9 +3104,11 @@ class InputTypeDef(BaseValidatorModel):
     DeblockFilter: Optional[InputDeblockFilterType] = None
     DecryptionSettings: Optional[InputDecryptionSettingsTypeDef] = None
     DenoiseFilter: Optional[InputDenoiseFilterType] = None
-    DolbyVisionMetadataXml: Optional[str] = None
+    DolbyVisionMetadataXml: Optional[
+        Annotated[str, _aws_pattern("Mediaconvert", "__stringMin14PatternS3XmlXMLHttpsXmlXML")]
+    ] = None
     DynamicAudioSelectors: Optional[Dict[str, DynamicAudioSelectorTypeDef]] = None
-    FileInput: Optional[str] = None
+    FileInput: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMax2048PatternS3Https")]] = None
     FilterEnable: Optional[InputFilterEnableType] = None
     FilterStrength: Optional[int] = None
     ImageInserter: Optional[ImageInserterTypeDef] = None
@@ -3012,10 +3118,14 @@ class InputTypeDef(BaseValidatorModel):
     Position: Optional[RectangleTypeDef] = None
     ProgramNumber: Optional[int] = None
     PsiControl: Optional[InputPsiControlType] = None
-    SupplementalImps: Optional[List[str]] = None
+    SupplementalImps: Optional[List[Annotated[str, _aws_pattern("Mediaconvert", "__stringPatternS3ASSETMAPXml")]]] = (
+        None
+    )
     TamsSettings: Optional[InputTamsSettingsTypeDef] = None
     TimecodeSource: Optional[InputTimecodeSourceType] = None
-    TimecodeStart: Optional[str] = None
+    TimecodeStart: Optional[Annotated[str, _aws_pattern("Mediaconvert", "__stringMin11Max11Pattern01D20305D205D")]] = (
+        None
+    )
     VideoGenerator: Optional[InputVideoGeneratorTypeDef] = None
     VideoOverlays: Optional[List[VideoOverlayTypeDef]] = None
     VideoSelector: Optional[VideoSelectorTypeDef] = None

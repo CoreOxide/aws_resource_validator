@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -49,7 +51,7 @@ class AttributeValueListTypeDef(BaseValidatorModel):
 
 
 class AutomationExecutionTypeDef(BaseValidatorModel):
-    ssmExecutionArn: Optional[str] = None
+    ssmExecutionArn: Optional[Annotated[str, _aws_pattern("SsmIncidents", "Arn")]] = None
 
 
 class BatchGetIncidentFindingsErrorTypeDef(BaseValidatorModel):
@@ -61,7 +63,7 @@ class BatchGetIncidentFindingsErrorTypeDef(BaseValidatorModel):
 # This class is the input for the 'batch_get_incident_findings' function.
 class BatchGetIncidentFindingsInputTypeDef(BaseValidatorModel):
     findingIds: List[str]
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -83,13 +85,13 @@ class ChatChannelTypeDef(BaseValidatorModel):
 
 
 class CloudFormationStackUpdateTypeDef(BaseValidatorModel):
-    stackArn: str
+    stackArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     startTime: datetime
     endTime: Optional[datetime] = None
 
 
 class CodeDeployDeploymentTypeDef(BaseValidatorModel):
-    deploymentGroupArn: str
+    deploymentGroupArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     deploymentId: str
     startTime: datetime
     endTime: Optional[datetime] = None
@@ -103,12 +105,12 @@ class RegionMapInputValueTypeDef(BaseValidatorModel):
 
 
 class EventReferenceTypeDef(BaseValidatorModel):
-    relatedItemId: Optional[str] = None
-    resource: Optional[str] = None
+    relatedItemId: Optional[Annotated[str, _aws_pattern("SsmIncidents", "GeneratedId")]] = None
+    resource: Optional[Annotated[str, _aws_pattern("SsmIncidents", "Arn")]] = None
 
 
 class DeleteIncidentRecordInputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
 
 
 class DeleteRegionActionTypeDef(BaseValidatorModel):
@@ -116,21 +118,21 @@ class DeleteRegionActionTypeDef(BaseValidatorModel):
 
 
 class DeleteReplicationSetInputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
 
 
 class DeleteResourcePolicyInputTypeDef(BaseValidatorModel):
     policyId: str
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
 
 
 class DeleteResponsePlanInputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
 
 
 class DeleteTimelineEventInputTypeDef(BaseValidatorModel):
     eventId: str
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
 
 
 class DynamicSsmParameterValueTypeDef(BaseValidatorModel):
@@ -144,12 +146,12 @@ class FindingSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_incident_record' function.
 class GetIncidentRecordInputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
 
 
 # This class is the input for the 'get_replication_set' function.
 class GetReplicationSetInputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -165,7 +167,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_resource_policies' function.
 class GetResourcePoliciesInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -178,24 +180,24 @@ class ResourcePolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_response_plan' function.
 class GetResponsePlanInputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
 
 
 # This class is the input for the 'get_timeline_event' function.
 class GetTimelineEventInputTypeDef(BaseValidatorModel):
     eventId: str
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
 
 
 class IncidentRecordSourceTypeDef(BaseValidatorModel):
-    createdBy: str
+    createdBy: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     source: str
     invokedBy: Optional[str] = None
-    resourceArn: Optional[str] = None
+    resourceArn: Optional[Annotated[str, _aws_pattern("SsmIncidents", "Arn")]] = None
 
 
 class NotificationTargetItemTypeDef(BaseValidatorModel):
-    snsTopicArn: Optional[str] = None
+    snsTopicArn: Optional[Annotated[str, _aws_pattern("SsmIncidents", "Arn")]] = None
 
 
 class PagerDutyIncidentDetailTypeDef(BaseValidatorModel):
@@ -206,14 +208,14 @@ class PagerDutyIncidentDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_incident_findings' function.
 class ListIncidentFindingsInputTypeDef(BaseValidatorModel):
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_related_items' function.
 class ListRelatedItemsInputTypeDef(BaseValidatorModel):
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -231,8 +233,8 @@ class ListResponsePlansInputTypeDef(BaseValidatorModel):
 
 
 class ResponsePlanSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
+    name: Annotated[str, _aws_pattern("SsmIncidents", "ResponsePlanName")]
     displayName: Optional[str] = None
 
 
@@ -248,7 +250,7 @@ class PagerDutyIncidentConfigurationTypeDef(BaseValidatorModel):
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyInputTypeDef(BaseValidatorModel):
     policy: str
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
 
 
 class RegionInfoTypeDef(BaseValidatorModel):
@@ -265,37 +267,37 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("SsmIncidents", "TagKey")]]
 
 
 class UpdateDeletionProtectionInputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     deletionProtected: bool
     clientToken: Optional[str] = None
 
 
 # This class is the output for the 'create_replication_set' function.
 class CreateReplicationSetOutputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_response_plan' function.
 class CreateResponsePlanOutputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_timeline_event' function.
 class CreateTimelineEventOutputTypeDef(BaseValidatorModel):
     eventId: str
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_replication_sets' function.
 class ListReplicationSetsOutputTypeDef(BaseValidatorModel):
-    replicationSetArns: List[str]
+    replicationSetArns: List[Annotated[str, _aws_pattern("SsmIncidents", "Arn")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -314,7 +316,7 @@ class PutResourcePolicyOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_incident' function.
 class StartIncidentOutputTypeDef(BaseValidatorModel):
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -336,7 +338,7 @@ class TriggerDetailsTypeDef(BaseValidatorModel):
     source: str
     timestamp: TimestampTypeDef
     rawData: Optional[str] = None
-    triggerArn: Optional[str] = None
+    triggerArn: Optional[Annotated[str, _aws_pattern("SsmIncidents", "Arn")]] = None
 
 
 # This class is the input for the 'create_replication_set' function.
@@ -351,7 +353,7 @@ class CreateTimelineEventInputTypeDef(BaseValidatorModel):
     eventData: str
     eventTime: TimestampTypeDef
     eventType: str
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     clientToken: Optional[str] = None
     eventReferences: Optional[List[EventReferenceTypeDef]] = None
 
@@ -361,7 +363,7 @@ class EventSummaryTypeDef(BaseValidatorModel):
     eventTime: datetime
     eventType: str
     eventUpdatedTime: datetime
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     eventReferences: Optional[List[EventReferenceTypeDef]] = None
 
 
@@ -371,13 +373,13 @@ class TimelineEventTypeDef(BaseValidatorModel):
     eventTime: datetime
     eventType: str
     eventUpdatedTime: datetime
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     eventReferences: Optional[List[EventReferenceTypeDef]] = None
 
 
 class UpdateTimelineEventInputTypeDef(BaseValidatorModel):
     eventId: str
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     clientToken: Optional[str] = None
     eventData: Optional[str] = None
     eventReferences: Optional[List[EventReferenceTypeDef]] = None
@@ -400,8 +402,8 @@ class SsmAutomationOutputTypeDef(BaseValidatorModel):
 
 
 class SsmAutomationTypeDef(BaseValidatorModel):
-    documentName: str
-    roleArn: str
+    documentName: Annotated[str, _aws_pattern("SsmIncidents", "SsmAutomationDocumentNameString")]
+    roleArn: Annotated[str, _aws_pattern("SsmIncidents", "RoleArn")]
     documentVersion: Optional[str] = None
     dynamicParameters: Optional[Dict[str, DynamicSsmParameterValueTypeDef]] = None
     parameters: Optional[Dict[str, List[str]]] = None
@@ -456,7 +458,7 @@ class GetResourcePoliciesOutputTypeDef(BaseValidatorModel):
 
 
 class IncidentRecordSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     creationTime: datetime
     impact: int
     incidentRecordSource: IncidentRecordSourceTypeDef
@@ -466,12 +468,12 @@ class IncidentRecordSummaryTypeDef(BaseValidatorModel):
 
 
 class IncidentRecordTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     creationTime: datetime
     dedupeString: str
     impact: int
     incidentRecordSource: IncidentRecordSourceTypeDef
-    lastModifiedBy: str
+    lastModifiedBy: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     lastModifiedTime: datetime
     status: IncidentRecordStatusType
     title: str
@@ -501,7 +503,7 @@ class IncidentTemplateTypeDef(BaseValidatorModel):
 
 
 class ItemValueTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("SsmIncidents", "Arn")]] = None
     metricDefinition: Optional[str] = None
     pagerDutyIncidentDetail: Optional[PagerDutyIncidentDetailTypeDef] = None
     url: Optional[str] = None
@@ -521,18 +523,18 @@ class PagerDutyConfigurationTypeDef(BaseValidatorModel):
 
 
 class ReplicationSetTypeDef(BaseValidatorModel):
-    createdBy: str
+    createdBy: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     createdTime: datetime
     deletionProtected: bool
-    lastModifiedBy: str
+    lastModifiedBy: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     lastModifiedTime: datetime
     regionMap: Dict[str, RegionInfoTypeDef]
     status: ReplicationSetStatusType
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("SsmIncidents", "Arn")]] = None
 
 
 class UpdateIncidentRecordInputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     chatChannel: Optional[ChatChannelUnionTypeDef] = None
     clientToken: Optional[str] = None
     impact: Optional[int] = None
@@ -569,7 +571,7 @@ class GetTimelineEventOutputTypeDef(BaseValidatorModel):
 
 class UpdateReplicationSetInputTypeDef(BaseValidatorModel):
     actions: List[UpdateReplicationSetActionTypeDef]
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     clientToken: Optional[str] = None
 
 
@@ -640,7 +642,7 @@ class ListTimelineEventsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_timeline_events' function.
 class ListTimelineEventsInputTypeDef(BaseValidatorModel):
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     filters: Optional[List[FilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -654,20 +656,20 @@ class ActionTypeDef(BaseValidatorModel):
 
 class RelatedItemTypeDef(BaseValidatorModel):
     identifier: ItemIdentifierTypeDef
-    generatedId: Optional[str] = None
+    generatedId: Optional[Annotated[str, _aws_pattern("SsmIncidents", "GeneratedId")]] = None
     title: Optional[str] = None
 
 
 # This class is the output for the 'get_response_plan' function.
 class GetResponsePlanOutputTypeDef(BaseValidatorModel):
     actions: List[ActionOutputTypeDef]
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     chatChannel: ChatChannelOutputTypeDef
     displayName: str
-    engagements: List[str]
+    engagements: List[Annotated[str, _aws_pattern("SsmIncidents", "SsmContactsArn")]]
     incidentTemplate: IncidentTemplateOutputTypeDef
     integrations: List[IntegrationTypeDef]
-    name: str
+    name: Annotated[str, _aws_pattern("SsmIncidents", "ResponsePlanName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -688,7 +690,7 @@ class RelatedItemsUpdateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_incident' function.
 class StartIncidentInputTypeDef(BaseValidatorModel):
-    responsePlanArn: str
+    responsePlanArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     clientToken: Optional[str] = None
     impact: Optional[int] = None
     relatedItems: Optional[List[RelatedItemTypeDef]] = None
@@ -699,23 +701,23 @@ class StartIncidentInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_response_plan' function.
 class CreateResponsePlanInputTypeDef(BaseValidatorModel):
     incidentTemplate: IncidentTemplateUnionTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("SsmIncidents", "ResponsePlanName")]
     actions: Optional[List[ActionUnionTypeDef]] = None
     chatChannel: Optional[ChatChannelUnionTypeDef] = None
     clientToken: Optional[str] = None
     displayName: Optional[str] = None
-    engagements: Optional[List[str]] = None
+    engagements: Optional[List[Annotated[str, _aws_pattern("SsmIncidents", "SsmContactsArn")]]] = None
     integrations: Optional[List[IntegrationTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class UpdateResponsePlanInputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     actions: Optional[List[ActionUnionTypeDef]] = None
     chatChannel: Optional[ChatChannelUnionTypeDef] = None
     clientToken: Optional[str] = None
     displayName: Optional[str] = None
-    engagements: Optional[List[str]] = None
+    engagements: Optional[List[Annotated[str, _aws_pattern("SsmIncidents", "SsmContactsArn")]]] = None
     incidentTemplateDedupeString: Optional[str] = None
     incidentTemplateImpact: Optional[int] = None
     incidentTemplateNotificationTargets: Optional[List[NotificationTargetItemTypeDef]] = None
@@ -726,6 +728,6 @@ class UpdateResponsePlanInputTypeDef(BaseValidatorModel):
 
 
 class UpdateRelatedItemsInputTypeDef(BaseValidatorModel):
-    incidentRecordArn: str
+    incidentRecordArn: Annotated[str, _aws_pattern("SsmIncidents", "Arn")]
     relatedItemsUpdate: RelatedItemsUpdateTypeDef
     clientToken: Optional[str] = None

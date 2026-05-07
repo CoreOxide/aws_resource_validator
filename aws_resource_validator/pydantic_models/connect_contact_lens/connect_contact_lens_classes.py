@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.connect_contact_lens.connect_contact_lens_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -50,10 +52,10 @@ class CharacterOffsetsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_realtime_contact_analysis_segments' function.
 class ListRealtimeContactAnalysisSegmentsRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    ContactId: str
+    InstanceId: Annotated[str, _aws_pattern("ConnectContactLens", "InstanceId")]
+    ContactId: Annotated[str, _aws_pattern("ConnectContactLens", "ContactId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ConnectContactLens", "NextToken")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -79,15 +81,15 @@ class IssueDetectedTypeDef(BaseValidatorModel):
 
 
 class CategoriesTypeDef(BaseValidatorModel):
-    MatchedCategories: List[str]
+    MatchedCategories: List[Annotated[str, _aws_pattern("ConnectContactLens", "CategoryName")]]
     MatchedDetails: Dict[str, CategoryDetailsTypeDef]
 
 
 class TranscriptTypeDef(BaseValidatorModel):
-    Id: str
-    ParticipantId: str
-    ParticipantRole: str
-    Content: str
+    Id: Annotated[str, _aws_pattern("ConnectContactLens", "TranscriptId")]
+    ParticipantId: Annotated[str, _aws_pattern("ConnectContactLens", "ParticipantId")]
+    ParticipantRole: Annotated[str, _aws_pattern("ConnectContactLens", "ParticipantRole")]
+    Content: Annotated[str, _aws_pattern("ConnectContactLens", "TranscriptContent")]
     BeginOffsetMillis: int
     EndOffsetMillis: int
     Sentiment: Optional[SentimentValueType] = None
@@ -104,4 +106,4 @@ class RealtimeContactAnalysisSegmentTypeDef(BaseValidatorModel):
 class ListRealtimeContactAnalysisSegmentsResponseTypeDef(BaseValidatorModel):
     Segments: List[RealtimeContactAnalysisSegmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ConnectContactLens", "NextToken")]] = None

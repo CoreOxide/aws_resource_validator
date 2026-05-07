@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.bedrock_data_automation_runtime.bedrock_data_automation_runtime_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -41,18 +43,18 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class BlueprintTypeDef(BaseValidatorModel):
-    blueprintArn: str
-    version: Optional[str] = None
+    blueprintArn: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "BlueprintArn")]
+    version: Optional[Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "BlueprintVersion")]] = None
     stage: Optional[BlueprintStageType] = None
 
 
 class DataAutomationConfigurationTypeDef(BaseValidatorModel):
-    dataAutomationProjectArn: str
+    dataAutomationProjectArn: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "DataAutomationArn")]
     stage: Optional[DataAutomationStageType] = None
 
 
 class EncryptionConfigurationTypeDef(BaseValidatorModel):
-    kmsKeyId: str
+    kmsKeyId: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "KMSKeyId")]
     kmsEncryptionContext: Optional[Dict[str, str]] = None
 
 
@@ -62,11 +64,11 @@ class EventBridgeConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_data_automation_status' function.
 class GetDataAutomationStatusRequestTypeDef(BaseValidatorModel):
-    invocationArn: str
+    invocationArn: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "InvocationArn")]
 
 
 class OutputConfigurationTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "S3Uri")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -78,8 +80,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "TagKey")]
+    value: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "TagValue")]
 
 
 class OutputSegmentTypeDef(BaseValidatorModel):
@@ -90,7 +92,7 @@ class OutputSegmentTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
+    resourceARN: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "TaggableResourceArn")]
 
 
 class TimestampSegmentTypeDef(BaseValidatorModel):
@@ -99,13 +101,13 @@ class TimestampSegmentTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
-    tagKeys: List[str]
+    resourceARN: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "TaggableResourceArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "TagKey")]]
 
 
 class SyncInputConfigurationTypeDef(BaseValidatorModel):
     bytes: Optional[BlobTypeDef] = None
-    s3Uri: Optional[str] = None
+    s3Uri: Optional[Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "S3Uri")]] = None
 
 
 class NotificationConfigurationTypeDef(BaseValidatorModel):
@@ -126,7 +128,7 @@ class GetDataAutomationStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'invoke_data_automation_async' function.
 class InvokeDataAutomationAsyncResponseTypeDef(BaseValidatorModel):
-    invocationArn: str
+    invocationArn: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "InvocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -137,7 +139,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
+    resourceARN: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "TaggableResourceArn")]
     tags: List[TagTypeDef]
 
 
@@ -156,7 +158,7 @@ class VideoSegmentConfigurationTypeDef(BaseValidatorModel):
 # This class is the input for the 'invoke_data_automation' function.
 class InvokeDataAutomationRequestTypeDef(BaseValidatorModel):
     inputConfiguration: SyncInputConfigurationTypeDef
-    dataAutomationProfileArn: str
+    dataAutomationProfileArn: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "DataAutomationProfileArn")]
     dataAutomationConfiguration: Optional[DataAutomationConfigurationTypeDef] = None
     blueprints: Optional[List[BlueprintTypeDef]] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
@@ -172,7 +174,7 @@ class AssetProcessingConfigurationTypeDef(BaseValidatorModel):
 
 
 class InputConfigurationTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "S3Uri")]
     assetProcessingConfiguration: Optional[AssetProcessingConfigurationTypeDef] = None
 
 
@@ -180,8 +182,8 @@ class InputConfigurationTypeDef(BaseValidatorModel):
 class InvokeDataAutomationAsyncRequestTypeDef(BaseValidatorModel):
     inputConfiguration: InputConfigurationTypeDef
     outputConfiguration: OutputConfigurationTypeDef
-    dataAutomationProfileArn: str
-    clientToken: Optional[str] = None
+    dataAutomationProfileArn: Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "DataAutomationProfileArn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockDataAutomationRuntime", "IdempotencyToken")]] = None
     dataAutomationConfiguration: Optional[DataAutomationConfigurationTypeDef] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     notificationConfiguration: Optional[NotificationConfigurationTypeDef] = None

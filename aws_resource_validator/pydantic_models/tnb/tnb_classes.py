@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.tnb.tnb_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -42,7 +44,7 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'cancel_sol_network_operation' function.
 class CancelSolNetworkOperationInputTypeDef(BaseValidatorModel):
-    nsLcmOpOccId: str
+    nsLcmOpOccId: Annotated[str, _aws_pattern("Tnb", "NsLcmOpOccId")]
 
 
 # This class is the input for the 'create_sol_function_package' function.
@@ -61,7 +63,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_sol_network_instance' function.
 class CreateSolNetworkInstanceInputTypeDef(BaseValidatorModel):
     nsName: str
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     nsDescription: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -73,17 +75,17 @@ class CreateSolNetworkPackageInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_sol_function_package' function.
 class DeleteSolFunctionPackageInputTypeDef(BaseValidatorModel):
-    vnfPkgId: str
+    vnfPkgId: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
 
 
 # This class is the input for the 'delete_sol_network_instance' function.
 class DeleteSolNetworkInstanceInputTypeDef(BaseValidatorModel):
-    nsInstanceId: str
+    nsInstanceId: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
 
 
 # This class is the input for the 'delete_sol_network_package' function.
 class DeleteSolNetworkPackageInputTypeDef(BaseValidatorModel):
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
 
 
 class ErrorInfoTypeDef(BaseValidatorModel):
@@ -98,7 +100,7 @@ class ToscaOverrideTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_sol_function_instance' function.
 class GetSolFunctionInstanceInputTypeDef(BaseValidatorModel):
-    vnfInstanceId: str
+    vnfInstanceId: Annotated[str, _aws_pattern("Tnb", "VnfInstanceId")]
 
 
 class GetSolFunctionInstanceMetadataTypeDef(BaseValidatorModel):
@@ -109,18 +111,18 @@ class GetSolFunctionInstanceMetadataTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_sol_function_package_content' function.
 class GetSolFunctionPackageContentInputTypeDef(BaseValidatorModel):
     accept: Literal["application/zip"]
-    vnfPkgId: str
+    vnfPkgId: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
 
 
 # This class is the input for the 'get_sol_function_package_descriptor' function.
 class GetSolFunctionPackageDescriptorInputTypeDef(BaseValidatorModel):
     accept: Literal["text/plain"]
-    vnfPkgId: str
+    vnfPkgId: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
 
 
 # This class is the input for the 'get_sol_function_package' function.
 class GetSolFunctionPackageInputTypeDef(BaseValidatorModel):
-    vnfPkgId: str
+    vnfPkgId: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
 
 
 class GetSolInstantiatedVnfInfoTypeDef(BaseValidatorModel):
@@ -129,7 +131,7 @@ class GetSolInstantiatedVnfInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_sol_network_instance' function.
 class GetSolNetworkInstanceInputTypeDef(BaseValidatorModel):
-    nsInstanceId: str
+    nsInstanceId: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
 
 
 class GetSolNetworkInstanceMetadataTypeDef(BaseValidatorModel):
@@ -138,26 +140,26 @@ class GetSolNetworkInstanceMetadataTypeDef(BaseValidatorModel):
 
 
 class LcmOperationInfoTypeDef(BaseValidatorModel):
-    nsLcmOpOccId: str
+    nsLcmOpOccId: Annotated[str, _aws_pattern("Tnb", "NsLcmOpOccId")]
 
 
 # This class is the input for the 'get_sol_network_operation' function.
 class GetSolNetworkOperationInputTypeDef(BaseValidatorModel):
-    nsLcmOpOccId: str
+    nsLcmOpOccId: Annotated[str, _aws_pattern("Tnb", "NsLcmOpOccId")]
 
 
 class InstantiateMetadataTypeDef(BaseValidatorModel):
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     additionalParamsForNs: Optional[Dict[str, Any]] = None
 
 
 class ModifyVnfInfoMetadataTypeDef(BaseValidatorModel):
     vnfConfigurableProperties: Dict[str, Any]
-    vnfInstanceId: str
+    vnfInstanceId: Annotated[str, _aws_pattern("Tnb", "VnfInstanceId")]
 
 
 class UpdateNsMetadataTypeDef(BaseValidatorModel):
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     additionalParamsForNs: Optional[Dict[str, Any]] = None
 
 
@@ -169,17 +171,17 @@ class ProblemDetailsTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_sol_network_package_content' function.
 class GetSolNetworkPackageContentInputTypeDef(BaseValidatorModel):
     accept: Literal["application/zip"]
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
 
 
 # This class is the input for the 'get_sol_network_package_descriptor' function.
 class GetSolNetworkPackageDescriptorInputTypeDef(BaseValidatorModel):
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
 
 
 # This class is the input for the 'get_sol_network_package' function.
 class GetSolNetworkPackageInputTypeDef(BaseValidatorModel):
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
 
 
 class GetSolVnfcResourceInfoMetadataTypeDef(BaseValidatorModel):
@@ -190,7 +192,7 @@ class GetSolVnfcResourceInfoMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'instantiate_sol_network_instance' function.
 class InstantiateSolNetworkInstanceInputTypeDef(BaseValidatorModel):
-    nsInstanceId: str
+    nsInstanceId: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
     additionalParamsForNs: Optional[Dict[str, Any]] = None
     dryRun: Optional[bool] = None
     tags: Optional[Dict[str, str]] = None
@@ -238,15 +240,15 @@ class ListSolNetworkInstancesInputTypeDef(BaseValidatorModel):
 class ListSolNetworkOperationsMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastModified: datetime
-    nsdInfoId: Optional[str] = None
-    vnfInstanceId: Optional[str] = None
+    nsdInfoId: Optional[Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]] = None
+    vnfInstanceId: Optional[Annotated[str, _aws_pattern("Tnb", "VnfInstanceId")]] = None
 
 
 # This class is the input for the 'list_sol_network_operations' function.
 class ListSolNetworkOperationsInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    nsInstanceId: Optional[str] = None
+    nsInstanceId: Optional[Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]] = None
 
 
 class ListSolNetworkPackageMetadataTypeDef(BaseValidatorModel):
@@ -262,79 +264,79 @@ class ListSolNetworkPackagesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Tnb", "TNBResourceArn")]
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Tnb", "TNBResourceArn")]
     tags: Dict[str, str]
 
 
 # This class is the input for the 'terminate_sol_network_instance' function.
 class TerminateSolNetworkInstanceInputTypeDef(BaseValidatorModel):
-    nsInstanceId: str
+    nsInstanceId: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
     tags: Optional[Dict[str, str]] = None
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Tnb", "TNBResourceArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Tnb", "TagKey")]]
 
 
 # This class is the input for the 'update_sol_function_package' function.
 class UpdateSolFunctionPackageInputTypeDef(BaseValidatorModel):
     operationalState: OperationalStateType
-    vnfPkgId: str
+    vnfPkgId: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
 
 
 class UpdateSolNetworkModifyTypeDef(BaseValidatorModel):
     vnfConfigurableProperties: Dict[str, Any]
-    vnfInstanceId: str
+    vnfInstanceId: Annotated[str, _aws_pattern("Tnb", "VnfInstanceId")]
 
 
 class UpdateSolNetworkServiceDataTypeDef(BaseValidatorModel):
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     additionalParamsForNs: Optional[Dict[str, Any]] = None
 
 
 # This class is the input for the 'update_sol_network_package' function.
 class UpdateSolNetworkPackageInputTypeDef(BaseValidatorModel):
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     nsdOperationalState: NsdOperationalStateType
 
 
 # This class is the input for the 'put_sol_function_package_content' function.
 class PutSolFunctionPackageContentInputTypeDef(BaseValidatorModel):
     file: BlobTypeDef
-    vnfPkgId: str
+    vnfPkgId: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
     contentType: Optional[Literal["application/zip"]] = None
 
 
 # This class is the input for the 'put_sol_network_package_content' function.
 class PutSolNetworkPackageContentInputTypeDef(BaseValidatorModel):
     file: BlobTypeDef
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     contentType: Optional[Literal["application/zip"]] = None
 
 
 # This class is the input for the 'validate_sol_function_package_content' function.
 class ValidateSolFunctionPackageContentInputTypeDef(BaseValidatorModel):
     file: BlobTypeDef
-    vnfPkgId: str
+    vnfPkgId: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
     contentType: Optional[Literal["application/zip"]] = None
 
 
 # This class is the input for the 'validate_sol_network_package_content' function.
 class ValidateSolNetworkPackageContentInputTypeDef(BaseValidatorModel):
     file: BlobTypeDef
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     contentType: Optional[Literal["application/zip"]] = None
 
 
 # This class is the output for the 'create_sol_function_package' function.
 class CreateSolFunctionPackageOutputTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "VnfPkgArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
     onboardingState: OnboardingStateType
     operationalState: OperationalStateType
     tags: Dict[str, str]
@@ -344,18 +346,18 @@ class CreateSolFunctionPackageOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_sol_network_instance' function.
 class CreateSolNetworkInstanceOutputTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "NsInstanceArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
     nsInstanceName: str
-    nsdInfoId: str
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_sol_network_package' function.
 class CreateSolNetworkPackageOutputTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "NsdInfoArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     nsdOnboardingState: NsdOnboardingStateType
     nsdOperationalState: NsdOperationalStateType
     nsdUsageState: NsdUsageStateType
@@ -398,7 +400,7 @@ class GetSolNetworkPackageDescriptorOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'instantiate_sol_network_instance' function.
 class InstantiateSolNetworkInstanceOutputTypeDef(BaseValidatorModel):
-    nsLcmOpOccId: str
+    nsLcmOpOccId: Annotated[str, _aws_pattern("Tnb", "NsLcmOpOccId")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -411,7 +413,7 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'terminate_sol_network_instance' function.
 class TerminateSolNetworkInstanceOutputTypeDef(BaseValidatorModel):
-    nsLcmOpOccId: str
+    nsLcmOpOccId: Annotated[str, _aws_pattern("Tnb", "NsLcmOpOccId")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -424,7 +426,7 @@ class UpdateSolFunctionPackageOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_sol_network_instance' function.
 class UpdateSolNetworkInstanceOutputTypeDef(BaseValidatorModel):
-    nsLcmOpOccId: str
+    nsLcmOpOccId: Annotated[str, _aws_pattern("Tnb", "NsLcmOpOccId")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -454,15 +456,15 @@ class NetworkArtifactMetaTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_sol_network_instance' function.
 class GetSolNetworkInstanceOutputTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "NsInstanceArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
     lcmOpInfo: LcmOperationInfoTypeDef
     metadata: GetSolNetworkInstanceMetadataTypeDef
     nsInstanceDescription: str
     nsInstanceName: str
     nsState: NsStateType
-    nsdId: str
-    nsdInfoId: str
+    nsdId: Annotated[str, _aws_pattern("Tnb", "NsdId")]
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -480,12 +482,12 @@ class GetSolVnfcResourceInfoTypeDef(BaseValidatorModel):
 
 
 class ListSolFunctionInstanceInfoTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "VnfInstanceArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "VnfInstanceId")]
     instantiationState: VnfInstantiationStateType
     metadata: ListSolFunctionInstanceMetadataTypeDef
-    nsInstanceId: str
-    vnfPkgId: str
+    nsInstanceId: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
+    vnfPkgId: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
     instantiatedVnfInfo: Optional[GetSolInstantiatedVnfInfoTypeDef] = None
     vnfPkgName: Optional[str] = None
 
@@ -512,8 +514,8 @@ class ListSolNetworkPackagesInputPaginateTypeDef(BaseValidatorModel):
 
 
 class ListSolFunctionPackageInfoTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "VnfPkgArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
     onboardingState: OnboardingStateType
     operationalState: OperationalStateType
     usageState: UsageStateType
@@ -525,21 +527,21 @@ class ListSolFunctionPackageInfoTypeDef(BaseValidatorModel):
 
 
 class ListSolNetworkInstanceInfoTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "NsInstanceArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
     metadata: ListSolNetworkInstanceMetadataTypeDef
     nsInstanceDescription: str
     nsInstanceName: str
     nsState: NsStateType
-    nsdId: str
-    nsdInfoId: str
+    nsdId: Annotated[str, _aws_pattern("Tnb", "NsdId")]
+    nsdInfoId: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
 
 
 class ListSolNetworkOperationsInfoTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "NsLcmOpOccArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "NsLcmOpOccId")]
     lcmOperationType: LcmOperationTypeType
-    nsInstanceId: str
+    nsInstanceId: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
     operationState: NsLcmOperationStateType
     error: Optional[ProblemDetailsTypeDef] = None
     metadata: Optional[ListSolNetworkOperationsMetadataTypeDef] = None
@@ -547,8 +549,8 @@ class ListSolNetworkOperationsInfoTypeDef(BaseValidatorModel):
 
 
 class ListSolNetworkPackageInfoTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "NsdInfoArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     metadata: ListSolNetworkPackageMetadataTypeDef
     nsdOnboardingState: NsdOnboardingStateType
     nsdOperationalState: NsdOperationalStateType
@@ -558,12 +560,12 @@ class ListSolNetworkPackageInfoTypeDef(BaseValidatorModel):
     nsdInvariantId: Optional[str] = None
     nsdName: Optional[str] = None
     nsdVersion: Optional[str] = None
-    vnfPkgIds: Optional[List[str]] = None
+    vnfPkgIds: Optional[List[Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]]] = None
 
 
 # This class is the input for the 'update_sol_network_instance' function.
 class UpdateSolNetworkInstanceInputTypeDef(BaseValidatorModel):
-    nsInstanceId: str
+    nsInstanceId: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
     updateType: UpdateSolNetworkTypeType
     modifyVnfInfoData: Optional[UpdateSolNetworkModifyTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -600,12 +602,12 @@ class ValidateSolNetworkPackageContentMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_sol_network_operation' function.
 class GetSolNetworkOperationOutputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Tnb", "NsLcmOpOccArn")]
     error: ProblemDetailsTypeDef
-    id: str
+    id: Annotated[str, _aws_pattern("Tnb", "NsLcmOpOccId")]
     lcmOperationType: LcmOperationTypeType
     metadata: GetSolNetworkOperationMetadataTypeDef
-    nsInstanceId: str
+    nsInstanceId: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
     operationState: NsLcmOperationStateType
     tags: Dict[str, str]
     tasks: List[GetSolNetworkOperationTaskDetailsTypeDef]
@@ -655,8 +657,8 @@ class ListSolNetworkPackagesOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_sol_function_package' function.
 class GetSolFunctionPackageOutputTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "VnfPkgArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
     metadata: GetSolFunctionPackageMetadataTypeDef
     onboardingState: OnboardingStateType
     operationalState: OperationalStateType
@@ -671,78 +673,78 @@ class GetSolFunctionPackageOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_sol_function_package_content' function.
 class PutSolFunctionPackageContentOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
     metadata: PutSolFunctionPackageContentMetadataTypeDef
     vnfProductName: str
     vnfProvider: str
-    vnfdId: str
+    vnfdId: Annotated[str, _aws_pattern("Tnb", "VnfdId")]
     vnfdVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'validate_sol_function_package_content' function.
 class ValidateSolFunctionPackageContentOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
     metadata: ValidateSolFunctionPackageContentMetadataTypeDef
     vnfProductName: str
     vnfProvider: str
-    vnfdId: str
+    vnfdId: Annotated[str, _aws_pattern("Tnb", "VnfdId")]
     vnfdVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_sol_network_package' function.
 class GetSolNetworkPackageOutputTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "NsdInfoArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     metadata: GetSolNetworkPackageMetadataTypeDef
-    nsdId: str
+    nsdId: Annotated[str, _aws_pattern("Tnb", "NsdId")]
     nsdName: str
     nsdOnboardingState: NsdOnboardingStateType
     nsdOperationalState: NsdOperationalStateType
     nsdUsageState: NsdUsageStateType
     nsdVersion: str
     tags: Dict[str, str]
-    vnfPkgIds: List[str]
+    vnfPkgIds: List[Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_sol_network_package_content' function.
 class PutSolNetworkPackageContentOutputTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "NsdInfoArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     metadata: PutSolNetworkPackageContentMetadataTypeDef
-    nsdId: str
+    nsdId: Annotated[str, _aws_pattern("Tnb", "NsdId")]
     nsdName: str
     nsdVersion: str
-    vnfPkgIds: List[str]
+    vnfPkgIds: List[Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'validate_sol_network_package_content' function.
 class ValidateSolNetworkPackageContentOutputTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "NsdInfoArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "NsdInfoId")]
     metadata: ValidateSolNetworkPackageContentMetadataTypeDef
-    nsdId: str
+    nsdId: Annotated[str, _aws_pattern("Tnb", "NsdId")]
     nsdName: str
     nsdVersion: str
-    vnfPkgIds: List[str]
+    vnfPkgIds: List[Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_sol_function_instance' function.
 class GetSolFunctionInstanceOutputTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Tnb", "VnfInstanceArn")]
+    id: Annotated[str, _aws_pattern("Tnb", "VnfInstanceId")]
     instantiatedVnfInfo: GetSolVnfInfoTypeDef
     instantiationState: VnfInstantiationStateType
     metadata: GetSolFunctionInstanceMetadataTypeDef
-    nsInstanceId: str
+    nsInstanceId: Annotated[str, _aws_pattern("Tnb", "NsInstanceId")]
     tags: Dict[str, str]
-    vnfPkgId: str
+    vnfPkgId: Annotated[str, _aws_pattern("Tnb", "VnfPkgId")]
     vnfProductName: str
     vnfProvider: str
-    vnfdId: str
+    vnfdId: Annotated[str, _aws_pattern("Tnb", "VnfdId")]
     vnfdVersion: str
     ResponseMetadata: ResponseMetadataTypeDef

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.timestream_influxdb.timestream_influxdb_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,8 +47,8 @@ class ClusterConfigurationTypeDef(BaseValidatorModel):
 
 
 class MaintenanceScheduleTypeDef(BaseValidatorModel):
-    timezone: str
-    preferredMaintenanceWindow: str
+    timezone: Annotated[str, _aws_pattern("TimestreamInfluxdb", "IanaTimezone")]
+    preferredMaintenanceWindow: Annotated[str, _aws_pattern("TimestreamInfluxdb", "MaintenanceWindow")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -58,9 +60,9 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DbClusterSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     status: Optional[ClusterStatusType] = None
     endpoint: Optional[str] = None
     readerEndpoint: Optional[str] = None
@@ -74,9 +76,9 @@ class DbClusterSummaryTypeDef(BaseValidatorModel):
 
 
 class DbInstanceForClusterSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     status: Optional[StatusType] = None
     endpoint: Optional[str] = None
     port: Optional[int] = None
@@ -90,9 +92,9 @@ class DbInstanceForClusterSummaryTypeDef(BaseValidatorModel):
 
 
 class DbInstanceSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     status: Optional[StatusType] = None
     endpoint: Optional[str] = None
     port: Optional[int] = None
@@ -104,20 +106,20 @@ class DbInstanceSummaryTypeDef(BaseValidatorModel):
 
 
 class DbParameterGroupSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     description: Optional[str] = None
 
 
 # This class is the input for the 'delete_db_cluster' function.
 class DeleteDbClusterInputTypeDef(BaseValidatorModel):
-    dbClusterId: str
+    dbClusterId: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
 
 
 # This class is the input for the 'delete_db_instance' function.
 class DeleteDbInstanceInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceIdentifier")]
 
 
 class DurationTypeDef(BaseValidatorModel):
@@ -127,21 +129,21 @@ class DurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_db_cluster' function.
 class GetDbClusterInputTypeDef(BaseValidatorModel):
-    dbClusterId: str
+    dbClusterId: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
 
 
 # This class is the input for the 'get_db_instance' function.
 class GetDbInstanceInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceIdentifier")]
 
 
 # This class is the input for the 'get_db_parameter_group' function.
 class GetDbParameterGroupInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupIdentifier")]
 
 
 class PercentOrAbsoluteLongTypeDef(BaseValidatorModel):
-    percent: Optional[str] = None
+    percent: Optional[Annotated[str, _aws_pattern("TimestreamInfluxdb", "PercentOrAbsoluteLongPercentString")]] = None
     absolute: Optional[int] = None
 
 
@@ -159,7 +161,7 @@ class ListDbClustersInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_db_instances_for_cluster' function.
 class ListDbInstancesForClusterInputTypeDef(BaseValidatorModel):
-    dbClusterId: str
+    dbClusterId: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -178,40 +180,40 @@ class ListDbParameterGroupsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
 
 
 class S3ConfigurationTypeDef(BaseValidatorModel):
-    bucketName: str
+    bucketName: Annotated[str, _aws_pattern("TimestreamInfluxdb", "S3ConfigurationBucketNameString")]
     enabled: bool
 
 
 # This class is the input for the 'reboot_db_cluster' function.
 class RebootDbClusterInputTypeDef(BaseValidatorModel):
-    dbClusterId: str
-    instanceIds: Optional[List[str]] = None
+    dbClusterId: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
+    instanceIds: Optional[List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceId")]]] = None
 
 
 # This class is the input for the 'reboot_db_instance' function.
 class RebootDbInstanceInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceIdentifier")]
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     tags: Dict[str, str]
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     tagKeys: List[str]
 
 
 # This class is the output for the 'create_db_cluster' function.
 class CreateDbClusterOutputTypeDef(BaseValidatorModel):
-    dbClusterId: str
+    dbClusterId: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
     dbClusterStatus: ClusterStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -326,7 +328,9 @@ class InfluxDBv3CoreParametersTypeDef(BaseValidatorModel):
     dataFusionRuntimeThreadPriority: Optional[int] = None
     dataFusionMaxParquetFanout: Optional[int] = None
     dataFusionUseCachedParquetLoader: Optional[bool] = None
-    dataFusionConfig: Optional[str] = None
+    dataFusionConfig: Optional[
+        Annotated[str, _aws_pattern("TimestreamInfluxdb", "InfluxDBv3CoreParametersDataFusionConfigString")]
+    ] = None
     maxHttpRequestSize: Optional[int] = None
     forceSnapshotMemThreshold: Optional[PercentOrAbsoluteLongTypeDef] = None
     walSnapshotSize: Optional[int] = None
@@ -371,7 +375,9 @@ class InfluxDBv3EnterpriseParametersTypeDef(BaseValidatorModel):
     dataFusionRuntimeThreadPriority: Optional[int] = None
     dataFusionMaxParquetFanout: Optional[int] = None
     dataFusionUseCachedParquetLoader: Optional[bool] = None
-    dataFusionConfig: Optional[str] = None
+    dataFusionConfig: Optional[
+        Annotated[str, _aws_pattern("TimestreamInfluxdb", "InfluxDBv3EnterpriseParametersDataFusionConfigString")]
+    ] = None
     maxHttpRequestSize: Optional[int] = None
     forceSnapshotMemThreshold: Optional[PercentOrAbsoluteLongTypeDef] = None
     walSnapshotSize: Optional[int] = None
@@ -398,7 +404,9 @@ class InfluxDBv3EnterpriseParametersTypeDef(BaseValidatorModel):
     compactionRowLimit: Optional[int] = None
     compactionMaxNumFilesPerPlan: Optional[int] = None
     compactionGen2Duration: Optional[DurationTypeDef] = None
-    compactionMultipliers: Optional[str] = None
+    compactionMultipliers: Optional[
+        Annotated[str, _aws_pattern("TimestreamInfluxdb", "InfluxDBv3EnterpriseParametersCompactionMultipliersString")]
+    ] = None
     compactionCleanupWait: Optional[DurationTypeDef] = None
     compactionCheckInterval: Optional[DurationTypeDef] = None
     lastValueCacheDisableFromHistory: Optional[bool] = None
@@ -436,16 +444,18 @@ class ParametersTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_db_cluster' function.
 class CreateDbClusterInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterName")]
     dbInstanceType: DbInstanceTypeType
-    vpcSubnetIds: List[str]
-    vpcSecurityGroupIds: List[str]
+    vpcSubnetIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSubnetId")]]
+    vpcSecurityGroupIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSecurityGroupId")]]
     username: Optional[str] = None
-    password: Optional[str] = None
+    password: Optional[Annotated[str, _aws_pattern("TimestreamInfluxdb", "Password")]] = None
     organization: Optional[str] = None
-    bucket: Optional[str] = None
+    bucket: Optional[Annotated[str, _aws_pattern("TimestreamInfluxdb", "Bucket")]] = None
     port: Optional[int] = None
-    dbParameterGroupIdentifier: Optional[str] = None
+    dbParameterGroupIdentifier: Optional[
+        Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupIdentifier")]
+    ] = None
     dbStorageType: Optional[DbStorageTypeType] = None
     allocatedStorage: Optional[int] = None
     networkType: Optional[NetworkTypeType] = None
@@ -459,18 +469,20 @@ class CreateDbClusterInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_db_instance' function.
 class CreateDbInstanceInputTypeDef(BaseValidatorModel):
-    name: str
-    password: str
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceName")]
+    password: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Password")]
     dbInstanceType: DbInstanceTypeType
-    vpcSubnetIds: List[str]
-    vpcSecurityGroupIds: List[str]
+    vpcSubnetIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSubnetId")]]
+    vpcSecurityGroupIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSecurityGroupId")]]
     allocatedStorage: int
     username: Optional[str] = None
     organization: Optional[str] = None
-    bucket: Optional[str] = None
+    bucket: Optional[Annotated[str, _aws_pattern("TimestreamInfluxdb", "Bucket")]] = None
     publiclyAccessible: Optional[bool] = None
     dbStorageType: Optional[DbStorageTypeType] = None
-    dbParameterGroupIdentifier: Optional[str] = None
+    dbParameterGroupIdentifier: Optional[
+        Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupIdentifier")]
+    ] = None
     deploymentType: Optional[DeploymentTypeType] = None
     logDeliveryConfiguration: Optional[LogDeliveryConfigurationTypeDef] = None
     maintenanceSchedule: Optional[MaintenanceScheduleTypeDef] = None
@@ -481,9 +493,9 @@ class CreateDbInstanceInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_db_instance' function.
 class CreateDbInstanceOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     status: StatusType
     endpoint: str
     port: int
@@ -492,15 +504,15 @@ class CreateDbInstanceOutputTypeDef(BaseValidatorModel):
     dbStorageType: DbStorageTypeType
     allocatedStorage: int
     deploymentType: DeploymentTypeType
-    vpcSubnetIds: List[str]
+    vpcSubnetIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSubnetId")]]
     publiclyAccessible: bool
-    vpcSecurityGroupIds: List[str]
-    dbParameterGroupIdentifier: str
+    vpcSecurityGroupIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSecurityGroupId")]]
+    dbParameterGroupIdentifier: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupIdentifier")]
     availabilityZone: str
     secondaryAvailabilityZone: str
     logDeliveryConfiguration: LogDeliveryConfigurationTypeDef
     influxAuthParametersSecretArn: str
-    dbClusterId: str
+    dbClusterId: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
     instanceMode: InstanceModeType
     instanceModes: List[InstanceModeType]
     maintenanceSchedule: MaintenanceScheduleTypeDef
@@ -511,9 +523,9 @@ class CreateDbInstanceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_db_instance' function.
 class DeleteDbInstanceOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     status: StatusType
     endpoint: str
     port: int
@@ -522,15 +534,15 @@ class DeleteDbInstanceOutputTypeDef(BaseValidatorModel):
     dbStorageType: DbStorageTypeType
     allocatedStorage: int
     deploymentType: DeploymentTypeType
-    vpcSubnetIds: List[str]
+    vpcSubnetIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSubnetId")]]
     publiclyAccessible: bool
-    vpcSecurityGroupIds: List[str]
-    dbParameterGroupIdentifier: str
+    vpcSecurityGroupIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSecurityGroupId")]]
+    dbParameterGroupIdentifier: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupIdentifier")]
     availabilityZone: str
     secondaryAvailabilityZone: str
     logDeliveryConfiguration: LogDeliveryConfigurationTypeDef
     influxAuthParametersSecretArn: str
-    dbClusterId: str
+    dbClusterId: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
     instanceMode: InstanceModeType
     instanceModes: List[InstanceModeType]
     maintenanceSchedule: MaintenanceScheduleTypeDef
@@ -541,9 +553,9 @@ class DeleteDbInstanceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_db_cluster' function.
 class GetDbClusterOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     status: ClusterStatusType
     endpoint: str
     readerEndpoint: str
@@ -555,14 +567,14 @@ class GetDbClusterOutputTypeDef(BaseValidatorModel):
     allocatedStorage: int
     engineType: EngineTypeType
     publiclyAccessible: bool
-    dbParameterGroupIdentifier: str
+    dbParameterGroupIdentifier: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupIdentifier")]
     logDeliveryConfiguration: LogDeliveryConfigurationTypeDef
     maintenanceSchedule: MaintenanceScheduleTypeDef
     lastMaintenanceTime: datetime
     nextMaintenanceTime: datetime
     influxAuthParametersSecretArn: str
-    vpcSubnetIds: List[str]
-    vpcSecurityGroupIds: List[str]
+    vpcSubnetIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSubnetId")]]
+    vpcSecurityGroupIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSecurityGroupId")]]
     failoverMode: FailoverModeType
     clusterConfiguration: ClusterConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -570,9 +582,9 @@ class GetDbClusterOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_db_instance' function.
 class GetDbInstanceOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     status: StatusType
     endpoint: str
     port: int
@@ -581,15 +593,15 @@ class GetDbInstanceOutputTypeDef(BaseValidatorModel):
     dbStorageType: DbStorageTypeType
     allocatedStorage: int
     deploymentType: DeploymentTypeType
-    vpcSubnetIds: List[str]
+    vpcSubnetIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSubnetId")]]
     publiclyAccessible: bool
-    vpcSecurityGroupIds: List[str]
-    dbParameterGroupIdentifier: str
+    vpcSecurityGroupIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSecurityGroupId")]]
+    dbParameterGroupIdentifier: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupIdentifier")]
     availabilityZone: str
     secondaryAvailabilityZone: str
     logDeliveryConfiguration: LogDeliveryConfigurationTypeDef
     influxAuthParametersSecretArn: str
-    dbClusterId: str
+    dbClusterId: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
     instanceMode: InstanceModeType
     instanceModes: List[InstanceModeType]
     maintenanceSchedule: MaintenanceScheduleTypeDef
@@ -600,9 +612,9 @@ class GetDbInstanceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'reboot_db_instance' function.
 class RebootDbInstanceOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     status: StatusType
     endpoint: str
     port: int
@@ -611,15 +623,15 @@ class RebootDbInstanceOutputTypeDef(BaseValidatorModel):
     dbStorageType: DbStorageTypeType
     allocatedStorage: int
     deploymentType: DeploymentTypeType
-    vpcSubnetIds: List[str]
+    vpcSubnetIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSubnetId")]]
     publiclyAccessible: bool
-    vpcSecurityGroupIds: List[str]
-    dbParameterGroupIdentifier: str
+    vpcSecurityGroupIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSecurityGroupId")]]
+    dbParameterGroupIdentifier: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupIdentifier")]
     availabilityZone: str
     secondaryAvailabilityZone: str
     logDeliveryConfiguration: LogDeliveryConfigurationTypeDef
     influxAuthParametersSecretArn: str
-    dbClusterId: str
+    dbClusterId: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
     instanceMode: InstanceModeType
     instanceModes: List[InstanceModeType]
     maintenanceSchedule: MaintenanceScheduleTypeDef
@@ -630,9 +642,11 @@ class RebootDbInstanceOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_db_cluster' function.
 class UpdateDbClusterInputTypeDef(BaseValidatorModel):
-    dbClusterId: str
+    dbClusterId: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
     logDeliveryConfiguration: Optional[LogDeliveryConfigurationTypeDef] = None
-    dbParameterGroupIdentifier: Optional[str] = None
+    dbParameterGroupIdentifier: Optional[
+        Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupIdentifier")]
+    ] = None
     port: Optional[int] = None
     dbInstanceType: Optional[DbInstanceTypeType] = None
     failoverMode: Optional[FailoverModeType] = None
@@ -641,9 +655,11 @@ class UpdateDbClusterInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_db_instance' function.
 class UpdateDbInstanceInputTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceIdentifier")]
     logDeliveryConfiguration: Optional[LogDeliveryConfigurationTypeDef] = None
-    dbParameterGroupIdentifier: Optional[str] = None
+    dbParameterGroupIdentifier: Optional[
+        Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupIdentifier")]
+    ] = None
     port: Optional[int] = None
     dbInstanceType: Optional[DbInstanceTypeType] = None
     deploymentType: Optional[DeploymentTypeType] = None
@@ -654,9 +670,9 @@ class UpdateDbInstanceInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_db_instance' function.
 class UpdateDbInstanceOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbInstanceName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     status: StatusType
     endpoint: str
     port: int
@@ -665,15 +681,15 @@ class UpdateDbInstanceOutputTypeDef(BaseValidatorModel):
     dbStorageType: DbStorageTypeType
     allocatedStorage: int
     deploymentType: DeploymentTypeType
-    vpcSubnetIds: List[str]
+    vpcSubnetIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSubnetId")]]
     publiclyAccessible: bool
-    vpcSecurityGroupIds: List[str]
-    dbParameterGroupIdentifier: str
+    vpcSecurityGroupIds: List[Annotated[str, _aws_pattern("TimestreamInfluxdb", "VpcSecurityGroupId")]]
+    dbParameterGroupIdentifier: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupIdentifier")]
     availabilityZone: str
     secondaryAvailabilityZone: str
     logDeliveryConfiguration: LogDeliveryConfigurationTypeDef
     influxAuthParametersSecretArn: str
-    dbClusterId: str
+    dbClusterId: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbClusterId")]
     instanceMode: InstanceModeType
     instanceModes: List[InstanceModeType]
     maintenanceSchedule: MaintenanceScheduleTypeDef
@@ -684,7 +700,7 @@ class UpdateDbInstanceOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_db_parameter_group' function.
 class CreateDbParameterGroupInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupName")]
     description: Optional[str] = None
     parameters: Optional[ParametersTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -692,9 +708,9 @@ class CreateDbParameterGroupInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_db_parameter_group' function.
 class CreateDbParameterGroupOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     description: str
     parameters: ParametersTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -702,9 +718,9 @@ class CreateDbParameterGroupOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_db_parameter_group' function.
 class GetDbParameterGroupOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupId")]
+    name: Annotated[str, _aws_pattern("TimestreamInfluxdb", "DbParameterGroupName")]
+    arn: Annotated[str, _aws_pattern("TimestreamInfluxdb", "Arn")]
     description: str
     parameters: ParametersTypeDef
     ResponseMetadata: ResponseMetadataTypeDef

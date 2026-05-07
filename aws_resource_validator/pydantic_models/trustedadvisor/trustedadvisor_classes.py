@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.trustedadvisor.trustedadvisor_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,18 +41,20 @@ except ImportError:  # pragma: no cover
 
 
 class AccountRecommendationLifecycleSummaryTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
-    accountRecommendationArn: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "AccountId")]] = None
+    accountRecommendationArn: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "AccountRecommendationArn")]] = (
+        None
+    )
     lifecycleStage: Optional[RecommendationLifecycleStageType] = None
     updatedOnBehalfOf: Optional[str] = None
     updatedOnBehalfOfJobTitle: Optional[str] = None
-    updateReason: Optional[str] = None
+    updateReason: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "RecommendationUpdateReason")]] = None
     updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
     lastUpdatedAt: Optional[datetime] = None
 
 
 class RecommendationResourceExclusionTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Trustedadvisor", "RecommendationResourceArn")]
     isExcluded: bool
 
 
@@ -63,14 +67,14 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class UpdateRecommendationResourceExclusionErrorTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "RecommendationResourceArn")]] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
 class CheckSummaryTypeDef(BaseValidatorModel):
     id: str
-    arn: str
+    arn: Annotated[str, _aws_pattern("Trustedadvisor", "CheckArn")]
     name: str
     description: str
     pillars: List[RecommendationPillarType]
@@ -81,12 +85,14 @@ class CheckSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_organization_recommendation' function.
 class GetOrganizationRecommendationRequestTypeDef(BaseValidatorModel):
-    organizationRecommendationIdentifier: str
+    organizationRecommendationIdentifier: Annotated[
+        str, _aws_pattern("Trustedadvisor", "OrganizationRecommendationIdentifier")
+    ]
 
 
 # This class is the input for the 'get_recommendation' function.
 class GetRecommendationRequestTypeDef(BaseValidatorModel):
-    recommendationIdentifier: str
+    recommendationIdentifier: Annotated[str, _aws_pattern("Trustedadvisor", "AccountRecommendationIdentifier")]
     language: Optional[RecommendationLanguageType] = None
 
 
@@ -108,34 +114,38 @@ class ListChecksRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_organization_recommendation_accounts' function.
 class ListOrganizationRecommendationAccountsRequestTypeDef(BaseValidatorModel):
-    organizationRecommendationIdentifier: str
+    organizationRecommendationIdentifier: Annotated[
+        str, _aws_pattern("Trustedadvisor", "OrganizationRecommendationIdentifier")
+    ]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    affectedAccountId: Optional[str] = None
+    affectedAccountId: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "AccountId")]] = None
 
 
 # This class is the input for the 'list_organization_recommendation_resources' function.
 class ListOrganizationRecommendationResourcesRequestTypeDef(BaseValidatorModel):
-    organizationRecommendationIdentifier: str
+    organizationRecommendationIdentifier: Annotated[
+        str, _aws_pattern("Trustedadvisor", "OrganizationRecommendationIdentifier")
+    ]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     status: Optional[ResourceStatusType] = None
     exclusionStatus: Optional[ExclusionStatusType] = None
     regionCode: Optional[str] = None
-    affectedAccountId: Optional[str] = None
+    affectedAccountId: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "AccountId")]] = None
 
 
 class OrganizationRecommendationResourceSummaryTypeDef(BaseValidatorModel):
     id: str
-    arn: str
+    arn: Annotated[str, _aws_pattern("Trustedadvisor", "RecommendationResourceArn")]
     awsResourceId: str
     regionCode: str
     status: ResourceStatusType
     metadata: Dict[str, str]
     lastUpdatedAt: datetime
-    recommendationArn: str
+    recommendationArn: Annotated[str, _aws_pattern("Trustedadvisor", "OrganizationRecommendationArn")]
     exclusionStatus: Optional[ExclusionStatusType] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "AccountId")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -143,7 +153,7 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'list_recommendation_resources' function.
 class ListRecommendationResourcesRequestTypeDef(BaseValidatorModel):
-    recommendationIdentifier: str
+    recommendationIdentifier: Annotated[str, _aws_pattern("Trustedadvisor", "AccountRecommendationIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     status: Optional[ResourceStatusType] = None
@@ -154,13 +164,13 @@ class ListRecommendationResourcesRequestTypeDef(BaseValidatorModel):
 
 class RecommendationResourceSummaryTypeDef(BaseValidatorModel):
     id: str
-    arn: str
+    arn: Annotated[str, _aws_pattern("Trustedadvisor", "RecommendationResourceArn")]
     awsResourceId: str
     regionCode: str
     status: ResourceStatusType
     metadata: Dict[str, str]
     lastUpdatedAt: datetime
-    recommendationArn: str
+    recommendationArn: Annotated[str, _aws_pattern("Trustedadvisor", "AccountRecommendationArn")]
     exclusionStatus: Optional[ExclusionStatusType] = None
 
 
@@ -179,16 +189,18 @@ class RecommendationCostOptimizingAggregatesTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_organization_recommendation_lifecycle' function.
 class UpdateOrganizationRecommendationLifecycleRequestTypeDef(BaseValidatorModel):
     lifecycleStage: UpdateRecommendationLifecycleStageType
-    organizationRecommendationIdentifier: str
-    updateReason: Optional[str] = None
+    organizationRecommendationIdentifier: Annotated[
+        str, _aws_pattern("Trustedadvisor", "OrganizationRecommendationIdentifier")
+    ]
+    updateReason: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "RecommendationUpdateReason")]] = None
     updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
 
 
 # This class is the input for the 'update_recommendation_lifecycle' function.
 class UpdateRecommendationLifecycleRequestTypeDef(BaseValidatorModel):
     lifecycleStage: UpdateRecommendationLifecycleStageType
-    recommendationIdentifier: str
-    updateReason: Optional[str] = None
+    recommendationIdentifier: Annotated[str, _aws_pattern("Trustedadvisor", "AccountRecommendationIdentifier")]
+    updateReason: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "RecommendationUpdateReason")]] = None
     updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
 
 
@@ -282,7 +294,7 @@ class ListOrganizationRecommendationsRequestTypeDef(BaseValidatorModel):
     pillar: Optional[RecommendationPillarType] = None
     awsService: Optional[str] = None
     source: Optional[RecommendationSourceType] = None
-    checkIdentifier: Optional[str] = None
+    checkIdentifier: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "CheckIdentifier")]] = None
     afterLastUpdatedAt: Optional[TimestampTypeDef] = None
     beforeLastUpdatedAt: Optional[TimestampTypeDef] = None
 
@@ -309,7 +321,7 @@ class ListRecommendationsRequestTypeDef(BaseValidatorModel):
     pillar: Optional[RecommendationPillarType] = None
     awsService: Optional[str] = None
     source: Optional[RecommendationSourceType] = None
-    checkIdentifier: Optional[str] = None
+    checkIdentifier: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "CheckIdentifier")]] = None
     afterLastUpdatedAt: Optional[TimestampTypeDef] = None
     beforeLastUpdatedAt: Optional[TimestampTypeDef] = None
     language: Optional[RecommendationLanguageType] = None
@@ -334,7 +346,7 @@ class OrganizationRecommendationSummaryTypeDef(BaseValidatorModel):
     source: RecommendationSourceType
     name: str
     resourcesAggregates: RecommendationResourcesAggregatesTypeDef
-    arn: str
+    arn: Annotated[str, _aws_pattern("Trustedadvisor", "OrganizationRecommendationArn")]
     checkArn: Optional[str] = None
     lifecycleStage: Optional[RecommendationLifecycleStageType] = None
     awsServices: Optional[List[str]] = None
@@ -351,7 +363,7 @@ class OrganizationRecommendationTypeDef(BaseValidatorModel):
     source: RecommendationSourceType
     name: str
     resourcesAggregates: RecommendationResourcesAggregatesTypeDef
-    arn: str
+    arn: Annotated[str, _aws_pattern("Trustedadvisor", "OrganizationRecommendationArn")]
     description: str
     checkArn: Optional[str] = None
     lifecycleStage: Optional[RecommendationLifecycleStageType] = None
@@ -362,7 +374,7 @@ class OrganizationRecommendationTypeDef(BaseValidatorModel):
     createdBy: Optional[str] = None
     updatedOnBehalfOf: Optional[str] = None
     updatedOnBehalfOfJobTitle: Optional[str] = None
-    updateReason: Optional[str] = None
+    updateReason: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "RecommendationUpdateReason")]] = None
     updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
     resolvedAt: Optional[datetime] = None
 
@@ -375,7 +387,7 @@ class RecommendationSummaryTypeDef(BaseValidatorModel):
     source: RecommendationSourceType
     name: str
     resourcesAggregates: RecommendationResourcesAggregatesTypeDef
-    arn: str
+    arn: Annotated[str, _aws_pattern("Trustedadvisor", "AccountRecommendationArn")]
     checkArn: Optional[str] = None
     lifecycleStage: Optional[RecommendationLifecycleStageType] = None
     awsServices: Optional[List[str]] = None
@@ -393,7 +405,7 @@ class RecommendationTypeDef(BaseValidatorModel):
     source: RecommendationSourceType
     name: str
     resourcesAggregates: RecommendationResourcesAggregatesTypeDef
-    arn: str
+    arn: Annotated[str, _aws_pattern("Trustedadvisor", "AccountRecommendationArn")]
     description: str
     checkArn: Optional[str] = None
     lifecycleStage: Optional[RecommendationLifecycleStageType] = None
@@ -405,7 +417,7 @@ class RecommendationTypeDef(BaseValidatorModel):
     createdBy: Optional[str] = None
     updatedOnBehalfOf: Optional[str] = None
     updatedOnBehalfOfJobTitle: Optional[str] = None
-    updateReason: Optional[str] = None
+    updateReason: Optional[Annotated[str, _aws_pattern("Trustedadvisor", "RecommendationUpdateReason")]] = None
     updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
     resolvedAt: Optional[datetime] = None
 

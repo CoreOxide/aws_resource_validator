@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.sts.sts_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,26 +41,26 @@ except ImportError:  # pragma: no cover
 
 
 class PolicyDescriptorTypeTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Sts", "arnType")]] = None
 
 
 class ProvidedContextTypeDef(BaseValidatorModel):
-    ProviderArn: Optional[str] = None
+    ProviderArn: Optional[Annotated[str, _aws_pattern("Sts", "arnType")]] = None
     ContextAssertion: Optional[str] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Sts", "tagKeyType")]
+    Value: Annotated[str, _aws_pattern("Sts", "tagValueType")]
 
 
 class AssumedRoleUserTypeDef(BaseValidatorModel):
-    AssumedRoleId: str
-    Arn: str
+    AssumedRoleId: Annotated[str, _aws_pattern("Sts", "assumedRoleIdType")]
+    Arn: Annotated[str, _aws_pattern("Sts", "arnType")]
 
 
 class CredentialsTypeDef(BaseValidatorModel):
-    AccessKeyId: str
+    AccessKeyId: Annotated[str, _aws_pattern("Sts", "accessKeyIdType")]
     SecretAccessKey: str
     SessionToken: str
     Expiration: datetime
@@ -78,13 +80,13 @@ class DecodeAuthorizationMessageRequestTypeDef(BaseValidatorModel):
 
 
 class FederatedUserTypeDef(BaseValidatorModel):
-    FederatedUserId: str
-    Arn: str
+    FederatedUserId: Annotated[str, _aws_pattern("Sts", "federatedIdType")]
+    Arn: Annotated[str, _aws_pattern("Sts", "arnType")]
 
 
 # This class is the input for the 'get_access_key_info' function.
 class GetAccessKeyInfoRequestTypeDef(BaseValidatorModel):
-    AccessKeyId: str
+    AccessKeyId: Annotated[str, _aws_pattern("Sts", "accessKeyIdType")]
 
 
 # This class is the input for the 'get_delegated_access_token' function.
@@ -95,28 +97,28 @@ class GetDelegatedAccessTokenRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_session_token' function.
 class GetSessionTokenRequestTypeDef(BaseValidatorModel):
     DurationSeconds: Optional[int] = None
-    SerialNumber: Optional[str] = None
-    TokenCode: Optional[str] = None
+    SerialNumber: Optional[Annotated[str, _aws_pattern("Sts", "serialNumberType")]] = None
+    TokenCode: Optional[Annotated[str, _aws_pattern("Sts", "tokenCodeType")]] = None
 
 
 # This class is the input for the 'assume_role_with_saml' function.
 class AssumeRoleWithSAMLRequestTypeDef(BaseValidatorModel):
-    RoleArn: str
-    PrincipalArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sts", "arnType")]
+    PrincipalArn: Annotated[str, _aws_pattern("Sts", "arnType")]
     SAMLAssertion: str
     PolicyArns: Optional[List[PolicyDescriptorTypeTypeDef]] = None
-    Policy: Optional[str] = None
+    Policy: Optional[Annotated[str, _aws_pattern("Sts", "sessionPolicyDocumentType")]] = None
     DurationSeconds: Optional[int] = None
 
 
 # This class is the input for the 'assume_role_with_web_identity' function.
 class AssumeRoleWithWebIdentityRequestTypeDef(BaseValidatorModel):
-    RoleArn: str
-    RoleSessionName: str
+    RoleArn: Annotated[str, _aws_pattern("Sts", "arnType")]
+    RoleSessionName: Annotated[str, _aws_pattern("Sts", "roleSessionNameType")]
     WebIdentityToken: str
     ProviderId: Optional[str] = None
     PolicyArns: Optional[List[PolicyDescriptorTypeTypeDef]] = None
-    Policy: Optional[str] = None
+    Policy: Optional[Annotated[str, _aws_pattern("Sts", "sessionPolicyDocumentType")]] = None
     DurationSeconds: Optional[int] = None
 
 
@@ -129,24 +131,24 @@ class AssumeRootRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'assume_role' function.
 class AssumeRoleRequestTypeDef(BaseValidatorModel):
-    RoleArn: str
-    RoleSessionName: str
+    RoleArn: Annotated[str, _aws_pattern("Sts", "arnType")]
+    RoleSessionName: Annotated[str, _aws_pattern("Sts", "roleSessionNameType")]
     PolicyArns: Optional[List[PolicyDescriptorTypeTypeDef]] = None
-    Policy: Optional[str] = None
+    Policy: Optional[Annotated[str, _aws_pattern("Sts", "unrestrictedSessionPolicyDocumentType")]] = None
     DurationSeconds: Optional[int] = None
     Tags: Optional[List[TagTypeDef]] = None
-    TransitiveTagKeys: Optional[List[str]] = None
-    ExternalId: Optional[str] = None
-    SerialNumber: Optional[str] = None
-    TokenCode: Optional[str] = None
-    SourceIdentity: Optional[str] = None
+    TransitiveTagKeys: Optional[List[Annotated[str, _aws_pattern("Sts", "tagKeyType")]]] = None
+    ExternalId: Optional[Annotated[str, _aws_pattern("Sts", "externalIdType")]] = None
+    SerialNumber: Optional[Annotated[str, _aws_pattern("Sts", "serialNumberType")]] = None
+    TokenCode: Optional[Annotated[str, _aws_pattern("Sts", "tokenCodeType")]] = None
+    SourceIdentity: Optional[Annotated[str, _aws_pattern("Sts", "sourceIdentityType")]] = None
     ProvidedContexts: Optional[List[ProvidedContextTypeDef]] = None
 
 
 # This class is the input for the 'get_federation_token' function.
 class GetFederationTokenRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Policy: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Sts", "userNameType")]
+    Policy: Optional[Annotated[str, _aws_pattern("Sts", "sessionPolicyDocumentType")]] = None
     PolicyArns: Optional[List[PolicyDescriptorTypeTypeDef]] = None
     DurationSeconds: Optional[int] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -165,7 +167,7 @@ class AssumeRoleResponseTypeDef(BaseValidatorModel):
     Credentials: CredentialsTypeDef
     AssumedRoleUser: AssumedRoleUserTypeDef
     PackedPolicySize: int
-    SourceIdentity: str
+    SourceIdentity: Annotated[str, _aws_pattern("Sts", "sourceIdentityType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -179,7 +181,7 @@ class AssumeRoleWithSAMLResponseTypeDef(BaseValidatorModel):
     Issuer: str
     Audience: str
     NameQualifier: str
-    SourceIdentity: str
+    SourceIdentity: Annotated[str, _aws_pattern("Sts", "sourceIdentityType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -191,14 +193,14 @@ class AssumeRoleWithWebIdentityResponseTypeDef(BaseValidatorModel):
     PackedPolicySize: int
     Provider: str
     Audience: str
-    SourceIdentity: str
+    SourceIdentity: Annotated[str, _aws_pattern("Sts", "sourceIdentityType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'assume_root' function.
 class AssumeRootResponseTypeDef(BaseValidatorModel):
     Credentials: CredentialsTypeDef
-    SourceIdentity: str
+    SourceIdentity: Annotated[str, _aws_pattern("Sts", "sourceIdentityType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -217,7 +219,7 @@ class GetAccessKeyInfoResponseTypeDef(BaseValidatorModel):
 class GetCallerIdentityResponseTypeDef(BaseValidatorModel):
     UserId: str
     Account: str
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sts", "arnType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -225,7 +227,7 @@ class GetCallerIdentityResponseTypeDef(BaseValidatorModel):
 class GetDelegatedAccessTokenResponseTypeDef(BaseValidatorModel):
     Credentials: CredentialsTypeDef
     PackedPolicySize: int
-    AssumedPrincipal: str
+    AssumedPrincipal: Annotated[str, _aws_pattern("Sts", "arnType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 

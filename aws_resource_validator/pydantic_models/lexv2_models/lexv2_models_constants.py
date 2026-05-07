@@ -74,6 +74,15 @@ AnalyticsUtteranceMetricNameType = Literal["Count", "Detected", "Missed", "Utter
 AnalyticsUtteranceSortByNameType = Literal["UtteranceTimestamp"]
 AssistedNluModeType = Literal["Fallback", "Primary"]
 AssociatedTranscriptFilterNameType = Literal["IntentId", "SlotTypeId"]
+AudioFillerTypeType = Literal[
+    "MELODY_CHIPPER_CHIME",
+    "MELODY_CURIOUS_CRAWL",
+    "MELODY_PATIENT_PING",
+    "MELODY_PONDERING_PONG",
+    "MELODY_RISING_RIPPLE",
+    "TYPING_KINETIC_KEYS",
+    "TYPING_QUIET_QWERTY",
+]
 AudioRecognitionStrategyType = Literal["UseSlotValuesAsCustomVocabulary"]
 BedrockTraceStatusType = Literal["DISABLED", "ENABLED"]
 BotAliasAvailableWaiterName = Literal["bot_alias_available"]
@@ -307,6 +316,7 @@ ServiceName = Literal[
     "deadline",
     "detective",
     "devicefarm",
+    "devops-agent",
     "devops-guru",
     "directconnect",
     "discovery",
@@ -373,6 +383,7 @@ ServiceName = Literal[
     "inspector",
     "inspector-scan",
     "inspector2",
+    "interconnect",
     "internetmonitor",
     "invoicing",
     "iot",
@@ -429,6 +440,7 @@ ServiceName = Literal[
     "marketplace-agreement",
     "marketplace-catalog",
     "marketplace-deployment",
+    "marketplace-discovery",
     "marketplace-entitlement",
     "marketplace-reporting",
     "marketplacecommerceanalytics",
@@ -526,6 +538,7 @@ ServiceName = Literal[
     "rum",
     "s3",
     "s3control",
+    "s3files",
     "s3outposts",
     "s3tables",
     "s3vectors",
@@ -542,6 +555,7 @@ ServiceName = Literal[
     "sdb",
     "secretsmanager",
     "security-ir",
+    "securityagent",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -555,6 +569,7 @@ ServiceName = Literal[
     "signer",
     "signer-data",
     "signin",
+    "simpledbv2",
     "simspaceweaver",
     "snow-device-management",
     "snowball",
@@ -576,6 +591,7 @@ ServiceName = Literal[
     "supplychain",
     "support",
     "support-app",
+    "sustainability",
     "swf",
     "synthetics",
     "taxsettings",
@@ -588,6 +604,7 @@ ServiceName = Literal[
     "transfer",
     "translate",
     "trustedadvisor",
+    "uxc",
     "verifiedpermissions",
     "voice-id",
     "vpc-lattice",

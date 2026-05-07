@@ -6,7 +6,6 @@
     "ResponseMetadataTypeDef",
     "MetadataCopiesTypeDef",
     "CreateDatastoreRequestTypeDef",
-    "DICOMImportJobPropertiesTypeDef",
     "DICOMImportJobSummaryTypeDef",
     "DICOMStudyDateAndTimeTypeDef",
     "DICOMTagsTypeDef",
@@ -14,6 +13,7 @@
     "DatastoreSummaryTypeDef",
     "DeleteDatastoreRequestTypeDef",
     "DeleteImageSetRequestTypeDef",
+    "DicomMetadataMappingTypeDef",
     "GetDICOMImportJobRequestTypeDef",
     "GetDatastoreRequestTypeDef",
     "ImageFrameInformationTypeDef",
@@ -26,7 +26,6 @@
     "ListImageSetVersionsRequestTypeDef",
     "ListTagsForResourceRequestTypeDef",
     "SortTypeDef",
-    "StartDICOMImportJobRequestTypeDef",
     "TagResourceRequestTypeDef",
     "UntagResourceRequestTypeDef",
     "DICOMUpdatesTypeDef",
@@ -40,11 +39,12 @@
     "StartDICOMImportJobResponseTypeDef",
     "UpdateImageSetMetadataResponseTypeDef",
     "CopySourceImageSetInformationTypeDef",
-    "GetDICOMImportJobResponseTypeDef",
     "ListDICOMImportJobsResponseTypeDef",
     "ImageSetsMetadataSummaryTypeDef",
     "GetDatastoreResponseTypeDef",
     "ListDatastoresResponseTypeDef",
+    "DicomJsonMetadataImportConfigurationOutputTypeDef",
+    "DicomJsonMetadataImportConfigurationTypeDef",
     "GetImageFrameRequestTypeDef",
     "GetImageSetResponseTypeDef",
     "ImageSetPropertiesTypeDef",
@@ -55,11 +55,16 @@
     "MetadataUpdatesTypeDef",
     "CopyImageSetInformationTypeDef",
     "SearchImageSetsResponseTypeDef",
+    "ImportConfigurationOutputTypeDef",
+    "ImportConfigurationTypeDef",
     "ListImageSetVersionsResponseTypeDef",
     "SearchFilterTypeDef",
     "UpdateImageSetMetadataRequestTypeDef",
     "CopyImageSetRequestTypeDef",
+    "DICOMImportJobPropertiesTypeDef",
     "SearchCriteriaTypeDef",
+    "GetDICOMImportJobResponseTypeDef",
+    "StartDICOMImportJobRequestTypeDef",
     "SearchImageSetsRequestPaginateTypeDef",
     "SearchImageSetsRequestTypeDef"
   ],
@@ -67,6 +72,7 @@
   "service": "medical_imaging",
   "union_aliases": [
     "BlobTypeDef",
-    "TimestampTypeDef"
+    "TimestampTypeDef",
+    "ImportConfigurationUnionTypeDef"
   ]
 }

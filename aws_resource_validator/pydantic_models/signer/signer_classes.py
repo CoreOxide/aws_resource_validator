@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.signer.signer_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,11 +42,11 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'add_profile_permission' function.
 class AddProfilePermissionRequestTypeDef(BaseValidatorModel):
-    profileName: str
+    profileName: Annotated[str, _aws_pattern("Signer", "ProfileName")]
     action: str
     principal: str
     statementId: str
-    profileVersion: Optional[str] = None
+    profileVersion: Optional[Annotated[str, _aws_pattern("Signer", "ProfileVersion")]] = None
     revisionId: Optional[str] = None
 
 
@@ -61,7 +63,7 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'cancel_signing_profile' function.
 class CancelSigningProfileRequestTypeDef(BaseValidatorModel):
-    profileName: str
+    profileName: Annotated[str, _aws_pattern("Signer", "ProfileName")]
 
 
 # This class is the input for the 'describe_signing_job' function.
@@ -109,8 +111,8 @@ class SigningImageFormatTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_signing_profile' function.
 class GetSigningProfileRequestTypeDef(BaseValidatorModel):
-    profileName: str
-    profileOwner: Optional[str] = None
+    profileName: Annotated[str, _aws_pattern("Signer", "ProfileName")]
+    profileOwner: Optional[Annotated[str, _aws_pattern("Signer", "AccountId")]] = None
 
 
 class SignatureValidityPeriodTypeDef(BaseValidatorModel):
@@ -131,7 +133,7 @@ class HashAlgorithmOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_profile_permissions' function.
 class ListProfilePermissionsRequestTypeDef(BaseValidatorModel):
-    profileName: str
+    profileName: Annotated[str, _aws_pattern("Signer", "ProfileName")]
     nextToken: Optional[str] = None
 
 
@@ -139,7 +141,7 @@ class PermissionTypeDef(BaseValidatorModel):
     action: Optional[str] = None
     principal: Optional[str] = None
     statementId: Optional[str] = None
-    profileVersion: Optional[str] = None
+    profileVersion: Optional[Annotated[str, _aws_pattern("Signer", "ProfileVersion")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -173,7 +175,7 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'remove_profile_permission' function.
 class RemoveProfilePermissionRequestTypeDef(BaseValidatorModel):
-    profileName: str
+    profileName: Annotated[str, _aws_pattern("Signer", "ProfileName")]
     revisionId: str
     statementId: str
 
@@ -182,7 +184,7 @@ class RemoveProfilePermissionRequestTypeDef(BaseValidatorModel):
 class RevokeSignatureRequestTypeDef(BaseValidatorModel):
     jobId: str
     reason: str
-    jobOwner: Optional[str] = None
+    jobOwner: Optional[Annotated[str, _aws_pattern("Signer", "AccountId")]] = None
 
 
 class S3SignedObjectTypeDef(BaseValidatorModel):
@@ -208,7 +210,7 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Signer", "TagKey")]]
 
 
 # This class is the output for the 'add_profile_permission' function.
@@ -237,7 +239,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'put_signing_profile' function.
 class PutSigningProfileResponseTypeDef(BaseValidatorModel):
     arn: str
-    profileVersion: str
+    profileVersion: Annotated[str, _aws_pattern("Signer", "ProfileVersion")]
     profileVersionArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -251,7 +253,7 @@ class RemoveProfilePermissionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'sign_payload' function.
 class SignPayloadResponseTypeDef(BaseValidatorModel):
     jobId: str
-    jobOwner: str
+    jobOwner: Annotated[str, _aws_pattern("Signer", "AccountId")]
     metadata: Dict[str, str]
     signature: bytes
     ResponseMetadata: ResponseMetadataTypeDef
@@ -260,16 +262,16 @@ class SignPayloadResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'start_signing_job' function.
 class StartSigningJobResponseTypeDef(BaseValidatorModel):
     jobId: str
-    jobOwner: str
+    jobOwner: Annotated[str, _aws_pattern("Signer", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'sign_payload' function.
 class SignPayloadRequestTypeDef(BaseValidatorModel):
-    profileName: str
+    profileName: Annotated[str, _aws_pattern("Signer", "ProfileName")]
     payload: BlobTypeDef
     payloadFormat: str
-    profileOwner: Optional[str] = None
+    profileOwner: Optional[Annotated[str, _aws_pattern("Signer", "AccountId")]] = None
 
 
 class DescribeSigningJobRequestWaitTypeDef(BaseValidatorModel):
@@ -300,20 +302,20 @@ class ListSigningJobsRequestTypeDef(BaseValidatorModel):
     isRevoked: Optional[bool] = None
     signatureExpiresBefore: Optional[TimestampTypeDef] = None
     signatureExpiresAfter: Optional[TimestampTypeDef] = None
-    jobInvoker: Optional[str] = None
+    jobInvoker: Optional[Annotated[str, _aws_pattern("Signer", "AccountId")]] = None
 
 
 # This class is the input for the 'revoke_signing_profile' function.
 class RevokeSigningProfileRequestTypeDef(BaseValidatorModel):
-    profileName: str
-    profileVersion: str
+    profileName: Annotated[str, _aws_pattern("Signer", "ProfileName")]
+    profileVersion: Annotated[str, _aws_pattern("Signer", "ProfileVersion")]
     reason: str
     effectiveTime: TimestampTypeDef
 
 
 class SigningProfileTypeDef(BaseValidatorModel):
-    profileName: Optional[str] = None
-    profileVersion: Optional[str] = None
+    profileName: Optional[Annotated[str, _aws_pattern("Signer", "ProfileName")]] = None
+    profileVersion: Optional[Annotated[str, _aws_pattern("Signer", "ProfileVersion")]] = None
     profileVersionArn: Optional[str] = None
     signingMaterial: Optional[SigningMaterialTypeDef] = None
     signatureValidityPeriod: Optional[SignatureValidityPeriodTypeDef] = None
@@ -418,22 +420,22 @@ class SigningJobTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     status: Optional[SigningStatusType] = None
     isRevoked: Optional[bool] = None
-    profileName: Optional[str] = None
-    profileVersion: Optional[str] = None
+    profileName: Optional[Annotated[str, _aws_pattern("Signer", "ProfileName")]] = None
+    profileVersion: Optional[Annotated[str, _aws_pattern("Signer", "ProfileVersion")]] = None
     platformId: Optional[str] = None
     platformDisplayName: Optional[str] = None
     signatureExpiresAt: Optional[datetime] = None
-    jobOwner: Optional[str] = None
-    jobInvoker: Optional[str] = None
+    jobOwner: Optional[Annotated[str, _aws_pattern("Signer", "AccountId")]] = None
+    jobInvoker: Optional[Annotated[str, _aws_pattern("Signer", "AccountId")]] = None
 
 
 # This class is the input for the 'start_signing_job' function.
 class StartSigningJobRequestTypeDef(BaseValidatorModel):
     source: SourceTypeDef
     destination: DestinationTypeDef
-    profileName: str
+    profileName: Annotated[str, _aws_pattern("Signer", "ProfileName")]
     clientRequestToken: str
-    profileOwner: Optional[str] = None
+    profileOwner: Optional[Annotated[str, _aws_pattern("Signer", "AccountId")]] = None
 
 
 # This class is the output for the 'describe_signing_job' function.
@@ -443,8 +445,8 @@ class DescribeSigningJobResponseTypeDef(BaseValidatorModel):
     signingMaterial: SigningMaterialTypeDef
     platformId: str
     platformDisplayName: str
-    profileName: str
-    profileVersion: str
+    profileName: Annotated[str, _aws_pattern("Signer", "ProfileName")]
+    profileVersion: Annotated[str, _aws_pattern("Signer", "ProfileVersion")]
     overrides: SigningPlatformOverridesTypeDef
     signingParameters: Dict[str, str]
     createdAt: datetime
@@ -455,15 +457,15 @@ class DescribeSigningJobResponseTypeDef(BaseValidatorModel):
     statusReason: str
     revocationRecord: SigningJobRevocationRecordTypeDef
     signedObject: SignedObjectTypeDef
-    jobOwner: str
-    jobInvoker: str
+    jobOwner: Annotated[str, _aws_pattern("Signer", "AccountId")]
+    jobInvoker: Annotated[str, _aws_pattern("Signer", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_signing_profile' function.
 class GetSigningProfileResponseTypeDef(BaseValidatorModel):
-    profileName: str
-    profileVersion: str
+    profileName: Annotated[str, _aws_pattern("Signer", "ProfileName")]
+    profileVersion: Annotated[str, _aws_pattern("Signer", "ProfileVersion")]
     profileVersionArn: str
     revocationRecord: SigningProfileRevocationRecordTypeDef
     signingMaterial: SigningMaterialTypeDef
@@ -481,7 +483,7 @@ class GetSigningProfileResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_signing_profile' function.
 class PutSigningProfileRequestTypeDef(BaseValidatorModel):
-    profileName: str
+    profileName: Annotated[str, _aws_pattern("Signer", "ProfileName")]
     platformId: str
     signingMaterial: Optional[SigningMaterialTypeDef] = None
     signatureValidityPeriod: Optional[SignatureValidityPeriodTypeDef] = None

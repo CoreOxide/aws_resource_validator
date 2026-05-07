@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -46,8 +48,8 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("Rolesanywhere", "TagKey")]
+    value: Annotated[str, _aws_pattern("Rolesanywhere", "TagValue")]
 
 
 class NotificationSettingTypeDef(BaseValidatorModel):
@@ -67,7 +69,7 @@ class CredentialSummaryTypeDef(BaseValidatorModel):
 
 
 class CrlDetailTypeDef(BaseValidatorModel):
-    crlId: Optional[str] = None
+    crlId: Optional[Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]] = None
     crlArn: Optional[str] = None
     name: Optional[str] = None
     enabled: Optional[bool] = None
@@ -87,7 +89,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_attribute_mapping' function.
 class DeleteAttributeMappingRequestTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]
     certificateField: CertificateFieldType
     specifiers: Optional[List[str]] = None
 
@@ -130,7 +132,7 @@ class ListRequestTypeDef(BaseValidatorModel):
 
 class SubjectSummaryTypeDef(BaseValidatorModel):
     subjectArn: Optional[str] = None
-    subjectId: Optional[str] = None
+    subjectId: Optional[Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]] = None
     enabled: Optional[bool] = None
     x509Subject: Optional[str] = None
     lastSeenAt: Optional[datetime] = None
@@ -173,7 +175,7 @@ class ScalarCrlRequestRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_crl' function.
 class ScalarCrlRequestTypeDef(BaseValidatorModel):
-    crlId: str
+    crlId: Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]
 
 
 # This class is the input for the 'get_profile' function.
@@ -193,12 +195,12 @@ class ScalarProfileRequestRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_profile' function.
 class ScalarProfileRequestTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]
 
 
 # This class is the input for the 'get_subject' function.
 class ScalarSubjectRequestTypeDef(BaseValidatorModel):
-    subjectId: str
+    subjectId: Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]
 
 
 # This class is the input for the 'get_trust_anchor' function.
@@ -218,7 +220,7 @@ class ScalarTrustAnchorRequestRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_trust_anchor' function.
 class ScalarTrustAnchorRequestTypeDef(BaseValidatorModel):
-    trustAnchorId: str
+    trustAnchorId: Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]
 
 
 class SourceDataTypeDef(BaseValidatorModel):
@@ -228,15 +230,15 @@ class SourceDataTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Rolesanywhere", "TagKey")]]
 
 
 # This class is the input for the 'update_profile' function.
 class UpdateProfileRequestTypeDef(BaseValidatorModel):
-    profileId: str
-    name: Optional[str] = None
+    profileId: Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]
+    name: Optional[Annotated[str, _aws_pattern("Rolesanywhere", "ResourceName")]] = None
     sessionPolicy: Optional[str] = None
-    roleArns: Optional[List[str]] = None
+    roleArns: Optional[List[Annotated[str, _aws_pattern("Rolesanywhere", "RoleArn")]]] = None
     managedPolicyArns: Optional[List[str]] = None
     durationSeconds: Optional[int] = None
     acceptRoleSessionName: Optional[bool] = None
@@ -249,22 +251,22 @@ class AttributeMappingTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_attribute_mapping' function.
 class PutAttributeMappingRequestTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]
     certificateField: CertificateFieldType
     mappingRules: List[MappingRuleTypeDef]
 
 
 # This class is the input for the 'update_crl' function.
 class UpdateCrlRequestTypeDef(BaseValidatorModel):
-    crlId: str
-    name: Optional[str] = None
+    crlId: Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]
+    name: Optional[Annotated[str, _aws_pattern("Rolesanywhere", "ResourceName")]] = None
     crlData: Optional[BlobTypeDef] = None
 
 
 # This class is the input for the 'create_profile' function.
 class CreateProfileRequestTypeDef(BaseValidatorModel):
-    name: str
-    roleArns: List[str]
+    name: Annotated[str, _aws_pattern("Rolesanywhere", "ResourceName")]
+    roleArns: List[Annotated[str, _aws_pattern("Rolesanywhere", "RoleArn")]]
     requireInstanceProperties: Optional[bool] = None
     sessionPolicy: Optional[str] = None
     managedPolicyArns: Optional[List[str]] = None
@@ -276,9 +278,9 @@ class CreateProfileRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'import_crl' function.
 class ImportCrlRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Rolesanywhere", "ResourceName")]
     crlData: BlobTypeDef
-    trustAnchorArn: str
+    trustAnchorArn: Annotated[str, _aws_pattern("Rolesanywhere", "TrustAnchorArn")]
     enabled: Optional[bool] = None
     tags: Optional[List[TagTypeDef]] = None
 
@@ -290,7 +292,7 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_notification_settings' function.
 class PutNotificationSettingsRequestTypeDef(BaseValidatorModel):
-    trustAnchorId: str
+    trustAnchorId: Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]
     notificationSettings: List[NotificationSettingTypeDef]
 
 
@@ -315,7 +317,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 class SubjectDetailTypeDef(BaseValidatorModel):
     subjectArn: Optional[str] = None
-    subjectId: Optional[str] = None
+    subjectId: Optional[Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]] = None
     enabled: Optional[bool] = None
     x509Subject: Optional[str] = None
     lastSeenAt: Optional[datetime] = None
@@ -354,7 +356,7 @@ class ListSubjectsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reset_notification_settings' function.
 class ResetNotificationSettingsRequestTypeDef(BaseValidatorModel):
-    trustAnchorId: str
+    trustAnchorId: Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]
     notificationSettingKeys: List[NotificationSettingKeyTypeDef]
 
 
@@ -364,14 +366,14 @@ class SourceTypeDef(BaseValidatorModel):
 
 
 class ProfileDetailTypeDef(BaseValidatorModel):
-    profileId: Optional[str] = None
-    profileArn: Optional[str] = None
-    name: Optional[str] = None
+    profileId: Optional[Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]] = None
+    profileArn: Optional[Annotated[str, _aws_pattern("Rolesanywhere", "ProfileArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Rolesanywhere", "ResourceName")]] = None
     requireInstanceProperties: Optional[bool] = None
     enabled: Optional[bool] = None
     createdBy: Optional[str] = None
     sessionPolicy: Optional[str] = None
-    roleArns: Optional[List[str]] = None
+    roleArns: Optional[List[Annotated[str, _aws_pattern("Rolesanywhere", "RoleArn")]]] = None
     managedPolicyArns: Optional[List[str]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
@@ -388,7 +390,7 @@ class SubjectDetailResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_trust_anchor' function.
 class CreateTrustAnchorRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Rolesanywhere", "ResourceName")]
     source: SourceTypeDef
     enabled: Optional[bool] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -396,9 +398,9 @@ class CreateTrustAnchorRequestTypeDef(BaseValidatorModel):
 
 
 class TrustAnchorDetailTypeDef(BaseValidatorModel):
-    trustAnchorId: Optional[str] = None
+    trustAnchorId: Optional[Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]] = None
     trustAnchorArn: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Rolesanywhere", "ResourceName")]] = None
     source: Optional[SourceTypeDef] = None
     enabled: Optional[bool] = None
     createdAt: Optional[datetime] = None
@@ -408,8 +410,8 @@ class TrustAnchorDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_trust_anchor' function.
 class UpdateTrustAnchorRequestTypeDef(BaseValidatorModel):
-    trustAnchorId: str
-    name: Optional[str] = None
+    trustAnchorId: Annotated[str, _aws_pattern("Rolesanywhere", "Uuid")]
+    name: Optional[Annotated[str, _aws_pattern("Rolesanywhere", "ResourceName")]] = None
     source: Optional[SourceTypeDef] = None
 
 

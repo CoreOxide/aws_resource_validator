@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.socialmessaging.socialmessaging_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -55,57 +57,57 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class S3FileTypeDef(BaseValidatorModel):
-    bucketName: str
+    bucketName: Annotated[str, _aws_pattern("Socialmessaging", "S3FileBucketNameString")]
     key: str
 
 
 # This class is the input for the 'delete_whatsapp_message_media' function.
 class DeleteWhatsAppMessageMediaInputTypeDef(BaseValidatorModel):
-    mediaId: str
-    originationPhoneNumberId: str
+    mediaId: Annotated[str, _aws_pattern("Socialmessaging", "WhatsAppMediaId")]
+    originationPhoneNumberId: Annotated[str, _aws_pattern("Socialmessaging", "WhatsAppPhoneNumberId")]
 
 
 class DeleteWhatsAppMessageTemplateInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
     templateName: str
-    metaTemplateId: Optional[str] = None
+    metaTemplateId: Optional[Annotated[str, _aws_pattern("Socialmessaging", "MetaTemplateId")]] = None
     deleteAllLanguages: Optional[bool] = None
 
 
 class DisassociateWhatsAppBusinessAccountInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
 
 
 # This class is the input for the 'get_linked_whatsapp_business_account' function.
 class GetLinkedWhatsAppBusinessAccountInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
 
 
 # This class is the input for the 'get_linked_whatsapp_business_account_phone_number' function.
 class GetLinkedWhatsAppBusinessAccountPhoneNumberInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Socialmessaging", "WhatsAppPhoneNumberId")]
 
 
 class WhatsAppPhoneNumberDetailTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppPhoneNumberArn")]
     phoneNumber: str
-    phoneNumberId: str
+    phoneNumberId: Annotated[str, _aws_pattern("Socialmessaging", "WhatsAppPhoneNumberId")]
     metaPhoneNumberId: str
     displayPhoneNumberName: str
     displayPhoneNumber: str
     qualityRating: str
-    dataLocalizationRegion: Optional[str] = None
+    dataLocalizationRegion: Optional[Annotated[str, _aws_pattern("Socialmessaging", "IsoCountryCode")]] = None
 
 
 class S3PresignedUrlTypeDef(BaseValidatorModel):
-    url: str
+    url: Annotated[str, _aws_pattern("Socialmessaging", "S3PresignedUrlUrlString")]
     headers: Dict[str, str]
 
 
 # This class is the input for the 'get_whatsapp_message_template' function.
 class GetWhatsAppMessageTemplateInputTypeDef(BaseValidatorModel):
-    metaTemplateId: str
-    id: str
+    metaTemplateId: Annotated[str, _aws_pattern("Socialmessaging", "MetaTemplateId")]
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
 
 
 class LibraryTemplateBodyInputsTypeDef(BaseValidatorModel):
@@ -136,19 +138,19 @@ class LibraryTemplateButtonListTypeDef(BaseValidatorModel):
 
 
 class WhatsAppBusinessAccountEventDestinationTypeDef(BaseValidatorModel):
-    eventDestinationArn: str
-    roleArn: Optional[str] = None
+    eventDestinationArn: Annotated[str, _aws_pattern("Socialmessaging", "EventDestinationArn")]
+    roleArn: Optional[Annotated[str, _aws_pattern("Socialmessaging", "RoleArn")]] = None
 
 
 class WhatsAppPhoneNumberSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppPhoneNumberArn")]
     phoneNumber: str
-    phoneNumberId: str
+    phoneNumberId: Annotated[str, _aws_pattern("Socialmessaging", "WhatsAppPhoneNumberId")]
     metaPhoneNumberId: str
     displayPhoneNumberName: str
     displayPhoneNumber: str
     qualityRating: str
-    dataLocalizationRegion: Optional[str] = None
+    dataLocalizationRegion: Optional[Annotated[str, _aws_pattern("Socialmessaging", "IsoCountryCode")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -165,7 +167,7 @@ class ListLinkedWhatsAppBusinessAccountsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Socialmessaging", "Arn")]
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -175,14 +177,14 @@ class TagTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_whatsapp_message_templates' function.
 class ListWhatsAppMessageTemplatesInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class TemplateSummaryTypeDef(BaseValidatorModel):
     templateName: Optional[str] = None
-    metaTemplateId: Optional[str] = None
+    metaTemplateId: Optional[Annotated[str, _aws_pattern("Socialmessaging", "MetaTemplateId")]] = None
     templateStatus: Optional[str] = None
     templateQualityScore: Optional[str] = None
     templateLanguage: Optional[str] = None
@@ -191,7 +193,7 @@ class TemplateSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_whatsapp_template_library' function.
 class ListWhatsAppTemplateLibraryInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Dict[str, str]] = None
@@ -199,13 +201,13 @@ class ListWhatsAppTemplateLibraryInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Socialmessaging", "Arn")]
     tagKeys: List[str]
 
 
 # This class is the output for the 'create_whatsapp_message_template_from_library' function.
 class CreateWhatsAppMessageTemplateFromLibraryOutputTypeDef(BaseValidatorModel):
-    metaTemplateId: str
+    metaTemplateId: Annotated[str, _aws_pattern("Socialmessaging", "MetaTemplateId")]
     templateStatus: str
     category: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -219,7 +221,7 @@ class CreateWhatsAppMessageTemplateMediaOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_whatsapp_message_template' function.
 class CreateWhatsAppMessageTemplateOutputTypeDef(BaseValidatorModel):
-    metaTemplateId: str
+    metaTemplateId: Annotated[str, _aws_pattern("Socialmessaging", "MetaTemplateId")]
     templateStatus: str
     category: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -246,7 +248,7 @@ class GetWhatsAppMessageTemplateOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'post_whatsapp_message_media' function.
 class PostWhatsAppMessageMediaOutputTypeDef(BaseValidatorModel):
-    mediaId: str
+    mediaId: Annotated[str, _aws_pattern("Socialmessaging", "WhatsAppMediaId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -271,19 +273,19 @@ class UntagResourceOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_whatsapp_message_template' function.
 class CreateWhatsAppMessageTemplateInputTypeDef(BaseValidatorModel):
     templateDefinition: BlobTypeDef
-    id: str
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
 
 
 # This class is the input for the 'send_whatsapp_message' function.
 class SendWhatsAppMessageInputTypeDef(BaseValidatorModel):
-    originationPhoneNumberId: str
+    originationPhoneNumberId: Annotated[str, _aws_pattern("Socialmessaging", "WhatsAppPhoneNumberId")]
     message: BlobTypeDef
     metaApiVersion: str
 
 
 class UpdateWhatsAppMessageTemplateInputTypeDef(BaseValidatorModel):
-    id: str
-    metaTemplateId: str
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
+    metaTemplateId: Annotated[str, _aws_pattern("Socialmessaging", "MetaTemplateId")]
     parameterFormat: Optional[str] = None
     templateCategory: Optional[str] = None
     templateComponents: Optional[BlobTypeDef] = None
@@ -292,14 +294,14 @@ class UpdateWhatsAppMessageTemplateInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_whatsapp_message_template_media' function.
 class CreateWhatsAppMessageTemplateMediaInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
     sourceS3File: Optional[S3FileTypeDef] = None
 
 
 # This class is the output for the 'get_linked_whatsapp_business_account_phone_number' function.
 class GetLinkedWhatsAppBusinessAccountPhoneNumberOutputTypeDef(BaseValidatorModel):
     phoneNumber: WhatsAppPhoneNumberDetailTypeDef
-    linkedWhatsAppBusinessAccountId: str
+    linkedWhatsAppBusinessAccountId: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -307,13 +309,13 @@ class LinkedWhatsAppBusinessAccountIdMetaDataTypeDef(BaseValidatorModel):
     accountName: Optional[str] = None
     registrationStatus: Optional[RegistrationStatusType] = None
     unregisteredWhatsAppPhoneNumbers: Optional[List[WhatsAppPhoneNumberDetailTypeDef]] = None
-    wabaId: Optional[str] = None
+    wabaId: Optional[Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]] = None
 
 
 # This class is the input for the 'get_whatsapp_message_media' function.
 class GetWhatsAppMessageMediaInputTypeDef(BaseValidatorModel):
-    mediaId: str
-    originationPhoneNumberId: str
+    mediaId: Annotated[str, _aws_pattern("Socialmessaging", "WhatsAppMediaId")]
+    originationPhoneNumberId: Annotated[str, _aws_pattern("Socialmessaging", "WhatsAppPhoneNumberId")]
     metadataOnly: Optional[bool] = None
     destinationS3PresignedUrl: Optional[S3PresignedUrlTypeDef] = None
     destinationS3File: Optional[S3FileTypeDef] = None
@@ -321,7 +323,7 @@ class GetWhatsAppMessageMediaInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'post_whatsapp_message_media' function.
 class PostWhatsAppMessageMediaInputTypeDef(BaseValidatorModel):
-    originationPhoneNumberId: str
+    originationPhoneNumberId: Annotated[str, _aws_pattern("Socialmessaging", "WhatsAppPhoneNumberId")]
     sourceS3PresignedUrl: Optional[S3PresignedUrlTypeDef] = None
     sourceS3File: Optional[S3FileTypeDef] = None
 
@@ -345,13 +347,13 @@ class MetaLibraryTemplateDefinitionTypeDef(BaseValidatorModel):
     templateHeader: Optional[str] = None
     templateBody: Optional[str] = None
     templateButtons: Optional[List[LibraryTemplateButtonListTypeDef]] = None
-    templateId: Optional[str] = None
+    templateId: Optional[Annotated[str, _aws_pattern("Socialmessaging", "MetaTemplateId")]] = None
     templateBodyExampleParams: Optional[List[str]] = None
 
 
 class LinkedWhatsAppBusinessAccountSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountArn")]
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
     wabaId: str
     registrationStatus: RegistrationStatusType
     linkDate: datetime
@@ -360,13 +362,13 @@ class LinkedWhatsAppBusinessAccountSummaryTypeDef(BaseValidatorModel):
 
 
 class PutWhatsAppBusinessAccountEventDestinationsInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
     eventDestinations: List[WhatsAppBusinessAccountEventDestinationTypeDef]
 
 
 class LinkedWhatsAppBusinessAccountTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountArn")]
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
     wabaId: str
     registrationStatus: RegistrationStatusType
     linkDate: datetime
@@ -399,14 +401,14 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Socialmessaging", "Arn")]
     tags: List[TagTypeDef]
 
 
 class WabaPhoneNumberSetupFinalizationTypeDef(BaseValidatorModel):
     id: str
     twoFactorPin: str
-    dataLocalizationRegion: Optional[str] = None
+    dataLocalizationRegion: Optional[Annotated[str, _aws_pattern("Socialmessaging", "IsoCountryCode")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -431,7 +433,7 @@ class WhatsAppSignupCallbackResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_whatsapp_message_template_from_library' function.
 class CreateWhatsAppMessageTemplateFromLibraryInputTypeDef(BaseValidatorModel):
     metaLibraryTemplate: MetaLibraryTemplateTypeDef
-    id: str
+    id: Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]
 
 
 # This class is the output for the 'list_whatsapp_template_library' function.
@@ -457,7 +459,9 @@ class GetLinkedWhatsAppBusinessAccountOutputTypeDef(BaseValidatorModel):
 class WhatsAppSetupFinalizationTypeDef(BaseValidatorModel):
     associateInProgressToken: str
     phoneNumbers: List[WabaPhoneNumberSetupFinalizationTypeDef]
-    phoneNumberParent: Optional[str] = None
+    phoneNumberParent: Optional[Annotated[str, _aws_pattern("Socialmessaging", "LinkedWhatsAppBusinessAccountId")]] = (
+        None
+    )
     waba: Optional[WabaSetupFinalizationTypeDef] = None
 
 

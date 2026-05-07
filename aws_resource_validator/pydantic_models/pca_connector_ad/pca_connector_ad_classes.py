@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,7 +46,7 @@ class AccessRightsTypeDef(BaseValidatorModel):
 
 
 class ApplicationPolicyTypeDef(BaseValidatorModel):
-    PolicyObjectIdentifier: Optional[str] = None
+    PolicyObjectIdentifier: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "CustomObjectIdentifier")]] = None
     PolicyType: Optional[ApplicationPolicyTypeType] = None
 
 
@@ -68,58 +70,58 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_directory_registration' function.
 class CreateDirectoryRegistrationRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    ClientToken: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryId")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "ClientToken")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_service_principal_name' function.
 class CreateServicePrincipalNameRequestTypeDef(BaseValidatorModel):
-    ConnectorArn: str
-    DirectoryRegistrationArn: str
-    ClientToken: Optional[str] = None
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]
+    DirectoryRegistrationArn: Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryRegistrationArn")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_connector' function.
 class DeleteConnectorRequestTypeDef(BaseValidatorModel):
-    ConnectorArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]
 
 
 # This class is the input for the 'delete_directory_registration' function.
 class DeleteDirectoryRegistrationRequestTypeDef(BaseValidatorModel):
-    DirectoryRegistrationArn: str
+    DirectoryRegistrationArn: Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryRegistrationArn")]
 
 
 # This class is the input for the 'delete_service_principal_name' function.
 class DeleteServicePrincipalNameRequestTypeDef(BaseValidatorModel):
-    ConnectorArn: str
-    DirectoryRegistrationArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]
+    DirectoryRegistrationArn: Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryRegistrationArn")]
 
 
 # This class is the input for the 'delete_template_group_access_control_entry' function.
 class DeleteTemplateGroupAccessControlEntryRequestTypeDef(BaseValidatorModel):
-    GroupSecurityIdentifier: str
-    TemplateArn: str
+    GroupSecurityIdentifier: Annotated[str, _aws_pattern("PcaConnectorAd", "GroupSecurityIdentifier")]
+    TemplateArn: Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]
 
 
 # This class is the input for the 'delete_template' function.
 class DeleteTemplateRequestTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]
 
 
 class DirectoryRegistrationSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryRegistrationArn")]] = None
     CreatedAt: Optional[datetime] = None
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryId")]] = None
     Status: Optional[DirectoryRegistrationStatusType] = None
     StatusReason: Optional[DirectoryRegistrationStatusReasonType] = None
     UpdatedAt: Optional[datetime] = None
 
 
 class DirectoryRegistrationTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryRegistrationArn")]] = None
     CreatedAt: Optional[datetime] = None
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryId")]] = None
     Status: Optional[DirectoryRegistrationStatusType] = None
     StatusReason: Optional[DirectoryRegistrationStatusReasonType] = None
     UpdatedAt: Optional[datetime] = None
@@ -166,24 +168,26 @@ class GeneralFlagsV4TypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_connector' function.
 class GetConnectorRequestTypeDef(BaseValidatorModel):
-    ConnectorArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]
 
 
 # This class is the input for the 'get_directory_registration' function.
 class GetDirectoryRegistrationRequestTypeDef(BaseValidatorModel):
-    DirectoryRegistrationArn: str
+    DirectoryRegistrationArn: Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryRegistrationArn")]
 
 
 # This class is the input for the 'get_service_principal_name' function.
 class GetServicePrincipalNameRequestTypeDef(BaseValidatorModel):
-    ConnectorArn: str
-    DirectoryRegistrationArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]
+    DirectoryRegistrationArn: Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryRegistrationArn")]
 
 
 class ServicePrincipalNameTypeDef(BaseValidatorModel):
-    ConnectorArn: Optional[str] = None
+    ConnectorArn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]] = None
     CreatedAt: Optional[datetime] = None
-    DirectoryRegistrationArn: Optional[str] = None
+    DirectoryRegistrationArn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryRegistrationArn")]] = (
+        None
+    )
     Status: Optional[ServicePrincipalNameStatusType] = None
     StatusReason: Optional[ServicePrincipalNameStatusReasonType] = None
     UpdatedAt: Optional[datetime] = None
@@ -191,13 +195,13 @@ class ServicePrincipalNameTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_template_group_access_control_entry' function.
 class GetTemplateGroupAccessControlEntryRequestTypeDef(BaseValidatorModel):
-    GroupSecurityIdentifier: str
-    TemplateArn: str
+    GroupSecurityIdentifier: Annotated[str, _aws_pattern("PcaConnectorAd", "GroupSecurityIdentifier")]
+    TemplateArn: Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]
 
 
 # This class is the input for the 'get_template' function.
 class GetTemplateRequestTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]
 
 
 class KeyUsageFlagsTypeDef(BaseValidatorModel):
@@ -223,26 +227,28 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_connectors' function.
 class ListConnectorsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "NextToken")]] = None
 
 
 # This class is the input for the 'list_directory_registrations' function.
 class ListDirectoryRegistrationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "NextToken")]] = None
 
 
 # This class is the input for the 'list_service_principal_names' function.
 class ListServicePrincipalNamesRequestTypeDef(BaseValidatorModel):
-    DirectoryRegistrationArn: str
+    DirectoryRegistrationArn: Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryRegistrationArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "NextToken")]] = None
 
 
 class ServicePrincipalNameSummaryTypeDef(BaseValidatorModel):
-    ConnectorArn: Optional[str] = None
+    ConnectorArn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]] = None
     CreatedAt: Optional[datetime] = None
-    DirectoryRegistrationArn: Optional[str] = None
+    DirectoryRegistrationArn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryRegistrationArn")]] = (
+        None
+    )
     Status: Optional[ServicePrincipalNameStatusType] = None
     StatusReason: Optional[ServicePrincipalNameStatusReasonType] = None
     UpdatedAt: Optional[datetime] = None
@@ -255,16 +261,16 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_template_group_access_control_entries' function.
 class ListTemplateGroupAccessControlEntriesRequestTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "NextToken")]] = None
 
 
 # This class is the input for the 'list_templates' function.
 class ListTemplatesRequestTypeDef(BaseValidatorModel):
-    ConnectorArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "NextToken")]] = None
 
 
 class PrivateKeyAttributesV2OutputTypeDef(BaseValidatorModel):
@@ -358,43 +364,43 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 
 class VpcInformationTypeDef(BaseValidatorModel):
-    SecurityGroupIds: List[str]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("PcaConnectorAd", "SecurityGroupId")]]
     IpAddressType: Optional[IpAddressTypeType] = None
 
 
 class AccessControlEntrySummaryTypeDef(BaseValidatorModel):
     AccessRights: Optional[AccessRightsTypeDef] = None
     CreatedAt: Optional[datetime] = None
-    GroupDisplayName: Optional[str] = None
-    GroupSecurityIdentifier: Optional[str] = None
-    TemplateArn: Optional[str] = None
+    GroupDisplayName: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "DisplayName")]] = None
+    GroupSecurityIdentifier: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "GroupSecurityIdentifier")]] = None
+    TemplateArn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]] = None
     UpdatedAt: Optional[datetime] = None
 
 
 class AccessControlEntryTypeDef(BaseValidatorModel):
     AccessRights: Optional[AccessRightsTypeDef] = None
     CreatedAt: Optional[datetime] = None
-    GroupDisplayName: Optional[str] = None
-    GroupSecurityIdentifier: Optional[str] = None
-    TemplateArn: Optional[str] = None
+    GroupDisplayName: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "DisplayName")]] = None
+    GroupSecurityIdentifier: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "GroupSecurityIdentifier")]] = None
+    TemplateArn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]] = None
     UpdatedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'create_template_group_access_control_entry' function.
 class CreateTemplateGroupAccessControlEntryRequestTypeDef(BaseValidatorModel):
     AccessRights: AccessRightsTypeDef
-    GroupDisplayName: str
-    GroupSecurityIdentifier: str
-    TemplateArn: str
-    ClientToken: Optional[str] = None
+    GroupDisplayName: Annotated[str, _aws_pattern("PcaConnectorAd", "DisplayName")]
+    GroupSecurityIdentifier: Annotated[str, _aws_pattern("PcaConnectorAd", "GroupSecurityIdentifier")]
+    TemplateArn: Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_template_group_access_control_entry' function.
 class UpdateTemplateGroupAccessControlEntryRequestTypeDef(BaseValidatorModel):
-    GroupSecurityIdentifier: str
-    TemplateArn: str
+    GroupSecurityIdentifier: Annotated[str, _aws_pattern("PcaConnectorAd", "GroupSecurityIdentifier")]
+    TemplateArn: Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]
     AccessRights: Optional[AccessRightsTypeDef] = None
-    GroupDisplayName: Optional[str] = None
+    GroupDisplayName: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "DisplayName")]] = None
 
 
 class ApplicationPoliciesOutputTypeDef(BaseValidatorModel):
@@ -413,11 +419,11 @@ class CertificateValidityTypeDef(BaseValidatorModel):
 
 
 class ConnectorSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    CertificateAuthorityArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]] = None
+    CertificateAuthorityArn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "CertificateAuthorityArn")]] = None
     CertificateEnrollmentPolicyServerEndpoint: Optional[str] = None
     CreatedAt: Optional[datetime] = None
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryId")]] = None
     Status: Optional[ConnectorStatusType] = None
     StatusReason: Optional[ConnectorStatusReasonType] = None
     UpdatedAt: Optional[datetime] = None
@@ -425,11 +431,11 @@ class ConnectorSummaryTypeDef(BaseValidatorModel):
 
 
 class ConnectorTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    CertificateAuthorityArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]] = None
+    CertificateAuthorityArn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "CertificateAuthorityArn")]] = None
     CertificateEnrollmentPolicyServerEndpoint: Optional[str] = None
     CreatedAt: Optional[datetime] = None
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryId")]] = None
     Status: Optional[ConnectorStatusType] = None
     StatusReason: Optional[ConnectorStatusReasonType] = None
     UpdatedAt: Optional[datetime] = None
@@ -438,19 +444,19 @@ class ConnectorTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_connector' function.
 class CreateConnectorResponseTypeDef(BaseValidatorModel):
-    ConnectorArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_directory_registration' function.
 class CreateDirectoryRegistrationResponseTypeDef(BaseValidatorModel):
-    DirectoryRegistrationArn: str
+    DirectoryRegistrationArn: Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryRegistrationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_template' function.
 class CreateTemplateResponseTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -469,7 +475,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 class ListDirectoryRegistrationsResponseTypeDef(BaseValidatorModel):
     DirectoryRegistrations: List[DirectoryRegistrationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "NextToken")]] = None
 
 
 # This class is the output for the 'get_directory_registration' function.
@@ -521,7 +527,7 @@ class ListTemplatesRequestPaginateTypeDef(BaseValidatorModel):
 class ListServicePrincipalNamesResponseTypeDef(BaseValidatorModel):
     ServicePrincipalNames: List[ServicePrincipalNameSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "NextToken")]] = None
 
 
 VpcInformationUnionTypeDef = Union[VpcInformationOutputTypeDef, VpcInformationTypeDef]
@@ -531,7 +537,7 @@ VpcInformationUnionTypeDef = Union[VpcInformationOutputTypeDef, VpcInformationTy
 class ListTemplateGroupAccessControlEntriesResponseTypeDef(BaseValidatorModel):
     AccessControlEntries: List[AccessControlEntrySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "NextToken")]] = None
 
 
 # This class is the output for the 'get_template_group_access_control_entry' function.
@@ -544,7 +550,7 @@ class GetTemplateGroupAccessControlEntryResponseTypeDef(BaseValidatorModel):
 class ListConnectorsResponseTypeDef(BaseValidatorModel):
     Connectors: List[ConnectorSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "NextToken")]] = None
 
 
 # This class is the output for the 'get_connector' function.
@@ -617,10 +623,10 @@ class PrivateKeyAttributesV4TypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_connector' function.
 class CreateConnectorRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
-    DirectoryId: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("PcaConnectorAd", "CertificateAuthorityArn")]
+    DirectoryId: Annotated[str, _aws_pattern("PcaConnectorAd", "DirectoryId")]
     VpcInformation: VpcInformationUnionTypeDef
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "ClientToken")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -643,7 +649,7 @@ class TemplateV2TypeDef(BaseValidatorModel):
     PrivateKeyAttributes: PrivateKeyAttributesV2TypeDef
     PrivateKeyFlags: PrivateKeyFlagsV2TypeDef
     SubjectNameFlags: SubjectNameFlagsV2TypeDef
-    SupersededTemplates: Optional[List[str]] = None
+    SupersededTemplates: Optional[List[Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateName")]]] = None
 
 
 class TemplateV3OutputTypeDef(BaseValidatorModel):
@@ -667,7 +673,7 @@ class TemplateV3TypeDef(BaseValidatorModel):
     PrivateKeyAttributes: PrivateKeyAttributesV3TypeDef
     PrivateKeyFlags: PrivateKeyFlagsV3TypeDef
     SubjectNameFlags: SubjectNameFlagsV3TypeDef
-    SupersededTemplates: Optional[List[str]] = None
+    SupersededTemplates: Optional[List[Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateName")]]] = None
 
 
 class TemplateV4OutputTypeDef(BaseValidatorModel):
@@ -691,7 +697,7 @@ class TemplateV4TypeDef(BaseValidatorModel):
     PrivateKeyFlags: PrivateKeyFlagsV4TypeDef
     SubjectNameFlags: SubjectNameFlagsV4TypeDef
     HashAlgorithm: Optional[HashAlgorithmType] = None
-    SupersededTemplates: Optional[List[str]] = None
+    SupersededTemplates: Optional[List[Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateName")]]] = None
 
 
 class TemplateDefinitionOutputTypeDef(BaseValidatorModel):
@@ -707,12 +713,12 @@ class TemplateDefinitionTypeDef(BaseValidatorModel):
 
 
 class TemplateSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    ConnectorArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]] = None
+    ConnectorArn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]] = None
     CreatedAt: Optional[datetime] = None
     Definition: Optional[TemplateDefinitionOutputTypeDef] = None
-    Name: Optional[str] = None
-    ObjectIdentifier: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateName")]] = None
+    ObjectIdentifier: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "CustomObjectIdentifier")]] = None
     PolicySchema: Optional[int] = None
     Revision: Optional[TemplateRevisionTypeDef] = None
     Status: Optional[TemplateStatusType] = None
@@ -720,12 +726,12 @@ class TemplateSummaryTypeDef(BaseValidatorModel):
 
 
 class TemplateTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    ConnectorArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]] = None
+    ConnectorArn: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]] = None
     CreatedAt: Optional[datetime] = None
     Definition: Optional[TemplateDefinitionOutputTypeDef] = None
-    Name: Optional[str] = None
-    ObjectIdentifier: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateName")]] = None
+    ObjectIdentifier: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "CustomObjectIdentifier")]] = None
     PolicySchema: Optional[int] = None
     Revision: Optional[TemplateRevisionTypeDef] = None
     Status: Optional[TemplateStatusType] = None
@@ -739,7 +745,7 @@ TemplateDefinitionUnionTypeDef = Union[TemplateDefinitionOutputTypeDef, Template
 class ListTemplatesResponseTypeDef(BaseValidatorModel):
     Templates: List[TemplateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "NextToken")]] = None
 
 
 # This class is the output for the 'get_template' function.
@@ -750,15 +756,15 @@ class GetTemplateResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_template' function.
 class CreateTemplateRequestTypeDef(BaseValidatorModel):
-    ConnectorArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorAd", "ConnectorArn")]
     Definition: TemplateDefinitionUnionTypeDef
-    Name: str
-    ClientToken: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("PcaConnectorAd", "ClientToken")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_template' function.
 class UpdateTemplateRequestTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("PcaConnectorAd", "TemplateArn")]
     Definition: Optional[TemplateDefinitionUnionTypeDef] = None
     ReenrollAllCertificateHolders: Optional[bool] = None

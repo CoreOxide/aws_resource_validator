@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ssm_sap.ssm_sap_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,24 +47,24 @@ class ApplicationCredentialTypeDef(BaseValidatorModel):
 
 
 class ApplicationSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]] = None
     DiscoveryStatus: Optional[ApplicationDiscoveryStatusType] = None
     Type: Optional[ApplicationTypeType] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class ApplicationTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]] = None
     Type: Optional[ApplicationTypeType] = None
-    Arn: Optional[str] = None
-    AppRegistryArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]] = None
+    AppRegistryArn: Optional[Annotated[str, _aws_pattern("SsmSap", "AppRegistryArn")]] = None
     Status: Optional[ApplicationStatusType] = None
     DiscoveryStatus: Optional[ApplicationDiscoveryStatusType] = None
-    Components: Optional[List[str]] = None
+    Components: Optional[List[Annotated[str, _aws_pattern("SsmSap", "ComponentId")]]] = None
     LastUpdated: Optional[datetime] = None
     StatusMessage: Optional[str] = None
-    AssociatedApplicationArns: Optional[List[str]] = None
+    AssociatedApplicationArns: Optional[List[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]]] = None
 
 
 class IpAddressMemberTypeDef(BaseValidatorModel):
@@ -78,21 +80,21 @@ class BackintConfigTypeDef(BaseValidatorModel):
 
 class ComponentInfoTypeDef(BaseValidatorModel):
     ComponentType: ComponentTypeType
-    Sid: str
-    Ec2InstanceId: str
+    Sid: Annotated[str, _aws_pattern("SsmSap", "SID")]
+    Ec2InstanceId: Annotated[str, _aws_pattern("SsmSap", "InstanceId")]
 
 
 class ComponentSummaryTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    ComponentId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]] = None
+    ComponentId: Optional[Annotated[str, _aws_pattern("SsmSap", "ComponentId")]] = None
     ComponentType: Optional[ComponentTypeType] = None
     Tags: Optional[Dict[str, str]] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]] = None
 
 
 class DatabaseConnectionTypeDef(BaseValidatorModel):
     DatabaseConnectionMethod: Optional[DatabaseConnectionMethodType] = None
-    DatabaseArn: Optional[str] = None
+    DatabaseArn: Optional[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]] = None
     ConnectionIp: Optional[str] = None
 
 
@@ -129,19 +131,19 @@ class RuleStatusCountsTypeDef(BaseValidatorModel):
 
 
 class DatabaseSummaryTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    ComponentId: Optional[str] = None
-    DatabaseId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]] = None
+    ComponentId: Optional[Annotated[str, _aws_pattern("SsmSap", "ComponentId")]] = None
+    DatabaseId: Optional[Annotated[str, _aws_pattern("SsmSap", "DatabaseId")]] = None
     DatabaseType: Optional[DatabaseTypeType] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'delete_resource_permission' function.
 class DeleteResourcePermissionInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("SsmSap", "Arn")]
     ActionType: Optional[Literal["RESTORE"]] = None
-    SourceResourceArn: Optional[str] = None
+    SourceResourceArn: Optional[Annotated[str, _aws_pattern("SsmSap", "Arn")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -153,7 +155,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeregisterApplicationInputTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]
 
 
 class FilterTypeDef(BaseValidatorModel):
@@ -164,44 +166,44 @@ class FilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_application' function.
 class GetApplicationInputTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    ApplicationArn: Optional[str] = None
-    AppRegistryArn: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]] = None
+    AppRegistryArn: Optional[Annotated[str, _aws_pattern("SsmSap", "AppRegistryArn")]] = None
 
 
 # This class is the input for the 'get_component' function.
 class GetComponentInputTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    ComponentId: str
+    ApplicationId: Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]
+    ComponentId: Annotated[str, _aws_pattern("SsmSap", "ComponentId")]
 
 
 # This class is the input for the 'get_configuration_check_operation' function.
 class GetConfigurationCheckOperationInputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("SsmSap", "OperationId")]
 
 
 # This class is the input for the 'get_database' function.
 class GetDatabaseInputTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    ComponentId: Optional[str] = None
-    DatabaseId: Optional[str] = None
-    DatabaseArn: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]] = None
+    ComponentId: Optional[Annotated[str, _aws_pattern("SsmSap", "ComponentId")]] = None
+    DatabaseId: Optional[Annotated[str, _aws_pattern("SsmSap", "DatabaseId")]] = None
+    DatabaseArn: Optional[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]] = None
 
 
 # This class is the input for the 'get_operation' function.
 class GetOperationInputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("SsmSap", "OperationId")]
 
 
 class OperationTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("SsmSap", "OperationId")]] = None
     Type: Optional[str] = None
     Status: Optional[OperationStatusType] = None
     StatusMessage: Optional[str] = None
     Properties: Optional[Dict[str, str]] = None
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("SsmSap", "Arn")]] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
@@ -209,7 +211,7 @@ class OperationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_resource_permission' function.
 class GetResourcePermissionInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("SsmSap", "Arn")]
     ActionType: Optional[Literal["RESTORE"]] = None
 
 
@@ -221,34 +223,34 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_components' function.
 class ListComponentsInputTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    NextToken: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_configuration_check_definitions' function.
 class ListConfigurationCheckDefinitionsInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 # This class is the input for the 'list_databases' function.
 class ListDatabasesInputTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    ComponentId: Optional[str] = None
-    NextToken: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]] = None
+    ComponentId: Optional[Annotated[str, _aws_pattern("SsmSap", "ComponentId")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_sub_check_results' function.
 class ListSubCheckResultsInputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("SsmSap", "OperationId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 class SubCheckResultTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("SsmSap", "SubCheckResultId")]] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     References: Optional[List[str]] = None
@@ -256,13 +258,13 @@ class SubCheckResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_sub_check_rule_results' function.
 class ListSubCheckRuleResultsInputTypeDef(BaseValidatorModel):
-    SubCheckResultId: str
+    SubCheckResultId: Annotated[str, _aws_pattern("SsmSap", "SubCheckResultId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 class RuleResultTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("SsmSap", "RuleResultId")]] = None
     Description: Optional[str] = None
     Status: Optional[RuleResultStatusType] = None
     Message: Optional[str] = None
@@ -271,67 +273,67 @@ class RuleResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]
 
 
 class ResourceTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
-    ResourceType: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("SsmSap", "Arn")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("SsmSap", "OperationEventResourceType")]] = None
 
 
 # This class is the input for the 'put_resource_permission' function.
 class PutResourcePermissionInputTypeDef(BaseValidatorModel):
     ActionType: Literal["RESTORE"]
-    SourceResourceArn: str
-    ResourceArn: str
+    SourceResourceArn: Annotated[str, _aws_pattern("SsmSap", "Arn")]
+    ResourceArn: Annotated[str, _aws_pattern("SsmSap", "Arn")]
 
 
 # This class is the input for the 'start_application' function.
 class StartApplicationInputTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]
 
 
 # This class is the input for the 'start_application_refresh' function.
 class StartApplicationRefreshInputTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]
 
 
 # This class is the input for the 'start_configuration_checks' function.
 class StartConfigurationChecksInputTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]
     ConfigurationCheckIds: Optional[List[ConfigurationCheckTypeType]] = None
 
 
 # This class is the input for the 'stop_application' function.
 class StopApplicationInputTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]
     StopConnectedEntity: Optional[Literal["DBMS"]] = None
     IncludeEc2InstanceShutdown: Optional[bool] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("SsmSap", "TagKey")]]
 
 
 class DatabaseTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    ComponentId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]] = None
+    ComponentId: Optional[Annotated[str, _aws_pattern("SsmSap", "ComponentId")]] = None
     Credentials: Optional[List[ApplicationCredentialTypeDef]] = None
-    DatabaseId: Optional[str] = None
+    DatabaseId: Optional[Annotated[str, _aws_pattern("SsmSap", "DatabaseId")]] = None
     DatabaseName: Optional[str] = None
     DatabaseType: Optional[DatabaseTypeType] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]] = None
     Status: Optional[DatabaseStatusType] = None
     PrimaryHost: Optional[str] = None
     SQLPort: Optional[int] = None
     LastUpdated: Optional[datetime] = None
-    ConnectedComponentArns: Optional[List[str]] = None
+    ConnectedComponentArns: Optional[List[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]]] = None
 
 
 class AssociatedHostTypeDef(BaseValidatorModel):
@@ -343,29 +345,29 @@ class AssociatedHostTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_application_settings' function.
 class UpdateApplicationSettingsInputTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]
     CredentialsToAddOrUpdate: Optional[List[ApplicationCredentialTypeDef]] = None
     CredentialsToRemove: Optional[List[ApplicationCredentialTypeDef]] = None
     Backint: Optional[BackintConfigTypeDef] = None
-    DatabaseArn: Optional[str] = None
+    DatabaseArn: Optional[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]] = None
 
 
 # This class is the input for the 'register_application' function.
 class RegisterApplicationInputTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]
     ApplicationType: ApplicationTypeType
-    Instances: List[str]
-    SapInstanceNumber: Optional[str] = None
-    Sid: Optional[str] = None
+    Instances: List[Annotated[str, _aws_pattern("SsmSap", "InstanceId")]]
+    SapInstanceNumber: Optional[Annotated[str, _aws_pattern("SsmSap", "SAPInstanceNumber")]] = None
+    Sid: Optional[Annotated[str, _aws_pattern("SsmSap", "SID")]] = None
     Tags: Optional[Dict[str, str]] = None
     Credentials: Optional[List[ApplicationCredentialTypeDef]] = None
-    DatabaseArn: Optional[str] = None
+    DatabaseArn: Optional[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]] = None
     ComponentsInfo: Optional[List[ComponentInfoTypeDef]] = None
 
 
 class ConfigurationCheckOperationTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    ApplicationId: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("SsmSap", "OperationId")]] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]] = None
     Status: Optional[OperationStatusType] = None
     StatusMessage: Optional[str] = None
     ConfigurationCheckId: Optional[ConfigurationCheckTypeType] = None
@@ -399,28 +401,28 @@ class GetResourcePermissionOutputTypeDef(BaseValidatorModel):
 class ListApplicationsOutputTypeDef(BaseValidatorModel):
     Applications: List[ApplicationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 # This class is the output for the 'list_components' function.
 class ListComponentsOutputTypeDef(BaseValidatorModel):
     Components: List[ComponentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 # This class is the output for the 'list_configuration_check_definitions' function.
 class ListConfigurationCheckDefinitionsOutputTypeDef(BaseValidatorModel):
     ConfigurationChecks: List[ConfigurationCheckDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 # This class is the output for the 'list_databases' function.
 class ListDatabasesOutputTypeDef(BaseValidatorModel):
     Databases: List[DatabaseSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -438,64 +440,64 @@ class PutResourcePermissionOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'register_application' function.
 class RegisterApplicationOutputTypeDef(BaseValidatorModel):
     Application: ApplicationTypeDef
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("SsmSap", "OperationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_application' function.
 class StartApplicationOutputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("SsmSap", "OperationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_application_refresh' function.
 class StartApplicationRefreshOutputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("SsmSap", "OperationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_application' function.
 class StopApplicationOutputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("SsmSap", "OperationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_application_settings' function.
 class UpdateApplicationSettingsOutputTypeDef(BaseValidatorModel):
     Message: str
-    OperationIds: List[str]
+    OperationIds: List[Annotated[str, _aws_pattern("SsmSap", "OperationId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'list_applications' function.
 class ListApplicationsInputTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_configuration_check_operations' function.
 class ListConfigurationCheckOperationsInputTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]
     ListMode: Optional[ConfigurationCheckOperationListingModeType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_operation_events' function.
 class ListOperationEventsInputTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("SsmSap", "OperationId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_operations' function.
 class ListOperationsInputTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
@@ -509,7 +511,7 @@ class GetOperationOutputTypeDef(BaseValidatorModel):
 class ListOperationsOutputTypeDef(BaseValidatorModel):
     Operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 class ListApplicationsInputPaginateTypeDef(BaseValidatorModel):
@@ -565,14 +567,14 @@ class ListSubCheckRuleResultsInputPaginateTypeDef(BaseValidatorModel):
 class ListSubCheckResultsOutputTypeDef(BaseValidatorModel):
     SubCheckResults: List[SubCheckResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 # This class is the output for the 'list_sub_check_rule_results' function.
 class ListSubCheckRuleResultsOutputTypeDef(BaseValidatorModel):
     RuleResults: List[RuleResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 class OperationEventTypeDef(BaseValidatorModel):
@@ -591,12 +593,12 @@ class GetDatabaseOutputTypeDef(BaseValidatorModel):
 
 
 class ComponentTypeDef(BaseValidatorModel):
-    ComponentId: Optional[str] = None
-    Sid: Optional[str] = None
-    SystemNumber: Optional[str] = None
-    ParentComponent: Optional[str] = None
-    ChildComponents: Optional[List[str]] = None
-    ApplicationId: Optional[str] = None
+    ComponentId: Optional[Annotated[str, _aws_pattern("SsmSap", "ComponentId")]] = None
+    Sid: Optional[Annotated[str, _aws_pattern("SsmSap", "SID")]] = None
+    SystemNumber: Optional[Annotated[str, _aws_pattern("SsmSap", "SAPInstanceNumber")]] = None
+    ParentComponent: Optional[Annotated[str, _aws_pattern("SsmSap", "ComponentId")]] = None
+    ChildComponents: Optional[List[Annotated[str, _aws_pattern("SsmSap", "ComponentId")]]] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("SsmSap", "ApplicationId")]] = None
     ComponentType: Optional[ComponentTypeType] = None
     Status: Optional[ComponentStatusType] = None
     SapHostname: Optional[str] = None
@@ -605,12 +607,12 @@ class ComponentTypeDef(BaseValidatorModel):
     HdbVersion: Optional[str] = None
     Resilience: Optional[ResilienceTypeDef] = None
     AssociatedHost: Optional[AssociatedHostTypeDef] = None
-    Databases: Optional[List[str]] = None
+    Databases: Optional[List[Annotated[str, _aws_pattern("SsmSap", "DatabaseId")]]] = None
     Hosts: Optional[List[HostTypeDef]] = None
     PrimaryHost: Optional[str] = None
     DatabaseConnection: Optional[DatabaseConnectionTypeDef] = None
     LastUpdated: Optional[datetime] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("SsmSap", "SsmSapArn")]] = None
 
 
 # This class is the output for the 'get_configuration_check_operation' function.
@@ -623,7 +625,7 @@ class GetConfigurationCheckOperationOutputTypeDef(BaseValidatorModel):
 class ListConfigurationCheckOperationsOutputTypeDef(BaseValidatorModel):
     ConfigurationCheckOperations: List[ConfigurationCheckOperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 # This class is the output for the 'start_configuration_checks' function.
@@ -636,7 +638,7 @@ class StartConfigurationChecksOutputTypeDef(BaseValidatorModel):
 class ListOperationEventsOutputTypeDef(BaseValidatorModel):
     OperationEvents: List[OperationEventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsmSap", "NextToken")]] = None
 
 
 # This class is the output for the 'get_component' function.

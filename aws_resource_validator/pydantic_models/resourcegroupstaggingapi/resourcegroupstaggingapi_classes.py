@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,10 @@ except ImportError:  # pragma: no cover
 
 
 class ComplianceDetailsTypeDef(BaseValidatorModel):
-    NoncompliantKeys: Optional[List[str]] = None
-    KeysWithNoncompliantValues: Optional[List[str]] = None
+    NoncompliantKeys: Optional[List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagKey")]]] = None
+    KeysWithNoncompliantValues: Optional[List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagKey")]]] = (
+        None
+    )
     ComplianceStatus: Optional[bool] = None
 
 
@@ -66,71 +70,73 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_compliance_summary' function.
 class GetComplianceSummaryInputTypeDef(BaseValidatorModel):
-    TargetIdFilters: Optional[List[str]] = None
-    RegionFilters: Optional[List[str]] = None
-    ResourceTypeFilters: Optional[List[str]] = None
-    TagKeyFilters: Optional[List[str]] = None
+    TargetIdFilters: Optional[List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TargetId")]]] = None
+    RegionFilters: Optional[List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "Region")]]] = None
+    ResourceTypeFilters: Optional[
+        List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "AmazonResourceType")]]
+    ] = None
+    TagKeyFilters: Optional[List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagKey")]]] = None
     GroupBy: Optional[List[GroupByAttributeType]] = None
     MaxResults: Optional[int] = None
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "PaginationToken")]] = None
 
 
 class SummaryTypeDef(BaseValidatorModel):
     LastUpdated: Optional[str] = None
-    TargetId: Optional[str] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TargetId")]] = None
     TargetIdType: Optional[TargetIdTypeType] = None
-    Region: Optional[str] = None
-    ResourceType: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "Region")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "AmazonResourceType")]] = None
     NonCompliantResources: Optional[int] = None
 
 
 class TagFilterTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Values: Optional[List[str]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagKey")]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagValue")]]] = None
 
 
 # This class is the input for the 'get_tag_keys' function.
 class GetTagKeysInputTypeDef(BaseValidatorModel):
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "PaginationToken")]] = None
 
 
 # This class is the input for the 'get_tag_values' function.
 class GetTagValuesInputTypeDef(BaseValidatorModel):
-    Key: str
-    PaginationToken: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagKey")]
+    PaginationToken: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_required_tags' function.
 class ListRequiredTagsInputTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class RequiredTagTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     CloudFormationResourceTypes: Optional[List[str]] = None
-    ReportingTagKeys: Optional[List[str]] = None
+    ReportingTagKeys: Optional[List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagKey")]]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagValue")]
 
 
 class StartReportCreationInputTypeDef(BaseValidatorModel):
-    S3Bucket: str
+    S3Bucket: Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "S3Bucket")]
 
 
 # This class is the input for the 'tag_resources' function.
 class TagResourcesInputTypeDef(BaseValidatorModel):
-    ResourceARNList: List[str]
+    ResourceARNList: List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "ResourceARN")]]
     Tags: Dict[str, str]
 
 
 # This class is the input for the 'untag_resources' function.
 class UntagResourcesInputTypeDef(BaseValidatorModel):
-    ResourceARNList: List[str]
-    TagKeys: List[str]
+    ResourceARNList: List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "ResourceARN")]]
+    TagKeys: List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagKey")]]
 
 
 class DescribeReportCreationOutputTypeDef(BaseValidatorModel):
@@ -142,16 +148,16 @@ class DescribeReportCreationOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_tag_keys' function.
 class GetTagKeysOutputTypeDef(BaseValidatorModel):
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagKey")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "PaginationToken")]] = None
 
 
 # This class is the output for the 'get_tag_values' function.
 class GetTagValuesOutputTypeDef(BaseValidatorModel):
-    TagValues: List[str]
+    TagValues: List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "TagValue")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "PaginationToken")]] = None
 
 
 # This class is the output for the 'tag_resources' function.
@@ -192,7 +198,7 @@ class ListRequiredTagsInputPaginateTypeDef(BaseValidatorModel):
 class GetComplianceSummaryOutputTypeDef(BaseValidatorModel):
     SummaryList: List[SummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "PaginationToken")]] = None
 
 
 class GetResourcesInputPaginateTypeDef(BaseValidatorModel):
@@ -207,25 +213,27 @@ class GetResourcesInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_resources' function.
 class GetResourcesInputTypeDef(BaseValidatorModel):
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "PaginationToken")]] = None
     TagFilters: Optional[List[TagFilterTypeDef]] = None
     ResourcesPerPage: Optional[int] = None
     TagsPerPage: Optional[int] = None
-    ResourceTypeFilters: Optional[List[str]] = None
+    ResourceTypeFilters: Optional[
+        List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "AmazonResourceType")]]
+    ] = None
     IncludeComplianceDetails: Optional[bool] = None
     ExcludeCompliantResources: Optional[bool] = None
-    ResourceARNList: Optional[List[str]] = None
+    ResourceARNList: Optional[List[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "ResourceARN")]]] = None
 
 
 # This class is the output for the 'list_required_tags' function.
 class ListRequiredTagsOutputTypeDef(BaseValidatorModel):
     RequiredTags: List[RequiredTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "PaginationToken")]] = None
 
 
 class ResourceTagMappingTypeDef(BaseValidatorModel):
-    ResourceARN: Optional[str] = None
+    ResourceARN: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "ResourceARN")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     ComplianceDetails: Optional[ComplianceDetailsTypeDef] = None
 
@@ -234,4 +242,4 @@ class ResourceTagMappingTypeDef(BaseValidatorModel):
 class GetResourcesOutputTypeDef(BaseValidatorModel):
     ResourceTagMappingList: List[ResourceTagMappingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    PaginationToken: Optional[str] = None
+    PaginationToken: Optional[Annotated[str, _aws_pattern("Resourcegroupstaggingapi", "PaginationToken")]] = None

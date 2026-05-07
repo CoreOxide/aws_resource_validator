@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.budgets.budgets_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,7 +47,7 @@ class ActionThresholdTypeDef(BaseValidatorModel):
 
 class SubscriberTypeDef(BaseValidatorModel):
     SubscriptionType: SubscriptionTypeType
-    Address: str
+    Address: Annotated[str, _aws_pattern("Budgets", "SubscriberAddress")]
 
 
 class HistoricalOptionsTypeDef(BaseValidatorModel):
@@ -85,8 +87,8 @@ class HealthStatusOutputTypeDef(BaseValidatorModel):
 
 
 class SpendTypeDef(BaseValidatorModel):
-    Amount: str
-    Unit: str
+    Amount: Annotated[str, _aws_pattern("Budgets", "NumericValue")]
+    Unit: Annotated[str, _aws_pattern("Budgets", "UnitValue")]
 
 
 class TimePeriodOutputTypeDef(BaseValidatorModel):
@@ -102,7 +104,7 @@ class CostCategoryValuesOutputTypeDef(BaseValidatorModel):
 
 class CostCategoryValuesTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
-    Values: Optional[List[str]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Budgets", "Value")]]] = None
     MatchOptions: Optional[List[MatchOptionType]] = None
 
 
@@ -138,33 +140,33 @@ class SsmActionDefinitionOutputTypeDef(BaseValidatorModel):
 
 
 class IamActionDefinitionTypeDef(BaseValidatorModel):
-    PolicyArn: str
-    Roles: Optional[List[str]] = None
-    Groups: Optional[List[str]] = None
-    Users: Optional[List[str]] = None
+    PolicyArn: Annotated[str, _aws_pattern("Budgets", "PolicyArn")]
+    Roles: Optional[List[Annotated[str, _aws_pattern("Budgets", "Role")]]] = None
+    Groups: Optional[List[Annotated[str, _aws_pattern("Budgets", "Group")]]] = None
+    Users: Optional[List[Annotated[str, _aws_pattern("Budgets", "User")]]] = None
 
 
 class ScpActionDefinitionTypeDef(BaseValidatorModel):
-    PolicyId: str
-    TargetIds: List[str]
+    PolicyId: Annotated[str, _aws_pattern("Budgets", "PolicyId")]
+    TargetIds: List[Annotated[str, _aws_pattern("Budgets", "TargetId")]]
 
 
 class SsmActionDefinitionTypeDef(BaseValidatorModel):
     ActionSubType: ActionSubTypeType
-    Region: str
-    InstanceIds: List[str]
+    Region: Annotated[str, _aws_pattern("Budgets", "Region")]
+    InstanceIds: List[Annotated[str, _aws_pattern("Budgets", "InstanceId")]]
 
 
 # This class is the input for the 'delete_budget_action' function.
 class DeleteBudgetActionRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
-    ActionId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
+    ActionId: Annotated[str, _aws_pattern("Budgets", "ActionId")]
 
 
 class DeleteBudgetRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -175,61 +177,61 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_budget_action' function.
 class DescribeBudgetActionRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
-    ActionId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
+    ActionId: Annotated[str, _aws_pattern("Budgets", "ActionId")]
 
 
 # This class is the input for the 'describe_budget_actions_for_account' function.
 class DescribeBudgetActionsForAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 # This class is the input for the 'describe_budget_actions_for_budget' function.
 class DescribeBudgetActionsForBudgetRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 # This class is the input for the 'describe_budget_notifications_for_account' function.
 class DescribeBudgetNotificationsForAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 # This class is the input for the 'describe_budget' function.
 class DescribeBudgetRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     ShowFilterExpression: Optional[bool] = None
 
 
 # This class is the input for the 'describe_budgets' function.
 class DescribeBudgetsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
     ShowFilterExpression: Optional[bool] = None
 
 
 # This class is the input for the 'describe_notifications_for_budget' function.
 class DescribeNotificationsForBudgetRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 # This class is the input for the 'execute_budget_action' function.
 class ExecuteBudgetActionRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
-    ActionId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
+    ActionId: Annotated[str, _aws_pattern("Budgets", "ActionId")]
     ExecutionType: ExecutionTypeType
 
 
@@ -241,7 +243,7 @@ class ExpressionDimensionValuesOutputTypeDef(BaseValidatorModel):
 
 class ExpressionDimensionValuesTypeDef(BaseValidatorModel):
     Key: DimensionType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Budgets", "Value")]]
     MatchOptions: Optional[List[MatchOptionType]] = None
 
 
@@ -252,8 +254,8 @@ class TagValuesOutputTypeDef(BaseValidatorModel):
 
 
 class TagValuesTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Values: Optional[List[str]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Budgets", "TagKey")]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Budgets", "Value")]]] = None
     MatchOptions: Optional[List[MatchOptionType]] = None
 
 
@@ -292,43 +294,43 @@ class TimePeriodTypeDef(BaseValidatorModel):
 
 class BudgetNotificationsForAccountTypeDef(BaseValidatorModel):
     Notifications: Optional[List[NotificationTypeDef]] = None
-    BudgetName: Optional[str] = None
+    BudgetName: Optional[Annotated[str, _aws_pattern("Budgets", "BudgetName")]] = None
 
 
 class CreateNotificationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     Notification: NotificationTypeDef
     Subscribers: List[SubscriberTypeDef]
 
 
 class CreateSubscriberRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     Notification: NotificationTypeDef
     Subscriber: SubscriberTypeDef
 
 
 class DeleteNotificationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     Notification: NotificationTypeDef
 
 
 class DeleteSubscriberRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     Notification: NotificationTypeDef
     Subscriber: SubscriberTypeDef
 
 
 # This class is the input for the 'describe_subscribers_for_notification' function.
 class DescribeSubscribersForNotificationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     Notification: NotificationTypeDef
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 class NotificationWithSubscribersTypeDef(BaseValidatorModel):
@@ -337,15 +339,15 @@ class NotificationWithSubscribersTypeDef(BaseValidatorModel):
 
 
 class UpdateNotificationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     OldNotification: NotificationTypeDef
     NewNotification: NotificationTypeDef
 
 
 class UpdateSubscriberRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     Notification: NotificationTypeDef
     OldSubscriber: SubscriberTypeDef
     NewSubscriber: SubscriberTypeDef
@@ -369,9 +371,9 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_budget_action' function.
 class CreateBudgetActionResponseTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
-    ActionId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
+    ActionId: Annotated[str, _aws_pattern("Budgets", "ActionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -379,21 +381,21 @@ class CreateBudgetActionResponseTypeDef(BaseValidatorModel):
 class DescribeNotificationsForBudgetResponseTypeDef(BaseValidatorModel):
     Notifications: List[NotificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 # This class is the output for the 'describe_subscribers_for_notification' function.
 class DescribeSubscribersForNotificationResponseTypeDef(BaseValidatorModel):
     Subscribers: List[SubscriberTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 # This class is the output for the 'execute_budget_action' function.
 class ExecuteBudgetActionResponseTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
-    ActionId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
+    ActionId: Annotated[str, _aws_pattern("Budgets", "ActionId")]
     ExecutionType: ExecutionTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -485,17 +487,17 @@ TimePeriodUnionTypeDef = Union[TimePeriodOutputTypeDef, TimePeriodTypeDef]
 class DescribeBudgetNotificationsForAccountResponseTypeDef(BaseValidatorModel):
     BudgetNotificationsForAccount: List[BudgetNotificationsForAccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 class ActionTypeDef(BaseValidatorModel):
-    ActionId: str
-    BudgetName: str
+    ActionId: Annotated[str, _aws_pattern("Budgets", "ActionId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     NotificationType: NotificationTypeType
     ActionType: ActionTypeType
     ActionThreshold: ActionThresholdTypeDef
     Definition: DefinitionOutputTypeDef
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("Budgets", "RoleArn")]
     ApprovalModel: ApprovalModelType
     Status: ActionStatusType
     Subscribers: List[SubscriberTypeDef]
@@ -523,12 +525,12 @@ class BudgetOutputTypeDef(BaseValidatorModel):
 
 
 class BudgetPerformanceHistoryTypeDef(BaseValidatorModel):
-    BudgetName: Optional[str] = None
+    BudgetName: Optional[Annotated[str, _aws_pattern("Budgets", "BudgetName")]] = None
     BudgetType: Optional[BudgetTypeType] = None
     CostFilters: Optional[Dict[str, List[str]]] = None
     CostTypes: Optional[CostTypesTypeDef] = None
     TimeUnit: Optional[TimeUnitType] = None
-    BillingViewArn: Optional[str] = None
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Budgets", "BillingViewArn")]] = None
     BudgetedAndActualAmountsList: Optional[List[BudgetedAndActualAmountsTypeDef]] = None
     FilterExpression: Optional[ExpressionOutputTypeDef] = None
     Metrics: Optional[List[MetricType]] = None
@@ -565,7 +567,7 @@ class BudgetPerformanceHistoryPaginatorTypeDef(BaseValidatorModel):
 
 
 class BudgetTypeDef(BaseValidatorModel):
-    BudgetName: str
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     TimeUnit: TimeUnitType
     BudgetType: BudgetTypeType
     BudgetLimit: Optional[SpendTypeDef] = None
@@ -578,7 +580,7 @@ class BudgetTypeDef(BaseValidatorModel):
     AutoAdjustData: Optional[AutoAdjustDataTypeDef] = None
     FilterExpression: Optional[ExpressionTypeDef] = None
     Metrics: Optional[List[MetricType]] = None
-    BillingViewArn: Optional[str] = None
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Budgets", "BillingViewArn")]] = None
     HealthStatus: Optional[HealthStatusTypeDef] = None
 
 
@@ -592,12 +594,12 @@ class DescribeBudgetActionHistoriesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_budget_action_histories' function.
 class DescribeBudgetActionHistoriesRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
-    ActionId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
+    ActionId: Annotated[str, _aws_pattern("Budgets", "ActionId")]
     TimePeriod: Optional[TimePeriodUnionTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 class DescribeBudgetPerformanceHistoryRequestPaginateTypeDef(BaseValidatorModel):
@@ -609,30 +611,30 @@ class DescribeBudgetPerformanceHistoryRequestPaginateTypeDef(BaseValidatorModel)
 
 # This class is the input for the 'describe_budget_performance_history' function.
 class DescribeBudgetPerformanceHistoryRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     TimePeriod: Optional[TimePeriodUnionTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 class ActionHistoryDetailsTypeDef(BaseValidatorModel):
-    Message: str
+    Message: Annotated[str, _aws_pattern("Budgets", "GenericString")]
     Action: ActionTypeDef
 
 
 # This class is the output for the 'delete_budget_action' function.
 class DeleteBudgetActionResponseTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     Action: ActionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_budget_action' function.
 class DescribeBudgetActionResponseTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     Action: ActionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -641,20 +643,20 @@ class DescribeBudgetActionResponseTypeDef(BaseValidatorModel):
 class DescribeBudgetActionsForAccountResponseTypeDef(BaseValidatorModel):
     Actions: List[ActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 # This class is the output for the 'describe_budget_actions_for_budget' function.
 class DescribeBudgetActionsForBudgetResponseTypeDef(BaseValidatorModel):
     Actions: List[ActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 # This class is the output for the 'update_budget_action' function.
 class UpdateBudgetActionResponseTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     OldAction: ActionTypeDef
     NewAction: ActionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -662,13 +664,13 @@ class UpdateBudgetActionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_budget_action' function.
 class CreateBudgetActionRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
     NotificationType: NotificationTypeType
     ActionType: ActionTypeType
     ActionThreshold: ActionThresholdTypeDef
     Definition: DefinitionUnionTypeDef
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("Budgets", "RoleArn")]
     ApprovalModel: ApprovalModelType
     Subscribers: List[SubscriberTypeDef]
     ResourceTags: Optional[List[ResourceTagTypeDef]] = None
@@ -676,13 +678,13 @@ class CreateBudgetActionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_budget_action' function.
 class UpdateBudgetActionRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
-    ActionId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
+    BudgetName: Annotated[str, _aws_pattern("Budgets", "BudgetName")]
+    ActionId: Annotated[str, _aws_pattern("Budgets", "ActionId")]
     NotificationType: Optional[NotificationTypeType] = None
     ActionThreshold: Optional[ActionThresholdTypeDef] = None
     Definition: Optional[DefinitionUnionTypeDef] = None
-    ExecutionRoleArn: Optional[str] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Budgets", "RoleArn")]] = None
     ApprovalModel: Optional[ApprovalModelType] = None
     Subscribers: Optional[List[SubscriberTypeDef]] = None
 
@@ -697,14 +699,14 @@ class DescribeBudgetResponseTypeDef(BaseValidatorModel):
 class DescribeBudgetsResponseTypeDef(BaseValidatorModel):
     Budgets: List[BudgetOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 # This class is the output for the 'describe_budget_performance_history' function.
 class DescribeBudgetPerformanceHistoryResponseTypeDef(BaseValidatorModel):
     BudgetPerformanceHistory: BudgetPerformanceHistoryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None
 
 
 class DescribeBudgetsResponsePaginatorTypeDef(BaseValidatorModel):
@@ -730,14 +732,14 @@ class ActionHistoryTypeDef(BaseValidatorModel):
 
 
 class CreateBudgetRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
     Budget: BudgetUnionTypeDef
     NotificationsWithSubscribers: Optional[List[NotificationWithSubscribersTypeDef]] = None
     ResourceTags: Optional[List[ResourceTagTypeDef]] = None
 
 
 class UpdateBudgetRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Budgets", "AccountId")]
     NewBudget: BudgetUnionTypeDef
 
 
@@ -745,4 +747,4 @@ class UpdateBudgetRequestTypeDef(BaseValidatorModel):
 class DescribeBudgetActionHistoriesResponseTypeDef(BaseValidatorModel):
     ActionHistories: List[ActionHistoryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Budgets", "GenericString")]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.route53_recovery_cluster.route53_recovery_cluster_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'get_routing_control_state' function.
 class GetRoutingControlStateRequestTypeDef(BaseValidatorModel):
-    RoutingControlArn: str
+    RoutingControlArn: Annotated[str, _aws_pattern("Route53RecoveryCluster", "Arn")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -59,36 +61,36 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_routing_controls' function.
 class ListRoutingControlsRequestTypeDef(BaseValidatorModel):
-    ControlPanelArn: Optional[str] = None
-    NextToken: Optional[str] = None
+    ControlPanelArn: Optional[Annotated[str, _aws_pattern("Route53RecoveryCluster", "Arn")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Route53RecoveryCluster", "PageToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class RoutingControlTypeDef(BaseValidatorModel):
-    ControlPanelArn: Optional[str] = None
-    ControlPanelName: Optional[str] = None
-    RoutingControlArn: Optional[str] = None
-    RoutingControlName: Optional[str] = None
+    ControlPanelArn: Optional[Annotated[str, _aws_pattern("Route53RecoveryCluster", "Arn")]] = None
+    ControlPanelName: Optional[Annotated[str, _aws_pattern("Route53RecoveryCluster", "ControlPanelName")]] = None
+    RoutingControlArn: Optional[Annotated[str, _aws_pattern("Route53RecoveryCluster", "Arn")]] = None
+    RoutingControlName: Optional[Annotated[str, _aws_pattern("Route53RecoveryCluster", "RoutingControlName")]] = None
     RoutingControlState: Optional[RoutingControlStateType] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Route53RecoveryCluster", "Owner")]] = None
 
 
 class UpdateRoutingControlStateEntryTypeDef(BaseValidatorModel):
-    RoutingControlArn: str
+    RoutingControlArn: Annotated[str, _aws_pattern("Route53RecoveryCluster", "Arn")]
     RoutingControlState: RoutingControlStateType
 
 
 class UpdateRoutingControlStateRequestTypeDef(BaseValidatorModel):
-    RoutingControlArn: str
+    RoutingControlArn: Annotated[str, _aws_pattern("Route53RecoveryCluster", "Arn")]
     RoutingControlState: RoutingControlStateType
-    SafetyRulesToOverride: Optional[List[str]] = None
+    SafetyRulesToOverride: Optional[List[Annotated[str, _aws_pattern("Route53RecoveryCluster", "Arn")]]] = None
 
 
 # This class is the output for the 'get_routing_control_state' function.
 class GetRoutingControlStateResponseTypeDef(BaseValidatorModel):
-    RoutingControlArn: str
+    RoutingControlArn: Annotated[str, _aws_pattern("Route53RecoveryCluster", "Arn")]
     RoutingControlState: RoutingControlStateType
-    RoutingControlName: str
+    RoutingControlName: Annotated[str, _aws_pattern("Route53RecoveryCluster", "RoutingControlName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -101,9 +103,9 @@ class ListRoutingControlsRequestPaginateTypeDef(BaseValidatorModel):
 class ListRoutingControlsResponseTypeDef(BaseValidatorModel):
     RoutingControls: List[RoutingControlTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Route53RecoveryCluster", "PageToken")]] = None
 
 
 class UpdateRoutingControlStatesRequestTypeDef(BaseValidatorModel):
     UpdateRoutingControlStateEntries: List[UpdateRoutingControlStateEntryTypeDef]
-    SafetyRulesToOverride: Optional[List[str]] = None
+    SafetyRulesToOverride: Optional[List[Annotated[str, _aws_pattern("Route53RecoveryCluster", "Arn")]]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.evs.evs_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,10 +42,10 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'associate_eip_to_vlan' function.
 class AssociateEipToVlanRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
     vlanName: str
-    allocationId: str
-    clientToken: Optional[str] = None
+    allocationId: Annotated[str, _aws_pattern("Evs", "AllocationId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Evs", "ClientToken")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -77,99 +79,99 @@ class ConnectorCheckTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_entitlement' function.
 class CreateEntitlementRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    connectorId: str
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
+    connectorId: Annotated[str, _aws_pattern("Evs", "ConnectorId")]
     entitlementType: Literal["WINDOWS_SERVER"]
-    vmIds: List[str]
-    clientToken: Optional[str] = None
+    vmIds: List[Annotated[str, _aws_pattern("Evs", "VmId")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("Evs", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_environment_connector' function.
 class CreateEnvironmentConnectorRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
     type: Literal["VCENTER"]
-    applianceFqdn: str
-    secretIdentifier: str
-    clientToken: Optional[str] = None
+    applianceFqdn: Annotated[str, _aws_pattern("Evs", "ApplianceFqdn")]
+    secretIdentifier: Annotated[str, _aws_pattern("Evs", "SecretIdentifier")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Evs", "ClientToken")]] = None
 
 
 class HostInfoForCreateTypeDef(BaseValidatorModel):
-    hostName: str
-    keyName: str
+    hostName: Annotated[str, _aws_pattern("Evs", "HostName")]
+    keyName: Annotated[str, _aws_pattern("Evs", "KeyName")]
     instanceType: InstanceTypeType
-    placementGroupId: Optional[str] = None
-    dedicatedHostId: Optional[str] = None
+    placementGroupId: Optional[Annotated[str, _aws_pattern("Evs", "PlacementGroupId")]] = None
+    dedicatedHostId: Optional[Annotated[str, _aws_pattern("Evs", "DedicatedHostId")]] = None
 
 
 class EnvironmentSummaryTypeDef(BaseValidatorModel):
-    environmentId: Optional[str] = None
-    environmentName: Optional[str] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("Evs", "EnvironmentId")]] = None
+    environmentName: Optional[Annotated[str, _aws_pattern("Evs", "EnvironmentName")]] = None
     vcfVersion: Optional[VcfVersionType] = None
     environmentStatus: Optional[CheckResultType] = None
     environmentState: Optional[EnvironmentStateType] = None
     createdAt: Optional[datetime] = None
     modifiedAt: Optional[datetime] = None
-    environmentArn: Optional[str] = None
+    environmentArn: Optional[Annotated[str, _aws_pattern("Evs", "Arn")]] = None
 
 
 class LicenseInfoTypeDef(BaseValidatorModel):
-    solutionKey: str
-    vsanKey: str
+    solutionKey: Annotated[str, _aws_pattern("Evs", "SolutionKey")]
+    vsanKey: Annotated[str, _aws_pattern("Evs", "VSanLicenseKey")]
 
 
 class VcfHostnamesTypeDef(BaseValidatorModel):
-    vCenter: str
-    nsx: str
-    nsxManager1: str
-    nsxManager2: str
-    nsxManager3: str
-    nsxEdge1: str
-    nsxEdge2: str
-    sddcManager: str
-    cloudBuilder: str
+    vCenter: Annotated[str, _aws_pattern("Evs", "HostName")]
+    nsx: Annotated[str, _aws_pattern("Evs", "HostName")]
+    nsxManager1: Annotated[str, _aws_pattern("Evs", "HostName")]
+    nsxManager2: Annotated[str, _aws_pattern("Evs", "HostName")]
+    nsxManager3: Annotated[str, _aws_pattern("Evs", "HostName")]
+    nsxEdge1: Annotated[str, _aws_pattern("Evs", "HostName")]
+    nsxEdge2: Annotated[str, _aws_pattern("Evs", "HostName")]
+    sddcManager: Annotated[str, _aws_pattern("Evs", "HostName")]
+    cloudBuilder: Annotated[str, _aws_pattern("Evs", "HostName")]
 
 
 # This class is the input for the 'delete_entitlement' function.
 class DeleteEntitlementRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    connectorId: str
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
+    connectorId: Annotated[str, _aws_pattern("Evs", "ConnectorId")]
     entitlementType: Literal["WINDOWS_SERVER"]
-    vmIds: List[str]
-    clientToken: Optional[str] = None
+    vmIds: List[Annotated[str, _aws_pattern("Evs", "VmId")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("Evs", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_environment_connector' function.
 class DeleteEnvironmentConnectorRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    connectorId: str
-    clientToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
+    connectorId: Annotated[str, _aws_pattern("Evs", "ConnectorId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Evs", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_environment_host' function.
 class DeleteEnvironmentHostRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    hostName: str
-    clientToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
+    hostName: Annotated[str, _aws_pattern("Evs", "HostName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Evs", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_environment' function.
 class DeleteEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    clientToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Evs", "ClientToken")]] = None
 
 
 # This class is the input for the 'disassociate_eip_from_vlan' function.
 class DisassociateEipFromVlanRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
     vlanName: str
-    associationId: str
-    clientToken: Optional[str] = None
+    associationId: Annotated[str, _aws_pattern("Evs", "AssociationId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Evs", "ClientToken")]] = None
 
 
 class EipAssociationTypeDef(BaseValidatorModel):
-    associationId: Optional[str] = None
-    allocationId: Optional[str] = None
-    ipAddress: Optional[str] = None
+    associationId: Optional[Annotated[str, _aws_pattern("Evs", "AssociationId")]] = None
+    allocationId: Optional[Annotated[str, _aws_pattern("Evs", "AllocationId")]] = None
+    ipAddress: Optional[Annotated[str, _aws_pattern("Evs", "IpAddress")]] = None
 
 
 class SecretTypeDef(BaseValidatorModel):
@@ -187,7 +189,7 @@ class ErrorDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_environment' function.
 class GetEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
 
 
 class InstanceTypeEsxVersionsInfoTypeDef(BaseValidatorModel):
@@ -207,7 +209,7 @@ class NetworkInterfaceTypeDef(BaseValidatorModel):
 
 
 class InitialVlanInfoTypeDef(BaseValidatorModel):
-    cidr: str
+    cidr: Annotated[str, _aws_pattern("Evs", "Cidr")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -218,21 +220,21 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_environment_connectors' function.
 class ListEnvironmentConnectorsRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_environment_hosts' function.
 class ListEnvironmentHostsRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_environment_vlans' function.
 class ListEnvironmentVlansRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -246,39 +248,39 @@ class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Evs", "Arn")]
 
 
 # This class is the input for the 'list_vm_entitlements' function.
 class ListVmEntitlementsRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    connectorId: str
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
+    connectorId: Annotated[str, _aws_pattern("Evs", "ConnectorId")]
     entitlementType: Literal["WINDOWS_SERVER"]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class ServiceAccessSecurityGroupsTypeDef(BaseValidatorModel):
-    securityGroups: Optional[List[str]] = None
+    securityGroups: Optional[List[Annotated[str, _aws_pattern("Evs", "SecurityGroupId")]]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Evs", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Evs", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Evs", "TagKey")]]
 
 
 # This class is the input for the 'update_environment_connector' function.
 class UpdateEnvironmentConnectorRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    connectorId: str
-    clientToken: Optional[str] = None
-    applianceFqdn: Optional[str] = None
-    secretIdentifier: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
+    connectorId: Annotated[str, _aws_pattern("Evs", "ConnectorId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Evs", "ClientToken")]] = None
+    applianceFqdn: Optional[Annotated[str, _aws_pattern("Evs", "ApplianceFqdn")]] = None
+    secretIdentifier: Optional[Annotated[str, _aws_pattern("Evs", "SecretIdentifier")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -291,11 +293,11 @@ ConnectivityInfoUnionTypeDef = Union[ConnectivityInfoOutputTypeDef, Connectivity
 
 
 class ConnectorTypeDef(BaseValidatorModel):
-    environmentId: Optional[str] = None
-    connectorId: Optional[str] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("Evs", "EnvironmentId")]] = None
+    connectorId: Optional[Annotated[str, _aws_pattern("Evs", "ConnectorId")]] = None
     type: Optional[Literal["VCENTER"]] = None
-    applianceFqdn: Optional[str] = None
-    secretArn: Optional[str] = None
+    applianceFqdn: Optional[Annotated[str, _aws_pattern("Evs", "ApplianceFqdn")]] = None
+    secretArn: Optional[Annotated[str, _aws_pattern("Evs", "SecretIdentifier")]] = None
     state: Optional[ConnectorStateType] = None
     stateDetails: Optional[str] = None
     status: Optional[CheckResultType] = None
@@ -306,9 +308,9 @@ class ConnectorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_environment_host' function.
 class CreateEnvironmentHostRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Evs", "EnvironmentId")]
     host: HostInfoForCreateTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Evs", "ClientToken")]] = None
     esxVersion: Optional[str] = None
 
 
@@ -321,29 +323,29 @@ class ListEnvironmentsResponseTypeDef(BaseValidatorModel):
 
 class VlanTypeDef(BaseValidatorModel):
     vlanId: Optional[int] = None
-    cidr: Optional[str] = None
+    cidr: Optional[Annotated[str, _aws_pattern("Evs", "Cidr")]] = None
     availabilityZone: Optional[str] = None
     functionName: Optional[str] = None
-    subnetId: Optional[str] = None
+    subnetId: Optional[Annotated[str, _aws_pattern("Evs", "SubnetId")]] = None
     createdAt: Optional[datetime] = None
     modifiedAt: Optional[datetime] = None
     vlanState: Optional[VlanStateType] = None
     stateDetails: Optional[str] = None
     eipAssociations: Optional[List[EipAssociationTypeDef]] = None
     isPublic: Optional[bool] = None
-    networkAclId: Optional[str] = None
+    networkAclId: Optional[Annotated[str, _aws_pattern("Evs", "NetworkAclId")]] = None
 
 
 class EnvironmentTypeDef(BaseValidatorModel):
-    environmentId: Optional[str] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("Evs", "EnvironmentId")]] = None
     environmentState: Optional[EnvironmentStateType] = None
     stateDetails: Optional[str] = None
     createdAt: Optional[datetime] = None
     modifiedAt: Optional[datetime] = None
-    environmentArn: Optional[str] = None
-    environmentName: Optional[str] = None
-    vpcId: Optional[str] = None
-    serviceAccessSubnetId: Optional[str] = None
+    environmentArn: Optional[Annotated[str, _aws_pattern("Evs", "Arn")]] = None
+    environmentName: Optional[Annotated[str, _aws_pattern("Evs", "EnvironmentName")]] = None
+    vpcId: Optional[Annotated[str, _aws_pattern("Evs", "VpcId")]] = None
+    serviceAccessSubnetId: Optional[Annotated[str, _aws_pattern("Evs", "SubnetId")]] = None
     vcfVersion: Optional[VcfVersionType] = None
     termsAccepted: Optional[bool] = None
     licenseInfo: Optional[List[LicenseInfoTypeDef]] = None
@@ -358,9 +360,9 @@ class EnvironmentTypeDef(BaseValidatorModel):
 
 
 class VmEntitlementTypeDef(BaseValidatorModel):
-    vmId: Optional[str] = None
-    environmentId: Optional[str] = None
-    connectorId: Optional[str] = None
+    vmId: Optional[Annotated[str, _aws_pattern("Evs", "VmId")]] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("Evs", "EnvironmentId")]] = None
+    connectorId: Optional[Annotated[str, _aws_pattern("Evs", "ConnectorId")]] = None
     vmName: Optional[str] = None
     type: Optional[Literal["WINDOWS_SERVER"]] = None
     status: Optional[EntitlementStatusType] = None
@@ -377,12 +379,12 @@ class GetVersionsResponseTypeDef(BaseValidatorModel):
 
 
 class HostTypeDef(BaseValidatorModel):
-    hostName: Optional[str] = None
-    ipAddress: Optional[str] = None
-    keyName: Optional[str] = None
+    hostName: Optional[Annotated[str, _aws_pattern("Evs", "HostName")]] = None
+    ipAddress: Optional[Annotated[str, _aws_pattern("Evs", "IpAddress")]] = None
+    keyName: Optional[Annotated[str, _aws_pattern("Evs", "KeyName")]] = None
     instanceType: Optional[InstanceTypeType] = None
-    placementGroupId: Optional[str] = None
-    dedicatedHostId: Optional[str] = None
+    placementGroupId: Optional[Annotated[str, _aws_pattern("Evs", "PlacementGroupId")]] = None
+    dedicatedHostId: Optional[Annotated[str, _aws_pattern("Evs", "DedicatedHostId")]] = None
     createdAt: Optional[datetime] = None
     modifiedAt: Optional[datetime] = None
     hostState: Optional[HostStateType] = None
@@ -403,7 +405,7 @@ class InitialVlansTypeDef(BaseValidatorModel):
     expansionVlan1: InitialVlanInfoTypeDef
     expansionVlan2: InitialVlanInfoTypeDef
     isHcxPublic: Optional[bool] = None
-    hcxNetworkAclId: Optional[str] = None
+    hcxNetworkAclId: Optional[Annotated[str, _aws_pattern("Evs", "NetworkAclId")]] = None
 
 
 class ListEnvironmentConnectorsRequestPaginateTypeDef(BaseValidatorModel):
@@ -543,8 +545,8 @@ class ListEnvironmentHostsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_environment' function.
 class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
-    vpcId: str
-    serviceAccessSubnetId: str
+    vpcId: Annotated[str, _aws_pattern("Evs", "VpcId")]
+    serviceAccessSubnetId: Annotated[str, _aws_pattern("Evs", "SubnetId")]
     vcfVersion: VcfVersionType
     termsAccepted: bool
     licenseInfo: List[LicenseInfoTypeDef]
@@ -553,8 +555,8 @@ class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
     connectivityInfo: ConnectivityInfoUnionTypeDef
     vcfHostnames: VcfHostnamesTypeDef
     siteId: str
-    clientToken: Optional[str] = None
-    environmentName: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Evs", "ClientToken")]] = None
+    environmentName: Optional[Annotated[str, _aws_pattern("Evs", "EnvironmentName")]] = None
     kmsKeyId: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
     serviceAccessSecurityGroups: Optional[ServiceAccessSecurityGroupsUnionTypeDef] = None

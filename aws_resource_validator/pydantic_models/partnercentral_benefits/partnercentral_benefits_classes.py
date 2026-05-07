@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.partnercentral_benefits.partnercentral_benefits_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -49,9 +51,11 @@ class AmendmentTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_benefit_application_resource' function.
 class AssociateBenefitApplicationResourceInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    BenefitApplicationIdentifier: str
-    ResourceArn: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    BenefitApplicationIdentifier: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationIdentifier")]
+    ResourceArn: Annotated[
+        str, _aws_pattern("PartnercentralBenefits", "AssociateBenefitApplicationResourceInputResourceArnString")
+    ]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -65,56 +69,62 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 class AssociatedResourceTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     ResourceIdentifier: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "Arn")]] = None
 
 
 class BenefitAllocationSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Catalog: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitAllocationId")]] = None
+    Catalog: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]] = None
     Arn: Optional[str] = None
     Status: Optional[BenefitAllocationStatusType] = None
     StatusReason: Optional[str] = None
     Name: Optional[str] = None
-    BenefitId: Optional[str] = None
-    BenefitApplicationId: Optional[str] = None
+    BenefitId: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitId")]] = None
+    BenefitApplicationId: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationId")]] = (
+        None
+    )
     FulfillmentTypes: Optional[List[FulfillmentTypeType]] = None
     CreatedAt: Optional[datetime] = None
     ExpiresAt: Optional[datetime] = None
-    ApplicableBenefitIds: Optional[List[str]] = None
+    ApplicableBenefitIds: Optional[List[Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitId")]]] = None
 
 
 class BenefitApplicationSummaryTypeDef(BaseValidatorModel):
-    Catalog: Optional[str] = None
+    Catalog: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]] = None
     Name: Optional[str] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationId")]] = None
     Arn: Optional[str] = None
-    BenefitId: Optional[str] = None
-    Programs: Optional[List[str]] = None
+    BenefitId: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitId")]] = None
+    Programs: Optional[List[Annotated[str, _aws_pattern("PartnercentralBenefits", "Program")]]] = None
     FulfillmentTypes: Optional[List[FulfillmentTypeType]] = None
     Status: Optional[BenefitApplicationStatusType] = None
     Stage: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
     BenefitApplicationDetails: Optional[Dict[str, str]] = None
-    AssociatedResources: Optional[List[str]] = None
+    AssociatedResources: Optional[List[Annotated[str, _aws_pattern("PartnercentralBenefits", "Arn")]]] = None
 
 
 class BenefitSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Catalog: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitSummaryIdString")]] = None
+    Catalog: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
-    Programs: Optional[List[str]] = None
+    Programs: Optional[List[Annotated[str, _aws_pattern("PartnercentralBenefits", "Program")]]] = None
     FulfillmentTypes: Optional[List[FulfillmentTypeType]] = None
     Status: Optional[BenefitStatusType] = None
 
 
 class CancelBenefitApplicationInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
-    Identifier: str
-    Reason: Optional[str] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    ClientToken: Annotated[
+        str, _aws_pattern("PartnercentralBenefits", "CancelBenefitApplicationInputClientTokenString")
+    ]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationIdentifier")]
+    Reason: Optional[
+        Annotated[str, _aws_pattern("PartnercentralBenefits", "CancelBenefitApplicationInputReasonString")]
+    ] = None
 
 
 class MonetaryValueTypeDef(BaseValidatorModel):
@@ -123,7 +133,7 @@ class MonetaryValueTypeDef(BaseValidatorModel):
 
 
 class ContactTypeDef(BaseValidatorModel):
-    Email: Optional[str] = None
+    Email: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "ContactEmail")]] = None
     FirstName: Optional[str] = None
     LastName: Optional[str] = None
     BusinessTitle: Optional[str] = None
@@ -131,24 +141,26 @@ class ContactTypeDef(BaseValidatorModel):
 
 
 class FileInputTypeDef(BaseValidatorModel):
-    FileURI: str
+    FileURI: Annotated[str, _aws_pattern("PartnercentralBenefits", "FileURI")]
     BusinessUseCase: Optional[str] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("PartnercentralBenefits", "TagKey")]
+    Value: Annotated[str, _aws_pattern("PartnercentralBenefits", "TagValue")]
 
 
 # This class is the input for the 'disassociate_benefit_application_resource' function.
 class DisassociateBenefitApplicationResourceInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    BenefitApplicationIdentifier: str
-    ResourceArn: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    BenefitApplicationIdentifier: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationIdentifier")]
+    ResourceArn: Annotated[
+        str, _aws_pattern("PartnercentralBenefits", "DisassociateBenefitApplicationResourceInputResourceArnString")
+    ]
 
 
 class FileDetailTypeDef(BaseValidatorModel):
-    FileURI: str
+    FileURI: Annotated[str, _aws_pattern("PartnercentralBenefits", "FileURI")]
     BusinessUseCase: Optional[str] = None
     FileName: Optional[str] = None
     FileStatus: Optional[str] = None
@@ -160,20 +172,20 @@ class FileDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_benefit_allocation' function.
 class GetBenefitAllocationInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitAllocationIdentifier")]
 
 
 # This class is the input for the 'get_benefit_application' function.
 class GetBenefitApplicationInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationIdentifier")]
 
 
 # This class is the input for the 'get_benefit' function.
 class GetBenefitInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralBenefits", "GetBenefitInputIdentifierString")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -184,59 +196,65 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_benefit_allocations' function.
 class ListBenefitAllocationsInputTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
     FulfillmentTypes: Optional[List[FulfillmentTypeType]] = None
-    BenefitIdentifiers: Optional[List[str]] = None
-    BenefitApplicationIdentifiers: Optional[List[str]] = None
+    BenefitIdentifiers: Optional[List[Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitId")]]] = None
+    BenefitApplicationIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationIdentifier")]]
+    ] = None
     Status: Optional[List[BenefitAllocationStatusType]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[
+        Annotated[str, _aws_pattern("PartnercentralBenefits", "ListBenefitAllocationsInputNextTokenString")]
+    ] = None
 
 
 # This class is the input for the 'list_benefits' function.
 class ListBenefitsInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    Programs: Optional[List[str]] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    Programs: Optional[List[Annotated[str, _aws_pattern("PartnercentralBenefits", "Program")]]] = None
     FulfillmentTypes: Optional[List[FulfillmentTypeType]] = None
     Status: Optional[List[BenefitStatusType]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PartnercentralBenefits", "ListBenefitsInputNextTokenString")]] = (
+        None
+    )
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("PartnercentralBenefits", "TaggableResourceArn")]
 
 
 class RecallBenefitApplicationInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationIdentifier")]
     Reason: str
     ClientToken: Optional[str] = None
 
 
 class SubmitBenefitApplicationInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationIdentifier")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("PartnercentralBenefits", "TaggableResourceArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("PartnercentralBenefits", "TagKey")]]
 
 
 class AmendBenefitApplicationInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralBenefits", "AmendBenefitApplicationInputClientTokenString")]
     Revision: str
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationIdentifier")]
     AmendmentReason: str
     Amendments: List[AmendmentTypeDef]
 
 
 # This class is the output for the 'associate_benefit_application_resource' function.
 class AssociateBenefitApplicationResourceOutputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationId")]
     Arn: str
     Revision: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -244,7 +262,7 @@ class AssociateBenefitApplicationResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_benefit_application' function.
 class CreateBenefitApplicationOutputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationId")]
     Arn: str
     Revision: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -252,7 +270,7 @@ class CreateBenefitApplicationOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'disassociate_benefit_application_resource' function.
 class DisassociateBenefitApplicationResourceOutputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationId")]
     Arn: str
     Revision: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -260,12 +278,12 @@ class DisassociateBenefitApplicationResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_benefit' function.
 class GetBenefitOutputTypeDef(BaseValidatorModel):
-    Id: str
-    Catalog: str
+    Id: Annotated[str, _aws_pattern("PartnercentralBenefits", "GetBenefitOutputIdString")]
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
     Arn: str
     Name: str
     Description: str
-    Programs: List[str]
+    Programs: List[Annotated[str, _aws_pattern("PartnercentralBenefits", "Program")]]
     FulfillmentTypes: List[FulfillmentTypeType]
     BenefitRequestSchema: Dict[str, Any]
     Status: BenefitStatusType
@@ -274,7 +292,7 @@ class GetBenefitOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_benefit_application' function.
 class UpdateBenefitApplicationOutputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationId")]
     Arn: str
     Revision: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -282,16 +300,18 @@ class UpdateBenefitApplicationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_benefit_applications' function.
 class ListBenefitApplicationsInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    Programs: Optional[List[str]] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    Programs: Optional[List[Annotated[str, _aws_pattern("PartnercentralBenefits", "Program")]]] = None
     FulfillmentTypes: Optional[List[FulfillmentTypeType]] = None
-    BenefitIdentifiers: Optional[List[str]] = None
+    BenefitIdentifiers: Optional[List[Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitId")]]] = None
     Status: Optional[List[BenefitApplicationStatusType]] = None
     Stages: Optional[List[str]] = None
     AssociatedResources: Optional[List[AssociatedResourceTypeDef]] = None
-    AssociatedResourceArns: Optional[List[str]] = None
+    AssociatedResourceArns: Optional[List[Annotated[str, _aws_pattern("PartnercentralBenefits", "Arn")]]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[
+        Annotated[str, _aws_pattern("PartnercentralBenefits", "ListBenefitApplicationsInputNextTokenString")]
+    ] = None
 
 
 # This class is the output for the 'list_benefit_allocations' function.
@@ -332,9 +352,11 @@ class IssuanceDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_benefit_application' function.
 class UpdateBenefitApplicationInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    ClientToken: Annotated[
+        str, _aws_pattern("PartnercentralBenefits", "UpdateBenefitApplicationInputClientTokenString")
+    ]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationIdentifier")]
     Revision: str
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -345,15 +367,19 @@ class UpdateBenefitApplicationInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_benefit_application' function.
 class CreateBenefitApplicationInputTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
-    BenefitIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    ClientToken: Annotated[
+        str, _aws_pattern("PartnercentralBenefits", "CreateBenefitApplicationInputClientTokenString")
+    ]
+    BenefitIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralBenefits", "CreateBenefitApplicationInputBenefitIdentifierString")
+    ]
     Name: Optional[str] = None
     Description: Optional[str] = None
     FulfillmentTypes: Optional[List[FulfillmentTypeType]] = None
     BenefitApplicationDetails: Optional[Dict[str, Any]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    AssociatedResources: Optional[List[str]] = None
+    AssociatedResources: Optional[List[Annotated[str, _aws_pattern("PartnercentralBenefits", "Arn")]]] = None
     PartnerContacts: Optional[List[ContactTypeDef]] = None
     FileDetails: Optional[List[FileInputTypeDef]] = None
 
@@ -365,21 +391,21 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("PartnercentralBenefits", "TaggableResourceArn")]
     tags: List[TagTypeDef]
 
 
 # This class is the output for the 'get_benefit_application' function.
 class GetBenefitApplicationOutputTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
-    Catalog: str
-    BenefitId: str
+    Id: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationId")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralBenefits", "Arn")]
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    BenefitId: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitId")]
     Name: str
     Description: str
     FulfillmentTypes: List[FulfillmentTypeType]
     BenefitApplicationDetails: Dict[str, Any]
-    Programs: List[str]
+    Programs: List[Annotated[str, _aws_pattern("PartnercentralBenefits", "Program")]]
     Status: BenefitApplicationStatusType
     Stage: str
     StatusReason: str
@@ -388,7 +414,7 @@ class GetBenefitApplicationOutputTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     UpdatedAt: datetime
     Revision: str
-    AssociatedResources: List[str]
+    AssociatedResources: List[Annotated[str, _aws_pattern("PartnercentralBenefits", "Arn")]]
     PartnerContacts: List[ContactTypeDef]
     FileDetails: List[FileDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -450,17 +476,17 @@ class FulfillmentDetailsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_benefit_allocation' function.
 class GetBenefitAllocationOutputTypeDef(BaseValidatorModel):
-    Id: str
-    Catalog: str
-    Arn: str
+    Id: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitAllocationId")]
+    Catalog: Annotated[str, _aws_pattern("PartnercentralBenefits", "CatalogName")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitAllocationArn")]
     Name: str
     Description: str
     Status: BenefitAllocationStatusType
     StatusReason: str
-    BenefitApplicationId: str
-    BenefitId: str
+    BenefitApplicationId: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitApplicationId")]
+    BenefitId: Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitId")]
     FulfillmentType: FulfillmentTypeType
-    ApplicableBenefitIds: List[str]
+    ApplicableBenefitIds: List[Annotated[str, _aws_pattern("PartnercentralBenefits", "BenefitId")]]
     FulfillmentDetail: FulfillmentDetailsTypeDef
     CreatedAt: datetime
     UpdatedAt: datetime

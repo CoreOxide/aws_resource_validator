@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.transfer.transfer_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,27 +47,27 @@ class As2AsyncMdnConnectorConfigOutputTypeDef(BaseValidatorModel):
 
 class As2AsyncMdnConnectorConfigTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
-    ServerIds: Optional[List[str]] = None
+    ServerIds: Optional[List[Annotated[str, _aws_pattern("Transfer", "ServerId")]]] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class ConnectorVpcLatticeEgressConfigTypeDef(BaseValidatorModel):
-    ResourceConfigurationArn: str
+    ResourceConfigurationArn: Annotated[str, _aws_pattern("Transfer", "VpcLatticeResourceConfigurationArn")]
     PortNumber: Optional[int] = None
 
 
 class ConnectorFileTransferResultTypeDef(BaseValidatorModel):
-    FilePath: str
+    FilePath: Annotated[str, _aws_pattern("Transfer", "FilePath")]
     StatusCode: TransferTableStatusType
     FailureCode: Optional[str] = None
     FailureMessage: Optional[str] = None
 
 
 class HomeDirectoryMapEntryTypeDef(BaseValidatorModel):
-    Entry: str
-    Target: str
+    Entry: Annotated[str, _aws_pattern("Transfer", "MapEntry")]
+    Target: Annotated[str, _aws_pattern("Transfer", "MapTarget")]
     Type: Optional[MapTypeType] = None
 
 
@@ -78,11 +80,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class CustomDirectoriesTypeTypeDef(BaseValidatorModel):
-    FailedFilesDirectory: str
-    MdnFilesDirectory: str
-    PayloadFilesDirectory: str
-    StatusFilesDirectory: str
-    TemporaryFilesDirectory: str
+    FailedFilesDirectory: Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]
+    MdnFilesDirectory: Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]
+    PayloadFilesDirectory: Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]
+    StatusFilesDirectory: Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]
+    TemporaryFilesDirectory: Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -92,9 +94,9 @@ class TagTypeDef(BaseValidatorModel):
 
 class IdentityProviderDetailsTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
-    InvocationRole: Optional[str] = None
-    DirectoryId: Optional[str] = None
-    Function: Optional[str] = None
+    InvocationRole: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Transfer", "DirectoryId")]] = None
+    Function: Optional[Annotated[str, _aws_pattern("Transfer", "Function")]] = None
     SftpAuthenticationMethods: Optional[SftpAuthenticationMethodsType] = None
 
 
@@ -107,134 +109,134 @@ class WebAppUnitsTypeDef(BaseValidatorModel):
 
 
 class CustomHttpHeaderTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Transfer", "CustomHttpHeaderKeyType")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Transfer", "CustomHttpHeaderValueType")]] = None
 
 
 class CustomStepDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Target: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Transfer", "WorkflowStepName")]] = None
+    Target: Optional[Annotated[str, _aws_pattern("Transfer", "CustomStepTarget")]] = None
     TimeoutSeconds: Optional[int] = None
-    SourceFileLocation: Optional[str] = None
+    SourceFileLocation: Optional[Annotated[str, _aws_pattern("Transfer", "SourceFileLocation")]] = None
 
 
 # This class is the input for the 'delete_access' function.
 class DeleteAccessRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    ExternalId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    ExternalId: Annotated[str, _aws_pattern("Transfer", "ExternalId")]
 
 
 # This class is the input for the 'delete_agreement' function.
 class DeleteAgreementRequestTypeDef(BaseValidatorModel):
-    AgreementId: str
-    ServerId: str
+    AgreementId: Annotated[str, _aws_pattern("Transfer", "AgreementId")]
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
 
 
 # This class is the input for the 'delete_certificate' function.
 class DeleteCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateId: str
+    CertificateId: Annotated[str, _aws_pattern("Transfer", "CertificateId")]
 
 
 # This class is the input for the 'delete_connector' function.
 class DeleteConnectorRequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
 
 
 # This class is the input for the 'delete_host_key' function.
 class DeleteHostKeyRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    HostKeyId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    HostKeyId: Annotated[str, _aws_pattern("Transfer", "HostKeyId")]
 
 
 # This class is the input for the 'delete_profile' function.
 class DeleteProfileRequestTypeDef(BaseValidatorModel):
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("Transfer", "ProfileId")]
 
 
 # This class is the input for the 'delete_server' function.
 class DeleteServerRequestTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
 
 
 # This class is the input for the 'delete_ssh_public_key' function.
 class DeleteSshPublicKeyRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    SshPublicKeyId: str
-    UserName: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    SshPublicKeyId: Annotated[str, _aws_pattern("Transfer", "SshPublicKeyId")]
+    UserName: Annotated[str, _aws_pattern("Transfer", "UserName")]
 
 
 class DeleteStepDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    SourceFileLocation: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Transfer", "WorkflowStepName")]] = None
+    SourceFileLocation: Optional[Annotated[str, _aws_pattern("Transfer", "SourceFileLocation")]] = None
 
 
 # This class is the input for the 'delete_user' function.
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    UserName: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    UserName: Annotated[str, _aws_pattern("Transfer", "UserName")]
 
 
 # This class is the input for the 'delete_web_app_customization' function.
 class DeleteWebAppCustomizationRequestTypeDef(BaseValidatorModel):
-    WebAppId: str
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
 
 
 # This class is the input for the 'delete_web_app' function.
 class DeleteWebAppRequestTypeDef(BaseValidatorModel):
-    WebAppId: str
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
 
 
 # This class is the input for the 'delete_workflow' function.
 class DeleteWorkflowRequestTypeDef(BaseValidatorModel):
-    WorkflowId: str
+    WorkflowId: Annotated[str, _aws_pattern("Transfer", "WorkflowId")]
 
 
 # This class is the input for the 'describe_access' function.
 class DescribeAccessRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    ExternalId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    ExternalId: Annotated[str, _aws_pattern("Transfer", "ExternalId")]
 
 
 # This class is the input for the 'describe_agreement' function.
 class DescribeAgreementRequestTypeDef(BaseValidatorModel):
-    AgreementId: str
-    ServerId: str
+    AgreementId: Annotated[str, _aws_pattern("Transfer", "AgreementId")]
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
 
 
 # This class is the input for the 'describe_certificate' function.
 class DescribeCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateId: str
+    CertificateId: Annotated[str, _aws_pattern("Transfer", "CertificateId")]
 
 
 # This class is the input for the 'describe_connector' function.
 class DescribeConnectorRequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
 
 
 # This class is the input for the 'describe_execution' function.
 class DescribeExecutionRequestTypeDef(BaseValidatorModel):
-    ExecutionId: str
-    WorkflowId: str
+    ExecutionId: Annotated[str, _aws_pattern("Transfer", "ExecutionId")]
+    WorkflowId: Annotated[str, _aws_pattern("Transfer", "WorkflowId")]
 
 
 # This class is the input for the 'describe_host_key' function.
 class DescribeHostKeyRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    HostKeyId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    HostKeyId: Annotated[str, _aws_pattern("Transfer", "HostKeyId")]
 
 
 # This class is the input for the 'describe_profile' function.
 class DescribeProfileRequestTypeDef(BaseValidatorModel):
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("Transfer", "ProfileId")]
 
 
 # This class is the input for the 'describe_security_policy' function.
 class DescribeSecurityPolicyRequestTypeDef(BaseValidatorModel):
-    SecurityPolicyName: str
+    SecurityPolicyName: Annotated[str, _aws_pattern("Transfer", "SecurityPolicyName")]
 
 
 class DescribedSecurityPolicyTypeDef(BaseValidatorModel):
-    SecurityPolicyName: str
+    SecurityPolicyName: Annotated[str, _aws_pattern("Transfer", "SecurityPolicyName")]
     Fips: Optional[bool] = None
     SshCiphers: Optional[List[str]] = None
     SshKexs: Optional[List[str]] = None
@@ -247,7 +249,7 @@ class DescribedSecurityPolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_server' function.
 class DescribeServerRequestTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -257,18 +259,18 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_user' function.
 class DescribeUserRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    UserName: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    UserName: Annotated[str, _aws_pattern("Transfer", "UserName")]
 
 
 # This class is the input for the 'describe_web_app_customization' function.
 class DescribeWebAppCustomizationRequestTypeDef(BaseValidatorModel):
-    WebAppId: str
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
 
 
 class DescribedWebAppCustomizationTypeDef(BaseValidatorModel):
-    Arn: str
-    WebAppId: str
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
     Title: Optional[str] = None
     LogoFile: Optional[bytes] = None
     FaviconFile: Optional[bytes] = None
@@ -276,12 +278,12 @@ class DescribedWebAppCustomizationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_web_app' function.
 class DescribeWebAppRequestTypeDef(BaseValidatorModel):
-    WebAppId: str
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
 
 
 # This class is the input for the 'describe_workflow' function.
 class DescribeWorkflowRequestTypeDef(BaseValidatorModel):
-    WorkflowId: str
+    WorkflowId: Annotated[str, _aws_pattern("Transfer", "WorkflowId")]
 
 
 class PosixProfileOutputTypeDef(BaseValidatorModel):
@@ -291,7 +293,7 @@ class PosixProfileOutputTypeDef(BaseValidatorModel):
 
 
 class DescribedConnectorVpcLatticeEgressConfigTypeDef(BaseValidatorModel):
-    ResourceConfigurationArn: str
+    ResourceConfigurationArn: Annotated[str, _aws_pattern("Transfer", "VpcLatticeResourceConfigurationArn")]
     PortNumber: Optional[int] = None
 
 
@@ -302,14 +304,14 @@ class SftpConnectorConfigOutputTypeDef(BaseValidatorModel):
 
 
 class LoggingConfigurationTypeDef(BaseValidatorModel):
-    LoggingRole: Optional[str] = None
-    LogGroupName: Optional[str] = None
+    LoggingRole: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
+    LogGroupName: Optional[Annotated[str, _aws_pattern("Transfer", "LogGroupName")]] = None
 
 
 class DescribedIdentityCenterConfigTypeDef(BaseValidatorModel):
-    ApplicationArn: Optional[str] = None
-    InstanceArn: Optional[str] = None
-    Role: Optional[str] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("Transfer", "IdentityCenterApplicationArn")]] = None
+    InstanceArn: Optional[Annotated[str, _aws_pattern("Transfer", "IdentityCenterInstanceArn")]] = None
+    Role: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
 
 
 class EndpointDetailsOutputTypeDef(BaseValidatorModel):
@@ -329,27 +331,27 @@ class ProtocolDetailsOutputTypeDef(BaseValidatorModel):
 
 class SshPublicKeyTypeDef(BaseValidatorModel):
     DateImported: datetime
-    SshPublicKeyBody: str
-    SshPublicKeyId: str
+    SshPublicKeyBody: Annotated[str, _aws_pattern("Transfer", "SshPublicKeyBody")]
+    SshPublicKeyId: Annotated[str, _aws_pattern("Transfer", "SshPublicKeyId")]
 
 
 class DescribedWebAppVpcConfigTypeDef(BaseValidatorModel):
     SubnetIds: Optional[List[str]] = None
     VpcId: Optional[str] = None
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Transfer", "VpcEndpointId")]] = None
 
 
 class EfsFileLocationTypeDef(BaseValidatorModel):
-    FileSystemId: Optional[str] = None
-    Path: Optional[str] = None
+    FileSystemId: Optional[Annotated[str, _aws_pattern("Transfer", "EfsFileSystemId")]] = None
+    Path: Optional[Annotated[str, _aws_pattern("Transfer", "EfsPath")]] = None
 
 
 class EndpointDetailsTypeDef(BaseValidatorModel):
     AddressAllocationIds: Optional[List[str]] = None
     SubnetIds: Optional[List[str]] = None
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Transfer", "VpcEndpointId")]] = None
     VpcId: Optional[str] = None
-    SecurityGroupIds: Optional[List[str]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Transfer", "SecurityGroupId")]]] = None
 
 
 class ExecutionErrorTypeDef(BaseValidatorModel):
@@ -358,15 +360,15 @@ class ExecutionErrorTypeDef(BaseValidatorModel):
 
 
 class S3FileLocationTypeDef(BaseValidatorModel):
-    Bucket: Optional[str] = None
-    Key: Optional[str] = None
-    VersionId: Optional[str] = None
-    Etag: Optional[str] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("Transfer", "S3Bucket")]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Transfer", "S3Key")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Transfer", "S3VersionId")]] = None
+    Etag: Optional[Annotated[str, _aws_pattern("Transfer", "S3Etag")]] = None
 
 
 class IdentityCenterConfigTypeDef(BaseValidatorModel):
-    InstanceArn: Optional[str] = None
-    Role: Optional[str] = None
+    InstanceArn: Optional[Annotated[str, _aws_pattern("Transfer", "IdentityCenterInstanceArn")]] = None
+    Role: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -374,14 +376,14 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'import_ssh_public_key' function.
 class ImportSshPublicKeyRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    SshPublicKeyBody: str
-    UserName: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    SshPublicKeyBody: Annotated[str, _aws_pattern("Transfer", "SshPublicKeyBody")]
+    UserName: Annotated[str, _aws_pattern("Transfer", "UserName")]
 
 
 class S3InputFileLocationTypeDef(BaseValidatorModel):
-    Bucket: Optional[str] = None
-    Key: Optional[str] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("Transfer", "S3Bucket")]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Transfer", "S3Key")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -392,33 +394,33 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_accesses' function.
 class ListAccessesRequestTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class ListedAccessTypeDef(BaseValidatorModel):
-    HomeDirectory: Optional[str] = None
+    HomeDirectory: Optional[Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]] = None
     HomeDirectoryType: Optional[HomeDirectoryTypeType] = None
-    Role: Optional[str] = None
-    ExternalId: Optional[str] = None
+    Role: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
+    ExternalId: Optional[Annotated[str, _aws_pattern("Transfer", "ExternalId")]] = None
 
 
 # This class is the input for the 'list_agreements' function.
 class ListAgreementsRequestTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class ListedAgreementTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    AgreementId: Optional[str] = None
-    Description: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Transfer", "Arn")]] = None
+    AgreementId: Optional[Annotated[str, _aws_pattern("Transfer", "AgreementId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "Description")]] = None
     Status: Optional[AgreementStatusTypeType] = None
-    ServerId: Optional[str] = None
-    LocalProfileId: Optional[str] = None
-    PartnerProfileId: Optional[str] = None
+    ServerId: Optional[Annotated[str, _aws_pattern("Transfer", "ServerId")]] = None
+    LocalProfileId: Optional[Annotated[str, _aws_pattern("Transfer", "ProfileId")]] = None
+    PartnerProfileId: Optional[Annotated[str, _aws_pattern("Transfer", "ProfileId")]] = None
 
 
 # This class is the input for the 'list_certificates' function.
@@ -428,14 +430,14 @@ class ListCertificatesRequestTypeDef(BaseValidatorModel):
 
 
 class ListedCertificateTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    CertificateId: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Transfer", "Arn")]] = None
+    CertificateId: Optional[Annotated[str, _aws_pattern("Transfer", "CertificateId")]] = None
     Usage: Optional[CertificateUsageTypeType] = None
     Status: Optional[CertificateStatusTypeType] = None
     ActiveDate: Optional[datetime] = None
     InactiveDate: Optional[datetime] = None
     Type: Optional[CertificateTypeType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "Description")]] = None
 
 
 # This class is the input for the 'list_connectors' function.
@@ -445,38 +447,38 @@ class ListConnectorsRequestTypeDef(BaseValidatorModel):
 
 
 class ListedConnectorTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    ConnectorId: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Transfer", "Arn")]] = None
+    ConnectorId: Optional[Annotated[str, _aws_pattern("Transfer", "ConnectorId")]] = None
     Url: Optional[str] = None
 
 
 # This class is the input for the 'list_executions' function.
 class ListExecutionsRequestTypeDef(BaseValidatorModel):
-    WorkflowId: str
+    WorkflowId: Annotated[str, _aws_pattern("Transfer", "WorkflowId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_file_transfer_results' function.
 class ListFileTransferResultsRequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
-    TransferId: str
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
+    TransferId: Annotated[str, _aws_pattern("Transfer", "TransferId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_host_keys' function.
 class ListHostKeysRequestTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class ListedHostKeyTypeDef(BaseValidatorModel):
-    Arn: str
-    HostKeyId: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
+    HostKeyId: Optional[Annotated[str, _aws_pattern("Transfer", "HostKeyId")]] = None
     Fingerprint: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "HostKeyDescription")]] = None
     Type: Optional[str] = None
     DateImported: Optional[datetime] = None
 
@@ -489,9 +491,9 @@ class ListProfilesRequestTypeDef(BaseValidatorModel):
 
 
 class ListedProfileTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    ProfileId: Optional[str] = None
-    As2Id: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Transfer", "Arn")]] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("Transfer", "ProfileId")]] = None
+    As2Id: Optional[Annotated[str, _aws_pattern("Transfer", "As2Id")]] = None
     ProfileType: Optional[ProfileTypeType] = None
 
 
@@ -508,37 +510,37 @@ class ListServersRequestTypeDef(BaseValidatorModel):
 
 
 class ListedServerTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
     Domain: Optional[DomainType] = None
     IdentityProviderType: Optional[IdentityProviderTypeType] = None
     EndpointType: Optional[EndpointTypeType] = None
-    LoggingRole: Optional[str] = None
-    ServerId: Optional[str] = None
+    LoggingRole: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
+    ServerId: Optional[Annotated[str, _aws_pattern("Transfer", "ServerId")]] = None
     State: Optional[StateType] = None
     UserCount: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_users' function.
 class ListUsersRequestTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class ListedUserTypeDef(BaseValidatorModel):
-    Arn: str
-    HomeDirectory: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
+    HomeDirectory: Optional[Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]] = None
     HomeDirectoryType: Optional[HomeDirectoryTypeType] = None
-    Role: Optional[str] = None
+    Role: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
     SshPublicKeyCount: Optional[int] = None
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Transfer", "UserName")]] = None
 
 
 # This class is the input for the 'list_web_apps' function.
@@ -548,8 +550,8 @@ class ListWebAppsRequestTypeDef(BaseValidatorModel):
 
 
 class ListedWebAppTypeDef(BaseValidatorModel):
-    Arn: str
-    WebAppId: str
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
     AccessEndpoint: Optional[str] = None
     WebAppEndpoint: Optional[str] = None
     EndpointType: Optional[WebAppEndpointTypeType] = None
@@ -562,9 +564,9 @@ class ListWorkflowsRequestTypeDef(BaseValidatorModel):
 
 
 class ListedWorkflowTypeDef(BaseValidatorModel):
-    WorkflowId: Optional[str] = None
-    Description: Optional[str] = None
-    Arn: Optional[str] = None
+    WorkflowId: Optional[Annotated[str, _aws_pattern("Transfer", "WorkflowId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "WorkflowDescription")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Transfer", "Arn")]] = None
 
 
 class PosixProfileTypeDef(BaseValidatorModel):
@@ -581,21 +583,21 @@ class ProtocolDetailsTypeDef(BaseValidatorModel):
 
 
 class S3TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Transfer", "S3TagKey")]
+    Value: Annotated[str, _aws_pattern("Transfer", "S3TagValue")]
 
 
 class SendWorkflowStepStateRequestTypeDef(BaseValidatorModel):
-    WorkflowId: str
-    ExecutionId: str
-    Token: str
+    WorkflowId: Annotated[str, _aws_pattern("Transfer", "WorkflowId")]
+    ExecutionId: Annotated[str, _aws_pattern("Transfer", "ExecutionId")]
+    Token: Annotated[str, _aws_pattern("Transfer", "CallbackToken")]
     Status: CustomStepStatusType
 
 
 class UserDetailsTypeDef(BaseValidatorModel):
-    UserName: str
-    ServerId: str
-    SessionId: Optional[str] = None
+    UserName: Annotated[str, _aws_pattern("Transfer", "UserName")]
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    SessionId: Optional[Annotated[str, _aws_pattern("Transfer", "SessionId")]] = None
 
 
 class SftpConnectorConfigTypeDef(BaseValidatorModel):
@@ -610,71 +612,73 @@ class SftpConnectorConnectionDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_directory_listing' function.
 class StartDirectoryListingRequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
-    RemoteDirectoryPath: str
-    OutputDirectoryPath: str
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
+    RemoteDirectoryPath: Annotated[str, _aws_pattern("Transfer", "FilePath")]
+    OutputDirectoryPath: Annotated[str, _aws_pattern("Transfer", "FilePath")]
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'start_remote_delete' function.
 class StartRemoteDeleteRequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
-    DeletePath: str
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
+    DeletePath: Annotated[str, _aws_pattern("Transfer", "FilePath")]
 
 
 # This class is the input for the 'start_remote_move' function.
 class StartRemoteMoveRequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
-    SourcePath: str
-    TargetPath: str
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
+    SourcePath: Annotated[str, _aws_pattern("Transfer", "FilePath")]
+    TargetPath: Annotated[str, _aws_pattern("Transfer", "FilePath")]
 
 
 # This class is the input for the 'start_server' function.
 class StartServerRequestTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
 
 
 # This class is the input for the 'stop_server' function.
 class StopServerRequestTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
 
 
 # This class is the input for the 'test_connection' function.
 class TestConnectionRequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
 
 
 # This class is the input for the 'test_identity_provider' function.
 class TestIdentityProviderRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    UserName: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    UserName: Annotated[str, _aws_pattern("Transfer", "UserName")]
     ServerProtocol: Optional[ProtocolType] = None
-    SourceIp: Optional[str] = None
+    SourceIp: Optional[Annotated[str, _aws_pattern("Transfer", "SourceIp")]] = None
     UserPassword: Optional[str] = None
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
     TagKeys: List[str]
 
 
 class UpdateConnectorVpcLatticeEgressConfigTypeDef(BaseValidatorModel):
-    ResourceConfigurationArn: Optional[str] = None
+    ResourceConfigurationArn: Optional[
+        Annotated[str, _aws_pattern("Transfer", "VpcLatticeResourceConfigurationArn")]
+    ] = None
     PortNumber: Optional[int] = None
 
 
 # This class is the input for the 'update_host_key' function.
 class UpdateHostKeyRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    HostKeyId: str
-    Description: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    HostKeyId: Annotated[str, _aws_pattern("Transfer", "HostKeyId")]
+    Description: Annotated[str, _aws_pattern("Transfer", "HostKeyDescription")]
 
 
 # This class is the input for the 'update_profile' function.
 class UpdateProfileRequestTypeDef(BaseValidatorModel):
-    ProfileId: str
-    CertificateIds: Optional[List[str]] = None
+    ProfileId: Annotated[str, _aws_pattern("Transfer", "ProfileId")]
+    CertificateIds: Optional[List[Annotated[str, _aws_pattern("Transfer", "CertificateId")]]] = None
 
 
 class UpdateWebAppVpcConfigTypeDef(BaseValidatorModel):
@@ -683,19 +687,19 @@ class UpdateWebAppVpcConfigTypeDef(BaseValidatorModel):
 
 
 class UpdateWebAppIdentityCenterConfigTypeDef(BaseValidatorModel):
-    Role: Optional[str] = None
+    Role: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
 
 
 class WebAppVpcConfigTypeDef(BaseValidatorModel):
     SubnetIds: Optional[List[str]] = None
     VpcId: Optional[str] = None
-    SecurityGroupIds: Optional[List[str]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Transfer", "SecurityGroupId")]]] = None
     IpAddressType: Optional[WebAppVpcEndpointIpAddressTypeType] = None
 
 
 class WorkflowDetailTypeDef(BaseValidatorModel):
-    WorkflowId: str
-    ExecutionRole: str
+    WorkflowId: Annotated[str, _aws_pattern("Transfer", "WorkflowId")]
+    ExecutionRole: Annotated[str, _aws_pattern("Transfer", "Role")]
 
 
 class As2ConnectorConfigOutputTypeDef(BaseValidatorModel):
@@ -713,9 +717,9 @@ class As2ConnectorConfigOutputTypeDef(BaseValidatorModel):
 
 
 class As2ConnectorConfigTypeDef(BaseValidatorModel):
-    LocalProfileId: Optional[str] = None
-    PartnerProfileId: Optional[str] = None
-    MessageSubject: Optional[str] = None
+    LocalProfileId: Optional[Annotated[str, _aws_pattern("Transfer", "ProfileId")]] = None
+    PartnerProfileId: Optional[Annotated[str, _aws_pattern("Transfer", "ProfileId")]] = None
+    MessageSubject: Optional[Annotated[str, _aws_pattern("Transfer", "MessageSubject")]] = None
     Compression: Optional[CompressionEnumType] = None
     EncryptionAlgorithm: Optional[EncryptionAlgType] = None
     SigningAlgorithm: Optional[SigningAlgType] = None
@@ -728,7 +732,7 @@ class As2ConnectorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_web_app_customization' function.
 class UpdateWebAppCustomizationRequestTypeDef(BaseValidatorModel):
-    WebAppId: str
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
     Title: Optional[str] = None
     LogoFile: Optional[BlobTypeDef] = None
     FaviconFile: Optional[BlobTypeDef] = None
@@ -740,51 +744,51 @@ class ConnectorEgressConfigTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_access' function.
 class CreateAccessResponseTypeDef(BaseValidatorModel):
-    ServerId: str
-    ExternalId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    ExternalId: Annotated[str, _aws_pattern("Transfer", "ExternalId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_agreement' function.
 class CreateAgreementResponseTypeDef(BaseValidatorModel):
-    AgreementId: str
+    AgreementId: Annotated[str, _aws_pattern("Transfer", "AgreementId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_connector' function.
 class CreateConnectorResponseTypeDef(BaseValidatorModel):
-    ConnectorId: str
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_profile' function.
 class CreateProfileResponseTypeDef(BaseValidatorModel):
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("Transfer", "ProfileId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_server' function.
 class CreateServerResponseTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_user' function.
 class CreateUserResponseTypeDef(BaseValidatorModel):
-    ServerId: str
-    UserName: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    UserName: Annotated[str, _aws_pattern("Transfer", "UserName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_web_app' function.
 class CreateWebAppResponseTypeDef(BaseValidatorModel):
-    WebAppId: str
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_workflow' function.
 class CreateWorkflowResponseTypeDef(BaseValidatorModel):
-    WorkflowId: str
+    WorkflowId: Annotated[str, _aws_pattern("Transfer", "WorkflowId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -795,22 +799,22 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'import_certificate' function.
 class ImportCertificateResponseTypeDef(BaseValidatorModel):
-    CertificateId: str
+    CertificateId: Annotated[str, _aws_pattern("Transfer", "CertificateId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'import_host_key' function.
 class ImportHostKeyResponseTypeDef(BaseValidatorModel):
-    ServerId: str
-    HostKeyId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    HostKeyId: Annotated[str, _aws_pattern("Transfer", "HostKeyId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'import_ssh_public_key' function.
 class ImportSshPublicKeyResponseTypeDef(BaseValidatorModel):
-    ServerId: str
-    SshPublicKeyId: str
-    UserName: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    SshPublicKeyId: Annotated[str, _aws_pattern("Transfer", "SshPublicKeyId")]
+    UserName: Annotated[str, _aws_pattern("Transfer", "UserName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -823,33 +827,33 @@ class ListFileTransferResultsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_security_policies' function.
 class ListSecurityPoliciesResponseTypeDef(BaseValidatorModel):
-    SecurityPolicyNames: List[str]
+    SecurityPolicyNames: List[Annotated[str, _aws_pattern("Transfer", "SecurityPolicyName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'start_directory_listing' function.
 class StartDirectoryListingResponseTypeDef(BaseValidatorModel):
-    ListingId: str
-    OutputFileName: str
+    ListingId: Annotated[str, _aws_pattern("Transfer", "ListingId")]
+    OutputFileName: Annotated[str, _aws_pattern("Transfer", "OutputFileName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_file_transfer' function.
 class StartFileTransferResponseTypeDef(BaseValidatorModel):
-    TransferId: str
+    TransferId: Annotated[str, _aws_pattern("Transfer", "TransferId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_remote_delete' function.
 class StartRemoteDeleteResponseTypeDef(BaseValidatorModel):
-    DeleteId: str
+    DeleteId: Annotated[str, _aws_pattern("Transfer", "DeleteId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_remote_move' function.
 class StartRemoteMoveResponseTypeDef(BaseValidatorModel):
-    MoveId: str
+    MoveId: Annotated[str, _aws_pattern("Transfer", "MoveId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -864,77 +868,77 @@ class TestIdentityProviderResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_access' function.
 class UpdateAccessResponseTypeDef(BaseValidatorModel):
-    ServerId: str
-    ExternalId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    ExternalId: Annotated[str, _aws_pattern("Transfer", "ExternalId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_agreement' function.
 class UpdateAgreementResponseTypeDef(BaseValidatorModel):
-    AgreementId: str
+    AgreementId: Annotated[str, _aws_pattern("Transfer", "AgreementId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_certificate' function.
 class UpdateCertificateResponseTypeDef(BaseValidatorModel):
-    CertificateId: str
+    CertificateId: Annotated[str, _aws_pattern("Transfer", "CertificateId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_connector' function.
 class UpdateConnectorResponseTypeDef(BaseValidatorModel):
-    ConnectorId: str
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_host_key' function.
 class UpdateHostKeyResponseTypeDef(BaseValidatorModel):
-    ServerId: str
-    HostKeyId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    HostKeyId: Annotated[str, _aws_pattern("Transfer", "HostKeyId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_profile' function.
 class UpdateProfileResponseTypeDef(BaseValidatorModel):
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("Transfer", "ProfileId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_server' function.
 class UpdateServerResponseTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_user' function.
 class UpdateUserResponseTypeDef(BaseValidatorModel):
-    ServerId: str
-    UserName: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    UserName: Annotated[str, _aws_pattern("Transfer", "UserName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_web_app_customization' function.
 class UpdateWebAppCustomizationResponseTypeDef(BaseValidatorModel):
-    WebAppId: str
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_web_app' function.
 class UpdateWebAppResponseTypeDef(BaseValidatorModel):
-    WebAppId: str
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_agreement' function.
 class UpdateAgreementRequestTypeDef(BaseValidatorModel):
-    AgreementId: str
-    ServerId: str
-    Description: Optional[str] = None
+    AgreementId: Annotated[str, _aws_pattern("Transfer", "AgreementId")]
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "Description")]] = None
     Status: Optional[AgreementStatusTypeType] = None
-    LocalProfileId: Optional[str] = None
-    PartnerProfileId: Optional[str] = None
-    BaseDirectory: Optional[str] = None
-    AccessRole: Optional[str] = None
+    LocalProfileId: Optional[Annotated[str, _aws_pattern("Transfer", "ProfileId")]] = None
+    PartnerProfileId: Optional[Annotated[str, _aws_pattern("Transfer", "ProfileId")]] = None
+    BaseDirectory: Optional[Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]] = None
+    AccessRole: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
     PreserveFilename: Optional[PreserveFilenameTypeType] = None
     EnforceMessageSigning: Optional[EnforceMessageSigningTypeType] = None
     CustomDirectories: Optional[CustomDirectoriesTypeTypeDef] = None
@@ -942,12 +946,12 @@ class UpdateAgreementRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_agreement' function.
 class CreateAgreementRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    LocalProfileId: str
-    PartnerProfileId: str
-    AccessRole: str
-    Description: Optional[str] = None
-    BaseDirectory: Optional[str] = None
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    LocalProfileId: Annotated[str, _aws_pattern("Transfer", "ProfileId")]
+    PartnerProfileId: Annotated[str, _aws_pattern("Transfer", "ProfileId")]
+    AccessRole: Annotated[str, _aws_pattern("Transfer", "Role")]
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "Description")]] = None
+    BaseDirectory: Optional[Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]] = None
     Status: Optional[AgreementStatusTypeType] = None
     Tags: Optional[List[TagTypeDef]] = None
     PreserveFilename: Optional[PreserveFilenameTypeType] = None
@@ -957,22 +961,22 @@ class CreateAgreementRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_profile' function.
 class CreateProfileRequestTypeDef(BaseValidatorModel):
-    As2Id: str
+    As2Id: Annotated[str, _aws_pattern("Transfer", "As2Id")]
     ProfileType: ProfileTypeType
-    CertificateIds: Optional[List[str]] = None
+    CertificateIds: Optional[List[Annotated[str, _aws_pattern("Transfer", "CertificateId")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class DescribedAgreementTypeDef(BaseValidatorModel):
-    Arn: str
-    AgreementId: Optional[str] = None
-    Description: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
+    AgreementId: Optional[Annotated[str, _aws_pattern("Transfer", "AgreementId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "Description")]] = None
     Status: Optional[AgreementStatusTypeType] = None
-    ServerId: Optional[str] = None
-    LocalProfileId: Optional[str] = None
-    PartnerProfileId: Optional[str] = None
-    BaseDirectory: Optional[str] = None
-    AccessRole: Optional[str] = None
+    ServerId: Optional[Annotated[str, _aws_pattern("Transfer", "ServerId")]] = None
+    LocalProfileId: Optional[Annotated[str, _aws_pattern("Transfer", "ProfileId")]] = None
+    PartnerProfileId: Optional[Annotated[str, _aws_pattern("Transfer", "ProfileId")]] = None
+    BaseDirectory: Optional[Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]] = None
+    AccessRole: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     PreserveFilename: Optional[PreserveFilenameTypeType] = None
     EnforceMessageSigning: Optional[EnforceMessageSigningTypeType] = None
@@ -980,52 +984,52 @@ class DescribedAgreementTypeDef(BaseValidatorModel):
 
 
 class DescribedCertificateTypeDef(BaseValidatorModel):
-    Arn: str
-    CertificateId: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
+    CertificateId: Optional[Annotated[str, _aws_pattern("Transfer", "CertificateId")]] = None
     Usage: Optional[CertificateUsageTypeType] = None
     Status: Optional[CertificateStatusTypeType] = None
-    Certificate: Optional[str] = None
-    CertificateChain: Optional[str] = None
+    Certificate: Optional[Annotated[str, _aws_pattern("Transfer", "CertificateBodyType")]] = None
+    CertificateChain: Optional[Annotated[str, _aws_pattern("Transfer", "CertificateChainType")]] = None
     ActiveDate: Optional[datetime] = None
     InactiveDate: Optional[datetime] = None
-    Serial: Optional[str] = None
+    Serial: Optional[Annotated[str, _aws_pattern("Transfer", "CertSerial")]] = None
     NotBeforeDate: Optional[datetime] = None
     NotAfterDate: Optional[datetime] = None
     Type: Optional[CertificateTypeType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class DescribedHostKeyTypeDef(BaseValidatorModel):
-    Arn: str
-    HostKeyId: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
+    HostKeyId: Optional[Annotated[str, _aws_pattern("Transfer", "HostKeyId")]] = None
     HostKeyFingerprint: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "HostKeyDescription")]] = None
     Type: Optional[str] = None
     DateImported: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class DescribedProfileTypeDef(BaseValidatorModel):
-    Arn: str
-    ProfileId: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
+    ProfileId: Optional[Annotated[str, _aws_pattern("Transfer", "ProfileId")]] = None
     ProfileType: Optional[ProfileTypeType] = None
-    As2Id: Optional[str] = None
-    CertificateIds: Optional[List[str]] = None
+    As2Id: Optional[Annotated[str, _aws_pattern("Transfer", "As2Id")]] = None
+    CertificateIds: Optional[List[Annotated[str, _aws_pattern("Transfer", "CertificateId")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'import_host_key' function.
 class ImportHostKeyRequestTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     HostKeyBody: str
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "HostKeyDescription")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1033,17 +1037,17 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'start_file_transfer' function.
 class StartFileTransferRequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
-    SendFilePaths: Optional[List[str]] = None
-    RetrieveFilePaths: Optional[List[str]] = None
-    LocalDirectoryPath: Optional[str] = None
-    RemoteDirectoryPath: Optional[str] = None
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
+    SendFilePaths: Optional[List[Annotated[str, _aws_pattern("Transfer", "FilePath")]]] = None
+    RetrieveFilePaths: Optional[List[Annotated[str, _aws_pattern("Transfer", "FilePath")]]] = None
+    LocalDirectoryPath: Optional[Annotated[str, _aws_pattern("Transfer", "FilePath")]] = None
+    RemoteDirectoryPath: Optional[Annotated[str, _aws_pattern("Transfer", "FilePath")]] = None
     CustomHttpHeaders: Optional[List[CustomHttpHeaderTypeDef]] = None
 
 
@@ -1070,13 +1074,13 @@ class DescribeWebAppCustomizationResponseTypeDef(BaseValidatorModel):
 
 
 class DescribedAccessTypeDef(BaseValidatorModel):
-    HomeDirectory: Optional[str] = None
+    HomeDirectory: Optional[Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]] = None
     HomeDirectoryMappings: Optional[List[HomeDirectoryMapEntryTypeDef]] = None
     HomeDirectoryType: Optional[HomeDirectoryTypeType] = None
     Policy: Optional[str] = None
     PosixProfile: Optional[PosixProfileOutputTypeDef] = None
-    Role: Optional[str] = None
-    ExternalId: Optional[str] = None
+    Role: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
+    ExternalId: Optional[Annotated[str, _aws_pattern("Transfer", "ExternalId")]] = None
 
 
 class DescribedConnectorEgressConfigTypeDef(BaseValidatorModel):
@@ -1088,16 +1092,16 @@ class DescribedWebAppIdentityProviderDetailsTypeDef(BaseValidatorModel):
 
 
 class DescribedUserTypeDef(BaseValidatorModel):
-    Arn: str
-    HomeDirectory: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
+    HomeDirectory: Optional[Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]] = None
     HomeDirectoryMappings: Optional[List[HomeDirectoryMapEntryTypeDef]] = None
     HomeDirectoryType: Optional[HomeDirectoryTypeType] = None
     Policy: Optional[str] = None
     PosixProfile: Optional[PosixProfileOutputTypeDef] = None
-    Role: Optional[str] = None
+    Role: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
     SshPublicKeys: Optional[List[SshPublicKeyTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Transfer", "UserName")]] = None
 
 
 class DescribedWebAppEndpointDetailsTypeDef(BaseValidatorModel):
@@ -1125,21 +1129,21 @@ class WebAppIdentityProviderDetailsTypeDef(BaseValidatorModel):
 # This class is the input for the 'import_certificate' function.
 class ImportCertificateRequestTypeDef(BaseValidatorModel):
     Usage: CertificateUsageTypeType
-    Certificate: str
-    CertificateChain: Optional[str] = None
-    PrivateKey: Optional[str] = None
+    Certificate: Annotated[str, _aws_pattern("Transfer", "CertificateBodyType")]
+    CertificateChain: Optional[Annotated[str, _aws_pattern("Transfer", "CertificateChainType")]] = None
+    PrivateKey: Optional[Annotated[str, _aws_pattern("Transfer", "PrivateKeyType")]] = None
     ActiveDate: Optional[TimestampTypeDef] = None
     InactiveDate: Optional[TimestampTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_certificate' function.
 class UpdateCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateId: str
+    CertificateId: Annotated[str, _aws_pattern("Transfer", "CertificateId")]
     ActiveDate: Optional[TimestampTypeDef] = None
     InactiveDate: Optional[TimestampTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "Description")]] = None
 
 
 class InputFileLocationTypeDef(BaseValidatorModel):
@@ -1209,7 +1213,7 @@ class ListWorkflowsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_accesses' function.
 class ListAccessesResponseTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     Accesses: List[ListedAccessTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1238,7 +1242,7 @@ class ListConnectorsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_host_keys' function.
 class ListHostKeysResponseTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     HostKeys: List[ListedHostKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1260,7 +1264,7 @@ class ListServersResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_users' function.
 class ListUsersResponseTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     Users: List[ListedUserTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1292,9 +1296,9 @@ class TagStepDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class TagStepDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Transfer", "WorkflowStepName")]] = None
     Tags: Optional[List[S3TagTypeDef]] = None
-    SourceFileLocation: Optional[str] = None
+    SourceFileLocation: Optional[Annotated[str, _aws_pattern("Transfer", "SourceFileLocation")]] = None
 
 
 class ServiceMetadataTypeDef(BaseValidatorModel):
@@ -1306,7 +1310,7 @@ SftpConnectorConfigUnionTypeDef = Union[SftpConnectorConfigOutputTypeDef, SftpCo
 
 # This class is the output for the 'test_connection' function.
 class TestConnectionResponseTypeDef(BaseValidatorModel):
-    ConnectorId: str
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
     Status: str
     StatusMessage: str
     SftpConnectionDetails: SftpConnectorConnectionDetailsTypeDef
@@ -1368,24 +1372,26 @@ class DescribeProfileResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_access' function.
 class DescribeAccessResponseTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     Access: DescribedAccessTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DescribedConnectorTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
     EgressType: ConnectorEgressTypeType
     Status: ConnectorStatusType
-    ConnectorId: Optional[str] = None
+    ConnectorId: Optional[Annotated[str, _aws_pattern("Transfer", "ConnectorId")]] = None
     Url: Optional[str] = None
     As2Config: Optional[As2ConnectorConfigOutputTypeDef] = None
-    AccessRole: Optional[str] = None
-    LoggingRole: Optional[str] = None
+    AccessRole: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
+    LoggingRole: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     SftpConfig: Optional[SftpConnectorConfigOutputTypeDef] = None
-    ServiceManagedEgressIpAddresses: Optional[List[str]] = None
-    SecurityPolicyName: Optional[str] = None
+    ServiceManagedEgressIpAddresses: Optional[
+        List[Annotated[str, _aws_pattern("Transfer", "ServiceManagedEgressIpAddress")]]
+    ] = None
+    SecurityPolicyName: Optional[Annotated[str, _aws_pattern("Transfer", "ConnectorSecurityPolicyName")]] = None
     EgressConfig: Optional[DescribedConnectorEgressConfigTypeDef] = None
     ErrorMessage: Optional[str] = None
     IpAddressType: Optional[ConnectorsIpAddressTypeType] = None
@@ -1393,14 +1399,14 @@ class DescribedConnectorTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_user' function.
 class DescribeUserResponseTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     User: DescribedUserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DescribedWebAppTypeDef(BaseValidatorModel):
-    Arn: str
-    WebAppId: str
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
     DescribedIdentityProviderDetails: Optional[DescribedWebAppIdentityProviderDetailsTypeDef] = None
     AccessEndpoint: Optional[str] = None
     WebAppEndpoint: Optional[str] = None
@@ -1417,26 +1423,26 @@ class ExecutionResultsTypeDef(BaseValidatorModel):
 
 
 class CopyStepDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Transfer", "WorkflowStepName")]] = None
     DestinationFileLocation: Optional[InputFileLocationTypeDef] = None
     OverwriteExisting: Optional[OverwriteExistingType] = None
-    SourceFileLocation: Optional[str] = None
+    SourceFileLocation: Optional[Annotated[str, _aws_pattern("Transfer", "SourceFileLocation")]] = None
 
 
 class DecryptStepDetailsTypeDef(BaseValidatorModel):
     Type: Literal["PGP"]
     DestinationFileLocation: InputFileLocationTypeDef
-    Name: Optional[str] = None
-    SourceFileLocation: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Transfer", "WorkflowStepName")]] = None
+    SourceFileLocation: Optional[Annotated[str, _aws_pattern("Transfer", "SourceFileLocation")]] = None
     OverwriteExisting: Optional[OverwriteExistingType] = None
 
 
 # This class is the input for the 'create_access' function.
 class CreateAccessRequestTypeDef(BaseValidatorModel):
-    Role: str
-    ServerId: str
-    ExternalId: str
-    HomeDirectory: Optional[str] = None
+    Role: Annotated[str, _aws_pattern("Transfer", "Role")]
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    ExternalId: Annotated[str, _aws_pattern("Transfer", "ExternalId")]
+    HomeDirectory: Optional[Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]] = None
     HomeDirectoryType: Optional[HomeDirectoryTypeType] = None
     HomeDirectoryMappings: Optional[List[HomeDirectoryMapEntryTypeDef]] = None
     Policy: Optional[str] = None
@@ -1445,47 +1451,47 @@ class CreateAccessRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user' function.
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    Role: str
-    ServerId: str
-    UserName: str
-    HomeDirectory: Optional[str] = None
+    Role: Annotated[str, _aws_pattern("Transfer", "Role")]
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    UserName: Annotated[str, _aws_pattern("Transfer", "UserName")]
+    HomeDirectory: Optional[Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]] = None
     HomeDirectoryType: Optional[HomeDirectoryTypeType] = None
     HomeDirectoryMappings: Optional[List[HomeDirectoryMapEntryTypeDef]] = None
     Policy: Optional[str] = None
     PosixProfile: Optional[PosixProfileUnionTypeDef] = None
-    SshPublicKeyBody: Optional[str] = None
+    SshPublicKeyBody: Optional[Annotated[str, _aws_pattern("Transfer", "SshPublicKeyBody")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_access' function.
 class UpdateAccessRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    ExternalId: str
-    HomeDirectory: Optional[str] = None
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    ExternalId: Annotated[str, _aws_pattern("Transfer", "ExternalId")]
+    HomeDirectory: Optional[Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]] = None
     HomeDirectoryType: Optional[HomeDirectoryTypeType] = None
     HomeDirectoryMappings: Optional[List[HomeDirectoryMapEntryTypeDef]] = None
     Policy: Optional[str] = None
     PosixProfile: Optional[PosixProfileUnionTypeDef] = None
-    Role: Optional[str] = None
+    Role: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
 
 
 # This class is the input for the 'update_user' function.
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    ServerId: str
-    UserName: str
-    HomeDirectory: Optional[str] = None
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
+    UserName: Annotated[str, _aws_pattern("Transfer", "UserName")]
+    HomeDirectory: Optional[Annotated[str, _aws_pattern("Transfer", "HomeDirectory")]] = None
     HomeDirectoryType: Optional[HomeDirectoryTypeType] = None
     HomeDirectoryMappings: Optional[List[HomeDirectoryMapEntryTypeDef]] = None
     Policy: Optional[str] = None
     PosixProfile: Optional[PosixProfileUnionTypeDef] = None
-    Role: Optional[str] = None
+    Role: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
 
 
 TagStepDetailsUnionTypeDef = Union[TagStepDetailsOutputTypeDef, TagStepDetailsTypeDef]
 
 
 class ListedExecutionTypeDef(BaseValidatorModel):
-    ExecutionId: Optional[str] = None
+    ExecutionId: Optional[Annotated[str, _aws_pattern("Transfer", "ExecutionId")]] = None
     InitialFileLocation: Optional[FileLocationTypeDef] = None
     ServiceMetadata: Optional[ServiceMetadataTypeDef] = None
     Status: Optional[ExecutionStatusType] = None
@@ -1493,7 +1499,7 @@ class ListedExecutionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_web_app' function.
 class UpdateWebAppRequestTypeDef(BaseValidatorModel):
-    WebAppId: str
+    WebAppId: Annotated[str, _aws_pattern("Transfer", "WebAppId")]
     IdentityProviderDetails: Optional[UpdateWebAppIdentityProviderDetailsTypeDef] = None
     AccessEndpoint: Optional[str] = None
     WebAppUnits: Optional[WebAppUnitsTypeDef] = None
@@ -1511,7 +1517,7 @@ class CreateWebAppRequestTypeDef(BaseValidatorModel):
 
 
 class DescribedServerTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
     Certificate: Optional[str] = None
     ProtocolDetails: Optional[ProtocolDetailsOutputTypeDef] = None
     Domain: Optional[DomainType] = None
@@ -1520,19 +1526,25 @@ class DescribedServerTypeDef(BaseValidatorModel):
     HostKeyFingerprint: Optional[str] = None
     IdentityProviderDetails: Optional[IdentityProviderDetailsTypeDef] = None
     IdentityProviderType: Optional[IdentityProviderTypeType] = None
-    LoggingRole: Optional[str] = None
-    PostAuthenticationLoginBanner: Optional[str] = None
-    PreAuthenticationLoginBanner: Optional[str] = None
+    LoggingRole: Optional[Annotated[str, _aws_pattern("Transfer", "NullableRole")]] = None
+    PostAuthenticationLoginBanner: Optional[
+        Annotated[str, _aws_pattern("Transfer", "PostAuthenticationLoginBanner")]
+    ] = None
+    PreAuthenticationLoginBanner: Optional[Annotated[str, _aws_pattern("Transfer", "PreAuthenticationLoginBanner")]] = (
+        None
+    )
     Protocols: Optional[List[ProtocolType]] = None
-    SecurityPolicyName: Optional[str] = None
-    ServerId: Optional[str] = None
+    SecurityPolicyName: Optional[Annotated[str, _aws_pattern("Transfer", "SecurityPolicyName")]] = None
+    ServerId: Optional[Annotated[str, _aws_pattern("Transfer", "ServerId")]] = None
     State: Optional[StateType] = None
     Tags: Optional[List[TagTypeDef]] = None
     UserCount: Optional[int] = None
     WorkflowDetails: Optional[WorkflowDetailsOutputTypeDef] = None
-    StructuredLogDestinations: Optional[List[str]] = None
+    StructuredLogDestinations: Optional[List[Annotated[str, _aws_pattern("Transfer", "Arn")]]] = None
     S3StorageOptions: Optional[S3StorageOptionsTypeDef] = None
-    As2ServiceManagedEgressIpAddresses: Optional[List[str]] = None
+    As2ServiceManagedEgressIpAddresses: Optional[
+        List[Annotated[str, _aws_pattern("Transfer", "ServiceManagedEgressIpAddress")]]
+    ] = None
     IpAddressType: Optional[IpAddressTypeType] = None
 
 
@@ -1541,26 +1553,26 @@ WorkflowDetailsUnionTypeDef = Union[WorkflowDetailsOutputTypeDef, WorkflowDetail
 
 # This class is the input for the 'create_connector' function.
 class CreateConnectorRequestTypeDef(BaseValidatorModel):
-    AccessRole: str
+    AccessRole: Annotated[str, _aws_pattern("Transfer", "Role")]
     Url: Optional[str] = None
     As2Config: Optional[As2ConnectorConfigUnionTypeDef] = None
-    LoggingRole: Optional[str] = None
+    LoggingRole: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     SftpConfig: Optional[SftpConnectorConfigUnionTypeDef] = None
-    SecurityPolicyName: Optional[str] = None
+    SecurityPolicyName: Optional[Annotated[str, _aws_pattern("Transfer", "ConnectorSecurityPolicyName")]] = None
     EgressConfig: Optional[ConnectorEgressConfigTypeDef] = None
     IpAddressType: Optional[ConnectorsIpAddressTypeType] = None
 
 
 # This class is the input for the 'update_connector' function.
 class UpdateConnectorRequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
+    ConnectorId: Annotated[str, _aws_pattern("Transfer", "ConnectorId")]
     Url: Optional[str] = None
     As2Config: Optional[As2ConnectorConfigUnionTypeDef] = None
-    AccessRole: Optional[str] = None
-    LoggingRole: Optional[str] = None
+    AccessRole: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
+    LoggingRole: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
     SftpConfig: Optional[SftpConnectorConfigUnionTypeDef] = None
-    SecurityPolicyName: Optional[str] = None
+    SecurityPolicyName: Optional[Annotated[str, _aws_pattern("Transfer", "ConnectorSecurityPolicyName")]] = None
     EgressConfig: Optional[UpdateConnectorEgressConfigTypeDef] = None
     IpAddressType: Optional[ConnectorsIpAddressTypeType] = None
 
@@ -1578,10 +1590,10 @@ class DescribeWebAppResponseTypeDef(BaseValidatorModel):
 
 
 class DescribedExecutionTypeDef(BaseValidatorModel):
-    ExecutionId: Optional[str] = None
+    ExecutionId: Optional[Annotated[str, _aws_pattern("Transfer", "ExecutionId")]] = None
     InitialFileLocation: Optional[FileLocationTypeDef] = None
     ServiceMetadata: Optional[ServiceMetadataTypeDef] = None
-    ExecutionRole: Optional[str] = None
+    ExecutionRole: Optional[Annotated[str, _aws_pattern("Transfer", "Role")]] = None
     LoggingConfiguration: Optional[LoggingConfigurationTypeDef] = None
     PosixProfile: Optional[PosixProfileOutputTypeDef] = None
     Status: Optional[ExecutionStatusType] = None
@@ -1608,7 +1620,7 @@ class WorkflowStepTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_executions' function.
 class ListExecutionsResponseTypeDef(BaseValidatorModel):
-    WorkflowId: str
+    WorkflowId: Annotated[str, _aws_pattern("Transfer", "WorkflowId")]
     Executions: List[ListedExecutionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1629,35 +1641,43 @@ class CreateServerRequestTypeDef(BaseValidatorModel):
     HostKey: Optional[str] = None
     IdentityProviderDetails: Optional[IdentityProviderDetailsTypeDef] = None
     IdentityProviderType: Optional[IdentityProviderTypeType] = None
-    LoggingRole: Optional[str] = None
-    PostAuthenticationLoginBanner: Optional[str] = None
-    PreAuthenticationLoginBanner: Optional[str] = None
+    LoggingRole: Optional[Annotated[str, _aws_pattern("Transfer", "NullableRole")]] = None
+    PostAuthenticationLoginBanner: Optional[
+        Annotated[str, _aws_pattern("Transfer", "PostAuthenticationLoginBanner")]
+    ] = None
+    PreAuthenticationLoginBanner: Optional[Annotated[str, _aws_pattern("Transfer", "PreAuthenticationLoginBanner")]] = (
+        None
+    )
     Protocols: Optional[List[ProtocolType]] = None
     ProtocolDetails: Optional[ProtocolDetailsUnionTypeDef] = None
-    SecurityPolicyName: Optional[str] = None
+    SecurityPolicyName: Optional[Annotated[str, _aws_pattern("Transfer", "SecurityPolicyName")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     WorkflowDetails: Optional[WorkflowDetailsUnionTypeDef] = None
-    StructuredLogDestinations: Optional[List[str]] = None
+    StructuredLogDestinations: Optional[List[Annotated[str, _aws_pattern("Transfer", "Arn")]]] = None
     S3StorageOptions: Optional[S3StorageOptionsTypeDef] = None
     IpAddressType: Optional[IpAddressTypeType] = None
 
 
 # This class is the input for the 'update_server' function.
 class UpdateServerRequestTypeDef(BaseValidatorModel):
-    ServerId: str
+    ServerId: Annotated[str, _aws_pattern("Transfer", "ServerId")]
     Certificate: Optional[str] = None
     ProtocolDetails: Optional[ProtocolDetailsUnionTypeDef] = None
     EndpointDetails: Optional[EndpointDetailsUnionTypeDef] = None
     EndpointType: Optional[EndpointTypeType] = None
     HostKey: Optional[str] = None
     IdentityProviderDetails: Optional[IdentityProviderDetailsTypeDef] = None
-    LoggingRole: Optional[str] = None
-    PostAuthenticationLoginBanner: Optional[str] = None
-    PreAuthenticationLoginBanner: Optional[str] = None
+    LoggingRole: Optional[Annotated[str, _aws_pattern("Transfer", "NullableRole")]] = None
+    PostAuthenticationLoginBanner: Optional[
+        Annotated[str, _aws_pattern("Transfer", "PostAuthenticationLoginBanner")]
+    ] = None
+    PreAuthenticationLoginBanner: Optional[Annotated[str, _aws_pattern("Transfer", "PreAuthenticationLoginBanner")]] = (
+        None
+    )
     Protocols: Optional[List[ProtocolType]] = None
-    SecurityPolicyName: Optional[str] = None
+    SecurityPolicyName: Optional[Annotated[str, _aws_pattern("Transfer", "SecurityPolicyName")]] = None
     WorkflowDetails: Optional[WorkflowDetailsUnionTypeDef] = None
-    StructuredLogDestinations: Optional[List[str]] = None
+    StructuredLogDestinations: Optional[List[Annotated[str, _aws_pattern("Transfer", "Arn")]]] = None
     S3StorageOptions: Optional[S3StorageOptionsTypeDef] = None
     IpAddressType: Optional[IpAddressTypeType] = None
     IdentityProviderType: Optional[IdentityProviderTypeType] = None
@@ -1665,17 +1685,17 @@ class UpdateServerRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_execution' function.
 class DescribeExecutionResponseTypeDef(BaseValidatorModel):
-    WorkflowId: str
+    WorkflowId: Annotated[str, _aws_pattern("Transfer", "WorkflowId")]
     Execution: DescribedExecutionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DescribedWorkflowTypeDef(BaseValidatorModel):
-    Arn: str
-    Description: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Transfer", "Arn")]
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "WorkflowDescription")]] = None
     Steps: Optional[List[WorkflowStepOutputTypeDef]] = None
     OnExceptionSteps: Optional[List[WorkflowStepOutputTypeDef]] = None
-    WorkflowId: Optional[str] = None
+    WorkflowId: Optional[Annotated[str, _aws_pattern("Transfer", "WorkflowId")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1691,6 +1711,6 @@ class DescribeWorkflowResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_workflow' function.
 class CreateWorkflowRequestTypeDef(BaseValidatorModel):
     Steps: List[WorkflowStepUnionTypeDef]
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Transfer", "WorkflowDescription")]] = None
     OnExceptionSteps: Optional[List[WorkflowStepUnionTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -53,7 +55,7 @@ class AutoshiftSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_practice_run' function.
 class CancelPracticeRunRequestTypeDef(BaseValidatorModel):
-    zonalShiftId: str
+    zonalShiftId: Annotated[str, _aws_pattern("ArcZonalShift", "ZonalShiftId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -66,12 +68,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_zonal_shift' function.
 class CancelZonalShiftRequestTypeDef(BaseValidatorModel):
-    zonalShiftId: str
+    zonalShiftId: Annotated[str, _aws_pattern("ArcZonalShift", "ZonalShiftId")]
 
 
 class ControlConditionTypeDef(BaseValidatorModel):
     type: Literal["CLOUDWATCH"]
-    alarmIdentifier: str
+    alarmIdentifier: Annotated[str, _aws_pattern("ArcZonalShift", "MetricIdentifier")]
 
 
 # This class is the input for the 'delete_practice_run_configuration' function.
@@ -86,7 +88,7 @@ class GetManagedResourceRequestTypeDef(BaseValidatorModel):
 
 class ZonalShiftInResourceTypeDef(BaseValidatorModel):
     appliedStatus: AppliedStatusType
-    zonalShiftId: str
+    zonalShiftId: Annotated[str, _aws_pattern("ArcZonalShift", "ZonalShiftId")]
     resourceIdentifier: str
     awayFrom: str
     expiryTime: datetime
@@ -124,7 +126,7 @@ class ListZonalShiftsRequestTypeDef(BaseValidatorModel):
 
 
 class ZonalShiftSummaryTypeDef(BaseValidatorModel):
-    zonalShiftId: str
+    zonalShiftId: Annotated[str, _aws_pattern("ArcZonalShift", "ZonalShiftId")]
     resourceIdentifier: str
     awayFrom: str
     expiryTime: datetime
@@ -146,7 +148,7 @@ class StartPracticeRunRequestTypeDef(BaseValidatorModel):
 class StartZonalShiftRequestTypeDef(BaseValidatorModel):
     resourceIdentifier: str
     awayFrom: str
-    expiresIn: str
+    expiresIn: Annotated[str, _aws_pattern("ArcZonalShift", "ExpiresIn")]
     comment: str
 
 
@@ -163,14 +165,14 @@ class UpdateZonalAutoshiftConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_zonal_shift' function.
 class UpdateZonalShiftRequestTypeDef(BaseValidatorModel):
-    zonalShiftId: str
+    zonalShiftId: Annotated[str, _aws_pattern("ArcZonalShift", "ZonalShiftId")]
     comment: Optional[str] = None
-    expiresIn: Optional[str] = None
+    expiresIn: Optional[Annotated[str, _aws_pattern("ArcZonalShift", "ExpiresIn")]] = None
 
 
 # This class is the output for the 'cancel_practice_run' function.
 class CancelPracticeRunResponseTypeDef(BaseValidatorModel):
-    zonalShiftId: str
+    zonalShiftId: Annotated[str, _aws_pattern("ArcZonalShift", "ZonalShiftId")]
     resourceIdentifier: str
     awayFrom: str
     expiryTime: datetime
@@ -182,7 +184,7 @@ class CancelPracticeRunResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_practice_run_configuration' function.
 class DeletePracticeRunConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcZonalShift", "ResourceArn")]
     name: str
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -202,7 +204,7 @@ class ListAutoshiftsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_practice_run' function.
 class StartPracticeRunResponseTypeDef(BaseValidatorModel):
-    zonalShiftId: str
+    zonalShiftId: Annotated[str, _aws_pattern("ArcZonalShift", "ZonalShiftId")]
     resourceIdentifier: str
     awayFrom: str
     expiryTime: datetime
@@ -227,7 +229,7 @@ class UpdateZonalAutoshiftConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_zonal_shift' function.
 class ZonalShiftTypeDef(BaseValidatorModel):
-    zonalShiftId: str
+    zonalShiftId: Annotated[str, _aws_pattern("ArcZonalShift", "ZonalShiftId")]
     resourceIdentifier: str
     awayFrom: str
     expiryTime: datetime
@@ -241,33 +243,33 @@ class ZonalShiftTypeDef(BaseValidatorModel):
 class CreatePracticeRunConfigurationRequestTypeDef(BaseValidatorModel):
     resourceIdentifier: str
     outcomeAlarms: List[ControlConditionTypeDef]
-    blockedWindows: Optional[List[str]] = None
-    blockedDates: Optional[List[str]] = None
+    blockedWindows: Optional[List[Annotated[str, _aws_pattern("ArcZonalShift", "BlockedWindow")]]] = None
+    blockedDates: Optional[List[Annotated[str, _aws_pattern("ArcZonalShift", "BlockedDate")]]] = None
     blockingAlarms: Optional[List[ControlConditionTypeDef]] = None
-    allowedWindows: Optional[List[str]] = None
+    allowedWindows: Optional[List[Annotated[str, _aws_pattern("ArcZonalShift", "AllowedWindow")]]] = None
 
 
 class PracticeRunConfigurationTypeDef(BaseValidatorModel):
     outcomeAlarms: List[ControlConditionTypeDef]
     blockingAlarms: Optional[List[ControlConditionTypeDef]] = None
-    blockedWindows: Optional[List[str]] = None
-    allowedWindows: Optional[List[str]] = None
-    blockedDates: Optional[List[str]] = None
+    blockedWindows: Optional[List[Annotated[str, _aws_pattern("ArcZonalShift", "BlockedWindow")]]] = None
+    allowedWindows: Optional[List[Annotated[str, _aws_pattern("ArcZonalShift", "AllowedWindow")]]] = None
+    blockedDates: Optional[List[Annotated[str, _aws_pattern("ArcZonalShift", "BlockedDate")]]] = None
 
 
 # This class is the input for the 'update_practice_run_configuration' function.
 class UpdatePracticeRunConfigurationRequestTypeDef(BaseValidatorModel):
     resourceIdentifier: str
-    blockedWindows: Optional[List[str]] = None
-    blockedDates: Optional[List[str]] = None
+    blockedWindows: Optional[List[Annotated[str, _aws_pattern("ArcZonalShift", "BlockedWindow")]]] = None
+    blockedDates: Optional[List[Annotated[str, _aws_pattern("ArcZonalShift", "BlockedDate")]]] = None
     blockingAlarms: Optional[List[ControlConditionTypeDef]] = None
-    allowedWindows: Optional[List[str]] = None
+    allowedWindows: Optional[List[Annotated[str, _aws_pattern("ArcZonalShift", "AllowedWindow")]]] = None
     outcomeAlarms: Optional[List[ControlConditionTypeDef]] = None
 
 
 class ManagedResourceSummaryTypeDef(BaseValidatorModel):
     availabilityZones: List[str]
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("ArcZonalShift", "ResourceArn")]] = None
     name: Optional[str] = None
     appliedWeights: Optional[Dict[str, float]] = None
     zonalShifts: Optional[List[ZonalShiftInResourceTypeDef]] = None
@@ -300,7 +302,7 @@ class ListZonalShiftsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_practice_run_configuration' function.
 class CreatePracticeRunConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcZonalShift", "ResourceArn")]
     name: str
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
     practiceRunConfiguration: PracticeRunConfigurationTypeDef
@@ -309,7 +311,7 @@ class CreatePracticeRunConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_managed_resource' function.
 class GetManagedResourceResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcZonalShift", "ResourceArn")]
     name: str
     appliedWeights: Dict[str, float]
     zonalShifts: List[ZonalShiftInResourceTypeDef]
@@ -321,7 +323,7 @@ class GetManagedResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_practice_run_configuration' function.
 class UpdatePracticeRunConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("ArcZonalShift", "ResourceArn")]
     name: str
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
     practiceRunConfiguration: PracticeRunConfigurationTypeDef

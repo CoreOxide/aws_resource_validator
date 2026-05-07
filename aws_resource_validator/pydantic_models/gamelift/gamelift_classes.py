@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.gamelift.gamelift_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,19 +41,19 @@ except ImportError:  # pragma: no cover
 
 
 class AcceptMatchInputTypeDef(BaseValidatorModel):
-    TicketId: str
+    TicketId: Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]
     PlayerIds: List[str]
     AcceptanceType: AcceptanceTypeType
 
 
 class RoutingStrategyTypeDef(BaseValidatorModel):
     Type: Optional[RoutingStrategyTypeType] = None
-    FleetId: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
     Message: Optional[str] = None
 
 
 class AnywhereConfigurationTypeDef(BaseValidatorModel):
-    Cost: str
+    Cost: Annotated[str, _aws_pattern("Gamelift", "NonNegativeLimitedLengthDouble")]
 
 
 class AttributeValueOutputTypeDef(BaseValidatorModel):
@@ -78,15 +80,15 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class BuildTypeDef(BaseValidatorModel):
-    BuildId: Optional[str] = None
-    BuildArn: Optional[str] = None
+    BuildId: Optional[Annotated[str, _aws_pattern("Gamelift", "BuildId")]] = None
+    BuildArn: Optional[Annotated[str, _aws_pattern("Gamelift", "BuildArn")]] = None
     Name: Optional[str] = None
     Version: Optional[str] = None
     Status: Optional[BuildStatusType] = None
     SizeOnDisk: Optional[int] = None
     OperatingSystem: Optional[OperatingSystemType] = None
     CreationTime: Optional[datetime] = None
-    ServerSdkVersion: Optional[str] = None
+    ServerSdkVersion: Optional[Annotated[str, _aws_pattern("Gamelift", "ServerSdkVersion")]] = None
 
 
 class CertificateConfigurationTypeDef(BaseValidatorModel):
@@ -98,12 +100,12 @@ class ClaimFilterOptionTypeDef(BaseValidatorModel):
 
 
 class GameServerTypeDef(BaseValidatorModel):
-    GameServerGroupName: Optional[str] = None
-    GameServerGroupArn: Optional[str] = None
-    GameServerId: Optional[str] = None
-    InstanceId: Optional[str] = None
-    ConnectionInfo: Optional[str] = None
-    GameServerData: Optional[str] = None
+    GameServerGroupName: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerGroupName")]] = None
+    GameServerGroupArn: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerGroupArn")]] = None
+    GameServerId: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerId")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerInstanceId")]] = None
+    ConnectionInfo: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerConnectionInfo")]] = None
+    GameServerData: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerData")]] = None
     ClaimStatus: Optional[Literal["CLAIMED"]] = None
     UtilizationStatus: Optional[GameServerUtilizationStatusType] = None
     RegistrationTime: Optional[datetime] = None
@@ -120,7 +122,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ContainerAttributeTypeDef(BaseValidatorModel):
-    ContainerName: Optional[str] = None
+    ContainerName: Optional[Annotated[str, _aws_pattern("Gamelift", "NonZeroAnd128MaxAsciiString")]] = None
     ContainerRuntimeId: Optional[str] = None
 
 
@@ -130,7 +132,7 @@ class ConnectionPortRangeTypeDef(BaseValidatorModel):
 
 
 class ContainerDependencyTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Gamelift", "NonZeroAnd128MaxAsciiString")]
     Condition: ContainerDependencyConditionType
 
 
@@ -140,13 +142,13 @@ class ContainerEnvironmentTypeDef(BaseValidatorModel):
 
 
 class ContainerFleetLocationAttributesTypeDef(BaseValidatorModel):
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
     Status: Optional[ContainerFleetLocationStatusType] = None
     PlayerGatewayStatus: Optional[PlayerGatewayStatusType] = None
 
 
 class DeploymentDetailsTypeDef(BaseValidatorModel):
-    LatestDeploymentId: Optional[str] = None
+    LatestDeploymentId: Optional[Annotated[str, _aws_pattern("Gamelift", "DeploymentId")]] = None
 
 
 class GameSessionCreationLimitPolicyTypeDef(BaseValidatorModel):
@@ -157,14 +159,20 @@ class GameSessionCreationLimitPolicyTypeDef(BaseValidatorModel):
 class IpPermissionTypeDef(BaseValidatorModel):
     FromPort: int
     ToPort: int
-    IpRange: str
+    IpRange: Annotated[str, _aws_pattern("Gamelift", "IpRange")]
     Protocol: IpProtocolType
 
 
 class LogConfigurationTypeDef(BaseValidatorModel):
     LogDestination: Optional[LogDestinationType] = None
     S3BucketName: Optional[str] = None
-    LogGroupArn: Optional[str] = None
+    LogGroupArn: Optional[Annotated[str, _aws_pattern("Gamelift", "LogGroupArnStringModel")]] = None
+
+
+class ContainerPortMappingTypeDef(BaseValidatorModel):
+    ContainerPort: Optional[int] = None
+    ConnectionPort: Optional[int] = None
+    Protocol: Optional[IpProtocolType] = None
 
 
 class ContainerHealthCheckOutputTypeDef(BaseValidatorModel):
@@ -184,13 +192,13 @@ class ContainerHealthCheckTypeDef(BaseValidatorModel):
 
 
 class ContainerIdentifierTypeDef(BaseValidatorModel):
-    ContainerName: Optional[str] = None
+    ContainerName: Optional[Annotated[str, _aws_pattern("Gamelift", "NonZeroAnd128MaxAsciiString")]] = None
     ContainerRuntimeId: Optional[str] = None
 
 
 class ContainerMountPointTypeDef(BaseValidatorModel):
-    InstancePath: str
-    ContainerPath: Optional[str] = None
+    InstancePath: Annotated[str, _aws_pattern("Gamelift", "InstancePathString")]
+    ContainerPath: Optional[Annotated[str, _aws_pattern("Gamelift", "ContainerPathString")]] = None
     AccessLevel: Optional[ContainerMountPointAccessLevelType] = None
 
 
@@ -213,7 +221,7 @@ class S3LocationTypeDef(BaseValidatorModel):
 
 
 class LocationConfigurationTypeDef(BaseValidatorModel):
-    Location: str
+    Location: Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]
 
 
 class PlayerGatewayConfigurationTypeDef(BaseValidatorModel):
@@ -226,20 +234,20 @@ class ResourceCreationLimitPolicyTypeDef(BaseValidatorModel):
 
 
 class LocationStateTypeDef(BaseValidatorModel):
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
     Status: Optional[FleetStatusType] = None
     PlayerGatewayStatus: Optional[PlayerGatewayStatusType] = None
 
 
 class InstanceDefinitionTypeDef(BaseValidatorModel):
     InstanceType: GameServerGroupInstanceTypeType
-    WeightedCapacity: Optional[str] = None
+    WeightedCapacity: Optional[Annotated[str, _aws_pattern("Gamelift", "WeightedCapacity")]] = None
 
 
 class LaunchTemplateSpecificationTypeDef(BaseValidatorModel):
-    LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
-    Version: Optional[str] = None
+    LaunchTemplateId: Optional[Annotated[str, _aws_pattern("Gamelift", "LaunchTemplateId")]] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Gamelift", "LaunchTemplateName")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Gamelift", "LaunchTemplateVersion")]] = None
 
 
 class GamePropertyTypeDef(BaseValidatorModel):
@@ -248,7 +256,7 @@ class GamePropertyTypeDef(BaseValidatorModel):
 
 
 class GameSessionQueueDestinationTypeDef(BaseValidatorModel):
-    DestinationArn: Optional[str] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]] = None
 
 
 class PlayerLatencyPolicyTypeDef(BaseValidatorModel):
@@ -258,28 +266,28 @@ class PlayerLatencyPolicyTypeDef(BaseValidatorModel):
 
 class MatchmakingRuleSetTypeDef(BaseValidatorModel):
     RuleSetBody: str
-    RuleSetName: Optional[str] = None
-    RuleSetArn: Optional[str] = None
+    RuleSetName: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]] = None
+    RuleSetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingRuleSetArn")]] = None
     CreationTime: Optional[datetime] = None
 
 
 # This class is the input for the 'create_player_session' function.
 class CreatePlayerSessionInputTypeDef(BaseValidatorModel):
-    GameSessionId: str
+    GameSessionId: Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]
     PlayerId: str
     PlayerData: Optional[str] = None
 
 
 class PlayerSessionTypeDef(BaseValidatorModel):
-    PlayerSessionId: Optional[str] = None
+    PlayerSessionId: Optional[Annotated[str, _aws_pattern("Gamelift", "PlayerSessionId")]] = None
     PlayerId: Optional[str] = None
     GameSessionId: Optional[str] = None
-    FleetId: Optional[str] = None
-    FleetArn: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    FleetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetArn")]] = None
     CreationTime: Optional[datetime] = None
     TerminationTime: Optional[datetime] = None
     Status: Optional[PlayerSessionStatusType] = None
-    IpAddress: Optional[str] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Gamelift", "IpAddress")]] = None
     DnsName: Optional[str] = None
     Port: Optional[int] = None
     PlayerData: Optional[str] = None
@@ -287,7 +295,7 @@ class PlayerSessionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_player_sessions' function.
 class CreatePlayerSessionsInputTypeDef(BaseValidatorModel):
-    GameSessionId: str
+    GameSessionId: Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]
     PlayerIds: List[str]
     PlayerDataMap: Optional[Dict[str, str]] = None
 
@@ -307,73 +315,73 @@ class VpcPeeringAuthorizationTypeDef(BaseValidatorModel):
 
 
 class CreateVpcPeeringConnectionInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetId")]
     PeerVpcAwsAccountId: str
     PeerVpcId: str
 
 
 # This class is the input for the 'delete_alias' function.
 class DeleteAliasInputTypeDef(BaseValidatorModel):
-    AliasId: str
+    AliasId: Annotated[str, _aws_pattern("Gamelift", "AliasIdOrArn")]
 
 
 # This class is the input for the 'delete_build' function.
 class DeleteBuildInputTypeDef(BaseValidatorModel):
-    BuildId: str
+    BuildId: Annotated[str, _aws_pattern("Gamelift", "BuildIdOrArn")]
 
 
 class DeleteContainerFleetInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
 
 
 class DeleteContainerGroupDefinitionInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionNameOrArn")]
     VersionNumber: Optional[int] = None
     VersionCountToRetain: Optional[int] = None
 
 
 # This class is the input for the 'delete_fleet' function.
 class DeleteFleetInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
 
 
 # This class is the input for the 'delete_fleet_locations' function.
 class DeleteFleetLocationsInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    Locations: List[str]
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    Locations: List[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]]
 
 
 # This class is the input for the 'delete_game_server_group' function.
 class DeleteGameServerGroupInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
     DeleteOption: Optional[GameServerGroupDeleteOptionType] = None
 
 
 class DeleteGameSessionQueueInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "GameSessionQueueNameOrArn")]
 
 
 class DeleteLocationInputTypeDef(BaseValidatorModel):
-    LocationName: str
+    LocationName: Annotated[str, _aws_pattern("Gamelift", "CustomLocationNameOrArnModel")]
 
 
 class DeleteMatchmakingConfigurationInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "MatchmakingConfigurationName")]
 
 
 class DeleteMatchmakingRuleSetInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "MatchmakingRuleSetName")]
 
 
 # This class is the input for the 'delete_scaling_policy' function.
 class DeleteScalingPolicyInputTypeDef(BaseValidatorModel):
     Name: str
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
 
 
 # This class is the input for the 'delete_script' function.
 class DeleteScriptInputTypeDef(BaseValidatorModel):
-    ScriptId: str
+    ScriptId: Annotated[str, _aws_pattern("Gamelift", "ScriptIdOrArn")]
 
 
 class DeleteVpcPeeringAuthorizationInputTypeDef(BaseValidatorModel):
@@ -382,7 +390,7 @@ class DeleteVpcPeeringAuthorizationInputTypeDef(BaseValidatorModel):
 
 
 class DeleteVpcPeeringConnectionInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetId")]
     VpcPeeringConnectionId: str
 
 
@@ -393,54 +401,63 @@ class DeploymentConfigurationTypeDef(BaseValidatorModel):
 
 
 class DeregisterComputeInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    ComputeName: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    ComputeName: Annotated[str, _aws_pattern("Gamelift", "ComputeNameOrArn")]
 
 
 # This class is the input for the 'deregister_game_server' function.
 class DeregisterGameServerInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
-    GameServerId: str
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
+    GameServerId: Annotated[str, _aws_pattern("Gamelift", "GameServerId")]
 
 
 # This class is the input for the 'describe_alias' function.
 class DescribeAliasInputTypeDef(BaseValidatorModel):
-    AliasId: str
+    AliasId: Annotated[str, _aws_pattern("Gamelift", "AliasIdOrArn")]
 
 
 # This class is the input for the 'describe_build' function.
 class DescribeBuildInputTypeDef(BaseValidatorModel):
-    BuildId: str
+    BuildId: Annotated[str, _aws_pattern("Gamelift", "BuildIdOrArn")]
 
 
 # This class is the input for the 'describe_compute' function.
 class DescribeComputeInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    ComputeName: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    ComputeName: Annotated[str, _aws_pattern("Gamelift", "ComputeNameOrArn")]
 
 
 # This class is the input for the 'describe_container_fleet' function.
 class DescribeContainerFleetInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
 
 
 # This class is the input for the 'describe_container_group_definition' function.
 class DescribeContainerGroupDefinitionInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionNameOrArn")]
     VersionNumber: Optional[int] = None
+
+
+# This class is the input for the 'describe_container_group_port_mappings' function.
+class DescribeContainerGroupPortMappingsInputTypeDef(BaseValidatorModel):
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    ContainerGroupType: ContainerGroupTypeType
+    ComputeName: Optional[Annotated[str, _aws_pattern("Gamelift", "ComputeNameOrArn")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Gamelift", "InstanceId")]] = None
+    ContainerName: Optional[Annotated[str, _aws_pattern("Gamelift", "NonZeroAnd128MaxAsciiString")]] = None
 
 
 # This class is the input for the 'describe_ec2_instance_limits' function.
 class DescribeEC2InstanceLimitsInputTypeDef(BaseValidatorModel):
     EC2InstanceType: Optional[EC2InstanceTypeType] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 class EC2InstanceLimitTypeDef(BaseValidatorModel):
     EC2InstanceType: Optional[EC2InstanceTypeType] = None
     CurrentInstances: Optional[int] = None
     InstanceLimit: Optional[int] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -451,22 +468,22 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_fleet_attributes' function.
 class DescribeFleetAttributesInputTypeDef(BaseValidatorModel):
-    FleetIds: Optional[List[str]] = None
+    FleetIds: Optional[List[Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_fleet_capacity' function.
 class DescribeFleetCapacityInputTypeDef(BaseValidatorModel):
-    FleetIds: Optional[List[str]] = None
+    FleetIds: Optional[List[Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_fleet_deployment' function.
 class DescribeFleetDeploymentInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    DeploymentId: Optional[str] = None
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    DeploymentId: Optional[Annotated[str, _aws_pattern("Gamelift", "DeploymentId")]] = None
 
 
 class LocationalDeploymentTypeDef(BaseValidatorModel):
@@ -488,79 +505,79 @@ class EventTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_fleet_location_attributes' function.
 class DescribeFleetLocationAttributesInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    Locations: Optional[List[str]] = None
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    Locations: Optional[List[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_fleet_location_capacity' function.
 class DescribeFleetLocationCapacityInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    Location: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    Location: Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]
 
 
 # This class is the input for the 'describe_fleet_location_utilization' function.
 class DescribeFleetLocationUtilizationInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    Location: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    Location: Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]
 
 
 class FleetUtilizationTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    FleetArn: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    FleetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetArn")]] = None
     ActiveServerProcessCount: Optional[int] = None
     ActiveGameSessionCount: Optional[int] = None
     CurrentPlayerSessionCount: Optional[int] = None
     MaximumPlayerSessionCount: Optional[int] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 # This class is the input for the 'describe_fleet_port_settings' function.
 class DescribeFleetPortSettingsInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    Location: Optional[str] = None
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 # This class is the input for the 'describe_fleet_utilization' function.
 class DescribeFleetUtilizationInputTypeDef(BaseValidatorModel):
-    FleetIds: Optional[List[str]] = None
+    FleetIds: Optional[List[Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_game_server_group' function.
 class DescribeGameServerGroupInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
 
 
 # This class is the input for the 'describe_game_server' function.
 class DescribeGameServerInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
-    GameServerId: str
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
+    GameServerId: Annotated[str, _aws_pattern("Gamelift", "GameServerId")]
 
 
 # This class is the input for the 'describe_game_server_instances' function.
 class DescribeGameServerInstancesInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
-    InstanceIds: Optional[List[str]] = None
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Gamelift", "GameServerInstanceId")]]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class GameServerInstanceTypeDef(BaseValidatorModel):
-    GameServerGroupName: Optional[str] = None
-    GameServerGroupArn: Optional[str] = None
-    InstanceId: Optional[str] = None
+    GameServerGroupName: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerGroupName")]] = None
+    GameServerGroupArn: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerGroupArn")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerInstanceId")]] = None
     InstanceStatus: Optional[GameServerInstanceStatusType] = None
 
 
 # This class is the input for the 'describe_game_session_details' function.
 class DescribeGameSessionDetailsInputTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    GameSessionId: Optional[str] = None
-    AliasId: Optional[str] = None
-    Location: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]] = None
+    GameSessionId: Optional[Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]] = None
+    AliasId: Optional[Annotated[str, _aws_pattern("Gamelift", "AliasIdOrArn")]] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
     StatusFilter: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -568,22 +585,22 @@ class DescribeGameSessionDetailsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_game_session_placement' function.
 class DescribeGameSessionPlacementInputTypeDef(BaseValidatorModel):
-    PlacementId: str
+    PlacementId: Annotated[str, _aws_pattern("Gamelift", "IdStringModel")]
 
 
 # This class is the input for the 'describe_game_session_queues' function.
 class DescribeGameSessionQueuesInputTypeDef(BaseValidatorModel):
-    Names: Optional[List[str]] = None
+    Names: Optional[List[Annotated[str, _aws_pattern("Gamelift", "GameSessionQueueNameOrArn")]]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_game_sessions' function.
 class DescribeGameSessionsInputTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    GameSessionId: Optional[str] = None
-    AliasId: Optional[str] = None
-    Location: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]] = None
+    GameSessionId: Optional[Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]] = None
+    AliasId: Optional[Annotated[str, _aws_pattern("Gamelift", "AliasIdOrArn")]] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
     StatusFilter: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -591,51 +608,51 @@ class DescribeGameSessionsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_instances' function.
 class DescribeInstancesInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    InstanceId: Optional[str] = None
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    InstanceId: Optional[Annotated[str, _aws_pattern("Gamelift", "InstanceId")]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 class InstanceTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    FleetArn: Optional[str] = None
-    InstanceId: Optional[str] = None
-    IpAddress: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    FleetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetArn")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Gamelift", "InstanceId")]] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Gamelift", "IpAddress")]] = None
     DnsName: Optional[str] = None
     OperatingSystem: Optional[OperatingSystemType] = None
     Type: Optional[EC2InstanceTypeType] = None
     Status: Optional[InstanceStatusType] = None
     CreationTime: Optional[datetime] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 # This class is the input for the 'describe_matchmaking_configurations' function.
 class DescribeMatchmakingConfigurationsInputTypeDef(BaseValidatorModel):
-    Names: Optional[List[str]] = None
-    RuleSetName: Optional[str] = None
+    Names: Optional[List[Annotated[str, _aws_pattern("Gamelift", "MatchmakingConfigurationName")]]] = None
+    RuleSetName: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingRuleSetName")]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_matchmaking' function.
 class DescribeMatchmakingInputTypeDef(BaseValidatorModel):
-    TicketIds: List[str]
+    TicketIds: List[Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]]
 
 
 # This class is the input for the 'describe_matchmaking_rule_sets' function.
 class DescribeMatchmakingRuleSetsInputTypeDef(BaseValidatorModel):
-    Names: Optional[List[str]] = None
+    Names: Optional[List[Annotated[str, _aws_pattern("Gamelift", "MatchmakingRuleSetName")]]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_player_sessions' function.
 class DescribePlayerSessionsInputTypeDef(BaseValidatorModel):
-    GameSessionId: Optional[str] = None
+    GameSessionId: Optional[Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]] = None
     PlayerId: Optional[str] = None
-    PlayerSessionId: Optional[str] = None
+    PlayerSessionId: Optional[Annotated[str, _aws_pattern("Gamelift", "PlayerSessionId")]] = None
     PlayerSessionStatusFilter: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -643,26 +660,26 @@ class DescribePlayerSessionsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_runtime_configuration' function.
 class DescribeRuntimeConfigurationInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
 
 
 # This class is the input for the 'describe_scaling_policies' function.
 class DescribeScalingPoliciesInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
     StatusFilter: Optional[ScalingStatusTypeType] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 # This class is the input for the 'describe_script' function.
 class DescribeScriptInputTypeDef(BaseValidatorModel):
-    ScriptId: str
+    ScriptId: Annotated[str, _aws_pattern("Gamelift", "ScriptIdOrArn")]
 
 
 # This class is the input for the 'describe_vpc_peering_connections' function.
 class DescribeVpcPeeringConnectionsInputTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
 
 
 class DesiredPlayerSessionTypeDef(BaseValidatorModel):
@@ -685,7 +702,7 @@ class FilterConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class FilterConfigurationTypeDef(BaseValidatorModel):
-    AllowedLocations: Optional[List[str]] = None
+    AllowedLocations: Optional[List[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]]] = None
 
 
 class GameServerContainerGroupCountsTypeDef(BaseValidatorModel):
@@ -706,12 +723,12 @@ class TargetTrackingConfigurationTypeDef(BaseValidatorModel):
 
 class MatchedPlayerSessionTypeDef(BaseValidatorModel):
     PlayerId: Optional[str] = None
-    PlayerSessionId: Optional[str] = None
+    PlayerSessionId: Optional[Annotated[str, _aws_pattern("Gamelift", "PlayerSessionId")]] = None
 
 
 class PlacedPlayerSessionTypeDef(BaseValidatorModel):
     PlayerId: Optional[str] = None
-    PlayerSessionId: Optional[str] = None
+    PlayerSessionId: Optional[Annotated[str, _aws_pattern("Gamelift", "PlayerSessionId")]] = None
 
 
 class PlayerLatencyTypeDef(BaseValidatorModel):
@@ -732,30 +749,30 @@ class PriorityConfigurationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_compute_access' function.
 class GetComputeAccessInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    ComputeName: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    ComputeName: Annotated[str, _aws_pattern("Gamelift", "ComputeNameOrArn")]
 
 
 # This class is the input for the 'get_compute_auth_token' function.
 class GetComputeAuthTokenInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    ComputeName: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    ComputeName: Annotated[str, _aws_pattern("Gamelift", "ComputeNameOrArn")]
 
 
 # This class is the input for the 'get_game_session_log_url' function.
 class GetGameSessionLogUrlInputTypeDef(BaseValidatorModel):
-    GameSessionId: str
+    GameSessionId: Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]
 
 
 # This class is the input for the 'get_instance_access' function.
 class GetInstanceAccessInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    InstanceId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    InstanceId: Annotated[str, _aws_pattern("Gamelift", "InstanceId")]
 
 
 # This class is the input for the 'get_player_connection_details' function.
 class GetPlayerConnectionDetailsInputTypeDef(BaseValidatorModel):
-    GameSessionId: str
+    GameSessionId: Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]
     PlayerIds: List[str]
 
 
@@ -781,9 +798,11 @@ class ListBuildsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_compute' function.
 class ListComputeInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    Location: Optional[str] = None
-    ContainerGroupDefinitionName: Optional[str] = None
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
+    ContainerGroupDefinitionName: Optional[
+        Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionNameOrArn")]
+    ] = None
     ComputeStatus: Optional[ListComputeInputStatusType] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -791,14 +810,16 @@ class ListComputeInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_container_fleets' function.
 class ListContainerFleetsInputTypeDef(BaseValidatorModel):
-    ContainerGroupDefinitionName: Optional[str] = None
+    ContainerGroupDefinitionName: Optional[
+        Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionNameOrArn")]
+    ] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_container_group_definition_versions' function.
 class ListContainerGroupDefinitionVersionsInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionNameOrArn")]
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -812,15 +833,15 @@ class ListContainerGroupDefinitionsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_fleet_deployments' function.
 class ListFleetDeploymentsInputTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_fleets' function.
 class ListFleetsInputTypeDef(BaseValidatorModel):
-    BuildId: Optional[str] = None
-    ScriptId: Optional[str] = None
+    BuildId: Optional[Annotated[str, _aws_pattern("Gamelift", "BuildIdOrArn")]] = None
+    ScriptId: Optional[Annotated[str, _aws_pattern("Gamelift", "ScriptIdOrArn")]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -833,7 +854,7 @@ class ListGameServerGroupsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_game_servers' function.
 class ListGameServersInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
     SortOrder: Optional[SortOrderType] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -863,18 +884,18 @@ class UDPEndpointTypeDef(BaseValidatorModel):
 
 
 class PlayerConnectionEndpointTypeDef(BaseValidatorModel):
-    IpAddress: Optional[str] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Gamelift", "IpAddress")]] = None
     Port: Optional[int] = None
 
 
 class PriorityConfigurationOverrideTypeDef(BaseValidatorModel):
-    LocationOrder: List[str]
+    LocationOrder: List[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]]
     PlacementFallbackStrategy: Optional[PlacementFallbackStrategyType] = None
 
 
 class PriorityConfigurationTypeDef(BaseValidatorModel):
     PriorityOrder: Optional[List[PriorityTypeType]] = None
-    LocationOrder: Optional[List[str]] = None
+    LocationOrder: Optional[List[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]]] = None
 
 
 class TargetConfigurationTypeDef(BaseValidatorModel):
@@ -883,50 +904,50 @@ class TargetConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_compute' function.
 class RegisterComputeInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    ComputeName: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    ComputeName: Annotated[str, _aws_pattern("Gamelift", "ComputeName")]
     CertificatePath: Optional[str] = None
-    DnsName: Optional[str] = None
-    IpAddress: Optional[str] = None
-    Location: Optional[str] = None
+    DnsName: Optional[Annotated[str, _aws_pattern("Gamelift", "DnsNameInput")]] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Gamelift", "IpAddress")]] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 # This class is the input for the 'register_game_server' function.
 class RegisterGameServerInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
-    GameServerId: str
-    InstanceId: str
-    ConnectionInfo: Optional[str] = None
-    GameServerData: Optional[str] = None
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
+    GameServerId: Annotated[str, _aws_pattern("Gamelift", "GameServerId")]
+    InstanceId: Annotated[str, _aws_pattern("Gamelift", "GameServerInstanceId")]
+    ConnectionInfo: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerConnectionInfo")]] = None
+    GameServerData: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerData")]] = None
 
 
 # This class is the input for the 'request_upload_credentials' function.
 class RequestUploadCredentialsInputTypeDef(BaseValidatorModel):
-    BuildId: str
+    BuildId: Annotated[str, _aws_pattern("Gamelift", "BuildIdOrArn")]
 
 
 # This class is the input for the 'resolve_alias' function.
 class ResolveAliasInputTypeDef(BaseValidatorModel):
-    AliasId: str
+    AliasId: Annotated[str, _aws_pattern("Gamelift", "AliasIdOrArn")]
 
 
 # This class is the input for the 'resume_game_server_group' function.
 class ResumeGameServerGroupInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
     ResumeActions: List[Literal["REPLACE_INSTANCE_TYPES"]]
 
 
 class ServerProcessTypeDef(BaseValidatorModel):
-    LaunchPath: str
+    LaunchPath: Annotated[str, _aws_pattern("Gamelift", "LaunchPathStringModel")]
     ConcurrentExecutions: int
-    Parameters: Optional[str] = None
+    Parameters: Optional[Annotated[str, _aws_pattern("Gamelift", "LaunchParametersStringModel")]] = None
 
 
 # This class is the input for the 'search_game_sessions' function.
 class SearchGameSessionsInputTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    AliasId: Optional[str] = None
-    Location: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]] = None
+    AliasId: Optional[Annotated[str, _aws_pattern("Gamelift", "AliasIdOrArn")]] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
     FilterExpression: Optional[str] = None
     SortExpression: Optional[str] = None
     Limit: Optional[int] = None
@@ -935,36 +956,36 @@ class SearchGameSessionsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_fleet_actions' function.
 class StartFleetActionsInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
     Actions: List[Literal["AUTO_SCALING"]]
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 # This class is the input for the 'stop_fleet_actions' function.
 class StopFleetActionsInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
     Actions: List[Literal["AUTO_SCALING"]]
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 # This class is the input for the 'stop_game_session_placement' function.
 class StopGameSessionPlacementInputTypeDef(BaseValidatorModel):
-    PlacementId: str
+    PlacementId: Annotated[str, _aws_pattern("Gamelift", "IdStringModel")]
 
 
 class StopMatchmakingInputTypeDef(BaseValidatorModel):
-    TicketId: str
+    TicketId: Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]
 
 
 # This class is the input for the 'suspend_game_server_group' function.
 class SuspendGameServerGroupInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
     SuspendActions: List[Literal["REPLACE_INSTANCE_TYPES"]]
 
 
 # This class is the input for the 'terminate_game_session' function.
 class TerminateGameSessionInputTypeDef(BaseValidatorModel):
-    GameSessionId: str
+    GameSessionId: Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]
     TerminationMode: TerminationModeType
 
 
@@ -975,16 +996,16 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_build' function.
 class UpdateBuildInputTypeDef(BaseValidatorModel):
-    BuildId: str
+    BuildId: Annotated[str, _aws_pattern("Gamelift", "BuildIdOrArn")]
     Name: Optional[str] = None
     Version: Optional[str] = None
 
 
 # This class is the input for the 'update_game_server' function.
 class UpdateGameServerInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
-    GameServerId: str
-    GameServerData: Optional[str] = None
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
+    GameServerId: Annotated[str, _aws_pattern("Gamelift", "GameServerId")]
+    GameServerData: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerData")]] = None
     UtilizationStatus: Optional[GameServerUtilizationStatusType] = None
     HealthCheck: Optional[Literal["HEALTHY"]] = None
 
@@ -1000,9 +1021,9 @@ class VpcPeeringConnectionStatusTypeDef(BaseValidatorModel):
 
 
 class AliasTypeDef(BaseValidatorModel):
-    AliasId: Optional[str] = None
-    Name: Optional[str] = None
-    AliasArn: Optional[str] = None
+    AliasId: Optional[Annotated[str, _aws_pattern("Gamelift", "AliasId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Gamelift", "NonBlankAndLengthConstraintString")]] = None
+    AliasArn: Optional[Annotated[str, _aws_pattern("Gamelift", "AliasArn")]] = None
     Description: Optional[str] = None
     RoutingStrategy: Optional[RoutingStrategyTypeDef] = None
     CreationTime: Optional[datetime] = None
@@ -1011,8 +1032,8 @@ class AliasTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_alias' function.
 class UpdateAliasInputTypeDef(BaseValidatorModel):
-    AliasId: str
-    Name: Optional[str] = None
+    AliasId: Annotated[str, _aws_pattern("Gamelift", "AliasIdOrArn")]
+    Name: Optional[Annotated[str, _aws_pattern("Gamelift", "NonBlankAndLengthConstraintString")]] = None
     Description: Optional[str] = None
     RoutingStrategy: Optional[RoutingStrategyTypeDef] = None
 
@@ -1029,9 +1050,9 @@ AttributeValueUnionTypeDef = Union[AttributeValueOutputTypeDef, AttributeValueTy
 
 # This class is the input for the 'claim_game_server' function.
 class ClaimGameServerInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
-    GameServerId: Optional[str] = None
-    GameServerData: Optional[str] = None
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
+    GameServerId: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerId")]] = None
+    GameServerData: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerData")]] = None
     FilterOption: Optional[ClaimFilterOptionTypeDef] = None
 
 
@@ -1060,11 +1081,11 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_compute_auth_token' function.
 class GetComputeAuthTokenOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
-    ComputeName: str
-    ComputeArn: str
-    AuthToken: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
+    ComputeName: Annotated[str, _aws_pattern("Gamelift", "ComputeNameOrArn")]
+    ComputeArn: Annotated[str, _aws_pattern("Gamelift", "ComputeArn")]
+    AuthToken: Annotated[str, _aws_pattern("Gamelift", "ComputeAuthToken")]
     ExpirationTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1084,7 +1105,7 @@ class ListBuildsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_fleets' function.
 class ListFleetsOutputTypeDef(BaseValidatorModel):
-    FleetIds: List[str]
+    FleetIds: List[Annotated[str, _aws_pattern("Gamelift", "FleetId")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -1110,22 +1131,22 @@ class RegisterGameServerOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'resolve_alias' function.
 class ResolveAliasOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetId")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_fleet_actions' function.
 class StartFleetActionsOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetId")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_fleet_actions' function.
 class StopFleetActionsOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetId")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1137,15 +1158,15 @@ class UpdateBuildOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_fleet_attributes' function.
 class UpdateFleetAttributesOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetId")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_fleet_port_settings' function.
 class UpdateFleetPortSettingsOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetId")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1162,49 +1183,59 @@ class ValidateMatchmakingRuleSetOutputTypeDef(BaseValidatorModel):
 
 
 class ComputeTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    FleetArn: Optional[str] = None
-    ComputeName: Optional[str] = None
-    ComputeArn: Optional[str] = None
-    IpAddress: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    FleetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetArn")]] = None
+    ComputeName: Optional[Annotated[str, _aws_pattern("Gamelift", "ComputeName")]] = None
+    ComputeArn: Optional[Annotated[str, _aws_pattern("Gamelift", "ComputeArn")]] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Gamelift", "IpAddress")]] = None
     DnsName: Optional[str] = None
     ComputeStatus: Optional[ComputeStatusType] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
     CreationTime: Optional[datetime] = None
     OperatingSystem: Optional[OperatingSystemType] = None
     Type: Optional[EC2InstanceTypeType] = None
     GameLiftServiceSdkEndpoint: Optional[str] = None
     GameLiftAgentEndpoint: Optional[str] = None
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Gamelift", "InstanceId")]] = None
     ContainerAttributes: Optional[List[ContainerAttributeTypeDef]] = None
-    GameServerContainerGroupDefinitionArn: Optional[str] = None
+    GameServerContainerGroupDefinitionArn: Optional[
+        Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionNameOrArn")]
+    ] = None
 
 
 # This class is the output for the 'describe_fleet_port_settings' function.
 class DescribeFleetPortSettingsOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetId")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
     InboundPermissions: List[IpPermissionTypeDef]
     UpdateStatus: Literal["PENDING_UPDATE"]
-    Location: str
+    Location: Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_fleet_port_settings' function.
 class UpdateFleetPortSettingsInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
     InboundPermissionAuthorizations: Optional[List[IpPermissionTypeDef]] = None
     InboundPermissionRevocations: Optional[List[IpPermissionTypeDef]] = None
 
 
 class ContainerFleetTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    FleetArn: Optional[str] = None
-    FleetRoleArn: Optional[str] = None
-    GameServerContainerGroupDefinitionName: Optional[str] = None
-    GameServerContainerGroupDefinitionArn: Optional[str] = None
-    PerInstanceContainerGroupDefinitionName: Optional[str] = None
-    PerInstanceContainerGroupDefinitionArn: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    FleetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetArn")]] = None
+    FleetRoleArn: Optional[Annotated[str, _aws_pattern("Gamelift", "IamRoleArn")]] = None
+    GameServerContainerGroupDefinitionName: Optional[
+        Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionName")]
+    ] = None
+    GameServerContainerGroupDefinitionArn: Optional[
+        Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionArn")]
+    ] = None
+    PerInstanceContainerGroupDefinitionName: Optional[
+        Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionName")]
+    ] = None
+    PerInstanceContainerGroupDefinitionArn: Optional[
+        Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionArn")]
+    ] = None
     InstanceConnectionPortRange: Optional[ConnectionPortRangeTypeDef] = None
     InstanceInboundPermissions: Optional[List[IpPermissionTypeDef]] = None
     GameServerContainerGroupsPerInstance: Optional[int] = None
@@ -1223,15 +1254,21 @@ class ContainerFleetTypeDef(BaseValidatorModel):
     PlayerGatewayMode: Optional[PlayerGatewayModeType] = None
 
 
+class ContainerGroupPortMappingTypeDef(BaseValidatorModel):
+    ContainerName: Optional[Annotated[str, _aws_pattern("Gamelift", "NonZeroAnd128MaxAsciiString")]] = None
+    ContainerRuntimeId: Optional[str] = None
+    ContainerPortMappings: Optional[List[ContainerPortMappingTypeDef]] = None
+
+
 ContainerHealthCheckUnionTypeDef = Union[ContainerHealthCheckOutputTypeDef, ContainerHealthCheckTypeDef]
 
 
 # This class is the output for the 'get_compute_access' function.
 class GetComputeAccessOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
-    ComputeName: str
-    ComputeArn: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
+    ComputeName: Annotated[str, _aws_pattern("Gamelift", "ComputeNameOrArn")]
+    ComputeArn: Annotated[str, _aws_pattern("Gamelift", "ComputeArn")]
     Credentials: AwsCredentialsTypeDef
     Target: str
     ContainerIdentifiers: List[ContainerIdentifierTypeDef]
@@ -1248,7 +1285,7 @@ class ContainerPortConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_alias' function.
 class CreateAliasInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "NonBlankAndLengthConstraintString")]
     RoutingStrategy: RoutingStrategyTypeDef
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -1256,13 +1293,13 @@ class CreateAliasInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_location' function.
 class CreateLocationInputTypeDef(BaseValidatorModel):
-    LocationName: str
+    LocationName: Annotated[str, _aws_pattern("Gamelift", "CustomInputLocationStringModel")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_matchmaking_rule_set' function.
 class CreateMatchmakingRuleSetInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]
     RuleSetBody: str
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -1285,7 +1322,7 @@ class CreateBuildInputTypeDef(BaseValidatorModel):
     StorageLocation: Optional[S3LocationTypeDef] = None
     OperatingSystem: Optional[OperatingSystemType] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ServerSdkVersion: Optional[str] = None
+    ServerSdkVersion: Optional[Annotated[str, _aws_pattern("Gamelift", "ServerSdkVersion")]] = None
 
 
 # This class is the output for the 'create_build' function.
@@ -1303,7 +1340,7 @@ class CreateScriptInputTypeDef(BaseValidatorModel):
     StorageLocation: Optional[S3LocationTypeDef] = None
     ZipFile: Optional[BlobTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    NodeJsVersion: Optional[str] = None
+    NodeJsVersion: Optional[Annotated[str, _aws_pattern("Gamelift", "NodeJsVersion")]] = None
 
 
 # This class is the output for the 'request_upload_credentials' function.
@@ -1314,19 +1351,19 @@ class RequestUploadCredentialsOutputTypeDef(BaseValidatorModel):
 
 
 class ScriptTypeDef(BaseValidatorModel):
-    ScriptId: Optional[str] = None
-    ScriptArn: Optional[str] = None
+    ScriptId: Optional[Annotated[str, _aws_pattern("Gamelift", "ScriptId")]] = None
+    ScriptArn: Optional[Annotated[str, _aws_pattern("Gamelift", "ScriptArn")]] = None
     Name: Optional[str] = None
     Version: Optional[str] = None
     SizeOnDisk: Optional[int] = None
     CreationTime: Optional[datetime] = None
     StorageLocation: Optional[S3LocationTypeDef] = None
-    NodeJsVersion: Optional[str] = None
+    NodeJsVersion: Optional[Annotated[str, _aws_pattern("Gamelift", "NodeJsVersion")]] = None
 
 
 # This class is the input for the 'update_script' function.
 class UpdateScriptInputTypeDef(BaseValidatorModel):
-    ScriptId: str
+    ScriptId: Annotated[str, _aws_pattern("Gamelift", "ScriptIdOrArn")]
     Name: Optional[str] = None
     Version: Optional[str] = None
     StorageLocation: Optional[S3LocationTypeDef] = None
@@ -1335,10 +1372,14 @@ class UpdateScriptInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_container_fleet' function.
 class CreateContainerFleetInputTypeDef(BaseValidatorModel):
-    FleetRoleArn: str
+    FleetRoleArn: Annotated[str, _aws_pattern("Gamelift", "IamRoleArn")]
     Description: Optional[str] = None
-    GameServerContainerGroupDefinitionName: Optional[str] = None
-    PerInstanceContainerGroupDefinitionName: Optional[str] = None
+    GameServerContainerGroupDefinitionName: Optional[
+        Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionNameOrArn")]
+    ] = None
+    PerInstanceContainerGroupDefinitionName: Optional[
+        Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionNameOrArn")]
+    ] = None
     InstanceConnectionPortRange: Optional[ConnectionPortRangeTypeDef] = None
     InstanceInboundPermissions: Optional[List[IpPermissionTypeDef]] = None
     GameServerContainerGroupsPerInstance: Optional[int] = None
@@ -1355,13 +1396,13 @@ class CreateContainerFleetInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_fleet_locations' function.
 class CreateFleetLocationsInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
     Locations: List[LocationConfigurationTypeDef]
 
 
 class FleetAttributesTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    FleetArn: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    FleetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetArn")]] = None
     FleetType: Optional[FleetTypeType] = None
     InstanceType: Optional[EC2InstanceTypeType] = None
     Description: Optional[str] = None
@@ -1369,12 +1410,12 @@ class FleetAttributesTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     TerminationTime: Optional[datetime] = None
     Status: Optional[FleetStatusType] = None
-    BuildId: Optional[str] = None
-    BuildArn: Optional[str] = None
-    ScriptId: Optional[str] = None
-    ScriptArn: Optional[str] = None
-    ServerLaunchPath: Optional[str] = None
-    ServerLaunchParameters: Optional[str] = None
+    BuildId: Optional[Annotated[str, _aws_pattern("Gamelift", "BuildId")]] = None
+    BuildArn: Optional[Annotated[str, _aws_pattern("Gamelift", "BuildArn")]] = None
+    ScriptId: Optional[Annotated[str, _aws_pattern("Gamelift", "ScriptId")]] = None
+    ScriptArn: Optional[Annotated[str, _aws_pattern("Gamelift", "ScriptArn")]] = None
+    ServerLaunchPath: Optional[Annotated[str, _aws_pattern("Gamelift", "LaunchPathStringModel")]] = None
+    ServerLaunchParameters: Optional[Annotated[str, _aws_pattern("Gamelift", "LaunchParametersStringModel")]] = None
     LogPaths: Optional[List[str]] = None
     NewGameSessionProtectionPolicy: Optional[ProtectionPolicyType] = None
     OperatingSystem: Optional[OperatingSystemType] = None
@@ -1392,7 +1433,7 @@ class FleetAttributesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_fleet_attributes' function.
 class UpdateFleetAttributesInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
     Name: Optional[str] = None
     Description: Optional[str] = None
     NewGameSessionProtectionPolicy: Optional[ProtectionPolicyType] = None
@@ -1403,16 +1444,16 @@ class UpdateFleetAttributesInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_fleet_locations' function.
 class CreateFleetLocationsOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
     LocationStates: List[LocationStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_fleet_locations' function.
 class DeleteFleetLocationsOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
     LocationStates: List[LocationStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1424,13 +1465,13 @@ class LocationAttributesTypeDef(BaseValidatorModel):
 
 
 class GameServerGroupTypeDef(BaseValidatorModel):
-    GameServerGroupName: Optional[str] = None
-    GameServerGroupArn: Optional[str] = None
-    RoleArn: Optional[str] = None
+    GameServerGroupName: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerGroupName")]] = None
+    GameServerGroupArn: Optional[Annotated[str, _aws_pattern("Gamelift", "GameServerGroupArn")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Gamelift", "IamRoleArn")]] = None
     InstanceDefinitions: Optional[List[InstanceDefinitionTypeDef]] = None
     BalancingStrategy: Optional[BalancingStrategyType] = None
     GameServerProtectionPolicy: Optional[GameServerProtectionPolicyType] = None
-    AutoScalingGroupArn: Optional[str] = None
+    AutoScalingGroupArn: Optional[Annotated[str, _aws_pattern("Gamelift", "AutoScalingGroupArn")]] = None
     Status: Optional[GameServerGroupStatusType] = None
     StatusReason: Optional[str] = None
     SuspendedActions: Optional[List[Literal["REPLACE_INSTANCE_TYPES"]]] = None
@@ -1440,8 +1481,8 @@ class GameServerGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_game_server_group' function.
 class UpdateGameServerGroupInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
-    RoleArn: Optional[str] = None
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupNameOrArn")]
+    RoleArn: Optional[Annotated[str, _aws_pattern("Gamelift", "IamRoleArn")]] = None
     InstanceDefinitions: Optional[List[InstanceDefinitionTypeDef]] = None
     GameServerProtectionPolicy: Optional[GameServerProtectionPolicyType] = None
     BalancingStrategy: Optional[BalancingStrategyType] = None
@@ -1450,27 +1491,27 @@ class UpdateGameServerGroupInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_game_session' function.
 class CreateGameSessionInputTypeDef(BaseValidatorModel):
     MaximumPlayerSessionCount: int
-    FleetId: Optional[str] = None
-    AliasId: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]] = None
+    AliasId: Optional[Annotated[str, _aws_pattern("Gamelift", "AliasIdOrArn")]] = None
     Name: Optional[str] = None
     GameProperties: Optional[List[GamePropertyTypeDef]] = None
     CreatorId: Optional[str] = None
-    GameSessionId: Optional[str] = None
-    IdempotencyToken: Optional[str] = None
+    GameSessionId: Optional[Annotated[str, _aws_pattern("Gamelift", "IdStringModel")]] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("Gamelift", "IdStringModel")]] = None
     GameSessionData: Optional[str] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 # This class is the input for the 'create_matchmaking_configuration' function.
 class CreateMatchmakingConfigurationInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]
     RequestTimeoutSeconds: int
     AcceptanceRequired: bool
-    RuleSetName: str
+    RuleSetName: Annotated[str, _aws_pattern("Gamelift", "MatchmakingRuleSetName")]
     Description: Optional[str] = None
-    GameSessionQueueArns: Optional[List[str]] = None
+    GameSessionQueueArns: Optional[List[Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]]] = None
     AcceptanceTimeoutSeconds: Optional[int] = None
-    NotificationTarget: Optional[str] = None
+    NotificationTarget: Optional[Annotated[str, _aws_pattern("Gamelift", "SnsArnStringModel")]] = None
     AdditionalPlayerCount: Optional[int] = None
     CustomEventData: Optional[str] = None
     GameProperties: Optional[List[GamePropertyTypeDef]] = None
@@ -1483,8 +1524,8 @@ class CreateMatchmakingConfigurationInputTypeDef(BaseValidatorModel):
 class GameSessionTypeDef(BaseValidatorModel):
     GameSessionId: Optional[str] = None
     Name: Optional[str] = None
-    FleetId: Optional[str] = None
-    FleetArn: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    FleetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetArn")]] = None
     CreationTime: Optional[datetime] = None
     TerminationTime: Optional[datetime] = None
     CurrentPlayerSessionCount: Optional[int] = None
@@ -1492,29 +1533,29 @@ class GameSessionTypeDef(BaseValidatorModel):
     Status: Optional[GameSessionStatusType] = None
     StatusReason: Optional[GameSessionStatusReasonType] = None
     GameProperties: Optional[List[GamePropertyTypeDef]] = None
-    IpAddress: Optional[str] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Gamelift", "IpAddress")]] = None
     DnsName: Optional[str] = None
     Port: Optional[int] = None
     PlayerSessionCreationPolicy: Optional[PlayerSessionCreationPolicyType] = None
     CreatorId: Optional[str] = None
     GameSessionData: Optional[str] = None
     MatchmakerData: Optional[str] = None
-    Location: Optional[str] = None
-    ComputeName: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
+    ComputeName: Optional[Annotated[str, _aws_pattern("Gamelift", "ComputeName")]] = None
     PlayerGatewayStatus: Optional[PlayerGatewayStatusType] = None
 
 
 class MatchmakingConfigurationTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ConfigurationArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]] = None
+    ConfigurationArn: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingConfigurationArn")]] = None
     Description: Optional[str] = None
-    GameSessionQueueArns: Optional[List[str]] = None
+    GameSessionQueueArns: Optional[List[Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]]] = None
     RequestTimeoutSeconds: Optional[int] = None
     AcceptanceTimeoutSeconds: Optional[int] = None
     AcceptanceRequired: Optional[bool] = None
-    RuleSetName: Optional[str] = None
-    RuleSetArn: Optional[str] = None
-    NotificationTarget: Optional[str] = None
+    RuleSetName: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]] = None
+    RuleSetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingRuleSetArn")]] = None
+    NotificationTarget: Optional[Annotated[str, _aws_pattern("Gamelift", "SnsArnStringModel")]] = None
     AdditionalPlayerCount: Optional[int] = None
     CustomEventData: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -1526,7 +1567,7 @@ class MatchmakingConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_game_session' function.
 class UpdateGameSessionInputTypeDef(BaseValidatorModel):
-    GameSessionId: str
+    GameSessionId: Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]
     MaximumPlayerSessionCount: Optional[int] = None
     Name: Optional[str] = None
     PlayerSessionCreationPolicy: Optional[PlayerSessionCreationPolicyType] = None
@@ -1536,14 +1577,14 @@ class UpdateGameSessionInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_matchmaking_configuration' function.
 class UpdateMatchmakingConfigurationInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "MatchmakingConfigurationName")]
     Description: Optional[str] = None
-    GameSessionQueueArns: Optional[List[str]] = None
+    GameSessionQueueArns: Optional[List[Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]]] = None
     RequestTimeoutSeconds: Optional[int] = None
     AcceptanceTimeoutSeconds: Optional[int] = None
     AcceptanceRequired: Optional[bool] = None
-    RuleSetName: Optional[str] = None
-    NotificationTarget: Optional[str] = None
+    RuleSetName: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingRuleSetName")]] = None
+    NotificationTarget: Optional[Annotated[str, _aws_pattern("Gamelift", "SnsArnStringModel")]] = None
     AdditionalPlayerCount: Optional[int] = None
     CustomEventData: Optional[str] = None
     GameProperties: Optional[List[GamePropertyTypeDef]] = None
@@ -1596,12 +1637,12 @@ class DescribeVpcPeeringAuthorizationsOutputTypeDef(BaseValidatorModel):
 
 
 class FleetDeploymentTypeDef(BaseValidatorModel):
-    DeploymentId: Optional[str] = None
-    FleetId: Optional[str] = None
-    GameServerBinaryArn: Optional[str] = None
-    RollbackGameServerBinaryArn: Optional[str] = None
-    PerInstanceBinaryArn: Optional[str] = None
-    RollbackPerInstanceBinaryArn: Optional[str] = None
+    DeploymentId: Optional[Annotated[str, _aws_pattern("Gamelift", "DeploymentId")]] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    GameServerBinaryArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetBinaryArn")]] = None
+    RollbackGameServerBinaryArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetBinaryArn")]] = None
+    PerInstanceBinaryArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetBinaryArn")]] = None
+    RollbackPerInstanceBinaryArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetBinaryArn")]] = None
     DeploymentStatus: Optional[DeploymentStatusType] = None
     DeploymentConfiguration: Optional[DeploymentConfigurationTypeDef] = None
     CreationTime: Optional[datetime] = None
@@ -1609,9 +1650,13 @@ class FleetDeploymentTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_container_fleet' function.
 class UpdateContainerFleetInputTypeDef(BaseValidatorModel):
-    FleetId: str
-    GameServerContainerGroupDefinitionName: Optional[str] = None
-    PerInstanceContainerGroupDefinitionName: Optional[str] = None
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    GameServerContainerGroupDefinitionName: Optional[
+        Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionNameOrArn")]
+    ] = None
+    PerInstanceContainerGroupDefinitionName: Optional[
+        Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionNameOrArn")]
+    ] = None
     GameServerContainerGroupsPerInstance: Optional[int] = None
     InstanceConnectionPortRange: Optional[ConnectionPortRangeTypeDef] = None
     InstanceInboundPermissionAuthorizations: Optional[List[IpPermissionTypeDef]] = None
@@ -1790,7 +1835,7 @@ class DescribeFleetEventsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_fleet_events' function.
 class DescribeFleetEventsInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
     Limit: Optional[int] = None
@@ -1835,30 +1880,30 @@ FilterConfigurationUnionTypeDef = Union[FilterConfigurationOutputTypeDef, Filter
 
 
 class FleetCapacityTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    FleetArn: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    FleetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetArn")]] = None
     InstanceType: Optional[EC2InstanceTypeType] = None
     InstanceCounts: Optional[EC2InstanceCountsTypeDef] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
     GameServerContainerGroupCounts: Optional[GameServerContainerGroupCountsTypeDef] = None
     ManagedCapacityConfiguration: Optional[ManagedCapacityConfigurationTypeDef] = None
 
 
 # This class is the input for the 'update_fleet_capacity' function.
 class UpdateFleetCapacityInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
     DesiredInstances: Optional[int] = None
     MinSize: Optional[int] = None
     MaxSize: Optional[int] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
     ManagedCapacityConfiguration: Optional[ManagedCapacityConfigurationTypeDef] = None
 
 
 # This class is the output for the 'update_fleet_capacity' function.
 class UpdateFleetCapacityOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
-    Location: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetId")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
+    Location: Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]
     ManagedCapacityConfiguration: ManagedCapacityConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1869,8 +1914,8 @@ class GameServerGroupAutoScalingPolicyTypeDef(BaseValidatorModel):
 
 
 class GameSessionConnectionInfoTypeDef(BaseValidatorModel):
-    GameSessionArn: Optional[str] = None
-    IpAddress: Optional[str] = None
+    GameSessionArn: Optional[Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Gamelift", "IpAddress")]] = None
     DnsName: Optional[str] = None
     Port: Optional[int] = None
     MatchedPlayerSessions: Optional[List[MatchedPlayerSessionTypeDef]] = None
@@ -1878,8 +1923,8 @@ class GameSessionConnectionInfoTypeDef(BaseValidatorModel):
 
 
 class GameSessionPlacementTypeDef(BaseValidatorModel):
-    PlacementId: Optional[str] = None
-    GameSessionQueueName: Optional[str] = None
+    PlacementId: Optional[Annotated[str, _aws_pattern("Gamelift", "IdStringModel")]] = None
+    GameSessionQueueName: Optional[Annotated[str, _aws_pattern("Gamelift", "GameSessionQueueName")]] = None
     Status: Optional[GameSessionPlacementStateType] = None
     GameProperties: Optional[List[GamePropertyTypeDef]] = None
     MaximumPlayerSessionCount: Optional[int] = None
@@ -1890,7 +1935,7 @@ class GameSessionPlacementTypeDef(BaseValidatorModel):
     PlayerLatencies: Optional[List[PlayerLatencyTypeDef]] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    IpAddress: Optional[str] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Gamelift", "IpAddress")]] = None
     DnsName: Optional[str] = None
     Port: Optional[int] = None
     PlacedPlayerSessions: Optional[List[PlacedPlayerSessionTypeDef]] = None
@@ -1901,21 +1946,21 @@ class GameSessionPlacementTypeDef(BaseValidatorModel):
 
 
 class GameSessionQueueTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    GameSessionQueueArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Gamelift", "GameSessionQueueName")]] = None
+    GameSessionQueueArn: Optional[Annotated[str, _aws_pattern("Gamelift", "GameSessionQueueArn")]] = None
     TimeoutInSeconds: Optional[int] = None
     PlayerLatencyPolicies: Optional[List[PlayerLatencyPolicyTypeDef]] = None
     Destinations: Optional[List[GameSessionQueueDestinationTypeDef]] = None
     FilterConfiguration: Optional[FilterConfigurationOutputTypeDef] = None
     PriorityConfiguration: Optional[PriorityConfigurationOutputTypeDef] = None
-    CustomEventData: Optional[str] = None
-    NotificationTarget: Optional[str] = None
+    CustomEventData: Optional[Annotated[str, _aws_pattern("Gamelift", "QueueCustomEventData")]] = None
+    NotificationTarget: Optional[Annotated[str, _aws_pattern("Gamelift", "QueueSnsArnStringModel")]] = None
 
 
 class InstanceAccessTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    InstanceId: Optional[str] = None
-    IpAddress: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Gamelift", "InstanceId")]] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Gamelift", "IpAddress")]] = None
     OperatingSystem: Optional[OperatingSystemType] = None
     Credentials: Optional[InstanceCredentialsTypeDef] = None
 
@@ -1941,7 +1986,7 @@ PriorityConfigurationUnionTypeDef = Union[PriorityConfigurationOutputTypeDef, Pr
 # This class is the input for the 'put_scaling_policy' function.
 class PutScalingPolicyInputTypeDef(BaseValidatorModel):
     Name: str
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
     MetricName: MetricNameType
     ScalingAdjustment: Optional[int] = None
     ScalingAdjustmentType: Optional[ScalingAdjustmentTypeType] = None
@@ -1953,8 +1998,8 @@ class PutScalingPolicyInputTypeDef(BaseValidatorModel):
 
 
 class ScalingPolicyTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    FleetArn: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    FleetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetArn")]] = None
     Name: Optional[str] = None
     Status: Optional[ScalingStatusTypeType] = None
     ScalingAdjustment: Optional[int] = None
@@ -1966,7 +2011,7 @@ class ScalingPolicyTypeDef(BaseValidatorModel):
     PolicyType: Optional[PolicyTypeType] = None
     TargetConfiguration: Optional[TargetConfigurationTypeDef] = None
     UpdateStatus: Optional[Literal["PENDING_UPDATE"]] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
 
 
 class RuntimeConfigurationOutputTypeDef(BaseValidatorModel):
@@ -1982,8 +2027,8 @@ class RuntimeConfigurationTypeDef(BaseValidatorModel):
 
 
 class VpcPeeringConnectionTypeDef(BaseValidatorModel):
-    FleetId: Optional[str] = None
-    FleetArn: Optional[str] = None
+    FleetId: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetId")]] = None
+    FleetArn: Optional[Annotated[str, _aws_pattern("Gamelift", "FleetArn")]] = None
     IpV4CidrBlock: Optional[str] = None
     VpcPeeringConnectionId: Optional[str] = None
     Status: Optional[VpcPeeringConnectionStatusTypeDef] = None
@@ -2067,28 +2112,40 @@ class UpdateContainerFleetOutputTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
 
+# This class is the output for the 'describe_container_group_port_mappings' function.
+class DescribeContainerGroupPortMappingsOutputTypeDef(BaseValidatorModel):
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetId")]
+    Location: Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]
+    ContainerGroupDefinitionArn: Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionArn")]
+    ContainerGroupType: ContainerGroupTypeType
+    ComputeName: Annotated[str, _aws_pattern("Gamelift", "ComputeName")]
+    InstanceId: Annotated[str, _aws_pattern("Gamelift", "InstanceId")]
+    ContainerGroupPortMappings: List[ContainerGroupPortMappingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class GameServerContainerDefinitionTypeDef(BaseValidatorModel):
-    ContainerName: Optional[str] = None
+    ContainerName: Optional[Annotated[str, _aws_pattern("Gamelift", "NonZeroAnd128MaxAsciiString")]] = None
     DependsOn: Optional[List[ContainerDependencyTypeDef]] = None
     MountPoints: Optional[List[ContainerMountPointTypeDef]] = None
     EnvironmentOverride: Optional[List[ContainerEnvironmentTypeDef]] = None
-    ImageUri: Optional[str] = None
+    ImageUri: Optional[Annotated[str, _aws_pattern("Gamelift", "ImageUriString")]] = None
     PortConfiguration: Optional[ContainerPortConfigurationOutputTypeDef] = None
-    ResolvedImageDigest: Optional[str] = None
-    ServerSdkVersion: Optional[str] = None
+    ResolvedImageDigest: Optional[Annotated[str, _aws_pattern("Gamelift", "Sha256")]] = None
+    ServerSdkVersion: Optional[Annotated[str, _aws_pattern("Gamelift", "ServerSdkVersion")]] = None
 
 
 class SupportContainerDefinitionTypeDef(BaseValidatorModel):
-    ContainerName: Optional[str] = None
+    ContainerName: Optional[Annotated[str, _aws_pattern("Gamelift", "NonZeroAnd128MaxAsciiString")]] = None
     DependsOn: Optional[List[ContainerDependencyTypeDef]] = None
     MountPoints: Optional[List[ContainerMountPointTypeDef]] = None
     EnvironmentOverride: Optional[List[ContainerEnvironmentTypeDef]] = None
     Essential: Optional[bool] = None
     HealthCheck: Optional[ContainerHealthCheckOutputTypeDef] = None
-    ImageUri: Optional[str] = None
+    ImageUri: Optional[Annotated[str, _aws_pattern("Gamelift", "ImageUriString")]] = None
     MemoryHardLimitMebibytes: Optional[int] = None
     PortConfiguration: Optional[ContainerPortConfigurationOutputTypeDef] = None
-    ResolvedImageDigest: Optional[str] = None
+    ResolvedImageDigest: Optional[Annotated[str, _aws_pattern("Gamelift", "Sha256")]] = None
     Vcpu: Optional[float] = None
 
 
@@ -2138,8 +2195,8 @@ class DescribeFleetAttributesOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_fleet_location_attributes' function.
 class DescribeFleetLocationAttributesOutputTypeDef(BaseValidatorModel):
-    FleetId: str
-    FleetArn: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
+    FleetArn: Annotated[str, _aws_pattern("Gamelift", "FleetArn")]
     LocationAttributes: List[LocationAttributesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -2273,8 +2330,8 @@ class DescribeFleetLocationCapacityOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_game_server_group' function.
 class CreateGameServerGroupInputTypeDef(BaseValidatorModel):
-    GameServerGroupName: str
-    RoleArn: str
+    GameServerGroupName: Annotated[str, _aws_pattern("Gamelift", "GameServerGroupName")]
+    RoleArn: Annotated[str, _aws_pattern("Gamelift", "IamRoleArn")]
     MinSize: int
     MaxSize: int
     LaunchTemplate: LaunchTemplateSpecificationTypeDef
@@ -2282,14 +2339,14 @@ class CreateGameServerGroupInputTypeDef(BaseValidatorModel):
     AutoScalingPolicy: Optional[GameServerGroupAutoScalingPolicyTypeDef] = None
     BalancingStrategy: Optional[BalancingStrategyType] = None
     GameServerProtectionPolicy: Optional[GameServerProtectionPolicyType] = None
-    VpcSubnets: Optional[List[str]] = None
+    VpcSubnets: Optional[List[Annotated[str, _aws_pattern("Gamelift", "VpcSubnet")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class MatchmakingTicketTypeDef(BaseValidatorModel):
-    TicketId: Optional[str] = None
-    ConfigurationName: Optional[str] = None
-    ConfigurationArn: Optional[str] = None
+    TicketId: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]] = None
+    ConfigurationName: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]] = None
+    ConfigurationArn: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingConfigurationArn")]] = None
     Status: Optional[MatchmakingConfigurationStatusType] = None
     StatusReason: Optional[str] = None
     StatusMessage: Optional[str] = None
@@ -2344,22 +2401,22 @@ class GetInstanceAccessOutputTypeDef(BaseValidatorModel):
 
 
 class LocationModelTypeDef(BaseValidatorModel):
-    LocationName: Optional[str] = None
-    LocationArn: Optional[str] = None
+    LocationName: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationStringModel")]] = None
+    LocationArn: Optional[Annotated[str, _aws_pattern("Gamelift", "LocationArnModel")]] = None
     PingBeacon: Optional[PingBeaconTypeDef] = None
 
 
 # This class is the output for the 'get_player_connection_details' function.
 class GetPlayerConnectionDetailsOutputTypeDef(BaseValidatorModel):
-    GameSessionId: str
+    GameSessionId: Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]
     PlayerConnectionDetails: List[PlayerConnectionDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'start_game_session_placement' function.
 class StartGameSessionPlacementInputTypeDef(BaseValidatorModel):
-    PlacementId: str
-    GameSessionQueueName: str
+    PlacementId: Annotated[str, _aws_pattern("Gamelift", "IdStringModel")]
+    GameSessionQueueName: Annotated[str, _aws_pattern("Gamelift", "GameSessionQueueNameOrArn")]
     MaximumPlayerSessionCount: int
     GameProperties: Optional[List[GamePropertyTypeDef]] = None
     GameSessionName: Optional[str] = None
@@ -2371,27 +2428,27 @@ class StartGameSessionPlacementInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_game_session_queue' function.
 class CreateGameSessionQueueInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "GameSessionQueueName")]
     TimeoutInSeconds: Optional[int] = None
     PlayerLatencyPolicies: Optional[List[PlayerLatencyPolicyTypeDef]] = None
     Destinations: Optional[List[GameSessionQueueDestinationTypeDef]] = None
     FilterConfiguration: Optional[FilterConfigurationUnionTypeDef] = None
     PriorityConfiguration: Optional[PriorityConfigurationUnionTypeDef] = None
-    CustomEventData: Optional[str] = None
-    NotificationTarget: Optional[str] = None
+    CustomEventData: Optional[Annotated[str, _aws_pattern("Gamelift", "QueueCustomEventData")]] = None
+    NotificationTarget: Optional[Annotated[str, _aws_pattern("Gamelift", "QueueSnsArnStringModel")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_game_session_queue' function.
 class UpdateGameSessionQueueInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "GameSessionQueueNameOrArn")]
     TimeoutInSeconds: Optional[int] = None
     PlayerLatencyPolicies: Optional[List[PlayerLatencyPolicyTypeDef]] = None
     Destinations: Optional[List[GameSessionQueueDestinationTypeDef]] = None
     FilterConfiguration: Optional[FilterConfigurationUnionTypeDef] = None
     PriorityConfiguration: Optional[PriorityConfigurationUnionTypeDef] = None
-    CustomEventData: Optional[str] = None
-    NotificationTarget: Optional[str] = None
+    CustomEventData: Optional[Annotated[str, _aws_pattern("Gamelift", "QueueCustomEventData")]] = None
+    NotificationTarget: Optional[Annotated[str, _aws_pattern("Gamelift", "QueueSnsArnStringModel")]] = None
 
 
 # This class is the output for the 'describe_scaling_policies' function.
@@ -2426,8 +2483,10 @@ PlayerUnionTypeDef = Union[PlayerOutputTypeDef, PlayerTypeDef]
 
 
 class ContainerGroupDefinitionTypeDef(BaseValidatorModel):
-    Name: str
-    ContainerGroupDefinitionArn: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionName")]
+    ContainerGroupDefinitionArn: Optional[Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionArn")]] = (
+        None
+    )
     CreationTime: Optional[datetime] = None
     OperatingSystem: Optional[Literal["AMAZON_LINUX_2023"]] = None
     ContainerGroupType: Optional[ContainerGroupTypeType] = None
@@ -2442,18 +2501,18 @@ class ContainerGroupDefinitionTypeDef(BaseValidatorModel):
 
 
 class GameServerContainerDefinitionInputTypeDef(BaseValidatorModel):
-    ContainerName: str
-    ImageUri: str
+    ContainerName: Annotated[str, _aws_pattern("Gamelift", "NonZeroAnd128MaxAsciiString")]
+    ImageUri: Annotated[str, _aws_pattern("Gamelift", "ImageUriString")]
     PortConfiguration: ContainerPortConfigurationUnionTypeDef
-    ServerSdkVersion: str
+    ServerSdkVersion: Annotated[str, _aws_pattern("Gamelift", "ServerSdkVersion")]
     DependsOn: Optional[List[ContainerDependencyTypeDef]] = None
     MountPoints: Optional[List[ContainerMountPointTypeDef]] = None
     EnvironmentOverride: Optional[List[ContainerEnvironmentTypeDef]] = None
 
 
 class SupportContainerDefinitionInputTypeDef(BaseValidatorModel):
-    ContainerName: str
-    ImageUri: str
+    ContainerName: Annotated[str, _aws_pattern("Gamelift", "NonZeroAnd128MaxAsciiString")]
+    ImageUri: Annotated[str, _aws_pattern("Gamelift", "ImageUriString")]
     DependsOn: Optional[List[ContainerDependencyTypeDef]] = None
     MountPoints: Optional[List[ContainerMountPointTypeDef]] = None
     EnvironmentOverride: Optional[List[ContainerEnvironmentTypeDef]] = None
@@ -2506,10 +2565,10 @@ class ListLocationsOutputTypeDef(BaseValidatorModel):
 class CreateFleetInputTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
-    BuildId: Optional[str] = None
-    ScriptId: Optional[str] = None
-    ServerLaunchPath: Optional[str] = None
-    ServerLaunchParameters: Optional[str] = None
+    BuildId: Optional[Annotated[str, _aws_pattern("Gamelift", "BuildIdOrArn")]] = None
+    ScriptId: Optional[Annotated[str, _aws_pattern("Gamelift", "ScriptIdOrArn")]] = None
+    ServerLaunchPath: Optional[Annotated[str, _aws_pattern("Gamelift", "LaunchPathStringModel")]] = None
+    ServerLaunchParameters: Optional[Annotated[str, _aws_pattern("Gamelift", "LaunchParametersStringModel")]] = None
     LogPaths: Optional[List[str]] = None
     EC2InstanceType: Optional[EC2InstanceTypeType] = None
     EC2InboundPermissions: Optional[List[IpPermissionTypeDef]] = None
@@ -2533,23 +2592,23 @@ class CreateFleetInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_runtime_configuration' function.
 class UpdateRuntimeConfigurationInputTypeDef(BaseValidatorModel):
-    FleetId: str
+    FleetId: Annotated[str, _aws_pattern("Gamelift", "FleetIdOrArn")]
     RuntimeConfiguration: RuntimeConfigurationUnionTypeDef
 
 
 # This class is the input for the 'start_match_backfill' function.
 class StartMatchBackfillInputTypeDef(BaseValidatorModel):
-    ConfigurationName: str
+    ConfigurationName: Annotated[str, _aws_pattern("Gamelift", "MatchmakingConfigurationName")]
     Players: List[PlayerUnionTypeDef]
-    TicketId: Optional[str] = None
-    GameSessionArn: Optional[str] = None
+    TicketId: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]] = None
+    GameSessionArn: Optional[Annotated[str, _aws_pattern("Gamelift", "ArnStringModel")]] = None
 
 
 # This class is the input for the 'start_matchmaking' function.
 class StartMatchmakingInputTypeDef(BaseValidatorModel):
-    ConfigurationName: str
+    ConfigurationName: Annotated[str, _aws_pattern("Gamelift", "MatchmakingConfigurationName")]
     Players: List[PlayerUnionTypeDef]
-    TicketId: Optional[str] = None
+    TicketId: Optional[Annotated[str, _aws_pattern("Gamelift", "MatchmakingIdStringModel")]] = None
 
 
 # This class is the output for the 'create_container_group_definition' function.
@@ -2586,7 +2645,7 @@ class UpdateContainerGroupDefinitionOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_container_group_definition' function.
 class CreateContainerGroupDefinitionInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionName")]
     TotalMemoryLimitMebibytes: int
     TotalVcpuLimit: float
     OperatingSystem: Literal["AMAZON_LINUX_2023"]
@@ -2599,7 +2658,7 @@ class CreateContainerGroupDefinitionInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_container_group_definition' function.
 class UpdateContainerGroupDefinitionInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Gamelift", "ContainerGroupDefinitionNameOrArn")]
     GameServerContainerDefinition: Optional[GameServerContainerDefinitionInputTypeDef] = None
     SupportContainerDefinitions: Optional[List[SupportContainerDefinitionInputTypeDef]] = None
     TotalMemoryLimitMebibytes: Optional[int] = None

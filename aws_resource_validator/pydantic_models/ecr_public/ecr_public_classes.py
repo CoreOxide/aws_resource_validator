@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ecr_public.ecr_public_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,13 +41,13 @@ except ImportError:  # pragma: no cover
 
 
 class AuthorizationDataTypeDef(BaseValidatorModel):
-    authorizationToken: Optional[str] = None
+    authorizationToken: Optional[Annotated[str, _aws_pattern("EcrPublic", "Base64")]] = None
     expiresAt: Optional[datetime] = None
 
 
 # This class is the input for the 'batch_check_layer_availability' function.
 class BatchCheckLayerAvailabilityRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
     layerDigests: List[str]
     registryId: Optional[str] = None
 
@@ -57,7 +59,7 @@ class LayerFailureTypeDef(BaseValidatorModel):
 
 
 class LayerTypeDef(BaseValidatorModel):
-    layerDigest: Optional[str] = None
+    layerDigest: Optional[Annotated[str, _aws_pattern("EcrPublic", "LayerDigest")]] = None
     layerAvailability: Optional[LayerAvailabilityType] = None
     layerSize: Optional[int] = None
     mediaType: Optional[str] = None
@@ -81,9 +83,9 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'complete_layer_upload' function.
 class CompleteLayerUploadRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    uploadId: str
-    layerDigests: List[str]
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
+    uploadId: Annotated[str, _aws_pattern("EcrPublic", "UploadId")]
+    layerDigests: List[Annotated[str, _aws_pattern("EcrPublic", "LayerDigest")]]
     registryId: Optional[str] = None
 
 
@@ -104,22 +106,22 @@ class RepositoryCatalogDataTypeDef(BaseValidatorModel):
 
 class RepositoryTypeDef(BaseValidatorModel):
     repositoryArn: Optional[str] = None
-    registryId: Optional[str] = None
-    repositoryName: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]] = None
     repositoryUri: Optional[str] = None
     createdAt: Optional[datetime] = None
 
 
 # This class is the input for the 'delete_repository_policy' function.
 class DeleteRepositoryPolicyRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]] = None
 
 
 # This class is the input for the 'delete_repository' function.
 class DeleteRepositoryRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]] = None
     force: Optional[bool] = None
 
 
@@ -131,15 +133,15 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_image_tags' function.
 class DescribeImageTagsRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class ImageDetailTypeDef(BaseValidatorModel):
-    registryId: Optional[str] = None
-    repositoryName: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]] = None
     imageDigest: Optional[str] = None
     imageTags: Optional[List[str]] = None
     imageSizeInBytes: Optional[int] = None
@@ -156,8 +158,8 @@ class DescribeRegistriesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_repositories' function.
 class DescribeRepositoriesRequestTypeDef(BaseValidatorModel):
-    registryId: Optional[str] = None
-    repositoryNames: Optional[List[str]] = None
+    registryId: Optional[Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]] = None
+    repositoryNames: Optional[List[Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -168,14 +170,14 @@ class RegistryCatalogDataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_repository_catalog_data' function.
 class GetRepositoryCatalogDataRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]] = None
 
 
 # This class is the input for the 'get_repository_policy' function.
 class GetRepositoryPolicyRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]] = None
 
 
 class ReferencedImageDetailTypeDef(BaseValidatorModel):
@@ -188,7 +190,7 @@ class ReferencedImageDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'initiate_layer_upload' function.
 class InitiateLayerUploadRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
     registryId: Optional[str] = None
 
 
@@ -199,7 +201,7 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_image' function.
 class PutImageRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
     imageManifest: str
     registryId: Optional[str] = None
     imageManifestMediaType: Optional[str] = None
@@ -213,7 +215,7 @@ class PutRegistryCatalogDataRequestTypeDef(BaseValidatorModel):
 
 
 class RegistryAliasTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("EcrPublic", "RegistryAliasName")]
     status: RegistryAliasStatusType
     primaryRegistryAlias: bool
     defaultRegistryAlias: bool
@@ -221,9 +223,9 @@ class RegistryAliasTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'set_repository_policy' function.
 class SetRepositoryPolicyRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
     policyText: str
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]] = None
     force: Optional[bool] = None
 
 
@@ -241,17 +243,17 @@ class BatchCheckLayerAvailabilityResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'complete_layer_upload' function.
 class CompleteLayerUploadResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
-    uploadId: str
-    layerDigest: str
+    registryId: Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
+    uploadId: Annotated[str, _aws_pattern("EcrPublic", "UploadId")]
+    layerDigest: Annotated[str, _aws_pattern("EcrPublic", "LayerDigest")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_repository_policy' function.
 class DeleteRepositoryPolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -263,47 +265,47 @@ class GetAuthorizationTokenResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_repository_policy' function.
 class GetRepositoryPolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'initiate_layer_upload' function.
 class InitiateLayerUploadResponseTypeDef(BaseValidatorModel):
-    uploadId: str
+    uploadId: Annotated[str, _aws_pattern("EcrPublic", "UploadId")]
     partSize: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'set_repository_policy' function.
 class SetRepositoryPolicyResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
+    registryId: Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'upload_layer_part' function.
 class UploadLayerPartResponseTypeDef(BaseValidatorModel):
-    registryId: str
-    repositoryName: str
-    uploadId: str
+    registryId: Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
+    uploadId: Annotated[str, _aws_pattern("EcrPublic", "UploadId")]
     lastByteReceived: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'batch_delete_image' function.
 class BatchDeleteImageRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
     imageIds: List[ImageIdentifierTypeDef]
     registryId: Optional[str] = None
 
 
 # This class is the input for the 'describe_images' function.
 class DescribeImagesRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
+    registryId: Optional[Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]] = None
     imageIds: Optional[List[ImageIdentifierTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -317,7 +319,7 @@ class ImageFailureTypeDef(BaseValidatorModel):
 
 class ImageTypeDef(BaseValidatorModel):
     registryId: Optional[str] = None
-    repositoryName: Optional[str] = None
+    repositoryName: Optional[Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]] = None
     imageId: Optional[ImageIdentifierTypeDef] = None
     imageManifest: Optional[str] = None
     imageManifestMediaType: Optional[str] = None
@@ -334,8 +336,8 @@ class RepositoryCatalogDataInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'upload_layer_part' function.
 class UploadLayerPartRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    uploadId: str
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
+    uploadId: Annotated[str, _aws_pattern("EcrPublic", "UploadId")]
     partFirstByte: int
     partLastByte: int
     layerPartBlob: BlobTypeDef
@@ -433,7 +435,7 @@ class ImageTagDetailTypeDef(BaseValidatorModel):
 
 
 class RegistryTypeDef(BaseValidatorModel):
-    registryId: str
+    registryId: Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]
     registryArn: str
     registryUri: str
     verified: bool
@@ -455,16 +457,16 @@ class PutImageResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_repository' function.
 class CreateRepositoryRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
     catalogData: Optional[RepositoryCatalogDataInputTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'put_repository_catalog_data' function.
 class PutRepositoryCatalogDataRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("EcrPublic", "RepositoryName")]
     catalogData: RepositoryCatalogDataInputTypeDef
-    registryId: Optional[str] = None
+    registryId: Optional[Annotated[str, _aws_pattern("EcrPublic", "RegistryId")]] = None
 
 
 # This class is the output for the 'describe_image_tags' function.

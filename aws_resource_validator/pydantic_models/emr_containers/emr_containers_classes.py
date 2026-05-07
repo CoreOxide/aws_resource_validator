@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.emr_containers.emr_containers_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,8 +42,8 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'cancel_job_run' function.
 class CancelJobRunRequestTypeDef(BaseValidatorModel):
-    id: str
-    virtualClusterId: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -53,13 +55,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class CertificateTypeDef(BaseValidatorModel):
-    certificateArn: Optional[str] = None
-    certificateData: Optional[str] = None
+    certificateArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "ACMCertArn")]] = None
+    certificateData: Optional[Annotated[str, _aws_pattern("EmrContainers", "Base64Encoded")]] = None
 
 
 class CloudWatchMonitoringConfigurationTypeDef(BaseValidatorModel):
-    logGroupName: str
-    logStreamNamePrefix: Optional[str] = None
+    logGroupName: Annotated[str, _aws_pattern("EmrContainers", "LogGroupName")]
+    logStreamNamePrefix: Optional[Annotated[str, _aws_pattern("EmrContainers", "String256")]] = None
 
 
 class ConfigurationOutputTypeDef(BaseValidatorModel):
@@ -75,88 +77,88 @@ class ConfigurationPaginatorTypeDef(BaseValidatorModel):
 
 
 class ConfigurationTypeDef(BaseValidatorModel):
-    classification: str
+    classification: Annotated[str, _aws_pattern("EmrContainers", "String1024")]
     properties: Optional[Dict[str, str]] = None
     configurations: Optional[List[Dict[str, Any]]] = None
 
 
 class EksInfoTypeDef(BaseValidatorModel):
-    namespace: Optional[str] = None
-    nodeLabel: Optional[str] = None
+    namespace: Optional[Annotated[str, _aws_pattern("EmrContainers", "KubernetesNamespace")]] = None
+    nodeLabel: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]] = None
 
 
 class ContainerLogRotationConfigurationTypeDef(BaseValidatorModel):
-    rotationSize: str
+    rotationSize: Annotated[str, _aws_pattern("EmrContainers", "RotationSize")]
     maxFilesToKeep: int
 
 
 class CredentialsTypeDef(BaseValidatorModel):
-    token: Optional[str] = None
+    token: Optional[Annotated[str, _aws_pattern("EmrContainers", "Token")]] = None
 
 
 # This class is the input for the 'delete_job_template' function.
 class DeleteJobTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
 
 
 # This class is the input for the 'delete_managed_endpoint' function.
 class DeleteManagedEndpointRequestTypeDef(BaseValidatorModel):
-    id: str
-    virtualClusterId: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
 
 
 # This class is the input for the 'delete_virtual_cluster' function.
 class DeleteVirtualClusterRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
 
 
 # This class is the input for the 'describe_job_run' function.
 class DescribeJobRunRequestTypeDef(BaseValidatorModel):
-    id: str
-    virtualClusterId: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
 
 
 # This class is the input for the 'describe_job_template' function.
 class DescribeJobTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
 
 
 # This class is the input for the 'describe_managed_endpoint' function.
 class DescribeManagedEndpointRequestTypeDef(BaseValidatorModel):
-    id: str
-    virtualClusterId: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
 
 
 # This class is the input for the 'describe_security_configuration' function.
 class DescribeSecurityConfigurationRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
 
 
 # This class is the input for the 'describe_virtual_cluster' function.
 class DescribeVirtualClusterRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
 
 
 # This class is the input for the 'get_managed_endpoint_session_credentials' function.
 class GetManagedEndpointSessionCredentialsRequestTypeDef(BaseValidatorModel):
-    endpointIdentifier: str
-    virtualClusterIdentifier: str
-    executionRoleArn: str
-    credentialType: str
+    endpointIdentifier: Annotated[str, _aws_pattern("EmrContainers", "String2048")]
+    virtualClusterIdentifier: Annotated[str, _aws_pattern("EmrContainers", "String2048")]
+    executionRoleArn: Annotated[str, _aws_pattern("EmrContainers", "IAMRoleArn")]
+    credentialType: Annotated[str, _aws_pattern("EmrContainers", "CredentialType")]
     durationInSeconds: Optional[int] = None
-    logContext: Optional[str] = None
-    clientToken: Optional[str] = None
+    logContext: Optional[Annotated[str, _aws_pattern("EmrContainers", "LogContext")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "ClientToken")]] = None
 
 
 class TLSCertificateConfigurationTypeDef(BaseValidatorModel):
     certificateProviderType: Optional[Literal["PEM"]] = None
-    publicCertificateSecretArn: Optional[str] = None
-    privateCertificateSecretArn: Optional[str] = None
+    publicCertificateSecretArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "SecretsManagerArn")]] = None
+    privateCertificateSecretArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "SecretsManagerArn")]] = None
 
 
 class SparkSqlJobDriverTypeDef(BaseValidatorModel):
-    entryPoint: Optional[str] = None
-    sparkSqlParameters: Optional[str] = None
+    entryPoint: Optional[Annotated[str, _aws_pattern("EmrContainers", "EntryPointPath")]] = None
+    sparkSqlParameters: Optional[Annotated[str, _aws_pattern("EmrContainers", "SparkSqlParameters")]] = None
 
 
 class SparkSubmitJobDriverOutputTypeDef(BaseValidatorModel):
@@ -166,9 +168,9 @@ class SparkSubmitJobDriverOutputTypeDef(BaseValidatorModel):
 
 
 class SparkSubmitJobDriverTypeDef(BaseValidatorModel):
-    entryPoint: str
-    entryPointArguments: Optional[List[str]] = None
-    sparkSubmitParameters: Optional[str] = None
+    entryPoint: Annotated[str, _aws_pattern("EmrContainers", "EntryPointPath")]
+    entryPointArguments: Optional[List[Annotated[str, _aws_pattern("EmrContainers", "EntryPointArgument")]]] = None
+    sparkSubmitParameters: Optional[Annotated[str, _aws_pattern("EmrContainers", "SparkSubmitParameters")]] = None
 
 
 class RetryPolicyConfigurationTypeDef(BaseValidatorModel):
@@ -181,12 +183,12 @@ class RetryPolicyExecutionTypeDef(BaseValidatorModel):
 
 class TemplateParameterConfigurationTypeDef(BaseValidatorModel):
     type: Optional[TemplateParameterDataTypeType] = None
-    defaultValue: Optional[str] = None
+    defaultValue: Optional[Annotated[str, _aws_pattern("EmrContainers", "String1024")]] = None
 
 
 class SecureNamespaceInfoTypeDef(BaseValidatorModel):
-    clusterId: Optional[str] = None
-    namespace: Optional[str] = None
+    clusterId: Optional[Annotated[str, _aws_pattern("EmrContainers", "ClusterId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("EmrContainers", "KubernetesNamespace")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -200,94 +202,94 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("EmrContainers", "RsiArn")]
 
 
 class ManagedLogsTypeDef(BaseValidatorModel):
     allowAWSToRetainLogs: Optional[AllowAWSToRetainLogsType] = None
-    encryptionKeyArn: Optional[str] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "KmsKeyArn")]] = None
 
 
 class S3MonitoringConfigurationTypeDef(BaseValidatorModel):
-    logUri: str
+    logUri: Annotated[str, _aws_pattern("EmrContainers", "UriString")]
 
 
 class ParametricCloudWatchMonitoringConfigurationTypeDef(BaseValidatorModel):
-    logGroupName: Optional[str] = None
-    logStreamNamePrefix: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("EmrContainers", "TemplateParameter")]] = None
+    logStreamNamePrefix: Optional[Annotated[str, _aws_pattern("EmrContainers", "String256")]] = None
 
 
 class ParametricS3MonitoringConfigurationTypeDef(BaseValidatorModel):
-    logUri: Optional[str] = None
+    logUri: Optional[Annotated[str, _aws_pattern("EmrContainers", "UriString")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("EmrContainers", "RsiArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("EmrContainers", "RsiArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("EmrContainers", "String128")]]
 
 
 # This class is the output for the 'cancel_job_run' function.
 class CancelJobRunResponseTypeDef(BaseValidatorModel):
-    id: str
-    virtualClusterId: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_job_template' function.
 class CreateJobTemplateResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    name: Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]
+    arn: Annotated[str, _aws_pattern("EmrContainers", "JobTemplateArn")]
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_managed_endpoint' function.
 class CreateManagedEndpointResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    virtualClusterId: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    name: Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]
+    arn: Annotated[str, _aws_pattern("EmrContainers", "EndpointArn")]
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_security_configuration' function.
 class CreateSecurityConfigurationResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    name: Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]
+    arn: Annotated[str, _aws_pattern("EmrContainers", "SecurityConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_virtual_cluster' function.
 class CreateVirtualClusterResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    name: Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]
+    arn: Annotated[str, _aws_pattern("EmrContainers", "VirtualClusterArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_job_template' function.
 class DeleteJobTemplateResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_managed_endpoint' function.
 class DeleteManagedEndpointResponseTypeDef(BaseValidatorModel):
-    id: str
-    virtualClusterId: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_virtual_cluster' function.
 class DeleteVirtualClusterResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -299,10 +301,10 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_job_run' function.
 class StartJobRunResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    virtualClusterId: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    name: Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]
+    arn: Annotated[str, _aws_pattern("EmrContainers", "JobArn")]
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -312,7 +314,7 @@ class ContainerInfoTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_managed_endpoint_session_credentials' function.
 class GetManagedEndpointSessionCredentialsResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
     credentials: CredentialsTypeDef
     expiresAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -333,9 +335,9 @@ class JobDriverTypeDef(BaseValidatorModel):
 
 
 class LakeFormationConfigurationTypeDef(BaseValidatorModel):
-    authorizedSessionTagValue: Optional[str] = None
+    authorizedSessionTagValue: Optional[Annotated[str, _aws_pattern("EmrContainers", "SessionTagValue")]] = None
     secureNamespaceInfo: Optional[SecureNamespaceInfoTypeDef] = None
-    queryEngineRoleArn: Optional[str] = None
+    queryEngineRoleArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "IAMRoleArn")]] = None
 
 
 class ListJobRunsRequestPaginateTypeDef(BaseValidatorModel):
@@ -349,13 +351,13 @@ class ListJobRunsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_job_runs' function.
 class ListJobRunsRequestTypeDef(BaseValidatorModel):
-    virtualClusterId: str
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
     createdBefore: Optional[TimestampTypeDef] = None
     createdAfter: Optional[TimestampTypeDef] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]] = None
     states: Optional[List[JobRunStateType]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "NextToken")]] = None
 
 
 class ListJobTemplatesRequestPaginateTypeDef(BaseValidatorModel):
@@ -369,7 +371,7 @@ class ListJobTemplatesRequestTypeDef(BaseValidatorModel):
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "NextToken")]] = None
 
 
 class ListManagedEndpointsRequestPaginateTypeDef(BaseValidatorModel):
@@ -383,13 +385,13 @@ class ListManagedEndpointsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_managed_endpoints' function.
 class ListManagedEndpointsRequestTypeDef(BaseValidatorModel):
-    virtualClusterId: str
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
     createdBefore: Optional[TimestampTypeDef] = None
     createdAfter: Optional[TimestampTypeDef] = None
-    types: Optional[List[str]] = None
+    types: Optional[List[Annotated[str, _aws_pattern("EmrContainers", "EndpointType")]]] = None
     states: Optional[List[EndpointStateType]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "NextToken")]] = None
 
 
 class ListSecurityConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
@@ -403,7 +405,7 @@ class ListSecurityConfigurationsRequestTypeDef(BaseValidatorModel):
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "NextToken")]] = None
 
 
 class ListVirtualClustersRequestPaginateTypeDef(BaseValidatorModel):
@@ -418,13 +420,13 @@ class ListVirtualClustersRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_virtual_clusters' function.
 class ListVirtualClustersRequestTypeDef(BaseValidatorModel):
-    containerProviderId: Optional[str] = None
+    containerProviderId: Optional[Annotated[str, _aws_pattern("EmrContainers", "String1024")]] = None
     containerProviderType: Optional[Literal["EKS"]] = None
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
     states: Optional[List[VirtualClusterStateType]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "NextToken")]] = None
     eksAccessEntryIntegrated: Optional[bool] = None
 
 
@@ -437,14 +439,14 @@ class MonitoringConfigurationTypeDef(BaseValidatorModel):
 
 
 class ParametricMonitoringConfigurationTypeDef(BaseValidatorModel):
-    persistentAppUI: Optional[str] = None
+    persistentAppUI: Optional[Annotated[str, _aws_pattern("EmrContainers", "TemplateParameter")]] = None
     cloudWatchMonitoringConfiguration: Optional[ParametricCloudWatchMonitoringConfigurationTypeDef] = None
     s3MonitoringConfiguration: Optional[ParametricS3MonitoringConfigurationTypeDef] = None
 
 
 class ContainerProviderTypeDef(BaseValidatorModel):
     type: Literal["EKS"]
-    id: str
+    id: Annotated[str, _aws_pattern("EmrContainers", "ClusterId")]
     info: Optional[ContainerInfoTypeDef] = None
 
 
@@ -487,22 +489,22 @@ class ParametricConfigurationOverridesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_virtual_cluster' function.
 class CreateVirtualClusterRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]
     containerProvider: ContainerProviderTypeDef
-    clientToken: str
+    clientToken: Annotated[str, _aws_pattern("EmrContainers", "ClientToken")]
     tags: Optional[Dict[str, str]] = None
-    securityConfigurationId: Optional[str] = None
+    securityConfigurationId: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]] = None
 
 
 class VirtualClusterTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("EmrContainers", "VirtualClusterArn")]] = None
     state: Optional[VirtualClusterStateType] = None
     containerProvider: Optional[ContainerProviderTypeDef] = None
     createdAt: Optional[datetime] = None
     tags: Optional[Dict[str, str]] = None
-    securityConfigurationId: Optional[str] = None
+    securityConfigurationId: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]] = None
 
 
 class AuthorizationConfigurationTypeDef(BaseValidatorModel):
@@ -511,41 +513,41 @@ class AuthorizationConfigurationTypeDef(BaseValidatorModel):
 
 
 class EndpointTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    arn: Optional[str] = None
-    virtualClusterId: Optional[str] = None
-    type: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("EmrContainers", "EndpointArn")]] = None
+    virtualClusterId: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]] = None
+    type: Optional[Annotated[str, _aws_pattern("EmrContainers", "EndpointType")]] = None
     state: Optional[EndpointStateType] = None
-    releaseLabel: Optional[str] = None
-    executionRoleArn: Optional[str] = None
-    certificateArn: Optional[str] = None
+    releaseLabel: Optional[Annotated[str, _aws_pattern("EmrContainers", "ReleaseLabel")]] = None
+    executionRoleArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "IAMRoleArn")]] = None
+    certificateArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "ACMCertArn")]] = None
     certificateAuthority: Optional[CertificateTypeDef] = None
     configurationOverrides: Optional[ConfigurationOverridesOutputTypeDef] = None
-    serverUrl: Optional[str] = None
+    serverUrl: Optional[Annotated[str, _aws_pattern("EmrContainers", "UriString")]] = None
     createdAt: Optional[datetime] = None
-    securityGroup: Optional[str] = None
-    subnetIds: Optional[List[str]] = None
-    stateDetails: Optional[str] = None
+    securityGroup: Optional[Annotated[str, _aws_pattern("EmrContainers", "String256")]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("EmrContainers", "String256")]]] = None
+    stateDetails: Optional[Annotated[str, _aws_pattern("EmrContainers", "String256")]] = None
     failureReason: Optional[FailureReasonType] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class JobRunTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    virtualClusterId: Optional[str] = None
-    arn: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]] = None
+    virtualClusterId: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("EmrContainers", "JobArn")]] = None
     state: Optional[JobRunStateType] = None
-    clientToken: Optional[str] = None
-    executionRoleArn: Optional[str] = None
-    releaseLabel: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "ClientToken")]] = None
+    executionRoleArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "IAMRoleArn")]] = None
+    releaseLabel: Optional[Annotated[str, _aws_pattern("EmrContainers", "ReleaseLabel")]] = None
     configurationOverrides: Optional[ConfigurationOverridesOutputTypeDef] = None
     jobDriver: Optional[JobDriverOutputTypeDef] = None
     createdAt: Optional[datetime] = None
-    createdBy: Optional[str] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("EmrContainers", "RequestIdentityUserArn")]] = None
     finishedAt: Optional[datetime] = None
-    stateDetails: Optional[str] = None
+    stateDetails: Optional[Annotated[str, _aws_pattern("EmrContainers", "String256")]] = None
     failureReason: Optional[FailureReasonType] = None
     tags: Optional[Dict[str, str]] = None
     retryPolicyConfiguration: Optional[RetryPolicyConfigurationTypeDef] = None
@@ -616,8 +618,8 @@ class JobTemplateDataPaginatorTypeDef(BaseValidatorModel):
 
 
 class JobTemplateDataTypeDef(BaseValidatorModel):
-    executionRoleArn: str
-    releaseLabel: str
+    executionRoleArn: Annotated[str, _aws_pattern("EmrContainers", "ParametricIAMRoleArn")]
+    releaseLabel: Annotated[str, _aws_pattern("EmrContainers", "ParametricReleaseLabel")]
     jobDriver: JobDriverTypeDef
     configurationOverrides: Optional[ParametricConfigurationOverridesTypeDef] = None
     parameterConfiguration: Optional[Dict[str, TemplateParameterConfigurationTypeDef]] = None
@@ -634,7 +636,7 @@ class DescribeVirtualClusterResponseTypeDef(BaseValidatorModel):
 class ListVirtualClustersResponseTypeDef(BaseValidatorModel):
     virtualClusters: List[VirtualClusterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "NextToken")]] = None
 
 
 class SecurityConfigurationDataTypeDef(BaseValidatorModel):
@@ -651,7 +653,7 @@ class DescribeManagedEndpointResponseTypeDef(BaseValidatorModel):
 class ListManagedEndpointsResponseTypeDef(BaseValidatorModel):
     endpoints: List[EndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_job_run' function.
@@ -664,7 +666,7 @@ class DescribeJobRunResponseTypeDef(BaseValidatorModel):
 class ListJobRunsResponseTypeDef(BaseValidatorModel):
     jobRuns: List[JobRunTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "NextToken")]] = None
 
 
 class ListManagedEndpointsResponsePaginatorTypeDef(BaseValidatorModel):
@@ -681,42 +683,42 @@ class ListJobRunsResponsePaginatorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_managed_endpoint' function.
 class CreateManagedEndpointRequestTypeDef(BaseValidatorModel):
-    name: str
-    virtualClusterId: str
-    type: str
-    releaseLabel: str
-    executionRoleArn: str
-    clientToken: str
-    certificateArn: Optional[str] = None
+    name: Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    type: Annotated[str, _aws_pattern("EmrContainers", "EndpointType")]
+    releaseLabel: Annotated[str, _aws_pattern("EmrContainers", "ReleaseLabel")]
+    executionRoleArn: Annotated[str, _aws_pattern("EmrContainers", "IAMRoleArn")]
+    clientToken: Annotated[str, _aws_pattern("EmrContainers", "ClientToken")]
+    certificateArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "ACMCertArn")]] = None
     configurationOverrides: Optional[ConfigurationOverridesUnionTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'start_job_run' function.
 class StartJobRunRequestTypeDef(BaseValidatorModel):
-    virtualClusterId: str
-    clientToken: str
-    name: Optional[str] = None
-    executionRoleArn: Optional[str] = None
-    releaseLabel: Optional[str] = None
+    virtualClusterId: Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]
+    clientToken: Annotated[str, _aws_pattern("EmrContainers", "ClientToken")]
+    name: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]] = None
+    executionRoleArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "IAMRoleArn")]] = None
+    releaseLabel: Optional[Annotated[str, _aws_pattern("EmrContainers", "ReleaseLabel")]] = None
     jobDriver: Optional[JobDriverUnionTypeDef] = None
     configurationOverrides: Optional[ConfigurationOverridesUnionTypeDef] = None
     tags: Optional[Dict[str, str]] = None
-    jobTemplateId: Optional[str] = None
+    jobTemplateId: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]] = None
     jobTemplateParameters: Optional[Dict[str, str]] = None
     retryPolicyConfiguration: Optional[RetryPolicyConfigurationTypeDef] = None
 
 
 class JobTemplateTypeDef(BaseValidatorModel):
     jobTemplateData: JobTemplateDataOutputTypeDef
-    name: Optional[str] = None
-    id: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]] = None
+    id: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("EmrContainers", "JobTemplateArn")]] = None
     createdAt: Optional[datetime] = None
-    createdBy: Optional[str] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("EmrContainers", "RequestIdentityUserArn")]] = None
     tags: Optional[Dict[str, str]] = None
-    kmsKeyArn: Optional[str] = None
-    decryptionError: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "KmsKeyArn")]] = None
+    decryptionError: Optional[Annotated[str, _aws_pattern("EmrContainers", "String2048")]] = None
 
 
 class JobTemplatePaginatorTypeDef(BaseValidatorModel):
@@ -736,19 +738,19 @@ JobTemplateDataUnionTypeDef = Union[JobTemplateDataOutputTypeDef, JobTemplateDat
 
 # This class is the input for the 'create_security_configuration' function.
 class CreateSecurityConfigurationRequestTypeDef(BaseValidatorModel):
-    clientToken: str
-    name: str
+    clientToken: Annotated[str, _aws_pattern("EmrContainers", "ClientToken")]
+    name: Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]
     securityConfigurationData: SecurityConfigurationDataTypeDef
     containerProvider: Optional[ContainerProviderTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class SecurityConfigurationTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceIdString")]] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("EmrContainers", "SecurityConfigurationArn")]] = None
     createdAt: Optional[datetime] = None
-    createdBy: Optional[str] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("EmrContainers", "RequestIdentityUserArn")]] = None
     securityConfigurationData: Optional[SecurityConfigurationDataTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -763,7 +765,7 @@ class DescribeJobTemplateResponseTypeDef(BaseValidatorModel):
 class ListJobTemplatesResponseTypeDef(BaseValidatorModel):
     templates: List[JobTemplateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "NextToken")]] = None
 
 
 class ListJobTemplatesResponsePaginatorTypeDef(BaseValidatorModel):
@@ -774,11 +776,11 @@ class ListJobTemplatesResponsePaginatorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_job_template' function.
 class CreateJobTemplateRequestTypeDef(BaseValidatorModel):
-    name: str
-    clientToken: str
+    name: Annotated[str, _aws_pattern("EmrContainers", "ResourceNameString")]
+    clientToken: Annotated[str, _aws_pattern("EmrContainers", "ClientToken")]
     jobTemplateData: JobTemplateDataUnionTypeDef
     tags: Optional[Dict[str, str]] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("EmrContainers", "KmsKeyArn")]] = None
 
 
 # This class is the output for the 'describe_security_configuration' function.
@@ -791,4 +793,4 @@ class DescribeSecurityConfigurationResponseTypeDef(BaseValidatorModel):
 class ListSecurityConfigurationsResponseTypeDef(BaseValidatorModel):
     securityConfigurations: List[SecurityConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrContainers", "NextToken")]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.keyspacesstreams.keyspacesstreams_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -78,16 +80,16 @@ class KeyspacesMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_streams' function.
 class ListStreamsInputTypeDef(BaseValidatorModel):
-    keyspaceName: Optional[str] = None
-    tableName: Optional[str] = None
+    keyspaceName: Optional[Annotated[str, _aws_pattern("Keyspacesstreams", "KeyspaceName")]] = None
+    tableName: Optional[Annotated[str, _aws_pattern("Keyspacesstreams", "TableName")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class StreamTypeDef(BaseValidatorModel):
     streamArn: str
-    keyspaceName: str
-    tableName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspacesstreams", "KeyspaceName")]
+    tableName: Annotated[str, _aws_pattern("Keyspacesstreams", "TableName")]
     streamLabel: str
 
 
@@ -188,8 +190,8 @@ class GetStreamOutputTypeDef(BaseValidatorModel):
     streamStatus: StreamStatusType
     streamViewType: StreamViewTypeType
     creationRequestDateTime: datetime
-    keyspaceName: str
-    tableName: str
+    keyspaceName: Annotated[str, _aws_pattern("Keyspacesstreams", "KeyspaceName")]
+    tableName: Annotated[str, _aws_pattern("Keyspacesstreams", "TableName")]
     shards: List[ShardTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,13 +41,13 @@ except ImportError:  # pragma: no cover
 
 
 class CloudWatchLoggingOptionTypeDef(BaseValidatorModel):
-    LogStreamARN: str
+    LogStreamARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "LogStreamARN")]
 
 
 class CloudWatchLoggingOptionDescriptionTypeDef(BaseValidatorModel):
-    LogStreamARN: str
-    CloudWatchLoggingOptionId: Optional[str] = None
-    RoleARN: Optional[str] = None
+    LogStreamARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "LogStreamARN")]
+    CloudWatchLoggingOptionId: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -62,7 +64,7 @@ class VpcConfigurationTypeDef(BaseValidatorModel):
 
 
 class VpcConfigurationDescriptionTypeDef(BaseValidatorModel):
-    VpcConfigurationId: str
+    VpcConfigurationId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
     VpcId: str
     SubnetIds: List[str]
     SecurityGroupIds: List[str]
@@ -108,18 +110,24 @@ class ApplicationSystemRollbackConfigurationUpdateTypeDef(BaseValidatorModel):
 
 
 class VpcConfigurationUpdateTypeDef(BaseValidatorModel):
-    VpcConfigurationId: str
+    VpcConfigurationId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
     SubnetIdUpdates: Optional[List[str]] = None
     SecurityGroupIdUpdates: Optional[List[str]] = None
 
 
 class ApplicationMaintenanceConfigurationDescriptionTypeDef(BaseValidatorModel):
-    ApplicationMaintenanceWindowStartTime: str
-    ApplicationMaintenanceWindowEndTime: str
+    ApplicationMaintenanceWindowStartTime: Annotated[
+        str, _aws_pattern("Kinesisanalyticsv2", "ApplicationMaintenanceWindowStartTime")
+    ]
+    ApplicationMaintenanceWindowEndTime: Annotated[
+        str, _aws_pattern("Kinesisanalyticsv2", "ApplicationMaintenanceWindowEndTime")
+    ]
 
 
 class ApplicationMaintenanceConfigurationUpdateTypeDef(BaseValidatorModel):
-    ApplicationMaintenanceWindowStartTimeUpdate: str
+    ApplicationMaintenanceWindowStartTimeUpdate: Annotated[
+        str, _aws_pattern("Kinesisanalyticsv2", "ApplicationMaintenanceWindowStartTime")
+    ]
 
 
 class ApplicationVersionChangeDetailsTypeDef(BaseValidatorModel):
@@ -137,12 +145,12 @@ class ApplicationOperationInfoTypeDef(BaseValidatorModel):
 
 class ApplicationRestoreConfigurationTypeDef(BaseValidatorModel):
     ApplicationRestoreType: ApplicationRestoreTypeType
-    SnapshotName: Optional[str] = None
+    SnapshotName: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "SnapshotName")]] = None
 
 
 class ApplicationSummaryTypeDef(BaseValidatorModel):
-    ApplicationName: str
-    ApplicationARN: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationStatus: ApplicationStatusType
     ApplicationVersionId: int
     RuntimeEnvironment: RuntimeEnvironmentType
@@ -163,15 +171,15 @@ class CSVMappingParametersTypeDef(BaseValidatorModel):
 
 
 class GlueDataCatalogConfigurationDescriptionTypeDef(BaseValidatorModel):
-    DatabaseARN: str
+    DatabaseARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "DatabaseARN")]
 
 
 class GlueDataCatalogConfigurationTypeDef(BaseValidatorModel):
-    DatabaseARN: str
+    DatabaseARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "DatabaseARN")]
 
 
 class GlueDataCatalogConfigurationUpdateTypeDef(BaseValidatorModel):
-    DatabaseARNUpdate: str
+    DatabaseARNUpdate: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "DatabaseARN")]
 
 
 class CheckpointConfigurationDescriptionTypeDef(BaseValidatorModel):
@@ -196,31 +204,31 @@ class CheckpointConfigurationUpdateTypeDef(BaseValidatorModel):
 
 
 class CloudWatchLoggingOptionUpdateTypeDef(BaseValidatorModel):
-    CloudWatchLoggingOptionId: str
-    LogStreamARNUpdate: Optional[str] = None
+    CloudWatchLoggingOptionId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
+    LogStreamARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "LogStreamARN")]] = None
 
 
 class S3ApplicationCodeLocationDescriptionTypeDef(BaseValidatorModel):
-    BucketARN: str
+    BucketARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BucketARN")]
     FileKey: str
     ObjectVersion: Optional[str] = None
 
 
 class S3ContentLocationTypeDef(BaseValidatorModel):
-    BucketARN: str
+    BucketARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BucketARN")]
     FileKey: str
     ObjectVersion: Optional[str] = None
 
 
 class S3ContentLocationUpdateTypeDef(BaseValidatorModel):
-    BucketARNUpdate: Optional[str] = None
+    BucketARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BucketARN")]] = None
     FileKeyUpdate: Optional[str] = None
     ObjectVersionUpdate: Optional[str] = None
 
 
 # This class is the input for the 'create_application_presigned_url' function.
 class CreateApplicationPresignedUrlRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     UrlType: UrlTypeType
     SessionExpirationDurationInSeconds: Optional[int] = None
 
@@ -231,43 +239,43 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class CreateApplicationSnapshotRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
-    SnapshotName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
+    SnapshotName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "SnapshotName")]
 
 
 class MavenReferenceTypeDef(BaseValidatorModel):
-    GroupId: str
-    ArtifactId: str
-    Version: str
+    GroupId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "MavenGroupId")]
+    ArtifactId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "MavenArtifactId")]
+    Version: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "MavenVersion")]
 
 
 # This class is the input for the 'delete_application_cloud_watch_logging_option' function.
 class DeleteApplicationCloudWatchLoggingOptionRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
-    CloudWatchLoggingOptionId: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
+    CloudWatchLoggingOptionId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
     CurrentApplicationVersionId: Optional[int] = None
-    ConditionalToken: Optional[str] = None
+    ConditionalToken: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ConditionalToken")]] = None
 
 
 # This class is the input for the 'delete_application_input_processing_configuration' function.
 class DeleteApplicationInputProcessingConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     CurrentApplicationVersionId: int
-    InputId: str
+    InputId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
 
 
 # This class is the input for the 'delete_application_output' function.
 class DeleteApplicationOutputRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     CurrentApplicationVersionId: int
-    OutputId: str
+    OutputId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
 
 
 # This class is the input for the 'delete_application_reference_data_source' function.
 class DeleteApplicationReferenceDataSourceRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     CurrentApplicationVersionId: int
-    ReferenceId: str
+    ReferenceId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -275,48 +283,48 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'delete_application_vpc_configuration' function.
 class DeleteApplicationVpcConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
-    VpcConfigurationId: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
+    VpcConfigurationId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
     CurrentApplicationVersionId: Optional[int] = None
-    ConditionalToken: Optional[str] = None
+    ConditionalToken: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ConditionalToken")]] = None
 
 
 class S3ContentBaseLocationDescriptionTypeDef(BaseValidatorModel):
-    BucketARN: str
-    BasePath: Optional[str] = None
+    BucketARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BucketARN")]
+    BasePath: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BasePath")]] = None
 
 
 class S3ContentBaseLocationTypeDef(BaseValidatorModel):
-    BucketARN: str
-    BasePath: Optional[str] = None
+    BucketARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BucketARN")]
+    BasePath: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BasePath")]] = None
 
 
 class S3ContentBaseLocationUpdateTypeDef(BaseValidatorModel):
-    BucketARNUpdate: Optional[str] = None
-    BasePathUpdate: Optional[str] = None
+    BucketARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BucketARN")]] = None
+    BasePathUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BasePath")]] = None
 
 
 # This class is the input for the 'describe_application_operation' function.
 class DescribeApplicationOperationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     OperationId: str
 
 
 # This class is the input for the 'describe_application' function.
 class DescribeApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     IncludeAdditionalDetails: Optional[bool] = None
 
 
 # This class is the input for the 'describe_application_snapshot' function.
 class DescribeApplicationSnapshotRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
-    SnapshotName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
+    SnapshotName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "SnapshotName")]
 
 
 # This class is the input for the 'describe_application_version' function.
 class DescribeApplicationVersionRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     ApplicationVersionId: int
 
 
@@ -329,7 +337,7 @@ class InputStartingPositionConfigurationTypeDef(BaseValidatorModel):
 
 
 class S3ConfigurationTypeDef(BaseValidatorModel):
-    BucketARN: str
+    BucketARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BucketARN")]
     FileKey: str
 
 
@@ -391,26 +399,26 @@ class InputParallelismTypeDef(BaseValidatorModel):
 
 
 class KinesisFirehoseInputDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]] = None
 
 
 class KinesisStreamsInputDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]] = None
 
 
 class InputLambdaProcessorDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]] = None
 
 
 class InputLambdaProcessorTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class InputLambdaProcessorUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: str
+    ResourceARNUpdate: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class InputParallelismUpdateTypeDef(BaseValidatorModel):
@@ -418,68 +426,68 @@ class InputParallelismUpdateTypeDef(BaseValidatorModel):
 
 
 class RecordColumnTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RecordColumnName")]
     SqlType: str
     Mapping: Optional[str] = None
 
 
 class KinesisFirehoseInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class KinesisStreamsInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class KinesisFirehoseInputUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: str
+    ResourceARNUpdate: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class KinesisStreamsInputUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: str
+    ResourceARNUpdate: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class JSONMappingParametersTypeDef(BaseValidatorModel):
-    RecordRowPath: str
+    RecordRowPath: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RecordRowPath")]
 
 
 class KinesisFirehoseOutputDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]] = None
 
 
 class KinesisFirehoseOutputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class KinesisFirehoseOutputUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: str
+    ResourceARNUpdate: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class KinesisStreamsOutputDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]] = None
 
 
 class KinesisStreamsOutputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class KinesisStreamsOutputUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: str
+    ResourceARNUpdate: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class LambdaOutputDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]] = None
 
 
 class LambdaOutputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class LambdaOutputUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: str
+    ResourceARNUpdate: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -490,7 +498,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_application_operations' function.
 class ListApplicationOperationsRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
     Operation: Optional[str] = None
@@ -499,14 +507,14 @@ class ListApplicationOperationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_application_snapshots' function.
 class ListApplicationSnapshotsRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_application_versions' function.
 class ListApplicationVersionsRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -514,49 +522,49 @@ class ListApplicationVersionsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_applications' function.
 class ListApplicationsRequestTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "KinesisAnalyticsARN")]
 
 
 class PropertyGroupTypeDef(BaseValidatorModel):
-    PropertyGroupId: str
+    PropertyGroupId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
     PropertyMap: Dict[str, str]
 
 
 class S3ReferenceDataSourceDescriptionTypeDef(BaseValidatorModel):
-    BucketARN: str
+    BucketARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BucketARN")]
     FileKey: str
-    ReferenceRoleARN: Optional[str] = None
+    ReferenceRoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]] = None
 
 
 class S3ReferenceDataSourceTypeDef(BaseValidatorModel):
-    BucketARN: Optional[str] = None
+    BucketARN: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BucketARN")]] = None
     FileKey: Optional[str] = None
 
 
 class S3ReferenceDataSourceUpdateTypeDef(BaseValidatorModel):
-    BucketARNUpdate: Optional[str] = None
+    BucketARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "BucketARN")]] = None
     FileKeyUpdate: Optional[str] = None
 
 
 # This class is the input for the 'rollback_application' function.
 class RollbackApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     CurrentApplicationVersionId: int
 
 
 # This class is the input for the 'stop_application' function.
 class StopApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     Force: Optional[bool] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "KinesisAnalyticsARN")]
     TagKeys: List[str]
 
 
@@ -574,15 +582,15 @@ class ZeppelinMonitoringConfigurationUpdateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_application_cloud_watch_logging_option' function.
 class AddApplicationCloudWatchLoggingOptionRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     CloudWatchLoggingOption: CloudWatchLoggingOptionTypeDef
     CurrentApplicationVersionId: Optional[int] = None
-    ConditionalToken: Optional[str] = None
+    ConditionalToken: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ConditionalToken")]] = None
 
 
 # This class is the output for the 'add_application_cloud_watch_logging_option' function.
 class AddApplicationCloudWatchLoggingOptionResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationVersionId: int
     CloudWatchLoggingOptionDescriptions: List[CloudWatchLoggingOptionDescriptionTypeDef]
     OperationId: str
@@ -597,7 +605,7 @@ class CreateApplicationPresignedUrlResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_application_cloud_watch_logging_option' function.
 class DeleteApplicationCloudWatchLoggingOptionResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationVersionId: int
     CloudWatchLoggingOptionDescriptions: List[CloudWatchLoggingOptionDescriptionTypeDef]
     OperationId: str
@@ -606,28 +614,28 @@ class DeleteApplicationCloudWatchLoggingOptionResponseTypeDef(BaseValidatorModel
 
 # This class is the output for the 'delete_application_input_processing_configuration' function.
 class DeleteApplicationInputProcessingConfigurationResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationVersionId: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_application_output' function.
 class DeleteApplicationOutputResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationVersionId: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_application_reference_data_source' function.
 class DeleteApplicationReferenceDataSourceResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationVersionId: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_application_vpc_configuration' function.
 class DeleteApplicationVpcConfigurationResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationVersionId: int
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -647,15 +655,15 @@ class StopApplicationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_application_vpc_configuration' function.
 class AddApplicationVpcConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     VpcConfiguration: VpcConfigurationTypeDef
     CurrentApplicationVersionId: Optional[int] = None
-    ConditionalToken: Optional[str] = None
+    ConditionalToken: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ConditionalToken")]] = None
 
 
 # This class is the output for the 'add_application_vpc_configuration' function.
 class AddApplicationVpcConfigurationResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationVersionId: int
     VpcConfigurationDescription: VpcConfigurationDescriptionTypeDef
     OperationId: str
@@ -663,7 +671,7 @@ class AddApplicationVpcConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class SnapshotDetailsTypeDef(BaseValidatorModel):
-    SnapshotName: str
+    SnapshotName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "SnapshotName")]
     SnapshotStatus: SnapshotStatusType
     ApplicationVersionId: int
     SnapshotCreationTimestamp: Optional[datetime] = None
@@ -673,14 +681,14 @@ class SnapshotDetailsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_application_maintenance_configuration' function.
 class UpdateApplicationMaintenanceConfigurationResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationMaintenanceConfigurationDescription: ApplicationMaintenanceConfigurationDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_application_maintenance_configuration' function.
 class UpdateApplicationMaintenanceConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     ApplicationMaintenanceConfigurationUpdate: ApplicationMaintenanceConfigurationUpdateTypeDef
 
 
@@ -695,7 +703,7 @@ class ListApplicationOperationsResponseTypeDef(BaseValidatorModel):
 class ListApplicationsResponseTypeDef(BaseValidatorModel):
     ApplicationSummaries: List[ApplicationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]] = None
 
 
 # This class is the output for the 'list_application_versions' function.
@@ -743,7 +751,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "KinesisAnalyticsARN")]
     Tags: List[TagTypeDef]
 
 
@@ -760,13 +768,13 @@ class CustomArtifactConfigurationTypeDef(BaseValidatorModel):
 
 
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     CreateTimestamp: TimestampTypeDef
 
 
 class DeleteApplicationSnapshotRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
-    SnapshotName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
+    SnapshotName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "SnapshotName")]
     SnapshotCreationTimestamp: TimestampTypeDef
 
 
@@ -783,7 +791,7 @@ class DeployAsApplicationConfigurationUpdateTypeDef(BaseValidatorModel):
 
 
 class SqlRunConfigurationTypeDef(BaseValidatorModel):
-    InputId: str
+    InputId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
     InputStartingPositionConfiguration: InputStartingPositionConfigurationTypeDef
 
 
@@ -843,8 +851,8 @@ class MappingParametersTypeDef(BaseValidatorModel):
 
 
 class OutputDescriptionTypeDef(BaseValidatorModel):
-    OutputId: Optional[str] = None
-    Name: Optional[str] = None
+    OutputId: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "InAppStreamName")]] = None
     KinesisStreamsOutputDescription: Optional[KinesisStreamsOutputDescriptionTypeDef] = None
     KinesisFirehoseOutputDescription: Optional[KinesisFirehoseOutputDescriptionTypeDef] = None
     LambdaOutputDescription: Optional[LambdaOutputDescriptionTypeDef] = None
@@ -852,7 +860,7 @@ class OutputDescriptionTypeDef(BaseValidatorModel):
 
 
 class OutputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "InAppStreamName")]
     DestinationSchema: DestinationSchemaTypeDef
     KinesisStreamsOutput: Optional[KinesisStreamsOutputTypeDef] = None
     KinesisFirehoseOutput: Optional[KinesisFirehoseOutputTypeDef] = None
@@ -860,8 +868,8 @@ class OutputTypeDef(BaseValidatorModel):
 
 
 class OutputUpdateTypeDef(BaseValidatorModel):
-    OutputId: str
-    NameUpdate: Optional[str] = None
+    OutputId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
+    NameUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "InAppStreamName")]] = None
     KinesisStreamsOutputUpdate: Optional[KinesisStreamsOutputUpdateTypeDef] = None
     KinesisFirehoseOutputUpdate: Optional[KinesisFirehoseOutputUpdateTypeDef] = None
     LambdaOutputUpdate: Optional[LambdaOutputUpdateTypeDef] = None
@@ -958,25 +966,25 @@ class ApplicationOperationInfoDetailsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'add_application_input_processing_configuration' function.
 class AddApplicationInputProcessingConfigurationResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationVersionId: int
-    InputId: str
+    InputId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
     InputProcessingConfigurationDescription: InputProcessingConfigurationDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'add_application_input_processing_configuration' function.
 class AddApplicationInputProcessingConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     CurrentApplicationVersionId: int
-    InputId: str
+    InputId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
     InputProcessingConfiguration: InputProcessingConfigurationTypeDef
 
 
 # This class is the input for the 'discover_input_schema' function.
 class DiscoverInputSchemaRequestTypeDef(BaseValidatorModel):
-    ServiceExecutionRole: str
-    ResourceARN: Optional[str] = None
+    ServiceExecutionRole: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]
+    ResourceARN: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]] = None
     InputStartingPositionConfiguration: Optional[InputStartingPositionConfigurationTypeDef] = None
     S3Configuration: Optional[S3ConfigurationTypeDef] = None
     InputProcessingConfiguration: Optional[InputProcessingConfigurationTypeDef] = None
@@ -989,7 +997,7 @@ class RecordFormatTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'add_application_output' function.
 class AddApplicationOutputResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationVersionId: int
     OutputDescriptions: List[OutputDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -997,7 +1005,7 @@ class AddApplicationOutputResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_application_output' function.
 class AddApplicationOutputRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     CurrentApplicationVersionId: int
     Output: OutputTypeDef
 
@@ -1012,7 +1020,7 @@ class EnvironmentPropertyUpdatesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_application' function.
 class StartApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     RunConfiguration: Optional[RunConfigurationTypeDef] = None
 
 
@@ -1024,7 +1032,7 @@ class DescribeApplicationOperationResponseTypeDef(BaseValidatorModel):
 
 class InputSchemaUpdateTypeDef(BaseValidatorModel):
     RecordFormatUpdate: Optional[RecordFormatTypeDef] = None
-    RecordEncodingUpdate: Optional[str] = None
+    RecordEncodingUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RecordEncoding")]] = None
     RecordColumnUpdates: Optional[List[RecordColumnTypeDef]] = None
 
 
@@ -1037,12 +1045,12 @@ class SourceSchemaOutputTypeDef(BaseValidatorModel):
 class SourceSchemaTypeDef(BaseValidatorModel):
     RecordFormat: RecordFormatTypeDef
     RecordColumns: List[RecordColumnTypeDef]
-    RecordEncoding: Optional[str] = None
+    RecordEncoding: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RecordEncoding")]] = None
 
 
 class InputUpdateTypeDef(BaseValidatorModel):
-    InputId: str
-    NamePrefixUpdate: Optional[str] = None
+    InputId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
+    NamePrefixUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "InAppStreamName")]] = None
     InputProcessingConfigurationUpdate: Optional[InputProcessingConfigurationUpdateTypeDef] = None
     KinesisStreamsInputUpdate: Optional[KinesisStreamsInputUpdateTypeDef] = None
     KinesisFirehoseInputUpdate: Optional[KinesisFirehoseInputUpdateTypeDef] = None
@@ -1060,9 +1068,9 @@ class DiscoverInputSchemaResponseTypeDef(BaseValidatorModel):
 
 
 class InputDescriptionTypeDef(BaseValidatorModel):
-    InputId: Optional[str] = None
-    NamePrefix: Optional[str] = None
-    InAppStreamNames: Optional[List[str]] = None
+    InputId: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "InAppStreamName")]] = None
+    InAppStreamNames: Optional[List[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "InAppStreamName")]]] = None
     InputProcessingConfigurationDescription: Optional[InputProcessingConfigurationDescriptionTypeDef] = None
     KinesisStreamsInputDescription: Optional[KinesisStreamsInputDescriptionTypeDef] = None
     KinesisFirehoseInputDescription: Optional[KinesisFirehoseInputDescriptionTypeDef] = None
@@ -1072,7 +1080,7 @@ class InputDescriptionTypeDef(BaseValidatorModel):
 
 
 class ReferenceDataSourceDescriptionTypeDef(BaseValidatorModel):
-    ReferenceId: str
+    ReferenceId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
     TableName: str
     S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescriptionTypeDef
     ReferenceSchema: Optional[SourceSchemaOutputTypeDef] = None
@@ -1083,7 +1091,7 @@ SourceSchemaUnionTypeDef = Union[SourceSchemaOutputTypeDef, SourceSchemaTypeDef]
 
 # This class is the output for the 'add_application_input' function.
 class AddApplicationInputResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationVersionId: int
     InputDescriptions: List[InputDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1091,7 +1099,7 @@ class AddApplicationInputResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'add_application_reference_data_source' function.
 class AddApplicationReferenceDataSourceResponseTypeDef(BaseValidatorModel):
-    ApplicationARN: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
     ApplicationVersionId: int
     ReferenceDataSourceDescriptions: List[ReferenceDataSourceDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1104,7 +1112,7 @@ class SqlApplicationConfigurationDescriptionTypeDef(BaseValidatorModel):
 
 
 class InputTypeDef(BaseValidatorModel):
-    NamePrefix: str
+    NamePrefix: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "InAppStreamName")]
     InputSchema: SourceSchemaUnionTypeDef
     InputProcessingConfiguration: Optional[InputProcessingConfigurationTypeDef] = None
     KinesisStreamsInput: Optional[KinesisStreamsInputTypeDef] = None
@@ -1119,7 +1127,7 @@ class ReferenceDataSourceTypeDef(BaseValidatorModel):
 
 
 class ReferenceDataSourceUpdateTypeDef(BaseValidatorModel):
-    ReferenceId: str
+    ReferenceId: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "Id")]
     TableNameUpdate: Optional[str] = None
     S3ReferenceDataSourceUpdate: Optional[S3ReferenceDataSourceUpdateTypeDef] = None
     ReferenceSchemaUpdate: Optional[SourceSchemaUnionTypeDef] = None
@@ -1142,14 +1150,14 @@ class ApplicationConfigurationDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_application_input' function.
 class AddApplicationInputRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     CurrentApplicationVersionId: int
     Input: InputTypeDef
 
 
 # This class is the input for the 'add_application_reference_data_source' function.
 class AddApplicationReferenceDataSourceRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     CurrentApplicationVersionId: int
     ReferenceDataSource: ReferenceDataSourceTypeDef
 
@@ -1167,13 +1175,13 @@ class SqlApplicationConfigurationUpdateTypeDef(BaseValidatorModel):
 
 
 class ApplicationDetailTypeDef(BaseValidatorModel):
-    ApplicationARN: str
-    ApplicationName: str
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ResourceARN")]
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     RuntimeEnvironment: RuntimeEnvironmentType
     ApplicationStatus: ApplicationStatusType
     ApplicationVersionId: int
     ApplicationDescription: Optional[str] = None
-    ServiceExecutionRole: Optional[str] = None
+    ServiceExecutionRole: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]] = None
     CreateTimestamp: Optional[datetime] = None
     LastUpdateTimestamp: Optional[datetime] = None
     ApplicationConfigurationDescription: Optional[ApplicationConfigurationDescriptionTypeDef] = None
@@ -1184,7 +1192,7 @@ class ApplicationDetailTypeDef(BaseValidatorModel):
     ApplicationVersionUpdatedFrom: Optional[int] = None
     ApplicationVersionRolledBackFrom: Optional[int] = None
     ApplicationVersionCreateTimestamp: Optional[datetime] = None
-    ConditionalToken: Optional[str] = None
+    ConditionalToken: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ConditionalToken")]] = None
     ApplicationVersionRolledBackTo: Optional[int] = None
     ApplicationMode: Optional[ApplicationModeType] = None
 
@@ -1247,9 +1255,9 @@ class UpdateApplicationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     RuntimeEnvironment: RuntimeEnvironmentType
-    ServiceExecutionRole: str
+    ServiceExecutionRole: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]
     ApplicationDescription: Optional[str] = None
     ApplicationConfiguration: Optional[ApplicationConfigurationTypeDef] = None
     CloudWatchLoggingOptions: Optional[List[CloudWatchLoggingOptionTypeDef]] = None
@@ -1259,11 +1267,11 @@ class CreateApplicationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_application' function.
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ApplicationName")]
     CurrentApplicationVersionId: Optional[int] = None
     ApplicationConfigurationUpdate: Optional[ApplicationConfigurationUpdateTypeDef] = None
-    ServiceExecutionRoleUpdate: Optional[str] = None
+    ServiceExecutionRoleUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "RoleARN")]] = None
     RunConfigurationUpdate: Optional[RunConfigurationUpdateTypeDef] = None
     CloudWatchLoggingOptionUpdates: Optional[List[CloudWatchLoggingOptionUpdateTypeDef]] = None
-    ConditionalToken: Optional[str] = None
+    ConditionalToken: Optional[Annotated[str, _aws_pattern("Kinesisanalyticsv2", "ConditionalToken")]] = None
     RuntimeEnvironmentUpdate: Optional[RuntimeEnvironmentType] = None

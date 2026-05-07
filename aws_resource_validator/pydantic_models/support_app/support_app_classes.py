@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.support_app.support_app_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,23 +41,23 @@ except ImportError:  # pragma: no cover
 
 
 class CreateSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
-    channelId: str
-    channelRoleArn: str
+    channelId: Annotated[str, _aws_pattern("SupportApp", "channelId")]
+    channelRoleArn: Annotated[str, _aws_pattern("SupportApp", "roleArn")]
     notifyOnCaseSeverity: NotificationSeverityLevelType
-    teamId: str
-    channelName: Optional[str] = None
+    teamId: Annotated[str, _aws_pattern("SupportApp", "teamId")]
+    channelName: Optional[Annotated[str, _aws_pattern("SupportApp", "channelName")]] = None
     notifyOnAddCorrespondenceToCase: Optional[bool] = None
     notifyOnCreateOrReopenCase: Optional[bool] = None
     notifyOnResolveCase: Optional[bool] = None
 
 
 class DeleteSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
-    channelId: str
-    teamId: str
+    channelId: Annotated[str, _aws_pattern("SupportApp", "channelId")]
+    teamId: Annotated[str, _aws_pattern("SupportApp", "teamId")]
 
 
 class DeleteSlackWorkspaceConfigurationRequestTypeDef(BaseValidatorModel):
-    teamId: str
+    teamId: Annotated[str, _aws_pattern("SupportApp", "teamId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -68,14 +70,14 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_slack_channel_configurations' function.
 class ListSlackChannelConfigurationsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SupportApp", "paginationToken")]] = None
 
 
 class SlackChannelConfigurationTypeDef(BaseValidatorModel):
-    channelId: str
-    teamId: str
-    channelName: Optional[str] = None
-    channelRoleArn: Optional[str] = None
+    channelId: Annotated[str, _aws_pattern("SupportApp", "channelId")]
+    teamId: Annotated[str, _aws_pattern("SupportApp", "teamId")]
+    channelName: Optional[Annotated[str, _aws_pattern("SupportApp", "channelName")]] = None
+    channelRoleArn: Optional[Annotated[str, _aws_pattern("SupportApp", "roleArn")]] = None
     notifyOnAddCorrespondenceToCase: Optional[bool] = None
     notifyOnCaseSeverity: Optional[NotificationSeverityLevelType] = None
     notifyOnCreateOrReopenCase: Optional[bool] = None
@@ -84,30 +86,30 @@ class SlackChannelConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_slack_workspace_configurations' function.
 class ListSlackWorkspaceConfigurationsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SupportApp", "paginationToken")]] = None
 
 
 class SlackWorkspaceConfigurationTypeDef(BaseValidatorModel):
-    teamId: str
+    teamId: Annotated[str, _aws_pattern("SupportApp", "teamId")]
     allowOrganizationMemberAccount: Optional[bool] = None
-    teamName: Optional[str] = None
+    teamName: Optional[Annotated[str, _aws_pattern("SupportApp", "teamName")]] = None
 
 
 class PutAccountAliasRequestTypeDef(BaseValidatorModel):
-    accountAlias: str
+    accountAlias: Annotated[str, _aws_pattern("SupportApp", "awsAccountAlias")]
 
 
 # This class is the input for the 'register_slack_workspace_for_organization' function.
 class RegisterSlackWorkspaceForOrganizationRequestTypeDef(BaseValidatorModel):
-    teamId: str
+    teamId: Annotated[str, _aws_pattern("SupportApp", "teamId")]
 
 
 # This class is the input for the 'update_slack_channel_configuration' function.
 class UpdateSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
-    channelId: str
-    teamId: str
-    channelName: Optional[str] = None
-    channelRoleArn: Optional[str] = None
+    channelId: Annotated[str, _aws_pattern("SupportApp", "channelId")]
+    teamId: Annotated[str, _aws_pattern("SupportApp", "teamId")]
+    channelName: Optional[Annotated[str, _aws_pattern("SupportApp", "channelName")]] = None
+    channelRoleArn: Optional[Annotated[str, _aws_pattern("SupportApp", "roleArn")]] = None
     notifyOnAddCorrespondenceToCase: Optional[bool] = None
     notifyOnCaseSeverity: Optional[NotificationSeverityLevelType] = None
     notifyOnCreateOrReopenCase: Optional[bool] = None
@@ -115,28 +117,28 @@ class UpdateSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class GetAccountAliasResultTypeDef(BaseValidatorModel):
-    accountAlias: str
+    accountAlias: Annotated[str, _aws_pattern("SupportApp", "awsAccountAlias")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_slack_workspace_for_organization' function.
 class RegisterSlackWorkspaceForOrganizationResultTypeDef(BaseValidatorModel):
     accountType: AccountTypeType
-    teamId: str
-    teamName: str
+    teamId: Annotated[str, _aws_pattern("SupportApp", "teamId")]
+    teamName: Annotated[str, _aws_pattern("SupportApp", "teamName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_slack_channel_configuration' function.
 class UpdateSlackChannelConfigurationResultTypeDef(BaseValidatorModel):
-    channelId: str
-    channelName: str
-    channelRoleArn: str
+    channelId: Annotated[str, _aws_pattern("SupportApp", "channelId")]
+    channelName: Annotated[str, _aws_pattern("SupportApp", "channelName")]
+    channelRoleArn: Annotated[str, _aws_pattern("SupportApp", "roleArn")]
     notifyOnAddCorrespondenceToCase: bool
     notifyOnCaseSeverity: NotificationSeverityLevelType
     notifyOnCreateOrReopenCase: bool
     notifyOnResolveCase: bool
-    teamId: str
+    teamId: Annotated[str, _aws_pattern("SupportApp", "teamId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -144,11 +146,11 @@ class UpdateSlackChannelConfigurationResultTypeDef(BaseValidatorModel):
 class ListSlackChannelConfigurationsResultTypeDef(BaseValidatorModel):
     slackChannelConfigurations: List[SlackChannelConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SupportApp", "paginationToken")]] = None
 
 
 # This class is the output for the 'list_slack_workspace_configurations' function.
 class ListSlackWorkspaceConfigurationsResultTypeDef(BaseValidatorModel):
     slackWorkspaceConfigurations: List[SlackWorkspaceConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SupportApp", "paginationToken")]] = None

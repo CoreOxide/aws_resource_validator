@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.scheduler.scheduler_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -78,18 +80,18 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class DeadLetterConfigTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Scheduler", "DeadLetterConfigArnString")]] = None
 
 
 class DeleteScheduleGroupInputTypeDef(BaseValidatorModel):
-    Name: str
-    ClientToken: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Scheduler", "ClientToken")]] = None
 
 
 class DeleteScheduleInputTypeDef(BaseValidatorModel):
-    Name: str
-    ClientToken: Optional[str] = None
-    GroupName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Scheduler", "Name")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Scheduler", "ClientToken")]] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]] = None
 
 
 class PlacementConstraintTypeDef(BaseValidatorModel):
@@ -104,18 +106,18 @@ class PlacementStrategyTypeDef(BaseValidatorModel):
 
 class EventBridgeParametersTypeDef(BaseValidatorModel):
     DetailType: str
-    Source: str
+    Source: Annotated[str, _aws_pattern("Scheduler", "Source")]
 
 
 # This class is the input for the 'get_schedule_group' function.
 class GetScheduleGroupInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]
 
 
 # This class is the input for the 'get_schedule' function.
 class GetScheduleInputTypeDef(BaseValidatorModel):
-    Name: str
-    GroupName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Scheduler", "Name")]
+    GroupName: Optional[Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]] = None
 
 
 class KinesisParametersTypeDef(BaseValidatorModel):
@@ -131,30 +133,30 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_schedule_groups' function.
 class ListScheduleGroupsInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NamePrefix: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupNamePrefix")]] = None
     NextToken: Optional[str] = None
 
 
 class ScheduleGroupSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupArn")]] = None
     CreationDate: Optional[datetime] = None
     LastModificationDate: Optional[datetime] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]] = None
     State: Optional[ScheduleGroupStateType] = None
 
 
 # This class is the input for the 'list_schedules' function.
 class ListSchedulesInputTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]] = None
     MaxResults: Optional[int] = None
-    NamePrefix: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Scheduler", "NamePrefix")]] = None
     NextToken: Optional[str] = None
     State: Optional[ScheduleStateType] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Scheduler", "TagResourceArn")]
 
 
 class RetryPolicyTypeDef(BaseValidatorModel):
@@ -163,7 +165,7 @@ class RetryPolicyTypeDef(BaseValidatorModel):
 
 
 class SageMakerPipelineParameterTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Scheduler", "SageMakerPipelineParameterName")]
     Value: str
 
 
@@ -176,7 +178,7 @@ class SqsParametersTypeDef(BaseValidatorModel):
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Scheduler", "TagResourceArn")]
     TagKeys: List[str]
 
 
@@ -190,34 +192,34 @@ class NetworkConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_schedule_group' function.
 class CreateScheduleGroupInputTypeDef(BaseValidatorModel):
-    Name: str
-    ClientToken: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Scheduler", "ClientToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Scheduler", "TagResourceArn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_schedule_group' function.
 class CreateScheduleGroupOutputTypeDef(BaseValidatorModel):
-    ScheduleGroupArn: str
+    ScheduleGroupArn: Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_schedule' function.
 class CreateScheduleOutputTypeDef(BaseValidatorModel):
-    ScheduleArn: str
+    ScheduleArn: Annotated[str, _aws_pattern("Scheduler", "ScheduleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_schedule_group' function.
 class GetScheduleGroupOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupArn")]
     CreationDate: datetime
     LastModificationDate: datetime
-    Name: str
+    Name: Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]
     State: ScheduleGroupStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -230,7 +232,7 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_schedule' function.
 class UpdateScheduleOutputTypeDef(BaseValidatorModel):
-    ScheduleArn: str
+    ScheduleArn: Annotated[str, _aws_pattern("Scheduler", "ScheduleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -262,11 +264,11 @@ class SageMakerPipelineParametersTypeDef(BaseValidatorModel):
 
 
 class ScheduleSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Scheduler", "ScheduleArn")]] = None
     CreationDate: Optional[datetime] = None
-    GroupName: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]] = None
     LastModificationDate: Optional[datetime] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Scheduler", "Name")]] = None
     State: Optional[ScheduleStateType] = None
     Target: Optional[TargetSummaryTypeDef] = None
 
@@ -327,7 +329,7 @@ class TargetOutputTypeDef(BaseValidatorModel):
 
 class TargetTypeDef(BaseValidatorModel):
     Arn: str
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Scheduler", "RoleArn")]
     DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
     EcsParameters: Optional[EcsParametersTypeDef] = None
     EventBridgeParameters: Optional[EventBridgeParametersTypeDef] = None
@@ -341,15 +343,15 @@ class TargetTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_schedule' function.
 class GetScheduleOutputTypeDef(BaseValidatorModel):
     ActionAfterCompletion: ActionAfterCompletionType
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Scheduler", "ScheduleArn")]
     CreationDate: datetime
     Description: str
     EndDate: datetime
     FlexibleTimeWindow: FlexibleTimeWindowTypeDef
-    GroupName: str
-    KmsKeyArn: str
+    GroupName: Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]
+    KmsKeyArn: Annotated[str, _aws_pattern("Scheduler", "KmsKeyArn")]
     LastModificationDate: datetime
-    Name: str
+    Name: Annotated[str, _aws_pattern("Scheduler", "Name")]
     ScheduleExpression: str
     ScheduleExpressionTimezone: str
     StartDate: datetime
@@ -364,15 +366,15 @@ TargetUnionTypeDef = Union[TargetOutputTypeDef, TargetTypeDef]
 # This class is the input for the 'create_schedule' function.
 class CreateScheduleInputTypeDef(BaseValidatorModel):
     FlexibleTimeWindow: FlexibleTimeWindowTypeDef
-    Name: str
+    Name: Annotated[str, _aws_pattern("Scheduler", "Name")]
     ScheduleExpression: str
     Target: TargetUnionTypeDef
     ActionAfterCompletion: Optional[ActionAfterCompletionType] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Scheduler", "ClientToken")]] = None
     Description: Optional[str] = None
     EndDate: Optional[TimestampTypeDef] = None
-    GroupName: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Scheduler", "KmsKeyArn")]] = None
     ScheduleExpressionTimezone: Optional[str] = None
     StartDate: Optional[TimestampTypeDef] = None
     State: Optional[ScheduleStateType] = None
@@ -381,15 +383,15 @@ class CreateScheduleInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_schedule' function.
 class UpdateScheduleInputTypeDef(BaseValidatorModel):
     FlexibleTimeWindow: FlexibleTimeWindowTypeDef
-    Name: str
+    Name: Annotated[str, _aws_pattern("Scheduler", "Name")]
     ScheduleExpression: str
     Target: TargetUnionTypeDef
     ActionAfterCompletion: Optional[ActionAfterCompletionType] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Scheduler", "ClientToken")]] = None
     Description: Optional[str] = None
     EndDate: Optional[TimestampTypeDef] = None
-    GroupName: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Scheduler", "ScheduleGroupName")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Scheduler", "KmsKeyArn")]] = None
     ScheduleExpressionTimezone: Optional[str] = None
     StartDate: Optional[TimestampTypeDef] = None
     State: Optional[ScheduleStateType] = None

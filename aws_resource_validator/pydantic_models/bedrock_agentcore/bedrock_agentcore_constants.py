@@ -2,10 +2,20 @@
 # Do not edit manually; run `arv-generate pipeline-b` to refresh it.
 from typing import Literal
 
+ABTestExecutionStatusType = Literal["NOT_STARTED", "PAUSED", "RUNNING", "STOPPED"]
+ABTestStatusType = Literal[
+    "ACTIVE", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING", "FAILED", "UPDATE_FAILED", "UPDATING"
+]
 AutomationStreamStatusType = Literal["DISABLED", "ENABLED"]
+BatchEvaluationStatusType = Literal[
+    "COMPLETED", "COMPLETED_WITH_ERRORS", "DELETING", "FAILED", "IN_PROGRESS", "PENDING", "STOPPED", "STOPPING"
+]
 BrowserActionStatusType = Literal["FAILED", "SUCCESS"]
 BrowserEnterprisePolicyTypeType = Literal["MANAGED", "RECOMMENDED"]
 BrowserSessionStatusType = Literal["READY", "TERMINATED"]
+CloudWatchLogsFilterOperatorType = Literal[
+    "Contains", "Equals", "GreaterThan", "GreaterThanOrEqual", "LessThan", "LessThanOrEqual", "NotContains", "NotEquals"
+]
 CodeInterpreterSessionStatusType = Literal["READY", "TERMINATED"]
 CommandExecutionStatusType = Literal["COMPLETED", "TIMED_OUT"]
 ContentBlockTypeType = Literal["image", "resource", "resource_link", "text"]
@@ -35,17 +45,34 @@ HarnessToolTypeType = Literal[
 HarnessToolUseStatusType = Literal["error", "success"]
 HarnessToolUseTypeType = Literal["mcp_tool_use", "server_tool_use", "tool_use"]
 LanguageRuntimeType = Literal["deno", "nodejs", "python"]
+ListABTestsPaginatorName = Literal["list_ab_tests"]
 ListActorsPaginatorName = Literal["list_actors"]
+ListBatchEvaluationsPaginatorName = Literal["list_batch_evaluations"]
 ListEventsPaginatorName = Literal["list_events"]
 ListMemoryExtractionJobsPaginatorName = Literal["list_memory_extraction_jobs"]
 ListMemoryRecordsPaginatorName = Literal["list_memory_records"]
+ListRecommendationsPaginatorName = Literal["list_recommendations"]
 ListSessionsPaginatorName = Literal["list_sessions"]
+MemoryRecordOperatorTypeType = Literal[
+    "AFTER",
+    "BEFORE",
+    "CONTAINS",
+    "EQUALS_TO",
+    "EXISTS",
+    "GREATER_THAN",
+    "GREATER_THAN_OR_EQUALS",
+    "LESS_THAN",
+    "LESS_THAN_OR_EQUALS",
+    "NOT_EXISTS",
+]
 MemoryRecordStatusType = Literal["FAILED", "SUCCEEDED"]
 MouseButtonType = Literal["LEFT", "MIDDLE", "RIGHT"]
 OAuthGrantTypeType = Literal["AUTHORIZATION_CODE", "CLIENT_CREDENTIALS"]
-Oauth2FlowTypeType = Literal["M2M", "USER_FEDERATION"]
+Oauth2FlowTypeType = Literal["M2M", "ON_BEHALF_OF_TOKEN_EXCHANGE", "USER_FEDERATION"]
 OperatorTypeType = Literal["EQUALS_TO", "EXISTS", "NOT_EXISTS"]
 ProgrammingLanguageType = Literal["javascript", "python", "typescript"]
+RecommendationStatusType = Literal["COMPLETED", "DELETING", "FAILED", "IN_PROGRESS", "PENDING"]
+RecommendationTypeType = Literal["SYSTEM_PROMPT_RECOMMENDATION", "TOOL_DESCRIPTION_RECOMMENDATION"]
 RegistryRecordStatusType = Literal["APPROVED", "DEPRECATED", "DRAFT", "PENDING_APPROVAL", "REJECTED"]
 ResourceContentTypeType = Literal["blob", "text"]
 RetrieveMemoryRecordsPaginatorName = Literal["retrieve_memory_records"]
@@ -499,10 +526,13 @@ ServiceName = Literal[
 ]
 ResourceServiceName = Literal["cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"]
 PaginatorName = Literal[
+    "list_ab_tests",
     "list_actors",
+    "list_batch_evaluations",
     "list_events",
     "list_memory_extraction_jobs",
     "list_memory_records",
+    "list_recommendations",
     "list_sessions",
     "retrieve_memory_records",
 ]

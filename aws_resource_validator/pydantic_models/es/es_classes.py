@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.es.es_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -78,13 +80,13 @@ class MasterUserOptionsTypeDef(BaseValidatorModel):
 # This class is the input for the 'associate_package' function.
 class AssociatePackageRequestTypeDef(BaseValidatorModel):
     PackageID: str
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
 
 
 # This class is the input for the 'authorize_vpc_endpoint_access' function.
 class AuthorizeVpcEndpointAccessRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    Account: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
+    Account: Annotated[str, _aws_pattern("Es", "AWSAccount")]
 
 
 class AuthorizedPrincipalTypeDef(BaseValidatorModel):
@@ -123,7 +125,7 @@ class AutoTuneStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_domain_config_change' function.
 class CancelDomainConfigChangeRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
     DryRun: Optional[bool] = None
 
 
@@ -135,7 +137,7 @@ class CancelledChangePropertyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_elasticsearch_service_software_update' function.
 class CancelElasticsearchServiceSoftwareUpdateRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
 
 
 class ServiceSoftwareOptionsTypeDef(BaseValidatorModel):
@@ -150,7 +152,7 @@ class ServiceSoftwareOptionsTypeDef(BaseValidatorModel):
 
 
 class ChangeProgressDetailsTypeDef(BaseValidatorModel):
-    ChangeId: Optional[str] = None
+    ChangeId: Optional[Annotated[str, _aws_pattern("Es", "GUID")]] = None
     Message: Optional[str] = None
     ConfigChangeStatus: Optional[ConfigChangeStatusType] = None
     StartTime: Optional[datetime] = None
@@ -167,8 +169,8 @@ class ChangeProgressStageTypeDef(BaseValidatorModel):
 
 class CognitoOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    UserPoolId: Optional[str] = None
-    IdentityPoolId: Optional[str] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("Es", "UserPoolId")]] = None
+    IdentityPoolId: Optional[Annotated[str, _aws_pattern("Es", "IdentityPoolId")]] = None
     RoleArn: Optional[str] = None
 
 
@@ -177,8 +179,8 @@ class ColdStorageOptionsTypeDef(BaseValidatorModel):
 
 
 class CompatibleVersionsMapTypeDef(BaseValidatorModel):
-    SourceVersion: Optional[str] = None
-    TargetVersions: Optional[List[str]] = None
+    SourceVersion: Optional[Annotated[str, _aws_pattern("Es", "ElasticsearchVersionString")]] = None
+    TargetVersions: Optional[List[Annotated[str, _aws_pattern("Es", "ElasticsearchVersionString")]]] = None
 
 
 class DeploymentStrategyOptionsTypeDef(BaseValidatorModel):
@@ -189,7 +191,7 @@ class DomainEndpointOptionsTypeDef(BaseValidatorModel):
     EnforceHTTPS: Optional[bool] = None
     TLSSecurityPolicy: Optional[TLSSecurityPolicyType] = None
     CustomEndpointEnabled: Optional[bool] = None
-    CustomEndpoint: Optional[str] = None
+    CustomEndpoint: Optional[Annotated[str, _aws_pattern("Es", "DomainNameFqdn")]] = None
     CustomEndpointCertificateArn: Optional[str] = None
 
 
@@ -225,7 +227,7 @@ class VPCOptionsTypeDef(BaseValidatorModel):
 
 
 class DomainInformationTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
     OwnerId: Optional[str] = None
     Region: Optional[str] = None
 
@@ -242,7 +244,7 @@ class PackageSourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_elasticsearch_domain' function.
 class DeleteElasticsearchDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
 
 
 # This class is the input for the 'delete_inbound_cross_cluster_search_connection' function.
@@ -262,49 +264,49 @@ class DeletePackageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_vpc_endpoint' function.
 class DeleteVpcEndpointRequestTypeDef(BaseValidatorModel):
-    VpcEndpointId: str
+    VpcEndpointId: Annotated[str, _aws_pattern("Es", "VpcEndpointId")]
 
 
 class VpcEndpointSummaryTypeDef(BaseValidatorModel):
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Es", "VpcEndpointId")]] = None
     VpcEndpointOwner: Optional[str] = None
-    DomainArn: Optional[str] = None
+    DomainArn: Optional[Annotated[str, _aws_pattern("Es", "DomainArn")]] = None
     Status: Optional[VpcEndpointStatusType] = None
 
 
 # This class is the input for the 'describe_domain_auto_tunes' function.
 class DescribeDomainAutoTunesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_domain_change_progress' function.
 class DescribeDomainChangeProgressRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ChangeId: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
+    ChangeId: Optional[Annotated[str, _aws_pattern("Es", "GUID")]] = None
 
 
 # This class is the input for the 'describe_elasticsearch_domain_config' function.
 class DescribeElasticsearchDomainConfigRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
 
 
 # This class is the input for the 'describe_elasticsearch_domain' function.
 class DescribeElasticsearchDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
 
 
 # This class is the input for the 'describe_elasticsearch_domains' function.
 class DescribeElasticsearchDomainsRequestTypeDef(BaseValidatorModel):
-    DomainNames: List[str]
+    DomainNames: List[Annotated[str, _aws_pattern("Es", "DomainName")]]
 
 
 # This class is the input for the 'describe_elasticsearch_instance_type_limits' function.
 class DescribeElasticsearchInstanceTypeLimitsRequestTypeDef(BaseValidatorModel):
     InstanceType: ESPartitionInstanceTypeType
-    ElasticsearchVersion: str
-    DomainName: Optional[str] = None
+    ElasticsearchVersion: Annotated[str, _aws_pattern("Es", "ElasticsearchVersionString")]
+    DomainName: Optional[Annotated[str, _aws_pattern("Es", "DomainName")]] = None
 
 
 class FilterTypeDef(BaseValidatorModel):
@@ -314,7 +316,7 @@ class FilterTypeDef(BaseValidatorModel):
 
 class DescribePackagesFilterTypeDef(BaseValidatorModel):
     Name: Optional[DescribePackagesFilterNameType] = None
-    Value: Optional[List[str]] = None
+    Value: Optional[List[Annotated[str, _aws_pattern("Es", "DescribePackagesFilterValue")]]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -325,25 +327,25 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_reserved_elasticsearch_instance_offerings' function.
 class DescribeReservedElasticsearchInstanceOfferingsRequestTypeDef(BaseValidatorModel):
-    ReservedElasticsearchInstanceOfferingId: Optional[str] = None
+    ReservedElasticsearchInstanceOfferingId: Optional[Annotated[str, _aws_pattern("Es", "GUID")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_reserved_elasticsearch_instances' function.
 class DescribeReservedElasticsearchInstancesRequestTypeDef(BaseValidatorModel):
-    ReservedElasticsearchInstanceId: Optional[str] = None
+    ReservedElasticsearchInstanceId: Optional[Annotated[str, _aws_pattern("Es", "GUID")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_vpc_endpoints' function.
 class DescribeVpcEndpointsRequestTypeDef(BaseValidatorModel):
-    VpcEndpointIds: List[str]
+    VpcEndpointIds: List[Annotated[str, _aws_pattern("Es", "VpcEndpointId")]]
 
 
 class VpcEndpointErrorTypeDef(BaseValidatorModel):
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Es", "VpcEndpointId")]] = None
     ErrorCode: Optional[VpcEndpointErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
@@ -351,11 +353,11 @@ class VpcEndpointErrorTypeDef(BaseValidatorModel):
 # This class is the input for the 'dissociate_package' function.
 class DissociatePackageRequestTypeDef(BaseValidatorModel):
     PackageID: str
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
 
 
 class DomainInfoTypeDef(BaseValidatorModel):
-    DomainName: Optional[str] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Es", "DomainName")]] = None
     EngineType: Optional[EngineTypeType] = None
 
 
@@ -389,7 +391,7 @@ class VPCDerivedInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_compatible_elasticsearch_versions' function.
 class GetCompatibleElasticsearchVersionsRequestTypeDef(BaseValidatorModel):
-    DomainName: Optional[str] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Es", "DomainName")]] = None
 
 
 # This class is the input for the 'get_package_version_history' function.
@@ -407,14 +409,14 @@ class PackageVersionHistoryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_upgrade_history' function.
 class GetUpgradeHistoryRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'get_upgrade_status' function.
 class GetUpgradeStatusRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
 
 
 class InboundCrossClusterSearchConnectionStatusTypeDef(BaseValidatorModel):
@@ -441,8 +443,8 @@ class ListDomainsForPackageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_elasticsearch_instance_types' function.
 class ListElasticsearchInstanceTypesRequestTypeDef(BaseValidatorModel):
-    ElasticsearchVersion: str
-    DomainName: Optional[str] = None
+    ElasticsearchVersion: Annotated[str, _aws_pattern("Es", "ElasticsearchVersionString")]
+    DomainName: Optional[Annotated[str, _aws_pattern("Es", "DomainName")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -455,7 +457,7 @@ class ListElasticsearchVersionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_packages_for_domain' function.
 class ListPackagesForDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -467,13 +469,13 @@ class ListTagsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_vpc_endpoint_access' function.
 class ListVpcEndpointAccessRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_vpc_endpoints_for_domain' function.
 class ListVpcEndpointsForDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
     NextToken: Optional[str] = None
 
 
@@ -484,7 +486,7 @@ class ListVpcEndpointsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'purchase_reserved_elasticsearch_instance_offering' function.
 class PurchaseReservedElasticsearchInstanceOfferingRequestTypeDef(BaseValidatorModel):
-    ReservedElasticsearchInstanceOfferingId: str
+    ReservedElasticsearchInstanceOfferingId: Annotated[str, _aws_pattern("Es", "GUID")]
     ReservationName: str
     InstanceCount: Optional[int] = None
 
@@ -506,8 +508,8 @@ class RemoveTagsRequestTypeDef(BaseValidatorModel):
 
 
 class RevokeVpcEndpointAccessRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    Account: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
+    Account: Annotated[str, _aws_pattern("Es", "AWSAccount")]
 
 
 class SAMLIdpTypeDef(BaseValidatorModel):
@@ -517,7 +519,7 @@ class SAMLIdpTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_elasticsearch_service_software_update' function.
 class StartElasticsearchServiceSoftwareUpdateRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
 
 
 class StorageTypeLimitTypeDef(BaseValidatorModel):
@@ -527,8 +529,8 @@ class StorageTypeLimitTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'upgrade_elasticsearch_domain' function.
 class UpgradeElasticsearchDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    TargetVersion: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
+    TargetVersion: Annotated[str, _aws_pattern("Es", "ElasticsearchVersionString")]
     PerformCheckOnly: Optional[bool] = None
 
 
@@ -561,14 +563,14 @@ class ListElasticsearchInstanceTypesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_elasticsearch_versions' function.
 class ListElasticsearchVersionsResponseTypeDef(BaseValidatorModel):
-    ElasticsearchVersions: List[str]
+    ElasticsearchVersions: List[Annotated[str, _aws_pattern("Es", "ElasticsearchVersionString")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'purchase_reserved_elasticsearch_instance_offering' function.
 class PurchaseReservedElasticsearchInstanceOfferingResponseTypeDef(BaseValidatorModel):
-    ReservedElasticsearchInstanceId: str
+    ReservedElasticsearchInstanceId: Annotated[str, _aws_pattern("Es", "GUID")]
     ReservationName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -584,7 +586,7 @@ class AdvancedOptionsStatusTypeDef(BaseValidatorModel):
 
 
 class ElasticsearchVersionStatusTypeDef(BaseValidatorModel):
-    Options: str
+    Options: Annotated[str, _aws_pattern("Es", "ElasticsearchVersionString")]
     Status: OptionStatusTypeDef
 
 
@@ -632,7 +634,7 @@ class AutoTuneMaintenanceScheduleTypeDef(BaseValidatorModel):
 # This class is the output for the 'cancel_domain_config_change' function.
 class CancelDomainConfigChangeResponseTypeDef(BaseValidatorModel):
     DryRun: bool
-    CancelledChangeIds: List[str]
+    CancelledChangeIds: List[Annotated[str, _aws_pattern("Es", "GUID")]]
     CancelledChangeProperties: List[CancelledChangePropertyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -651,15 +653,15 @@ class StartElasticsearchServiceSoftwareUpdateResponseTypeDef(BaseValidatorModel)
 
 # This class is the output for the 'upgrade_elasticsearch_domain' function.
 class UpgradeElasticsearchDomainResponseTypeDef(BaseValidatorModel):
-    DomainName: str
-    TargetVersion: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
+    TargetVersion: Annotated[str, _aws_pattern("Es", "ElasticsearchVersionString")]
     PerformCheckOnly: bool
     ChangeProgressDetails: ChangeProgressDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ChangeProgressStatusDetailsTypeDef(BaseValidatorModel):
-    ChangeId: Optional[str] = None
+    ChangeId: Optional[Annotated[str, _aws_pattern("Es", "GUID")]] = None
     StartTime: Optional[datetime] = None
     Status: Optional[OverallChangeStatusType] = None
     PendingProperties: Optional[List[str]] = None
@@ -719,14 +721,14 @@ class SnapshotOptionsStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_vpc_endpoint' function.
 class CreateVpcEndpointRequestTypeDef(BaseValidatorModel):
-    DomainArn: str
+    DomainArn: Annotated[str, _aws_pattern("Es", "DomainArn")]
     VpcOptions: VPCOptionsTypeDef
     ClientToken: Optional[str] = None
 
 
 # This class is the input for the 'update_vpc_endpoint' function.
 class UpdateVpcEndpointRequestTypeDef(BaseValidatorModel):
-    VpcEndpointId: str
+    VpcEndpointId: Annotated[str, _aws_pattern("Es", "VpcEndpointId")]
     VpcOptions: VPCOptionsTypeDef
 
 
@@ -757,7 +759,7 @@ class OutboundCrossClusterSearchConnectionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_package' function.
 class CreatePackageRequestTypeDef(BaseValidatorModel):
-    PackageName: str
+    PackageName: Annotated[str, _aws_pattern("Es", "PackageName")]
     PackageType: Literal["TXT-DICTIONARY"]
     PackageSource: PackageSourceTypeDef
     PackageDescription: Optional[str] = None
@@ -845,10 +847,10 @@ class ListDomainNamesResponseTypeDef(BaseValidatorModel):
 
 class DomainPackageDetailsTypeDef(BaseValidatorModel):
     PackageID: Optional[str] = None
-    PackageName: Optional[str] = None
+    PackageName: Optional[Annotated[str, _aws_pattern("Es", "PackageName")]] = None
     PackageType: Optional[Literal["TXT-DICTIONARY"]] = None
     LastUpdated: Optional[datetime] = None
-    DomainName: Optional[str] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Es", "DomainName")]] = None
     DomainPackageStatus: Optional[DomainPackageStatusType] = None
     PackageVersion: Optional[str] = None
     ReferencePath: Optional[str] = None
@@ -857,7 +859,7 @@ class DomainPackageDetailsTypeDef(BaseValidatorModel):
 
 class PackageDetailsTypeDef(BaseValidatorModel):
     PackageID: Optional[str] = None
-    PackageName: Optional[str] = None
+    PackageName: Optional[Annotated[str, _aws_pattern("Es", "PackageName")]] = None
     PackageType: Optional[Literal["TXT-DICTIONARY"]] = None
     PackageDescription: Optional[str] = None
     PackageStatus: Optional[PackageStatusType] = None
@@ -887,12 +889,12 @@ class VPCDerivedInfoStatusTypeDef(BaseValidatorModel):
 
 
 class VpcEndpointTypeDef(BaseValidatorModel):
-    VpcEndpointId: Optional[str] = None
-    VpcEndpointOwner: Optional[str] = None
-    DomainArn: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Es", "VpcEndpointId")]] = None
+    VpcEndpointOwner: Optional[Annotated[str, _aws_pattern("Es", "AWSAccount")]] = None
+    DomainArn: Optional[Annotated[str, _aws_pattern("Es", "DomainArn")]] = None
     VpcOptions: Optional[VPCDerivedInfoTypeDef] = None
     Status: Optional[VpcEndpointStatusType] = None
-    Endpoint: Optional[str] = None
+    Endpoint: Optional[Annotated[str, _aws_pattern("Es", "Endpoint")]] = None
 
 
 # This class is the output for the 'get_package_version_history' function.
@@ -915,7 +917,7 @@ class InstanceLimitsTypeDef(BaseValidatorModel):
 
 
 class ReservedElasticsearchInstanceOfferingTypeDef(BaseValidatorModel):
-    ReservedElasticsearchInstanceOfferingId: Optional[str] = None
+    ReservedElasticsearchInstanceOfferingId: Optional[Annotated[str, _aws_pattern("Es", "GUID")]] = None
     ElasticsearchInstanceType: Optional[ESPartitionInstanceTypeType] = None
     Duration: Optional[int] = None
     FixedPrice: Optional[float] = None
@@ -927,7 +929,7 @@ class ReservedElasticsearchInstanceOfferingTypeDef(BaseValidatorModel):
 
 class ReservedElasticsearchInstanceTypeDef(BaseValidatorModel):
     ReservationName: Optional[str] = None
-    ReservedElasticsearchInstanceId: Optional[str] = None
+    ReservedElasticsearchInstanceId: Optional[Annotated[str, _aws_pattern("Es", "GUID")]] = None
     ReservedElasticsearchInstanceOfferingId: Optional[str] = None
     ElasticsearchInstanceType: Optional[ESPartitionInstanceTypeType] = None
     StartTime: Optional[datetime] = None
@@ -1183,7 +1185,7 @@ class AdvancedSecurityOptionsStatusTypeDef(BaseValidatorModel):
 
 class ElasticsearchDomainStatusTypeDef(BaseValidatorModel):
     DomainId: str
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
     ARN: str
     ElasticsearchClusterConfig: ElasticsearchClusterConfigTypeDef
     Created: Optional[bool] = None
@@ -1192,7 +1194,7 @@ class ElasticsearchDomainStatusTypeDef(BaseValidatorModel):
     Endpoints: Optional[Dict[str, str]] = None
     Processing: Optional[bool] = None
     UpgradeProcessing: Optional[bool] = None
-    ElasticsearchVersion: Optional[str] = None
+    ElasticsearchVersion: Optional[Annotated[str, _aws_pattern("Es", "ElasticsearchVersionString")]] = None
     EBSOptions: Optional[EBSOptionsTypeDef] = None
     AccessPolicies: Optional[str] = None
     SnapshotOptions: Optional[SnapshotOptionsTypeDef] = None
@@ -1220,8 +1222,8 @@ class DescribeElasticsearchInstanceTypeLimitsResponseTypeDef(BaseValidatorModel)
 
 # This class is the input for the 'create_elasticsearch_domain' function.
 class CreateElasticsearchDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ElasticsearchVersion: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
+    ElasticsearchVersion: Optional[Annotated[str, _aws_pattern("Es", "ElasticsearchVersionString")]] = None
     ElasticsearchClusterConfig: Optional[ElasticsearchClusterConfigTypeDef] = None
     EBSOptions: Optional[EBSOptionsTypeDef] = None
     AccessPolicies: Optional[str] = None
@@ -1241,7 +1243,7 @@ class CreateElasticsearchDomainRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_elasticsearch_domain_config' function.
 class UpdateElasticsearchDomainConfigRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Es", "DomainName")]
     ElasticsearchClusterConfig: Optional[ElasticsearchClusterConfigTypeDef] = None
     EBSOptions: Optional[EBSOptionsTypeDef] = None
     SnapshotOptions: Optional[SnapshotOptionsTypeDef] = None

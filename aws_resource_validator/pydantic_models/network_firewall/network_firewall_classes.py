@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.network_firewall.network_firewall_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class AttachmentTypeDef(BaseValidatorModel):
-    SubnetId: Optional[str] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "AzSubnet")]] = None
     EndpointId: Optional[str] = None
     Status: Optional[AttachmentStatusType] = None
     StatusMessage: Optional[str] = None
@@ -47,7 +49,7 @@ class AttachmentTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'accept_network_firewall_transit_gateway_attachment' function.
 class AcceptNetworkFirewallTransitGatewayAttachmentRequestTypeDef(BaseValidatorModel):
-    TransitGatewayAttachmentId: str
+    TransitGatewayAttachmentId: Annotated[str, _aws_pattern("NetworkFirewall", "TransitGatewayAttachmentId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -59,11 +61,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AddressTypeDef(BaseValidatorModel):
-    AddressDefinition: str
+    AddressDefinition: Annotated[str, _aws_pattern("NetworkFirewall", "AddressDefinition")]
 
 
 class AnalysisReportTypeDef(BaseValidatorModel):
-    AnalysisReportId: Optional[str] = None
+    AnalysisReportId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "AnalysisReportId")]] = None
     AnalysisType: Optional[EnabledAnalysisTypeType] = None
     ReportTime: Optional[datetime] = None
     Status: Optional[str] = None
@@ -84,15 +86,15 @@ class UniqueSourcesTypeDef(BaseValidatorModel):
 
 
 class AvailabilityZoneMappingTypeDef(BaseValidatorModel):
-    AvailabilityZone: str
+    AvailabilityZone: Annotated[str, _aws_pattern("NetworkFirewall", "AvailabilityZoneMappingString")]
 
 
 # This class is the input for the 'associate_firewall_policy' function.
 class AssociateFirewallPolicyRequestTypeDef(BaseValidatorModel):
-    FirewallPolicyArn: str
-    UpdateToken: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    FirewallPolicyArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 class SubnetMappingTypeDef(BaseValidatorModel):
@@ -101,7 +103,7 @@ class SubnetMappingTypeDef(BaseValidatorModel):
 
 
 class ProxyRuleGroupAttachmentTypeDef(BaseValidatorModel):
-    ProxyRuleGroupName: Optional[str] = None
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
     InsertPosition: Optional[int] = None
 
 
@@ -120,12 +122,12 @@ class CheckCertificateRevocationStatusActionsTypeDef(BaseValidatorModel):
 
 class EncryptionConfigurationTypeDef(BaseValidatorModel):
     Type: EncryptionTypeType
-    KeyId: Optional[str] = None
+    KeyId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "KeyId")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("NetworkFirewall", "TagKey")]
+    Value: Annotated[str, _aws_pattern("NetworkFirewall", "TagValue")]
 
 
 class ProxyConfigDefaultRulePhaseActionsRequestTypeDef(BaseValidatorModel):
@@ -140,122 +142,122 @@ class ListenerPropertyRequestTypeDef(BaseValidatorModel):
 
 
 class TlsInterceptPropertiesRequestTypeDef(BaseValidatorModel):
-    PcaArn: Optional[str] = None
+    PcaArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     TlsInterceptMode: Optional[TlsInterceptModeType] = None
 
 
 class SourceMetadataTypeDef(BaseValidatorModel):
-    SourceArn: Optional[str] = None
-    SourceUpdateToken: Optional[str] = None
+    SourceArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    SourceUpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
 
 
 # This class is the input for the 'delete_firewall_policy' function.
 class DeleteFirewallPolicyRequestTypeDef(BaseValidatorModel):
-    FirewallPolicyName: Optional[str] = None
-    FirewallPolicyArn: Optional[str] = None
+    FirewallPolicyName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    FirewallPolicyArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'delete_firewall' function.
 class DeleteFirewallRequestTypeDef(BaseValidatorModel):
-    FirewallName: Optional[str] = None
-    FirewallArn: Optional[str] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'delete_network_firewall_transit_gateway_attachment' function.
 class DeleteNetworkFirewallTransitGatewayAttachmentRequestTypeDef(BaseValidatorModel):
-    TransitGatewayAttachmentId: str
+    TransitGatewayAttachmentId: Annotated[str, _aws_pattern("NetworkFirewall", "TransitGatewayAttachmentId")]
 
 
 # This class is the input for the 'delete_proxy_configuration' function.
 class DeleteProxyConfigurationRequestTypeDef(BaseValidatorModel):
-    ProxyConfigurationName: Optional[str] = None
-    ProxyConfigurationArn: Optional[str] = None
+    ProxyConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'delete_proxy' function.
 class DeleteProxyRequestTypeDef(BaseValidatorModel):
     NatGatewayId: str
-    ProxyName: Optional[str] = None
-    ProxyArn: Optional[str] = None
+    ProxyName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'delete_proxy_rule_group' function.
 class DeleteProxyRuleGroupRequestTypeDef(BaseValidatorModel):
-    ProxyRuleGroupName: Optional[str] = None
-    ProxyRuleGroupArn: Optional[str] = None
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyRuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'delete_proxy_rules' function.
 class DeleteProxyRulesRequestTypeDef(BaseValidatorModel):
-    Rules: List[str]
-    ProxyRuleGroupArn: Optional[str] = None
-    ProxyRuleGroupName: Optional[str] = None
+    Rules: List[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]]
+    ProxyRuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
 
 
 # This class is the input for the 'delete_rule_group' function.
 class DeleteRuleGroupRequestTypeDef(BaseValidatorModel):
-    RuleGroupName: Optional[str] = None
-    RuleGroupArn: Optional[str] = None
+    RuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    RuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     Type: Optional[RuleGroupTypeType] = None
 
 
 # This class is the input for the 'delete_tls_inspection_configuration' function.
 class DeleteTLSInspectionConfigurationRequestTypeDef(BaseValidatorModel):
-    TLSInspectionConfigurationArn: Optional[str] = None
-    TLSInspectionConfigurationName: Optional[str] = None
+    TLSInspectionConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    TLSInspectionConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 # This class is the input for the 'delete_vpc_endpoint_association' function.
 class DeleteVpcEndpointAssociationRequestTypeDef(BaseValidatorModel):
-    VpcEndpointAssociationArn: str
+    VpcEndpointAssociationArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
 
 
 # This class is the input for the 'describe_firewall_metadata' function.
 class DescribeFirewallMetadataRequestTypeDef(BaseValidatorModel):
-    FirewallArn: Optional[str] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'describe_firewall_policy' function.
 class DescribeFirewallPolicyRequestTypeDef(BaseValidatorModel):
-    FirewallPolicyName: Optional[str] = None
-    FirewallPolicyArn: Optional[str] = None
+    FirewallPolicyName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    FirewallPolicyArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'describe_firewall' function.
 class DescribeFirewallRequestTypeDef(BaseValidatorModel):
-    FirewallName: Optional[str] = None
-    FirewallArn: Optional[str] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'describe_flow_operation' function.
 class DescribeFlowOperationRequestTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FlowOperationId: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FlowOperationId: Annotated[str, _aws_pattern("NetworkFirewall", "FlowOperationId")]
     AvailabilityZone: Optional[str] = None
-    VpcEndpointAssociationArn: Optional[str] = None
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointAssociationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "VpcEndpointId")]] = None
 
 
 # This class is the input for the 'describe_logging_configuration' function.
 class DescribeLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 # This class is the input for the 'describe_proxy_configuration' function.
 class DescribeProxyConfigurationRequestTypeDef(BaseValidatorModel):
-    ProxyConfigurationName: Optional[str] = None
-    ProxyConfigurationArn: Optional[str] = None
+    ProxyConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'describe_proxy' function.
 class DescribeProxyRequestTypeDef(BaseValidatorModel):
-    ProxyName: Optional[str] = None
-    ProxyArn: Optional[str] = None
+    ProxyName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 class ListenerPropertyTypeDef(BaseValidatorModel):
@@ -264,32 +266,32 @@ class ListenerPropertyTypeDef(BaseValidatorModel):
 
 
 class TlsInterceptPropertiesTypeDef(BaseValidatorModel):
-    PcaArn: Optional[str] = None
+    PcaArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     TlsInterceptMode: Optional[TlsInterceptModeType] = None
 
 
 # This class is the input for the 'describe_proxy_rule_group' function.
 class DescribeProxyRuleGroupRequestTypeDef(BaseValidatorModel):
-    ProxyRuleGroupName: Optional[str] = None
-    ProxyRuleGroupArn: Optional[str] = None
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyRuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'describe_proxy_rule' function.
 class DescribeProxyRuleRequestTypeDef(BaseValidatorModel):
-    ProxyRuleName: str
-    ProxyRuleGroupName: Optional[str] = None
-    ProxyRuleGroupArn: Optional[str] = None
+    ProxyRuleName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyRuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'describe_resource_policy' function.
 class DescribeResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
 
 
 # This class is the input for the 'describe_rule_group_metadata' function.
 class DescribeRuleGroupMetadataRequestTypeDef(BaseValidatorModel):
-    RuleGroupName: Optional[str] = None
-    RuleGroupArn: Optional[str] = None
+    RuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    RuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     Type: Optional[RuleGroupTypeType] = None
 
 
@@ -299,64 +301,66 @@ class StatefulRuleOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_rule_group' function.
 class DescribeRuleGroupRequestTypeDef(BaseValidatorModel):
-    RuleGroupName: Optional[str] = None
-    RuleGroupArn: Optional[str] = None
+    RuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    RuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     Type: Optional[RuleGroupTypeType] = None
     AnalyzeRuleGroup: Optional[bool] = None
 
 
 # This class is the input for the 'describe_rule_group_summary' function.
 class DescribeRuleGroupSummaryRequestTypeDef(BaseValidatorModel):
-    RuleGroupName: Optional[str] = None
-    RuleGroupArn: Optional[str] = None
+    RuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    RuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     Type: Optional[RuleGroupTypeType] = None
 
 
 # This class is the input for the 'describe_tls_inspection_configuration' function.
 class DescribeTLSInspectionConfigurationRequestTypeDef(BaseValidatorModel):
-    TLSInspectionConfigurationArn: Optional[str] = None
-    TLSInspectionConfigurationName: Optional[str] = None
+    TLSInspectionConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    TLSInspectionConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 # This class is the input for the 'describe_vpc_endpoint_association' function.
 class DescribeVpcEndpointAssociationRequestTypeDef(BaseValidatorModel):
-    VpcEndpointAssociationArn: str
+    VpcEndpointAssociationArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
 
 
 # This class is the input for the 'detach_rule_groups_from_proxy_configuration' function.
 class DetachRuleGroupsFromProxyConfigurationRequestTypeDef(BaseValidatorModel):
-    UpdateToken: str
-    ProxyConfigurationName: Optional[str] = None
-    ProxyConfigurationArn: Optional[str] = None
-    RuleGroupNames: Optional[List[str]] = None
-    RuleGroupArns: Optional[List[str]] = None
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    ProxyConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    RuleGroupNames: Optional[List[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]]] = None
+    RuleGroupArns: Optional[List[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]]] = None
 
 
 class DimensionTypeDef(BaseValidatorModel):
-    Value: str
+    Value: Annotated[str, _aws_pattern("NetworkFirewall", "DimensionValue")]
 
 
 # This class is the input for the 'disassociate_subnets' function.
 class DisassociateSubnetsRequestTypeDef(BaseValidatorModel):
-    SubnetIds: List[str]
-    UpdateToken: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    SubnetIds: List[Annotated[str, _aws_pattern("NetworkFirewall", "AzSubnet")]]
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 class FirewallMetadataTypeDef(BaseValidatorModel):
-    FirewallName: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    TransitGatewayAttachmentId: Optional[str] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    TransitGatewayAttachmentId: Optional[
+        Annotated[str, _aws_pattern("NetworkFirewall", "TransitGatewayAttachmentId")]
+    ] = None
 
 
 class FirewallPolicyMetadataTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 class StatelessRuleGroupReferenceTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     Priority: int
 
 
@@ -367,7 +371,7 @@ class TransitGatewayAttachmentSyncStateTypeDef(BaseValidatorModel):
 
 
 class FlowOperationMetadataTypeDef(BaseValidatorModel):
-    FlowOperationId: Optional[str] = None
+    FlowOperationId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "FlowOperationId")]] = None
     FlowOperationType: Optional[FlowOperationTypeType] = None
     FlowRequestTimestamp: Optional[datetime] = None
     FlowOperationStatus: Optional[FlowOperationStatusType] = None
@@ -385,20 +389,20 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_analysis_report_results' function.
 class GetAnalysisReportResultsRequestTypeDef(BaseValidatorModel):
-    AnalysisReportId: str
-    FirewallName: Optional[str] = None
-    FirewallArn: Optional[str] = None
+    AnalysisReportId: Annotated[str, _aws_pattern("NetworkFirewall", "AnalysisReportId")]
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class HeaderTypeDef(BaseValidatorModel):
     Protocol: StatefulRuleProtocolType
-    Source: str
-    SourcePort: str
+    Source: Annotated[str, _aws_pattern("NetworkFirewall", "Source")]
+    SourcePort: Annotated[str, _aws_pattern("NetworkFirewall", "Port")]
     Direction: StatefulRuleDirectionType
-    Destination: str
-    DestinationPort: str
+    Destination: Annotated[str, _aws_pattern("NetworkFirewall", "Destination")]
+    DestinationPort: Annotated[str, _aws_pattern("NetworkFirewall", "Port")]
 
 
 class IPSetOutputTypeDef(BaseValidatorModel):
@@ -406,92 +410,92 @@ class IPSetOutputTypeDef(BaseValidatorModel):
 
 
 class IPSetReferenceTypeDef(BaseValidatorModel):
-    ReferenceArn: Optional[str] = None
+    ReferenceArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 class IPSetTypeDef(BaseValidatorModel):
-    Definition: List[str]
+    Definition: List[Annotated[str, _aws_pattern("NetworkFirewall", "VariableDefinition")]]
 
 
 # This class is the input for the 'list_analysis_reports' function.
 class ListAnalysisReportsRequestTypeDef(BaseValidatorModel):
-    FirewallName: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    NextToken: Optional[str] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_firewall_policies' function.
 class ListFirewallPoliciesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_firewalls' function.
 class ListFirewallsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
-    VpcIds: Optional[List[str]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
+    VpcIds: Optional[List[Annotated[str, _aws_pattern("NetworkFirewall", "VpcId")]]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_flow_operation_results' function.
 class ListFlowOperationResultsRequestTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FlowOperationId: str
-    NextToken: Optional[str] = None
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FlowOperationId: Annotated[str, _aws_pattern("NetworkFirewall", "FlowOperationId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
     AvailabilityZone: Optional[str] = None
-    VpcEndpointId: Optional[str] = None
-    VpcEndpointAssociationArn: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "VpcEndpointId")]] = None
+    VpcEndpointAssociationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'list_flow_operations' function.
 class ListFlowOperationsRequestTypeDef(BaseValidatorModel):
-    FirewallArn: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     AvailabilityZone: Optional[str] = None
-    VpcEndpointAssociationArn: Optional[str] = None
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointAssociationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "VpcEndpointId")]] = None
     FlowOperationType: Optional[FlowOperationTypeType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_proxies' function.
 class ListProxiesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ProxyMetadataTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'list_proxy_configurations' function.
 class ListProxyConfigurationsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ProxyConfigurationMetadataTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'list_proxy_rule_groups' function.
 class ListProxyRuleGroupsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ProxyRuleGroupMetadataTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'list_rule_groups' function.
 class ListRuleGroupsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
     Scope: Optional[ResourceManagedStatusType] = None
     ManagedType: Optional[ResourceManagedTypeType] = None
@@ -500,38 +504,38 @@ class ListRuleGroupsRequestTypeDef(BaseValidatorModel):
 
 
 class RuleGroupMetadataTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     VendorName: Optional[str] = None
 
 
 # This class is the input for the 'list_tls_inspection_configurations' function.
 class ListTLSInspectionConfigurationsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class TLSInspectionConfigurationMetadataTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    NextToken: Optional[str] = None
+    ResourceArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_vpc_endpoint_associations' function.
 class ListVpcEndpointAssociationsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
-    FirewallArn: Optional[str] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 class VpcEndpointAssociationMetadataTypeDef(BaseValidatorModel):
-    VpcEndpointAssociationArn: Optional[str] = None
+    VpcEndpointAssociationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 class LogDestinationConfigOutputTypeDef(BaseValidatorModel):
@@ -563,7 +567,7 @@ class TCPFlagFieldTypeDef(BaseValidatorModel):
 
 class PerObjectStatusTypeDef(BaseValidatorModel):
     SyncStatus: Optional[PerObjectSyncStatusType] = None
-    UpdateToken: Optional[str] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
 
 
 class PortSetOutputTypeDef(BaseValidatorModel):
@@ -571,12 +575,12 @@ class PortSetOutputTypeDef(BaseValidatorModel):
 
 
 class PortSetTypeDef(BaseValidatorModel):
-    Definition: Optional[List[str]] = None
+    Definition: Optional[List[Annotated[str, _aws_pattern("NetworkFirewall", "VariableDefinition")]]] = None
 
 
 class ProxyConfigRuleGroupTypeDef(BaseValidatorModel):
-    ProxyRuleGroupName: Optional[str] = None
-    ProxyRuleGroupArn: Optional[str] = None
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyRuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     Type: Optional[str] = None
     Priority: Optional[int] = None
 
@@ -594,28 +598,28 @@ class ProxyRuleConditionTypeDef(BaseValidatorModel):
 
 
 class ProxyRuleGroupPriorityResultTypeDef(BaseValidatorModel):
-    ProxyRuleGroupName: Optional[str] = None
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
     Priority: Optional[int] = None
 
 
 class ProxyRuleGroupPriorityTypeDef(BaseValidatorModel):
-    ProxyRuleGroupName: Optional[str] = None
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
     NewPosition: Optional[int] = None
 
 
 class ProxyRulePriorityTypeDef(BaseValidatorModel):
-    ProxyRuleName: Optional[str] = None
+    ProxyRuleName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
     NewPosition: Optional[int] = None
 
 
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    Policy: str
+    ResourceArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    Policy: Annotated[str, _aws_pattern("NetworkFirewall", "PolicyString")]
 
 
 # This class is the input for the 'reject_network_firewall_transit_gateway_attachment' function.
 class RejectNetworkFirewallTransitGatewayAttachmentRequestTypeDef(BaseValidatorModel):
-    TransitGatewayAttachmentId: str
+    TransitGatewayAttachmentId: Annotated[str, _aws_pattern("NetworkFirewall", "TransitGatewayAttachmentId")]
 
 
 class SummaryConfigurationOutputTypeDef(BaseValidatorModel):
@@ -628,8 +632,8 @@ class RuleOptionOutputTypeDef(BaseValidatorModel):
 
 
 class RuleOptionTypeDef(BaseValidatorModel):
-    Keyword: str
-    Settings: Optional[List[str]] = None
+    Keyword: Annotated[str, _aws_pattern("NetworkFirewall", "Keyword")]
+    Settings: Optional[List[Annotated[str, _aws_pattern("NetworkFirewall", "Setting")]]] = None
 
 
 class RuleSummaryTypeDef(BaseValidatorModel):
@@ -651,14 +655,14 @@ class RulesSourceListTypeDef(BaseValidatorModel):
 
 
 class ServerCertificateTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'start_analysis_report' function.
 class StartAnalysisReportRequestTypeDef(BaseValidatorModel):
     AnalysisType: EnabledAnalysisTypeType
-    FirewallName: Optional[str] = None
-    FirewallArn: Optional[str] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 class StatefulRuleGroupOverrideTypeDef(BaseValidatorModel):
@@ -670,63 +674,63 @@ class SummaryConfigurationTypeDef(BaseValidatorModel):
 
 
 class TlsCertificateDataTypeDef(BaseValidatorModel):
-    CertificateArn: Optional[str] = None
+    CertificateArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     CertificateSerial: Optional[str] = None
     Status: Optional[str] = None
-    StatusMessage: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "StatusReason")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("NetworkFirewall", "TagKey")]]
 
 
 # This class is the input for the 'update_availability_zone_change_protection' function.
 class UpdateAvailabilityZoneChangeProtectionRequestTypeDef(BaseValidatorModel):
     AvailabilityZoneChangeProtection: bool
-    UpdateToken: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 # This class is the input for the 'update_firewall_analysis_settings' function.
 class UpdateFirewallAnalysisSettingsRequestTypeDef(BaseValidatorModel):
     EnabledAnalysisTypes: Optional[List[EnabledAnalysisTypeType]] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
-    UpdateToken: Optional[str] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
 
 
 # This class is the input for the 'update_firewall_delete_protection' function.
 class UpdateFirewallDeleteProtectionRequestTypeDef(BaseValidatorModel):
     DeleteProtection: bool
-    UpdateToken: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 # This class is the input for the 'update_firewall_description' function.
 class UpdateFirewallDescriptionRequestTypeDef(BaseValidatorModel):
-    UpdateToken: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
-    Description: Optional[str] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
 
 
 # This class is the input for the 'update_firewall_policy_change_protection' function.
 class UpdateFirewallPolicyChangeProtectionRequestTypeDef(BaseValidatorModel):
     FirewallPolicyChangeProtection: bool
-    UpdateToken: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 # This class is the input for the 'update_subnet_change_protection' function.
 class UpdateSubnetChangeProtectionRequestTypeDef(BaseValidatorModel):
     SubnetChangeProtection: bool
-    UpdateToken: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 class AZSyncStateTypeDef(BaseValidatorModel):
@@ -735,89 +739,89 @@ class AZSyncStateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'accept_network_firewall_transit_gateway_attachment' function.
 class AcceptNetworkFirewallTransitGatewayAttachmentResponseTypeDef(BaseValidatorModel):
-    TransitGatewayAttachmentId: str
+    TransitGatewayAttachmentId: Annotated[str, _aws_pattern("NetworkFirewall", "TransitGatewayAttachmentId")]
     TransitGatewayAttachmentStatus: TransitGatewayAttachmentStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_firewall_policy' function.
 class AssociateFirewallPolicyResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FirewallName: str
-    FirewallPolicyArn: str
-    UpdateToken: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    FirewallPolicyArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_network_firewall_transit_gateway_attachment' function.
 class DeleteNetworkFirewallTransitGatewayAttachmentResponseTypeDef(BaseValidatorModel):
-    TransitGatewayAttachmentId: str
+    TransitGatewayAttachmentId: Annotated[str, _aws_pattern("NetworkFirewall", "TransitGatewayAttachmentId")]
     TransitGatewayAttachmentStatus: TransitGatewayAttachmentStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_proxy_configuration' function.
 class DeleteProxyConfigurationResponseTypeDef(BaseValidatorModel):
-    ProxyConfigurationName: str
-    ProxyConfigurationArn: str
+    ProxyConfigurationName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    ProxyConfigurationArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_proxy' function.
 class DeleteProxyResponseTypeDef(BaseValidatorModel):
     NatGatewayId: str
-    ProxyName: str
-    ProxyArn: str
+    ProxyName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    ProxyArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_proxy_rule_group' function.
 class DeleteProxyRuleGroupResponseTypeDef(BaseValidatorModel):
-    ProxyRuleGroupName: str
-    ProxyRuleGroupArn: str
+    ProxyRuleGroupName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    ProxyRuleGroupArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_resource_policy' function.
 class DescribeResourcePolicyResponseTypeDef(BaseValidatorModel):
-    Policy: str
+    Policy: Annotated[str, _aws_pattern("NetworkFirewall", "PolicyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'reject_network_firewall_transit_gateway_attachment' function.
 class RejectNetworkFirewallTransitGatewayAttachmentResponseTypeDef(BaseValidatorModel):
-    TransitGatewayAttachmentId: str
+    TransitGatewayAttachmentId: Annotated[str, _aws_pattern("NetworkFirewall", "TransitGatewayAttachmentId")]
     TransitGatewayAttachmentStatus: TransitGatewayAttachmentStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_analysis_report' function.
 class StartAnalysisReportResponseTypeDef(BaseValidatorModel):
-    AnalysisReportId: str
+    AnalysisReportId: Annotated[str, _aws_pattern("NetworkFirewall", "AnalysisReportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_flow_capture' function.
 class StartFlowCaptureResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FlowOperationId: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FlowOperationId: Annotated[str, _aws_pattern("NetworkFirewall", "FlowOperationId")]
     FlowOperationStatus: FlowOperationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_flow_flush' function.
 class StartFlowFlushResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FlowOperationId: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FlowOperationId: Annotated[str, _aws_pattern("NetworkFirewall", "FlowOperationId")]
     FlowOperationStatus: FlowOperationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_availability_zone_change_protection' function.
 class UpdateAvailabilityZoneChangeProtectionResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
-    FirewallArn: str
-    FirewallName: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     AvailabilityZoneChangeProtection: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -825,44 +829,44 @@ class UpdateAvailabilityZoneChangeProtectionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_firewall_analysis_settings' function.
 class UpdateFirewallAnalysisSettingsResponseTypeDef(BaseValidatorModel):
     EnabledAnalysisTypes: List[EnabledAnalysisTypeType]
-    FirewallArn: str
-    FirewallName: str
-    UpdateToken: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_firewall_delete_protection' function.
 class UpdateFirewallDeleteProtectionResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FirewallName: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     DeleteProtection: bool
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_firewall_description' function.
 class UpdateFirewallDescriptionResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FirewallName: str
-    Description: str
-    UpdateToken: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    Description: Annotated[str, _aws_pattern("NetworkFirewall", "Description")]
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_firewall_policy_change_protection' function.
 class UpdateFirewallPolicyChangeProtectionResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
-    FirewallArn: str
-    FirewallName: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     FirewallPolicyChangeProtection: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_subnet_change_protection' function.
 class UpdateSubnetChangeProtectionResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
-    FirewallArn: str
-    FirewallName: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     SubnetChangeProtection: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -878,17 +882,17 @@ class FlowFilterOutputTypeDef(BaseValidatorModel):
 class FlowFilterTypeDef(BaseValidatorModel):
     SourceAddress: Optional[AddressTypeDef] = None
     DestinationAddress: Optional[AddressTypeDef] = None
-    SourcePort: Optional[str] = None
-    DestinationPort: Optional[str] = None
-    Protocols: Optional[List[str]] = None
+    SourcePort: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Port")]] = None
+    DestinationPort: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Port")]] = None
+    Protocols: Optional[List[Annotated[str, _aws_pattern("NetworkFirewall", "ProtocolString")]]] = None
 
 
 class FlowTypeDef(BaseValidatorModel):
     SourceAddress: Optional[AddressTypeDef] = None
     DestinationAddress: Optional[AddressTypeDef] = None
-    SourcePort: Optional[str] = None
-    DestinationPort: Optional[str] = None
-    Protocol: Optional[str] = None
+    SourcePort: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Port")]] = None
+    DestinationPort: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Port")]] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ProtocolString")]] = None
     Age: Optional[int] = None
     PacketCount: Optional[int] = None
     ByteCount: Optional[int] = None
@@ -898,7 +902,7 @@ class FlowTypeDef(BaseValidatorModel):
 class ListAnalysisReportsResponseTypeDef(BaseValidatorModel):
     AnalysisReports: List[AnalysisReportTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 class AnalysisTypeReportResultTypeDef(BaseValidatorModel):
@@ -913,79 +917,79 @@ class AnalysisTypeReportResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'associate_availability_zones' function.
 class AssociateAvailabilityZonesRequestTypeDef(BaseValidatorModel):
     AvailabilityZoneMappings: List[AvailabilityZoneMappingTypeDef]
-    UpdateToken: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 # This class is the output for the 'associate_availability_zones' function.
 class AssociateAvailabilityZonesResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FirewallName: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     AvailabilityZoneMappings: List[AvailabilityZoneMappingTypeDef]
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'disassociate_availability_zones' function.
 class DisassociateAvailabilityZonesRequestTypeDef(BaseValidatorModel):
     AvailabilityZoneMappings: List[AvailabilityZoneMappingTypeDef]
-    UpdateToken: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 # This class is the output for the 'disassociate_availability_zones' function.
 class DisassociateAvailabilityZonesResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FirewallName: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     AvailabilityZoneMappings: List[AvailabilityZoneMappingTypeDef]
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'associate_subnets' function.
 class AssociateSubnetsRequestTypeDef(BaseValidatorModel):
     SubnetMappings: List[SubnetMappingTypeDef]
-    UpdateToken: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 # This class is the output for the 'associate_subnets' function.
 class AssociateSubnetsResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FirewallName: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     SubnetMappings: List[SubnetMappingTypeDef]
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disassociate_subnets' function.
 class DisassociateSubnetsResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FirewallName: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     SubnetMappings: List[SubnetMappingTypeDef]
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'attach_rule_groups_to_proxy_configuration' function.
 class AttachRuleGroupsToProxyConfigurationRequestTypeDef(BaseValidatorModel):
     RuleGroups: List[ProxyRuleGroupAttachmentTypeDef]
-    UpdateToken: str
-    ProxyConfigurationName: Optional[str] = None
-    ProxyConfigurationArn: Optional[str] = None
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    ProxyConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the output for the 'describe_firewall_metadata' function.
 class DescribeFirewallMetadataResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FirewallPolicyArn: str
-    Description: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallPolicyArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    Description: Annotated[str, _aws_pattern("NetworkFirewall", "Description")]
     Status: FirewallStatusValueType
     SupportedAvailabilityZones: Dict[str, AvailabilityZoneMetadataTypeDef]
-    TransitGatewayAttachmentId: str
+    TransitGatewayAttachmentId: Annotated[str, _aws_pattern("NetworkFirewall", "TransitGatewayAttachmentId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -997,53 +1001,53 @@ class CIDRSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_firewall_encryption_configuration' function.
 class UpdateFirewallEncryptionConfigurationRequestTypeDef(BaseValidatorModel):
-    UpdateToken: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
 
 # This class is the output for the 'update_firewall_encryption_configuration' function.
 class UpdateFirewallEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FirewallName: str
-    UpdateToken: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     EncryptionConfiguration: EncryptionConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_firewall' function.
 class CreateFirewallRequestTypeDef(BaseValidatorModel):
-    FirewallName: str
-    FirewallPolicyArn: str
-    VpcId: Optional[str] = None
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    FirewallPolicyArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    VpcId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "VpcId")]] = None
     SubnetMappings: Optional[List[SubnetMappingTypeDef]] = None
     DeleteProtection: Optional[bool] = None
     SubnetChangeProtection: Optional[bool] = None
     FirewallPolicyChangeProtection: Optional[bool] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     EnabledAnalysisTypes: Optional[List[EnabledAnalysisTypeType]] = None
-    TransitGatewayId: Optional[str] = None
+    TransitGatewayId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "TransitGatewayId")]] = None
     AvailabilityZoneMappings: Optional[List[AvailabilityZoneMappingTypeDef]] = None
     AvailabilityZoneChangeProtection: Optional[bool] = None
 
 
 # This class is the input for the 'create_vpc_endpoint_association' function.
 class CreateVpcEndpointAssociationRequestTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    VpcId: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    VpcId: Annotated[str, _aws_pattern("NetworkFirewall", "VpcId")]
     SubnetMapping: SubnetMappingTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class FirewallPolicyResponseTypeDef(BaseValidatorModel):
-    FirewallPolicyName: str
-    FirewallPolicyArn: str
-    FirewallPolicyId: str
-    Description: Optional[str] = None
+    FirewallPolicyName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    FirewallPolicyArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallPolicyId: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceId")]
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     FirewallPolicyStatus: Optional[ResourceStatusType] = None
     Tags: Optional[List[TagTypeDef]] = None
     ConsumedStatelessRuleCapacity: Optional[int] = None
@@ -1055,22 +1059,22 @@ class FirewallPolicyResponseTypeDef(BaseValidatorModel):
 
 
 class FirewallTypeDef(BaseValidatorModel):
-    FirewallPolicyArn: str
-    VpcId: str
+    FirewallPolicyArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    VpcId: Annotated[str, _aws_pattern("NetworkFirewall", "VpcId")]
     SubnetMappings: List[SubnetMappingTypeDef]
-    FirewallId: str
-    FirewallName: Optional[str] = None
-    FirewallArn: Optional[str] = None
+    FirewallId: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceId")]
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     DeleteProtection: Optional[bool] = None
     SubnetChangeProtection: Optional[bool] = None
     FirewallPolicyChangeProtection: Optional[bool] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     NumberOfAssociations: Optional[int] = None
     EnabledAnalysisTypes: Optional[List[EnabledAnalysisTypeType]] = None
-    TransitGatewayId: Optional[str] = None
-    TransitGatewayOwnerAccountId: Optional[str] = None
+    TransitGatewayId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "TransitGatewayId")]] = None
+    TransitGatewayOwnerAccountId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "AWSAccountId")]] = None
     AvailabilityZoneMappings: Optional[List[AvailabilityZoneMappingTypeDef]] = None
     AvailabilityZoneChangeProtection: Optional[bool] = None
 
@@ -1079,49 +1083,49 @@ class FirewallTypeDef(BaseValidatorModel):
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     Tags: List[TagTypeDef]
 
 
 class VpcEndpointAssociationTypeDef(BaseValidatorModel):
-    VpcEndpointAssociationArn: str
-    FirewallArn: str
-    VpcId: str
+    VpcEndpointAssociationArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    VpcId: Annotated[str, _aws_pattern("NetworkFirewall", "VpcId")]
     SubnetMapping: SubnetMappingTypeDef
-    VpcEndpointAssociationId: Optional[str] = None
-    Description: Optional[str] = None
+    VpcEndpointAssociationId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_proxy_configuration' function.
 class CreateProxyConfigurationRequestTypeDef(BaseValidatorModel):
-    ProxyConfigurationName: str
+    ProxyConfigurationName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     DefaultRulePhaseActions: ProxyConfigDefaultRulePhaseActionsRequestTypeDef
-    Description: Optional[str] = None
-    RuleGroupNames: Optional[List[str]] = None
-    RuleGroupArns: Optional[List[str]] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
+    RuleGroupNames: Optional[List[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]]] = None
+    RuleGroupArns: Optional[List[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_proxy_configuration' function.
 class UpdateProxyConfigurationRequestTypeDef(BaseValidatorModel):
     DefaultRulePhaseActions: ProxyConfigDefaultRulePhaseActionsRequestTypeDef
-    UpdateToken: str
-    ProxyConfigurationName: Optional[str] = None
-    ProxyConfigurationArn: Optional[str] = None
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    ProxyConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'create_proxy' function.
 class CreateProxyRequestTypeDef(BaseValidatorModel):
-    ProxyName: str
+    ProxyName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     NatGatewayId: str
     TlsInterceptProperties: TlsInterceptPropertiesRequestTypeDef
-    ProxyConfigurationName: Optional[str] = None
-    ProxyConfigurationArn: Optional[str] = None
+    ProxyConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     ListenerProperties: Optional[List[ListenerPropertyRequestTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -1129,19 +1133,19 @@ class CreateProxyRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_proxy' function.
 class UpdateProxyRequestTypeDef(BaseValidatorModel):
     NatGatewayId: str
-    UpdateToken: str
-    ProxyName: Optional[str] = None
-    ProxyArn: Optional[str] = None
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    ProxyName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     ListenerPropertiesToAdd: Optional[List[ListenerPropertyRequestTypeDef]] = None
     ListenerPropertiesToRemove: Optional[List[ListenerPropertyRequestTypeDef]] = None
     TlsInterceptProperties: Optional[TlsInterceptPropertiesRequestTypeDef] = None
 
 
 class DescribeProxyResourceTypeDef(BaseValidatorModel):
-    ProxyName: Optional[str] = None
-    ProxyArn: Optional[str] = None
-    ProxyConfigurationName: Optional[str] = None
-    ProxyConfigurationArn: Optional[str] = None
+    ProxyName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    ProxyConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     NatGatewayId: Optional[str] = None
     ProxyState: Optional[ProxyStateType] = None
     ProxyModifyState: Optional[ProxyModifyStateType] = None
@@ -1166,10 +1170,10 @@ class ProxyTypeDef(BaseValidatorModel):
     ProxyState: Optional[ProxyStateType] = None
     ProxyModifyState: Optional[ProxyModifyStateType] = None
     NatGatewayId: Optional[str] = None
-    ProxyConfigurationName: Optional[str] = None
-    ProxyConfigurationArn: Optional[str] = None
-    ProxyName: Optional[str] = None
-    ProxyArn: Optional[str] = None
+    ProxyConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    ProxyName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     ListenerProperties: Optional[List[ListenerPropertyTypeDef]] = None
     TlsInterceptProperties: Optional[TlsInterceptPropertiesTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -1177,9 +1181,9 @@ class ProxyTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_rule_group_metadata' function.
 class DescribeRuleGroupMetadataResponseTypeDef(BaseValidatorModel):
-    RuleGroupArn: str
-    RuleGroupName: str
-    Description: str
+    RuleGroupArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    RuleGroupName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    Description: Annotated[str, _aws_pattern("NetworkFirewall", "Description")]
     Type: RuleGroupTypeType
     Capacity: int
     StatefulRuleOptions: StatefulRuleOptionsTypeDef
@@ -1202,21 +1206,21 @@ class PublishMetricActionTypeDef(BaseValidatorModel):
 class ListFirewallsResponseTypeDef(BaseValidatorModel):
     Firewalls: List[FirewallMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_firewall_policies' function.
 class ListFirewallPoliciesResponseTypeDef(BaseValidatorModel):
     FirewallPolicies: List[FirewallPolicyMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_flow_operations' function.
 class ListFlowOperationsResponseTypeDef(BaseValidatorModel):
     FlowOperations: List[FlowOperationMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 class StatefulEngineOptionsTypeDef(BaseValidatorModel):
@@ -1319,42 +1323,42 @@ class PolicyVariablesTypeDef(BaseValidatorModel):
 class ListProxiesResponseTypeDef(BaseValidatorModel):
     Proxies: List[ProxyMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_proxy_configurations' function.
 class ListProxyConfigurationsResponseTypeDef(BaseValidatorModel):
     ProxyConfigurations: List[ProxyConfigurationMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_proxy_rule_groups' function.
 class ListProxyRuleGroupsResponseTypeDef(BaseValidatorModel):
     ProxyRuleGroups: List[ProxyRuleGroupMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_rule_groups' function.
 class ListRuleGroupsResponseTypeDef(BaseValidatorModel):
     RuleGroups: List[RuleGroupMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_tls_inspection_configurations' function.
 class ListTLSInspectionConfigurationsResponseTypeDef(BaseValidatorModel):
     TLSInspectionConfigurations: List[TLSInspectionConfigurationMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_vpc_endpoint_associations' function.
 class ListVpcEndpointAssociationsResponseTypeDef(BaseValidatorModel):
     VpcEndpointAssociations: List[VpcEndpointAssociationMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 class LoggingConfigurationOutputTypeDef(BaseValidatorModel):
@@ -1415,9 +1419,9 @@ class RuleVariablesTypeDef(BaseValidatorModel):
 
 
 class ProxyConfigurationTypeDef(BaseValidatorModel):
-    ProxyConfigurationName: Optional[str] = None
-    ProxyConfigurationArn: Optional[str] = None
-    Description: Optional[str] = None
+    ProxyConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     CreateTime: Optional[datetime] = None
     DeleteTime: Optional[datetime] = None
     RuleGroups: Optional[List[ProxyConfigRuleGroupTypeDef]] = None
@@ -1436,8 +1440,8 @@ ProxyRuleConditionUnionTypeDef = Union[ProxyRuleConditionOutputTypeDef, ProxyRul
 
 
 class ProxyRuleTypeDef(BaseValidatorModel):
-    ProxyRuleName: Optional[str] = None
-    Description: Optional[str] = None
+    ProxyRuleName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Action: Optional[ProxyRulePhaseActionType] = None
     Conditions: Optional[List[ProxyRuleConditionTypeDef]] = None
 
@@ -1445,42 +1449,42 @@ class ProxyRuleTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_proxy_rule_group_priorities' function.
 class UpdateProxyRuleGroupPrioritiesResponseTypeDef(BaseValidatorModel):
     ProxyRuleGroups: List[ProxyRuleGroupPriorityResultTypeDef]
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_proxy_rule_group_priorities' function.
 class UpdateProxyRuleGroupPrioritiesRequestTypeDef(BaseValidatorModel):
     RuleGroups: List[ProxyRuleGroupPriorityTypeDef]
-    UpdateToken: str
-    ProxyConfigurationName: Optional[str] = None
-    ProxyConfigurationArn: Optional[str] = None
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    ProxyConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the input for the 'update_proxy_rule_priorities' function.
 class UpdateProxyRulePrioritiesRequestTypeDef(BaseValidatorModel):
     RuleGroupRequestPhase: RuleGroupRequestPhaseType
     Rules: List[ProxyRulePriorityTypeDef]
-    UpdateToken: str
-    ProxyRuleGroupName: Optional[str] = None
-    ProxyRuleGroupArn: Optional[str] = None
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyRuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
 
 
 # This class is the output for the 'update_proxy_rule_priorities' function.
 class UpdateProxyRulePrioritiesResponseTypeDef(BaseValidatorModel):
-    ProxyRuleGroupName: str
-    ProxyRuleGroupArn: str
+    ProxyRuleGroupName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    ProxyRuleGroupArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     RuleGroupRequestPhase: RuleGroupRequestPhaseType
     Rules: List[ProxyRulePriorityTypeDef]
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class RuleGroupResponseTypeDef(BaseValidatorModel):
-    RuleGroupArn: str
-    RuleGroupName: str
-    RuleGroupId: str
-    Description: Optional[str] = None
+    RuleGroupArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    RuleGroupName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    RuleGroupId: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceId")]
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Type: Optional[RuleGroupTypeType] = None
     Capacity: Optional[int] = None
     RuleGroupStatus: Optional[ResourceStatusType] = None
@@ -1489,7 +1493,7 @@ class RuleGroupResponseTypeDef(BaseValidatorModel):
     NumberOfAssociations: Optional[int] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     SourceMetadata: Optional[SourceMetadataTypeDef] = None
-    SnsTopic: Optional[str] = None
+    SnsTopic: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     LastModifiedTime: Optional[datetime] = None
     AnalysisResults: Optional[List[AnalysisResultTypeDef]] = None
     SummaryConfiguration: Optional[SummaryConfigurationOutputTypeDef] = None
@@ -1512,7 +1516,7 @@ class SummaryTypeDef(BaseValidatorModel):
 
 
 class StatefulRuleGroupReferenceTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     Priority: Optional[int] = None
     Override: Optional[StatefulRuleGroupOverrideTypeDef] = None
     DeepThreatInspection: Optional[bool] = None
@@ -1522,11 +1526,11 @@ SummaryConfigurationUnionTypeDef = Union[SummaryConfigurationOutputTypeDef, Summ
 
 
 class TLSInspectionConfigurationResponseTypeDef(BaseValidatorModel):
-    TLSInspectionConfigurationArn: str
-    TLSInspectionConfigurationName: str
-    TLSInspectionConfigurationId: str
+    TLSInspectionConfigurationArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    TLSInspectionConfigurationName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    TLSInspectionConfigurationId: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceId")]
     TLSInspectionConfigurationStatus: Optional[ResourceStatusType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     LastModifiedTime: Optional[datetime] = None
     NumberOfAssociations: Optional[int] = None
@@ -1550,17 +1554,17 @@ FlowFilterUnionTypeDef = Union[FlowFilterOutputTypeDef, FlowFilterTypeDef]
 
 # This class is the output for the 'list_flow_operation_results' function.
 class ListFlowOperationResultsResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     AvailabilityZone: str
-    VpcEndpointAssociationArn: str
-    VpcEndpointId: str
-    FlowOperationId: str
+    VpcEndpointAssociationArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    VpcEndpointId: Annotated[str, _aws_pattern("NetworkFirewall", "VpcEndpointId")]
+    FlowOperationId: Annotated[str, _aws_pattern("NetworkFirewall", "FlowOperationId")]
     FlowOperationStatus: FlowOperationStatusType
-    StatusMessage: str
+    StatusMessage: Annotated[str, _aws_pattern("NetworkFirewall", "StatusReason")]
     FlowRequestTimestamp: datetime
     Flows: List[FlowTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "PaginationToken")]] = None
 
 
 # This class is the output for the 'get_analysis_report_results' function.
@@ -1581,7 +1585,7 @@ class CapacityUsageSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_firewall_policy' function.
 class CreateFirewallPolicyResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     FirewallPolicyResponse: FirewallPolicyResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1594,7 +1598,7 @@ class DeleteFirewallPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_firewall_policy' function.
 class UpdateFirewallPolicyResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     FirewallPolicyResponse: FirewallPolicyResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1602,21 +1606,21 @@ class UpdateFirewallPolicyResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_proxy' function.
 class DescribeProxyResponseTypeDef(BaseValidatorModel):
     Proxy: DescribeProxyResourceTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_proxy' function.
 class CreateProxyResponseTypeDef(BaseValidatorModel):
     Proxy: ProxyTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_proxy' function.
 class UpdateProxyResponseTypeDef(BaseValidatorModel):
     Proxy: ProxyTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1630,7 +1634,7 @@ class ActionDefinitionTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_logging_configuration' function.
 class DescribeLoggingConfigurationResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     LoggingConfiguration: LoggingConfigurationOutputTypeDef
     EnableMonitoringDashboard: bool
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1638,8 +1642,8 @@ class DescribeLoggingConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_logging_configuration' function.
 class UpdateLoggingConfigurationResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
-    FirewallName: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    FirewallName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     LoggingConfiguration: LoggingConfigurationOutputTypeDef
     EnableMonitoringDashboard: bool
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1658,7 +1662,7 @@ class ServerCertificateConfigurationOutputTypeDef(BaseValidatorModel):
 class ServerCertificateConfigurationTypeDef(BaseValidatorModel):
     ServerCertificates: Optional[List[ServerCertificateTypeDef]] = None
     Scopes: Optional[List[ServerCertificateScopeTypeDef]] = None
-    CertificateAuthorityArn: Optional[str] = None
+    CertificateAuthorityArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     CheckCertificateRevocationStatus: Optional[CheckCertificateRevocationStatusActionsTypeDef] = None
 
 
@@ -1675,42 +1679,42 @@ class RuleDefinitionTypeDef(BaseValidatorModel):
 # This class is the output for the 'attach_rule_groups_to_proxy_configuration' function.
 class AttachRuleGroupsToProxyConfigurationResponseTypeDef(BaseValidatorModel):
     ProxyConfiguration: ProxyConfigurationTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_proxy_configuration' function.
 class CreateProxyConfigurationResponseTypeDef(BaseValidatorModel):
     ProxyConfiguration: ProxyConfigurationTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_proxy_configuration' function.
 class DescribeProxyConfigurationResponseTypeDef(BaseValidatorModel):
     ProxyConfiguration: ProxyConfigurationTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'detach_rule_groups_from_proxy_configuration' function.
 class DetachRuleGroupsFromProxyConfigurationResponseTypeDef(BaseValidatorModel):
     ProxyConfiguration: ProxyConfigurationTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_proxy_configuration' function.
 class UpdateProxyConfigurationResponseTypeDef(BaseValidatorModel):
     ProxyConfiguration: ProxyConfigurationTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_proxy_rule' function.
 class DescribeProxyRuleResponseTypeDef(BaseValidatorModel):
     ProxyRule: ProxyRuleOutputTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1724,13 +1728,13 @@ class ProxyRulesByRequestPhaseOutputTypeDef(BaseValidatorModel):
 class UpdateProxyRuleResponseTypeDef(BaseValidatorModel):
     ProxyRule: ProxyRuleOutputTypeDef
     RemovedConditions: List[ProxyRuleConditionOutputTypeDef]
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class CreateProxyRuleTypeDef(BaseValidatorModel):
-    ProxyRuleName: Optional[str] = None
-    Description: Optional[str] = None
+    ProxyRuleName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Action: Optional[ProxyRulePhaseActionType] = None
     Conditions: Optional[List[ProxyRuleConditionUnionTypeDef]] = None
     InsertPosition: Optional[int] = None
@@ -1738,11 +1742,11 @@ class CreateProxyRuleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_proxy_rule' function.
 class UpdateProxyRuleRequestTypeDef(BaseValidatorModel):
-    ProxyRuleName: str
-    UpdateToken: str
-    ProxyRuleGroupName: Optional[str] = None
-    ProxyRuleGroupArn: Optional[str] = None
-    Description: Optional[str] = None
+    ProxyRuleName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyRuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Action: Optional[ProxyRulePhaseActionType] = None
     AddConditions: Optional[List[ProxyRuleConditionUnionTypeDef]] = None
     RemoveConditions: Optional[List[ProxyRuleConditionUnionTypeDef]] = None
@@ -1756,7 +1760,7 @@ class ProxyRulesByRequestPhaseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_rule_group' function.
 class CreateRuleGroupResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     RuleGroupResponse: RuleGroupResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1769,22 +1773,22 @@ class DeleteRuleGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_rule_group' function.
 class UpdateRuleGroupResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     RuleGroupResponse: RuleGroupResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_rule_group_summary' function.
 class DescribeRuleGroupSummaryResponseTypeDef(BaseValidatorModel):
-    RuleGroupName: str
-    Description: str
+    RuleGroupName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    Description: Annotated[str, _aws_pattern("NetworkFirewall", "Description")]
     Summary: SummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_tls_inspection_configuration' function.
 class CreateTLSInspectionConfigurationResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1797,7 +1801,7 @@ class DeleteTLSInspectionConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_tls_inspection_configuration' function.
 class UpdateTLSInspectionConfigurationResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1825,14 +1829,14 @@ class DescribeVpcEndpointAssociationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_flow_operation' function.
 class DescribeFlowOperationResponseTypeDef(BaseValidatorModel):
-    FirewallArn: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     AvailabilityZone: str
-    VpcEndpointAssociationArn: str
-    VpcEndpointId: str
-    FlowOperationId: str
+    VpcEndpointAssociationArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
+    VpcEndpointId: Annotated[str, _aws_pattern("NetworkFirewall", "VpcEndpointId")]
+    FlowOperationId: Annotated[str, _aws_pattern("NetworkFirewall", "FlowOperationId")]
     FlowOperationType: FlowOperationTypeType
     FlowOperationStatus: FlowOperationStatusType
-    StatusMessage: str
+    StatusMessage: Annotated[str, _aws_pattern("NetworkFirewall", "StatusReason")]
     FlowRequestTimestamp: datetime
     FlowOperation: FlowOperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1840,21 +1844,21 @@ class DescribeFlowOperationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_flow_capture' function.
 class StartFlowCaptureRequestTypeDef(BaseValidatorModel):
-    FirewallArn: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     FlowFilters: List[FlowFilterUnionTypeDef]
     AvailabilityZone: Optional[str] = None
-    VpcEndpointAssociationArn: Optional[str] = None
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointAssociationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "VpcEndpointId")]] = None
     MinimumFlowAgeInSeconds: Optional[int] = None
 
 
 # This class is the input for the 'start_flow_flush' function.
 class StartFlowFlushRequestTypeDef(BaseValidatorModel):
-    FirewallArn: str
+    FirewallArn: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]
     FlowFilters: List[FlowFilterUnionTypeDef]
     AvailabilityZone: Optional[str] = None
-    VpcEndpointAssociationArn: Optional[str] = None
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointAssociationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "VpcEndpointId")]] = None
     MinimumFlowAgeInSeconds: Optional[int] = None
 
 
@@ -1872,14 +1876,14 @@ class CustomActionOutputTypeDef(BaseValidatorModel):
 
 
 class CustomActionTypeDef(BaseValidatorModel):
-    ActionName: str
+    ActionName: Annotated[str, _aws_pattern("NetworkFirewall", "ActionName")]
     ActionDefinition: ActionDefinitionTypeDef
 
 
 # This class is the input for the 'update_logging_configuration' function.
 class UpdateLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    FirewallArn: Optional[str] = None
-    FirewallName: Optional[str] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
     LoggingConfiguration: Optional[LoggingConfigurationUnionTypeDef] = None
     EnableMonitoringDashboard: Optional[bool] = None
 
@@ -1903,12 +1907,12 @@ class StatelessRuleTypeDef(BaseValidatorModel):
 
 
 class ProxyRuleGroupTypeDef(BaseValidatorModel):
-    ProxyRuleGroupName: Optional[str] = None
-    ProxyRuleGroupArn: Optional[str] = None
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    ProxyRuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     CreateTime: Optional[datetime] = None
     DeleteTime: Optional[datetime] = None
     Rules: Optional[ProxyRulesByRequestPhaseOutputTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1937,7 +1941,7 @@ class DeleteFirewallResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_firewall' function.
 class DescribeFirewallResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     Firewall: FirewallTypeDef
     FirewallStatus: FirewallStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1964,14 +1968,14 @@ class FirewallPolicyTypeDef(BaseValidatorModel):
     StatefulRuleGroupReferences: Optional[List[StatefulRuleGroupReferenceTypeDef]] = None
     StatefulDefaultActions: Optional[List[str]] = None
     StatefulEngineOptions: Optional[StatefulEngineOptionsTypeDef] = None
-    TLSInspectionConfigurationArn: Optional[str] = None
+    TLSInspectionConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
     PolicyVariables: Optional[PolicyVariablesTypeDef] = None
     EnableTLSSessionHolding: Optional[bool] = None
 
 
 # This class is the output for the 'describe_tls_inspection_configuration' function.
 class DescribeTLSInspectionConfigurationResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     TLSInspectionConfiguration: TLSInspectionConfigurationOutputTypeDef
     TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1995,14 +1999,14 @@ class StatelessRulesAndCustomActionsTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_proxy_rule_group' function.
 class CreateProxyRuleGroupResponseTypeDef(BaseValidatorModel):
     ProxyRuleGroup: ProxyRuleGroupTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_proxy_rules' function.
 class CreateProxyRulesResponseTypeDef(BaseValidatorModel):
     ProxyRuleGroup: ProxyRuleGroupTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -2015,28 +2019,28 @@ class DeleteProxyRulesResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_proxy_rule_group' function.
 class DescribeProxyRuleGroupResponseTypeDef(BaseValidatorModel):
     ProxyRuleGroup: ProxyRuleGroupTypeDef
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_proxy_rules' function.
 class CreateProxyRulesRequestTypeDef(BaseValidatorModel):
     Rules: CreateProxyRulesByRequestPhaseTypeDef
-    ProxyRuleGroupArn: Optional[str] = None
-    ProxyRuleGroupName: Optional[str] = None
+    ProxyRuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    ProxyRuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
 
 
 # This class is the input for the 'create_proxy_rule_group' function.
 class CreateProxyRuleGroupRequestTypeDef(BaseValidatorModel):
-    ProxyRuleGroupName: str
-    Description: Optional[str] = None
+    ProxyRuleGroupName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Rules: Optional[ProxyRulesByRequestPhaseUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'describe_firewall_policy' function.
 class DescribeFirewallPolicyResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     FirewallPolicyResponse: FirewallPolicyResponseTypeDef
     FirewallPolicy: FirewallPolicyOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2047,9 +2051,9 @@ FirewallPolicyUnionTypeDef = Union[FirewallPolicyOutputTypeDef, FirewallPolicyTy
 
 # This class is the input for the 'create_tls_inspection_configuration' function.
 class CreateTLSInspectionConfigurationRequestTypeDef(BaseValidatorModel):
-    TLSInspectionConfigurationName: str
+    TLSInspectionConfigurationName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     TLSInspectionConfiguration: TLSInspectionConfigurationUnionTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
@@ -2057,10 +2061,10 @@ class CreateTLSInspectionConfigurationRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_tls_inspection_configuration' function.
 class UpdateTLSInspectionConfigurationRequestTypeDef(BaseValidatorModel):
     TLSInspectionConfiguration: TLSInspectionConfigurationUnionTypeDef
-    UpdateToken: str
-    TLSInspectionConfigurationArn: Optional[str] = None
-    TLSInspectionConfigurationName: Optional[str] = None
-    Description: Optional[str] = None
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    TLSInspectionConfigurationArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    TLSInspectionConfigurationName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
 
@@ -2080,9 +2084,9 @@ class RulesSourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_firewall_policy' function.
 class CreateFirewallPolicyRequestTypeDef(BaseValidatorModel):
-    FirewallPolicyName: str
+    FirewallPolicyName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     FirewallPolicy: FirewallPolicyUnionTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     DryRun: Optional[bool] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
@@ -2090,11 +2094,11 @@ class CreateFirewallPolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_firewall_policy' function.
 class UpdateFirewallPolicyRequestTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     FirewallPolicy: FirewallPolicyUnionTypeDef
-    FirewallPolicyArn: Optional[str] = None
-    FirewallPolicyName: Optional[str] = None
-    Description: Optional[str] = None
+    FirewallPolicyArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    FirewallPolicyName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     DryRun: Optional[bool] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
@@ -2115,7 +2119,7 @@ class RuleGroupTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_rule_group' function.
 class DescribeRuleGroupResponseTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
     RuleGroup: RuleGroupOutputTypeDef
     RuleGroupResponse: RuleGroupResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2126,12 +2130,12 @@ RuleGroupUnionTypeDef = Union[RuleGroupOutputTypeDef, RuleGroupTypeDef]
 
 # This class is the input for the 'create_rule_group' function.
 class CreateRuleGroupRequestTypeDef(BaseValidatorModel):
-    RuleGroupName: str
+    RuleGroupName: Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]
     Type: RuleGroupTypeType
     Capacity: int
     RuleGroup: Optional[RuleGroupUnionTypeDef] = None
     Rules: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     DryRun: Optional[bool] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
@@ -2142,13 +2146,13 @@ class CreateRuleGroupRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_rule_group' function.
 class UpdateRuleGroupRequestTypeDef(BaseValidatorModel):
-    UpdateToken: str
-    RuleGroupArn: Optional[str] = None
-    RuleGroupName: Optional[str] = None
+    UpdateToken: Annotated[str, _aws_pattern("NetworkFirewall", "UpdateToken")]
+    RuleGroupArn: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceArn")]] = None
+    RuleGroupName: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "ResourceName")]] = None
     RuleGroup: Optional[RuleGroupUnionTypeDef] = None
     Rules: Optional[str] = None
     Type: Optional[RuleGroupTypeType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("NetworkFirewall", "Description")]] = None
     DryRun: Optional[bool] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     SourceMetadata: Optional[SourceMetadataTypeDef] = None

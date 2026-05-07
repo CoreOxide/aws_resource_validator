@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kendra.kendra_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class AccessControlConfigurationSummaryTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kendra", "AccessControlConfigurationId")]
 
 
 class AccessControlListConfigurationTypeDef(BaseValidatorModel):
@@ -47,13 +49,13 @@ class AccessControlListConfigurationTypeDef(BaseValidatorModel):
 
 
 class AclConfigurationTypeDef(BaseValidatorModel):
-    AllowedGroupsColumnName: str
+    AllowedGroupsColumnName: Annotated[str, _aws_pattern("Kendra", "ColumnName")]
 
 
 class DataSourceToIndexFieldMappingTypeDef(BaseValidatorModel):
-    DataSourceFieldName: str
-    IndexFieldName: str
-    DateFieldFormat: Optional[str] = None
+    DataSourceFieldName: Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]
+    IndexFieldName: Annotated[str, _aws_pattern("Kendra", "IndexFieldName")]
+    DateFieldFormat: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceDateFieldFormat")]] = None
 
 
 class DataSourceVpcConfigurationOutputTypeDef(BaseValidatorModel):
@@ -62,23 +64,23 @@ class DataSourceVpcConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class S3PathTypeDef(BaseValidatorModel):
-    Bucket: str
+    Bucket: Annotated[str, _aws_pattern("Kendra", "S3BucketName")]
     Key: str
 
 
 class DataSourceVpcConfigurationTypeDef(BaseValidatorModel):
-    SubnetIds: List[str]
-    SecurityGroupIds: List[str]
+    SubnetIds: List[Annotated[str, _aws_pattern("Kendra", "SubnetId")]]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Kendra", "VpcSecurityGroupId")]]
 
 
 class EntityConfigurationTypeDef(BaseValidatorModel):
-    EntityId: str
+    EntityId: Annotated[str, _aws_pattern("Kendra", "EntityId")]
     EntityType: EntityTypeType
 
 
 class FailedEntityTypeDef(BaseValidatorModel):
-    EntityId: Optional[str] = None
-    ErrorMessage: Optional[str] = None
+    EntityId: Optional[Annotated[str, _aws_pattern("Kendra", "EntityId")]] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -90,50 +92,50 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class EntityPersonaConfigurationTypeDef(BaseValidatorModel):
-    EntityId: str
+    EntityId: Annotated[str, _aws_pattern("Kendra", "EntityId")]
     Persona: PersonaType
 
 
 class SuggestableConfigTypeDef(BaseValidatorModel):
-    AttributeName: Optional[str] = None
+    AttributeName: Optional[Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]] = None
     Suggestable: Optional[bool] = None
 
 
 class BasicAuthenticationConfigurationTypeDef(BaseValidatorModel):
-    Host: str
+    Host: Annotated[str, _aws_pattern("Kendra", "Host")]
     Port: int
-    Credentials: str
+    Credentials: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
 
 
 class DataSourceSyncJobMetricTargetTypeDef(BaseValidatorModel):
-    DataSourceId: str
-    DataSourceSyncJobId: Optional[str] = None
+    DataSourceId: Annotated[str, _aws_pattern("Kendra", "DataSourceId")]
+    DataSourceSyncJobId: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceSyncJobId")]] = None
 
 
 class BatchDeleteDocumentResponseFailedDocumentTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    DataSourceId: Optional[str] = None
+    DataSourceId: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceId")]] = None
     ErrorCode: Optional[ErrorCodeType] = None
-    ErrorMessage: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]] = None
 
 
 class BatchDeleteFeaturedResultsSetErrorTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetId")]
     ErrorCode: ErrorCodeType
-    ErrorMessage: str
+    ErrorMessage: Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]
 
 
 # This class is the input for the 'batch_delete_featured_results_set' function.
 class BatchDeleteFeaturedResultsSetRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    FeaturedResultsSetIds: List[str]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    FeaturedResultsSetIds: List[Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetId")]]
 
 
 class BatchGetDocumentStatusResponseErrorTypeDef(BaseValidatorModel):
     DocumentId: Optional[str] = None
-    DataSourceId: Optional[str] = None
+    DataSourceId: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceId")]] = None
     ErrorCode: Optional[ErrorCodeType] = None
-    ErrorMessage: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]] = None
 
 
 class StatusTypeDef(BaseValidatorModel):
@@ -145,9 +147,9 @@ class StatusTypeDef(BaseValidatorModel):
 
 class BatchPutDocumentResponseFailedDocumentTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    DataSourceId: Optional[str] = None
+    DataSourceId: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceId")]] = None
     ErrorCode: Optional[ErrorCodeType] = None
-    ErrorMessage: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
@@ -160,7 +162,7 @@ class CapacityUnitsConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'clear_query_suggestions' function.
 class ClearQuerySuggestionsRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -172,46 +174,46 @@ class ExpandConfigurationTypeDef(BaseValidatorModel):
 
 
 class SortingConfigurationTypeDef(BaseValidatorModel):
-    DocumentAttributeKey: str
+    DocumentAttributeKey: Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]
     SortOrder: SortOrderType
 
 
 class ConfluenceAttachmentToIndexFieldMappingTypeDef(BaseValidatorModel):
     DataSourceFieldName: Optional[ConfluenceAttachmentFieldNameType] = None
-    DateFieldFormat: Optional[str] = None
-    IndexFieldName: Optional[str] = None
+    DateFieldFormat: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceDateFieldFormat")]] = None
+    IndexFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "IndexFieldName")]] = None
 
 
 class ConfluenceBlogToIndexFieldMappingTypeDef(BaseValidatorModel):
     DataSourceFieldName: Optional[ConfluenceBlogFieldNameType] = None
-    DateFieldFormat: Optional[str] = None
-    IndexFieldName: Optional[str] = None
+    DateFieldFormat: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceDateFieldFormat")]] = None
+    IndexFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "IndexFieldName")]] = None
 
 
 class ProxyConfigurationTypeDef(BaseValidatorModel):
-    Host: str
+    Host: Annotated[str, _aws_pattern("Kendra", "Host")]
     Port: int
-    Credentials: Optional[str] = None
+    Credentials: Optional[Annotated[str, _aws_pattern("Kendra", "SecretArn")]] = None
 
 
 class ConfluencePageToIndexFieldMappingTypeDef(BaseValidatorModel):
     DataSourceFieldName: Optional[ConfluencePageFieldNameType] = None
-    DateFieldFormat: Optional[str] = None
-    IndexFieldName: Optional[str] = None
+    DateFieldFormat: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceDateFieldFormat")]] = None
+    IndexFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "IndexFieldName")]] = None
 
 
 class ConfluenceSpaceToIndexFieldMappingTypeDef(BaseValidatorModel):
     DataSourceFieldName: Optional[ConfluenceSpaceFieldNameType] = None
-    DateFieldFormat: Optional[str] = None
-    IndexFieldName: Optional[str] = None
+    DateFieldFormat: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceDateFieldFormat")]] = None
+    IndexFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "IndexFieldName")]] = None
 
 
 class ConnectionConfigurationTypeDef(BaseValidatorModel):
     DatabaseHost: str
     DatabasePort: int
-    DatabaseName: str
-    TableName: str
-    SecretArn: str
+    DatabaseName: Annotated[str, _aws_pattern("Kendra", "DatabaseName")]
+    TableName: Annotated[str, _aws_pattern("Kendra", "TableName")]
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
 
 
 class ContentSourceConfigurationOutputTypeDef(BaseValidatorModel):
@@ -221,8 +223,8 @@ class ContentSourceConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class ContentSourceConfigurationTypeDef(BaseValidatorModel):
-    DataSourceIds: Optional[List[str]] = None
-    FaqIds: Optional[List[str]] = None
+    DataSourceIds: Optional[List[Annotated[str, _aws_pattern("Kendra", "DataSourceId")]]] = None
+    FaqIds: Optional[List[Annotated[str, _aws_pattern("Kendra", "FaqId")]]] = None
     DirectPutContent: Optional[bool] = None
 
 
@@ -234,10 +236,10 @@ class CorrectionTypeDef(BaseValidatorModel):
 
 
 class PrincipalTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Kendra", "PrincipalName")]
     Type: PrincipalTypeType
     Access: ReadAccessTypeType
-    DataSourceId: Optional[str] = None
+    DataSourceId: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceId")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -266,26 +268,26 @@ class TemplateConfigurationTypeDef(BaseValidatorModel):
 
 
 class DataSourceGroupTypeDef(BaseValidatorModel):
-    GroupId: str
-    DataSourceId: str
+    GroupId: Annotated[str, _aws_pattern("Kendra", "PrincipalName")]
+    DataSourceId: Annotated[str, _aws_pattern("Kendra", "DataSourceId")]
 
 
 class DataSourceSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Id: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceId")]] = None
     Type: Optional[DataSourceTypeType] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
     Status: Optional[DataSourceStatusType] = None
-    LanguageCode: Optional[str] = None
+    LanguageCode: Optional[Annotated[str, _aws_pattern("Kendra", "LanguageCode")]] = None
 
 
 class DataSourceSyncJobMetricsTypeDef(BaseValidatorModel):
-    DocumentsAdded: Optional[str] = None
-    DocumentsModified: Optional[str] = None
-    DocumentsDeleted: Optional[str] = None
-    DocumentsFailed: Optional[str] = None
-    DocumentsScanned: Optional[str] = None
+    DocumentsAdded: Optional[Annotated[str, _aws_pattern("Kendra", "MetricValue")]] = None
+    DocumentsModified: Optional[Annotated[str, _aws_pattern("Kendra", "MetricValue")]] = None
+    DocumentsDeleted: Optional[Annotated[str, _aws_pattern("Kendra", "MetricValue")]] = None
+    DocumentsFailed: Optional[Annotated[str, _aws_pattern("Kendra", "MetricValue")]] = None
+    DocumentsScanned: Optional[Annotated[str, _aws_pattern("Kendra", "MetricValue")]] = None
 
 
 class SqlConfigurationTypeDef(BaseValidatorModel):
@@ -293,85 +295,85 @@ class SqlConfigurationTypeDef(BaseValidatorModel):
 
 
 class DeleteAccessControlConfigurationRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    Id: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Id: Annotated[str, _aws_pattern("Kendra", "AccessControlConfigurationId")]
 
 
 # This class is the input for the 'delete_data_source' function.
 class DeleteDataSourceRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "DataSourceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 class DeleteExperienceRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ExperienceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 # This class is the input for the 'delete_faq' function.
 class DeleteFaqRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "FaqId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 # This class is the input for the 'delete_index' function.
 class DeleteIndexRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 # This class is the input for the 'delete_principal_mapping' function.
 class DeletePrincipalMappingRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    GroupId: str
-    DataSourceId: Optional[str] = None
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    GroupId: Annotated[str, _aws_pattern("Kendra", "GroupId")]
+    DataSourceId: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceId")]] = None
     OrderingId: Optional[int] = None
 
 
 # This class is the input for the 'delete_query_suggestions_block_list' function.
 class DeleteQuerySuggestionsBlockListRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    Id: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Id: Annotated[str, _aws_pattern("Kendra", "QuerySuggestionsBlockListId")]
 
 
 # This class is the input for the 'delete_thesaurus' function.
 class DeleteThesaurusRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ThesaurusId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 # This class is the input for the 'describe_access_control_configuration' function.
 class DescribeAccessControlConfigurationRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    Id: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Id: Annotated[str, _aws_pattern("Kendra", "AccessControlConfigurationId")]
 
 
 # This class is the input for the 'describe_data_source' function.
 class DescribeDataSourceRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "DataSourceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 # This class is the input for the 'describe_experience' function.
 class DescribeExperienceRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ExperienceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 class ExperienceEndpointTypeDef(BaseValidatorModel):
     EndpointType: Optional[Literal["HOME"]] = None
-    Endpoint: Optional[str] = None
+    Endpoint: Optional[Annotated[str, _aws_pattern("Kendra", "Endpoint")]] = None
 
 
 # This class is the input for the 'describe_faq' function.
 class DescribeFaqRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "FaqId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 # This class is the input for the 'describe_featured_results_set' function.
 class DescribeFeaturedResultsSetRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    FeaturedResultsSetId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    FeaturedResultsSetId: Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetId")]
 
 
 class FeaturedDocumentMissingTypeDef(BaseValidatorModel):
@@ -381,19 +383,19 @@ class FeaturedDocumentMissingTypeDef(BaseValidatorModel):
 class FeaturedDocumentWithMetadataTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Title: Optional[str] = None
-    URI: Optional[str] = None
+    URI: Optional[Annotated[str, _aws_pattern("Kendra", "Url")]] = None
 
 
 # This class is the input for the 'describe_index' function.
 class DescribeIndexRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 # This class is the input for the 'describe_principal_mapping' function.
 class DescribePrincipalMappingRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    GroupId: str
-    DataSourceId: Optional[str] = None
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    GroupId: Annotated[str, _aws_pattern("Kendra", "GroupId")]
+    DataSourceId: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceId")]] = None
 
 
 class GroupOrderingIdSummaryTypeDef(BaseValidatorModel):
@@ -401,31 +403,31 @@ class GroupOrderingIdSummaryTypeDef(BaseValidatorModel):
     LastUpdatedAt: Optional[datetime] = None
     ReceivedAt: Optional[datetime] = None
     OrderingId: Optional[int] = None
-    FailureReason: Optional[str] = None
+    FailureReason: Optional[Annotated[str, _aws_pattern("Kendra", "FailureReason")]] = None
 
 
 # This class is the input for the 'describe_query_suggestions_block_list' function.
 class DescribeQuerySuggestionsBlockListRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    Id: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Id: Annotated[str, _aws_pattern("Kendra", "QuerySuggestionsBlockListId")]
 
 
 # This class is the input for the 'describe_query_suggestions_config' function.
 class DescribeQuerySuggestionsConfigRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 # This class is the input for the 'describe_thesaurus' function.
 class DescribeThesaurusRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ThesaurusId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 # This class is the input for the 'disassociate_personas_from_entities' function.
 class DisassociatePersonasFromEntitiesRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
-    EntityIds: List[str]
+    Id: Annotated[str, _aws_pattern("Kendra", "ExperienceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    EntityIds: List[Annotated[str, _aws_pattern("Kendra", "EntityId")]]
 
 
 class DocumentAttributeValueOutputTypeDef(BaseValidatorModel):
@@ -455,19 +457,19 @@ class DocumentsMetadataConfigurationTypeDef(BaseValidatorModel):
 
 
 class EntityDisplayDataTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
-    GroupName: Optional[str] = None
-    IdentifiedUserName: Optional[str] = None
-    FirstName: Optional[str] = None
-    LastName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Kendra", "NameType")]] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Kendra", "NameType")]] = None
+    IdentifiedUserName: Optional[Annotated[str, _aws_pattern("Kendra", "NameType")]] = None
+    FirstName: Optional[Annotated[str, _aws_pattern("Kendra", "NameType")]] = None
+    LastName: Optional[Annotated[str, _aws_pattern("Kendra", "NameType")]] = None
 
 
 class UserIdentityConfigurationTypeDef(BaseValidatorModel):
-    IdentityAttributeName: Optional[str] = None
+    IdentityAttributeName: Optional[Annotated[str, _aws_pattern("Kendra", "IdentityAttributeName")]] = None
 
 
 class FacetTypeDef(BaseValidatorModel):
-    DocumentAttributeKey: Optional[str] = None
+    DocumentAttributeKey: Optional[Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]] = None
     Facets: Optional[List[Dict[str, Any]]] = None
     MaxResults: Optional[int] = None
 
@@ -477,18 +479,18 @@ class FaqStatisticsTypeDef(BaseValidatorModel):
 
 
 class FaqSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Kendra", "FaqId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "FaqName")]] = None
     Status: Optional[FaqStatusType] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
     FileFormat: Optional[FaqFileFormatType] = None
-    LanguageCode: Optional[str] = None
+    LanguageCode: Optional[Annotated[str, _aws_pattern("Kendra", "LanguageCode")]] = None
 
 
 class FeaturedResultsSetSummaryTypeDef(BaseValidatorModel):
-    FeaturedResultsSetId: Optional[str] = None
-    FeaturedResultsSetName: Optional[str] = None
+    FeaturedResultsSetId: Optional[Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetId")]] = None
+    FeaturedResultsSetName: Optional[Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetName")]] = None
     Status: Optional[FeaturedResultsSetStatusType] = None
     LastUpdatedTimestamp: Optional[int] = None
     CreationTimestamp: Optional[int] = None
@@ -496,7 +498,7 @@ class FeaturedResultsSetSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_snapshots' function.
 class GetSnapshotsRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     Interval: IntervalType
     MetricType: MetricTypeType
     NextToken: Optional[str] = None
@@ -519,21 +521,21 @@ class GitHubDocumentCrawlPropertiesTypeDef(BaseValidatorModel):
 
 
 class SaaSConfigurationTypeDef(BaseValidatorModel):
-    OrganizationName: str
-    HostUrl: str
+    OrganizationName: Annotated[str, _aws_pattern("Kendra", "OrganizationName")]
+    HostUrl: Annotated[str, _aws_pattern("Kendra", "Url")]
 
 
 class MemberGroupTypeDef(BaseValidatorModel):
-    GroupId: str
-    DataSourceId: Optional[str] = None
+    GroupId: Annotated[str, _aws_pattern("Kendra", "GroupId")]
+    DataSourceId: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceId")]] = None
 
 
 class MemberUserTypeDef(BaseValidatorModel):
-    UserId: str
+    UserId: Annotated[str, _aws_pattern("Kendra", "UserId")]
 
 
 class GroupSummaryTypeDef(BaseValidatorModel):
-    GroupId: Optional[str] = None
+    GroupId: Optional[Annotated[str, _aws_pattern("Kendra", "GroupId")]] = None
     OrderingId: Optional[int] = None
 
 
@@ -548,8 +550,8 @@ class IndexConfigurationSummaryTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     UpdatedAt: datetime
     Status: IndexStatusType
-    Name: Optional[str] = None
-    Id: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "IndexName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Kendra", "IndexId")]] = None
     Edition: Optional[IndexEditionType] = None
 
 
@@ -565,38 +567,38 @@ class JsonTokenTypeConfigurationTypeDef(BaseValidatorModel):
 
 class JwtTokenTypeConfigurationTypeDef(BaseValidatorModel):
     KeyLocation: KeyLocationType
-    URL: Optional[str] = None
-    SecretManagerArn: Optional[str] = None
-    UserNameAttributeField: Optional[str] = None
-    GroupAttributeField: Optional[str] = None
-    Issuer: Optional[str] = None
-    ClaimRegex: Optional[str] = None
+    URL: Optional[Annotated[str, _aws_pattern("Kendra", "Url")]] = None
+    SecretManagerArn: Optional[Annotated[str, _aws_pattern("Kendra", "RoleArn")]] = None
+    UserNameAttributeField: Optional[Annotated[str, _aws_pattern("Kendra", "UserNameAttributeField")]] = None
+    GroupAttributeField: Optional[Annotated[str, _aws_pattern("Kendra", "GroupAttributeField")]] = None
+    Issuer: Optional[Annotated[str, _aws_pattern("Kendra", "Issuer")]] = None
+    ClaimRegex: Optional[Annotated[str, _aws_pattern("Kendra", "ClaimRegex")]] = None
 
 
 # This class is the input for the 'list_access_control_configurations' function.
 class ListAccessControlConfigurationsRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_data_sources' function.
 class ListDataSourcesRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_entity_personas' function.
 class ListEntityPersonasRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ExperienceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class PersonasSummaryTypeDef(BaseValidatorModel):
-    EntityId: Optional[str] = None
+    EntityId: Optional[Annotated[str, _aws_pattern("Kendra", "EntityId")]] = None
     Persona: Optional[PersonaType] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
@@ -604,37 +606,37 @@ class PersonasSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_experience_entities' function.
 class ListExperienceEntitiesRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ExperienceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_experiences' function.
 class ListExperiencesRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_faqs' function.
 class ListFaqsRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_featured_results_sets' function.
 class ListFeaturedResultsSetsRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_groups_older_than_ordering_id' function.
 class ListGroupsOlderThanOrderingIdRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     OrderingId: int
-    DataSourceId: Optional[str] = None
+    DataSourceId: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceId")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -647,14 +649,14 @@ class ListIndicesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_query_suggestions_block_lists' function.
 class ListQuerySuggestionsBlockListsRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class QuerySuggestionsBlockListSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Kendra", "QuerySuggestionsBlockListId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "QuerySuggestionsBlockListName")]] = None
     Status: Optional[QuerySuggestionsBlockListStatusType] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
@@ -668,14 +670,14 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_thesauri' function.
 class ListThesauriRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class ThesaurusSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Kendra", "ThesaurusId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "ThesaurusName")]] = None
     Status: Optional[ThesaurusStatusType] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
@@ -690,7 +692,7 @@ class ScoreAttributesTypeDef(BaseValidatorModel):
 
 
 class WarningTypeDef(BaseValidatorModel):
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Kendra", "WarningMessage")]] = None
     Code: Optional[Literal["QUERY_LANGUAGE_INVALID_SYNTAX"]] = None
 
 
@@ -702,7 +704,7 @@ class RelevanceFeedbackTypeDef(BaseValidatorModel):
 class RelevanceTypeDef(BaseValidatorModel):
     Freshness: Optional[bool] = None
     Importance: Optional[int] = None
-    Duration: Optional[str] = None
+    Duration: Optional[Annotated[str, _aws_pattern("Kendra", "Duration")]] = None
     RankOrder: Optional[OrderType] = None
     ValueImportanceMap: Optional[Dict[str, int]] = None
 
@@ -713,7 +715,7 @@ class SeedUrlConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class SeedUrlConfigurationTypeDef(BaseValidatorModel):
-    SeedUrls: List[str]
+    SeedUrls: List[Annotated[str, _aws_pattern("Kendra", "SeedUrl")]]
     WebCrawlerMode: Optional[WebCrawlerModeType] = None
 
 
@@ -722,19 +724,19 @@ class SiteMapsConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class SiteMapsConfigurationTypeDef(BaseValidatorModel):
-    SiteMaps: List[str]
+    SiteMaps: List[Annotated[str, _aws_pattern("Kendra", "SiteMap")]]
 
 
 # This class is the input for the 'start_data_source_sync_job' function.
 class StartDataSourceSyncJobRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "DataSourceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 # This class is the input for the 'stop_data_source_sync_job' function.
 class StopDataSourceSyncJobRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "DataSourceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
 
 
 class SuggestionHighlightTypeDef(BaseValidatorModel):
@@ -763,10 +765,10 @@ class ColumnConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class ColumnConfigurationTypeDef(BaseValidatorModel):
-    DocumentIdColumnName: str
-    DocumentDataColumnName: str
-    ChangeDetectingColumns: List[str]
-    DocumentTitleColumnName: Optional[str] = None
+    DocumentIdColumnName: Annotated[str, _aws_pattern("Kendra", "ColumnName")]
+    DocumentDataColumnName: Annotated[str, _aws_pattern("Kendra", "ColumnName")]
+    ChangeDetectingColumns: List[Annotated[str, _aws_pattern("Kendra", "ColumnName")]]
+    DocumentTitleColumnName: Optional[Annotated[str, _aws_pattern("Kendra", "ColumnName")]] = None
     FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
 
 
@@ -781,13 +783,13 @@ class GoogleDriveConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class GoogleDriveConfigurationTypeDef(BaseValidatorModel):
-    SecretArn: str
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
     FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    ExcludeMimeTypes: Optional[List[str]] = None
-    ExcludeUserAccounts: Optional[List[str]] = None
-    ExcludeSharedDrives: Optional[List[str]] = None
+    ExcludeMimeTypes: Optional[List[Annotated[str, _aws_pattern("Kendra", "MimeType")]]] = None
+    ExcludeUserAccounts: Optional[List[Annotated[str, _aws_pattern("Kendra", "UserAccount")]]] = None
+    ExcludeSharedDrives: Optional[List[Annotated[str, _aws_pattern("Kendra", "SharedDriveId")]]] = None
 
 
 class SalesforceChatterFeedConfigurationOutputTypeDef(BaseValidatorModel):
@@ -798,8 +800,8 @@ class SalesforceChatterFeedConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class SalesforceChatterFeedConfigurationTypeDef(BaseValidatorModel):
-    DocumentDataFieldName: str
-    DocumentTitleFieldName: Optional[str] = None
+    DocumentDataFieldName: Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]
+    DocumentTitleFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]] = None
     FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
     IncludeFilterTypes: Optional[List[SalesforceChatterFeedIncludeFilterTypeType]] = None
 
@@ -812,9 +814,9 @@ class SalesforceCustomKnowledgeArticleTypeConfigurationOutputTypeDef(BaseValidat
 
 
 class SalesforceCustomKnowledgeArticleTypeConfigurationTypeDef(BaseValidatorModel):
-    Name: str
-    DocumentDataFieldName: str
-    DocumentTitleFieldName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Kendra", "SalesforceCustomKnowledgeArticleTypeName")]
+    DocumentDataFieldName: Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]
+    DocumentTitleFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]] = None
     FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
 
 
@@ -825,8 +827,8 @@ class SalesforceStandardKnowledgeArticleTypeConfigurationOutputTypeDef(BaseValid
 
 
 class SalesforceStandardKnowledgeArticleTypeConfigurationTypeDef(BaseValidatorModel):
-    DocumentDataFieldName: str
-    DocumentTitleFieldName: Optional[str] = None
+    DocumentDataFieldName: Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]
+    DocumentTitleFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]] = None
     FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
 
 
@@ -836,7 +838,7 @@ class SalesforceStandardObjectAttachmentConfigurationOutputTypeDef(BaseValidator
 
 
 class SalesforceStandardObjectAttachmentConfigurationTypeDef(BaseValidatorModel):
-    DocumentTitleFieldName: Optional[str] = None
+    DocumentTitleFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]] = None
     FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
 
 
@@ -849,8 +851,8 @@ class SalesforceStandardObjectConfigurationOutputTypeDef(BaseValidatorModel):
 
 class SalesforceStandardObjectConfigurationTypeDef(BaseValidatorModel):
     Name: SalesforceStandardObjectNameType
-    DocumentDataFieldName: str
-    DocumentTitleFieldName: Optional[str] = None
+    DocumentDataFieldName: Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]
+    DocumentTitleFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]] = None
     FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
 
 
@@ -865,13 +867,13 @@ class ServiceNowKnowledgeArticleConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class ServiceNowKnowledgeArticleConfigurationTypeDef(BaseValidatorModel):
-    DocumentDataFieldName: str
+    DocumentDataFieldName: Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]
     CrawlAttachments: Optional[bool] = None
     IncludeAttachmentFilePatterns: Optional[List[str]] = None
     ExcludeAttachmentFilePatterns: Optional[List[str]] = None
-    DocumentTitleFieldName: Optional[str] = None
+    DocumentTitleFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]] = None
     FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    FilterQuery: Optional[str] = None
+    FilterQuery: Optional[Annotated[str, _aws_pattern("Kendra", "ServiceNowKnowledgeArticleFilterQuery")]] = None
 
 
 class ServiceNowServiceCatalogConfigurationOutputTypeDef(BaseValidatorModel):
@@ -884,11 +886,11 @@ class ServiceNowServiceCatalogConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class ServiceNowServiceCatalogConfigurationTypeDef(BaseValidatorModel):
-    DocumentDataFieldName: str
+    DocumentDataFieldName: Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]
     CrawlAttachments: Optional[bool] = None
     IncludeAttachmentFilePatterns: Optional[List[str]] = None
     ExcludeAttachmentFilePatterns: Optional[List[str]] = None
-    DocumentTitleFieldName: Optional[str] = None
+    DocumentTitleFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]] = None
     FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
 
 
@@ -902,7 +904,7 @@ class WorkDocsConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class WorkDocsConfigurationTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Kendra", "OrganizationId")]
     CrawlComments: Optional[bool] = None
     UseChangeLog: Optional[bool] = None
     InclusionPatterns: Optional[List[str]] = None
@@ -1003,8 +1005,8 @@ class AlfrescoConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class OnPremiseConfigurationTypeDef(BaseValidatorModel):
-    HostUrl: str
-    OrganizationName: str
+    HostUrl: Annotated[str, _aws_pattern("Kendra", "Url")]
+    OrganizationName: Annotated[str, _aws_pattern("Kendra", "OrganizationName")]
     SslCertificateS3Path: S3PathTypeDef
 
 
@@ -1014,34 +1016,34 @@ class OneDriveUsersOutputTypeDef(BaseValidatorModel):
 
 
 class OneDriveUsersTypeDef(BaseValidatorModel):
-    OneDriveUserList: Optional[List[str]] = None
+    OneDriveUserList: Optional[List[Annotated[str, _aws_pattern("Kendra", "OneDriveUser")]]] = None
     OneDriveUserS3Path: Optional[S3PathTypeDef] = None
 
 
 # This class is the input for the 'update_query_suggestions_block_list' function.
 class UpdateQuerySuggestionsBlockListRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    Id: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Id: Annotated[str, _aws_pattern("Kendra", "QuerySuggestionsBlockListId")]
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "QuerySuggestionsBlockListName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
     SourceS3Path: Optional[S3PathTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Kendra", "RoleArn")]] = None
 
 
 # This class is the input for the 'update_thesaurus' function.
 class UpdateThesaurusRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    RoleArn: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Kendra", "ThesaurusId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "ThesaurusName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Kendra", "RoleArn")]] = None
     SourceS3Path: Optional[S3PathTypeDef] = None
 
 
 class AlfrescoConfigurationTypeDef(BaseValidatorModel):
-    SiteUrl: str
-    SiteId: str
-    SecretArn: str
+    SiteUrl: Annotated[str, _aws_pattern("Kendra", "SiteUrl")]
+    SiteId: Annotated[str, _aws_pattern("Kendra", "SiteId")]
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     SslCertificateS3Path: S3PathTypeDef
     CrawlSystemFolders: Optional[bool] = None
     CrawlComments: Optional[bool] = None
@@ -1055,8 +1057,8 @@ class AlfrescoConfigurationTypeDef(BaseValidatorModel):
 
 
 class BoxConfigurationTypeDef(BaseValidatorModel):
-    EnterpriseId: str
-    SecretArn: str
+    EnterpriseId: Annotated[str, _aws_pattern("Kendra", "EnterpriseId")]
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     UseChangeLog: Optional[bool] = None
     CrawlComments: Optional[bool] = None
     CrawlTasks: Optional[bool] = None
@@ -1076,18 +1078,18 @@ DataSourceVpcConfigurationUnionTypeDef = Union[
 
 
 class FsxConfigurationTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Kendra", "FileSystemId")]
     FileSystemType: Literal["WINDOWS"]
     VpcConfiguration: DataSourceVpcConfigurationTypeDef
-    SecretArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Kendra", "SecretArn")]] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
     FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
 
 
 class JiraConfigurationTypeDef(BaseValidatorModel):
-    JiraAccountUrl: str
-    SecretArn: str
+    JiraAccountUrl: Annotated[str, _aws_pattern("Kendra", "JiraAccountUrl")]
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     UseChangeLog: Optional[bool] = None
     Project: Optional[List[str]] = None
     IssueType: Optional[List[str]] = None
@@ -1104,8 +1106,8 @@ class JiraConfigurationTypeDef(BaseValidatorModel):
 
 
 class QuipConfigurationTypeDef(BaseValidatorModel):
-    Domain: str
-    SecretArn: str
+    Domain: Annotated[str, _aws_pattern("Kendra", "Domain")]
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     CrawlFileComments: Optional[bool] = None
     CrawlChatRooms: Optional[bool] = None
     CrawlAttachments: Optional[bool] = None
@@ -1119,10 +1121,10 @@ class QuipConfigurationTypeDef(BaseValidatorModel):
 
 
 class SlackConfigurationTypeDef(BaseValidatorModel):
-    TeamId: str
-    SecretArn: str
+    TeamId: Annotated[str, _aws_pattern("Kendra", "TeamId")]
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     SlackEntityList: List[SlackEntityType]
-    SinceCrawlDate: str
+    SinceCrawlDate: Annotated[str, _aws_pattern("Kendra", "SinceCrawlDate")]
     VpcConfiguration: Optional[DataSourceVpcConfigurationTypeDef] = None
     UseChangeLog: Optional[bool] = None
     CrawlBotMessage: Optional[bool] = None
@@ -1137,15 +1139,15 @@ class SlackConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_entities_to_experience' function.
 class AssociateEntitiesToExperienceRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ExperienceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     EntityList: List[EntityConfigurationTypeDef]
 
 
 # This class is the input for the 'disassociate_entities_from_experience' function.
 class DisassociateEntitiesFromExperienceRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ExperienceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     EntityList: List[EntityConfigurationTypeDef]
 
 
@@ -1163,91 +1165,91 @@ class AssociatePersonasToEntitiesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_access_control_configuration' function.
 class CreateAccessControlConfigurationResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kendra", "AccessControlConfigurationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_source' function.
 class CreateDataSourceResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kendra", "DataSourceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_experience' function.
 class CreateExperienceResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ExperienceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_faq' function.
 class CreateFaqResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kendra", "FaqId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_index' function.
 class CreateIndexResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_query_suggestions_block_list' function.
 class CreateQuerySuggestionsBlockListResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kendra", "QuerySuggestionsBlockListId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_thesaurus' function.
 class CreateThesaurusResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ThesaurusId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_faq' function.
 class DescribeFaqResponseTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
-    Name: str
-    Description: str
+    Id: Annotated[str, _aws_pattern("Kendra", "FaqId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Annotated[str, _aws_pattern("Kendra", "FaqName")]
+    Description: Annotated[str, _aws_pattern("Kendra", "Description")]
     CreatedAt: datetime
     UpdatedAt: datetime
     S3Path: S3PathTypeDef
     Status: FaqStatusType
-    RoleArn: str
-    ErrorMessage: str
+    RoleArn: Annotated[str, _aws_pattern("Kendra", "RoleArn")]
+    ErrorMessage: Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]
     FileFormat: FaqFileFormatType
-    LanguageCode: str
+    LanguageCode: Annotated[str, _aws_pattern("Kendra", "LanguageCode")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_query_suggestions_block_list' function.
 class DescribeQuerySuggestionsBlockListResponseTypeDef(BaseValidatorModel):
-    IndexId: str
-    Id: str
-    Name: str
-    Description: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Id: Annotated[str, _aws_pattern("Kendra", "QuerySuggestionsBlockListId")]
+    Name: Annotated[str, _aws_pattern("Kendra", "QuerySuggestionsBlockListName")]
+    Description: Annotated[str, _aws_pattern("Kendra", "Description")]
     Status: QuerySuggestionsBlockListStatusType
-    ErrorMessage: str
+    ErrorMessage: Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]
     CreatedAt: datetime
     UpdatedAt: datetime
     SourceS3Path: S3PathTypeDef
     ItemCount: int
     FileSizeBytes: int
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Kendra", "RoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_thesaurus' function.
 class DescribeThesaurusResponseTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
-    Name: str
-    Description: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ThesaurusId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Annotated[str, _aws_pattern("Kendra", "ThesaurusName")]
+    Description: Annotated[str, _aws_pattern("Kendra", "Description")]
     Status: ThesaurusStatusType
-    ErrorMessage: str
+    ErrorMessage: Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]
     CreatedAt: datetime
     UpdatedAt: datetime
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Kendra", "RoleArn")]
     SourceS3Path: S3PathTypeDef
     FileSizeBytes: int
     TermCount: int
@@ -1287,8 +1289,8 @@ class StartDataSourceSyncJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_personas_to_entities' function.
 class AssociatePersonasToEntitiesRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ExperienceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     Personas: List[EntityPersonaConfigurationTypeDef]
 
 
@@ -1312,7 +1314,7 @@ class AuthenticationConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_delete_document' function.
 class BatchDeleteDocumentRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     DocumentIdList: List[str]
     DataSourceSyncJobMetricTarget: Optional[DataSourceSyncJobMetricTargetTypeDef] = None
 
@@ -1360,7 +1362,7 @@ class TimeRangeTypeDef(BaseValidatorModel):
 
 
 class CollapseConfigurationTypeDef(BaseValidatorModel):
-    DocumentAttributeKey: str
+    DocumentAttributeKey: Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]
     SortingConfigurations: Optional[List[SortingConfigurationTypeDef]] = None
     MissingAttributeKeyStrategy: Optional[MissingAttributeKeyStrategyType] = None
     Expand: Optional[bool] = None
@@ -1404,15 +1406,15 @@ class SharePointConfigurationOutputTypeDef(BaseValidatorModel):
 
 class SharePointConfigurationTypeDef(BaseValidatorModel):
     SharePointVersion: SharePointVersionType
-    Urls: List[str]
-    SecretArn: str
+    Urls: List[Annotated[str, _aws_pattern("Kendra", "Url")]]
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     CrawlAttachments: Optional[bool] = None
     UseChangeLog: Optional[bool] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
     VpcConfiguration: Optional[DataSourceVpcConfigurationTypeDef] = None
     FieldMappings: Optional[List[DataSourceToIndexFieldMappingTypeDef]] = None
-    DocumentTitleFieldName: Optional[str] = None
+    DocumentTitleFieldName: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceFieldName")]] = None
     DisableLocalGroups: Optional[bool] = None
     SslCertificateS3Path: Optional[S3PathTypeDef] = None
     AuthenticationType: Optional[SharePointOnlineAuthenticationTypeType] = None
@@ -1438,8 +1440,8 @@ class ConfluenceSpaceConfigurationOutputTypeDef(BaseValidatorModel):
 class ConfluenceSpaceConfigurationTypeDef(BaseValidatorModel):
     CrawlPersonalSpaces: Optional[bool] = None
     CrawlArchivedSpaces: Optional[bool] = None
-    IncludeSpaces: Optional[List[str]] = None
-    ExcludeSpaces: Optional[List[str]] = None
+    IncludeSpaces: Optional[List[Annotated[str, _aws_pattern("Kendra", "ConfluenceSpaceIdentifier")]]] = None
+    ExcludeSpaces: Optional[List[Annotated[str, _aws_pattern("Kendra", "ConfluenceSpaceIdentifier")]]] = None
     SpaceFieldMappings: Optional[List[ConfluenceSpaceToIndexFieldMappingTypeDef]] = None
 
 
@@ -1458,35 +1460,35 @@ class HierarchicalPrincipalTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_faq' function.
 class CreateFaqRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    Name: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Annotated[str, _aws_pattern("Kendra", "FaqName")]
     S3Path: S3PathTypeDef
-    RoleArn: str
-    Description: Optional[str] = None
+    RoleArn: Annotated[str, _aws_pattern("Kendra", "RoleArn")]
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     FileFormat: Optional[FaqFileFormatType] = None
     ClientToken: Optional[str] = None
-    LanguageCode: Optional[str] = None
+    LanguageCode: Optional[Annotated[str, _aws_pattern("Kendra", "LanguageCode")]] = None
 
 
 # This class is the input for the 'create_query_suggestions_block_list' function.
 class CreateQuerySuggestionsBlockListRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    Name: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Annotated[str, _aws_pattern("Kendra", "QuerySuggestionsBlockListName")]
     SourceS3Path: S3PathTypeDef
-    RoleArn: str
-    Description: Optional[str] = None
+    RoleArn: Annotated[str, _aws_pattern("Kendra", "RoleArn")]
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
     ClientToken: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_thesaurus' function.
 class CreateThesaurusRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    Name: str
-    RoleArn: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Annotated[str, _aws_pattern("Kendra", "ThesaurusName")]
+    RoleArn: Annotated[str, _aws_pattern("Kendra", "RoleArn")]
     SourceS3Path: S3PathTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     ClientToken: Optional[str] = None
 
@@ -1504,9 +1506,9 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_featured_results_set' function.
 class CreateFeaturedResultsSetRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    FeaturedResultsSetName: str
-    Description: Optional[str] = None
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    FeaturedResultsSetName: Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetName")]
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetDescription")]] = None
     ClientToken: Optional[str] = None
     Status: Optional[FeaturedResultsSetStatusType] = None
     QueryTexts: Optional[List[str]] = None
@@ -1515,9 +1517,9 @@ class CreateFeaturedResultsSetRequestTypeDef(BaseValidatorModel):
 
 
 class FeaturedResultsSetTypeDef(BaseValidatorModel):
-    FeaturedResultsSetId: Optional[str] = None
-    FeaturedResultsSetName: Optional[str] = None
-    Description: Optional[str] = None
+    FeaturedResultsSetId: Optional[Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetId")]] = None
+    FeaturedResultsSetName: Optional[Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetDescription")]] = None
     Status: Optional[FeaturedResultsSetStatusType] = None
     QueryTexts: Optional[List[str]] = None
     FeaturedDocuments: Optional[List[FeaturedDocumentTypeDef]] = None
@@ -1527,19 +1529,19 @@ class FeaturedResultsSetTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_featured_results_set' function.
 class UpdateFeaturedResultsSetRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    FeaturedResultsSetId: str
-    FeaturedResultsSetName: Optional[str] = None
-    Description: Optional[str] = None
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    FeaturedResultsSetId: Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetId")]
+    FeaturedResultsSetName: Optional[Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetDescription")]] = None
     Status: Optional[FeaturedResultsSetStatusType] = None
     QueryTexts: Optional[List[str]] = None
     FeaturedDocuments: Optional[List[FeaturedDocumentTypeDef]] = None
 
 
 class UserContextTypeDef(BaseValidatorModel):
-    Token: Optional[str] = None
-    UserId: Optional[str] = None
-    Groups: Optional[List[str]] = None
+    Token: Optional[Annotated[str, _aws_pattern("Kendra", "Token")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Kendra", "PrincipalName")]] = None
+    Groups: Optional[List[Annotated[str, _aws_pattern("Kendra", "PrincipalName")]]] = None
     DataSourceGroups: Optional[List[DataSourceGroupTypeDef]] = None
 
 
@@ -1555,15 +1557,15 @@ class DataSourceSyncJobTypeDef(BaseValidatorModel):
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     Status: Optional[DataSourceSyncJobStatusType] = None
-    ErrorMessage: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]] = None
     ErrorCode: Optional[ErrorCodeType] = None
     DataSourceErrorCode: Optional[str] = None
     Metrics: Optional[DataSourceSyncJobMetricsTypeDef] = None
 
 
 class ExperiencesSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Id: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "ExperienceName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Kendra", "ExperienceId")]] = None
     CreatedAt: Optional[datetime] = None
     Status: Optional[ExperienceStatusType] = None
     Endpoints: Optional[List[ExperienceEndpointTypeDef]] = None
@@ -1571,9 +1573,9 @@ class ExperiencesSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_featured_results_set' function.
 class DescribeFeaturedResultsSetResponseTypeDef(BaseValidatorModel):
-    FeaturedResultsSetId: str
-    FeaturedResultsSetName: str
-    Description: str
+    FeaturedResultsSetId: Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetId")]
+    FeaturedResultsSetName: Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetName")]
+    Description: Annotated[str, _aws_pattern("Kendra", "FeaturedResultsSetDescription")]
     Status: FeaturedResultsSetStatusType
     QueryTexts: List[str]
     FeaturedDocumentsWithMetadata: List[FeaturedDocumentWithMetadataTypeDef]
@@ -1585,9 +1587,9 @@ class DescribeFeaturedResultsSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_principal_mapping' function.
 class DescribePrincipalMappingResponseTypeDef(BaseValidatorModel):
-    IndexId: str
-    DataSourceId: str
-    GroupId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    DataSourceId: Annotated[str, _aws_pattern("Kendra", "DataSourceId")]
+    GroupId: Annotated[str, _aws_pattern("Kendra", "GroupId")]
     GroupOrderingIdSummaries: List[GroupOrderingIdSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1632,7 +1634,7 @@ class S3DataSourceConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class S3DataSourceConfigurationTypeDef(BaseValidatorModel):
-    BucketName: str
+    BucketName: Annotated[str, _aws_pattern("Kendra", "S3BucketName")]
     InclusionPrefixes: Optional[List[str]] = None
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
@@ -1641,7 +1643,7 @@ class S3DataSourceConfigurationTypeDef(BaseValidatorModel):
 
 
 class ExperienceEntitiesSummaryTypeDef(BaseValidatorModel):
-    EntityId: Optional[str] = None
+    EntityId: Optional[Annotated[str, _aws_pattern("Kendra", "EntityId")]] = None
     EntityType: Optional[EntityTypeType] = None
     DisplayData: Optional[EntityDisplayDataTypeDef] = None
 
@@ -1805,8 +1807,8 @@ class ServiceNowConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class ServiceNowConfigurationTypeDef(BaseValidatorModel):
-    HostUrl: str
-    SecretArn: str
+    HostUrl: Annotated[str, _aws_pattern("Kendra", "ServiceNowHostUrl")]
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     ServiceNowBuildVersion: ServiceNowBuildVersionTypeType
     KnowledgeArticleConfiguration: Optional[ServiceNowKnowledgeArticleConfigurationTypeDef] = None
     ServiceCatalogConfiguration: Optional[ServiceNowServiceCatalogConfigurationTypeDef] = None
@@ -1841,13 +1843,13 @@ class GitHubConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class GitHubConfigurationTypeDef(BaseValidatorModel):
-    SecretArn: str
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     SaaSConfiguration: Optional[SaaSConfigurationTypeDef] = None
     OnPremiseConfiguration: Optional[OnPremiseConfigurationTypeDef] = None
     Type: Optional[TypeType] = None
     UseChangeLog: Optional[bool] = None
     GitHubDocumentCrawlProperties: Optional[GitHubDocumentCrawlPropertiesTypeDef] = None
-    RepositoryFilter: Optional[List[str]] = None
+    RepositoryFilter: Optional[List[Annotated[str, _aws_pattern("Kendra", "RepositoryName")]]] = None
     InclusionFolderNamePatterns: Optional[List[str]] = None
     InclusionFileTypePatterns: Optional[List[str]] = None
     InclusionFileNamePatterns: Optional[List[str]] = None
@@ -1878,8 +1880,8 @@ class OneDriveConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class OneDriveConfigurationTypeDef(BaseValidatorModel):
-    TenantDomain: str
-    SecretArn: str
+    TenantDomain: Annotated[str, _aws_pattern("Kendra", "TenantDomain")]
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     OneDriveUsers: OneDriveUsersTypeDef
     InclusionPatterns: Optional[List[str]] = None
     ExclusionPatterns: Optional[List[str]] = None
@@ -1904,7 +1906,7 @@ class DescribeQuerySuggestionsConfigResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_query_suggestions_config' function.
 class UpdateQuerySuggestionsConfigRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     Mode: Optional[ModeType] = None
     QueryLogLookBackWindowInDays: Optional[int] = None
     IncludeQueriesWithoutUserInformation: Optional[bool] = None
@@ -1915,20 +1917,20 @@ class UpdateQuerySuggestionsConfigRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'submit_feedback' function.
 class SubmitFeedbackRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    QueryId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    QueryId: Annotated[str, _aws_pattern("Kendra", "QueryId")]
     ClickFeedbackItems: Optional[List[ClickFeedbackTypeDef]] = None
     RelevanceFeedbackItems: Optional[List[RelevanceFeedbackTypeDef]] = None
 
 
 class DocumentAttributeConditionTypeDef(BaseValidatorModel):
-    ConditionDocumentAttributeKey: str
+    ConditionDocumentAttributeKey: Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]
     Operator: ConditionOperatorType
     ConditionOnValue: Optional[DocumentAttributeValueTypeDef] = None
 
 
 class DocumentAttributeTargetTypeDef(BaseValidatorModel):
-    TargetDocumentAttributeKey: Optional[str] = None
+    TargetDocumentAttributeKey: Optional[Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]] = None
     TargetDocumentAttributeValueDeletion: Optional[bool] = None
     TargetDocumentAttributeValue: Optional[DocumentAttributeValueTypeDef] = None
 
@@ -1954,8 +1956,8 @@ class ConfluenceConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class ConfluenceConfigurationTypeDef(BaseValidatorModel):
-    ServerUrl: str
-    SecretArn: str
+    ServerUrl: Annotated[str, _aws_pattern("Kendra", "Url")]
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     Version: ConfluenceVersionType
     SpaceConfiguration: Optional[ConfluenceSpaceConfigurationTypeDef] = None
     PageConfiguration: Optional[ConfluencePageConfigurationTypeDef] = None
@@ -1970,9 +1972,9 @@ class ConfluenceConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_access_control_configuration' function.
 class DescribeAccessControlConfigurationResponseTypeDef(BaseValidatorModel):
-    Name: str
-    Description: str
-    ErrorMessage: str
+    Name: Annotated[str, _aws_pattern("Kendra", "AccessControlConfigurationName")]
+    Description: Annotated[str, _aws_pattern("Kendra", "Description")]
+    ErrorMessage: Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]
     AccessControlList: List[PrincipalTypeDef]
     HierarchicalAccessControlList: List[HierarchicalPrincipalOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2018,14 +2020,14 @@ class RetrieveResultItemTypeDef(BaseValidatorModel):
     DocumentId: Optional[str] = None
     DocumentTitle: Optional[str] = None
     Content: Optional[str] = None
-    DocumentURI: Optional[str] = None
+    DocumentURI: Optional[Annotated[str, _aws_pattern("Kendra", "Url")]] = None
     DocumentAttributes: Optional[List[DocumentAttributeOutputTypeDef]] = None
     ScoreAttributes: Optional[ScoreAttributesTypeDef] = None
 
 
 class SourceDocumentTypeDef(BaseValidatorModel):
     DocumentId: Optional[str] = None
-    SuggestionAttributes: Optional[List[str]] = None
+    SuggestionAttributes: Optional[List[Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]]] = None
     AdditionalAttributes: Optional[List[DocumentAttributeOutputTypeDef]] = None
 
 
@@ -2036,7 +2038,7 @@ class InlineCustomDocumentEnrichmentConfigurationOutputTypeDef(BaseValidatorMode
 
 
 class FacetResultTypeDef(BaseValidatorModel):
-    DocumentAttributeKey: Optional[str] = None
+    DocumentAttributeKey: Optional[Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]] = None
     DocumentAttributeValueType: Optional[DocumentAttributeValueTypeType] = None
     DocumentAttributeValueCountPairs: Optional[List[DocumentAttributeValueCountPairTypeDef]] = None
 
@@ -2050,17 +2052,17 @@ class ListExperienceEntitiesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_experience' function.
 class DescribeExperienceResponseTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
-    Name: str
+    Id: Annotated[str, _aws_pattern("Kendra", "ExperienceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Annotated[str, _aws_pattern("Kendra", "ExperienceName")]
     Endpoints: List[ExperienceEndpointTypeDef]
     Configuration: ExperienceConfigurationOutputTypeDef
     CreatedAt: datetime
     UpdatedAt: datetime
-    Description: str
+    Description: Annotated[str, _aws_pattern("Kendra", "Description")]
     Status: ExperienceStatusType
-    RoleArn: str
-    ErrorMessage: str
+    RoleArn: Annotated[str, _aws_pattern("Kendra", "RoleArn")]
+    ErrorMessage: Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -2069,12 +2071,12 @@ ExperienceConfigurationUnionTypeDef = Union[ExperienceConfigurationOutputTypeDef
 
 # This class is the input for the 'put_principal_mapping' function.
 class PutPrincipalMappingRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    GroupId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    GroupId: Annotated[str, _aws_pattern("Kendra", "GroupId")]
     GroupMembers: GroupMembersTypeDef
-    DataSourceId: Optional[str] = None
+    DataSourceId: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceId")]] = None
     OrderingId: Optional[int] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Kendra", "RoleArn")]] = None
 
 
 class AdditionalResultAttributeValueTypeDef(BaseValidatorModel):
@@ -2086,17 +2088,17 @@ class ExpandedResultItemTypeDef(BaseValidatorModel):
     DocumentId: Optional[str] = None
     DocumentTitle: Optional[TextWithHighlightsTypeDef] = None
     DocumentExcerpt: Optional[TextWithHighlightsTypeDef] = None
-    DocumentURI: Optional[str] = None
+    DocumentURI: Optional[Annotated[str, _aws_pattern("Kendra", "Url")]] = None
     DocumentAttributes: Optional[List[DocumentAttributeOutputTypeDef]] = None
 
 
 # This class is the input for the 'create_index' function.
 class CreateIndexRequestTypeDef(BaseValidatorModel):
-    Name: str
-    RoleArn: str
+    Name: Annotated[str, _aws_pattern("Kendra", "IndexName")]
+    RoleArn: Annotated[str, _aws_pattern("Kendra", "RoleArn")]
     Edition: Optional[IndexEditionType] = None
     ServerSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
     ClientToken: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     UserTokenConfigurations: Optional[List[UserTokenConfigurationTypeDef]] = None
@@ -2106,18 +2108,18 @@ class CreateIndexRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_index' function.
 class DescribeIndexResponseTypeDef(BaseValidatorModel):
-    Name: str
-    Id: str
+    Name: Annotated[str, _aws_pattern("Kendra", "IndexName")]
+    Id: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     Edition: IndexEditionType
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Kendra", "RoleArn")]
     ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
     Status: IndexStatusType
-    Description: str
+    Description: Annotated[str, _aws_pattern("Kendra", "Description")]
     CreatedAt: datetime
     UpdatedAt: datetime
     DocumentMetadataConfigurations: List[DocumentMetadataConfigurationOutputTypeDef]
     IndexStatistics: IndexStatisticsTypeDef
-    ErrorMessage: str
+    ErrorMessage: Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]
     CapacityUnits: CapacityUnitsConfigurationTypeDef
     UserTokenConfigurations: List[UserTokenConfigurationTypeDef]
     UserContextPolicy: UserContextPolicyType
@@ -2183,8 +2185,8 @@ class SalesforceConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class SalesforceConfigurationTypeDef(BaseValidatorModel):
-    ServerUrl: str
-    SecretArn: str
+    ServerUrl: Annotated[str, _aws_pattern("Kendra", "Url")]
+    SecretArn: Annotated[str, _aws_pattern("Kendra", "SecretArn")]
     StandardObjectConfigurations: Optional[List[SalesforceStandardObjectConfigurationTypeDef]] = None
     KnowledgeArticleConfiguration: Optional[SalesforceKnowledgeArticleConfigurationTypeDef] = None
     ChatterFeedConfiguration: Optional[SalesforceChatterFeedConfigurationTypeDef] = None
@@ -2195,8 +2197,8 @@ class SalesforceConfigurationTypeDef(BaseValidatorModel):
 
 
 class HookConfigurationTypeDef(BaseValidatorModel):
-    LambdaArn: str
-    S3Bucket: str
+    LambdaArn: Annotated[str, _aws_pattern("Kendra", "LambdaArn")]
+    S3Bucket: Annotated[str, _aws_pattern("Kendra", "S3BucketName")]
     InvocationCondition: Optional[DocumentAttributeConditionTypeDef] = None
 
 
@@ -2207,14 +2209,14 @@ class InlineCustomDocumentEnrichmentConfigurationTypeDef(BaseValidatorModel):
 
 
 class DocumentAttributeTypeDef(BaseValidatorModel):
-    Key: str
+    Key: Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]
     Value: DocumentAttributeValueUnionTypeDef
 
 
 # This class is the input for the 'list_data_source_sync_jobs' function.
 class ListDataSourceSyncJobsRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
+    Id: Annotated[str, _aws_pattern("Kendra", "DataSourceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     StartTimeFilter: Optional[TimeRangeUnionTypeDef] = None
@@ -2223,26 +2225,26 @@ class ListDataSourceSyncJobsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_access_control_configuration' function.
 class CreateAccessControlConfigurationRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    Name: str
-    Description: Optional[str] = None
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Annotated[str, _aws_pattern("Kendra", "AccessControlConfigurationName")]
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
     AccessControlList: Optional[List[PrincipalTypeDef]] = None
     HierarchicalAccessControlList: Optional[List[HierarchicalPrincipalUnionTypeDef]] = None
     ClientToken: Optional[str] = None
 
 
 class UpdateAccessControlConfigurationRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    Id: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Id: Annotated[str, _aws_pattern("Kendra", "AccessControlConfigurationId")]
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "AccessControlConfigurationName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
     AccessControlList: Optional[List[PrincipalTypeDef]] = None
     HierarchicalAccessControlList: Optional[List[HierarchicalPrincipalUnionTypeDef]] = None
 
 
 # This class is the output for the 'retrieve' function.
 class RetrieveResultTypeDef(BaseValidatorModel):
-    QueryId: str
+    QueryId: Annotated[str, _aws_pattern("Kendra", "QueryId")]
     ResultItems: List[RetrieveResultItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2256,22 +2258,22 @@ class CustomDocumentEnrichmentConfigurationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_experience' function.
 class CreateExperienceRequestTypeDef(BaseValidatorModel):
-    Name: str
-    IndexId: str
-    RoleArn: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Kendra", "ExperienceName")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    RoleArn: Optional[Annotated[str, _aws_pattern("Kendra", "RoleArn")]] = None
     Configuration: Optional[ExperienceConfigurationUnionTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
     ClientToken: Optional[str] = None
 
 
 # This class is the input for the 'update_experience' function.
 class UpdateExperienceRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
-    Name: Optional[str] = None
-    RoleArn: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Kendra", "ExperienceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "ExperienceName")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Kendra", "RoleArn")]] = None
     Configuration: Optional[ExperienceConfigurationUnionTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
 
 
 class AdditionalResultAttributeTypeDef(BaseValidatorModel):
@@ -2342,7 +2344,7 @@ class CustomDocumentEnrichmentConfigurationTypeDef(BaseValidatorModel):
     InlineConfigurations: Optional[List[InlineCustomDocumentEnrichmentConfigurationTypeDef]] = None
     PreExtractionHookConfiguration: Optional[HookConfigurationTypeDef] = None
     PostExtractionHookConfiguration: Optional[HookConfigurationTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Kendra", "RoleArn")]] = None
 
 
 DocumentAttributeUnionTypeDef = Union[DocumentAttributeOutputTypeDef, DocumentAttributeTypeDef]
@@ -2355,9 +2357,9 @@ class FeaturedResultsItemTypeDef(BaseValidatorModel):
     DocumentId: Optional[str] = None
     DocumentTitle: Optional[TextWithHighlightsTypeDef] = None
     DocumentExcerpt: Optional[TextWithHighlightsTypeDef] = None
-    DocumentURI: Optional[str] = None
+    DocumentURI: Optional[Annotated[str, _aws_pattern("Kendra", "Url")]] = None
     DocumentAttributes: Optional[List[DocumentAttributeOutputTypeDef]] = None
-    FeedbackToken: Optional[str] = None
+    FeedbackToken: Optional[Annotated[str, _aws_pattern("Kendra", "FeedbackToken")]] = None
 
 
 class QueryResultItemTypeDef(BaseValidatorModel):
@@ -2368,20 +2370,20 @@ class QueryResultItemTypeDef(BaseValidatorModel):
     DocumentId: Optional[str] = None
     DocumentTitle: Optional[TextWithHighlightsTypeDef] = None
     DocumentExcerpt: Optional[TextWithHighlightsTypeDef] = None
-    DocumentURI: Optional[str] = None
+    DocumentURI: Optional[Annotated[str, _aws_pattern("Kendra", "Url")]] = None
     DocumentAttributes: Optional[List[DocumentAttributeOutputTypeDef]] = None
     ScoreAttributes: Optional[ScoreAttributesTypeDef] = None
-    FeedbackToken: Optional[str] = None
+    FeedbackToken: Optional[Annotated[str, _aws_pattern("Kendra", "FeedbackToken")]] = None
     TableExcerpt: Optional[TableExcerptTypeDef] = None
     CollapsedResultDetail: Optional[CollapsedResultDetailTypeDef] = None
 
 
 # This class is the input for the 'update_index' function.
 class UpdateIndexRequestTypeDef(BaseValidatorModel):
-    Id: str
-    Name: Optional[str] = None
-    RoleArn: Optional[str] = None
-    Description: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "IndexName")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Kendra", "RoleArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
     DocumentMetadataConfigurationUpdates: Optional[List[DocumentMetadataConfigurationUnionTypeDef]] = None
     CapacityUnits: Optional[CapacityUnitsConfigurationTypeDef] = None
     UserTokenConfigurations: Optional[List[UserTokenConfigurationTypeDef]] = None
@@ -2398,20 +2400,20 @@ class GetQuerySuggestionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_data_source' function.
 class DescribeDataSourceResponseTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
-    Name: str
+    Id: Annotated[str, _aws_pattern("Kendra", "DataSourceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Annotated[str, _aws_pattern("Kendra", "DataSourceName")]
     Type: DataSourceTypeType
     Configuration: DataSourceConfigurationOutputTypeDef
     VpcConfiguration: DataSourceVpcConfigurationOutputTypeDef
     CreatedAt: datetime
     UpdatedAt: datetime
-    Description: str
+    Description: Annotated[str, _aws_pattern("Kendra", "Description")]
     Status: DataSourceStatusType
     Schedule: str
-    RoleArn: str
-    ErrorMessage: str
-    LanguageCode: str
+    RoleArn: Annotated[str, _aws_pattern("Kendra", "RoleArn")]
+    ErrorMessage: Annotated[str, _aws_pattern("Kendra", "ErrorMessage")]
+    LanguageCode: Annotated[str, _aws_pattern("Kendra", "LanguageCode")]
     CustomDocumentEnrichmentConfiguration: CustomDocumentEnrichmentConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2450,12 +2452,14 @@ class DocumentTypeDef(BaseValidatorModel):
     AccessControlList: Optional[List[PrincipalTypeDef]] = None
     HierarchicalAccessControlList: Optional[List[HierarchicalPrincipalUnionTypeDef]] = None
     ContentType: Optional[ContentTypeType] = None
-    AccessControlConfigurationId: Optional[str] = None
+    AccessControlConfigurationId: Optional[Annotated[str, _aws_pattern("Kendra", "AccessControlConfigurationId")]] = (
+        None
+    )
 
 
 # This class is the output for the 'query' function.
 class QueryResultTypeDef(BaseValidatorModel):
-    QueryId: str
+    QueryId: Annotated[str, _aws_pattern("Kendra", "QueryId")]
     ResultItems: List[QueryResultItemTypeDef]
     FacetResults: List[FacetResultTypeDef]
     TotalNumberOfResults: int
@@ -2467,48 +2471,48 @@ class QueryResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_source' function.
 class CreateDataSourceRequestTypeDef(BaseValidatorModel):
-    Name: str
-    IndexId: str
+    Name: Annotated[str, _aws_pattern("Kendra", "DataSourceName")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     Type: DataSourceTypeType
     Configuration: Optional[DataSourceConfigurationUnionTypeDef] = None
     VpcConfiguration: Optional[DataSourceVpcConfigurationUnionTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
     Schedule: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Kendra", "RoleArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     ClientToken: Optional[str] = None
-    LanguageCode: Optional[str] = None
+    LanguageCode: Optional[Annotated[str, _aws_pattern("Kendra", "LanguageCode")]] = None
     CustomDocumentEnrichmentConfiguration: Optional[CustomDocumentEnrichmentConfigurationUnionTypeDef] = None
 
 
 # This class is the input for the 'update_data_source' function.
 class UpdateDataSourceRequestTypeDef(BaseValidatorModel):
-    Id: str
-    IndexId: str
-    Name: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Kendra", "DataSourceId")]
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    Name: Optional[Annotated[str, _aws_pattern("Kendra", "DataSourceName")]] = None
     Configuration: Optional[DataSourceConfigurationUnionTypeDef] = None
     VpcConfiguration: Optional[DataSourceVpcConfigurationUnionTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Kendra", "Description")]] = None
     Schedule: Optional[str] = None
-    RoleArn: Optional[str] = None
-    LanguageCode: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Kendra", "RoleArn")]] = None
+    LanguageCode: Optional[Annotated[str, _aws_pattern("Kendra", "LanguageCode")]] = None
     CustomDocumentEnrichmentConfiguration: Optional[CustomDocumentEnrichmentConfigurationUnionTypeDef] = None
 
 
 class AttributeSuggestionsGetConfigTypeDef(BaseValidatorModel):
-    SuggestionAttributes: Optional[List[str]] = None
-    AdditionalResponseAttributes: Optional[List[str]] = None
+    SuggestionAttributes: Optional[List[Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]]] = None
+    AdditionalResponseAttributes: Optional[List[Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]]] = None
     AttributeFilter: Optional[AttributeFilterTypeDef] = None
     UserContext: Optional[UserContextTypeDef] = None
 
 
 # This class is the input for the 'query' function.
 class QueryRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     QueryText: Optional[str] = None
     AttributeFilter: Optional[AttributeFilterTypeDef] = None
     Facets: Optional[List[FacetTypeDef]] = None
-    RequestedDocumentAttributes: Optional[List[str]] = None
+    RequestedDocumentAttributes: Optional[List[Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]]] = None
     QueryResultTypeFilter: Optional[QueryResultTypeType] = None
     DocumentRelevanceOverrideConfigurations: Optional[List[DocumentRelevanceConfigurationTypeDef]] = None
     PageNumber: Optional[int] = None
@@ -2516,17 +2520,17 @@ class QueryRequestTypeDef(BaseValidatorModel):
     SortingConfiguration: Optional[SortingConfigurationTypeDef] = None
     SortingConfigurations: Optional[List[SortingConfigurationTypeDef]] = None
     UserContext: Optional[UserContextTypeDef] = None
-    VisitorId: Optional[str] = None
+    VisitorId: Optional[Annotated[str, _aws_pattern("Kendra", "VisitorId")]] = None
     SpellCorrectionConfiguration: Optional[SpellCorrectionConfigurationTypeDef] = None
     CollapseConfiguration: Optional[CollapseConfigurationTypeDef] = None
 
 
 # This class is the input for the 'retrieve' function.
 class RetrieveRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     QueryText: str
     AttributeFilter: Optional[AttributeFilterTypeDef] = None
-    RequestedDocumentAttributes: Optional[List[str]] = None
+    RequestedDocumentAttributes: Optional[List[Annotated[str, _aws_pattern("Kendra", "DocumentAttributeKey")]]] = None
     DocumentRelevanceOverrideConfigurations: Optional[List[DocumentRelevanceConfigurationTypeDef]] = None
     PageNumber: Optional[int] = None
     PageSize: Optional[int] = None
@@ -2535,22 +2539,22 @@ class RetrieveRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_get_document_status' function.
 class BatchGetDocumentStatusRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     DocumentInfoList: List[DocumentInfoTypeDef]
 
 
 # This class is the input for the 'batch_put_document' function.
 class BatchPutDocumentRequestTypeDef(BaseValidatorModel):
-    IndexId: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
     Documents: List[DocumentTypeDef]
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Kendra", "RoleArn")]] = None
     CustomDocumentEnrichmentConfiguration: Optional[CustomDocumentEnrichmentConfigurationUnionTypeDef] = None
 
 
 # This class is the input for the 'get_query_suggestions' function.
 class GetQuerySuggestionsRequestTypeDef(BaseValidatorModel):
-    IndexId: str
-    QueryText: str
+    IndexId: Annotated[str, _aws_pattern("Kendra", "IndexId")]
+    QueryText: Annotated[str, _aws_pattern("Kendra", "SuggestionQueryText")]
     MaxSuggestionsCount: Optional[int] = None
     SuggestionTypes: Optional[List[SuggestionTypeType]] = None
     AttributeSuggestionsConfig: Optional[AttributeSuggestionsGetConfigTypeDef] = None

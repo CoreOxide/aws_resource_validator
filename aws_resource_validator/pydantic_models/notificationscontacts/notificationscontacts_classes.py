@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.notificationscontacts.notificationscontacts_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,14 +41,14 @@ except ImportError:  # pragma: no cover
 
 
 class ActivateEmailContactRequestTypeDef(BaseValidatorModel):
-    arn: str
-    code: str
+    arn: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactArn")]
+    code: Annotated[str, _aws_pattern("Notificationscontacts", "Token")]
 
 
 # This class is the input for the 'create_email_contact' function.
 class CreateEmailContactRequestTypeDef(BaseValidatorModel):
-    name: str
-    emailAddress: str
+    name: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactName")]
+    emailAddress: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactAddress")]
     tags: Optional[Dict[str, str]] = None
 
 
@@ -59,13 +61,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteEmailContactRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactArn")]
 
 
 class EmailContactTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
-    address: str
+    arn: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactArn")]
+    name: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactName")]
+    address: Annotated[str, _aws_pattern("Notificationscontacts", "SensitiveEmailContactAddress")]
     status: EmailContactStatusType
     creationTime: datetime
     updateTime: datetime
@@ -73,7 +75,7 @@ class EmailContactTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_email_contact' function.
 class GetEmailContactRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -90,26 +92,26 @@ class ListEmailContactsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactArn")]
 
 
 class SendActivationCodeRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactArn")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
-    tagKeys: List[str]
+    arn: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Notificationscontacts", "TagKey")]]
 
 
 # This class is the output for the 'create_email_contact' function.
 class CreateEmailContactResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Notificationscontacts", "EmailContactArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 

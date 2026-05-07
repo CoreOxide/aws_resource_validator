@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.elb.elb_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -60,13 +62,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Elb", "TagKey")]
+    Value: Optional[Annotated[str, _aws_pattern("Elb", "TagValue")]] = None
 
 
 class AdditionalAttributeTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Elb", "AdditionalAttributeKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Elb", "AdditionalAttributeValue")]] = None
 
 
 class AppCookieStickinessPolicyTypeDef(BaseValidatorModel):
@@ -248,7 +250,7 @@ class RemoveAvailabilityZonesInputTypeDef(BaseValidatorModel):
 
 
 class TagKeyOnlyTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Elb", "TagKey")]] = None
 
 
 class SetLoadBalancerListenerSSLCertificateInputTypeDef(BaseValidatorModel):

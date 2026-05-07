@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.sagemaker_runtime.sagemaker_runtime_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -46,14 +48,16 @@ class InternalStreamFailureTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'invoke_endpoint_async' function.
 class InvokeEndpointAsyncInputTypeDef(BaseValidatorModel):
-    EndpointName: str
-    InputLocation: str
-    ContentType: Optional[str] = None
-    Accept: Optional[str] = None
-    CustomAttributes: Optional[str] = None
-    InferenceId: Optional[str] = None
-    S3OutputPathExtension: Optional[str] = None
-    Filename: Optional[str] = None
+    EndpointName: Annotated[str, _aws_pattern("SagemakerRuntime", "EndpointName")]
+    InputLocation: Annotated[str, _aws_pattern("SagemakerRuntime", "InputLocationHeader")]
+    ContentType: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "Header")]] = None
+    Accept: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "Header")]] = None
+    CustomAttributes: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "CustomAttributesHeader")]] = None
+    InferenceId: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "InferenceId")]] = None
+    S3OutputPathExtension: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "S3OutputPathExtensionHeader")]] = (
+        None
+    )
+    Filename: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "FilenameHeader")]] = None
     RequestTTLSeconds: Optional[int] = None
     InvocationTimeoutSeconds: Optional[int] = None
 
@@ -77,50 +81,58 @@ class PayloadPartTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'invoke_endpoint' function.
 class InvokeEndpointInputTypeDef(BaseValidatorModel):
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("SagemakerRuntime", "EndpointName")]
     Body: BlobTypeDef
-    ContentType: Optional[str] = None
-    Accept: Optional[str] = None
-    CustomAttributes: Optional[str] = None
-    TargetModel: Optional[str] = None
-    TargetVariant: Optional[str] = None
-    TargetContainerHostname: Optional[str] = None
-    InferenceId: Optional[str] = None
-    EnableExplanations: Optional[str] = None
-    InferenceComponentName: Optional[str] = None
-    SessionId: Optional[str] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "Header")]] = None
+    Accept: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "Header")]] = None
+    CustomAttributes: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "CustomAttributesHeader")]] = None
+    TargetModel: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "TargetModelHeader")]] = None
+    TargetVariant: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "TargetVariantHeader")]] = None
+    TargetContainerHostname: Optional[
+        Annotated[str, _aws_pattern("SagemakerRuntime", "TargetContainerHostnameHeader")]
+    ] = None
+    InferenceId: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "InferenceId")]] = None
+    EnableExplanations: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "EnableExplanationsHeader")]] = None
+    InferenceComponentName: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "InferenceComponentHeader")]] = (
+        None
+    )
+    SessionId: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "SessionIdOrNewSessionConstantHeader")]] = None
 
 
 # This class is the input for the 'invoke_endpoint_with_response_stream' function.
 class InvokeEndpointWithResponseStreamInputTypeDef(BaseValidatorModel):
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("SagemakerRuntime", "EndpointName")]
     Body: BlobTypeDef
-    ContentType: Optional[str] = None
-    Accept: Optional[str] = None
-    CustomAttributes: Optional[str] = None
-    TargetVariant: Optional[str] = None
-    TargetContainerHostname: Optional[str] = None
-    InferenceId: Optional[str] = None
-    InferenceComponentName: Optional[str] = None
-    SessionId: Optional[str] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "Header")]] = None
+    Accept: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "Header")]] = None
+    CustomAttributes: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "CustomAttributesHeader")]] = None
+    TargetVariant: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "TargetVariantHeader")]] = None
+    TargetContainerHostname: Optional[
+        Annotated[str, _aws_pattern("SagemakerRuntime", "TargetContainerHostnameHeader")]
+    ] = None
+    InferenceId: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "InferenceId")]] = None
+    InferenceComponentName: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "InferenceComponentHeader")]] = (
+        None
+    )
+    SessionId: Optional[Annotated[str, _aws_pattern("SagemakerRuntime", "SessionIdHeader")]] = None
 
 
 # This class is the output for the 'invoke_endpoint_async' function.
 class InvokeEndpointAsyncOutputTypeDef(BaseValidatorModel):
-    InferenceId: str
-    OutputLocation: str
-    FailureLocation: str
+    InferenceId: Annotated[str, _aws_pattern("SagemakerRuntime", "Header")]
+    OutputLocation: Annotated[str, _aws_pattern("SagemakerRuntime", "Header")]
+    FailureLocation: Annotated[str, _aws_pattern("SagemakerRuntime", "Header")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'invoke_endpoint' function.
 class InvokeEndpointOutputTypeDef(BaseValidatorModel):
     Body: StreamingBody
-    ContentType: str
-    InvokedProductionVariant: str
-    CustomAttributes: str
-    NewSessionId: str
-    ClosedSessionId: str
+    ContentType: Annotated[str, _aws_pattern("SagemakerRuntime", "Header")]
+    InvokedProductionVariant: Annotated[str, _aws_pattern("SagemakerRuntime", "Header")]
+    CustomAttributes: Annotated[str, _aws_pattern("SagemakerRuntime", "CustomAttributesHeader")]
+    NewSessionId: Annotated[str, _aws_pattern("SagemakerRuntime", "NewSessionResponseHeader")]
+    ClosedSessionId: Annotated[str, _aws_pattern("SagemakerRuntime", "SessionIdHeader")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 

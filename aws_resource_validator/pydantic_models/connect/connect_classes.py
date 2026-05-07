@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.connect.connect_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -67,7 +69,7 @@ class AfterContactWorkConfigTypeDef(BaseValidatorModel):
 
 
 class DistributionTypeDef(BaseValidatorModel):
-    Region: str
+    Region: Annotated[str, _aws_pattern("Connect", "AwsRegion")]
     Percentage: int
 
 
@@ -133,7 +135,7 @@ class AgentStatusSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Type: Optional[AgentStatusTypeType] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class AgentStatusTypeDef(BaseValidatorModel):
@@ -146,7 +148,7 @@ class AgentStatusTypeDef(BaseValidatorModel):
     State: Optional[AgentStatusStateType] = None
     Tags: Optional[Dict[str, str]] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class AgentsCriteriaOutputTypeDef(BaseValidatorModel):
@@ -168,7 +170,7 @@ class AliasConfigurationTypeDef(BaseValidatorModel):
 
 
 class AllowedExtensionTypeDef(BaseValidatorModel):
-    Extension: str
+    Extension: Annotated[str, _aws_pattern("Connect", "FileExtension")]
 
 
 class AnalyticsDataAssociationResultTypeDef(BaseValidatorModel):
@@ -284,7 +286,7 @@ class SecurityProfileItemTypeDef(BaseValidatorModel):
 
 
 class AssociateTrafficDistributionGroupUserRequestTypeDef(BaseValidatorModel):
-    TrafficDistributionGroupId: str
+    TrafficDistributionGroupId: Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupIdOrArn")]
     UserId: str
     InstanceId: str
 
@@ -304,7 +306,7 @@ class AssociateWorkspaceRequestTypeDef(BaseValidatorModel):
 
 class FailedBatchAssociationSummaryTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
-    ErrorCode: Optional[str] = None
+    ErrorCode: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceErrorCode")]] = None
     ErrorMessage: Optional[str] = None
 
 
@@ -339,7 +341,7 @@ class AttachmentReferenceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
     Status: Optional[ReferenceStatusType] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Connect", "ReferenceArn")]] = None
 
 
 class AttendeeTypeDef(BaseValidatorModel):
@@ -377,7 +379,7 @@ class AuthenticationProfileSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     IsDefault: Optional[bool] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class AuthenticationProfileTypeDef(BaseValidatorModel):
@@ -385,12 +387,12 @@ class AuthenticationProfileTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
-    AllowedIps: Optional[List[str]] = None
-    BlockedIps: Optional[List[str]] = None
+    AllowedIps: Optional[List[Annotated[str, _aws_pattern("Connect", "IpCidr")]]] = None
+    BlockedIps: Optional[List[Annotated[str, _aws_pattern("Connect", "IpCidr")]]] = None
     IsDefault: Optional[bool] = None
     CreatedTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
     PeriodicSessionDuration: Optional[int] = None
     MaxSessionDuration: Optional[int] = None
     SessionInactivityDuration: Optional[int] = None
@@ -417,7 +419,7 @@ class AutomaticFailConfigurationTypeDef(BaseValidatorModel):
 
 
 class AvailableNumberSummaryTypeDef(BaseValidatorModel):
-    PhoneNumber: Optional[str] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumber")]] = None
     PhoneNumberCountryCode: Optional[PhoneNumberCountryCodeType] = None
     PhoneNumberType: Optional[PhoneNumberTypeType] = None
 
@@ -435,7 +437,7 @@ class ErrorResultTypeDef(BaseValidatorModel):
 
 
 class PrimaryValueTypeDef(BaseValidatorModel):
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     Value: str
 
 
@@ -447,7 +449,7 @@ class DataTableLockVersionTypeDef(BaseValidatorModel):
 
 
 class PrimaryValueResponseTypeDef(BaseValidatorModel):
-    AttributeName: Optional[str] = None
+    AttributeName: Optional[Annotated[str, _aws_pattern("Connect", "DataTableName")]] = None
     AttributeId: Optional[str] = None
     Value: Optional[str] = None
 
@@ -550,17 +552,17 @@ class ChatStreamingConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'claim_phone_number' function.
 class ClaimPhoneNumberRequestTypeDef(BaseValidatorModel):
-    PhoneNumber: str
+    PhoneNumber: Annotated[str, _aws_pattern("Connect", "PhoneNumber")]
     TargetArn: Optional[str] = None
     InstanceId: Optional[str] = None
-    PhoneNumberDescription: Optional[str] = None
+    PhoneNumberDescription: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumberDescription")]] = None
     Tags: Optional[Dict[str, str]] = None
     ClientToken: Optional[str] = None
 
 
 class PhoneNumberStatusTypeDef(BaseValidatorModel):
     Status: Optional[PhoneNumberWorkflowStatusType] = None
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumberWorkflowMessage")]] = None
 
 
 class CompleteAttachedFileUploadRequestTypeDef(BaseValidatorModel):
@@ -613,11 +615,11 @@ class ContactFlowTypeConditionTypeDef(BaseValidatorModel):
 class ContactFlowModuleAliasInfoTypeDef(BaseValidatorModel):
     ContactFlowModuleId: Optional[str] = None
     ContactFlowModuleArn: Optional[str] = None
-    AliasId: Optional[str] = None
+    AliasId: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleAlias")]] = None
     Version: Optional[int] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    LastModifiedRegion: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleAlias")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleDescription")]] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
     LastModifiedTime: Optional[datetime] = None
 
 
@@ -625,15 +627,15 @@ class ContactFlowModuleAliasSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     AliasId: Optional[str] = None
     Version: Optional[int] = None
-    AliasName: Optional[str] = None
-    AliasDescription: Optional[str] = None
+    AliasName: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleName")]] = None
+    AliasDescription: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleDescription")]] = None
     LastModifiedTime: Optional[datetime] = None
 
 
 class ContactFlowModuleSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleName")]] = None
     State: Optional[ContactFlowModuleStateType] = None
 
 
@@ -643,7 +645,7 @@ class ExternalInvocationConfigurationTypeDef(BaseValidatorModel):
 
 class ContactFlowModuleVersionSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    VersionDescription: Optional[str] = None
+    VersionDescription: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleDescription")]] = None
     Version: Optional[int] = None
 
 
@@ -666,11 +668,11 @@ class ContactFlowTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Content: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
-    FlowContentSha256: Optional[str] = None
+    FlowContentSha256: Optional[Annotated[str, _aws_pattern("Connect", "FlowContentSha256")]] = None
     Version: Optional[int] = None
     VersionDescription: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class ContactFlowVersionSummaryTypeDef(BaseValidatorModel):
@@ -700,7 +702,7 @@ class ContactSearchSummaryQueueInfoTypeDef(BaseValidatorModel):
 class GlobalResiliencyMetadataTypeDef(BaseValidatorModel):
     ActiveRegion: Optional[str] = None
     OriginRegion: Optional[str] = None
-    TrafficDistributionGroupId: Optional[str] = None
+    TrafficDistributionGroupId: Optional[Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupId")]] = None
 
 
 class SegmentAttributeValuePaginatorTypeDef(BaseValidatorModel):
@@ -770,10 +772,10 @@ class CreateAgentStatusRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_contact_flow_module_alias' function.
 class CreateContactFlowModuleAliasRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     ContactFlowModuleId: str
     ContactFlowModuleVersion: int
-    AliasName: str
+    AliasName: Annotated[str, _aws_pattern("Connect", "ContactFlowModuleAlias")]
     Description: Optional[str] = None
 
 
@@ -781,8 +783,8 @@ class CreateContactFlowModuleAliasRequestTypeDef(BaseValidatorModel):
 class CreateContactFlowModuleVersionRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowModuleId: str
-    Description: Optional[str] = None
-    FlowModuleContentSha256: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleDescription")]] = None
+    FlowModuleContentSha256: Optional[Annotated[str, _aws_pattern("Connect", "FlowModuleContentSha256")]] = None
 
 
 # This class is the input for the 'create_contact_flow' function.
@@ -803,7 +805,7 @@ class ReferenceTypeDef(BaseValidatorModel):
     Type: ReferenceTypeType
     Value: Optional[str] = None
     Status: Optional[ReferenceStatusType] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Connect", "ReferenceArn")]] = None
     StatusReason: Optional[str] = None
 
 
@@ -814,18 +816,18 @@ class UserInfoTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_data_table' function.
 class CreateDataTableRequestTypeDef(BaseValidatorModel):
     InstanceId: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     TimeZone: str
     ValueLockLevel: DataTableLockLevelType
     Status: Literal["PUBLISHED"]
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "DataTableDescription")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_email_address' function.
 class CreateEmailAddressRequestTypeDef(BaseValidatorModel):
     InstanceId: str
-    EmailAddress: str
+    EmailAddress: Annotated[str, _aws_pattern("Connect", "EmailAddress")]
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
@@ -855,8 +857,8 @@ class CreateInstanceRequestTypeDef(BaseValidatorModel):
     InboundCallsEnabled: bool
     OutboundCallsEnabled: bool
     ClientToken: Optional[str] = None
-    InstanceAlias: Optional[str] = None
-    DirectoryId: Optional[str] = None
+    InstanceAlias: Optional[Annotated[str, _aws_pattern("Connect", "DirectoryAlias")]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Connect", "DirectoryId")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -866,7 +868,7 @@ class CreateIntegrationAssociationRequestTypeDef(BaseValidatorModel):
     IntegrationType: IntegrationTypeType
     IntegrationArn: str
     SourceApplicationUrl: Optional[str] = None
-    SourceApplicationName: Optional[str] = None
+    SourceApplicationName: Optional[Annotated[str, _aws_pattern("Connect", "SourceApplicationName")]] = None
     SourceType: Optional[SourceTypeType] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -893,7 +895,7 @@ class InputPredefinedAttributeConfigurationTypeDef(BaseValidatorModel):
 class CreatePromptRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Connect", "S3Uri")]
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -920,9 +922,9 @@ class FlowModuleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_traffic_distribution_group' function.
 class CreateTrafficDistributionGroupRequestTypeDef(BaseValidatorModel):
-    Name: str
-    InstanceId: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Connect", "Name128")]
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "Description250")]] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -951,7 +953,7 @@ class PersistentConnectionConfigTypeDef(BaseValidatorModel):
 class PhoneNumberConfigTypeDef(BaseValidatorModel):
     Channel: ChannelType
     PhoneType: PhoneTypeType
-    PhoneNumber: Optional[str] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("Connect", "SensitivePhoneNumber")]] = None
 
 
 class UserIdentityInfoTypeDef(BaseValidatorModel):
@@ -959,14 +961,14 @@ class UserIdentityInfoTypeDef(BaseValidatorModel):
     LastName: Optional[str] = None
     Email: Optional[str] = None
     SecondaryEmail: Optional[str] = None
-    Mobile: Optional[str] = None
+    Mobile: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumber")]] = None
 
 
 class UserPhoneConfigTypeDef(BaseValidatorModel):
     PhoneType: Optional[PhoneTypeType] = None
     AutoAccept: Optional[bool] = None
     AfterContactWorkTimeLimit: Optional[int] = None
-    DeskPhoneNumber: Optional[str] = None
+    DeskPhoneNumber: Optional[Annotated[str, _aws_pattern("Connect", "SensitivePhoneNumber")]] = None
     PersistentConnection: Optional[bool] = None
 
 
@@ -977,21 +979,21 @@ class VoiceEnhancementConfigTypeDef(BaseValidatorModel):
 
 class ViewInputContentTypeDef(BaseValidatorModel):
     Template: Optional[str] = None
-    Actions: Optional[List[str]] = None
+    Actions: Optional[List[Annotated[str, _aws_pattern("Connect", "ViewAction")]]] = None
 
 
 # This class is the input for the 'create_view_version' function.
 class CreateViewVersionRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    ViewId: str
-    VersionDescription: Optional[str] = None
-    ViewContentSha256: Optional[str] = None
+    InstanceId: Annotated[str, _aws_pattern("Connect", "ViewsInstanceId")]
+    ViewId: Annotated[str, _aws_pattern("Connect", "ViewId")]
+    VersionDescription: Optional[Annotated[str, _aws_pattern("Connect", "ViewDescription")]] = None
+    ViewContentSha256: Optional[Annotated[str, _aws_pattern("Connect", "ViewContentSha256")]] = None
 
 
 # This class is the input for the 'create_vocabulary' function.
 class CreateVocabularyRequestTypeDef(BaseValidatorModel):
     InstanceId: str
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Connect", "VocabularyName")]
     LanguageCode: VocabularyLanguageCodeType
     Content: str
     ClientToken: Optional[str] = None
@@ -1002,8 +1004,8 @@ class CreateWorkspacePageRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     WorkspaceId: str
     ResourceArn: str
-    Page: str
-    Slug: Optional[str] = None
+    Page: Annotated[str, _aws_pattern("Connect", "Page")]
+    Slug: Optional[Annotated[str, _aws_pattern("Connect", "Slug")]] = None
     InputData: Optional[str] = None
 
 
@@ -1020,7 +1022,7 @@ class CrossChannelBehaviorTypeDef(BaseValidatorModel):
 
 class CurrentMetricTypeDef(BaseValidatorModel):
     Name: Optional[CurrentMetricNameType] = None
-    MetricId: Optional[str] = None
+    MetricId: Optional[Annotated[str, _aws_pattern("Connect", "CurrentMetricId")]] = None
     Unit: Optional[UnitType] = None
 
 
@@ -1030,16 +1032,16 @@ class CurrentMetricSortCriteriaTypeDef(BaseValidatorModel):
 
 
 class DataTableSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "DataTableName")]] = None
     Id: Optional[str] = None
     Arn: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class DateConditionTypeDef(BaseValidatorModel):
     FieldName: Optional[str] = None
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Connect", "DateYearMonthDayFormat")]] = None
     ComparisonType: Optional[DateComparisonTypeType] = None
 
 
@@ -1050,8 +1052,8 @@ class DateReferenceTypeDef(BaseValidatorModel):
 
 class DateTimeConditionTypeDef(BaseValidatorModel):
     FieldName: Optional[str] = None
-    MinValue: Optional[str] = None
-    MaxValue: Optional[str] = None
+    MinValue: Optional[Annotated[str, _aws_pattern("Connect", "DateTimeFormat")]] = None
+    MaxValue: Optional[Annotated[str, _aws_pattern("Connect", "DateTimeFormat")]] = None
     ComparisonType: Optional[DateTimeComparisonTypeType] = None
 
 
@@ -1073,7 +1075,7 @@ class DefaultVocabularyTypeDef(BaseValidatorModel):
     InstanceId: str
     LanguageCode: VocabularyLanguageCodeType
     VocabularyId: str
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Connect", "VocabularyName")]
 
 
 class DeleteAttachedFileRequestTypeDef(BaseValidatorModel):
@@ -1089,7 +1091,7 @@ class DeleteContactEvaluationRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteContactFlowModuleAliasRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     ContactFlowModuleId: str
     AliasId: str
 
@@ -1120,7 +1122,7 @@ class DeleteContactFlowVersionRequestTypeDef(BaseValidatorModel):
 class DeleteDataTableAttributeRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DataTableId: str
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
 
 
 class DeleteDataTableRequestTypeDef(BaseValidatorModel):
@@ -1224,12 +1226,12 @@ class DeleteTaskTemplateRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteTestCaseRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     TestCaseId: str
 
 
 class DeleteTrafficDistributionGroupRequestTypeDef(BaseValidatorModel):
-    TrafficDistributionGroupId: str
+    TrafficDistributionGroupId: Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupIdOrArn")]
 
 
 # This class is the input for the 'delete_use_case' function.
@@ -1252,13 +1254,13 @@ class DeleteUserRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteViewRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    ViewId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "ViewsInstanceId")]
+    ViewId: Annotated[str, _aws_pattern("Connect", "ViewId")]
 
 
 class DeleteViewVersionRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    ViewId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "ViewsInstanceId")]
+    ViewId: Annotated[str, _aws_pattern("Connect", "ViewId")]
     ViewVersion: int
 
 
@@ -1277,7 +1279,7 @@ class DeleteWorkspaceMediaRequestTypeDef(BaseValidatorModel):
 class DeleteWorkspacePageRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     WorkspaceId: str
-    Page: str
+    Page: Annotated[str, _aws_pattern("Connect", "Page")]
 
 
 class DeleteWorkspaceRequestTypeDef(BaseValidatorModel):
@@ -1311,7 +1313,7 @@ class DescribeContactEvaluationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_contact_flow_module_alias' function.
 class DescribeContactFlowModuleAliasRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     ContactFlowModuleId: str
     AliasId: str
 
@@ -1338,7 +1340,7 @@ class DescribeContactRequestTypeDef(BaseValidatorModel):
 class DescribeDataTableAttributeRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DataTableId: str
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
 
 
 # This class is the input for the 'describe_data_table' function.
@@ -1406,7 +1408,7 @@ class NotificationTypeDef(BaseValidatorModel):
     Recipients: Optional[List[str]] = None
     CreatedAt: Optional[datetime] = None
     ExpiresAt: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -1434,7 +1436,7 @@ class PromptTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'describe_queue' function.
@@ -1469,22 +1471,22 @@ class DescribeSecurityProfileRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_test_case' function.
 class DescribeTestCaseRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     TestCaseId: str
     Status: Optional[TestCaseStatusType] = None
 
 
 # This class is the input for the 'describe_traffic_distribution_group' function.
 class DescribeTrafficDistributionGroupRequestTypeDef(BaseValidatorModel):
-    TrafficDistributionGroupId: str
+    TrafficDistributionGroupId: Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupIdOrArn")]
 
 
 class TrafficDistributionGroupTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    InstanceArn: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "Name128")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "Description250")]] = None
+    InstanceArn: Optional[Annotated[str, _aws_pattern("Connect", "InstanceArn")]] = None
     Status: Optional[TrafficDistributionGroupStatusType] = None
     Tags: Optional[Dict[str, str]] = None
     IsDefault: Optional[bool] = None
@@ -1509,8 +1511,8 @@ class DescribeUserRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_view' function.
 class DescribeViewRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    ViewId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "ViewsInstanceId")]
+    ViewId: Annotated[str, _aws_pattern("Connect", "ViewId")]
 
 
 # This class is the input for the 'describe_vocabulary' function.
@@ -1520,7 +1522,7 @@ class DescribeVocabularyRequestTypeDef(BaseValidatorModel):
 
 
 class VocabularyTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "VocabularyName")]
     Id: str
     Arn: str
     LanguageCode: VocabularyLanguageCodeType
@@ -1626,7 +1628,7 @@ class DisassociateSecurityKeyRequestTypeDef(BaseValidatorModel):
 
 
 class DisassociateTrafficDistributionGroupUserRequestTypeDef(BaseValidatorModel):
-    TrafficDistributionGroupId: str
+    TrafficDistributionGroupId: Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupIdOrArn")]
     UserId: str
     InstanceId: str
 
@@ -1659,7 +1661,7 @@ class DownloadUrlMetadataTypeDef(BaseValidatorModel):
 
 
 class EmailAddressInfoTypeDef(BaseValidatorModel):
-    EmailAddress: str
+    EmailAddress: Annotated[str, _aws_pattern("Connect", "EmailAddress")]
     DisplayName: Optional[str] = None
 
 
@@ -1670,13 +1672,13 @@ class EmailAddressSummaryTypeDef(BaseValidatorModel):
 
 
 class EmailAttachmentTypeDef(BaseValidatorModel):
-    FileName: str
+    FileName: Annotated[str, _aws_pattern("Connect", "FileName")]
     S3Url: str
 
 
 class EmailMessageReferenceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Connect", "ReferenceArn")]] = None
 
 
 class EmailReferenceTypeDef(BaseValidatorModel):
@@ -1934,8 +1936,8 @@ class GetContactAttributesRequestTypeDef(BaseValidatorModel):
 class GetEffectiveHoursOfOperationsRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
-    FromDate: str
-    ToDate: str
+    FromDate: Annotated[str, _aws_pattern("Connect", "HoursOfOperationOverrideYearMonthDayDateFormat")]
+    ToDate: Annotated[str, _aws_pattern("Connect", "HoursOfOperationOverrideYearMonthDayDateFormat")]
 
 
 # This class is the input for the 'get_federation_token' function.
@@ -1989,7 +1991,7 @@ class ObservationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_traffic_distribution' function.
 class GetTrafficDistributionRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupIdOrArn")]
 
 
 class HierarchyGroupSummaryReferenceTypeDef(BaseValidatorModel):
@@ -2002,7 +2004,7 @@ class HierarchyGroupSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class HierarchyLevelTypeDef(BaseValidatorModel):
@@ -2010,7 +2012,7 @@ class HierarchyLevelTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class HierarchyLevelUpdateTypeDef(BaseValidatorModel):
@@ -2037,7 +2039,7 @@ class HoursOfOperationSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class HoursOfOperationsIdentifierTypeDef(BaseValidatorModel):
@@ -2047,15 +2049,15 @@ class HoursOfOperationsIdentifierTypeDef(BaseValidatorModel):
 
 
 class ImagesLogoTypeDef(BaseValidatorModel):
-    Default: Optional[str] = None
-    Favicon: Optional[str] = None
+    Default: Optional[Annotated[str, _aws_pattern("Connect", "ThemeImageLink")]] = None
+    Favicon: Optional[Annotated[str, _aws_pattern("Connect", "ThemeImageLink")]] = None
 
 
 # This class is the input for the 'import_phone_number' function.
 class ImportPhoneNumberRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     SourcePhoneNumberArn: str
-    PhoneNumberDescription: Optional[str] = None
+    PhoneNumberDescription: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumberDescription")]] = None
     Tags: Optional[Dict[str, str]] = None
     ClientToken: Optional[str] = None
 
@@ -2064,7 +2066,7 @@ class ImportWorkspaceMediaRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     WorkspaceId: str
     MediaType: MediaTypeType
-    MediaSource: str
+    MediaSource: Annotated[str, _aws_pattern("Connect", "MediaSource")]
 
 
 class InboundRawMessageTypeDef(BaseValidatorModel):
@@ -2090,7 +2092,7 @@ class InstanceSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     IdentityManagementType: Optional[DirectoryTypeType] = None
-    InstanceAlias: Optional[str] = None
+    InstanceAlias: Optional[Annotated[str, _aws_pattern("Connect", "DirectoryAlias")]] = None
     CreatedTime: Optional[datetime] = None
     ServiceRole: Optional[str] = None
     InstanceStatus: Optional[InstanceStatusType] = None
@@ -2106,7 +2108,7 @@ class IntegrationAssociationSummaryTypeDef(BaseValidatorModel):
     IntegrationType: Optional[IntegrationTypeType] = None
     IntegrationArn: Optional[str] = None
     SourceApplicationUrl: Optional[str] = None
-    SourceApplicationName: Optional[str] = None
+    SourceApplicationName: Optional[Annotated[str, _aws_pattern("Connect", "SourceApplicationName")]] = None
     SourceType: Optional[SourceTypeType] = None
 
 
@@ -2191,7 +2193,7 @@ class ListContactEvaluationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_contact_flow_module_aliases' function.
 class ListContactFlowModuleAliasesRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     ContactFlowModuleId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2247,7 +2249,7 @@ class ListDataTableAttributesRequestTypeDef(BaseValidatorModel):
 
 
 class PrimaryAttributeValueFilterTypeDef(BaseValidatorModel):
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     Values: List[str]
 
 
@@ -2263,7 +2265,7 @@ class ListDefaultVocabulariesRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     LanguageCode: Optional[VocabularyLanguageCodeType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Connect", "VocabularyNextToken")]] = None
 
 
 # This class is the input for the 'list_entity_security_profiles' function.
@@ -2376,7 +2378,7 @@ class ListPhoneNumbersRequestTypeDef(BaseValidatorModel):
 class PhoneNumberSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
-    PhoneNumber: Optional[str] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumber")]] = None
     PhoneNumberType: Optional[PhoneNumberTypeType] = None
     PhoneNumberCountryCode: Optional[PhoneNumberCountryCodeType] = None
 
@@ -2384,12 +2386,12 @@ class PhoneNumberSummaryTypeDef(BaseValidatorModel):
 class ListPhoneNumbersSummaryTypeDef(BaseValidatorModel):
     PhoneNumberId: Optional[str] = None
     PhoneNumberArn: Optional[str] = None
-    PhoneNumber: Optional[str] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumber")]] = None
     PhoneNumberCountryCode: Optional[PhoneNumberCountryCodeType] = None
     PhoneNumberType: Optional[PhoneNumberTypeType] = None
     TargetArn: Optional[str] = None
     InstanceId: Optional[str] = None
-    PhoneNumberDescription: Optional[str] = None
+    PhoneNumberDescription: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumberDescription")]] = None
     SourcePhoneNumberArn: Optional[str] = None
 
 
@@ -2401,7 +2403,7 @@ class ListPhoneNumbersV2RequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     PhoneNumberCountryCodes: Optional[List[PhoneNumberCountryCodeType]] = None
     PhoneNumberTypes: Optional[List[PhoneNumberTypeType]] = None
-    PhoneNumberPrefix: Optional[str] = None
+    PhoneNumberPrefix: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumberPrefix")]] = None
 
 
 # This class is the input for the 'list_predefined_attributes' function.
@@ -2414,7 +2416,7 @@ class ListPredefinedAttributesRequestTypeDef(BaseValidatorModel):
 class PredefinedAttributeSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'list_prompts' function.
@@ -2429,7 +2431,7 @@ class PromptSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'list_queue_email_addresses' function.
@@ -2454,7 +2456,7 @@ class QuickConnectSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     QuickConnectType: Optional[QuickConnectTypeType] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'list_queues' function.
@@ -2471,7 +2473,7 @@ class QueueSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     QueueType: Optional[QueueTypeType] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'list_quick_connects' function.
@@ -2536,7 +2538,7 @@ class RoutingProfileSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'list_rules' function.
@@ -2597,7 +2599,7 @@ class SecurityProfileSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -2668,12 +2670,12 @@ class TestCaseSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[TestCaseStatusType] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'list_traffic_distribution_group_users' function.
 class ListTrafficDistributionGroupUsersRequestTypeDef(BaseValidatorModel):
-    TrafficDistributionGroupId: str
+    TrafficDistributionGroupId: Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupIdOrArn")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -2686,14 +2688,14 @@ class TrafficDistributionGroupUserSummaryTypeDef(BaseValidatorModel):
 class ListTrafficDistributionGroupsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]] = None
 
 
 class TrafficDistributionGroupSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
-    InstanceArn: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "Name128")]] = None
+    InstanceArn: Optional[Annotated[str, _aws_pattern("Connect", "InstanceArn")]] = None
     Status: Optional[TrafficDistributionGroupStatusType] = None
     IsDefault: Optional[bool] = None
 
@@ -2759,42 +2761,42 @@ class UserSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Username: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'list_view_versions' function.
 class ListViewVersionsRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    ViewId: str
-    NextToken: Optional[str] = None
+    InstanceId: Annotated[str, _aws_pattern("Connect", "ViewsInstanceId")]
+    ViewId: Annotated[str, _aws_pattern("Connect", "ViewId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Connect", "ViewsNextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ViewVersionSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Connect", "ViewId")]] = None
     Arn: Optional[str] = None
-    Description: Optional[str] = None
-    Name: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "ViewDescription")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "ViewName")]] = None
     Type: Optional[ViewTypeType] = None
     Version: Optional[int] = None
-    VersionDescription: Optional[str] = None
+    VersionDescription: Optional[Annotated[str, _aws_pattern("Connect", "ViewDescription")]] = None
 
 
 # This class is the input for the 'list_views' function.
 class ListViewsRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "ViewsInstanceId")]
     Type: Optional[ViewTypeType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Connect", "ViewsNextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ViewSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Connect", "ViewId")]] = None
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "ViewName")]] = None
     Type: Optional[ViewTypeType] = None
     Status: Optional[ViewStatusType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "ViewDescription")]] = None
 
 
 # This class is the input for the 'list_workspace_media' function.
@@ -2805,7 +2807,7 @@ class ListWorkspaceMediaRequestTypeDef(BaseValidatorModel):
 
 class MediaItemTypeDef(BaseValidatorModel):
     Type: Optional[MediaTypeType] = None
-    Source: Optional[str] = None
+    Source: Optional[Annotated[str, _aws_pattern("Connect", "MediaSource")]] = None
 
 
 # This class is the input for the 'list_workspace_pages' function.
@@ -2818,8 +2820,8 @@ class ListWorkspacePagesRequestTypeDef(BaseValidatorModel):
 
 class WorkspacePageTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
-    Page: Optional[str] = None
-    Slug: Optional[str] = None
+    Page: Optional[Annotated[str, _aws_pattern("Connect", "Page")]] = None
+    Slug: Optional[Annotated[str, _aws_pattern("Connect", "Slug")]] = None
     InputData: Optional[str] = None
 
 
@@ -2832,10 +2834,10 @@ class ListWorkspacesRequestTypeDef(BaseValidatorModel):
 
 class WorkspaceSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceName")]] = None
     Arn: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class MediaPlacementTypeDef(BaseValidatorModel):
@@ -2920,7 +2922,7 @@ class NotificationSearchSummaryTypeDef(BaseValidatorModel):
     Recipients: Optional[List[str]] = None
     CreatedAt: Optional[datetime] = None
     ExpiresAt: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
     LastModifiedTime: Optional[datetime] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -2937,32 +2939,32 @@ class OutboundRawMessageTypeDef(BaseValidatorModel):
 
 
 class PaletteCanvasTypeDef(BaseValidatorModel):
-    ContainerBackground: Optional[str] = None
-    PageBackground: Optional[str] = None
-    ActiveBackground: Optional[str] = None
+    ContainerBackground: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
+    PageBackground: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
+    ActiveBackground: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
 
 
 class PaletteHeaderTypeDef(BaseValidatorModel):
-    Background: Optional[str] = None
-    Text: Optional[str] = None
-    TextHover: Optional[str] = None
+    Background: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
+    Text: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
+    TextHover: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
     InvertActionsColors: Optional[bool] = None
 
 
 class PaletteNavigationTypeDef(BaseValidatorModel):
-    Background: Optional[str] = None
-    TextBackgroundHover: Optional[str] = None
-    TextBackgroundActive: Optional[str] = None
-    Text: Optional[str] = None
-    TextHover: Optional[str] = None
-    TextActive: Optional[str] = None
+    Background: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
+    TextBackgroundHover: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
+    TextBackgroundActive: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
+    Text: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
+    TextHover: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
+    TextActive: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
     InvertActionsColors: Optional[bool] = None
 
 
 class PalettePrimaryTypeDef(BaseValidatorModel):
-    Default: Optional[str] = None
-    Active: Optional[str] = None
-    ContrastText: Optional[str] = None
+    Default: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
+    Active: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
+    ContrastText: Optional[Annotated[str, _aws_pattern("Connect", "ThemeString")]] = None
 
 
 class ParticipantConfigurationTypeDef(BaseValidatorModel):
@@ -2986,7 +2988,7 @@ class PersistentChatTypeDef(BaseValidatorModel):
 
 
 class PhoneNumberQuickConnectConfigTypeDef(BaseValidatorModel):
-    PhoneNumber: str
+    PhoneNumber: Annotated[str, _aws_pattern("Connect", "PhoneNumber")]
 
 
 class PostAcceptTimeoutConfigTypeDef(BaseValidatorModel):
@@ -3014,8 +3016,8 @@ class PrimaryAttributeValueOutputTypeDef(BaseValidatorModel):
 
 class PrimaryAttributeValueTypeDef(BaseValidatorModel):
     AccessType: Optional[Literal["ALLOW"]] = None
-    AttributeName: Optional[str] = None
-    Values: Optional[List[str]] = None
+    AttributeName: Optional[Annotated[str, _aws_pattern("Connect", "PrimaryAttributeContextKeyName")]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Connect", "IAMRestrictedPrimaryValue")]]] = None
 
 
 class PutUserStatusRequestTypeDef(BaseValidatorModel):
@@ -3094,14 +3096,14 @@ class ReleasePhoneNumberRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'replicate_instance' function.
 class ReplicateInstanceRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    ReplicaRegion: str
-    ReplicaAlias: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
+    ReplicaRegion: Annotated[str, _aws_pattern("Connect", "AwsRegion")]
+    ReplicaAlias: Annotated[str, _aws_pattern("Connect", "DirectoryAlias")]
     ClientToken: Optional[str] = None
 
 
 class ReplicationStatusSummaryTypeDef(BaseValidatorModel):
-    Region: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Connect", "AwsRegion")]] = None
     ReplicationStatus: Optional[InstanceReplicationStatusType] = None
     ReplicationStatusReason: Optional[str] = None
 
@@ -3140,7 +3142,7 @@ class SearchAvailablePhoneNumbersRequestTypeDef(BaseValidatorModel):
     PhoneNumberType: PhoneNumberTypeType
     TargetArn: Optional[str] = None
     InstanceId: Optional[str] = None
-    PhoneNumberPrefix: Optional[str] = None
+    PhoneNumberPrefix: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumberPrefix")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -3156,7 +3158,7 @@ class SortTypeDef(BaseValidatorModel):
 
 
 class TagSetTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("Connect", "TagKey")]] = None
     value: Optional[str] = None
 
 
@@ -3173,14 +3175,14 @@ class SecurityProfileSearchSummaryTypeDef(BaseValidatorModel):
 class SearchVocabulariesRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Connect", "VocabularyNextToken")]] = None
     State: Optional[VocabularyStateType] = None
-    NameStartsWith: Optional[str] = None
+    NameStartsWith: Optional[Annotated[str, _aws_pattern("Connect", "VocabularyName")]] = None
     LanguageCode: Optional[VocabularyLanguageCodeType] = None
 
 
 class VocabularySummaryTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "VocabularyName")]
     Id: str
     Arn: str
     LanguageCode: VocabularyLanguageCodeType
@@ -3195,15 +3197,15 @@ class WorkspaceAssociationSearchSummaryTypeDef(BaseValidatorModel):
     ResourceId: Optional[str] = None
     ResourceArn: Optional[str] = None
     ResourceType: Optional[str] = None
-    ResourceName: Optional[str] = None
+    ResourceName: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceAssociatedResourceName")]] = None
 
 
 class WorkspaceSearchSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceName")]] = None
     Visibility: Optional[VisibilityType] = None
-    Description: Optional[str] = None
-    Title: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceDescription")]] = None
+    Title: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceTitle")]] = None
     Arn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     Tags: Optional[Dict[str, str]] = None
@@ -3238,7 +3240,7 @@ class SourceCampaignTypeDef(BaseValidatorModel):
 
 
 class SignInDistributionTypeDef(BaseValidatorModel):
-    Region: str
+    Region: Annotated[str, _aws_pattern("Connect", "AwsRegion")]
     Enabled: bool
 
 
@@ -3267,7 +3269,7 @@ class StartScreenSharingRequestTypeDef(BaseValidatorModel):
 
 
 class TaskAttachmentTypeDef(BaseValidatorModel):
-    FileName: str
+    FileName: Annotated[str, _aws_pattern("Connect", "FileName")]
     S3Url: str
 
 
@@ -3328,8 +3330,8 @@ class TemplateAttributesTypeDef(BaseValidatorModel):
 
 
 class VoiceCallEntryPointParametersTypeDef(BaseValidatorModel):
-    SourcePhoneNumber: Optional[str] = None
-    DestinationPhoneNumber: Optional[str] = None
+    SourcePhoneNumber: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumber")]] = None
+    DestinationPhoneNumber: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumber")]] = None
     FlowId: Optional[str] = None
 
 
@@ -3352,13 +3354,13 @@ class TransferContactRequestTypeDef(BaseValidatorModel):
 class UntagContactRequestTypeDef(BaseValidatorModel):
     ContactId: str
     InstanceId: str
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("Connect", "ContactTagKey")]]
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Connect", "TagKey")]]
 
 
 # This class is the input for the 'update_agent_status' function.
@@ -3378,8 +3380,8 @@ class UpdateAuthenticationProfileRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
-    AllowedIps: Optional[List[str]] = None
-    BlockedIps: Optional[List[str]] = None
+    AllowedIps: Optional[List[Annotated[str, _aws_pattern("Connect", "IpCidr")]]] = None
+    BlockedIps: Optional[List[Annotated[str, _aws_pattern("Connect", "IpCidr")]]] = None
     PeriodicSessionDuration: Optional[int] = None
     SessionInactivityDuration: Optional[int] = None
     SessionInactivityHandlingEnabled: Optional[bool] = None
@@ -3406,11 +3408,11 @@ class UpdateContactFlowMetadataRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateContactFlowModuleAliasRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     ContactFlowModuleId: str
     AliasId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleDescription")]] = None
     ContactFlowModuleVersion: Optional[int] = None
 
 
@@ -3424,8 +3426,8 @@ class UpdateContactFlowModuleContentRequestTypeDef(BaseValidatorModel):
 class UpdateContactFlowModuleMetadataRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowModuleId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleDescription")]] = None
     State: Optional[ContactFlowModuleStateType] = None
 
 
@@ -3440,10 +3442,10 @@ class UpdateContactFlowNameRequestTypeDef(BaseValidatorModel):
 class UpdateDataTableMetadataRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DataTableId: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     ValueLockLevel: DataTableLockLevelType
     TimeZone: str
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "DataTableDescription")]] = None
 
 
 # This class is the input for the 'update_email_address_metadata' function.
@@ -3473,14 +3475,14 @@ class UpdateParticipantAuthenticationRequestTypeDef(BaseValidatorModel):
     State: str
     InstanceId: str
     Code: Optional[str] = None
-    Error: Optional[str] = None
-    ErrorDescription: Optional[str] = None
+    Error: Optional[Annotated[str, _aws_pattern("Connect", "AuthenticationError")]] = None
+    ErrorDescription: Optional[Annotated[str, _aws_pattern("Connect", "AuthenticationErrorDescription")]] = None
 
 
 # This class is the input for the 'update_phone_number_metadata' function.
 class UpdatePhoneNumberMetadataRequestTypeDef(BaseValidatorModel):
     PhoneNumberId: str
-    PhoneNumberDescription: Optional[str] = None
+    PhoneNumberDescription: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumberDescription")]] = None
     ClientToken: Optional[str] = None
 
 
@@ -3498,7 +3500,7 @@ class UpdatePromptRequestTypeDef(BaseValidatorModel):
     PromptId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
-    S3Uri: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Connect", "S3Uri")]] = None
 
 
 # This class is the input for the 'update_queue_hours_of_operation' function.
@@ -3589,27 +3591,27 @@ class UpdateUserSecurityProfilesRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateViewMetadataRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    ViewId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    InstanceId: Annotated[str, _aws_pattern("Connect", "ViewsInstanceId")]
+    ViewId: Annotated[str, _aws_pattern("Connect", "ViewId")]
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "ViewName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "ViewDescription")]] = None
 
 
 class UpdateWorkspaceMetadataRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     WorkspaceId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    Title: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceDescription")]] = None
+    Title: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceTitle")]] = None
 
 
 class UpdateWorkspacePageRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     WorkspaceId: str
-    Page: str
-    NewPage: Optional[str] = None
+    Page: Annotated[str, _aws_pattern("Connect", "Page")]
+    NewPage: Optional[Annotated[str, _aws_pattern("Connect", "Page")]] = None
     ResourceArn: Optional[str] = None
-    Slug: Optional[str] = None
+    Slug: Optional[Annotated[str, _aws_pattern("Connect", "Slug")]] = None
     InputData: Optional[str] = None
 
 
@@ -3642,11 +3644,11 @@ class ValidationEnumTypeDef(BaseValidatorModel):
 class ViewContentTypeDef(BaseValidatorModel):
     InputSchema: Optional[str] = None
     Template: Optional[str] = None
-    Actions: Optional[List[str]] = None
+    Actions: Optional[List[Annotated[str, _aws_pattern("Connect", "ViewAction")]]] = None
 
 
 class RuleSummaryTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "RuleName")]
     RuleId: str
     RuleArn: str
     EventSourceName: EventSourceNameType
@@ -3724,7 +3726,7 @@ class CreateContactFlowModuleVersionResponseTypeDef(BaseValidatorModel):
 class CreateContactFlowResponseTypeDef(BaseValidatorModel):
     ContactFlowId: str
     ContactFlowArn: str
-    FlowContentSha256: str
+    FlowContentSha256: Annotated[str, _aws_pattern("Connect", "FlowContentSha256")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3860,8 +3862,8 @@ class CreateTestCaseResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_traffic_distribution_group' function.
 class CreateTrafficDistributionGroupResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
+    Id: Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupId")]
+    Arn: Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3940,7 +3942,7 @@ class GetFlowAssociationResponseTypeDef(BaseValidatorModel):
 class GetPromptFileResponseTypeDef(BaseValidatorModel):
     PromptPresignedUrl: str
     LastModifiedTime: datetime
-    LastModifiedRegion: str
+    LastModifiedRegion: Annotated[str, _aws_pattern("Connect", "RegionName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3969,7 +3971,7 @@ class ListLambdaFunctionsResponseTypeDef(BaseValidatorModel):
 class ListSecurityProfilePermissionsResponseTypeDef(BaseValidatorModel):
     Permissions: List[str]
     LastModifiedTime: datetime
-    LastModifiedRegion: str
+    LastModifiedRegion: Annotated[str, _aws_pattern("Connect", "RegionName")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -4446,7 +4448,7 @@ class AssociateEmailAddressAliasRequestTypeDef(BaseValidatorModel):
 class DescribeEmailAddressResponseTypeDef(BaseValidatorModel):
     EmailAddressId: str
     EmailAddressArn: str
-    EmailAddress: str
+    EmailAddress: Annotated[str, _aws_pattern("Connect", "EmailAddress")]
     DisplayName: str
     Description: str
     CreateTimestamp: str
@@ -4466,7 +4468,7 @@ class DisassociateEmailAddressAliasRequestTypeDef(BaseValidatorModel):
 class EmailAddressMetadataTypeDef(BaseValidatorModel):
     EmailAddressId: Optional[str] = None
     EmailAddressArn: Optional[str] = None
-    EmailAddress: Optional[str] = None
+    EmailAddress: Optional[Annotated[str, _aws_pattern("Connect", "EmailAddress")]] = None
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     AliasConfigurations: Optional[List[AliasConfigurationTypeDef]] = None
@@ -4498,7 +4500,7 @@ class ListAnalyticsDataLakeDataSetsResponseTypeDef(BaseValidatorModel):
 class ListSecurityProfileApplicationsResponseTypeDef(BaseValidatorModel):
     Applications: List[ApplicationOutputTypeDef]
     LastModifiedTime: datetime
-    LastModifiedRegion: str
+    LastModifiedRegion: Annotated[str, _aws_pattern("Connect", "RegionName")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -4590,7 +4592,7 @@ class AssociateUserProficienciesRequestTypeDef(BaseValidatorModel):
 class ListUserProficienciesResponseTypeDef(BaseValidatorModel):
     UserProficiencyList: List[UserProficiencyTypeDef]
     LastModifiedTime: datetime
-    LastModifiedRegion: str
+    LastModifiedRegion: Annotated[str, _aws_pattern("Connect", "RegionName")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -4627,7 +4629,7 @@ class AttachedFileTypeDef(BaseValidatorModel):
     CreationTime: str
     FileArn: str
     FileId: str
-    FileName: str
+    FileName: Annotated[str, _aws_pattern("Connect", "FileName")]
     FileSizeInBytes: int
     FileStatus: FileStatusTypeType
     CreatedBy: Optional[CreatedByInfoTypeDef] = None
@@ -4639,7 +4641,7 @@ class AttachedFileTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_attached_file_upload' function.
 class StartAttachedFileUploadRequestTypeDef(BaseValidatorModel):
     InstanceId: str
-    FileName: str
+    FileName: Annotated[str, _aws_pattern("Connect", "FileName")]
     FileSizeInBytes: int
     FileUseCaseType: FileUseCaseTypeType
     AssociatedResourceArn: str
@@ -4743,32 +4745,32 @@ class BatchDisassociateAnalyticsDataSetResponseTypeDef(BaseValidatorModel):
 
 class BatchCreateDataTableValueFailureResultTypeDef(BaseValidatorModel):
     PrimaryValues: List[PrimaryValueTypeDef]
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     Message: str
 
 
 class BatchDeleteDataTableValueFailureResultTypeDef(BaseValidatorModel):
     PrimaryValues: List[PrimaryValueTypeDef]
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     Message: str
 
 
 class BatchDescribeDataTableValueFailureResultTypeDef(BaseValidatorModel):
     PrimaryValues: List[PrimaryValueTypeDef]
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     Message: str
 
 
 class BatchUpdateDataTableValueFailureResultTypeDef(BaseValidatorModel):
     PrimaryValues: List[PrimaryValueTypeDef]
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     Message: str
 
 
 class DataTableEvaluatedValueTypeDef(BaseValidatorModel):
     RecordId: str
     PrimaryValues: List[PrimaryValueTypeDef]
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     ValueType: DataTableAttributeValueTypeType
     Found: bool
     Error: bool
@@ -4776,37 +4778,37 @@ class DataTableEvaluatedValueTypeDef(BaseValidatorModel):
 
 
 class DataTableValueEvaluationSetTypeDef(BaseValidatorModel):
-    AttributeNames: List[str]
+    AttributeNames: List[Annotated[str, _aws_pattern("Connect", "DataTableName")]]
     PrimaryValues: Optional[List[PrimaryValueTypeDef]] = None
 
 
 class DataTableValueIdentifierTypeDef(BaseValidatorModel):
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     PrimaryValues: Optional[List[PrimaryValueTypeDef]] = None
 
 
 class BatchCreateDataTableValueSuccessResultTypeDef(BaseValidatorModel):
     PrimaryValues: List[PrimaryValueTypeDef]
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     RecordId: str
     LockVersion: DataTableLockVersionTypeDef
 
 
 class BatchDeleteDataTableValueSuccessResultTypeDef(BaseValidatorModel):
     PrimaryValues: List[PrimaryValueTypeDef]
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     LockVersion: DataTableLockVersionTypeDef
 
 
 class BatchUpdateDataTableValueSuccessResultTypeDef(BaseValidatorModel):
     PrimaryValues: List[PrimaryValueTypeDef]
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     LockVersion: DataTableLockVersionTypeDef
 
 
 # This class is the output for the 'create_data_table_attribute' function.
 class CreateDataTableAttributeResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     AttributeId: str
     LockVersion: DataTableLockVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4821,25 +4823,25 @@ class CreateDataTableResponseTypeDef(BaseValidatorModel):
 
 
 class DataTableDeleteValueIdentifierTypeDef(BaseValidatorModel):
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     LockVersion: DataTableLockVersionTypeDef
     PrimaryValues: Optional[List[PrimaryValueTypeDef]] = None
 
 
 class DataTableTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     Id: str
     Arn: str
     TimeZone: str
     LastModifiedTime: datetime
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "DataTableDescription")]] = None
     ValueLockLevel: Optional[DataTableLockLevelType] = None
     LockVersion: Optional[DataTableLockVersionTypeDef] = None
     Version: Optional[str] = None
-    VersionDescription: Optional[str] = None
+    VersionDescription: Optional[Annotated[str, _aws_pattern("Connect", "DataTableDescription")]] = None
     Status: Optional[Literal["PUBLISHED"]] = None
     CreatedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -4851,7 +4853,7 @@ class DeleteDataTableAttributeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_data_table_attribute' function.
 class UpdateDataTableAttributeResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     LockVersion: DataTableLockVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -4881,30 +4883,30 @@ class BatchDescribeDataTableValueSuccessResultTypeDef(BaseValidatorModel):
     RecordId: str
     AttributeId: str
     PrimaryValues: List[PrimaryValueResponseTypeDef]
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     LockVersion: DataTableLockVersionTypeDef
     Value: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class DataTableValueSummaryTypeDef(BaseValidatorModel):
     PrimaryValues: List[PrimaryValueResponseTypeDef]
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     ValueType: DataTableAttributeValueTypeType
     Value: str
     RecordId: Optional[str] = None
     AttributeId: Optional[str] = None
     LockVersion: Optional[DataTableLockVersionTypeDef] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class RecordPrimaryValueTypeDef(BaseValidatorModel):
     RecordId: Optional[str] = None
     PrimaryValues: Optional[List[PrimaryValueResponseTypeDef]] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the output for the 'batch_get_flow_association' function.
@@ -4957,10 +4959,10 @@ class StartContactStreamingRequestTypeDef(BaseValidatorModel):
 class ClaimedPhoneNumberSummaryTypeDef(BaseValidatorModel):
     PhoneNumberId: Optional[str] = None
     PhoneNumberArn: Optional[str] = None
-    PhoneNumber: Optional[str] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumber")]] = None
     PhoneNumberCountryCode: Optional[PhoneNumberCountryCodeType] = None
     PhoneNumberType: Optional[PhoneNumberTypeType] = None
-    PhoneNumberDescription: Optional[str] = None
+    PhoneNumberDescription: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumberDescription")]] = None
     TargetArn: Optional[str] = None
     InstanceId: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
@@ -5019,15 +5021,15 @@ class ListContactFlowModulesResponseTypeDef(BaseValidatorModel):
 class ContactFlowModuleTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleName")]] = None
     Content: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleDescription")]] = None
     State: Optional[ContactFlowModuleStateType] = None
     Status: Optional[ContactFlowModuleStatusType] = None
     Tags: Optional[Dict[str, str]] = None
-    FlowModuleContentSha256: Optional[str] = None
+    FlowModuleContentSha256: Optional[Annotated[str, _aws_pattern("Connect", "FlowModuleContentSha256")]] = None
     Version: Optional[int] = None
-    VersionDescription: Optional[str] = None
+    VersionDescription: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleDescription")]] = None
     Settings: Optional[str] = None
     ExternalInvocationConfiguration: Optional[ExternalInvocationConfigurationTypeDef] = None
 
@@ -5035,9 +5037,9 @@ class ContactFlowModuleTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_contact_flow_module' function.
 class CreateContactFlowModuleRequestTypeDef(BaseValidatorModel):
     InstanceId: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "ContactFlowModuleName")]
     Content: str
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "ContactFlowModuleDescription")]] = None
     Tags: Optional[Dict[str, str]] = None
     ClientToken: Optional[str] = None
     Settings: Optional[str] = None
@@ -5081,8 +5083,8 @@ class ListContactFlowVersionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_contact_metrics' function.
 class GetContactMetricsRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    ContactId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
+    ContactId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     Metrics: List[ContactMetricInfoTypeDef]
 
 
@@ -5106,10 +5108,10 @@ class CreateContactFlowVersionRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowId: str
     Description: Optional[str] = None
-    FlowContentSha256: Optional[str] = None
+    FlowContentSha256: Optional[Annotated[str, _aws_pattern("Connect", "FlowContentSha256")]] = None
     ContactFlowVersion: Optional[int] = None
     LastModifiedTime: Optional[TimestampTypeDef] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'create_notification' function.
@@ -5125,12 +5127,12 @@ class CreateNotificationRequestTypeDef(BaseValidatorModel):
 
 
 class DataTableValueTypeDef(BaseValidatorModel):
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     Value: str
     PrimaryValues: Optional[List[PrimaryValueTypeDef]] = None
     LockVersion: Optional[DataTableLockVersionTypeDef] = None
     LastModifiedTime: Optional[TimestampTypeDef] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class SearchContactsTimeRangeTypeDef(BaseValidatorModel):
@@ -5151,7 +5153,7 @@ class UpdateUserNotificationStatusRequestTypeDef(BaseValidatorModel):
     UserId: str
     Status: NotificationStatusType
     LastModifiedTime: Optional[TimestampTypeDef] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class TaskActionDefinitionOutputTypeDef(BaseValidatorModel):
@@ -5208,7 +5210,7 @@ class QueueTypeDef(BaseValidatorModel):
     Status: Optional[QueueStatusType] = None
     Tags: Optional[Dict[str, str]] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'update_queue_outbound_email_config' function.
@@ -5222,7 +5224,7 @@ class UpdateQueueOutboundEmailConfigRequestTypeDef(BaseValidatorModel):
 class ListSecurityProfileFlowModulesResponseTypeDef(BaseValidatorModel):
     AllowedFlowModules: List[FlowModuleTypeDef]
     LastModifiedTime: datetime
-    LastModifiedRegion: str
+    LastModifiedRegion: Annotated[str, _aws_pattern("Connect", "RegionName")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -5243,19 +5245,19 @@ class UpdateUserPhoneConfigRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_view' function.
 class CreateViewRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "ViewsInstanceId")]
     Status: ViewStatusType
     Content: ViewInputContentTypeDef
-    Name: str
-    ClientToken: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Connect", "ViewName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Connect", "ViewsClientToken")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "ViewDescription")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_view_content' function.
 class UpdateViewContentRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    ViewId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "ViewsInstanceId")]
+    ViewId: Annotated[str, _aws_pattern("Connect", "ViewId")]
     Status: ViewStatusType
     Content: ViewInputContentTypeDef
 
@@ -5324,7 +5326,7 @@ class EvaluationSearchCriteriaTypeDef(BaseValidatorModel):
 class ListDefaultVocabulariesResponseTypeDef(BaseValidatorModel):
     DefaultVocabularyList: List[DefaultVocabularyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Connect", "VocabularyNextToken")]] = None
 
 
 # This class is the output for the 'describe_notification' function.
@@ -5413,7 +5415,7 @@ class GetAttachedFileResponseTypeDef(BaseValidatorModel):
     FileId: str
     CreationTime: str
     FileStatus: FileStatusTypeType
-    FileName: str
+    FileName: Annotated[str, _aws_pattern("Connect", "FileName")]
     FileSizeInBytes: int
     AssociatedResourceArn: str
     FileUseCaseType: FileUseCaseTypeType
@@ -5436,7 +5438,7 @@ class OutboundAdditionalRecipientsTypeDef(BaseValidatorModel):
 class ListQueueEmailAddressesResponseTypeDef(BaseValidatorModel):
     EmailAddressMetadataList: List[EmailAddressSummaryTypeDef]
     LastModifiedTime: datetime
-    LastModifiedRegion: str
+    LastModifiedRegion: Annotated[str, _aws_pattern("Connect", "RegionName")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -6008,7 +6010,7 @@ class OperationalHourTypeDef(BaseValidatorModel):
 class OverrideHourTypeDef(BaseValidatorModel):
     Start: Optional[OverrideTimeSliceTypeDef] = None
     End: Optional[OverrideTimeSliceTypeDef] = None
-    OverrideName: Optional[str] = None
+    OverrideName: Optional[Annotated[str, _aws_pattern("Connect", "CommonHumanReadableName")]] = None
     OperationalStatus: Optional[OperationalStatusType] = None
 
 
@@ -6023,7 +6025,7 @@ class ListHoursOfOperationsResponseTypeDef(BaseValidatorModel):
 class ListChildHoursOfOperationsResponseTypeDef(BaseValidatorModel):
     ChildHoursOfOperationsSummaryList: List[HoursOfOperationsIdentifierTypeDef]
     LastModifiedTime: datetime
-    LastModifiedRegion: str
+    LastModifiedRegion: Annotated[str, _aws_pattern("Connect", "RegionName")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -6041,7 +6043,7 @@ class InstanceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     IdentityManagementType: Optional[DirectoryTypeType] = None
-    InstanceAlias: Optional[str] = None
+    InstanceAlias: Optional[Annotated[str, _aws_pattern("Connect", "DirectoryAlias")]] = None
     CreatedTime: Optional[datetime] = None
     ServiceRole: Optional[str] = None
     InstanceStatus: Optional[InstanceStatusType] = None
@@ -6165,7 +6167,7 @@ class ListPromptsResponseTypeDef(BaseValidatorModel):
 class ListQueueQuickConnectsResponseTypeDef(BaseValidatorModel):
     QuickConnectSummaryList: List[QuickConnectSummaryTypeDef]
     LastModifiedTime: datetime
-    LastModifiedRegion: str
+    LastModifiedRegion: Annotated[str, _aws_pattern("Connect", "RegionName")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -6188,7 +6190,7 @@ class ListQueuesResponseTypeDef(BaseValidatorModel):
 class ListRoutingProfileManualAssignmentQueuesResponseTypeDef(BaseValidatorModel):
     RoutingProfileManualAssignmentQueueConfigSummaryList: List[RoutingProfileManualAssignmentQueueConfigSummaryTypeDef]
     LastModifiedTime: datetime
-    LastModifiedRegion: str
+    LastModifiedRegion: Annotated[str, _aws_pattern("Connect", "RegionName")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -6197,7 +6199,7 @@ class ListRoutingProfileManualAssignmentQueuesResponseTypeDef(BaseValidatorModel
 class ListRoutingProfileQueuesResponseTypeDef(BaseValidatorModel):
     RoutingProfileQueueConfigSummaryList: List[RoutingProfileQueueConfigSummaryTypeDef]
     LastModifiedTime: datetime
-    LastModifiedRegion: str
+    LastModifiedRegion: Annotated[str, _aws_pattern("Connect", "RegionName")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -6283,14 +6285,14 @@ class ListUsersResponseTypeDef(BaseValidatorModel):
 class ListViewVersionsResponseTypeDef(BaseValidatorModel):
     ViewVersionSummaryList: List[ViewVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Connect", "ViewsNextToken")]] = None
 
 
 # This class is the output for the 'list_views' function.
 class ListViewsResponseTypeDef(BaseValidatorModel):
     ViewsSummaryList: List[ViewSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Connect", "ViewsNextToken")]] = None
 
 
 # This class is the output for the 'list_workspace_media' function.
@@ -6388,7 +6390,7 @@ class PredefinedAttributeTypeDef(BaseValidatorModel):
     Purposes: Optional[List[str]] = None
     AttributeConfiguration: Optional[PredefinedAttributeConfigurationTypeDef] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 PredefinedAttributeValuesUnionTypeDef = Union[PredefinedAttributeValuesOutputTypeDef, PredefinedAttributeValuesTypeDef]
@@ -6466,7 +6468,7 @@ class ReferenceSummaryTypeDef(BaseValidatorModel):
 
 class ReplicationConfigurationTypeDef(BaseValidatorModel):
     ReplicationStatusSummaryList: Optional[List[ReplicationStatusSummaryTypeDef]] = None
-    SourceRegion: Optional[str] = None
+    SourceRegion: Optional[Annotated[str, _aws_pattern("Connect", "AwsRegion")]] = None
     GlobalSignInEndpoint: Optional[str] = None
 
 
@@ -6493,7 +6495,7 @@ class SearchSecurityProfilesResponseTypeDef(BaseValidatorModel):
 class SearchVocabulariesResponseTypeDef(BaseValidatorModel):
     VocabularySummaryList: List[VocabularySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Connect", "VocabularyNextToken")]] = None
 
 
 # This class is the output for the 'search_workspace_associations' function.
@@ -6601,19 +6603,19 @@ class ValidationTypeDef(BaseValidatorModel):
 
 
 class ViewTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Connect", "ViewId")]] = None
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "ViewName")]] = None
     Status: Optional[ViewStatusType] = None
     Type: Optional[ViewTypeType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "ViewDescription")]] = None
     Version: Optional[int] = None
-    VersionDescription: Optional[str] = None
+    VersionDescription: Optional[Annotated[str, _aws_pattern("Connect", "ViewDescription")]] = None
     Content: Optional[ViewContentTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
     CreatedTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    ViewContentSha256: Optional[str] = None
+    ViewContentSha256: Optional[Annotated[str, _aws_pattern("Connect", "ViewContentSha256")]] = None
 
 
 # This class is the output for the 'list_rules' function.
@@ -6629,7 +6631,7 @@ class CreateUserRequestTypeDef(BaseValidatorModel):
     SecurityProfileIds: List[str]
     RoutingProfileId: str
     InstanceId: str
-    Password: Optional[str] = None
+    Password: Optional[Annotated[str, _aws_pattern("Connect", "Password")]] = None
     IdentityInfo: Optional[UserIdentityInfoTypeDef] = None
     PhoneConfig: Optional[UserPhoneConfigTypeDef] = None
     DirectoryUserId: Optional[str] = None
@@ -6688,7 +6690,7 @@ class UserTypeDef(BaseValidatorModel):
     PersistentConnectionConfigs: Optional[List[PersistentConnectionConfigTypeDef]] = None
     VoiceEnhancementConfigs: Optional[List[VoiceEnhancementConfigTypeDef]] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 AgentConfigUnionTypeDef = Union[AgentConfigOutputTypeDef, AgentConfigTypeDef]
@@ -7071,7 +7073,7 @@ class RoutingProfileTypeDef(BaseValidatorModel):
     NumberOfAssociatedUsers: Optional[int] = None
     AgentAvailabilityTimer: Optional[AgentAvailabilityTimerType] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
     IsDefault: Optional[bool] = None
     AssociatedQueueIds: Optional[List[str]] = None
     AssociatedManualAssignmentQueueIds: Optional[List[str]] = None
@@ -7226,7 +7228,7 @@ class EvaluationGenAIAnswerAnalysisDetailsTypeDef(BaseValidatorModel):
 
 
 class CaseSlaConfigurationTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "SlaName")]
     Type: Literal["CaseField"]
     TargetSlaMinutes: int
     FieldId: Optional[str] = None
@@ -7258,7 +7260,7 @@ class HierarchyGroupTypeDef(BaseValidatorModel):
     HierarchyPath: Optional[HierarchyPathTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the output for the 'describe_user_hierarchy_structure' function.
@@ -7321,7 +7323,7 @@ class HoursOfOperationTypeDef(BaseValidatorModel):
     ParentHoursOfOperations: Optional[List[HoursOfOperationsIdentifierTypeDef]] = None
     Tags: Optional[Dict[str, str]] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'update_hours_of_operation' function.
@@ -7335,12 +7337,12 @@ class UpdateHoursOfOperationRequestTypeDef(BaseValidatorModel):
 
 
 class EffectiveHoursOfOperationsTypeDef(BaseValidatorModel):
-    Date: Optional[str] = None
+    Date: Optional[Annotated[str, _aws_pattern("Connect", "HoursOfOperationOverrideYearMonthDayDateFormat")]] = None
     OperationalHours: Optional[List[OperationalHourTypeDef]] = None
 
 
 class EffectiveOverrideHoursTypeDef(BaseValidatorModel):
-    Date: Optional[str] = None
+    Date: Optional[Annotated[str, _aws_pattern("Connect", "HoursOfOperationOverrideYearMonthDayDateFormat")]] = None
     OverrideHours: Optional[List[OverrideHourTypeDef]] = None
 
 
@@ -7482,7 +7484,7 @@ class QuickConnectTypeDef(BaseValidatorModel):
     QuickConnectConfig: Optional[QuickConnectConfigTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 # This class is the input for the 'update_quick_connect_config' function.
@@ -7516,11 +7518,15 @@ class HoursOfOperationOverrideTypeDef(BaseValidatorModel):
     HoursOfOperationOverrideId: Optional[str] = None
     HoursOfOperationId: Optional[str] = None
     HoursOfOperationArn: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "CommonHumanReadableName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "CommonHumanReadableDescription")]] = None
     Config: Optional[List[HoursOfOperationOverrideConfigTypeDef]] = None
-    EffectiveFrom: Optional[str] = None
-    EffectiveTill: Optional[str] = None
+    EffectiveFrom: Optional[
+        Annotated[str, _aws_pattern("Connect", "HoursOfOperationOverrideYearMonthDayDateFormat")]
+    ] = None
+    EffectiveTill: Optional[
+        Annotated[str, _aws_pattern("Connect", "HoursOfOperationOverrideYearMonthDayDateFormat")]
+    ] = None
     RecurrenceConfig: Optional[RecurrenceConfigOutputTypeDef] = None
     OverrideType: Optional[OverrideTypeType] = None
 
@@ -7551,7 +7557,7 @@ class SearchResourceTagsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_resource_tags' function.
 class SearchResourceTagsRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     ResourceTypes: Optional[List[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -7602,7 +7608,7 @@ class StartChatContactRequestTypeDef(BaseValidatorModel):
 class StartEmailContactRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     FromEmailAddress: EmailAddressInfoTypeDef
-    DestinationEmailAddress: str
+    DestinationEmailAddress: Annotated[str, _aws_pattern("Connect", "EmailAddress")]
     EmailMessage: InboundEmailContentTypeDef
     Description: Optional[str] = None
     References: Optional[Dict[str, ReferenceTypeDef]] = None
@@ -7650,8 +7656,8 @@ class UpdateContactRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_traffic_distribution' function.
 class GetTrafficDistributionResponseTypeDef(BaseValidatorModel):
     TelephonyConfig: TelephonyConfigOutputTypeDef
-    Id: str
-    Arn: str
+    Id: Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupId")]
+    Arn: Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupArn")]
     SignInConfig: SignInConfigOutputTypeDef
     AgentConfig: AgentConfigOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -7685,7 +7691,7 @@ class StartOutboundChatContactRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_test_case' function.
 class CreateTestCaseRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     Name: str
     Content: str
     Description: Optional[str] = None
@@ -7695,7 +7701,7 @@ class CreateTestCaseRequestTypeDef(BaseValidatorModel):
     TestCaseId: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
     LastModifiedTime: Optional[TimestampTypeDef] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class TestCaseTypeDef(BaseValidatorModel):
@@ -7708,13 +7714,13 @@ class TestCaseTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Status: Optional[TestCaseStatusType] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
     Tags: Optional[Dict[str, str]] = None
-    TestCaseSha256: Optional[str] = None
+    TestCaseSha256: Optional[Annotated[str, _aws_pattern("Connect", "TestCaseSha256")]] = None
 
 
 class UpdateTestCaseRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     TestCaseId: str
     Content: Optional[str] = None
     EntryPoint: Optional[TestCaseEntryPointTypeDef] = None
@@ -7723,7 +7729,7 @@ class UpdateTestCaseRequestTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Status: Optional[TestCaseStatusType] = None
     LastModifiedTime: Optional[TimestampTypeDef] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
 
 
 class ContactAnalysisTypeDef(BaseValidatorModel):
@@ -7731,17 +7737,17 @@ class ContactAnalysisTypeDef(BaseValidatorModel):
 
 
 class DataTableAttributeTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     ValueType: DataTableAttributeValueTypeType
     AttributeId: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "DataTableDescription")]] = None
     DataTableId: Optional[str] = None
     DataTableArn: Optional[str] = None
     Primary: Optional[bool] = None
     Version: Optional[str] = None
     LockVersion: Optional[DataTableLockVersionTypeDef] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
     Validation: Optional[ValidationOutputTypeDef] = None
 
 
@@ -8019,7 +8025,7 @@ class SearchTestCasesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_test_cases' function.
 class SearchTestCasesRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchFilter: Optional[TestCaseSearchFilterTypeDef] = None
@@ -8352,7 +8358,7 @@ class DescribeHoursOfOperationOverrideResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_hours_of_operation_overrides' function.
 class ListHoursOfOperationOverridesResponseTypeDef(BaseValidatorModel):
     HoursOfOperationOverrideList: List[HoursOfOperationOverrideTypeDef]
-    LastModifiedRegion: str
+    LastModifiedRegion: Annotated[str, _aws_pattern("Connect", "RegionName")]
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -8370,11 +8376,11 @@ class SearchHoursOfOperationOverridesResponseTypeDef(BaseValidatorModel):
 class CreateHoursOfOperationOverrideRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "CommonHumanReadableName")]
     Config: List[HoursOfOperationOverrideConfigTypeDef]
-    EffectiveFrom: str
-    EffectiveTill: str
-    Description: Optional[str] = None
+    EffectiveFrom: Annotated[str, _aws_pattern("Connect", "HoursOfOperationOverrideYearMonthDayDateFormat")]
+    EffectiveTill: Annotated[str, _aws_pattern("Connect", "HoursOfOperationOverrideYearMonthDayDateFormat")]
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "CommonHumanReadableDescription")]] = None
     RecurrenceConfig: Optional[RecurrenceConfigUnionTypeDef] = None
     OverrideType: Optional[OverrideTypeType] = None
 
@@ -8384,17 +8390,21 @@ class UpdateHoursOfOperationOverrideRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
     HoursOfOperationOverrideId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connect", "CommonHumanReadableName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "CommonHumanReadableDescription")]] = None
     Config: Optional[List[HoursOfOperationOverrideConfigTypeDef]] = None
-    EffectiveFrom: Optional[str] = None
-    EffectiveTill: Optional[str] = None
+    EffectiveFrom: Optional[
+        Annotated[str, _aws_pattern("Connect", "HoursOfOperationOverrideYearMonthDayDateFormat")]
+    ] = None
+    EffectiveTill: Optional[
+        Annotated[str, _aws_pattern("Connect", "HoursOfOperationOverrideYearMonthDayDateFormat")]
+    ] = None
     RecurrenceConfig: Optional[RecurrenceConfigUnionTypeDef] = None
     OverrideType: Optional[OverrideTypeType] = None
 
 
 class UpdateTrafficDistributionRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Connect", "TrafficDistributionGroupIdOrArn")]
     TelephonyConfig: Optional[TelephonyConfigUnionTypeDef] = None
     SignInConfig: Optional[SignInConfigUnionTypeDef] = None
     AgentConfig: Optional[AgentConfigUnionTypeDef] = None
@@ -8453,9 +8463,9 @@ class ListDataTableAttributesResponseTypeDef(BaseValidatorModel):
 class CreateDataTableAttributeRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DataTableId: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     ValueType: DataTableAttributeValueTypeType
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "DataTableDescription")]] = None
     Primary: Optional[bool] = None
     Validation: Optional[ValidationUnionTypeDef] = None
 
@@ -8464,10 +8474,10 @@ class CreateDataTableAttributeRequestTypeDef(BaseValidatorModel):
 class UpdateDataTableAttributeRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DataTableId: str
-    AttributeName: str
-    Name: str
+    AttributeName: Annotated[str, _aws_pattern("Connect", "DataTableName")]
+    Name: Annotated[str, _aws_pattern("Connect", "DataTableName")]
     ValueType: DataTableAttributeValueTypeType
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "DataTableDescription")]] = None
     Primary: Optional[bool] = None
     Validation: Optional[ValidationUnionTypeDef] = None
 
@@ -8577,7 +8587,7 @@ class SearchViewsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_views' function.
 class SearchViewsRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Connect", "InstanceIdOrArn")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchFilter: Optional[ViewSearchFilterTypeDef] = None
@@ -8626,7 +8636,7 @@ class StartWebRTCContactResponseTypeDef(BaseValidatorModel):
 
 
 class RuleTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "RuleName")]
     RuleId: str
     RuleArn: str
     TriggerEventSource: RuleTriggerEventSourceTypeDef
@@ -8683,7 +8693,7 @@ class SearchCriteriaTypeDef(BaseValidatorModel):
     AdditionalTimeRange: Optional[SearchContactsAdditionalTimeRangeTypeDef] = None
     SearchableContactAttributes: Optional[SearchableContactAttributesTypeDef] = None
     SearchableSegmentAttributes: Optional[SearchableSegmentAttributesTypeDef] = None
-    ActiveRegions: Optional[List[str]] = None
+    ActiveRegions: Optional[List[Annotated[str, _aws_pattern("Connect", "RegionName")]]] = None
     ContactTags: Optional[ControlPlaneTagFilterTypeDef] = None
 
 
@@ -8794,10 +8804,10 @@ class EvaluationFormMultiSelectQuestionAutomationTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_workspace' function.
 class CreateWorkspaceRequestTypeDef(BaseValidatorModel):
     InstanceId: str
-    Name: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Connect", "WorkspaceName")]
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceDescription")]] = None
     Theme: Optional[WorkspaceThemeTypeDef] = None
-    Title: Optional[str] = None
+    Title: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceTitle")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -8809,14 +8819,14 @@ class UpdateWorkspaceThemeRequestTypeDef(BaseValidatorModel):
 
 class WorkspaceTypeDef(BaseValidatorModel):
     Id: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "WorkspaceName")]
     Arn: str
     LastModifiedTime: datetime
     Visibility: Optional[VisibilityType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceDescription")]] = None
     Theme: Optional[WorkspaceThemeTypeDef] = None
-    Title: Optional[str] = None
-    LastModifiedRegion: Optional[str] = None
+    Title: Optional[Annotated[str, _aws_pattern("Connect", "WorkspaceTitle")]] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -8844,7 +8854,7 @@ class SecurityProfileTypeDef(BaseValidatorModel):
     AllowedAccessControlTags: Optional[Dict[str, str]] = None
     TagRestrictedResources: Optional[List[str]] = None
     LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
+    LastModifiedRegion: Optional[Annotated[str, _aws_pattern("Connect", "RegionName")]] = None
     HierarchyRestrictedResources: Optional[List[str]] = None
     AllowedAccessControlHierarchyGroupId: Optional[str] = None
     GranularAccessControlConfiguration: Optional[GranularAccessControlConfigurationOutputTypeDef] = None
@@ -8960,7 +8970,7 @@ class DescribeSecurityProfileResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_security_profile' function.
 class CreateSecurityProfileRequestTypeDef(BaseValidatorModel):
-    SecurityProfileName: str
+    SecurityProfileName: Annotated[str, _aws_pattern("Connect", "CreateSecurityProfileName")]
     InstanceId: str
     Description: Optional[str] = None
     Permissions: Optional[List[str]] = None
@@ -9258,7 +9268,7 @@ class DescribeContactEvaluationResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_rule' function.
 class CreateRuleRequestTypeDef(BaseValidatorModel):
     InstanceId: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "RuleName")]
     TriggerEventSource: RuleTriggerEventSourceTypeDef
     Function: str
     Actions: List[RuleActionUnionTypeDef]
@@ -9270,7 +9280,7 @@ class CreateRuleRequestTypeDef(BaseValidatorModel):
 class UpdateRuleRequestTypeDef(BaseValidatorModel):
     RuleId: str
     InstanceId: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Connect", "RuleName")]
     Function: str
     Actions: List[RuleActionUnionTypeDef]
     PublishStatus: RulePublishStatusType
@@ -9307,7 +9317,7 @@ class ContactDataRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_outbound_voice_contact' function.
 class StartOutboundVoiceContactRequestTypeDef(BaseValidatorModel):
-    DestinationPhoneNumber: str
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("Connect", "PhoneNumber")]
     ContactFlowId: str
     InstanceId: str
     Name: Optional[str] = None
@@ -9315,7 +9325,7 @@ class StartOutboundVoiceContactRequestTypeDef(BaseValidatorModel):
     References: Optional[Dict[str, ReferenceTypeDef]] = None
     RelatedContactId: Optional[str] = None
     ClientToken: Optional[str] = None
-    SourcePhoneNumber: Optional[str] = None
+    SourcePhoneNumber: Optional[Annotated[str, _aws_pattern("Connect", "PhoneNumber")]] = None
     QueueId: Optional[str] = None
     Attributes: Optional[Dict[str, str]] = None
     AnswerMachineDetectionConfig: Optional[AnswerMachineDetectionConfigTypeDef] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.sagemaker_metrics.sagemaker_metrics_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class MetricQueryTypeDef(BaseValidatorModel):
-    MetricName: str
-    ResourceArn: str
+    MetricName: Annotated[str, _aws_pattern("SagemakerMetrics", "MetricName")]
+    ResourceArn: Annotated[str, _aws_pattern("SagemakerMetrics", "SageMakerResourceArn")]
     MetricStat: MetricStatisticType
     Period: PeriodType
     XAxisType: XAxisTypeType
@@ -52,7 +54,7 @@ class MetricQueryResultTypeDef(BaseValidatorModel):
     Status: MetricQueryResultStatusType
     XAxisValues: List[int]
     MetricValues: List[float]
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("SagemakerMetrics", "Message")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -89,7 +91,7 @@ class BatchPutMetricsResponseTypeDef(BaseValidatorModel):
 
 
 class RawMetricDataTypeDef(BaseValidatorModel):
-    MetricName: str
+    MetricName: Annotated[str, _aws_pattern("SagemakerMetrics", "MetricName")]
     Timestamp: TimestampTypeDef
     Value: float
     Step: Optional[int] = None
@@ -97,5 +99,5 @@ class RawMetricDataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_put_metrics' function.
 class BatchPutMetricsRequestTypeDef(BaseValidatorModel):
-    TrialComponentName: str
+    TrialComponentName: Annotated[str, _aws_pattern("SagemakerMetrics", "ExperimentEntityName")]
     MetricData: List[RawMetricDataTypeDef]

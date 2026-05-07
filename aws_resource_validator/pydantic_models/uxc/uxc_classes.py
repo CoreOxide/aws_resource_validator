@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.uxc.uxc_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -54,36 +56,36 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_services' function.
 class ListServicesInputTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Uxc", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'update_account_customizations' function.
 class UpdateAccountCustomizationsInputTypeDef(BaseValidatorModel):
     accountColor: Optional[AccountColorType] = None
-    visibleServices: Optional[List[str]] = None
-    visibleRegions: Optional[List[str]] = None
+    visibleServices: Optional[List[Annotated[str, _aws_pattern("Uxc", "Service")]]] = None
+    visibleRegions: Optional[List[Annotated[str, _aws_pattern("Uxc", "Region")]]] = None
 
 
 class GetAccountCustomizationsOutputTypeDef(BaseValidatorModel):
     accountColor: AccountColorType
-    visibleServices: List[str]
-    visibleRegions: List[str]
+    visibleServices: List[Annotated[str, _aws_pattern("Uxc", "Service")]]
+    visibleRegions: List[Annotated[str, _aws_pattern("Uxc", "Region")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_services' function.
 class ListServicesOutputTypeDef(BaseValidatorModel):
-    services: List[str]
+    services: List[Annotated[str, _aws_pattern("Uxc", "Service")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Uxc", "NextToken")]] = None
 
 
 # This class is the output for the 'update_account_customizations' function.
 class UpdateAccountCustomizationsOutputTypeDef(BaseValidatorModel):
     accountColor: AccountColorType
-    visibleServices: List[str]
-    visibleRegions: List[str]
+    visibleServices: List[Annotated[str, _aws_pattern("Uxc", "Service")]]
+    visibleRegions: List[Annotated[str, _aws_pattern("Uxc", "Region")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 

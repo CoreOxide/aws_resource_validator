@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.lambda_.lambda__constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -53,12 +55,12 @@ class AccountUsageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_layer_version_permission' function.
 class AddLayerVersionPermissionRequestTypeDef(BaseValidatorModel):
-    LayerName: str
+    LayerName: Annotated[str, _aws_pattern("Lambda", "LayerName")]
     VersionNumber: int
-    StatementId: str
-    Action: str
-    Principal: str
-    OrganizationId: Optional[str] = None
+    StatementId: Annotated[str, _aws_pattern("Lambda", "StatementId")]
+    Action: Annotated[str, _aws_pattern("Lambda", "LayerPermissionAllowedAction")]
+    Principal: Annotated[str, _aws_pattern("Lambda", "LayerPermissionAllowedPrincipal")]
+    OrganizationId: Optional[Annotated[str, _aws_pattern("Lambda", "OrganizationId")]] = None
     RevisionId: Optional[str] = None
 
 
@@ -72,16 +74,16 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_permission' function.
 class AddPermissionRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    StatementId: str
-    Action: str
-    Principal: str
-    SourceArn: Optional[str] = None
-    SourceAccount: Optional[str] = None
-    EventSourceToken: Optional[str] = None
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    StatementId: Annotated[str, _aws_pattern("Lambda", "StatementId")]
+    Action: Annotated[str, _aws_pattern("Lambda", "Action")]
+    Principal: Annotated[str, _aws_pattern("Lambda", "Principal")]
+    SourceArn: Optional[Annotated[str, _aws_pattern("Lambda", "Arn")]] = None
+    SourceAccount: Optional[Annotated[str, _aws_pattern("Lambda", "SourceOwner")]] = None
+    EventSourceToken: Optional[Annotated[str, _aws_pattern("Lambda", "EventSourceToken")]] = None
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
     RevisionId: Optional[str] = None
-    PrincipalOrgID: Optional[str] = None
+    PrincipalOrgID: Optional[Annotated[str, _aws_pattern("Lambda", "PrincipalOrgID")]] = None
     FunctionUrlAuthType: Optional[FunctionUrlAuthTypeType] = None
     InvokedViaFunctionUrl: Optional[bool] = None
 
@@ -99,7 +101,7 @@ class AllowedPublishersOutputTypeDef(BaseValidatorModel):
 
 
 class AllowedPublishersTypeDef(BaseValidatorModel):
-    SigningProfileVersionArns: List[str]
+    SigningProfileVersionArns: List[Annotated[str, _aws_pattern("Lambda", "Arn")]]
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
@@ -118,7 +120,7 @@ class CallbackOptionsTypeDef(BaseValidatorModel):
 
 
 class CallbackStartedDetailsTypeDef(BaseValidatorModel):
-    CallbackId: str
+    CallbackId: Annotated[str, _aws_pattern("Lambda", "CallbackId")]
     HeartbeatTimeout: Optional[int] = None
     Timeout: Optional[int] = None
 
@@ -129,13 +131,13 @@ class EventResultTypeDef(BaseValidatorModel):
 
 
 class LambdaManagedInstancesCapacityProviderConfigTypeDef(BaseValidatorModel):
-    CapacityProviderArn: str
+    CapacityProviderArn: Annotated[str, _aws_pattern("Lambda", "CapacityProviderArn")]
     PerExecutionEnvironmentMaxConcurrency: Optional[int] = None
     ExecutionEnvironmentMemoryGiBPerVCpu: Optional[float] = None
 
 
 class CapacityProviderPermissionsConfigTypeDef(BaseValidatorModel):
-    CapacityProviderOperatorRoleArn: str
+    CapacityProviderOperatorRoleArn: Annotated[str, _aws_pattern("Lambda", "RoleArn")]
 
 
 class TargetTrackingScalingPolicyTypeDef(BaseValidatorModel):
@@ -160,8 +162,8 @@ class CapacityProviderVpcConfigTypeDef(BaseValidatorModel):
 
 
 class ChainedInvokeOptionsTypeDef(BaseValidatorModel):
-    FunctionName: str
-    TenantId: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    TenantId: Optional[Annotated[str, _aws_pattern("Lambda", "TenantId")]] = None
 
 
 class EventInputTypeDef(BaseValidatorModel):
@@ -192,16 +194,16 @@ class CorsOutputTypeDef(BaseValidatorModel):
 
 class CorsTypeDef(BaseValidatorModel):
     AllowCredentials: Optional[bool] = None
-    AllowHeaders: Optional[List[str]] = None
-    AllowMethods: Optional[List[str]] = None
-    AllowOrigins: Optional[List[str]] = None
-    ExposeHeaders: Optional[List[str]] = None
+    AllowHeaders: Optional[List[Annotated[str, _aws_pattern("Lambda", "Header")]]] = None
+    AllowMethods: Optional[List[Annotated[str, _aws_pattern("Lambda", "Method")]]] = None
+    AllowOrigins: Optional[List[Annotated[str, _aws_pattern("Lambda", "Origin")]]] = None
+    ExposeHeaders: Optional[List[Annotated[str, _aws_pattern("Lambda", "Header")]]] = None
     MaxAge: Optional[int] = None
 
 
 class DocumentDBEventSourceConfigTypeDef(BaseValidatorModel):
-    DatabaseName: Optional[str] = None
-    CollectionName: Optional[str] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Lambda", "DatabaseName")]] = None
+    CollectionName: Optional[Annotated[str, _aws_pattern("Lambda", "CollectionName")]] = None
     FullDocument: Optional[FullDocumentType] = None
 
 
@@ -212,7 +214,7 @@ class EventSourceMappingLoggingConfigTypeDef(BaseValidatorModel):
 class ProvisionedPollerConfigTypeDef(BaseValidatorModel):
     MinimumPollers: Optional[int] = None
     MaximumPollers: Optional[int] = None
-    PollerGroupName: Optional[str] = None
+    PollerGroupName: Optional[Annotated[str, _aws_pattern("Lambda", "ProvisionedPollerGroupName")]] = None
 
 
 class ScalingConfigTypeDef(BaseValidatorModel):
@@ -221,14 +223,14 @@ class ScalingConfigTypeDef(BaseValidatorModel):
 
 class SourceAccessConfigurationTypeDef(BaseValidatorModel):
     Type: Optional[SourceAccessTypeType] = None
-    URI: Optional[str] = None
+    URI: Optional[Annotated[str, _aws_pattern("Lambda", "URI")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class DeadLetterConfigTypeDef(BaseValidatorModel):
-    TargetArn: Optional[str] = None
+    TargetArn: Optional[Annotated[str, _aws_pattern("Lambda", "ResourceArn")]] = None
 
 
 class DurableConfigTypeDef(BaseValidatorModel):
@@ -245,15 +247,15 @@ class EphemeralStorageTypeDef(BaseValidatorModel):
 
 
 class FileSystemConfigTypeDef(BaseValidatorModel):
-    Arn: str
-    LocalMountPath: str
+    Arn: Annotated[str, _aws_pattern("Lambda", "FileSystemArn")]
+    LocalMountPath: Annotated[str, _aws_pattern("Lambda", "LocalMountPath")]
 
 
 class LoggingConfigTypeDef(BaseValidatorModel):
     LogFormat: Optional[LogFormatType] = None
     ApplicationLogLevel: Optional[ApplicationLogLevelType] = None
     SystemLogLevel: Optional[SystemLogLevelType] = None
-    LogGroup: Optional[str] = None
+    LogGroup: Optional[Annotated[str, _aws_pattern("Lambda", "LogGroup")]] = None
 
 
 class SnapStartTypeDef(BaseValidatorModel):
@@ -276,17 +278,17 @@ class VpcConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_alias' function.
 class DeleteAliasRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Name: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Name: Annotated[str, _aws_pattern("Lambda", "Alias")]
 
 
 # This class is the input for the 'delete_capacity_provider' function.
 class DeleteCapacityProviderRequestTypeDef(BaseValidatorModel):
-    CapacityProviderName: str
+    CapacityProviderName: Annotated[str, _aws_pattern("Lambda", "CapacityProviderName")]
 
 
 class DeleteCodeSigningConfigRequestTypeDef(BaseValidatorModel):
-    CodeSigningConfigArn: str
+    CodeSigningConfigArn: Annotated[str, _aws_pattern("Lambda", "CodeSigningConfigArn")]
 
 
 # This class is the input for the 'delete_event_source_mapping' function.
@@ -296,50 +298,50 @@ class DeleteEventSourceMappingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_function_code_signing_config' function.
 class DeleteFunctionCodeSigningConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
 
 
 # This class is the input for the 'delete_function_concurrency' function.
 class DeleteFunctionConcurrencyRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
 
 
 # This class is the input for the 'delete_function_event_invoke_config' function.
 class DeleteFunctionEventInvokeConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
 
 
 # This class is the input for the 'delete_function' function.
 class DeleteFunctionRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
 
 
 # This class is the input for the 'delete_function_url_config' function.
 class DeleteFunctionUrlConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "FunctionUrlQualifier")]] = None
 
 
 # This class is the input for the 'delete_layer_version' function.
 class DeleteLayerVersionRequestTypeDef(BaseValidatorModel):
-    LayerName: str
+    LayerName: Annotated[str, _aws_pattern("Lambda", "LayerName")]
     VersionNumber: int
 
 
 # This class is the input for the 'delete_provisioned_concurrency_config' function.
 class DeleteProvisionedConcurrencyConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Qualifier: Annotated[str, _aws_pattern("Lambda", "Qualifier")]
 
 
 class OnFailureTypeDef(BaseValidatorModel):
-    Destination: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Lambda", "DestinationArn")]] = None
 
 
 class OnSuccessTypeDef(BaseValidatorModel):
-    Destination: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Lambda", "DestinationArn")]] = None
 
 
 class EnvironmentErrorTypeDef(BaseValidatorModel):
@@ -359,8 +361,8 @@ class EventSourceMappingMetricsConfigOutputTypeDef(BaseValidatorModel):
 
 
 class FilterCriteriaErrorTypeDef(BaseValidatorModel):
-    ErrorCode: Optional[str] = None
-    Message: Optional[str] = None
+    ErrorCode: Optional[Annotated[str, _aws_pattern("Lambda", "FilterCriteriaErrorCode")]] = None
+    Message: Optional[Annotated[str, _aws_pattern("Lambda", "FilterCriteriaErrorMessage")]] = None
 
 
 class SelfManagedEventSourceOutputTypeDef(BaseValidatorModel):
@@ -385,16 +387,16 @@ class ExecutionDetailsTypeDef(BaseValidatorModel):
 
 
 class ExecutionTypeDef(BaseValidatorModel):
-    DurableExecutionArn: str
-    DurableExecutionName: str
-    FunctionArn: str
+    DurableExecutionArn: Annotated[str, _aws_pattern("Lambda", "DurableExecutionArn")]
+    DurableExecutionName: Annotated[str, _aws_pattern("Lambda", "DurableExecutionName")]
+    FunctionArn: Annotated[str, _aws_pattern("Lambda", "NameSpacedFunctionArn")]
     Status: ExecutionStatusType
     StartTimestamp: datetime
     EndTimestamp: Optional[datetime] = None
 
 
 class FilterTypeDef(BaseValidatorModel):
-    Pattern: Optional[str] = None
+    Pattern: Optional[Annotated[str, _aws_pattern("Lambda", "Pattern")]] = None
 
 
 class FunctionCodeLocationTypeDef(BaseValidatorModel):
@@ -406,10 +408,10 @@ class FunctionCodeLocationTypeDef(BaseValidatorModel):
 
 
 class LayerTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Lambda", "LayerVersionArn")]] = None
     CodeSize: Optional[int] = None
-    SigningProfileVersionArn: Optional[str] = None
-    SigningJobArn: Optional[str] = None
+    SigningProfileVersionArn: Optional[Annotated[str, _aws_pattern("Lambda", "Arn")]] = None
+    SigningJobArn: Optional[Annotated[str, _aws_pattern("Lambda", "Arn")]] = None
 
 
 class SnapStartResponseTypeDef(BaseValidatorModel):
@@ -434,24 +436,24 @@ class FunctionScalingConfigTypeDef(BaseValidatorModel):
 
 
 class FunctionVersionsByCapacityProviderListItemTypeDef(BaseValidatorModel):
-    FunctionArn: str
+    FunctionArn: Annotated[str, _aws_pattern("Lambda", "NameSpacedFunctionArn")]
     State: StateType
 
 
 # This class is the input for the 'get_alias' function.
 class GetAliasRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Name: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Name: Annotated[str, _aws_pattern("Lambda", "Alias")]
 
 
 # This class is the input for the 'get_capacity_provider' function.
 class GetCapacityProviderRequestTypeDef(BaseValidatorModel):
-    CapacityProviderName: str
+    CapacityProviderName: Annotated[str, _aws_pattern("Lambda", "CapacityProviderName")]
 
 
 # This class is the input for the 'get_code_signing_config' function.
 class GetCodeSigningConfigRequestTypeDef(BaseValidatorModel):
-    CodeSigningConfigArn: str
+    CodeSigningConfigArn: Annotated[str, _aws_pattern("Lambda", "CodeSigningConfigArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -462,7 +464,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_durable_execution_history' function.
 class GetDurableExecutionHistoryRequestTypeDef(BaseValidatorModel):
-    DurableExecutionArn: str
+    DurableExecutionArn: Annotated[str, _aws_pattern("Lambda", "DurableExecutionArn")]
     IncludeExecutionData: Optional[bool] = None
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
@@ -471,7 +473,7 @@ class GetDurableExecutionHistoryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_durable_execution' function.
 class GetDurableExecutionRequestTypeDef(BaseValidatorModel):
-    DurableExecutionArn: str
+    DurableExecutionArn: Annotated[str, _aws_pattern("Lambda", "DurableExecutionArn")]
 
 
 class TraceHeaderTypeDef(BaseValidatorModel):
@@ -480,8 +482,8 @@ class TraceHeaderTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_durable_execution_state' function.
 class GetDurableExecutionStateRequestTypeDef(BaseValidatorModel):
-    DurableExecutionArn: str
-    CheckpointToken: str
+    DurableExecutionArn: Annotated[str, _aws_pattern("Lambda", "DurableExecutionArn")]
+    CheckpointToken: Annotated[str, _aws_pattern("Lambda", "CheckpointToken")]
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
@@ -493,18 +495,18 @@ class GetEventSourceMappingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_function_code_signing_config' function.
 class GetFunctionCodeSigningConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
 
 
 # This class is the input for the 'get_function_concurrency' function.
 class GetFunctionConcurrencyRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
 
 
 # This class is the input for the 'get_function_configuration' function.
 class GetFunctionConfigurationRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -514,52 +516,52 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_function_event_invoke_config' function.
 class GetFunctionEventInvokeConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
 
 
 # This class is the input for the 'get_function_recursion_config' function.
 class GetFunctionRecursionConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "UnqualifiedFunctionName")]
 
 
 # This class is the input for the 'get_function' function.
 class GetFunctionRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
 
 
 class TagsErrorTypeDef(BaseValidatorModel):
-    ErrorCode: str
-    Message: str
+    ErrorCode: Annotated[str, _aws_pattern("Lambda", "TagsErrorCode")]
+    Message: Annotated[str, _aws_pattern("Lambda", "TagsErrorMessage")]
 
 
 # This class is the input for the 'get_function_scaling_config' function.
 class GetFunctionScalingConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "UnqualifiedFunctionName")]
+    Qualifier: Annotated[str, _aws_pattern("Lambda", "PublishedFunctionQualifier")]
 
 
 # This class is the input for the 'get_function_url_config' function.
 class GetFunctionUrlConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "FunctionUrlQualifier")]] = None
 
 
 # This class is the input for the 'get_layer_version_by_arn' function.
 class GetLayerVersionByArnRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Lambda", "LayerVersionArn")]
 
 
 # This class is the input for the 'get_layer_version_policy' function.
 class GetLayerVersionPolicyRequestTypeDef(BaseValidatorModel):
-    LayerName: str
+    LayerName: Annotated[str, _aws_pattern("Lambda", "LayerName")]
     VersionNumber: int
 
 
 # This class is the input for the 'get_layer_version' function.
 class GetLayerVersionRequestTypeDef(BaseValidatorModel):
-    LayerName: str
+    LayerName: Annotated[str, _aws_pattern("Lambda", "LayerName")]
     VersionNumber: int
 
 
@@ -573,20 +575,20 @@ class LayerVersionContentOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_policy' function.
 class GetPolicyRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
 
 
 # This class is the input for the 'get_provisioned_concurrency_config' function.
 class GetProvisionedConcurrencyConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Qualifier: Annotated[str, _aws_pattern("Lambda", "Qualifier")]
 
 
 # This class is the input for the 'get_runtime_management_config' function.
 class GetRuntimeManagementConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
 
 
 class ImageConfigErrorTypeDef(BaseValidatorModel):
@@ -608,8 +610,8 @@ class ImageConfigTypeDef(BaseValidatorModel):
 
 class InstanceRequirementsTypeDef(BaseValidatorModel):
     Architectures: Optional[List[ArchitectureType]] = None
-    AllowedInstanceTypes: Optional[List[str]] = None
-    ExcludedInstanceTypes: Optional[List[str]] = None
+    AllowedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Lambda", "InstanceType")]]] = None
+    ExcludedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Lambda", "InstanceType")]]] = None
 
 
 class InvokeResponseStreamUpdateTypeDef(BaseValidatorModel):
@@ -624,7 +626,7 @@ class InvokeWithResponseStreamCompleteEventTypeDef(BaseValidatorModel):
 
 class KafkaSchemaRegistryAccessConfigTypeDef(BaseValidatorModel):
     Type: Optional[KafkaSchemaRegistryAuthTypeType] = None
-    URI: Optional[str] = None
+    URI: Optional[Annotated[str, _aws_pattern("Lambda", "Arn")]] = None
 
 
 class KafkaSchemaValidationConfigTypeDef(BaseValidatorModel):
@@ -632,7 +634,7 @@ class KafkaSchemaValidationConfigTypeDef(BaseValidatorModel):
 
 
 class LayerVersionsListItemTypeDef(BaseValidatorModel):
-    LayerVersionArn: Optional[str] = None
+    LayerVersionArn: Optional[Annotated[str, _aws_pattern("Lambda", "LayerVersionArn")]] = None
     Version: Optional[int] = None
     Description: Optional[str] = None
     CreatedDate: Optional[str] = None
@@ -643,8 +645,8 @@ class LayerVersionsListItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_aliases' function.
 class ListAliasesRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    FunctionVersion: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    FunctionVersion: Optional[Annotated[str, _aws_pattern("Lambda", "VersionWithLatestPublished")]] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
@@ -664,43 +666,43 @@ class ListCodeSigningConfigsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_event_source_mappings' function.
 class ListEventSourceMappingsRequestTypeDef(BaseValidatorModel):
-    EventSourceArn: Optional[str] = None
-    FunctionName: Optional[str] = None
+    EventSourceArn: Optional[Annotated[str, _aws_pattern("Lambda", "Arn")]] = None
+    FunctionName: Optional[Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_function_event_invoke_configs' function.
 class ListFunctionEventInvokeConfigsRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_function_url_configs' function.
 class ListFunctionUrlConfigsRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_function_versions_by_capacity_provider' function.
 class ListFunctionVersionsByCapacityProviderRequestTypeDef(BaseValidatorModel):
-    CapacityProviderName: str
+    CapacityProviderName: Annotated[str, _aws_pattern("Lambda", "CapacityProviderName")]
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_functions_by_code_signing_config' function.
 class ListFunctionsByCodeSigningConfigRequestTypeDef(BaseValidatorModel):
-    CodeSigningConfigArn: str
+    CodeSigningConfigArn: Annotated[str, _aws_pattern("Lambda", "CodeSigningConfigArn")]
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
 # This class is the input for the 'list_functions' function.
 class ListFunctionsRequestTypeDef(BaseValidatorModel):
-    MasterRegion: Optional[str] = None
+    MasterRegion: Optional[Annotated[str, _aws_pattern("Lambda", "MasterRegion")]] = None
     FunctionVersion: Optional[Literal["ALL"]] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
@@ -708,7 +710,7 @@ class ListFunctionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_layer_versions' function.
 class ListLayerVersionsRequestTypeDef(BaseValidatorModel):
-    LayerName: str
+    LayerName: Annotated[str, _aws_pattern("Lambda", "LayerName")]
     CompatibleRuntime: Optional[RuntimeType] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
@@ -725,13 +727,13 @@ class ListLayersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_provisioned_concurrency_configs' function.
 class ListProvisionedConcurrencyConfigsRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
 class ProvisionedConcurrencyConfigListItemTypeDef(BaseValidatorModel):
-    FunctionArn: Optional[str] = None
+    FunctionArn: Optional[Annotated[str, _aws_pattern("Lambda", "FunctionArn")]] = None
     RequestedProvisionedConcurrentExecutions: Optional[int] = None
     AvailableProvisionedConcurrentExecutions: Optional[int] = None
     AllocatedProvisionedConcurrentExecutions: Optional[int] = None
@@ -742,12 +744,12 @@ class ProvisionedConcurrencyConfigListItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags' function.
 class ListTagsRequestTypeDef(BaseValidatorModel):
-    Resource: str
+    Resource: Annotated[str, _aws_pattern("Lambda", "TaggableResource")]
 
 
 # This class is the input for the 'list_versions_by_function' function.
 class ListVersionsByFunctionRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
@@ -766,7 +768,7 @@ class WaitOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'publish_version' function.
 class PublishVersionRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
     CodeSha256: Optional[str] = None
     Description: Optional[str] = None
     RevisionId: Optional[str] = None
@@ -775,50 +777,50 @@ class PublishVersionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_function_code_signing_config' function.
 class PutFunctionCodeSigningConfigRequestTypeDef(BaseValidatorModel):
-    CodeSigningConfigArn: str
-    FunctionName: str
+    CodeSigningConfigArn: Annotated[str, _aws_pattern("Lambda", "CodeSigningConfigArn")]
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
 
 
 # This class is the input for the 'put_function_concurrency' function.
 class PutFunctionConcurrencyRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
     ReservedConcurrentExecutions: int
 
 
 # This class is the input for the 'put_function_recursion_config' function.
 class PutFunctionRecursionConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "UnqualifiedFunctionName")]
     RecursiveLoop: RecursiveLoopType
 
 
 # This class is the input for the 'put_provisioned_concurrency_config' function.
 class PutProvisionedConcurrencyConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Qualifier: Annotated[str, _aws_pattern("Lambda", "Qualifier")]
     ProvisionedConcurrentExecutions: int
 
 
 # This class is the input for the 'put_runtime_management_config' function.
 class PutRuntimeManagementConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
     UpdateRuntimeOn: UpdateRuntimeOnType
-    Qualifier: Optional[str] = None
-    RuntimeVersionArn: Optional[str] = None
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
+    RuntimeVersionArn: Optional[Annotated[str, _aws_pattern("Lambda", "RuntimeVersionArn")]] = None
 
 
 # This class is the input for the 'remove_layer_version_permission' function.
 class RemoveLayerVersionPermissionRequestTypeDef(BaseValidatorModel):
-    LayerName: str
+    LayerName: Annotated[str, _aws_pattern("Lambda", "LayerName")]
     VersionNumber: int
-    StatementId: str
+    StatementId: Annotated[str, _aws_pattern("Lambda", "StatementId")]
     RevisionId: Optional[str] = None
 
 
 # This class is the input for the 'remove_permission' function.
 class RemovePermissionRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    StatementId: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    StatementId: Annotated[str, _aws_pattern("Lambda", "NamespacedStatementId")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
     RevisionId: Optional[str] = None
 
 
@@ -837,18 +839,18 @@ class SelfManagedEventSourceTypeDef(BaseValidatorModel):
 
 
 class SendDurableExecutionCallbackHeartbeatRequestTypeDef(BaseValidatorModel):
-    CallbackId: str
+    CallbackId: Annotated[str, _aws_pattern("Lambda", "CallbackId")]
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    Resource: str
+    Resource: Annotated[str, _aws_pattern("Lambda", "TaggableResource")]
     Tags: Dict[str, str]
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    Resource: str
+    Resource: Annotated[str, _aws_pattern("Lambda", "TaggableResource")]
     TagKeys: List[str]
 
 
@@ -890,8 +892,8 @@ class GetAccountSettingsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_function_code_signing_config' function.
 class GetFunctionCodeSigningConfigResponseTypeDef(BaseValidatorModel):
-    CodeSigningConfigArn: str
-    FunctionName: str
+    CodeSigningConfigArn: Annotated[str, _aws_pattern("Lambda", "CodeSigningConfigArn")]
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -935,8 +937,8 @@ class GetProvisionedConcurrencyConfigResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_runtime_management_config' function.
 class GetRuntimeManagementConfigResponseTypeDef(BaseValidatorModel):
     UpdateRuntimeOn: UpdateRuntimeOnType
-    RuntimeVersionArn: str
-    FunctionArn: str
+    RuntimeVersionArn: Annotated[str, _aws_pattern("Lambda", "RuntimeVersionArn")]
+    FunctionArn: Annotated[str, _aws_pattern("Lambda", "NameSpacedFunctionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -946,8 +948,8 @@ class InvocationResponseTypeDef(BaseValidatorModel):
     FunctionError: str
     LogResult: str
     Payload: StreamingBody
-    ExecutedVersion: str
-    DurableExecutionArn: str
+    ExecutedVersion: Annotated[str, _aws_pattern("Lambda", "Version")]
+    DurableExecutionArn: Annotated[str, _aws_pattern("Lambda", "DurableExecutionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -960,7 +962,7 @@ class InvokeAsyncResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_functions_by_code_signing_config' function.
 class ListFunctionsByCodeSigningConfigResponseTypeDef(BaseValidatorModel):
     NextMarker: str
-    FunctionArns: List[str]
+    FunctionArns: List[Annotated[str, _aws_pattern("Lambda", "FunctionArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -972,8 +974,8 @@ class ListTagsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_function_code_signing_config' function.
 class PutFunctionCodeSigningConfigResponseTypeDef(BaseValidatorModel):
-    CodeSigningConfigArn: str
-    FunctionName: str
+    CodeSigningConfigArn: Annotated[str, _aws_pattern("Lambda", "CodeSigningConfigArn")]
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1003,8 +1005,8 @@ class PutProvisionedConcurrencyConfigResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'put_runtime_management_config' function.
 class PutRuntimeManagementConfigResponseTypeDef(BaseValidatorModel):
     UpdateRuntimeOn: UpdateRuntimeOnType
-    FunctionArn: str
-    RuntimeVersionArn: str
+    FunctionArn: Annotated[str, _aws_pattern("Lambda", "FunctionArn")]
+    RuntimeVersionArn: Annotated[str, _aws_pattern("Lambda", "RuntimeVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1026,9 +1028,9 @@ class AliasConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class AliasConfigurationTypeDef(BaseValidatorModel):
-    AliasArn: Optional[str] = None
-    Name: Optional[str] = None
-    FunctionVersion: Optional[str] = None
+    AliasArn: Optional[Annotated[str, _aws_pattern("Lambda", "FunctionArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Lambda", "Alias")]] = None
+    FunctionVersion: Optional[Annotated[str, _aws_pattern("Lambda", "Version")]] = None
     Description: Optional[str] = None
     RoutingConfig: Optional[AliasRoutingConfigurationOutputTypeDef] = None
     RevisionId: Optional[str] = None
@@ -1041,59 +1043,59 @@ AllowedPublishersUnionTypeDef = Union[AllowedPublishersOutputTypeDef, AllowedPub
 
 class FunctionCodeTypeDef(BaseValidatorModel):
     ZipFile: Optional[BlobTypeDef] = None
-    S3Bucket: Optional[str] = None
+    S3Bucket: Optional[Annotated[str, _aws_pattern("Lambda", "S3Bucket")]] = None
     S3Key: Optional[str] = None
     S3ObjectVersion: Optional[str] = None
     ImageUri: Optional[str] = None
-    SourceKMSKeyArn: Optional[str] = None
+    SourceKMSKeyArn: Optional[Annotated[str, _aws_pattern("Lambda", "KMSKeyArn")]] = None
 
 
 # This class is the input for the 'invoke' function.
 class InvocationRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
     InvocationType: Optional[InvocationTypeType] = None
     LogType: Optional[LogTypeType] = None
     ClientContext: Optional[str] = None
-    DurableExecutionName: Optional[str] = None
+    DurableExecutionName: Optional[Annotated[str, _aws_pattern("Lambda", "DurableExecutionName")]] = None
     Payload: Optional[BlobTypeDef] = None
-    Qualifier: Optional[str] = None
-    TenantId: Optional[str] = None
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
+    TenantId: Optional[Annotated[str, _aws_pattern("Lambda", "TenantId")]] = None
 
 
 # This class is the input for the 'invoke_async' function.
 class InvokeAsyncRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
     InvokeArgs: BlobTypeDef
 
 
 # This class is the input for the 'invoke_with_response_stream' function.
 class InvokeWithResponseStreamRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
     InvocationType: Optional[ResponseStreamingInvocationTypeType] = None
     LogType: Optional[LogTypeType] = None
     ClientContext: Optional[str] = None
-    Qualifier: Optional[str] = None
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
     Payload: Optional[BlobTypeDef] = None
-    TenantId: Optional[str] = None
+    TenantId: Optional[Annotated[str, _aws_pattern("Lambda", "TenantId")]] = None
 
 
 class LayerVersionContentInputTypeDef(BaseValidatorModel):
-    S3Bucket: Optional[str] = None
+    S3Bucket: Optional[Annotated[str, _aws_pattern("Lambda", "S3Bucket")]] = None
     S3Key: Optional[str] = None
     S3ObjectVersion: Optional[str] = None
     ZipFile: Optional[BlobTypeDef] = None
 
 
 class SendDurableExecutionCallbackSuccessRequestTypeDef(BaseValidatorModel):
-    CallbackId: str
+    CallbackId: Annotated[str, _aws_pattern("Lambda", "CallbackId")]
     Result: Optional[BlobTypeDef] = None
 
 
 # This class is the input for the 'update_function_code' function.
 class UpdateFunctionCodeRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
     ZipFile: Optional[BlobTypeDef] = None
-    S3Bucket: Optional[str] = None
+    S3Bucket: Optional[Annotated[str, _aws_pattern("Lambda", "S3Bucket")]] = None
     S3Key: Optional[str] = None
     S3ObjectVersion: Optional[str] = None
     ImageUri: Optional[str] = None
@@ -1101,12 +1103,12 @@ class UpdateFunctionCodeRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     RevisionId: Optional[str] = None
     Architectures: Optional[List[ArchitectureType]] = None
-    SourceKMSKeyArn: Optional[str] = None
+    SourceKMSKeyArn: Optional[Annotated[str, _aws_pattern("Lambda", "KMSKeyArn")]] = None
     PublishTo: Optional[Literal["LATEST_PUBLISHED"]] = None
 
 
 class CallbackDetailsTypeDef(BaseValidatorModel):
-    CallbackId: Optional[str] = None
+    CallbackId: Optional[Annotated[str, _aws_pattern("Lambda", "CallbackId")]] = None
     Result: Optional[str] = None
     Error: Optional[ErrorObjectOutputTypeDef] = None
 
@@ -1170,11 +1172,11 @@ CapacityProviderVpcConfigUnionTypeDef = Union[CapacityProviderVpcConfigOutputTyp
 
 
 class ChainedInvokeStartedDetailsTypeDef(BaseValidatorModel):
-    FunctionName: str
-    TenantId: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    TenantId: Optional[Annotated[str, _aws_pattern("Lambda", "TenantId")]] = None
     Input: Optional[EventInputTypeDef] = None
-    ExecutedVersion: Optional[str] = None
-    DurableExecutionArn: Optional[str] = None
+    ExecutedVersion: Optional[Annotated[str, _aws_pattern("Lambda", "VersionWithLatestPublished")]] = None
+    DurableExecutionArn: Optional[Annotated[str, _aws_pattern("Lambda", "DurableExecutionArn")]] = None
 
 
 class ExecutionStartedDetailsTypeDef(BaseValidatorModel):
@@ -1183,8 +1185,8 @@ class ExecutionStartedDetailsTypeDef(BaseValidatorModel):
 
 
 class CodeSigningConfigTypeDef(BaseValidatorModel):
-    CodeSigningConfigId: str
-    CodeSigningConfigArn: str
+    CodeSigningConfigId: Annotated[str, _aws_pattern("Lambda", "CodeSigningConfigId")]
+    CodeSigningConfigArn: Annotated[str, _aws_pattern("Lambda", "CodeSigningConfigArn")]
     AllowedPublishers: AllowedPublishersOutputTypeDef
     CodeSigningPolicies: CodeSigningPoliciesTypeDef
     LastModified: str
@@ -1194,7 +1196,7 @@ class CodeSigningConfigTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_function_url_config' function.
 class CreateFunctionUrlConfigResponseTypeDef(BaseValidatorModel):
     FunctionUrl: str
-    FunctionArn: str
+    FunctionArn: Annotated[str, _aws_pattern("Lambda", "FunctionArn")]
     AuthType: FunctionUrlAuthTypeType
     Cors: CorsOutputTypeDef
     CreationTime: str
@@ -1204,7 +1206,7 @@ class CreateFunctionUrlConfigResponseTypeDef(BaseValidatorModel):
 
 class FunctionUrlConfigTypeDef(BaseValidatorModel):
     FunctionUrl: str
-    FunctionArn: str
+    FunctionArn: Annotated[str, _aws_pattern("Lambda", "FunctionArn")]
     CreationTime: str
     LastModifiedTime: str
     AuthType: FunctionUrlAuthTypeType
@@ -1215,7 +1217,7 @@ class FunctionUrlConfigTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_function_url_config' function.
 class GetFunctionUrlConfigResponseTypeDef(BaseValidatorModel):
     FunctionUrl: str
-    FunctionArn: str
+    FunctionArn: Annotated[str, _aws_pattern("Lambda", "FunctionArn")]
     AuthType: FunctionUrlAuthTypeType
     Cors: CorsOutputTypeDef
     CreationTime: str
@@ -1227,7 +1229,7 @@ class GetFunctionUrlConfigResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_function_url_config' function.
 class UpdateFunctionUrlConfigResponseTypeDef(BaseValidatorModel):
     FunctionUrl: str
-    FunctionArn: str
+    FunctionArn: Annotated[str, _aws_pattern("Lambda", "FunctionArn")]
     AuthType: FunctionUrlAuthTypeType
     Cors: CorsOutputTypeDef
     CreationTime: str
@@ -1241,9 +1243,9 @@ CorsUnionTypeDef = Union[CorsOutputTypeDef, CorsTypeDef]
 
 # This class is the input for the 'list_durable_executions_by_function' function.
 class ListDurableExecutionsByFunctionRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
-    DurableExecutionName: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
+    DurableExecutionName: Optional[Annotated[str, _aws_pattern("Lambda", "DurableExecutionName")]] = None
     Statuses: Optional[List[ExecutionStatusType]] = None
     StartedAfter: Optional[TimestampTypeDef] = None
     StartedBefore: Optional[TimestampTypeDef] = None
@@ -1286,7 +1288,7 @@ class FilterCriteriaTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_function_scaling_config' function.
 class GetFunctionScalingConfigResponseTypeDef(BaseValidatorModel):
-    FunctionArn: str
+    FunctionArn: Annotated[str, _aws_pattern("Lambda", "FunctionArn")]
     AppliedFunctionScalingConfig: FunctionScalingConfigTypeDef
     RequestedFunctionScalingConfig: FunctionScalingConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1294,14 +1296,14 @@ class GetFunctionScalingConfigResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_function_scaling_config' function.
 class PutFunctionScalingConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "UnqualifiedFunctionName")]
+    Qualifier: Annotated[str, _aws_pattern("Lambda", "PublishedFunctionQualifier")]
     FunctionScalingConfig: Optional[FunctionScalingConfigTypeDef] = None
 
 
 # This class is the output for the 'list_function_versions_by_capacity_provider' function.
 class ListFunctionVersionsByCapacityProviderResponseTypeDef(BaseValidatorModel):
-    CapacityProviderArn: str
+    CapacityProviderArn: Annotated[str, _aws_pattern("Lambda", "CapacityProviderArn")]
     FunctionVersions: List[FunctionVersionsByCapacityProviderListItemTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1403,16 +1405,16 @@ class ListVersionsByFunctionRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_durable_execution' function.
 class GetDurableExecutionResponseTypeDef(BaseValidatorModel):
-    DurableExecutionArn: str
-    DurableExecutionName: str
-    FunctionArn: str
+    DurableExecutionArn: Annotated[str, _aws_pattern("Lambda", "DurableExecutionArn")]
+    DurableExecutionName: Annotated[str, _aws_pattern("Lambda", "DurableExecutionName")]
+    FunctionArn: Annotated[str, _aws_pattern("Lambda", "NameSpacedFunctionArn")]
     InputPayload: str
     Result: str
     Error: ErrorObjectOutputTypeDef
     StartTimestamp: datetime
     Status: ExecutionStatusType
     EndTimestamp: datetime
-    Version: str
+    Version: Annotated[str, _aws_pattern("Lambda", "VersionWithLatestPublished")]
     TraceHeader: TraceHeaderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1456,8 +1458,8 @@ class GetFunctionRequestWaitTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_layer_version' function.
 class GetLayerVersionResponseTypeDef(BaseValidatorModel):
     Content: LayerVersionContentOutputTypeDef
-    LayerArn: str
-    LayerVersionArn: str
+    LayerArn: Annotated[str, _aws_pattern("Lambda", "LayerArn")]
+    LayerVersionArn: Annotated[str, _aws_pattern("Lambda", "LayerVersionArn")]
     Description: str
     CreatedDate: str
     Version: int
@@ -1470,8 +1472,8 @@ class GetLayerVersionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'publish_layer_version' function.
 class PublishLayerVersionResponseTypeDef(BaseValidatorModel):
     Content: LayerVersionContentOutputTypeDef
-    LayerArn: str
-    LayerVersionArn: str
+    LayerArn: Annotated[str, _aws_pattern("Lambda", "LayerArn")]
+    LayerVersionArn: Annotated[str, _aws_pattern("Lambda", "LayerVersionArn")]
     Description: str
     CreatedDate: str
     Version: int
@@ -1504,15 +1506,15 @@ class KafkaSchemaRegistryConfigOutputTypeDef(BaseValidatorModel):
 
 
 class KafkaSchemaRegistryConfigTypeDef(BaseValidatorModel):
-    SchemaRegistryURI: Optional[str] = None
+    SchemaRegistryURI: Optional[Annotated[str, _aws_pattern("Lambda", "SchemaRegistryUri")]] = None
     EventRecordFormat: Optional[SchemaRegistryEventRecordFormatType] = None
     AccessConfigs: Optional[List[KafkaSchemaRegistryAccessConfigTypeDef]] = None
     SchemaValidationConfigs: Optional[List[KafkaSchemaValidationConfigTypeDef]] = None
 
 
 class LayersListItemTypeDef(BaseValidatorModel):
-    LayerName: Optional[str] = None
-    LayerArn: Optional[str] = None
+    LayerName: Optional[Annotated[str, _aws_pattern("Lambda", "LayerName")]] = None
+    LayerArn: Optional[Annotated[str, _aws_pattern("Lambda", "LayerArn")]] = None
     LatestMatchingVersion: Optional[LayerVersionsListItemTypeDef] = None
 
 
@@ -1536,7 +1538,7 @@ class StepSucceededDetailsTypeDef(BaseValidatorModel):
 
 
 class RuntimeVersionConfigTypeDef(BaseValidatorModel):
-    RuntimeVersionArn: Optional[str] = None
+    RuntimeVersionArn: Optional[Annotated[str, _aws_pattern("Lambda", "RuntimeVersionArn")]] = None
     Error: Optional[RuntimeVersionErrorTypeDef] = None
 
 
@@ -1552,18 +1554,18 @@ class ListAliasesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_alias' function.
 class CreateAliasRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Name: str
-    FunctionVersion: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Name: Annotated[str, _aws_pattern("Lambda", "Alias")]
+    FunctionVersion: Annotated[str, _aws_pattern("Lambda", "VersionWithLatestPublished")]
     Description: Optional[str] = None
     RoutingConfig: Optional[AliasRoutingConfigurationUnionTypeDef] = None
 
 
 # This class is the input for the 'update_alias' function.
 class UpdateAliasRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Name: str
-    FunctionVersion: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Name: Annotated[str, _aws_pattern("Lambda", "Alias")]
+    FunctionVersion: Optional[Annotated[str, _aws_pattern("Lambda", "VersionWithLatestPublished")]] = None
     Description: Optional[str] = None
     RoutingConfig: Optional[AliasRoutingConfigurationUnionTypeDef] = None
     RevisionId: Optional[str] = None
@@ -1579,7 +1581,7 @@ class CreateCodeSigningConfigRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_code_signing_config' function.
 class UpdateCodeSigningConfigRequestTypeDef(BaseValidatorModel):
-    CodeSigningConfigArn: str
+    CodeSigningConfigArn: Annotated[str, _aws_pattern("Lambda", "CodeSigningConfigArn")]
     Description: Optional[str] = None
     AllowedPublishers: Optional[AllowedPublishersUnionTypeDef] = None
     CodeSigningPolicies: Optional[CodeSigningPoliciesTypeDef] = None
@@ -1587,7 +1589,7 @@ class UpdateCodeSigningConfigRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'publish_layer_version' function.
 class PublishLayerVersionRequestTypeDef(BaseValidatorModel):
-    LayerName: str
+    LayerName: Annotated[str, _aws_pattern("Lambda", "LayerName")]
     Content: LayerVersionContentInputTypeDef
     Description: Optional[str] = None
     CompatibleRuntimes: Optional[List[RuntimeType]] = None
@@ -1648,13 +1650,13 @@ class WaitCancelledDetailsTypeDef(BaseValidatorModel):
 
 
 class OperationTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Lambda", "OperationId")]
     Type: OperationTypeType
     StartTimestamp: datetime
     Status: OperationStatusType
-    ParentId: Optional[str] = None
-    Name: Optional[str] = None
-    SubType: Optional[str] = None
+    ParentId: Optional[Annotated[str, _aws_pattern("Lambda", "OperationId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Lambda", "OperationName")]] = None
+    SubType: Optional[Annotated[str, _aws_pattern("Lambda", "OperationSubType")]] = None
     EndTimestamp: Optional[datetime] = None
     ExecutionDetails: Optional[ExecutionDetailsTypeDef] = None
     ContextDetails: Optional[ContextDetailsTypeDef] = None
@@ -1665,13 +1667,13 @@ class OperationTypeDef(BaseValidatorModel):
 
 
 class CapacityProviderTypeDef(BaseValidatorModel):
-    CapacityProviderArn: str
+    CapacityProviderArn: Annotated[str, _aws_pattern("Lambda", "CapacityProviderArn")]
     State: CapacityProviderStateType
     VpcConfig: CapacityProviderVpcConfigOutputTypeDef
     PermissionsConfig: CapacityProviderPermissionsConfigTypeDef
     InstanceRequirements: Optional[InstanceRequirementsOutputTypeDef] = None
     CapacityProviderScalingConfig: Optional[CapacityProviderScalingConfigOutputTypeDef] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Lambda", "KMSKeyArn")]] = None
     LastModified: Optional[str] = None
 
 
@@ -1714,17 +1716,17 @@ class ListFunctionUrlConfigsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_function_url_config' function.
 class CreateFunctionUrlConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
     AuthType: FunctionUrlAuthTypeType
-    Qualifier: Optional[str] = None
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "FunctionUrlQualifier")]] = None
     Cors: Optional[CorsUnionTypeDef] = None
     InvokeMode: Optional[InvokeModeType] = None
 
 
 # This class is the input for the 'update_function_url_config' function.
 class UpdateFunctionUrlConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "FunctionUrlQualifier")]] = None
     AuthType: Optional[FunctionUrlAuthTypeType] = None
     Cors: Optional[CorsUnionTypeDef] = None
     InvokeMode: Optional[InvokeModeType] = None
@@ -1742,7 +1744,7 @@ class FunctionEventInvokeConfigResponseTypeDef(BaseValidatorModel):
 
 class FunctionEventInvokeConfigTypeDef(BaseValidatorModel):
     LastModified: Optional[datetime] = None
-    FunctionArn: Optional[str] = None
+    FunctionArn: Optional[Annotated[str, _aws_pattern("Lambda", "FunctionArn")]] = None
     MaximumRetryAttempts: Optional[int] = None
     MaximumEventAgeInSeconds: Optional[int] = None
     DestinationConfig: Optional[DestinationConfigTypeDef] = None
@@ -1750,8 +1752,8 @@ class FunctionEventInvokeConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_function_event_invoke_config' function.
 class PutFunctionEventInvokeConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
     MaximumRetryAttempts: Optional[int] = None
     MaximumEventAgeInSeconds: Optional[int] = None
     DestinationConfig: Optional[DestinationConfigTypeDef] = None
@@ -1759,20 +1761,20 @@ class PutFunctionEventInvokeConfigRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_function_event_invoke_config' function.
 class UpdateFunctionEventInvokeConfigRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    Qualifier: Optional[Annotated[str, _aws_pattern("Lambda", "NumericLatestPublishedOrAliasQualifier")]] = None
     MaximumRetryAttempts: Optional[int] = None
     MaximumEventAgeInSeconds: Optional[int] = None
     DestinationConfig: Optional[DestinationConfigTypeDef] = None
 
 
 class OperationUpdateTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Lambda", "OperationId")]
     Type: OperationTypeType
     Action: OperationActionType
-    ParentId: Optional[str] = None
-    Name: Optional[str] = None
-    SubType: Optional[str] = None
+    ParentId: Optional[Annotated[str, _aws_pattern("Lambda", "OperationId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Lambda", "OperationName")]] = None
+    SubType: Optional[Annotated[str, _aws_pattern("Lambda", "OperationSubType")]] = None
     Payload: Optional[str] = None
     Error: Optional[ErrorObjectUnionTypeDef] = None
     ContextOptions: Optional[ContextOptionsTypeDef] = None
@@ -1783,13 +1785,13 @@ class OperationUpdateTypeDef(BaseValidatorModel):
 
 
 class SendDurableExecutionCallbackFailureRequestTypeDef(BaseValidatorModel):
-    CallbackId: str
+    CallbackId: Annotated[str, _aws_pattern("Lambda", "CallbackId")]
     Error: Optional[ErrorObjectUnionTypeDef] = None
 
 
 # This class is the input for the 'stop_durable_execution' function.
 class StopDurableExecutionRequestTypeDef(BaseValidatorModel):
-    DurableExecutionArn: str
+    DurableExecutionArn: Annotated[str, _aws_pattern("Lambda", "DurableExecutionArn")]
     Error: Optional[ErrorObjectUnionTypeDef] = None
 
 
@@ -1798,11 +1800,11 @@ FilterCriteriaUnionTypeDef = Union[FilterCriteriaOutputTypeDef, FilterCriteriaTy
 
 # This class is the input for the 'create_function' function.
 class CreateFunctionRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Role: str
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Role: Annotated[str, _aws_pattern("Lambda", "RoleArn")]
     Code: FunctionCodeTypeDef
     Runtime: Optional[RuntimeType] = None
-    Handler: Optional[str] = None
+    Handler: Optional[Annotated[str, _aws_pattern("Lambda", "Handler")]] = None
     Description: Optional[str] = None
     Timeout: Optional[int] = None
     MemorySize: Optional[int] = None
@@ -1811,13 +1813,13 @@ class CreateFunctionRequestTypeDef(BaseValidatorModel):
     PackageType: Optional[PackageTypeType] = None
     DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
     Environment: Optional[EnvironmentTypeDef] = None
-    KMSKeyArn: Optional[str] = None
+    KMSKeyArn: Optional[Annotated[str, _aws_pattern("Lambda", "KMSKeyArn")]] = None
     TracingConfig: Optional[TracingConfigTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
-    Layers: Optional[List[str]] = None
+    Layers: Optional[List[Annotated[str, _aws_pattern("Lambda", "LayerVersionArn")]]] = None
     FileSystemConfigs: Optional[List[FileSystemConfigTypeDef]] = None
     ImageConfig: Optional[ImageConfigUnionTypeDef] = None
-    CodeSigningConfigArn: Optional[str] = None
+    CodeSigningConfigArn: Optional[Annotated[str, _aws_pattern("Lambda", "CodeSigningConfigArn")]] = None
     Architectures: Optional[List[ArchitectureType]] = None
     EphemeralStorage: Optional[EphemeralStorageTypeDef] = None
     SnapStart: Optional[SnapStartTypeDef] = None
@@ -1830,9 +1832,9 @@ class CreateFunctionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_function_configuration' function.
 class UpdateFunctionConfigurationRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Role: Optional[str] = None
-    Handler: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "FunctionName")]
+    Role: Optional[Annotated[str, _aws_pattern("Lambda", "RoleArn")]] = None
+    Handler: Optional[Annotated[str, _aws_pattern("Lambda", "Handler")]] = None
     Description: Optional[str] = None
     Timeout: Optional[int] = None
     MemorySize: Optional[int] = None
@@ -1840,10 +1842,10 @@ class UpdateFunctionConfigurationRequestTypeDef(BaseValidatorModel):
     Environment: Optional[EnvironmentTypeDef] = None
     Runtime: Optional[RuntimeType] = None
     DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
-    KMSKeyArn: Optional[str] = None
+    KMSKeyArn: Optional[Annotated[str, _aws_pattern("Lambda", "KMSKeyArn")]] = None
     TracingConfig: Optional[TracingConfigTypeDef] = None
     RevisionId: Optional[str] = None
-    Layers: Optional[List[str]] = None
+    Layers: Optional[List[Annotated[str, _aws_pattern("Lambda", "LayerVersionArn")]]] = None
     FileSystemConfigs: Optional[List[FileSystemConfigTypeDef]] = None
     ImageConfig: Optional[ImageConfigUnionTypeDef] = None
     EphemeralStorage: Optional[EphemeralStorageTypeDef] = None
@@ -1869,12 +1871,12 @@ class SelfManagedKafkaEventSourceConfigOutputTypeDef(BaseValidatorModel):
 
 
 class AmazonManagedKafkaEventSourceConfigTypeDef(BaseValidatorModel):
-    ConsumerGroupId: Optional[str] = None
+    ConsumerGroupId: Optional[Annotated[str, _aws_pattern("Lambda", "URI")]] = None
     SchemaRegistryConfig: Optional[KafkaSchemaRegistryConfigTypeDef] = None
 
 
 class SelfManagedKafkaEventSourceConfigTypeDef(BaseValidatorModel):
-    ConsumerGroupId: Optional[str] = None
+    ConsumerGroupId: Optional[Annotated[str, _aws_pattern("Lambda", "URI")]] = None
     SchemaRegistryConfig: Optional[KafkaSchemaRegistryConfigTypeDef] = None
 
 
@@ -1931,24 +1933,24 @@ class FunctionConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class FunctionConfigurationTypeDef(BaseValidatorModel):
-    FunctionName: Optional[str] = None
-    FunctionArn: Optional[str] = None
+    FunctionName: Optional[Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]] = None
+    FunctionArn: Optional[Annotated[str, _aws_pattern("Lambda", "NameSpacedFunctionArn")]] = None
     Runtime: Optional[RuntimeType] = None
-    Role: Optional[str] = None
-    Handler: Optional[str] = None
+    Role: Optional[Annotated[str, _aws_pattern("Lambda", "RoleArn")]] = None
+    Handler: Optional[Annotated[str, _aws_pattern("Lambda", "Handler")]] = None
     CodeSize: Optional[int] = None
     Description: Optional[str] = None
     Timeout: Optional[int] = None
     MemorySize: Optional[int] = None
     LastModified: Optional[str] = None
     CodeSha256: Optional[str] = None
-    Version: Optional[str] = None
+    Version: Optional[Annotated[str, _aws_pattern("Lambda", "Version")]] = None
     VpcConfig: Optional[VpcConfigResponseTypeDef] = None
     DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
     Environment: Optional[EnvironmentResponseTypeDef] = None
-    KMSKeyArn: Optional[str] = None
+    KMSKeyArn: Optional[Annotated[str, _aws_pattern("Lambda", "KMSKeyArn")]] = None
     TracingConfig: Optional[TracingConfigResponseTypeDef] = None
-    MasterArn: Optional[str] = None
+    MasterArn: Optional[Annotated[str, _aws_pattern("Lambda", "FunctionArn")]] = None
     RevisionId: Optional[str] = None
     Layers: Optional[List[LayerTypeDef]] = None
     State: Optional[StateType] = None
@@ -1960,8 +1962,8 @@ class FunctionConfigurationTypeDef(BaseValidatorModel):
     FileSystemConfigs: Optional[List[FileSystemConfigTypeDef]] = None
     PackageType: Optional[PackageTypeType] = None
     ImageConfigResponse: Optional[ImageConfigResponseTypeDef] = None
-    SigningProfileVersionArn: Optional[str] = None
-    SigningJobArn: Optional[str] = None
+    SigningProfileVersionArn: Optional[Annotated[str, _aws_pattern("Lambda", "Arn")]] = None
+    SigningJobArn: Optional[Annotated[str, _aws_pattern("Lambda", "Arn")]] = None
     Architectures: Optional[List[ArchitectureType]] = None
     EphemeralStorage: Optional[EphemeralStorageTypeDef] = None
     SnapStart: Optional[SnapStartResponseTypeDef] = None
@@ -1975,12 +1977,12 @@ class FunctionConfigurationTypeDef(BaseValidatorModel):
 
 class EventTypeDef(BaseValidatorModel):
     EventType: Optional[EventTypeType] = None
-    SubType: Optional[str] = None
+    SubType: Optional[Annotated[str, _aws_pattern("Lambda", "OperationSubType")]] = None
     EventId: Optional[int] = None
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Lambda", "OperationId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Lambda", "OperationName")]] = None
     EventTimestamp: Optional[datetime] = None
-    ParentId: Optional[str] = None
+    ParentId: Optional[Annotated[str, _aws_pattern("Lambda", "OperationId")]] = None
     ExecutionStartedDetails: Optional[ExecutionStartedDetailsTypeDef] = None
     ExecutionSucceededDetails: Optional[ExecutionSucceededDetailsTypeDef] = None
     ExecutionFailedDetails: Optional[ExecutionFailedDetailsTypeDef] = None
@@ -2052,18 +2054,18 @@ class UpdateCapacityProviderResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_capacity_provider' function.
 class CreateCapacityProviderRequestTypeDef(BaseValidatorModel):
-    CapacityProviderName: str
+    CapacityProviderName: Annotated[str, _aws_pattern("Lambda", "CapacityProviderName")]
     VpcConfig: CapacityProviderVpcConfigUnionTypeDef
     PermissionsConfig: CapacityProviderPermissionsConfigTypeDef
     InstanceRequirements: Optional[InstanceRequirementsUnionTypeDef] = None
     CapacityProviderScalingConfig: Optional[CapacityProviderScalingConfigUnionTypeDef] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Lambda", "KMSKeyArnNonEmpty")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_capacity_provider' function.
 class UpdateCapacityProviderRequestTypeDef(BaseValidatorModel):
-    CapacityProviderName: str
+    CapacityProviderName: Annotated[str, _aws_pattern("Lambda", "CapacityProviderName")]
     CapacityProviderScalingConfig: Optional[CapacityProviderScalingConfigUnionTypeDef] = None
 
 
@@ -2076,10 +2078,10 @@ class ListFunctionEventInvokeConfigsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'checkpoint_durable_execution' function.
 class CheckpointDurableExecutionRequestTypeDef(BaseValidatorModel):
-    DurableExecutionArn: str
-    CheckpointToken: str
+    DurableExecutionArn: Annotated[str, _aws_pattern("Lambda", "DurableExecutionArn")]
+    CheckpointToken: Annotated[str, _aws_pattern("Lambda", "CheckpointToken")]
     Updates: Optional[List[OperationUpdateTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Lambda", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_event_source_mapping' function.
@@ -2127,16 +2129,16 @@ class EventSourceMappingConfigurationTypeDef(BaseValidatorModel):
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
     ParallelizationFactor: Optional[int] = None
-    EventSourceArn: Optional[str] = None
+    EventSourceArn: Optional[Annotated[str, _aws_pattern("Lambda", "Arn")]] = None
     FilterCriteria: Optional[FilterCriteriaOutputTypeDef] = None
-    FunctionArn: Optional[str] = None
+    FunctionArn: Optional[Annotated[str, _aws_pattern("Lambda", "FunctionArn")]] = None
     LastModified: Optional[datetime] = None
     LastProcessingResult: Optional[str] = None
     State: Optional[str] = None
     StateTransitionReason: Optional[str] = None
     DestinationConfig: Optional[DestinationConfigTypeDef] = None
-    Topics: Optional[List[str]] = None
-    Queues: Optional[List[str]] = None
+    Topics: Optional[List[Annotated[str, _aws_pattern("Lambda", "Topic")]]] = None
+    Queues: Optional[List[Annotated[str, _aws_pattern("Lambda", "Queue")]]] = None
     SourceAccessConfigurations: Optional[List[SourceAccessConfigurationTypeDef]] = None
     SelfManagedEventSource: Optional[SelfManagedEventSourceOutputTypeDef] = None
     MaximumRecordAgeInSeconds: Optional[int] = None
@@ -2148,9 +2150,9 @@ class EventSourceMappingConfigurationTypeDef(BaseValidatorModel):
     SelfManagedKafkaEventSourceConfig: Optional[SelfManagedKafkaEventSourceConfigOutputTypeDef] = None
     ScalingConfig: Optional[ScalingConfigTypeDef] = None
     DocumentDBEventSourceConfig: Optional[DocumentDBEventSourceConfigTypeDef] = None
-    KMSKeyArn: Optional[str] = None
+    KMSKeyArn: Optional[Annotated[str, _aws_pattern("Lambda", "KMSKeyArn")]] = None
     FilterCriteriaError: Optional[FilterCriteriaErrorTypeDef] = None
-    EventSourceMappingArn: Optional[str] = None
+    EventSourceMappingArn: Optional[Annotated[str, _aws_pattern("Lambda", "EventSourceMappingArn")]] = None
     MetricsConfig: Optional[EventSourceMappingMetricsConfigOutputTypeDef] = None
     LoggingConfig: Optional[EventSourceMappingLoggingConfigTypeDef] = None
     ProvisionedPollerConfig: Optional[ProvisionedPollerConfigTypeDef] = None
@@ -2198,7 +2200,7 @@ class GetDurableExecutionHistoryResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'checkpoint_durable_execution' function.
 class CheckpointDurableExecutionResponseTypeDef(BaseValidatorModel):
-    CheckpointToken: str
+    CheckpointToken: Annotated[str, _aws_pattern("Lambda", "CheckpointToken")]
     NewExecutionState: CheckpointUpdatedExecutionStateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2212,8 +2214,8 @@ class ListEventSourceMappingsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_event_source_mapping' function.
 class CreateEventSourceMappingRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    EventSourceArn: Optional[str] = None
+    FunctionName: Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]
+    EventSourceArn: Optional[Annotated[str, _aws_pattern("Lambda", "Arn")]] = None
     Enabled: Optional[bool] = None
     BatchSize: Optional[int] = None
     FilterCriteria: Optional[FilterCriteriaUnionTypeDef] = None
@@ -2227,8 +2229,8 @@ class CreateEventSourceMappingRequestTypeDef(BaseValidatorModel):
     MaximumRetryAttempts: Optional[int] = None
     Tags: Optional[Dict[str, str]] = None
     TumblingWindowInSeconds: Optional[int] = None
-    Topics: Optional[List[str]] = None
-    Queues: Optional[List[str]] = None
+    Topics: Optional[List[Annotated[str, _aws_pattern("Lambda", "Topic")]]] = None
+    Queues: Optional[List[Annotated[str, _aws_pattern("Lambda", "Queue")]]] = None
     SourceAccessConfigurations: Optional[List[SourceAccessConfigurationTypeDef]] = None
     SelfManagedEventSource: Optional[SelfManagedEventSourceUnionTypeDef] = None
     FunctionResponseTypes: Optional[List[Literal["ReportBatchItemFailures"]]] = None
@@ -2236,7 +2238,7 @@ class CreateEventSourceMappingRequestTypeDef(BaseValidatorModel):
     SelfManagedKafkaEventSourceConfig: Optional[SelfManagedKafkaEventSourceConfigUnionTypeDef] = None
     ScalingConfig: Optional[ScalingConfigTypeDef] = None
     DocumentDBEventSourceConfig: Optional[DocumentDBEventSourceConfigTypeDef] = None
-    KMSKeyArn: Optional[str] = None
+    KMSKeyArn: Optional[Annotated[str, _aws_pattern("Lambda", "KMSKeyArn")]] = None
     MetricsConfig: Optional[EventSourceMappingMetricsConfigUnionTypeDef] = None
     LoggingConfig: Optional[EventSourceMappingLoggingConfigTypeDef] = None
     ProvisionedPollerConfig: Optional[ProvisionedPollerConfigTypeDef] = None
@@ -2245,7 +2247,7 @@ class CreateEventSourceMappingRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_event_source_mapping' function.
 class UpdateEventSourceMappingRequestTypeDef(BaseValidatorModel):
     UUID: str
-    FunctionName: Optional[str] = None
+    FunctionName: Optional[Annotated[str, _aws_pattern("Lambda", "NamespacedFunctionName")]] = None
     Enabled: Optional[bool] = None
     BatchSize: Optional[int] = None
     FilterCriteria: Optional[FilterCriteriaUnionTypeDef] = None
@@ -2262,7 +2264,7 @@ class UpdateEventSourceMappingRequestTypeDef(BaseValidatorModel):
     AmazonManagedKafkaEventSourceConfig: Optional[AmazonManagedKafkaEventSourceConfigUnionTypeDef] = None
     SelfManagedKafkaEventSourceConfig: Optional[SelfManagedKafkaEventSourceConfigUnionTypeDef] = None
     DocumentDBEventSourceConfig: Optional[DocumentDBEventSourceConfigTypeDef] = None
-    KMSKeyArn: Optional[str] = None
+    KMSKeyArn: Optional[Annotated[str, _aws_pattern("Lambda", "KMSKeyArn")]] = None
     MetricsConfig: Optional[EventSourceMappingMetricsConfigUnionTypeDef] = None
     LoggingConfig: Optional[EventSourceMappingLoggingConfigTypeDef] = None
     ProvisionedPollerConfig: Optional[ProvisionedPollerConfigTypeDef] = None

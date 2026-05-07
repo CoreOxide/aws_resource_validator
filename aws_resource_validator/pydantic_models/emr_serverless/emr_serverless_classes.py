@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.emr_serverless.emr_serverless_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,15 +41,15 @@ except ImportError:  # pragma: no cover
 
 
 class ApplicationSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    releaseLabel: str
+    id: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    arn: Annotated[str, _aws_pattern("EmrServerless", "ApplicationArn")]
+    releaseLabel: Annotated[str, _aws_pattern("EmrServerless", "ReleaseLabel")]
     type: str
     state: ApplicationStateType
     createdAt: datetime
     updatedAt: datetime
-    name: Optional[str] = None
-    stateDetails: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrServerless", "ApplicationName")]] = None
+    stateDetails: Optional[Annotated[str, _aws_pattern("EmrServerless", "String256")]] = None
     architecture: Optional[ArchitectureType] = None
 
 
@@ -72,14 +74,18 @@ class DiskEncryptionConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class IdentityCenterConfigurationTypeDef(BaseValidatorModel):
-    identityCenterInstanceArn: Optional[str] = None
-    identityCenterApplicationArn: Optional[str] = None
+    identityCenterInstanceArn: Optional[Annotated[str, _aws_pattern("EmrServerless", "IdentityCenterInstanceArn")]] = (
+        None
+    )
+    identityCenterApplicationArn: Optional[
+        Annotated[str, _aws_pattern("EmrServerless", "IdentityCenterApplicationArn")]
+    ] = None
     userBackgroundSessionsEnabled: Optional[bool] = None
 
 
 class ImageConfigurationTypeDef(BaseValidatorModel):
-    imageUri: str
-    resolvedImageDigest: Optional[str] = None
+    imageUri: Annotated[str, _aws_pattern("EmrServerless", "ImageUri")]
+    resolvedImageDigest: Optional[Annotated[str, _aws_pattern("EmrServerless", "ImageDigest")]] = None
 
 
 class InteractiveConfigurationTypeDef(BaseValidatorModel):
@@ -93,9 +99,9 @@ class JobLevelCostAllocationConfigurationTypeDef(BaseValidatorModel):
 
 
 class MaximumAllowedResourcesTypeDef(BaseValidatorModel):
-    cpu: str
-    memory: str
-    disk: Optional[str] = None
+    cpu: Annotated[str, _aws_pattern("EmrServerless", "CpuSize")]
+    memory: Annotated[str, _aws_pattern("EmrServerless", "MemorySize")]
+    disk: Optional[Annotated[str, _aws_pattern("EmrServerless", "DiskSize")]] = None
 
 
 class NetworkConfigurationOutputTypeDef(BaseValidatorModel):
@@ -110,8 +116,8 @@ class SchedulerConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_job_run' function.
 class CancelJobRunRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    jobRunId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    jobRunId: Annotated[str, _aws_pattern("EmrServerless", "JobRunId")]
     shutdownGracePeriodInSeconds: Optional[int] = None
 
 
@@ -133,86 +139,88 @@ class CloudWatchLoggingConfigurationOutputTypeDef(BaseValidatorModel):
 
 class CloudWatchLoggingConfigurationTypeDef(BaseValidatorModel):
     enabled: bool
-    logGroupName: Optional[str] = None
-    logStreamNamePrefix: Optional[str] = None
-    encryptionKeyArn: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("EmrServerless", "LogGroupName")]] = None
+    logStreamNamePrefix: Optional[Annotated[str, _aws_pattern("EmrServerless", "LogStreamNamePrefix")]] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("EmrServerless", "EncryptionKeyArn")]] = None
     logTypes: Optional[Dict[str, List[str]]] = None
 
 
 class ConfigurationTypeDef(BaseValidatorModel):
-    classification: str
+    classification: Annotated[str, _aws_pattern("EmrServerless", "String1024")]
     properties: Optional[Dict[str, str]] = None
     configurations: Optional[List[Dict[str, Any]]] = None
 
 
 class DiskEncryptionConfigurationTypeDef(BaseValidatorModel):
     encryptionContext: Optional[Dict[str, str]] = None
-    encryptionKeyArn: Optional[str] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("EmrServerless", "EncryptionKeyArn")]] = None
 
 
 class IdentityCenterConfigurationInputTypeDef(BaseValidatorModel):
-    identityCenterInstanceArn: Optional[str] = None
+    identityCenterInstanceArn: Optional[Annotated[str, _aws_pattern("EmrServerless", "IdentityCenterInstanceArn")]] = (
+        None
+    )
     userBackgroundSessionsEnabled: Optional[bool] = None
 
 
 class ImageConfigurationInputTypeDef(BaseValidatorModel):
-    imageUri: Optional[str] = None
+    imageUri: Optional[Annotated[str, _aws_pattern("EmrServerless", "ImageUri")]] = None
 
 
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
 
 
 # This class is the input for the 'get_application' function.
 class GetApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
 
 
 # This class is the input for the 'get_dashboard_for_job_run' function.
 class GetDashboardForJobRunRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    jobRunId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    jobRunId: Annotated[str, _aws_pattern("EmrServerless", "JobRunId")]
     attempt: Optional[int] = None
     accessSystemProfileLogs: Optional[bool] = None
 
 
 # This class is the input for the 'get_job_run' function.
 class GetJobRunRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    jobRunId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    jobRunId: Annotated[str, _aws_pattern("EmrServerless", "JobRunId")]
     attempt: Optional[int] = None
 
 
 # This class is the input for the 'get_resource_dashboard' function.
 class GetResourceDashboardRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    resourceId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    resourceId: Annotated[str, _aws_pattern("EmrServerless", "ResourceId")]
     resourceType: Literal["SESSION"]
 
 
 # This class is the input for the 'get_session_endpoint' function.
 class GetSessionEndpointRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    sessionId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    sessionId: Annotated[str, _aws_pattern("EmrServerless", "SessionId")]
 
 
 # This class is the input for the 'get_session' function.
 class GetSessionRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    sessionId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    sessionId: Annotated[str, _aws_pattern("EmrServerless", "SessionId")]
 
 
 class HiveTypeDef(BaseValidatorModel):
-    query: str
-    initQueryFile: Optional[str] = None
-    parameters: Optional[str] = None
+    query: Annotated[str, _aws_pattern("EmrServerless", "Query")]
+    initQueryFile: Optional[Annotated[str, _aws_pattern("EmrServerless", "InitScriptPath")]] = None
+    parameters: Optional[Annotated[str, _aws_pattern("EmrServerless", "HiveCliParameters")]] = None
 
 
 class WorkerResourceConfigTypeDef(BaseValidatorModel):
-    cpu: str
-    memory: str
-    disk: Optional[str] = None
-    diskType: Optional[str] = None
+    cpu: Annotated[str, _aws_pattern("EmrServerless", "CpuSize")]
+    memory: Annotated[str, _aws_pattern("EmrServerless", "MemorySize")]
+    disk: Optional[Annotated[str, _aws_pattern("EmrServerless", "DiskSize")]] = None
+    diskType: Optional[Annotated[str, _aws_pattern("EmrServerless", "DiskType")]] = None
 
 
 class SparkSubmitOutputTypeDef(BaseValidatorModel):
@@ -222,24 +230,24 @@ class SparkSubmitOutputTypeDef(BaseValidatorModel):
 
 
 class SparkSubmitTypeDef(BaseValidatorModel):
-    entryPoint: str
-    entryPointArguments: Optional[List[str]] = None
-    sparkSubmitParameters: Optional[str] = None
+    entryPoint: Annotated[str, _aws_pattern("EmrServerless", "EntryPointPath")]
+    entryPointArguments: Optional[List[Annotated[str, _aws_pattern("EmrServerless", "EntryPointArgument")]]] = None
+    sparkSubmitParameters: Optional[Annotated[str, _aws_pattern("EmrServerless", "SparkSubmitParameters")]] = None
 
 
 class JobRunAttemptSummaryTypeDef(BaseValidatorModel):
-    applicationId: str
-    id: str
-    arn: str
-    createdBy: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    id: Annotated[str, _aws_pattern("EmrServerless", "JobRunId")]
+    arn: Annotated[str, _aws_pattern("EmrServerless", "JobArn")]
+    createdBy: Annotated[str, _aws_pattern("EmrServerless", "RequestIdentityUserArn")]
     jobCreatedAt: datetime
     createdAt: datetime
     updatedAt: datetime
-    executionRole: str
+    executionRole: Annotated[str, _aws_pattern("EmrServerless", "IAMRoleArn")]
     state: JobRunStateType
-    stateDetails: str
-    releaseLabel: str
-    name: Optional[str] = None
+    stateDetails: Annotated[str, _aws_pattern("EmrServerless", "String256")]
+    releaseLabel: Annotated[str, _aws_pattern("EmrServerless", "ReleaseLabel")]
+    name: Optional[Annotated[str, _aws_pattern("EmrServerless", "String256")]] = None
     mode: Optional[JobRunModeType] = None
     type: Optional[str] = None
     attempt: Optional[int] = None
@@ -251,22 +259,22 @@ class JobRunExecutionIamPolicyOutputTypeDef(BaseValidatorModel):
 
 
 class JobRunExecutionIamPolicyTypeDef(BaseValidatorModel):
-    policy: Optional[str] = None
-    policyArns: Optional[List[str]] = None
+    policy: Optional[Annotated[str, _aws_pattern("EmrServerless", "PolicyDocument")]] = None
+    policyArns: Optional[List[Annotated[str, _aws_pattern("EmrServerless", "Arn")]]] = None
 
 
 class JobRunSummaryTypeDef(BaseValidatorModel):
-    applicationId: str
-    id: str
-    arn: str
-    createdBy: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    id: Annotated[str, _aws_pattern("EmrServerless", "JobRunId")]
+    arn: Annotated[str, _aws_pattern("EmrServerless", "JobArn")]
+    createdBy: Annotated[str, _aws_pattern("EmrServerless", "RequestIdentityUserArn")]
     createdAt: datetime
     updatedAt: datetime
-    executionRole: str
+    executionRole: Annotated[str, _aws_pattern("EmrServerless", "IAMRoleArn")]
     state: JobRunStateType
-    stateDetails: str
-    releaseLabel: str
-    name: Optional[str] = None
+    stateDetails: Annotated[str, _aws_pattern("EmrServerless", "String256")]
+    releaseLabel: Annotated[str, _aws_pattern("EmrServerless", "ReleaseLabel")]
+    name: Optional[Annotated[str, _aws_pattern("EmrServerless", "String256")]] = None
     mode: Optional[JobRunModeType] = None
     type: Optional[str] = None
     attempt: Optional[int] = None
@@ -299,16 +307,16 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_applications' function.
 class ListApplicationsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrServerless", "NextToken")]] = None
     maxResults: Optional[int] = None
     states: Optional[List[ApplicationStateType]] = None
 
 
 # This class is the input for the 'list_job_run_attempts' function.
 class ListJobRunAttemptsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    jobRunId: str
-    nextToken: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    jobRunId: Annotated[str, _aws_pattern("EmrServerless", "JobRunId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrServerless", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -316,65 +324,65 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class SessionSummaryTypeDef(BaseValidatorModel):
-    applicationId: str
-    sessionId: str
-    arn: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    sessionId: Annotated[str, _aws_pattern("EmrServerless", "SessionId")]
+    arn: Annotated[str, _aws_pattern("EmrServerless", "SessionArn")]
     state: SessionStateType
-    stateDetails: str
-    releaseLabel: str
-    executionRoleArn: str
-    createdBy: str
+    stateDetails: Annotated[str, _aws_pattern("EmrServerless", "String1024")]
+    releaseLabel: Annotated[str, _aws_pattern("EmrServerless", "ReleaseLabel")]
+    executionRoleArn: Annotated[str, _aws_pattern("EmrServerless", "IAMRoleArn")]
+    createdBy: Annotated[str, _aws_pattern("EmrServerless", "RequestIdentityUserArn")]
     createdAt: datetime
     updatedAt: datetime
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrServerless", "String256")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("EmrServerless", "ResourceArn")]
 
 
 class ManagedPersistenceMonitoringConfigurationTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
-    encryptionKeyArn: Optional[str] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("EmrServerless", "EncryptionKeyArn")]] = None
 
 
 class PrometheusMonitoringConfigurationTypeDef(BaseValidatorModel):
-    remoteWriteUrl: Optional[str] = None
+    remoteWriteUrl: Optional[Annotated[str, _aws_pattern("EmrServerless", "PrometheusUrlString")]] = None
 
 
 class S3MonitoringConfigurationTypeDef(BaseValidatorModel):
-    logUri: Optional[str] = None
-    encryptionKeyArn: Optional[str] = None
+    logUri: Optional[Annotated[str, _aws_pattern("EmrServerless", "UriString")]] = None
+    encryptionKeyArn: Optional[Annotated[str, _aws_pattern("EmrServerless", "EncryptionKeyArn")]] = None
 
 
 class NetworkConfigurationTypeDef(BaseValidatorModel):
-    subnetIds: Optional[List[str]] = None
-    securityGroupIds: Optional[List[str]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("EmrServerless", "SubnetString")]]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("EmrServerless", "SecurityGroupString")]]] = None
 
 
 class StartApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
 
 
 class StopApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("EmrServerless", "ResourceArn")]
     tags: Dict[str, str]
 
 
 # This class is the input for the 'terminate_session' function.
 class TerminateSessionRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    sessionId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    sessionId: Annotated[str, _aws_pattern("EmrServerless", "SessionId")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("EmrServerless", "ResourceArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("EmrServerless", "TagKey")]]
 
 
 class SessionConfigurationOverridesOutputTypeDef(BaseValidatorModel):
@@ -387,16 +395,16 @@ class WorkerTypeSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_job_run' function.
 class CancelJobRunResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    jobRunId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    jobRunId: Annotated[str, _aws_pattern("EmrServerless", "JobRunId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_application' function.
 class CreateApplicationResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    name: str
-    arn: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    name: Annotated[str, _aws_pattern("EmrServerless", "ApplicationName")]
+    arn: Annotated[str, _aws_pattern("EmrServerless", "ApplicationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -414,8 +422,8 @@ class GetResourceDashboardResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_session_endpoint' function.
 class GetSessionEndpointResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    sessionId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    sessionId: Annotated[str, _aws_pattern("EmrServerless", "SessionId")]
     endpoint: str
     authToken: str
     authTokenExpiresAt: datetime
@@ -426,7 +434,7 @@ class GetSessionEndpointResponseTypeDef(BaseValidatorModel):
 class ListApplicationsResponseTypeDef(BaseValidatorModel):
     applications: List[ApplicationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrServerless", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -437,24 +445,24 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_job_run' function.
 class StartJobRunResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    jobRunId: str
-    arn: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    jobRunId: Annotated[str, _aws_pattern("EmrServerless", "JobRunId")]
+    arn: Annotated[str, _aws_pattern("EmrServerless", "JobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_session' function.
 class StartSessionResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    sessionId: str
-    arn: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    sessionId: Annotated[str, _aws_pattern("EmrServerless", "SessionId")]
+    arn: Annotated[str, _aws_pattern("EmrServerless", "SessionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'terminate_session' function.
 class TerminateSessionResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    sessionId: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    sessionId: Annotated[str, _aws_pattern("EmrServerless", "SessionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -493,7 +501,7 @@ class JobDriverTypeDef(BaseValidatorModel):
 class ListJobRunAttemptsResponseTypeDef(BaseValidatorModel):
     jobRunAttempts: List[JobRunAttemptSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrServerless", "NextToken")]] = None
 
 
 JobRunExecutionIamPolicyUnionTypeDef = Union[JobRunExecutionIamPolicyOutputTypeDef, JobRunExecutionIamPolicyTypeDef]
@@ -503,7 +511,7 @@ JobRunExecutionIamPolicyUnionTypeDef = Union[JobRunExecutionIamPolicyOutputTypeD
 class ListJobRunsResponseTypeDef(BaseValidatorModel):
     jobRuns: List[JobRunSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrServerless", "NextToken")]] = None
 
 
 class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
@@ -528,8 +536,8 @@ class ListJobRunsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_job_runs' function.
 class ListJobRunsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    nextToken: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrServerless", "NextToken")]] = None
     maxResults: Optional[int] = None
     createdAtAfter: Optional[TimestampTypeDef] = None
     createdAtBefore: Optional[TimestampTypeDef] = None
@@ -547,8 +555,8 @@ class ListSessionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_sessions' function.
 class ListSessionsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    nextToken: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrServerless", "NextToken")]] = None
     maxResults: Optional[int] = None
     states: Optional[List[SessionStateType]] = None
     createdAtAfter: Optional[TimestampTypeDef] = None
@@ -559,7 +567,7 @@ class ListSessionsRequestTypeDef(BaseValidatorModel):
 class ListSessionsResponseTypeDef(BaseValidatorModel):
     sessions: List[SessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("EmrServerless", "NextToken")]] = None
 
 
 class MonitoringConfigurationOutputTypeDef(BaseValidatorModel):
@@ -580,17 +588,17 @@ NetworkConfigurationUnionTypeDef = Union[NetworkConfigurationOutputTypeDef, Netw
 
 
 class SessionTypeDef(BaseValidatorModel):
-    applicationId: str
-    sessionId: str
-    arn: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    sessionId: Annotated[str, _aws_pattern("EmrServerless", "SessionId")]
+    arn: Annotated[str, _aws_pattern("EmrServerless", "SessionArn")]
     state: SessionStateType
-    stateDetails: str
-    releaseLabel: str
-    executionRoleArn: str
-    createdBy: str
+    stateDetails: Annotated[str, _aws_pattern("EmrServerless", "String1024")]
+    releaseLabel: Annotated[str, _aws_pattern("EmrServerless", "ReleaseLabel")]
+    executionRoleArn: Annotated[str, _aws_pattern("EmrServerless", "IAMRoleArn")]
+    createdBy: Annotated[str, _aws_pattern("EmrServerless", "RequestIdentityUserArn")]
     createdAt: datetime
     updatedAt: datetime
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrServerless", "String256")]] = None
     startedAt: Optional[datetime] = None
     endedAt: Optional[datetime] = None
     idleSince: Optional[datetime] = None
@@ -611,15 +619,15 @@ JobDriverUnionTypeDef = Union[JobDriverOutputTypeDef, JobDriverTypeDef]
 
 
 class ApplicationTypeDef(BaseValidatorModel):
-    applicationId: str
-    arn: str
-    releaseLabel: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    arn: Annotated[str, _aws_pattern("EmrServerless", "ApplicationArn")]
+    releaseLabel: Annotated[str, _aws_pattern("EmrServerless", "ReleaseLabel")]
     type: str
     state: ApplicationStateType
     createdAt: datetime
     updatedAt: datetime
-    name: Optional[str] = None
-    stateDetails: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrServerless", "ApplicationName")]] = None
+    stateDetails: Optional[Annotated[str, _aws_pattern("EmrServerless", "String256")]] = None
     initialCapacity: Optional[Dict[str, InitialCapacityConfigTypeDef]] = None
     maximumCapacity: Optional[MaximumAllowedResourcesTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -661,13 +669,13 @@ class GetSessionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_session' function.
 class StartSessionRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    clientToken: str
-    executionRoleArn: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    clientToken: Annotated[str, _aws_pattern("EmrServerless", "ClientToken")]
+    executionRoleArn: Annotated[str, _aws_pattern("EmrServerless", "IAMRoleArn")]
     configurationOverrides: Optional[SessionConfigurationOverridesUnionTypeDef] = None
     tags: Optional[Dict[str, str]] = None
     idleTimeoutMinutes: Optional[int] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrServerless", "String256")]] = None
 
 
 # This class is the output for the 'get_application' function.
@@ -683,18 +691,18 @@ class UpdateApplicationResponseTypeDef(BaseValidatorModel):
 
 
 class JobRunTypeDef(BaseValidatorModel):
-    applicationId: str
-    jobRunId: str
-    arn: str
-    createdBy: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    jobRunId: Annotated[str, _aws_pattern("EmrServerless", "JobRunId")]
+    arn: Annotated[str, _aws_pattern("EmrServerless", "JobArn")]
+    createdBy: Annotated[str, _aws_pattern("EmrServerless", "RequestIdentityUserArn")]
     createdAt: datetime
     updatedAt: datetime
-    executionRole: str
+    executionRole: Annotated[str, _aws_pattern("EmrServerless", "IAMRoleArn")]
     state: JobRunStateType
-    stateDetails: str
-    releaseLabel: str
+    stateDetails: Annotated[str, _aws_pattern("EmrServerless", "String256")]
+    releaseLabel: Annotated[str, _aws_pattern("EmrServerless", "ReleaseLabel")]
     jobDriver: JobDriverOutputTypeDef
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrServerless", "String256")]] = None
     executionIamPolicy: Optional[JobRunExecutionIamPolicyOutputTypeDef] = None
     configurationOverrides: Optional[ConfigurationOverridesOutputTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -718,10 +726,10 @@ ConfigurationOverridesUnionTypeDef = Union[ConfigurationOverridesOutputTypeDef, 
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    releaseLabel: str
+    releaseLabel: Annotated[str, _aws_pattern("EmrServerless", "ReleaseLabel")]
     type: str
-    clientToken: str
-    name: Optional[str] = None
+    clientToken: Annotated[str, _aws_pattern("EmrServerless", "ClientToken")]
+    name: Optional[Annotated[str, _aws_pattern("EmrServerless", "ApplicationName")]] = None
     initialCapacity: Optional[Dict[str, InitialCapacityConfigTypeDef]] = None
     maximumCapacity: Optional[MaximumAllowedResourcesTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -742,8 +750,8 @@ class CreateApplicationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_application' function.
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    clientToken: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    clientToken: Annotated[str, _aws_pattern("EmrServerless", "ClientToken")]
     initialCapacity: Optional[Dict[str, InitialCapacityConfigTypeDef]] = None
     maximumCapacity: Optional[MaximumAllowedResourcesTypeDef] = None
     autoStartConfiguration: Optional[AutoStartConfigTypeDef] = None
@@ -753,7 +761,7 @@ class UpdateApplicationRequestTypeDef(BaseValidatorModel):
     imageConfiguration: Optional[ImageConfigurationInputTypeDef] = None
     workerTypeSpecifications: Optional[Dict[str, WorkerTypeSpecificationInputTypeDef]] = None
     interactiveConfiguration: Optional[InteractiveConfigurationTypeDef] = None
-    releaseLabel: Optional[str] = None
+    releaseLabel: Optional[Annotated[str, _aws_pattern("EmrServerless", "ReleaseLabel")]] = None
     runtimeConfiguration: Optional[List[ConfigurationUnionTypeDef]] = None
     monitoringConfiguration: Optional[MonitoringConfigurationUnionTypeDef] = None
     diskEncryptionConfiguration: Optional[DiskEncryptionConfigurationUnionTypeDef] = None
@@ -770,14 +778,14 @@ class GetJobRunResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_job_run' function.
 class StartJobRunRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    clientToken: str
-    executionRoleArn: str
+    applicationId: Annotated[str, _aws_pattern("EmrServerless", "ApplicationId")]
+    clientToken: Annotated[str, _aws_pattern("EmrServerless", "ClientToken")]
+    executionRoleArn: Annotated[str, _aws_pattern("EmrServerless", "IAMRoleArn")]
     executionIamPolicy: Optional[JobRunExecutionIamPolicyUnionTypeDef] = None
     jobDriver: Optional[JobDriverUnionTypeDef] = None
     configurationOverrides: Optional[ConfigurationOverridesUnionTypeDef] = None
     tags: Optional[Dict[str, str]] = None
     executionTimeoutMinutes: Optional[int] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("EmrServerless", "String256")]] = None
     mode: Optional[JobRunModeType] = None
     retryPolicy: Optional[RetryPolicyTypeDef] = None

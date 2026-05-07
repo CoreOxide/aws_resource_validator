@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.qconnect.qconnect_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,23 +41,23 @@ except ImportError:  # pragma: no cover
 
 
 class AIAgentConfigurationDataTypeDef(BaseValidatorModel):
-    aiAgentId: str
+    aiAgentId: Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]
 
 
 class CaseSummarizationAIAgentConfigurationTypeDef(BaseValidatorModel):
-    caseSummarizationAIPromptId: Optional[str] = None
-    caseSummarizationAIGuardrailId: Optional[str] = None
+    caseSummarizationAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
+    caseSummarizationAIGuardrailId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
     locale: Optional[str] = None
 
 
 class EmailOverviewAIAgentConfigurationTypeDef(BaseValidatorModel):
-    emailOverviewAIPromptId: Optional[str] = None
+    emailOverviewAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
     locale: Optional[str] = None
 
 
 class NoteTakingAIAgentConfigurationTypeDef(BaseValidatorModel):
-    noteTakingAIPromptId: Optional[str] = None
-    noteTakingAIGuardrailId: Optional[str] = None
+    noteTakingAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
+    noteTakingAIGuardrailId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
     locale: Optional[str] = None
 
 
@@ -87,11 +89,11 @@ class GuardrailRegexConfigTypeDef(BaseValidatorModel):
 
 
 class AIGuardrailSummaryTypeDef(BaseValidatorModel):
-    name: str
-    assistantId: str
-    assistantArn: str
-    aiGuardrailId: str
-    aiGuardrailArn: str
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    aiGuardrailId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    aiGuardrailArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
     visibilityStatus: VisibilityStatusType
     modifiedTime: Optional[datetime] = None
     description: Optional[str] = None
@@ -107,7 +109,7 @@ class GuardrailTopicConfigOutputTypeDef(BaseValidatorModel):
 
 
 class GuardrailTopicConfigTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Qconnect", "GuardrailTopicName")]
     definition: str
     type: Literal["DENY"]
     examples: Optional[List[str]] = None
@@ -129,19 +131,19 @@ class AIPromptInferenceConfigurationTypeDef(BaseValidatorModel):
 
 
 class AIPromptSummaryTypeDef(BaseValidatorModel):
-    name: str
-    assistantId: str
-    assistantArn: str
-    aiPromptId: str
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    aiPromptId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     type: AIPromptTypeType
-    aiPromptArn: str
+    aiPromptArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
     templateType: Literal["TEXT"]
     modelId: str
     apiFormat: AIPromptAPIFormatType
     visibilityStatus: VisibilityStatusType
     modifiedTime: Optional[datetime] = None
     origin: Optional[OriginType] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     status: Optional[StatusType] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -152,8 +154,8 @@ class TextFullAIPromptEditTemplateConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'activate_message_template' function.
 class ActivateMessageTemplateRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    messageTemplateId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     versionNumber: int
 
 
@@ -171,7 +173,7 @@ class AgentAttributesTypeDef(BaseValidatorModel):
 
 
 class AmazonConnectGuideAssociationDataTypeDef(BaseValidatorModel):
-    flowId: Optional[str] = None
+    flowId: Optional[Annotated[str, _aws_pattern("Qconnect", "GenericArn")]] = None
 
 
 class AnnotationTypeDef(BaseValidatorModel):
@@ -185,18 +187,18 @@ class AppIntegrationsConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class AppIntegrationsConfigurationTypeDef(BaseValidatorModel):
-    appIntegrationArn: str
+    appIntegrationArn: Annotated[str, _aws_pattern("Qconnect", "GenericArn")]
     objectFields: Optional[List[str]] = None
 
 
 class ExternalBedrockKnowledgeBaseConfigTypeDef(BaseValidatorModel):
-    bedrockKnowledgeBaseArn: str
-    accessRoleArn: str
+    bedrockKnowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "BedrockKnowledgeBaseArn")]
+    accessRoleArn: Annotated[str, _aws_pattern("Qconnect", "AccessRoleArn")]
 
 
 class KnowledgeBaseAssociationDataTypeDef(BaseValidatorModel):
-    knowledgeBaseId: Optional[str] = None
-    knowledgeBaseArn: Optional[str] = None
+    knowledgeBaseId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
+    knowledgeBaseArn: Optional[Annotated[str, _aws_pattern("Qconnect", "Arn")]] = None
 
 
 class AssistantCapabilityConfigurationTypeDef(BaseValidatorModel):
@@ -204,12 +206,12 @@ class AssistantCapabilityConfigurationTypeDef(BaseValidatorModel):
 
 
 class AssistantIntegrationConfigurationTypeDef(BaseValidatorModel):
-    topicIntegrationArn: Optional[str] = None
+    topicIntegrationArn: Optional[Annotated[str, _aws_pattern("Qconnect", "GenericArn")]] = None
 
 
 class OrchestratorConfigurationEntryTypeDef(BaseValidatorModel):
     orchestratorUseCase: str
-    aiAgentId: Optional[str] = None
+    aiAgentId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]] = None
 
 
 class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
@@ -226,7 +228,7 @@ class CaseSummarizationChunkDataDetailsTypeDef(BaseValidatorModel):
 
 
 class CaseSummarizationInputDataTypeDef(BaseValidatorModel):
-    caseArn: str
+    caseArn: Annotated[str, _aws_pattern("Qconnect", "CaseArn")]
 
 
 class FixedSizeChunkingConfigurationTypeDef(BaseValidatorModel):
@@ -255,14 +257,14 @@ class RankingDataTypeDef(BaseValidatorModel):
 
 
 class ContentDataTypeDef(BaseValidatorModel):
-    contentArn: str
-    contentId: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
-    name: str
+    contentArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    contentId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     revisionId: str
     title: str
-    contentType: str
+    contentType: Annotated[str, _aws_pattern("Qconnect", "ContentType")]
     status: ContentStatusType
     metadata: Dict[str, str]
     url: str
@@ -276,23 +278,23 @@ class GenerativeContentFeedbackDataTypeDef(BaseValidatorModel):
 
 
 class ContentReferenceTypeDef(BaseValidatorModel):
-    knowledgeBaseArn: Optional[str] = None
-    knowledgeBaseId: Optional[str] = None
-    contentArn: Optional[str] = None
-    contentId: Optional[str] = None
+    knowledgeBaseArn: Optional[Annotated[str, _aws_pattern("Qconnect", "Arn")]] = None
+    knowledgeBaseId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
+    contentArn: Optional[Annotated[str, _aws_pattern("Qconnect", "Arn")]] = None
+    contentId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
     sourceURL: Optional[str] = None
     referenceType: Optional[ReferenceTypeType] = None
 
 
 class ContentSummaryTypeDef(BaseValidatorModel):
-    contentArn: str
-    contentId: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
-    name: str
+    contentArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    contentId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     revisionId: str
     title: str
-    contentType: str
+    contentType: Annotated[str, _aws_pattern("Qconnect", "ContentType")]
     status: ContentStatusType
     metadata: Dict[str, str]
     tags: Optional[Dict[str, str]] = None
@@ -308,8 +310,8 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'create_content' function.
 class CreateContentRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    name: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     uploadId: str
     title: Optional[str] = None
     overrideLinkOutUri: Optional[str] = None
@@ -324,28 +326,30 @@ class RenderingConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_message_template_attachment' function.
 class CreateMessageTemplateAttachmentRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    messageTemplateId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     contentDisposition: Literal["ATTACHMENT"]
-    name: str
+    name: Annotated[str, _aws_pattern("Qconnect", "AttachmentFileName")]
     body: str
     clientToken: Optional[str] = None
 
 
 class MessageTemplateAttachmentTypeDef(BaseValidatorModel):
     contentDisposition: Literal["ATTACHMENT"]
-    name: str
+    name: Annotated[str, _aws_pattern("Qconnect", "AttachmentFileName")]
     uploadedTime: datetime
     url: str
     urlExpiry: datetime
-    attachmentId: str
+    attachmentId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
 
 
 # This class is the input for the 'create_message_template_version' function.
 class CreateMessageTemplateVersionRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    messageTemplateId: str
-    messageTemplateContentSha256: Optional[str] = None
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
+    messageTemplateContentSha256: Optional[Annotated[str, _aws_pattern("Qconnect", "MessageTemplateContentSha256")]] = (
+        None
+    )
 
 
 class QuickResponseDataProviderTypeDef(BaseValidatorModel):
@@ -498,7 +502,7 @@ class GenerativeChunkDataDetailsPaginatorTypeDef(BaseValidatorModel):
 
 class IntentDetectedDataDetailsTypeDef(BaseValidatorModel):
     intent: str
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     relevanceLevel: Optional[RelevanceLevelType] = None
 
 
@@ -529,97 +533,97 @@ class GenerativeChunkDataDetailsTypeDef(BaseValidatorModel):
 
 class GenerativeReferenceTypeDef(BaseValidatorModel):
     modelId: Optional[str] = None
-    generationId: Optional[str] = None
+    generationId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
 
 
 class SuggestedMessageReferenceTypeDef(BaseValidatorModel):
-    aiAgentId: str
-    aiAgentArn: str
+    aiAgentId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    aiAgentArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
 
 
 # This class is the input for the 'deactivate_message_template' function.
 class DeactivateMessageTemplateRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    messageTemplateId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     versionNumber: int
 
 
 class DeleteAIAgentRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiAgentId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiAgentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
 
 
 class DeleteAIAgentVersionRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiAgentId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiAgentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     versionNumber: int
 
 
 class DeleteAIGuardrailRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiGuardrailId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiGuardrailId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
 
 
 class DeleteAIGuardrailVersionRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiGuardrailId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiGuardrailId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     versionNumber: int
 
 
 class DeleteAIPromptRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiPromptId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiPromptId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
 
 
 class DeleteAIPromptVersionRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiPromptId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiPromptId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     versionNumber: int
 
 
 class DeleteAssistantAssociationRequestTypeDef(BaseValidatorModel):
-    assistantAssociationId: str
-    assistantId: str
+    assistantAssociationId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 class DeleteAssistantRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 class DeleteContentAssociationRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    contentId: str
-    contentAssociationId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    contentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    contentAssociationId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 class DeleteContentRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    contentId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    contentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 class DeleteImportJobRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    importJobId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    importJobId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
 
 
 class DeleteKnowledgeBaseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 class DeleteMessageTemplateAttachmentRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    messageTemplateId: str
-    attachmentId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
+    attachmentId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
 
 
 class DeleteMessageTemplateRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    messageTemplateId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
 
 
 class DeleteQuickResponseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    quickResponseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    quickResponseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 class HighlightTypeDef(BaseValidatorModel):
@@ -628,8 +632,8 @@ class HighlightTypeDef(BaseValidatorModel):
 
 
 class EmailHeaderTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    value: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Qconnect", "EmailHeaderKey")]] = None
+    value: Optional[Annotated[str, _aws_pattern("Qconnect", "EmailHeaderValue")]] = None
 
 
 class MessageTemplateBodyContentProviderTypeDef(BaseValidatorModel):
@@ -654,86 +658,86 @@ class FilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_ai_agent' function.
 class GetAIAgentRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiAgentId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiAgentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
 
 
 # This class is the input for the 'get_ai_guardrail' function.
 class GetAIGuardrailRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiGuardrailId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiGuardrailId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
 
 
 # This class is the input for the 'get_ai_prompt' function.
 class GetAIPromptRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiPromptId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiPromptId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
 
 
 # This class is the input for the 'get_assistant_association' function.
 class GetAssistantAssociationRequestTypeDef(BaseValidatorModel):
-    assistantAssociationId: str
-    assistantId: str
+    assistantAssociationId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 # This class is the input for the 'get_assistant' function.
 class GetAssistantRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 # This class is the input for the 'get_content_association' function.
 class GetContentAssociationRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    contentId: str
-    contentAssociationId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    contentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    contentAssociationId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 # This class is the input for the 'get_content' function.
 class GetContentRequestTypeDef(BaseValidatorModel):
-    contentId: str
-    knowledgeBaseId: str
+    contentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 # This class is the input for the 'get_content_summary' function.
 class GetContentSummaryRequestTypeDef(BaseValidatorModel):
-    contentId: str
-    knowledgeBaseId: str
+    contentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 # This class is the input for the 'get_import_job' function.
 class GetImportJobRequestTypeDef(BaseValidatorModel):
-    importJobId: str
-    knowledgeBaseId: str
+    importJobId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 # This class is the input for the 'get_knowledge_base' function.
 class GetKnowledgeBaseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 # This class is the input for the 'get_message_template' function.
 class GetMessageTemplateRequestTypeDef(BaseValidatorModel):
-    messageTemplateId: str
-    knowledgeBaseId: str
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 # This class is the input for the 'get_next_message' function.
 class GetNextMessageRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    sessionId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextMessageToken: str
 
 
 # This class is the input for the 'get_quick_response' function.
 class GetQuickResponseRequestTypeDef(BaseValidatorModel):
-    quickResponseId: str
-    knowledgeBaseId: str
+    quickResponseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 # This class is the input for the 'get_recommendations' function.
 class GetRecommendationsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    sessionId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     maxResults: Optional[int] = None
     waitTimeSeconds: Optional[int] = None
     nextChunkToken: Optional[str] = None
@@ -742,8 +746,8 @@ class GetRecommendationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_session' function.
 class GetSessionRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    sessionId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 class GroupingConfigurationTypeDef(BaseValidatorModel):
@@ -756,11 +760,11 @@ class HierarchicalChunkingLevelConfigurationTypeDef(BaseValidatorModel):
 
 
 class IntentInputDataTypeDef(BaseValidatorModel):
-    intentId: str
+    intentId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
 
 
 class KnowledgeSourceTypeDef(BaseValidatorModel):
-    assistantAssociationIds: Optional[List[str]] = None
+    assistantAssociationIds: Optional[List[Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -771,8 +775,8 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_ai_agent_versions' function.
 class ListAIAgentVersionsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiAgentId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiAgentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     origin: Optional[OriginType] = None
@@ -780,7 +784,7 @@ class ListAIAgentVersionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_ai_agents' function.
 class ListAIAgentsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     origin: Optional[OriginType] = None
@@ -788,23 +792,23 @@ class ListAIAgentsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_ai_guardrail_versions' function.
 class ListAIGuardrailVersionsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiGuardrailId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiGuardrailId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_ai_guardrails' function.
 class ListAIGuardrailsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_ai_prompt_versions' function.
 class ListAIPromptVersionsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiPromptId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiPromptId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     origin: Optional[OriginType] = None
@@ -812,7 +816,7 @@ class ListAIPromptVersionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_ai_prompts' function.
 class ListAIPromptsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     origin: Optional[OriginType] = None
@@ -820,7 +824,7 @@ class ListAIPromptsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_assistant_associations' function.
 class ListAssistantAssociationsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -833,22 +837,22 @@ class ListAssistantsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_content_associations' function.
 class ListContentAssociationsRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    contentId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    contentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_contents' function.
 class ListContentsRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_import_jobs' function.
 class ListImportJobsRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -861,18 +865,18 @@ class ListKnowledgeBasesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_message_template_versions' function.
 class ListMessageTemplateVersionsRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    messageTemplateId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class MessageTemplateVersionSummaryTypeDef(BaseValidatorModel):
-    messageTemplateArn: str
-    messageTemplateId: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
-    name: str
+    messageTemplateArn: Annotated[str, _aws_pattern("Qconnect", "ArnWithQualifier")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     channelSubtype: ChannelSubtypeType
     isActive: bool
     versionNumber: int
@@ -881,15 +885,15 @@ class MessageTemplateVersionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_message_templates' function.
 class ListMessageTemplatesRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_messages' function.
 class ListMessagesRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    sessionId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filter: Optional[MessageFilterTypeType] = None
@@ -897,23 +901,23 @@ class ListMessagesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_quick_responses' function.
 class ListQuickResponsesRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class QuickResponseSummaryTypeDef(BaseValidatorModel):
-    quickResponseArn: str
-    quickResponseId: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    quickResponseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    quickResponseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     name: str
-    contentType: str
+    contentType: Annotated[str, _aws_pattern("Qconnect", "QuickResponseType")]
     status: QuickResponseStatusType
     createdTime: datetime
     lastModifiedTime: datetime
     description: Optional[str] = None
-    lastModifiedBy: Optional[str] = None
+    lastModifiedBy: Optional[Annotated[str, _aws_pattern("Qconnect", "GenericArn")]] = None
     isActive: Optional[bool] = None
     channels: Optional[List[str]] = None
     tags: Optional[Dict[str, str]] = None
@@ -921,15 +925,15 @@ class QuickResponseSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_spans' function.
 class ListSpansRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    sessionId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
 
 
 class MessageConfigurationTypeDef(BaseValidatorModel):
@@ -975,8 +979,8 @@ class WhatsAppMessageTemplateSourceConfigurationOutputTypeDef(BaseValidatorModel
 
 
 class WhatsAppMessageTemplateSourceConfigurationSummaryTypeDef(BaseValidatorModel):
-    businessAccountId: str
-    templateId: str
+    businessAccountId: Annotated[str, _aws_pattern("Qconnect", "WhatsAppBusinessAccountId")]
+    templateId: Annotated[str, _aws_pattern("Qconnect", "WhatsAppMessageTemplateId")]
     name: Optional[str] = None
     language: Optional[str] = None
     components: Optional[List[str]] = None
@@ -985,8 +989,8 @@ class WhatsAppMessageTemplateSourceConfigurationSummaryTypeDef(BaseValidatorMode
 
 
 class WhatsAppMessageTemplateSourceConfigurationTypeDef(BaseValidatorModel):
-    businessAccountId: str
-    templateId: str
+    businessAccountId: Annotated[str, _aws_pattern("Qconnect", "WhatsAppBusinessAccountId")]
+    templateId: Annotated[str, _aws_pattern("Qconnect", "WhatsAppMessageTemplateId")]
     components: Optional[List[str]] = None
 
 
@@ -997,13 +1001,13 @@ class NotifyRecommendationsReceivedErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'notify_recommendations_received' function.
 class NotifyRecommendationsReceivedRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    sessionId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     recommendationIds: List[str]
 
 
 class TagConditionTypeDef(BaseValidatorModel):
-    key: str
+    key: Annotated[str, _aws_pattern("Qconnect", "TagKey")]
     value: Optional[str] = None
 
 
@@ -1046,17 +1050,17 @@ class QuickResponseQueryFieldTypeDef(BaseValidatorModel):
 
 
 class RemoveAssistantAIAgentRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     aiAgentType: AIAgentTypeType
     orchestratorUseCase: Optional[str] = None
 
 
 class RemoveKnowledgeBaseTemplateUriRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
 
 
 class RetrieveResultTypeDef(BaseValidatorModel):
-    associationId: str
+    associationId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     sourceId: str
     referenceType: ReferenceTypeType
     contentText: str
@@ -1067,25 +1071,29 @@ class RuntimeSessionDataValueTypeDef(BaseValidatorModel):
 
 
 class SessionSummaryTypeDef(BaseValidatorModel):
-    sessionId: str
-    sessionArn: str
-    assistantId: str
-    assistantArn: str
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    sessionArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
 
 
 class SeedUrlTypeDef(BaseValidatorModel):
-    url: Optional[str] = None
+    url: Optional[Annotated[str, _aws_pattern("Qconnect", "WebUrl")]] = None
 
 
 class SessionIntegrationConfigurationTypeDef(BaseValidatorModel):
-    topicIntegrationArn: Optional[str] = None
+    topicIntegrationArn: Optional[Annotated[str, _aws_pattern("Qconnect", "GenericArn")]] = None
 
 
 class SpanCitationTypeDef(BaseValidatorModel):
-    contentId: Optional[str] = None
+    contentId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
     title: Optional[str] = None
-    knowledgeBaseId: Optional[str] = None
-    knowledgeBaseArn: Optional[str] = None
+    knowledgeBaseId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
+    knowledgeBaseArn: Optional[Annotated[str, _aws_pattern("Qconnect", "Arn")]] = None
+
+
+class SpanReasoningValueTypeDef(BaseValidatorModel):
+    value: str
 
 
 class SpanToolResultValuePaginatorTypeDef(BaseValidatorModel):
@@ -1095,21 +1103,21 @@ class SpanToolResultValuePaginatorTypeDef(BaseValidatorModel):
 
 
 class SpanToolUseValueTypeDef(BaseValidatorModel):
-    toolUseId: str
-    name: str
+    toolUseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     arguments: Dict[str, Any]
 
 
 class SpanToolResultValueTypeDef(BaseValidatorModel):
-    toolUseId: str
+    toolUseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     values: List[Dict[str, Any]]
     error: Optional[str] = None
 
 
 # This class is the input for the 'start_content_upload' function.
 class StartContentUploadRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    contentType: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    contentType: Annotated[str, _aws_pattern("Qconnect", "ContentType")]
     presignedUrlTimeToLive: Optional[int] = None
 
 
@@ -1118,7 +1126,7 @@ class SystemEndpointAttributesTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
     tags: Dict[str, str]
 
 
@@ -1154,14 +1162,14 @@ class ToolUseResultDataTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Qconnect", "TagKey")]]
 
 
 # This class is the input for the 'update_content' function.
 class UpdateContentRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    contentId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    contentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     revisionId: Optional[str] = None
     title: Optional[str] = None
     overrideLinkOutUri: Optional[str] = None
@@ -1172,7 +1180,7 @@ class UpdateContentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_knowledge_base_template_uri' function.
 class UpdateKnowledgeBaseTemplateUriRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     templateUri: str
 
 
@@ -1182,7 +1190,7 @@ class WebCrawlerLimitsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_assistant_ai_agent' function.
 class UpdateAssistantAIAgentRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     aiAgentType: AIAgentTypeType
     configuration: AIAgentConfigurationDataTypeDef
     orchestratorUseCase: Optional[str] = None
@@ -1248,16 +1256,16 @@ class AIPromptTemplateConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'activate_message_template' function.
 class ActivateMessageTemplateResponseTypeDef(BaseValidatorModel):
-    messageTemplateArn: str
-    messageTemplateId: str
+    messageTemplateArn: Annotated[str, _aws_pattern("Qconnect", "ArnWithQualifier")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     versionNumber: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'deactivate_message_template' function.
 class DeactivateMessageTemplateResponseTypeDef(BaseValidatorModel):
-    messageTemplateArn: str
-    messageTemplateId: str
+    messageTemplateArn: Annotated[str, _aws_pattern("Qconnect", "ArnWithQualifier")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     versionNumber: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1296,7 +1304,7 @@ class ContentAssociationContentsTypeDef(BaseValidatorModel):
 
 
 class AssistantAssociationInputDataTypeDef(BaseValidatorModel):
-    knowledgeBaseId: Optional[str] = None
+    knowledgeBaseId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
     externalBedrockKnowledgeBaseConfig: Optional[ExternalBedrockKnowledgeBaseConfigTypeDef] = None
 
 
@@ -1306,12 +1314,12 @@ class AssistantAssociationOutputDataTypeDef(BaseValidatorModel):
 
 
 class AssistantDataTypeDef(BaseValidatorModel):
-    assistantId: str
-    assistantArn: str
-    name: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     type: Literal["AGENT"]
     status: AssistantStatusType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     integrationConfiguration: Optional[AssistantIntegrationConfigurationTypeDef] = None
@@ -1321,12 +1329,12 @@ class AssistantDataTypeDef(BaseValidatorModel):
 
 
 class AssistantSummaryTypeDef(BaseValidatorModel):
-    assistantId: str
-    assistantArn: str
-    name: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     type: Literal["AGENT"]
     status: AssistantStatusType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     integrationConfiguration: Optional[AssistantIntegrationConfigurationTypeDef] = None
@@ -1337,25 +1345,25 @@ class AssistantSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_assistant' function.
 class CreateAssistantRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     type: Literal["AGENT"]
     clientToken: Optional[str] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
 
 
 class BedrockFoundationModelConfigurationForParsingTypeDef(BaseValidatorModel):
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("Qconnect", "BedrockModelArnForParsing")]
     parsingPrompt: Optional[ParsingPromptTypeDef] = None
 
 
 class CitationTypeDef(BaseValidatorModel):
     citationSpan: CitationSpanTypeDef
     referenceType: ReferenceTypeType
-    contentId: Optional[str] = None
+    contentId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
     title: Optional[str] = None
-    knowledgeBaseId: Optional[str] = None
+    knowledgeBaseId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
     sourceURL: Optional[str] = None
 
 
@@ -1419,24 +1427,24 @@ class SearchContentResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_ai_agent_version' function.
 class CreateAIAgentVersionRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiAgentId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiAgentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     modifiedTime: Optional[TimestampTypeDef] = None
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'create_ai_guardrail_version' function.
 class CreateAIGuardrailVersionRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiGuardrailId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiGuardrailId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     modifiedTime: Optional[TimestampTypeDef] = None
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'create_ai_prompt_version' function.
 class CreateAIPromptVersionRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiPromptId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiPromptId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     modifiedTime: Optional[TimestampTypeDef] = None
     clientToken: Optional[str] = None
 
@@ -1664,7 +1672,7 @@ class ListQuickResponsesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'send_message' function.
 class SendMessageResponseTypeDef(BaseValidatorModel):
-    requestMessageId: str
+    requestMessageId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     configuration: MessageConfigurationTypeDef
     nextMessageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1805,11 +1813,11 @@ AIGuardrailTopicPolicyConfigUnionTypeDef = Union[
 
 
 class AIGuardrailDataTypeDef(BaseValidatorModel):
-    assistantId: str
-    assistantArn: str
-    aiGuardrailArn: str
-    aiGuardrailId: str
-    name: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    aiGuardrailArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    aiGuardrailId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     visibilityStatus: VisibilityStatusType
     blockedInputMessaging: str
     blockedOutputsMessaging: str
@@ -1837,11 +1845,11 @@ class ListAIPromptVersionsResponseTypeDef(BaseValidatorModel):
 
 
 class AIPromptDataTypeDef(BaseValidatorModel):
-    assistantId: str
-    assistantArn: str
-    aiPromptId: str
-    aiPromptArn: str
-    name: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    aiPromptId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    aiPromptArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     type: AIPromptTypeType
     templateType: Literal["TEXT"]
     modelId: str
@@ -1850,7 +1858,7 @@ class AIPromptDataTypeDef(BaseValidatorModel):
     visibilityStatus: VisibilityStatusType
     inferenceConfiguration: Optional[AIPromptInferenceConfigurationTypeDef] = None
     modifiedTime: Optional[datetime] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
     origin: Optional[OriginType] = None
     status: Optional[StatusType] = None
@@ -1858,8 +1866,8 @@ class AIPromptDataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_ai_prompt' function.
 class CreateAIPromptRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    name: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     type: AIPromptTypeType
     templateConfiguration: AIPromptTemplateConfigurationTypeDef
     visibilityStatus: VisibilityStatusType
@@ -1868,41 +1876,41 @@ class CreateAIPromptRequestTypeDef(BaseValidatorModel):
     apiFormat: AIPromptAPIFormatType
     clientToken: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     inferenceConfiguration: Optional[AIPromptInferenceConfigurationTypeDef] = None
 
 
 # This class is the input for the 'update_ai_prompt' function.
 class UpdateAIPromptRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiPromptId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiPromptId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     visibilityStatus: VisibilityStatusType
     clientToken: Optional[str] = None
     templateConfiguration: Optional[AIPromptTemplateConfigurationTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     modelId: Optional[str] = None
     inferenceConfiguration: Optional[AIPromptInferenceConfigurationTypeDef] = None
 
 
 class ContentAssociationDataTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    knowledgeBaseArn: str
-    contentId: str
-    contentArn: str
-    contentAssociationId: str
-    contentAssociationArn: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    contentId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    contentArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    contentAssociationId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    contentAssociationArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
     associationType: Literal["AMAZON_CONNECT_GUIDE"]
     associationData: ContentAssociationContentsTypeDef
     tags: Optional[Dict[str, str]] = None
 
 
 class ContentAssociationSummaryTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    knowledgeBaseArn: str
-    contentId: str
-    contentArn: str
-    contentAssociationId: str
-    contentAssociationArn: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    contentId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    contentArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    contentAssociationId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    contentAssociationArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
     associationType: Literal["AMAZON_CONNECT_GUIDE"]
     associationData: ContentAssociationContentsTypeDef
     tags: Optional[Dict[str, str]] = None
@@ -1910,8 +1918,8 @@ class ContentAssociationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_content_association' function.
 class CreateContentAssociationRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    contentId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    contentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     associationType: Literal["AMAZON_CONNECT_GUIDE"]
     association: ContentAssociationContentsTypeDef
     clientToken: Optional[str] = None
@@ -1920,7 +1928,7 @@ class CreateContentAssociationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_assistant_association' function.
 class CreateAssistantAssociationRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     associationType: AssociationTypeType
     association: AssistantAssociationInputDataTypeDef
     clientToken: Optional[str] = None
@@ -1928,20 +1936,20 @@ class CreateAssistantAssociationRequestTypeDef(BaseValidatorModel):
 
 
 class AssistantAssociationDataTypeDef(BaseValidatorModel):
-    assistantAssociationId: str
-    assistantAssociationArn: str
-    assistantId: str
-    assistantArn: str
+    assistantAssociationId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantAssociationArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
     associationType: AssociationTypeType
     associationData: AssistantAssociationOutputDataTypeDef
     tags: Optional[Dict[str, str]] = None
 
 
 class AssistantAssociationSummaryTypeDef(BaseValidatorModel):
-    assistantAssociationId: str
-    assistantAssociationArn: str
-    assistantId: str
-    assistantArn: str
+    assistantAssociationId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantAssociationArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
     associationType: AssociationTypeType
     associationData: AssistantAssociationOutputDataTypeDef
     tags: Optional[Dict[str, str]] = None
@@ -1996,17 +2004,17 @@ class ExternalSourceConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_feedback' function.
 class PutFeedbackRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    targetId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    targetId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     targetType: TargetTypeType
     contentFeedback: ContentFeedbackDataTypeDef
 
 
 # This class is the output for the 'put_feedback' function.
 class PutFeedbackResponseTypeDef(BaseValidatorModel):
-    assistantId: str
-    assistantArn: str
-    targetId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    targetId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     targetType: TargetTypeType
     contentFeedback: ContentFeedbackDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2065,7 +2073,7 @@ class SearchContentRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_content' function.
 class SearchContentRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     searchExpression: SearchExpressionTypeDef
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -2079,7 +2087,7 @@ class SearchSessionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_sessions' function.
 class SearchSessionsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     searchExpression: SearchExpressionTypeDef
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -2087,10 +2095,10 @@ class SearchSessionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_quick_response' function.
 class CreateQuickResponseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     name: str
     content: QuickResponseDataProviderTypeDef
-    contentType: Optional[str] = None
+    contentType: Optional[Annotated[str, _aws_pattern("Qconnect", "QuickResponseType")]] = None
     groupingConfiguration: Optional[GroupingConfigurationUnionTypeDef] = None
     description: Optional[str] = None
     shortcutKey: Optional[str] = None
@@ -2103,20 +2111,20 @@ class CreateQuickResponseRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_message_template_metadata' function.
 class UpdateMessageTemplateMetadataRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    messageTemplateId: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
+    name: Optional[Annotated[str, _aws_pattern("Qconnect", "Name")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     groupingConfiguration: Optional[GroupingConfigurationUnionTypeDef] = None
 
 
 # This class is the input for the 'update_quick_response' function.
 class UpdateQuickResponseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    quickResponseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    quickResponseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     name: Optional[str] = None
     content: Optional[QuickResponseDataProviderTypeDef] = None
-    contentType: Optional[str] = None
+    contentType: Optional[Annotated[str, _aws_pattern("Qconnect", "QuickResponseType")]] = None
     groupingConfiguration: Optional[GroupingConfigurationUnionTypeDef] = None
     removeGroupingConfiguration: Optional[bool] = None
     description: Optional[str] = None
@@ -2150,43 +2158,43 @@ class SearchMessageTemplatesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_message_templates' function.
 class SearchMessageTemplatesRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     searchExpression: MessageTemplateSearchExpressionTypeDef
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class MessageTemplateSummaryTypeDef(BaseValidatorModel):
-    messageTemplateArn: str
-    messageTemplateId: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
-    name: str
+    messageTemplateArn: Annotated[str, _aws_pattern("Qconnect", "ArnWithQualifier")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     channelSubtype: ChannelSubtypeType
     createdTime: datetime
     lastModifiedTime: datetime
-    lastModifiedBy: str
+    lastModifiedBy: Annotated[str, _aws_pattern("Qconnect", "GenericArn")]
     channel: Optional[str] = None
     sourceConfiguration: Optional[MessageTemplateSourceConfigurationOutputTypeDef] = None
     activeVersionNumber: Optional[int] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class MessageTemplateSearchResultDataTypeDef(BaseValidatorModel):
-    messageTemplateArn: str
-    messageTemplateId: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
-    name: str
+    messageTemplateArn: Annotated[str, _aws_pattern("Qconnect", "ArnWithQualifier")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     channelSubtype: ChannelSubtypeType
     createdTime: datetime
     lastModifiedTime: datetime
-    lastModifiedBy: str
+    lastModifiedBy: Annotated[str, _aws_pattern("Qconnect", "GenericArn")]
     channel: Optional[str] = None
     isActive: Optional[bool] = None
     versionNumber: Optional[int] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     sourceConfigurationSummary: Optional[MessageTemplateSourceConfigurationSummaryTypeDef] = None
     groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
     language: Optional[str] = None
@@ -2222,18 +2230,18 @@ class QueryAssistantRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'query_assistant' function.
 class QueryAssistantRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     queryText: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]] = None
     queryCondition: Optional[List[QueryConditionTypeDef]] = None
     queryInputData: Optional[QueryInputDataTypeDef] = None
     overrideKnowledgeBaseSearchType: Optional[KnowledgeBaseSearchTypeType] = None
 
 
 class RecommendationTriggerTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     type: RecommendationTriggerTypeType
     source: RecommendationSourceTypeType
     data: RecommendationTriggerDataTypeDef
@@ -2241,12 +2249,12 @@ class RecommendationTriggerTypeDef(BaseValidatorModel):
 
 
 class QuickResponseDataTypeDef(BaseValidatorModel):
-    quickResponseArn: str
-    quickResponseId: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    quickResponseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    quickResponseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     name: str
-    contentType: str
+    contentType: Annotated[str, _aws_pattern("Qconnect", "QuickResponseType")]
     status: QuickResponseStatusType
     createdTime: datetime
     lastModifiedTime: datetime
@@ -2254,7 +2262,7 @@ class QuickResponseDataTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
     shortcutKey: Optional[str] = None
-    lastModifiedBy: Optional[str] = None
+    lastModifiedBy: Optional[Annotated[str, _aws_pattern("Qconnect", "GenericArn")]] = None
     isActive: Optional[bool] = None
     channels: Optional[List[str]] = None
     language: Optional[str] = None
@@ -2262,12 +2270,12 @@ class QuickResponseDataTypeDef(BaseValidatorModel):
 
 
 class QuickResponseSearchResultDataTypeDef(BaseValidatorModel):
-    quickResponseArn: str
-    quickResponseId: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    quickResponseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    quickResponseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     name: str
-    contentType: str
+    contentType: Annotated[str, _aws_pattern("Qconnect", "QuickResponseType")]
     status: QuickResponseStatusType
     contents: QuickResponseContentsTypeDef
     createdTime: datetime
@@ -2276,7 +2284,7 @@ class QuickResponseSearchResultDataTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
     shortcutKey: Optional[str] = None
-    lastModifiedBy: Optional[str] = None
+    lastModifiedBy: Optional[Annotated[str, _aws_pattern("Qconnect", "GenericArn")]] = None
     channels: Optional[List[str]] = None
     language: Optional[str] = None
     attributesNotInterpolated: Optional[List[str]] = None
@@ -2293,7 +2301,7 @@ class SearchQuickResponsesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_quick_responses' function.
 class SearchQuickResponsesRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     searchExpression: QuickResponseSearchExpressionTypeDef
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -2302,16 +2310,16 @@ class SearchQuickResponsesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_session_data' function.
 class UpdateSessionDataRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    sessionId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     data: List[RuntimeSessionDataTypeDef]
     namespace: Optional[Literal["Custom"]] = None
 
 
 # This class is the output for the 'update_session_data' function.
 class UpdateSessionDataResponseTypeDef(BaseValidatorModel):
-    sessionArn: str
-    sessionId: str
+    sessionArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     namespace: Literal["Custom"]
     data: List[RuntimeSessionDataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2337,12 +2345,14 @@ class SpanMessageValuePaginatorTypeDef(BaseValidatorModel):
     text: Optional[SpanTextValueTypeDef] = None
     toolUse: Optional[SpanToolUseValueTypeDef] = None
     toolResult: Optional[SpanToolResultValuePaginatorTypeDef] = None
+    reasoning: Optional[SpanReasoningValueTypeDef] = None
 
 
 class SpanMessageValueTypeDef(BaseValidatorModel):
     text: Optional[SpanTextValueTypeDef] = None
     toolUse: Optional[SpanToolUseValueTypeDef] = None
     toolResult: Optional[SpanToolResultValueTypeDef] = None
+    reasoning: Optional[SpanReasoningValueTypeDef] = None
 
 
 class MessageTemplateAttributesOutputTypeDef(BaseValidatorModel):
@@ -2392,8 +2402,8 @@ class UpdateAIGuardrailResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_ai_guardrail' function.
 class CreateAIGuardrailRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    name: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     blockedInputMessaging: str
     blockedOutputsMessaging: str
     visibilityStatus: VisibilityStatusType
@@ -2409,8 +2419,8 @@ class CreateAIGuardrailRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_ai_guardrail' function.
 class UpdateAIGuardrailRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiGuardrailId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiGuardrailId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     visibilityStatus: VisibilityStatusType
     blockedInputMessaging: str
     blockedOutputsMessaging: str
@@ -2496,10 +2506,10 @@ TextMessageUnionTypeDef = Union[TextMessageOutputTypeDef, TextMessageTypeDef]
 
 
 class ImportJobDataTypeDef(BaseValidatorModel):
-    importJobId: str
-    knowledgeBaseId: str
+    importJobId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     uploadId: str
-    knowledgeBaseArn: str
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
     importJobType: Literal["QUICK_RESPONSES"]
     status: ImportJobStatusType
     url: str
@@ -2512,10 +2522,10 @@ class ImportJobDataTypeDef(BaseValidatorModel):
 
 
 class ImportJobSummaryTypeDef(BaseValidatorModel):
-    importJobId: str
-    knowledgeBaseId: str
+    importJobId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     uploadId: str
-    knowledgeBaseArn: str
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
     importJobType: Literal["QUICK_RESPONSES"]
     status: ImportJobStatusType
     createdTime: datetime
@@ -2526,7 +2536,7 @@ class ImportJobSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_import_job' function.
 class StartImportJobRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     importJobType: Literal["QUICK_RESPONSES"]
     uploadId: str
     clientToken: Optional[str] = None
@@ -2540,7 +2550,7 @@ class ContentDataDetailsTypeDef(BaseValidatorModel):
 
 
 class SourceContentDataDetailsTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     type: Literal["KNOWLEDGE_CONTENT"]
     textData: TextDataTypeDef
     rankingData: RankingDataTypeDef
@@ -2563,7 +2573,7 @@ class MessageTemplateContentProviderTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'retrieve' function.
 class RetrieveRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     retrievalConfiguration: RetrievalConfigurationTypeDef
     retrievalQuery: str
 
@@ -2599,10 +2609,10 @@ class KnowledgeBaseAssociationConfigurationDataOutputTypeDef(BaseValidatorModel)
 
 
 class SessionDataTypeDef(BaseValidatorModel):
-    sessionArn: str
-    sessionId: str
-    name: str
-    description: Optional[str] = None
+    sessionArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
     integrationConfiguration: Optional[SessionIntegrationConfigurationTypeDef] = None
     tagFilter: Optional[TagFilterOutputTypeDef] = None
@@ -2661,7 +2671,7 @@ class SpanMessagePaginatorTypeDef(BaseValidatorModel):
 
 
 class SpanMessageTypeDef(BaseValidatorModel):
-    messageId: str
+    messageId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     participant: ParticipantType
     timestamp: datetime
     values: List[SpanMessageValueTypeDef]
@@ -2702,7 +2712,7 @@ class ToolConfigurationTypeDef(BaseValidatorModel):
 
 class MessageOutputTypeDef(BaseValidatorModel):
     value: MessageDataOutputTypeDef
-    messageId: str
+    messageId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     participant: ParticipantType
     timestamp: datetime
 
@@ -2762,19 +2772,19 @@ class DataDetailsTypeDef(BaseValidatorModel):
 
 
 class ExtendedMessageTemplateDataTypeDef(BaseValidatorModel):
-    messageTemplateArn: str
-    messageTemplateId: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
-    name: str
+    messageTemplateArn: Annotated[str, _aws_pattern("Qconnect", "ArnWithQualifier")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     channelSubtype: ChannelSubtypeType
     createdTime: datetime
     lastModifiedTime: datetime
-    lastModifiedBy: str
-    messageTemplateContentSha256: str
+    lastModifiedBy: Annotated[str, _aws_pattern("Qconnect", "GenericArn")]
+    messageTemplateContentSha256: Annotated[str, _aws_pattern("Qconnect", "MessageTemplateContentSha256")]
     channel: Optional[str] = None
     content: Optional[MessageTemplateContentProviderOutputTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     language: Optional[str] = None
     sourceConfigurationSummary: Optional[MessageTemplateSourceConfigurationSummaryTypeDef] = None
     groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
@@ -2787,19 +2797,19 @@ class ExtendedMessageTemplateDataTypeDef(BaseValidatorModel):
 
 
 class MessageTemplateDataTypeDef(BaseValidatorModel):
-    messageTemplateArn: str
-    messageTemplateId: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
-    name: str
+    messageTemplateArn: Annotated[str, _aws_pattern("Qconnect", "ArnWithQualifier")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     channelSubtype: ChannelSubtypeType
     createdTime: datetime
     lastModifiedTime: datetime
-    lastModifiedBy: str
-    messageTemplateContentSha256: str
+    lastModifiedBy: Annotated[str, _aws_pattern("Qconnect", "GenericArn")]
+    messageTemplateContentSha256: Annotated[str, _aws_pattern("Qconnect", "MessageTemplateContentSha256")]
     channel: Optional[str] = None
     content: Optional[MessageTemplateContentProviderOutputTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     language: Optional[str] = None
     sourceConfigurationSummary: Optional[MessageTemplateSourceConfigurationSummaryTypeDef] = None
     groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
@@ -2854,23 +2864,23 @@ class AssociationConfigurationDataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_session' function.
 class CreateSessionRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    name: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     clientToken: Optional[str] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
     tagFilter: Optional[TagFilterUnionTypeDef] = None
     aiAgentConfiguration: Optional[Dict[AIAgentTypeType, AIAgentConfigurationDataTypeDef]] = None
-    contactArn: Optional[str] = None
+    contactArn: Optional[Annotated[str, _aws_pattern("Qconnect", "GenericArn")]] = None
     orchestratorConfigurationList: Optional[List[OrchestratorConfigurationEntryTypeDef]] = None
     removeOrchestratorConfigurationList: Optional[bool] = None
 
 
 # This class is the input for the 'update_session' function.
 class UpdateSessionRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    sessionId: str
-    description: Optional[str] = None
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tagFilter: Optional[TagFilterUnionTypeDef] = None
     aiAgentConfiguration: Optional[Dict[AIAgentTypeType, AIAgentConfigurationDataTypeDef]] = None
     orchestratorConfigurationList: Optional[List[OrchestratorConfigurationEntryTypeDef]] = None
@@ -2922,21 +2932,22 @@ class SpanAttributesPaginatorTypeDef(BaseValidatorModel):
     promptType: Optional[AIPromptTypeType] = None
     promptName: Optional[str] = None
     promptVersion: Optional[int] = None
+    timeToFirstTokenMs: Optional[int] = None
 
 
 class SpanAttributesTypeDef(BaseValidatorModel):
     operationName: Optional[str] = None
     providerName: Optional[str] = None
     errorType: Optional[str] = None
-    agentId: Optional[str] = None
-    instanceArn: Optional[str] = None
-    contactId: Optional[str] = None
-    initialContactId: Optional[str] = None
+    agentId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
+    instanceArn: Optional[Annotated[str, _aws_pattern("Qconnect", "GenericArn")]] = None
+    contactId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
+    initialContactId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
     sessionName: Optional[str] = None
-    aiAgentArn: Optional[str] = None
+    aiAgentArn: Optional[Annotated[str, _aws_pattern("Qconnect", "ArnWithQualifier")]] = None
     aiAgentType: Optional[AIAgentTypeType] = None
-    aiAgentName: Optional[str] = None
-    aiAgentId: Optional[str] = None
+    aiAgentName: Optional[Annotated[str, _aws_pattern("Qconnect", "Name")]] = None
+    aiAgentId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
     aiAgentVersion: Optional[int] = None
     aiAgentInvoker: Optional[str] = None
     aiAgentOrchestratorUseCase: Optional[str] = None
@@ -2954,17 +2965,18 @@ class SpanAttributesTypeDef(BaseValidatorModel):
     inputMessages: Optional[List[SpanMessageTypeDef]] = None
     outputMessages: Optional[List[SpanMessageTypeDef]] = None
     systemInstructions: Optional[List[SpanMessageValueTypeDef]] = None
-    promptArn: Optional[str] = None
-    promptId: Optional[str] = None
+    promptArn: Optional[Annotated[str, _aws_pattern("Qconnect", "ArnWithQualifier")]] = None
+    promptId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
     promptType: Optional[AIPromptTypeType] = None
-    promptName: Optional[str] = None
+    promptName: Optional[Annotated[str, _aws_pattern("Qconnect", "Name")]] = None
     promptVersion: Optional[int] = None
+    timeToFirstTokenMs: Optional[int] = None
 
 
 # This class is the input for the 'render_message_template' function.
 class RenderMessageTemplateRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    messageTemplateId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     attributes: MessageTemplateAttributesUnionTypeDef
 
 
@@ -2977,10 +2989,10 @@ class OrchestrationAIAgentConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class OrchestrationAIAgentConfigurationTypeDef(BaseValidatorModel):
-    orchestrationAIPromptId: str
-    orchestrationAIGuardrailId: Optional[str] = None
+    orchestrationAIPromptId: Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]
+    orchestrationAIGuardrailId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
     toolConfigurations: Optional[List[ToolConfigurationTypeDef]] = None
-    connectInstanceArn: Optional[str] = None
+    connectInstanceArn: Optional[Annotated[str, _aws_pattern("Qconnect", "GenericArn")]] = None
     locale: Optional[str] = None
 
 
@@ -2988,7 +3000,7 @@ class OrchestrationAIAgentConfigurationTypeDef(BaseValidatorModel):
 class GetNextMessageResponseTypeDef(BaseValidatorModel):
     type: MessageTypeType
     response: MessageOutputTypeDef
-    requestMessageId: str
+    requestMessageId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     conversationState: ConversationStateTypeDef
     nextMessageToken: str
     conversationSessionData: List[RuntimeSessionDataTypeDef]
@@ -3048,11 +3060,11 @@ class UpdateMessageTemplateResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_message_template' function.
 class CreateMessageTemplateRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     channelSubtype: ChannelSubtypeType
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Qconnect", "Name")]] = None
     content: Optional[MessageTemplateContentProviderUnionTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     language: Optional[str] = None
     sourceConfiguration: Optional[MessageTemplateSourceConfigurationUnionTypeDef] = None
     defaultAttributes: Optional[MessageTemplateAttributesUnionTypeDef] = None
@@ -3063,8 +3075,8 @@ class CreateMessageTemplateRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_message_template' function.
 class UpdateMessageTemplateRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    messageTemplateId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    messageTemplateId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     content: Optional[MessageTemplateContentProviderUnionTypeDef] = None
     language: Optional[str] = None
     sourceConfiguration: Optional[MessageTemplateSourceConfigurationUnionTypeDef] = None
@@ -3078,15 +3090,15 @@ class AssociationConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class AssociationConfigurationTypeDef(BaseValidatorModel):
-    associationId: Optional[str] = None
+    associationId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
     associationType: Optional[Literal["KNOWLEDGE_BASE"]] = None
     associationConfigurationData: Optional[AssociationConfigurationDataTypeDef] = None
 
 
 class KnowledgeBaseDataTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    knowledgeBaseArn: str
-    name: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     knowledgeBaseType: KnowledgeBaseTypeType
     status: KnowledgeBaseStatusType
     lastContentModificationTime: Optional[datetime] = None
@@ -3094,23 +3106,23 @@ class KnowledgeBaseDataTypeDef(BaseValidatorModel):
     sourceConfiguration: Optional[SourceConfigurationOutputTypeDef] = None
     renderingConfiguration: Optional[RenderingConfigurationTypeDef] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
     ingestionStatus: Optional[SyncStatusType] = None
     ingestionFailureReasons: Optional[List[str]] = None
 
 
 class KnowledgeBaseSummaryTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    knowledgeBaseArn: str
-    name: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     knowledgeBaseType: KnowledgeBaseTypeType
     status: KnowledgeBaseStatusType
     sourceConfiguration: Optional[SourceConfigurationOutputTypeDef] = None
     vectorIngestionConfiguration: Optional[VectorIngestionConfigurationOutputTypeDef] = None
     renderingConfiguration: Optional[RenderingConfigurationTypeDef] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -3129,21 +3141,23 @@ class SpanPaginatorTypeDef(BaseValidatorModel):
     requestId: str
     attributes: SpanAttributesPaginatorTypeDef
     parentSpanId: Optional[str] = None
+    statusDescription: Optional[str] = None
     originRequestId: Optional[str] = None
 
 
 class SpanTypeDef(BaseValidatorModel):
-    spanId: str
-    assistantId: str
-    sessionId: str
-    spanName: str
+    spanId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    spanName: Annotated[str, _aws_pattern("Qconnect", "Name")]
     spanType: SpanTypeType
     startTimestamp: datetime
     endTimestamp: datetime
     status: SpanStatusType
-    requestId: str
+    requestId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     attributes: SpanAttributesTypeDef
-    parentSpanId: Optional[str] = None
+    parentSpanId: Optional[Annotated[str, _aws_pattern("Qconnect", "Uuid")]] = None
+    statusDescription: Optional[str] = None
     originRequestId: Optional[str] = None
 
 
@@ -3169,7 +3183,7 @@ class RecommendationDataTypeDef(BaseValidatorModel):
 
 
 class ResultDataTypeDef(BaseValidatorModel):
-    resultId: str
+    resultId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     document: Optional[DocumentTypeDef] = None
     relevanceScore: Optional[float] = None
     data: Optional[DataSummaryTypeDef] = None
@@ -3215,40 +3229,42 @@ class SelfServiceAIAgentConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class AnswerRecommendationAIAgentConfigurationTypeDef(BaseValidatorModel):
-    intentLabelingGenerationAIPromptId: Optional[str] = None
-    queryReformulationAIPromptId: Optional[str] = None
-    answerGenerationAIPromptId: Optional[str] = None
-    answerGenerationAIGuardrailId: Optional[str] = None
+    intentLabelingGenerationAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
+    queryReformulationAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
+    answerGenerationAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
+    answerGenerationAIGuardrailId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
     associationConfigurations: Optional[List[AssociationConfigurationTypeDef]] = None
     locale: Optional[str] = None
     suggestedMessages: Optional[List[str]] = None
 
 
 class EmailGenerativeAnswerAIAgentConfigurationTypeDef(BaseValidatorModel):
-    emailGenerativeAnswerAIPromptId: Optional[str] = None
-    emailQueryReformulationAIPromptId: Optional[str] = None
+    emailGenerativeAnswerAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
+    emailQueryReformulationAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
     locale: Optional[str] = None
     associationConfigurations: Optional[List[AssociationConfigurationTypeDef]] = None
 
 
 class EmailResponseAIAgentConfigurationTypeDef(BaseValidatorModel):
-    emailResponseAIPromptId: Optional[str] = None
-    emailQueryReformulationAIPromptId: Optional[str] = None
+    emailResponseAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
+    emailQueryReformulationAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
     locale: Optional[str] = None
     associationConfigurations: Optional[List[AssociationConfigurationTypeDef]] = None
 
 
 class ManualSearchAIAgentConfigurationTypeDef(BaseValidatorModel):
-    answerGenerationAIPromptId: Optional[str] = None
-    answerGenerationAIGuardrailId: Optional[str] = None
+    answerGenerationAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
+    answerGenerationAIGuardrailId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
     associationConfigurations: Optional[List[AssociationConfigurationTypeDef]] = None
     locale: Optional[str] = None
 
 
 class SelfServiceAIAgentConfigurationTypeDef(BaseValidatorModel):
-    selfServicePreProcessingAIPromptId: Optional[str] = None
-    selfServiceAnswerGenerationAIPromptId: Optional[str] = None
-    selfServiceAIGuardrailId: Optional[str] = None
+    selfServicePreProcessingAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
+    selfServiceAnswerGenerationAIPromptId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = (
+        None
+    )
+    selfServiceAIGuardrailId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidWithQualifier")]] = None
     associationConfigurations: Optional[List[AssociationConfigurationTypeDef]] = None
 
 
@@ -3279,14 +3295,14 @@ class ListKnowledgeBasesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_knowledge_base' function.
 class CreateKnowledgeBaseRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     knowledgeBaseType: KnowledgeBaseTypeType
     clientToken: Optional[str] = None
     sourceConfiguration: Optional[SourceConfigurationUnionTypeDef] = None
     renderingConfiguration: Optional[RenderingConfigurationTypeDef] = None
     vectorIngestionConfiguration: Optional[VectorIngestionConfigurationUnionTypeDef] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -3305,11 +3321,11 @@ class ListSpansResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'send_message' function.
 class SendMessageRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    sessionId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    sessionId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
     type: MessageTypeType
     message: MessageInputTypeDef
-    aiAgentId: Optional[str] = None
+    aiAgentId: Optional[Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]] = None
     conversationContext: Optional[ConversationContextTypeDef] = None
     configuration: Optional[MessageConfigurationTypeDef] = None
     clientToken: Optional[str] = None
@@ -3363,33 +3379,33 @@ class AIAgentConfigurationTypeDef(BaseValidatorModel):
 
 
 class AIAgentDataTypeDef(BaseValidatorModel):
-    assistantId: str
-    assistantArn: str
-    aiAgentId: str
-    aiAgentArn: str
-    name: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    aiAgentId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    aiAgentArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     type: AIAgentTypeType
     configuration: AIAgentConfigurationOutputTypeDef
     visibilityStatus: VisibilityStatusType
     modifiedTime: Optional[datetime] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
     origin: Optional[OriginType] = None
     status: Optional[StatusType] = None
 
 
 class AIAgentSummaryTypeDef(BaseValidatorModel):
-    name: str
-    assistantId: str
-    assistantArn: str
-    aiAgentId: str
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
+    assistantArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
+    aiAgentId: Annotated[str, _aws_pattern("Qconnect", "Uuid")]
     type: AIAgentTypeType
-    aiAgentArn: str
+    aiAgentArn: Annotated[str, _aws_pattern("Qconnect", "Arn")]
     visibilityStatus: VisibilityStatusType
     modifiedTime: Optional[datetime] = None
     configuration: Optional[AIAgentConfigurationOutputTypeDef] = None
     origin: Optional[OriginType] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
     status: Optional[StatusType] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -3437,24 +3453,24 @@ class ListAIAgentsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_ai_agent' function.
 class CreateAIAgentRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    name: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    name: Annotated[str, _aws_pattern("Qconnect", "Name")]
     type: AIAgentTypeType
     configuration: AIAgentConfigurationUnionTypeDef
     visibilityStatus: VisibilityStatusType
     clientToken: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
 
 
 # This class is the input for the 'update_ai_agent' function.
 class UpdateAIAgentRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    aiAgentId: str
+    assistantId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArn")]
+    aiAgentId: Annotated[str, _aws_pattern("Qconnect", "UuidOrArnOrEitherWithQualifier")]
     visibilityStatus: VisibilityStatusType
     clientToken: Optional[str] = None
     configuration: Optional[AIAgentConfigurationUnionTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qconnect", "Description")]] = None
 
 
 # This class is the output for the 'list_ai_agent_versions' function.

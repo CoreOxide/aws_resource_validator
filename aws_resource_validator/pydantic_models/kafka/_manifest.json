@@ -79,6 +79,7 @@
     "TopicInfoTypeDef",
     "ListVpcConnectionsRequestTypeDef",
     "VpcConnectionTypeDef",
+    "ZookeeperAccessTypeDef",
     "NodeExporterInfoTypeDef",
     "NodeExporterTypeDef",
     "ZookeeperNodeInfoTypeDef",

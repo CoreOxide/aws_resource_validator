@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.marketplace_entitlement.marketplace_entitlement_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -55,7 +57,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 class GetEntitlementsRequestTypeDef(BaseValidatorModel):
     ProductCode: str
     Filter: Optional[Dict[GetEntitlementFilterNameType, List[str]]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MarketplaceEntitlement", "NonEmptyString")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -69,9 +71,9 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 class EntitlementTypeDef(BaseValidatorModel):
     ProductCode: Optional[str] = None
-    Dimension: Optional[str] = None
-    CustomerIdentifier: Optional[str] = None
-    CustomerAWSAccountId: Optional[str] = None
+    Dimension: Optional[Annotated[str, _aws_pattern("MarketplaceEntitlement", "NonEmptyString")]] = None
+    CustomerIdentifier: Optional[Annotated[str, _aws_pattern("MarketplaceEntitlement", "NonEmptyString")]] = None
+    CustomerAWSAccountId: Optional[Annotated[str, _aws_pattern("MarketplaceEntitlement", "NonEmptyString")]] = None
     Value: Optional[EntitlementValueTypeDef] = None
     ExpirationDate: Optional[datetime] = None
     LicenseArn: Optional[str] = None
@@ -87,4 +89,4 @@ class GetEntitlementsRequestPaginateTypeDef(BaseValidatorModel):
 class GetEntitlementsResultTypeDef(BaseValidatorModel):
     Entitlements: List[EntitlementTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("MarketplaceEntitlement", "NonEmptyString")]] = None

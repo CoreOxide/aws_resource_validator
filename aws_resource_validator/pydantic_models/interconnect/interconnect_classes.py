@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.interconnect.interconnect_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,10 @@ except ImportError:  # pragma: no cover
 
 
 class AttachPointTypeDef(BaseValidatorModel):
-    directConnectGateway: Optional[str] = None
-    arn: Optional[str] = None
+    directConnectGateway: Optional[Annotated[str, _aws_pattern("Interconnect", "DirectConnectGatewayAttachPoint")]] = (
+        None
+    )
+    arn: Optional[Annotated[str, _aws_pattern("Interconnect", "AmazonResourceName")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -58,8 +62,8 @@ class AttachPointDescriptorTypeDef(BaseValidatorModel):
 
 
 class BandwidthsTypeDef(BaseValidatorModel):
-    available: Optional[List[str]] = None
-    supported: Optional[List[str]] = None
+    available: Optional[List[Annotated[str, _aws_pattern("Interconnect", "ConnectionBandwidth")]]] = None
+    supported: Optional[List[Annotated[str, _aws_pattern("Interconnect", "ConnectionBandwidth")]]] = None
 
 
 class ProviderTypeDef(BaseValidatorModel):
@@ -68,12 +72,12 @@ class ProviderTypeDef(BaseValidatorModel):
 
 
 class RemoteAccountIdentifierTypeDef(BaseValidatorModel):
-    identifier: Optional[str] = None
+    identifier: Optional[Annotated[str, _aws_pattern("Interconnect", "RemoteOwnerAccount")]] = None
 
 
 # This class is the input for the 'delete_connection' function.
 class DeleteConnectionRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Interconnect", "ConnectionId")]
     clientToken: Optional[str] = None
 
 
@@ -84,7 +88,7 @@ class DescribeConnectionProposalRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_connection' function.
 class GetConnectionRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Interconnect", "ConnectionId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -112,24 +116,24 @@ class ListAttachPointsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Interconnect", "AmazonResourceName")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Interconnect", "AmazonResourceName")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Interconnect", "AmazonResourceName")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_connection' function.
 class UpdateConnectionRequestTypeDef(BaseValidatorModel):
-    identifier: str
-    description: Optional[str] = None
-    bandwidth: Optional[str] = None
+    identifier: Annotated[str, _aws_pattern("Interconnect", "ConnectionId")]
+    description: Optional[Annotated[str, _aws_pattern("Interconnect", "ConnectionDescription")]] = None
+    bandwidth: Optional[Annotated[str, _aws_pattern("Interconnect", "ConnectionBandwidth")]] = None
     clientToken: Optional[str] = None
 
 
@@ -137,7 +141,7 @@ class UpdateConnectionRequestTypeDef(BaseValidatorModel):
 class AcceptConnectionProposalRequestTypeDef(BaseValidatorModel):
     attachPoint: AttachPointTypeDef
     activationKey: str
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Interconnect", "ConnectionDescription")]] = None
     tags: Optional[Dict[str, str]] = None
     clientToken: Optional[str] = None
 
@@ -156,33 +160,33 @@ class ListAttachPointsResponseTypeDef(BaseValidatorModel):
 
 
 class ConnectionSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    description: str
-    bandwidth: str
+    id: Annotated[str, _aws_pattern("Interconnect", "ConnectionId")]
+    arn: Annotated[str, _aws_pattern("Interconnect", "AmazonResourceName")]
+    description: Annotated[str, _aws_pattern("Interconnect", "ConnectionDescription")]
+    bandwidth: Annotated[str, _aws_pattern("Interconnect", "ConnectionBandwidth")]
     attachPoint: AttachPointTypeDef
     environmentId: str
     provider: ProviderTypeDef
     location: str
     type: str
     state: ConnectionStateType
-    sharedId: str
+    sharedId: Annotated[str, _aws_pattern("Interconnect", "ConnectionSharedId")]
     billingTier: Optional[int] = None
 
 
 class ConnectionTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    description: str
-    bandwidth: str
+    id: Annotated[str, _aws_pattern("Interconnect", "ConnectionId")]
+    arn: Annotated[str, _aws_pattern("Interconnect", "AmazonResourceName")]
+    description: Annotated[str, _aws_pattern("Interconnect", "ConnectionDescription")]
+    bandwidth: Annotated[str, _aws_pattern("Interconnect", "ConnectionBandwidth")]
     attachPoint: AttachPointTypeDef
     environmentId: str
     provider: ProviderTypeDef
     location: str
     type: str
     state: ConnectionStateType
-    sharedId: str
-    ownerAccount: str
+    sharedId: Annotated[str, _aws_pattern("Interconnect", "ConnectionSharedId")]
+    ownerAccount: Annotated[str, _aws_pattern("Interconnect", "OwnerAccountId")]
     activationKey: str
     billingTier: Optional[int] = None
     tags: Optional[Dict[str, str]] = None
@@ -190,7 +194,7 @@ class ConnectionTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_connection_proposal' function.
 class DescribeConnectionProposalResponseTypeDef(BaseValidatorModel):
-    bandwidth: str
+    bandwidth: Annotated[str, _aws_pattern("Interconnect", "ConnectionBandwidth")]
     environmentId: str
     provider: ProviderTypeDef
     location: str
@@ -228,10 +232,10 @@ class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_connection' function.
 class CreateConnectionRequestTypeDef(BaseValidatorModel):
-    bandwidth: str
+    bandwidth: Annotated[str, _aws_pattern("Interconnect", "ConnectionBandwidth")]
     attachPoint: AttachPointTypeDef
     environmentId: str
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Interconnect", "ConnectionDescription")]] = None
     remoteAccount: Optional[RemoteAccountIdentifierTypeDef] = None
     tags: Optional[Dict[str, str]] = None
     clientToken: Optional[str] = None

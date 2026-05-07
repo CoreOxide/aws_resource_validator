@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.sesv2.sesv2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,7 +46,7 @@ class ReviewDetailsTypeDef(BaseValidatorModel):
 
 
 class ArchivingOptionsTypeDef(BaseValidatorModel):
-    ArchiveArn: Optional[str] = None
+    ArchiveArn: Optional[Annotated[str, _aws_pattern("Sesv2", "ArchiveArn")]] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
@@ -102,8 +104,8 @@ class DestinationTypeDef(BaseValidatorModel):
 
 
 class MessageHeaderTypeDef(BaseValidatorModel):
-    Name: str
-    Value: str
+    Name: Annotated[str, _aws_pattern("Sesv2", "MessageHeaderName")]
+    Value: Annotated[str, _aws_pattern("Sesv2", "MessageHeaderValue")]
 
 
 class MessageTagTypeDef(BaseValidatorModel):
@@ -175,8 +177,8 @@ class CreateEmailIdentityPolicyRequestTypeDef(BaseValidatorModel):
 
 
 class DkimSigningAttributesTypeDef(BaseValidatorModel):
-    DomainSigningSelector: Optional[str] = None
-    DomainSigningPrivateKey: Optional[str] = None
+    DomainSigningSelector: Optional[Annotated[str, _aws_pattern("Sesv2", "Selector")]] = None
+    DomainSigningPrivateKey: Optional[Annotated[str, _aws_pattern("Sesv2", "PrivateKey")]] = None
     NextSigningKeyLength: Optional[DkimSigningKeyLengthType] = None
     DomainSigningAttributesOrigin: Optional[DkimSigningAttributesOriginType] = None
 
@@ -200,11 +202,11 @@ class EmailTemplateContentTypeDef(BaseValidatorModel):
 
 class ExportDestinationTypeDef(BaseValidatorModel):
     DataFormat: DataFormatType
-    S3Url: Optional[str] = None
+    S3Url: Optional[Annotated[str, _aws_pattern("Sesv2", "S3Url")]] = None
 
 
 class ImportDataSourceTypeDef(BaseValidatorModel):
-    S3Url: str
+    S3Url: Annotated[str, _aws_pattern("Sesv2", "S3Url")]
     DataFormat: DataFormatType
 
 
@@ -297,7 +299,7 @@ class DeleteEmailTemplateRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_multi_region_endpoint' function.
 class DeleteMultiRegionEndpointRequestTypeDef(BaseValidatorModel):
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("Sesv2", "EndpointName")]
 
 
 class DeleteSuppressedDestinationRequestTypeDef(BaseValidatorModel):
@@ -517,7 +519,7 @@ class GetMessageInsightsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_multi_region_endpoint' function.
 class GetMultiRegionEndpointRequestTypeDef(BaseValidatorModel):
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("Sesv2", "EndpointName")]
 
 
 class RouteTypeDef(BaseValidatorModel):
@@ -639,12 +641,12 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_multi_region_endpoints' function.
 class ListMultiRegionEndpointsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sesv2", "NextTokenV2")]] = None
     PageSize: Optional[int] = None
 
 
 class MultiRegionEndpointTypeDef(BaseValidatorModel):
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sesv2", "EndpointName")]] = None
     Status: Optional[StatusType] = None
     EndpointId: Optional[str] = None
     Regions: Optional[List[str]] = None
@@ -751,10 +753,12 @@ class PutAccountDedicatedIpWarmupAttributesRequestTypeDef(BaseValidatorModel):
 
 class PutAccountDetailsRequestTypeDef(BaseValidatorModel):
     MailType: MailTypeType
-    WebsiteURL: str
+    WebsiteURL: Annotated[str, _aws_pattern("Sesv2", "WebsiteURL")]
     ContactLanguage: Optional[ContactLanguageType] = None
     UseCaseDescription: Optional[str] = None
-    AdditionalContactEmailAddresses: Optional[List[str]] = None
+    AdditionalContactEmailAddresses: Optional[
+        List[Annotated[str, _aws_pattern("Sesv2", "AdditionalContactEmailAddress")]]
+    ] = None
     ProductionAccessEnabled: Optional[bool] = None
 
 
@@ -764,7 +768,7 @@ class PutAccountSendingAttributesRequestTypeDef(BaseValidatorModel):
 
 class PutConfigurationSetArchivingOptionsRequestTypeDef(BaseValidatorModel):
     ConfigurationSetName: str
-    ArchiveArn: Optional[str] = None
+    ArchiveArn: Optional[Annotated[str, _aws_pattern("Sesv2", "ArchiveArn")]] = None
 
 
 class PutConfigurationSetDeliveryOptionsRequestTypeDef(BaseValidatorModel):
@@ -903,10 +907,12 @@ class UpdateReputationEntityPolicyRequestTypeDef(BaseValidatorModel):
 
 class AccountDetailsTypeDef(BaseValidatorModel):
     MailType: Optional[MailTypeType] = None
-    WebsiteURL: Optional[str] = None
+    WebsiteURL: Optional[Annotated[str, _aws_pattern("Sesv2", "WebsiteURL")]] = None
     ContactLanguage: Optional[ContactLanguageType] = None
     UseCaseDescription: Optional[str] = None
-    AdditionalContactEmailAddresses: Optional[List[str]] = None
+    AdditionalContactEmailAddresses: Optional[
+        List[Annotated[str, _aws_pattern("Sesv2", "AdditionalContactEmailAddress")]]
+    ] = None
     ReviewDetails: Optional[ReviewDetailsTypeDef] = None
 
 
@@ -1367,7 +1373,7 @@ class IspPlacementTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_multi_region_endpoint' function.
 class GetMultiRegionEndpointResponseTypeDef(BaseValidatorModel):
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("Sesv2", "EndpointName")]
     EndpointId: str
     Routes: List[RouteTypeDef]
     Status: StatusType
@@ -1437,7 +1443,7 @@ class ListTenantsRequestPaginateTypeDef(BaseValidatorModel):
 class ListMultiRegionEndpointsResponseTypeDef(BaseValidatorModel):
     MultiRegionEndpoints: List[MultiRegionEndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sesv2", "NextTokenV2")]] = None
 
 
 # This class is the output for the 'list_recommendations' function.
@@ -1590,7 +1596,7 @@ class GetDomainStatisticsReportResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_multi_region_endpoint' function.
 class CreateMultiRegionEndpointRequestTypeDef(BaseValidatorModel):
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("Sesv2", "EndpointName")]
     Details: DetailsTypeDef
     Tags: Optional[List[TagTypeDef]] = None
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mediapackagev2.mediapackagev2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,11 +41,11 @@ except ImportError:  # pragma: no cover
 
 
 class CancelHarvestJobRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
-    HarvestJobName: str
-    ETag: Optional[str] = None
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    HarvestJobName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ETag: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]] = None
 
 
 class CdnAuthConfigurationOutputTypeDef(BaseValidatorModel):
@@ -76,8 +78,8 @@ class ChannelListConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_channel_group' function.
 class CreateChannelGroupRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ClientToken: Optional[str] = None
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "IdempotencyToken")]] = None
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -115,7 +117,9 @@ class DashProgramInformationTypeDef(BaseValidatorModel):
     Title: Optional[str] = None
     Source: Optional[str] = None
     Copyright: Optional[str] = None
-    LanguageCode: Optional[str] = None
+    LanguageCode: Optional[
+        Annotated[str, _aws_pattern("Mediapackagev2", "DashProgramInformationLanguageCodeString")]
+    ] = None
     MoreInformationUrl: Optional[str] = None
 
 
@@ -126,6 +130,7 @@ class DashUtcTimingTypeDef(BaseValidatorModel):
 
 class ScteDashTypeDef(BaseValidatorModel):
     AdMarkerDash: Optional[AdMarkerDashType] = None
+    ScteInManifests: Optional[ScteInManifestsType] = None
 
 
 class HarvesterScheduleConfigurationOutputTypeDef(BaseValidatorModel):
@@ -135,6 +140,7 @@ class HarvesterScheduleConfigurationOutputTypeDef(BaseValidatorModel):
 
 class ScteHlsTypeDef(BaseValidatorModel):
     AdMarkerHls: Optional[AdMarkerHlsType] = None
+    ScteInManifests: Optional[ScteInManifestsType] = None
 
 
 class StartTagTypeDef(BaseValidatorModel):
@@ -148,7 +154,7 @@ class ForceEndpointErrorConfigurationOutputTypeDef(BaseValidatorModel):
 
 class DashDvbFontDownloadTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
-    MimeType: Optional[str] = None
+    MimeType: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "DashDvbFontDownloadMimeTypeString")]] = None
     FontFamily: Optional[str] = None
 
 
@@ -162,34 +168,34 @@ class DashTtmlConfigurationTypeDef(BaseValidatorModel):
 
 
 class DeleteChannelGroupRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 class DeleteChannelPolicyRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 class DeleteChannelRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 class DeleteOriginEndpointPolicyRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 class DeleteOriginEndpointRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 class S3DestinationConfigTypeDef(BaseValidatorModel):
     BucketName: str
-    DestinationPath: str
+    DestinationPath: Annotated[str, _aws_pattern("Mediapackagev2", "S3DestinationPath")]
 
 
 class EncryptionContractConfigurationTypeDef(BaseValidatorModel):
@@ -221,27 +227,27 @@ class ForceEndpointErrorConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_channel_group' function.
 class GetChannelGroupRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 # This class is the input for the 'get_channel_policy' function.
 class GetChannelPolicyRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 # This class is the input for the 'get_channel' function.
 class GetChannelRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 # This class is the input for the 'get_harvest_job' function.
 class GetHarvestJobRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
-    HarvestJobName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    HarvestJobName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -251,28 +257,28 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_origin_endpoint_policy' function.
 class GetOriginEndpointPolicyRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 # This class is the input for the 'get_origin_endpoint' function.
 class GetOriginEndpointRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 class HarvestedDashManifestTypeDef(BaseValidatorModel):
-    ManifestName: str
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 class HarvestedHlsManifestTypeDef(BaseValidatorModel):
-    ManifestName: str
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 class HarvestedLowLatencyHlsManifestTypeDef(BaseValidatorModel):
-    ManifestName: str
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -289,47 +295,51 @@ class ListChannelGroupsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_channels' function.
 class ListChannelsRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class ListDashManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Url: Optional[str] = None
 
 
 # This class is the input for the 'list_harvest_jobs' function.
 class ListHarvestJobsRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: Optional[str] = None
-    OriginEndpointName: Optional[str] = None
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "ListHarvestJobsRequestChannelNameString")]] = (
+        None
+    )
+    OriginEndpointName: Optional[
+        Annotated[str, _aws_pattern("Mediapackagev2", "ListHarvestJobsRequestOriginEndpointNameString")]
+    ] = None
     Status: Optional[HarvestJobStatusType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class ListHlsManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
-    ChildManifestName: Optional[str] = None
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChildManifestName: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]] = None
     Url: Optional[str] = None
 
 
 class ListLowLatencyHlsManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
-    ChildManifestName: Optional[str] = None
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChildManifestName: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]] = None
     Url: Optional[str] = None
 
 
 class ListMssManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Url: Optional[str] = None
 
 
 # This class is the input for the 'list_origin_endpoints' function.
 class ListOriginEndpointsRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -340,32 +350,34 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 
 class PutChannelPolicyRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Policy: str
 
 
 # This class is the input for the 'reset_channel_state' function.
 class ResetChannelStateRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 # This class is the input for the 'reset_origin_endpoint_state' function.
 class ResetOriginEndpointStateRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
 
 
 class ScteOutputTypeDef(BaseValidatorModel):
     ScteFilter: Optional[List[ScteFilterType]] = None
     ScteInSegments: Optional[ScteInSegmentsType] = None
+    CustomAdTypes: Optional[List[CustomAdTypeType]] = None
 
 
 class ScteTypeDef(BaseValidatorModel):
     ScteFilter: Optional[List[ScteFilterType]] = None
     ScteInSegments: Optional[ScteInSegmentsType] = None
+    CustomAdTypes: Optional[List[CustomAdTypeType]] = None
 
 
 # This class is the input for the 'tag_resource' function.
@@ -382,8 +394,8 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_channel_group' function.
 class UpdateChannelGroupRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ETag: Optional[str] = None
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ETag: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]] = None
     Description: Optional[str] = None
 
 
@@ -397,7 +409,7 @@ class CreateChannelGroupResponseTypeDef(BaseValidatorModel):
     EgressDomain: str
     CreatedAt: datetime
     ModifiedAt: datetime
-    ETag: str
+    ETag: Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]
     Description: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -416,7 +428,7 @@ class GetChannelGroupResponseTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     ModifiedAt: datetime
     Description: str
-    ETag: str
+    ETag: Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -431,9 +443,9 @@ class GetChannelPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_origin_endpoint_policy' function.
 class GetOriginEndpointPolicyResponseTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Policy: str
     CdnAuthConfiguration: CdnAuthConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -470,9 +482,9 @@ class ResetChannelStateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'reset_origin_endpoint_state' function.
 class ResetOriginEndpointStateResponseTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Arn: str
     ResetAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -486,16 +498,16 @@ class UpdateChannelGroupResponseTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     ModifiedAt: datetime
     Description: str
-    ETag: str
+    ETag: Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_channel' function.
 class CreateChannelRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    ClientToken: Optional[str] = None
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "IdempotencyToken")]] = None
     InputType: Optional[InputTypeType] = None
     Description: Optional[str] = None
     InputSwitchConfiguration: Optional[InputSwitchConfigurationTypeDef] = None
@@ -505,9 +517,9 @@ class CreateChannelRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_channel' function.
 class UpdateChannelRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    ETag: Optional[str] = None
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ETag: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]] = None
     Description: Optional[str] = None
     InputSwitchConfiguration: Optional[InputSwitchConfigurationTypeDef] = None
     OutputHeaderConfiguration: Optional[OutputHeaderConfigurationTypeDef] = None
@@ -523,7 +535,7 @@ class CreateChannelResponseTypeDef(BaseValidatorModel):
     Description: str
     IngestEndpoints: List[IngestEndpointTypeDef]
     InputType: InputTypeType
-    ETag: str
+    ETag: Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]
     Tags: Dict[str, str]
     InputSwitchConfiguration: InputSwitchConfigurationTypeDef
     OutputHeaderConfiguration: OutputHeaderConfigurationTypeDef
@@ -541,7 +553,7 @@ class GetChannelResponseTypeDef(BaseValidatorModel):
     Description: str
     IngestEndpoints: List[IngestEndpointTypeDef]
     InputType: InputTypeType
-    ETag: str
+    ETag: Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]
     Tags: Dict[str, str]
     InputSwitchConfiguration: InputSwitchConfigurationTypeDef
     OutputHeaderConfiguration: OutputHeaderConfigurationTypeDef
@@ -558,7 +570,7 @@ class UpdateChannelResponseTypeDef(BaseValidatorModel):
     Description: str
     IngestEndpoints: List[IngestEndpointTypeDef]
     InputType: InputTypeType
-    ETag: str
+    ETag: Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]
     Tags: Dict[str, str]
     InputSwitchConfiguration: InputSwitchConfigurationTypeDef
     OutputHeaderConfiguration: OutputHeaderConfigurationTypeDef
@@ -594,39 +606,43 @@ class SpekeKeyProviderOutputTypeDef(BaseValidatorModel):
 
 class SpekeKeyProviderTypeDef(BaseValidatorModel):
     EncryptionContractConfiguration: EncryptionContractConfigurationTypeDef
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Mediapackagev2", "SpekeKeyProviderResourceIdString")]
     DrmSystems: List[DrmSystemType]
     RoleArn: str
     Url: str
-    CertificateArn: Optional[str] = None
+    CertificateArn: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "SpekeKeyProviderCertificateArnString")]] = (
+        None
+    )
 
 
 class GetHlsManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Url: str
-    ChildManifestName: Optional[str] = None
+    ChildManifestName: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]] = None
     ManifestWindowSeconds: Optional[int] = None
     ProgramDateTimeIntervalSeconds: Optional[int] = None
     ScteHls: Optional[ScteHlsTypeDef] = None
     FilterConfiguration: Optional[FilterConfigurationOutputTypeDef] = None
     StartTag: Optional[StartTagTypeDef] = None
     UrlEncodeChildManifest: Optional[bool] = None
+    UriPathType: Optional[UriPathTypeType] = None
 
 
 class GetLowLatencyHlsManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Url: str
-    ChildManifestName: Optional[str] = None
+    ChildManifestName: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]] = None
     ManifestWindowSeconds: Optional[int] = None
     ProgramDateTimeIntervalSeconds: Optional[int] = None
     ScteHls: Optional[ScteHlsTypeDef] = None
     FilterConfiguration: Optional[FilterConfigurationOutputTypeDef] = None
     StartTag: Optional[StartTagTypeDef] = None
     UrlEncodeChildManifest: Optional[bool] = None
+    UriPathType: Optional[UriPathTypeType] = None
 
 
 class GetMssManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ManifestName")]
     Url: str
     FilterConfiguration: Optional[FilterConfigurationOutputTypeDef] = None
     ManifestWindowSeconds: Optional[int] = None
@@ -697,9 +713,9 @@ class ListOriginEndpointsRequestPaginateTypeDef(BaseValidatorModel):
 
 class OriginEndpointListConfigurationTypeDef(BaseValidatorModel):
     Arn: str
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     ContainerType: ContainerTypeType
     Description: Optional[str] = None
     CreatedAt: Optional[datetime] = None
@@ -709,12 +725,13 @@ class OriginEndpointListConfigurationTypeDef(BaseValidatorModel):
     DashManifests: Optional[List[ListDashManifestConfigurationTypeDef]] = None
     MssManifests: Optional[List[ListMssManifestConfigurationTypeDef]] = None
     ForceEndpointErrorConfiguration: Optional[ForceEndpointErrorConfigurationOutputTypeDef] = None
+    UriSeparator: Optional[UriSeparatorType] = None
 
 
 class PutOriginEndpointPolicyRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Policy: str
     CdnAuthConfiguration: Optional[CdnAuthConfigurationUnionTypeDef] = None
 
@@ -723,7 +740,7 @@ DashDvbSettingsUnionTypeDef = Union[DashDvbSettingsOutputTypeDef, DashDvbSetting
 
 
 class GetDashManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Url: str
     ManifestWindowSeconds: Optional[int] = None
     FilterConfiguration: Optional[FilterConfigurationOutputTypeDef] = None
@@ -741,6 +758,7 @@ class GetDashManifestConfigurationTypeDef(BaseValidatorModel):
     DvbSettings: Optional[DashDvbSettingsOutputTypeDef] = None
     Compactness: Optional[DashCompactnessType] = None
     SubtitleConfiguration: Optional[DashSubtitleConfigurationTypeDef] = None
+    UriPathType: Optional[UriPathTypeType] = None
 
 
 class EncryptionOutputTypeDef(BaseValidatorModel):
@@ -754,7 +772,9 @@ class EncryptionOutputTypeDef(BaseValidatorModel):
 class EncryptionTypeDef(BaseValidatorModel):
     EncryptionMethod: EncryptionMethodTypeDef
     SpekeKeyProvider: SpekeKeyProviderTypeDef
-    ConstantInitializationVector: Optional[str] = None
+    ConstantInitializationVector: Optional[
+        Annotated[str, _aws_pattern("Mediapackagev2", "EncryptionConstantInitializationVectorString")]
+    ] = None
     KeyRotationIntervalSeconds: Optional[int] = None
     CmafExcludeSegmentDrmMetadata: Optional[bool] = None
 
@@ -768,11 +788,11 @@ HarvesterScheduleConfigurationUnionTypeDef = Union[
 
 # This class is the output for the 'create_harvest_job' function.
 class CreateHarvestJobResponseTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Destination: DestinationTypeDef
-    HarvestJobName: str
+    HarvestJobName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     HarvestedManifests: HarvestedManifestsOutputTypeDef
     Description: str
     ScheduleConfiguration: HarvesterScheduleConfigurationOutputTypeDef
@@ -781,18 +801,18 @@ class CreateHarvestJobResponseTypeDef(BaseValidatorModel):
     ModifiedAt: datetime
     Status: HarvestJobStatusType
     ErrorMessage: str
-    ETag: str
+    ETag: Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_harvest_job' function.
 class GetHarvestJobResponseTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Destination: DestinationTypeDef
-    HarvestJobName: str
+    HarvestJobName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     HarvestedManifests: HarvestedManifestsOutputTypeDef
     Description: str
     ScheduleConfiguration: HarvesterScheduleConfigurationOutputTypeDef
@@ -801,17 +821,17 @@ class GetHarvestJobResponseTypeDef(BaseValidatorModel):
     ModifiedAt: datetime
     Status: HarvestJobStatusType
     ErrorMessage: str
-    ETag: str
+    ETag: Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class HarvestJobTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     Destination: DestinationTypeDef
-    HarvestJobName: str
+    HarvestJobName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     HarvestedManifests: HarvestedManifestsOutputTypeDef
     ScheduleConfiguration: HarvesterScheduleConfigurationOutputTypeDef
     Arn: str
@@ -820,7 +840,7 @@ class HarvestJobTypeDef(BaseValidatorModel):
     Status: HarvestJobStatusType
     Description: Optional[str] = None
     ErrorMessage: Optional[str] = None
-    ETag: Optional[str] = None
+    ETag: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]] = None
 
 
 HarvestedManifestsUnionTypeDef = Union[HarvestedManifestsOutputTypeDef, HarvestedManifestsTypeDef]
@@ -845,7 +865,7 @@ class SegmentOutputTypeDef(BaseValidatorModel):
 
 class SegmentTypeDef(BaseValidatorModel):
     SegmentDurationSeconds: Optional[int] = None
-    SegmentName: Optional[str] = None
+    SegmentName: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "SegmentSegmentNameString")]] = None
     TsUseAudioRenditionGroup: Optional[bool] = None
     IncludeIframeOnlyStreams: Optional[bool] = None
     TsIncludeDvbSubtitles: Optional[bool] = None
@@ -854,7 +874,7 @@ class SegmentTypeDef(BaseValidatorModel):
 
 
 class CreateDashManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ManifestName")]
     ManifestWindowSeconds: Optional[int] = None
     FilterConfiguration: Optional[FilterConfigurationUnionTypeDef] = None
     MinUpdatePeriodSeconds: Optional[int] = None
@@ -871,32 +891,35 @@ class CreateDashManifestConfigurationTypeDef(BaseValidatorModel):
     DvbSettings: Optional[DashDvbSettingsUnionTypeDef] = None
     Compactness: Optional[DashCompactnessType] = None
     SubtitleConfiguration: Optional[DashSubtitleConfigurationTypeDef] = None
+    UriPathType: Optional[UriPathTypeType] = None
 
 
 class CreateHlsManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
-    ChildManifestName: Optional[str] = None
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ManifestName")]
+    ChildManifestName: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "ManifestName")]] = None
     ScteHls: Optional[ScteHlsTypeDef] = None
     StartTag: Optional[StartTagTypeDef] = None
     ManifestWindowSeconds: Optional[int] = None
     ProgramDateTimeIntervalSeconds: Optional[int] = None
     FilterConfiguration: Optional[FilterConfigurationUnionTypeDef] = None
     UrlEncodeChildManifest: Optional[bool] = None
+    UriPathType: Optional[UriPathTypeType] = None
 
 
 class CreateLowLatencyHlsManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
-    ChildManifestName: Optional[str] = None
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ManifestName")]
+    ChildManifestName: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "ManifestName")]] = None
     ScteHls: Optional[ScteHlsTypeDef] = None
     StartTag: Optional[StartTagTypeDef] = None
     ManifestWindowSeconds: Optional[int] = None
     ProgramDateTimeIntervalSeconds: Optional[int] = None
     FilterConfiguration: Optional[FilterConfigurationUnionTypeDef] = None
     UrlEncodeChildManifest: Optional[bool] = None
+    UriPathType: Optional[UriPathTypeType] = None
 
 
 class CreateMssManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
+    ManifestName: Annotated[str, _aws_pattern("Mediapackagev2", "ManifestName")]
     ManifestWindowSeconds: Optional[int] = None
     FilterConfiguration: Optional[FilterConfigurationUnionTypeDef] = None
     ManifestLayout: Optional[MssManifestLayoutType] = None
@@ -911,24 +934,24 @@ class ListHarvestJobsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_harvest_job' function.
 class CreateHarvestJobRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     HarvestedManifests: HarvestedManifestsUnionTypeDef
     ScheduleConfiguration: HarvesterScheduleConfigurationUnionTypeDef
     Destination: DestinationTypeDef
     Description: Optional[str] = None
-    ClientToken: Optional[str] = None
-    HarvestJobName: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "IdempotencyToken")]] = None
+    HarvestJobName: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'create_origin_endpoint' function.
 class CreateOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     ContainerType: ContainerTypeType
     Segment: SegmentOutputTypeDef
     CreatedAt: datetime
@@ -940,7 +963,8 @@ class CreateOriginEndpointResponseTypeDef(BaseValidatorModel):
     DashManifests: List[GetDashManifestConfigurationTypeDef]
     MssManifests: List[GetMssManifestConfigurationTypeDef]
     ForceEndpointErrorConfiguration: ForceEndpointErrorConfigurationOutputTypeDef
-    ETag: str
+    UriSeparator: UriSeparatorType
+    ETag: Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -948,9 +972,9 @@ class CreateOriginEndpointResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_origin_endpoint' function.
 class GetOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     ContainerType: ContainerTypeType
     Segment: SegmentOutputTypeDef
     CreatedAt: datetime
@@ -963,7 +987,8 @@ class GetOriginEndpointResponseTypeDef(BaseValidatorModel):
     DashManifests: List[GetDashManifestConfigurationTypeDef]
     MssManifests: List[GetMssManifestConfigurationTypeDef]
     ForceEndpointErrorConfiguration: ForceEndpointErrorConfigurationOutputTypeDef
-    ETag: str
+    UriSeparator: UriSeparatorType
+    ETag: Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -971,9 +996,9 @@ class GetOriginEndpointResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_origin_endpoint' function.
 class UpdateOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     ContainerType: ContainerTypeType
     Segment: SegmentOutputTypeDef
     CreatedAt: datetime
@@ -984,7 +1009,8 @@ class UpdateOriginEndpointResponseTypeDef(BaseValidatorModel):
     LowLatencyHlsManifests: List[GetLowLatencyHlsManifestConfigurationTypeDef]
     MssManifests: List[GetMssManifestConfigurationTypeDef]
     ForceEndpointErrorConfiguration: ForceEndpointErrorConfigurationOutputTypeDef
-    ETag: str
+    UriSeparator: UriSeparatorType
+    ETag: Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]
     Tags: Dict[str, str]
     DashManifests: List[GetDashManifestConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -995,12 +1021,12 @@ SegmentUnionTypeDef = Union[SegmentOutputTypeDef, SegmentTypeDef]
 
 # This class is the input for the 'create_origin_endpoint' function.
 class CreateOriginEndpointRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     ContainerType: ContainerTypeType
     Segment: Optional[SegmentUnionTypeDef] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "IdempotencyToken")]] = None
     Description: Optional[str] = None
     StartoverWindowSeconds: Optional[int] = None
     HlsManifests: Optional[List[CreateHlsManifestConfigurationTypeDef]] = None
@@ -1008,14 +1034,15 @@ class CreateOriginEndpointRequestTypeDef(BaseValidatorModel):
     DashManifests: Optional[List[CreateDashManifestConfigurationTypeDef]] = None
     MssManifests: Optional[List[CreateMssManifestConfigurationTypeDef]] = None
     ForceEndpointErrorConfiguration: Optional[ForceEndpointErrorConfigurationUnionTypeDef] = None
+    UriSeparator: Optional[UriSeparatorType] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_origin_endpoint' function.
 class UpdateOriginEndpointRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    OriginEndpointName: str
+    ChannelGroupName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    ChannelName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
+    OriginEndpointName: Annotated[str, _aws_pattern("Mediapackagev2", "ResourceName")]
     ContainerType: ContainerTypeType
     Segment: Optional[SegmentUnionTypeDef] = None
     Description: Optional[str] = None
@@ -1025,4 +1052,5 @@ class UpdateOriginEndpointRequestTypeDef(BaseValidatorModel):
     DashManifests: Optional[List[CreateDashManifestConfigurationTypeDef]] = None
     MssManifests: Optional[List[CreateMssManifestConfigurationTypeDef]] = None
     ForceEndpointErrorConfiguration: Optional[ForceEndpointErrorConfigurationUnionTypeDef] = None
-    ETag: Optional[str] = None
+    UriSeparator: Optional[UriSeparatorType] = None
+    ETag: Optional[Annotated[str, _aws_pattern("Mediapackagev2", "EntityTag")]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.compute_optimizer_automation.compute_optimizer_automation_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class AccountInfoTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]
     status: EnrollmentStatusType
     organizationRuleMode: OrganizationRuleModeType
     lastUpdatedTimestamp: datetime
@@ -48,8 +50,8 @@ class AccountInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_accounts' function.
 class AssociateAccountsRequestTypeDef(BaseValidatorModel):
-    accountIds: List[str]
-    clientToken: Optional[str] = None
+    accountIds: List[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ClientToken")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -62,7 +64,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 class AutomationEventFilterTypeDef(BaseValidatorModel):
     name: AutomationEventFilterNameType
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "FilterValue")]]
 
 
 class EstimatedMonthlySavingsTypeDef(BaseValidatorModel):
@@ -94,8 +96,8 @@ class ScheduleTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "TagKey")]
+    value: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "TagValue")]
 
 
 class DoubleCriteriaConditionOutputTypeDef(BaseValidatorModel):
@@ -131,25 +133,25 @@ class IntegerCriteriaConditionTypeDef(BaseValidatorModel):
 
 class ResourceTagsCriteriaConditionTypeDef(BaseValidatorModel):
     comparison: Optional[ComparisonOperatorType] = None
-    key: Optional[str] = None
-    values: Optional[List[str]] = None
+    key: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "StringCriteriaValue")]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "StringCriteriaValue")]]] = None
 
 
 class StringCriteriaConditionTypeDef(BaseValidatorModel):
     comparison: Optional[ComparisonOperatorType] = None
-    values: Optional[List[str]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "StringCriteriaValue")]]] = None
 
 
 class DeleteAutomationRuleRequestTypeDef(BaseValidatorModel):
-    ruleArn: str
+    ruleArn: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleArn")]
     ruleRevision: int
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ClientToken")]] = None
 
 
 # This class is the input for the 'disassociate_accounts' function.
 class DisassociateAccountsRequestTypeDef(BaseValidatorModel):
-    accountIds: List[str]
-    clientToken: Optional[str] = None
+    accountIds: List[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ClientToken")]] = None
 
 
 class EbsVolumeConfigurationTypeDef(BaseValidatorModel):
@@ -161,17 +163,17 @@ class EbsVolumeConfigurationTypeDef(BaseValidatorModel):
 
 class FilterTypeDef(BaseValidatorModel):
     name: AutomationRuleFilterNameType
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "FilterValue")]]
 
 
 # This class is the input for the 'get_automation_event' function.
 class GetAutomationEventRequestTypeDef(BaseValidatorModel):
-    eventId: str
+    eventId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "EventId")]
 
 
 # This class is the input for the 'get_automation_rule' function.
 class GetAutomationRuleRequestTypeDef(BaseValidatorModel):
-    ruleArn: str
+    ruleArn: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -183,73 +185,73 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_accounts' function.
 class ListAccountsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 # This class is the input for the 'list_automation_event_steps' function.
 class ListAutomationEventStepsRequestTypeDef(BaseValidatorModel):
-    eventId: str
+    eventId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "EventId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class OrganizationScopeTypeDef(BaseValidatorModel):
-    accountIds: Optional[List[str]] = None
+    accountIds: Optional[List[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]]] = None
 
 
 class RecommendedActionFilterTypeDef(BaseValidatorModel):
     name: RecommendedActionFilterNameType
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "FilterValue")]]
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleArn")]
 
 
 class OrganizationConfigurationTypeDef(BaseValidatorModel):
     ruleApplyOrder: Optional[RuleApplyOrderType] = None
-    accountIds: Optional[List[str]] = None
+    accountIds: Optional[List[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]]] = None
 
 
 # This class is the input for the 'rollback_automation_event' function.
 class RollbackAutomationEventRequestTypeDef(BaseValidatorModel):
-    eventId: str
-    clientToken: Optional[str] = None
+    eventId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "EventId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ClientToken")]] = None
 
 
 # This class is the input for the 'start_automation_event' function.
 class StartAutomationEventRequestTypeDef(BaseValidatorModel):
-    recommendedActionId: str
-    clientToken: Optional[str] = None
+    recommendedActionId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RecommendedActionId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ClientToken")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleArn")]
     ruleRevision: int
     tagKeys: List[str]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_enrollment_configuration' function.
 class UpdateEnrollmentConfigurationRequestTypeDef(BaseValidatorModel):
     status: EnrollmentStatusType
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ClientToken")]] = None
 
 
 # This class is the output for the 'associate_accounts' function.
 class AssociateAccountsResponseTypeDef(BaseValidatorModel):
-    accountIds: List[str]
+    accountIds: List[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]]
     errors: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disassociate_accounts' function.
 class DisassociateAccountsResponseTypeDef(BaseValidatorModel):
-    accountIds: List[str]
+    accountIds: List[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]]
     errors: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -266,20 +268,20 @@ class GetEnrollmentConfigurationResponseTypeDef(BaseValidatorModel):
 class ListAccountsResponseTypeDef(BaseValidatorModel):
     accounts: List[AccountInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 # This class is the output for the 'rollback_automation_event' function.
 class RollbackAutomationEventResponseTypeDef(BaseValidatorModel):
-    eventId: str
+    eventId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "EventId")]
     eventStatus: EventStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_automation_event' function.
 class StartAutomationEventResponseTypeDef(BaseValidatorModel):
-    recommendedActionId: str
-    eventId: str
+    recommendedActionId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RecommendedActionId")]
+    eventId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "EventId")]
     eventStatus: EventStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -298,32 +300,34 @@ class ListAutomationEventSummariesRequestTypeDef(BaseValidatorModel):
     startDateInclusive: Optional[str] = None
     endDateExclusive: Optional[str] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 class AutomationEventStepTypeDef(BaseValidatorModel):
-    eventId: Optional[str] = None
-    stepId: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "EventId")]] = None
+    stepId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "StepId")]] = None
     stepType: Optional[StepTypeType] = None
     stepStatus: Optional[StepStatusType] = None
-    resourceId: Optional[str] = None
+    resourceId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ResourceId")]] = None
     startTimestamp: Optional[datetime] = None
     completedTimestamp: Optional[datetime] = None
     estimatedMonthlySavings: Optional[EstimatedMonthlySavingsTypeDef] = None
 
 
 class AutomationEventTypeDef(BaseValidatorModel):
-    eventId: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "EventId")]] = None
     eventDescription: Optional[str] = None
     eventType: Optional[EventTypeType] = None
     eventStatus: Optional[EventStatusType] = None
     eventStatusReason: Optional[str] = None
-    resourceArn: Optional[str] = None
-    resourceId: Optional[str] = None
-    recommendedActionId: Optional[str] = None
-    accountId: Optional[str] = None
+    resourceArn: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ResourceArn")]] = None
+    resourceId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ResourceId")]] = None
+    recommendedActionId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RecommendedActionId")]] = (
+        None
+    )
+    accountId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]] = None
     region: Optional[str] = None
-    ruleId: Optional[str] = None
+    ruleId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleId")]] = None
     resourceType: Optional[Literal["EbsVolume"]] = None
     createdTimestamp: Optional[datetime] = None
     completedTimestamp: Optional[datetime] = None
@@ -332,17 +336,17 @@ class AutomationEventTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_automation_event' function.
 class GetAutomationEventResponseTypeDef(BaseValidatorModel):
-    eventId: str
+    eventId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "EventId")]
     eventDescription: str
     eventType: EventTypeType
     eventStatus: EventStatusType
     eventStatusReason: str
-    resourceArn: str
-    resourceId: str
-    recommendedActionId: str
-    accountId: str
+    resourceArn: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ResourceArn")]
+    resourceId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ResourceId")]
+    recommendedActionId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RecommendedActionId")]
+    accountId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]
     region: str
-    ruleId: str
+    ruleId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleId")]
     resourceType: Literal["EbsVolume"]
     createdTimestamp: datetime
     completedTimestamp: datetime
@@ -366,13 +370,13 @@ class SummaryTotalsTypeDef(BaseValidatorModel):
 
 
 class AutomationRuleTypeDef(BaseValidatorModel):
-    ruleArn: Optional[str] = None
-    ruleId: Optional[str] = None
-    name: Optional[str] = None
+    ruleArn: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleArn")]] = None
+    ruleId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleName")]] = None
     description: Optional[str] = None
     ruleType: Optional[RuleTypeType] = None
     ruleRevision: Optional[int] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]] = None
     organizationConfiguration: Optional[OrganizationConfigurationOutputTypeDef] = None
     priority: Optional[str] = None
     recommendedActionTypes: Optional[List[RecommendedActionTypeType]] = None
@@ -389,10 +393,10 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleArn")]
     ruleRevision: int
     tags: List[TagTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ClientToken")]] = None
 
 
 class CriteriaOutputTypeDef(BaseValidatorModel):
@@ -425,7 +429,7 @@ class EbsVolumeTypeDef(BaseValidatorModel):
 class ListAutomationRulesRequestTypeDef(BaseValidatorModel):
     filters: Optional[List[FilterTypeDef]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 class ListAccountsRequestPaginateTypeDef(BaseValidatorModel):
@@ -462,7 +466,7 @@ class ListAutomationEventsRequestTypeDef(BaseValidatorModel):
     startTimeInclusive: Optional[TimestampTypeDef] = None
     endTimeExclusive: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 class ListRecommendedActionSummariesRequestPaginateTypeDef(BaseValidatorModel):
@@ -474,7 +478,7 @@ class ListRecommendedActionSummariesRequestPaginateTypeDef(BaseValidatorModel):
 class ListRecommendedActionSummariesRequestTypeDef(BaseValidatorModel):
     filters: Optional[List[RecommendedActionFilterTypeDef]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 class ListRecommendedActionsRequestPaginateTypeDef(BaseValidatorModel):
@@ -486,7 +490,7 @@ class ListRecommendedActionsRequestPaginateTypeDef(BaseValidatorModel):
 class ListRecommendedActionsRequestTypeDef(BaseValidatorModel):
     filters: Optional[List[RecommendedActionFilterTypeDef]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 OrganizationConfigurationUnionTypeDef = Union[OrganizationConfigurationOutputTypeDef, OrganizationConfigurationTypeDef]
@@ -496,14 +500,14 @@ OrganizationConfigurationUnionTypeDef = Union[OrganizationConfigurationOutputTyp
 class ListAutomationEventStepsResponseTypeDef(BaseValidatorModel):
     automationEventSteps: List[AutomationEventStepTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 # This class is the output for the 'list_automation_events' function.
 class ListAutomationEventsResponseTypeDef(BaseValidatorModel):
     automationEvents: List[AutomationEventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 class RecommendedActionSummaryTypeDef(BaseValidatorModel):
@@ -527,14 +531,14 @@ class AutomationEventSummaryTypeDef(BaseValidatorModel):
 class ListAutomationRulesResponseTypeDef(BaseValidatorModel):
     automationRules: List[AutomationRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 # This class is the output for the 'create_automation_rule' function.
 class CreateAutomationRuleResponseTypeDef(BaseValidatorModel):
-    ruleArn: str
-    ruleId: str
-    name: str
+    ruleArn: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleArn")]
+    ruleId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleId")]
+    name: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleName")]
     description: str
     ruleType: RuleTypeType
     ruleRevision: int
@@ -551,13 +555,13 @@ class CreateAutomationRuleResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_automation_rule' function.
 class GetAutomationRuleResponseTypeDef(BaseValidatorModel):
-    ruleArn: str
-    ruleId: str
-    name: str
+    ruleArn: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleArn")]
+    ruleId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleId")]
+    name: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleName")]
     description: str
     ruleType: RuleTypeType
     ruleRevision: int
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]
     organizationConfiguration: OrganizationConfigurationOutputTypeDef
     priority: str
     recommendedActionTypes: List[RecommendedActionTypeType]
@@ -572,9 +576,9 @@ class GetAutomationRuleResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_automation_rule' function.
 class UpdateAutomationRuleResponseTypeDef(BaseValidatorModel):
-    ruleArn: str
+    ruleArn: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleArn")]
     ruleRevision: int
-    name: str
+    name: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleName")]
     description: str
     ruleType: RuleTypeType
     organizationConfiguration: OrganizationConfigurationOutputTypeDef
@@ -599,36 +603,36 @@ class ResourceDetailsTypeDef(BaseValidatorModel):
 class ListRecommendedActionSummariesResponseTypeDef(BaseValidatorModel):
     recommendedActionSummaries: List[RecommendedActionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 # This class is the output for the 'list_automation_rule_preview_summaries' function.
 class ListAutomationRulePreviewSummariesResponseTypeDef(BaseValidatorModel):
     previewResultSummaries: List[PreviewResultSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 # This class is the output for the 'list_automation_event_summaries' function.
 class ListAutomationEventSummariesResponseTypeDef(BaseValidatorModel):
     automationEventSummaries: List[AutomationEventSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 # This class is the input for the 'create_automation_rule' function.
 class CreateAutomationRuleRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleName")]
     ruleType: RuleTypeType
     recommendedActionTypes: List[RecommendedActionTypeType]
     schedule: ScheduleTypeDef
     status: RuleStatusType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleDescription")]] = None
     organizationConfiguration: Optional[OrganizationConfigurationUnionTypeDef] = None
     priority: Optional[str] = None
     criteria: Optional[CriteriaUnionTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ClientToken")]] = None
 
 
 class ListAutomationRulePreviewRequestPaginateTypeDef(BaseValidatorModel):
@@ -646,7 +650,7 @@ class ListAutomationRulePreviewRequestTypeDef(BaseValidatorModel):
     organizationScope: Optional[OrganizationScopeTypeDef] = None
     criteria: Optional[CriteriaUnionTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 class ListAutomationRulePreviewSummariesRequestPaginateTypeDef(BaseValidatorModel):
@@ -664,15 +668,15 @@ class ListAutomationRulePreviewSummariesRequestTypeDef(BaseValidatorModel):
     organizationScope: Optional[OrganizationScopeTypeDef] = None
     criteria: Optional[CriteriaUnionTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 # This class is the input for the 'update_automation_rule' function.
 class UpdateAutomationRuleRequestTypeDef(BaseValidatorModel):
-    ruleArn: str
+    ruleArn: Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleArn")]
     ruleRevision: int
-    name: Optional[str] = None
-    description: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RuleDescription")]] = None
     ruleType: Optional[RuleTypeType] = None
     organizationConfiguration: Optional[OrganizationConfigurationUnionTypeDef] = None
     priority: Optional[str] = None
@@ -680,14 +684,16 @@ class UpdateAutomationRuleRequestTypeDef(BaseValidatorModel):
     criteria: Optional[CriteriaUnionTypeDef] = None
     schedule: Optional[ScheduleTypeDef] = None
     status: Optional[RuleStatusType] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ClientToken")]] = None
 
 
 class PreviewResultTypeDef(BaseValidatorModel):
-    recommendedActionId: Optional[str] = None
-    resourceArn: Optional[str] = None
-    resourceId: Optional[str] = None
-    accountId: Optional[str] = None
+    recommendedActionId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RecommendedActionId")]] = (
+        None
+    )
+    resourceArn: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ResourceArn")]] = None
+    resourceId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ResourceId")]] = None
+    accountId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]] = None
     region: Optional[str] = None
     resourceType: Optional[Literal["EbsVolume"]] = None
     lookBackPeriodInDays: Optional[int] = None
@@ -702,10 +708,12 @@ class PreviewResultTypeDef(BaseValidatorModel):
 
 
 class RecommendedActionTypeDef(BaseValidatorModel):
-    recommendedActionId: Optional[str] = None
-    resourceArn: Optional[str] = None
-    resourceId: Optional[str] = None
-    accountId: Optional[str] = None
+    recommendedActionId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "RecommendedActionId")]] = (
+        None
+    )
+    resourceArn: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ResourceArn")]] = None
+    resourceId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "ResourceId")]] = None
+    accountId: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "AccountId")]] = None
     region: Optional[str] = None
     resourceType: Optional[Literal["EbsVolume"]] = None
     lookBackPeriodInDays: Optional[int] = None
@@ -723,11 +731,11 @@ class RecommendedActionTypeDef(BaseValidatorModel):
 class ListAutomationRulePreviewResponseTypeDef(BaseValidatorModel):
     previewResults: List[PreviewResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None
 
 
 # This class is the output for the 'list_recommended_actions' function.
 class ListRecommendedActionsResponseTypeDef(BaseValidatorModel):
     recommendedActions: List[RecommendedActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("ComputeOptimizerAutomation", "NextToken")]] = None

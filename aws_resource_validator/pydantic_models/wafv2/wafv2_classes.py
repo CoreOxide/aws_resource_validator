@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.wafv2.wafv2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class APIKeySummaryTypeDef(BaseValidatorModel):
-    TokenDomains: Optional[List[str]] = None
-    APIKey: Optional[str] = None
+    TokenDomains: Optional[List[Annotated[str, _aws_pattern("Wafv2", "TokenDomain")]]] = None
+    APIKey: Optional[Annotated[str, _aws_pattern("Wafv2", "APIKey")]] = None
     CreationTimestamp: Optional[datetime] = None
     Version: Optional[int] = None
 
@@ -55,7 +57,7 @@ class ActionConditionTypeDef(BaseValidatorModel):
 
 
 class AddressFieldTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Wafv2", "FieldIdentifier")]
 
 
 class AndStatementOutputTypeDef(BaseValidatorModel):
@@ -72,18 +74,18 @@ class ApplicationAttributeOutputTypeDef(BaseValidatorModel):
 
 
 class ApplicationAttributeTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "AttributeName")]] = None
     Values: Optional[List[str]] = None
 
 
 class ForwardedIPConfigTypeDef(BaseValidatorModel):
-    HeaderName: str
+    HeaderName: Annotated[str, _aws_pattern("Wafv2", "ForwardedIPHeaderName")]
     FallbackBehavior: FallbackBehaviorType
 
 
 class AssociateWebACLRequestTypeDef(BaseValidatorModel):
-    WebACLArn: str
-    ResourceArn: str
+    WebACLArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
+    ResourceArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
 
 
 class RequestBodyAssociatedResourceTypeConfigTypeDef(BaseValidatorModel):
@@ -98,7 +100,7 @@ class BodyTypeDef(BaseValidatorModel):
 
 
 class BotStatisticsTypeDef(BaseValidatorModel):
-    BotName: str
+    BotName: Annotated[str, _aws_pattern("Wafv2", "FilterString")]
     RequestCount: int
     Percentage: float
 
@@ -133,11 +135,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class RegexTypeDef(BaseValidatorModel):
-    RegexString: Optional[str] = None
+    RegexString: Optional[Annotated[str, _aws_pattern("Wafv2", "RegexPatternString")]] = None
 
 
 class LabelNameConditionTypeDef(BaseValidatorModel):
-    LabelName: str
+    LabelName: Annotated[str, _aws_pattern("Wafv2", "LabelName")]
 
 
 class CookieMatchPatternOutputTypeDef(BaseValidatorModel):
@@ -148,54 +150,54 @@ class CookieMatchPatternOutputTypeDef(BaseValidatorModel):
 
 class CookieMatchPatternTypeDef(BaseValidatorModel):
     All: Optional[Dict[str, Any]] = None
-    IncludedCookies: Optional[List[str]] = None
-    ExcludedCookies: Optional[List[str]] = None
+    IncludedCookies: Optional[List[Annotated[str, _aws_pattern("Wafv2", "SingleCookieName")]]] = None
+    ExcludedCookies: Optional[List[Annotated[str, _aws_pattern("Wafv2", "SingleCookieName")]]] = None
 
 
 # This class is the input for the 'create_api_key' function.
 class CreateAPIKeyRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    TokenDomains: List[str]
+    TokenDomains: List[Annotated[str, _aws_pattern("Wafv2", "TokenDomain")]]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Wafv2", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Wafv2", "TagValue")]
 
 
 class IPSetSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Id: Optional[str] = None
-    Description: Optional[str] = None
-    LockToken: Optional[str] = None
-    ARN: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
+    LockToken: Optional[Annotated[str, _aws_pattern("Wafv2", "LockToken")]] = None
+    ARN: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
 
 
 class RegexPatternSetSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Id: Optional[str] = None
-    Description: Optional[str] = None
-    LockToken: Optional[str] = None
-    ARN: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
+    LockToken: Optional[Annotated[str, _aws_pattern("Wafv2", "LockToken")]] = None
+    ARN: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
 
 
 class CustomResponseBodyTypeDef(BaseValidatorModel):
     ContentType: ResponseContentTypeType
-    Content: str
+    Content: Annotated[str, _aws_pattern("Wafv2", "ResponseContent")]
 
 
 class VisibilityConfigTypeDef(BaseValidatorModel):
     SampledRequestsEnabled: bool
     CloudWatchMetricsEnabled: bool
-    MetricName: str
+    MetricName: Annotated[str, _aws_pattern("Wafv2", "MetricName")]
 
 
 class RuleGroupSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Id: Optional[str] = None
-    Description: Optional[str] = None
-    LockToken: Optional[str] = None
-    ARN: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
+    LockToken: Optional[Annotated[str, _aws_pattern("Wafv2", "LockToken")]] = None
+    ARN: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
 
 
 class OnSourceDDoSProtectionConfigTypeDef(BaseValidatorModel):
@@ -203,16 +205,16 @@ class OnSourceDDoSProtectionConfigTypeDef(BaseValidatorModel):
 
 
 class WebACLSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Id: Optional[str] = None
-    Description: Optional[str] = None
-    LockToken: Optional[str] = None
-    ARN: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
+    LockToken: Optional[Annotated[str, _aws_pattern("Wafv2", "LockToken")]] = None
+    ARN: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
 
 
 class CustomHTTPHeaderTypeDef(BaseValidatorModel):
-    Name: str
-    Value: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "CustomHTTPHeaderName")]
+    Value: Annotated[str, _aws_pattern("Wafv2", "CustomHTTPHeaderValue")]
 
 
 class FieldToProtectOutputTypeDef(BaseValidatorModel):
@@ -222,56 +224,56 @@ class FieldToProtectOutputTypeDef(BaseValidatorModel):
 
 class FieldToProtectTypeDef(BaseValidatorModel):
     FieldType: FieldToProtectTypeType
-    FieldKeys: Optional[List[str]] = None
+    FieldKeys: Optional[List[Annotated[str, _aws_pattern("Wafv2", "FieldToProtectKeyName")]]] = None
 
 
 class DeleteAPIKeyRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    APIKey: str
+    APIKey: Annotated[str, _aws_pattern("Wafv2", "APIKey")]
 
 
 # This class is the input for the 'delete_firewall_manager_rule_groups' function.
 class DeleteFirewallManagerRuleGroupsRequestTypeDef(BaseValidatorModel):
-    WebACLArn: str
-    WebACLLockToken: str
+    WebACLArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
+    WebACLLockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
 
 
 class DeleteIPSetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
-    LockToken: str
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
 
 
 class DeleteLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     LogType: Optional[Literal["WAF_LOGS"]] = None
     LogScope: Optional[LogScopeType] = None
 
 
 class DeletePermissionPolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
 
 
 class DeleteRegexPatternSetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
-    LockToken: str
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
 
 
 class DeleteRuleGroupRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
-    LockToken: str
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
 
 
 class DeleteWebACLRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
-    LockToken: str
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
 
 
 # This class is the input for the 'describe_all_managed_products' function.
@@ -280,45 +282,45 @@ class DescribeAllManagedProductsRequestTypeDef(BaseValidatorModel):
 
 
 class ManagedProductDescriptorTypeDef(BaseValidatorModel):
-    VendorName: Optional[str] = None
-    ManagedRuleSetName: Optional[str] = None
-    ProductId: Optional[str] = None
-    ProductLink: Optional[str] = None
-    ProductTitle: Optional[str] = None
-    ProductDescription: Optional[str] = None
-    SnsTopicArn: Optional[str] = None
+    VendorName: Optional[Annotated[str, _aws_pattern("Wafv2", "VendorName")]] = None
+    ManagedRuleSetName: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Wafv2", "ProductId")]] = None
+    ProductLink: Optional[Annotated[str, _aws_pattern("Wafv2", "ProductLink")]] = None
+    ProductTitle: Optional[Annotated[str, _aws_pattern("Wafv2", "ProductTitle")]] = None
+    ProductDescription: Optional[Annotated[str, _aws_pattern("Wafv2", "ProductDescription")]] = None
+    SnsTopicArn: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
     IsVersioningSupported: Optional[bool] = None
     IsAdvancedManagedRuleSet: Optional[bool] = None
 
 
 # This class is the input for the 'describe_managed_products_by_vendor' function.
 class DescribeManagedProductsByVendorRequestTypeDef(BaseValidatorModel):
-    VendorName: str
+    VendorName: Annotated[str, _aws_pattern("Wafv2", "VendorName")]
     Scope: ScopeType
 
 
 # This class is the input for the 'describe_managed_rule_group' function.
 class DescribeManagedRuleGroupRequestTypeDef(BaseValidatorModel):
-    VendorName: str
-    Name: str
+    VendorName: Annotated[str, _aws_pattern("Wafv2", "VendorName")]
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    VersionName: Optional[str] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]] = None
 
 
 class LabelSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "LabelName")]] = None
 
 
 class DisassociateWebACLRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
 
 
 class EmailFieldTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Wafv2", "FieldIdentifier")]
 
 
 class ExcludedRuleTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
 
 
 class HeaderOrderTypeDef(BaseValidatorModel):
@@ -334,11 +336,11 @@ class JA4FingerprintTypeDef(BaseValidatorModel):
 
 
 class SingleHeaderTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "FieldToMatchData")]
 
 
 class SingleQueryArgumentTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "FieldToMatchData")]
 
 
 class UriFragmentTypeDef(BaseValidatorModel):
@@ -346,91 +348,91 @@ class UriFragmentTypeDef(BaseValidatorModel):
 
 
 class FilterSourceTypeDef(BaseValidatorModel):
-    BotCategory: Optional[str] = None
-    BotOrganization: Optional[str] = None
-    BotName: Optional[str] = None
+    BotCategory: Optional[Annotated[str, _aws_pattern("Wafv2", "FilterString")]] = None
+    BotOrganization: Optional[Annotated[str, _aws_pattern("Wafv2", "FilterString")]] = None
+    BotName: Optional[Annotated[str, _aws_pattern("Wafv2", "FilterString")]] = None
 
 
 # This class is the input for the 'generate_mobile_sdk_release_url' function.
 class GenerateMobileSdkReleaseUrlRequestTypeDef(BaseValidatorModel):
     Platform: PlatformType
-    ReleaseVersion: str
+    ReleaseVersion: Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]
 
 
 # This class is the input for the 'get_decrypted_api_key' function.
 class GetDecryptedAPIKeyRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    APIKey: str
+    APIKey: Annotated[str, _aws_pattern("Wafv2", "APIKey")]
 
 
 # This class is the input for the 'get_ip_set' function.
 class GetIPSetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
 
 
 class IPSetTypeDef(BaseValidatorModel):
-    Name: str
-    Id: str
-    ARN: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
+    ARN: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     IPAddressVersion: IPAddressVersionType
-    Addresses: List[str]
-    Description: Optional[str] = None
+    Addresses: List[Annotated[str, _aws_pattern("Wafv2", "IPAddress")]]
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
 
 
 # This class is the input for the 'get_logging_configuration' function.
 class GetLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     LogType: Optional[Literal["WAF_LOGS"]] = None
     LogScope: Optional[LogScopeType] = None
 
 
 # This class is the input for the 'get_managed_rule_set' function.
 class GetManagedRuleSetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
 
 
 # This class is the input for the 'get_mobile_sdk_release' function.
 class GetMobileSdkReleaseRequestTypeDef(BaseValidatorModel):
     Platform: PlatformType
-    ReleaseVersion: str
+    ReleaseVersion: Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]
 
 
 # This class is the input for the 'get_permission_policy' function.
 class GetPermissionPolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
 
 
 # This class is the input for the 'get_rate_based_statement_managed_keys' function.
 class GetRateBasedStatementManagedKeysRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    WebACLName: str
-    WebACLId: str
-    RuleName: str
-    RuleGroupRuleName: Optional[str] = None
+    WebACLName: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
+    WebACLId: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
+    RuleName: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
+    RuleGroupRuleName: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
 
 
 class RateBasedStatementManagedKeysIPSetTypeDef(BaseValidatorModel):
     IPAddressVersion: Optional[IPAddressVersionType] = None
-    Addresses: Optional[List[str]] = None
+    Addresses: Optional[List[Annotated[str, _aws_pattern("Wafv2", "IPAddress")]]] = None
 
 
 # This class is the input for the 'get_regex_pattern_set' function.
 class GetRegexPatternSetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
 
 
 # This class is the input for the 'get_rule_group' function.
 class GetRuleGroupRequestTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
     Scope: Optional[ScopeType] = None
-    Id: Optional[str] = None
-    ARN: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityId")]] = None
+    ARN: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
 
 
 class TimeWindowOutputTypeDef(BaseValidatorModel):
@@ -440,15 +442,15 @@ class TimeWindowOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_web_acl_for_resource' function.
 class GetWebACLForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
 
 
 # This class is the input for the 'get_web_acl' function.
 class GetWebACLRequestTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
     Scope: Optional[ScopeType] = None
-    Id: Optional[str] = None
-    ARN: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityId")]] = None
+    ARN: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
 
 
 class HTTPHeaderTypeDef(BaseValidatorModel):
@@ -464,12 +466,12 @@ class HeaderMatchPatternOutputTypeDef(BaseValidatorModel):
 
 class HeaderMatchPatternTypeDef(BaseValidatorModel):
     All: Optional[Dict[str, Any]] = None
-    IncludedHeaders: Optional[List[str]] = None
-    ExcludedHeaders: Optional[List[str]] = None
+    IncludedHeaders: Optional[List[Annotated[str, _aws_pattern("Wafv2", "FieldToMatchData")]]] = None
+    ExcludedHeaders: Optional[List[Annotated[str, _aws_pattern("Wafv2", "FieldToMatchData")]]] = None
 
 
 class IPSetForwardedIPConfigTypeDef(BaseValidatorModel):
-    HeaderName: str
+    HeaderName: Annotated[str, _aws_pattern("Wafv2", "ForwardedIPHeaderName")]
     FallbackBehavior: FallbackBehaviorType
     Position: ForwardedIPPositionType
 
@@ -481,64 +483,64 @@ class JsonMatchPatternOutputTypeDef(BaseValidatorModel):
 
 class JsonMatchPatternTypeDef(BaseValidatorModel):
     All: Optional[Dict[str, Any]] = None
-    IncludedPaths: Optional[List[str]] = None
+    IncludedPaths: Optional[List[Annotated[str, _aws_pattern("Wafv2", "JsonPointerPath")]]] = None
 
 
 class LabelMatchStatementTypeDef(BaseValidatorModel):
     Scope: LabelMatchScopeType
-    Key: str
+    Key: Annotated[str, _aws_pattern("Wafv2", "LabelMatchKey")]
 
 
 class LabelTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "LabelName")]
 
 
 # This class is the input for the 'list_api_keys' function.
 class ListAPIKeysRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_available_managed_rule_group_versions' function.
 class ListAvailableManagedRuleGroupVersionsRequestTypeDef(BaseValidatorModel):
-    VendorName: str
-    Name: str
+    VendorName: Annotated[str, _aws_pattern("Wafv2", "VendorName")]
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class ManagedRuleGroupVersionTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]] = None
     LastUpdateTimestamp: Optional[datetime] = None
 
 
 # This class is the input for the 'list_available_managed_rule_groups' function.
 class ListAvailableManagedRuleGroupsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class ManagedRuleGroupSummaryTypeDef(BaseValidatorModel):
-    VendorName: Optional[str] = None
-    Name: Optional[str] = None
+    VendorName: Optional[Annotated[str, _aws_pattern("Wafv2", "VendorName")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
     VersioningSupported: Optional[bool] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
 
 
 # This class is the input for the 'list_ip_sets' function.
 class ListIPSetsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_logging_configurations' function.
 class ListLoggingConfigurationsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
     Limit: Optional[int] = None
     LogScope: Optional[LogScopeType] = None
 
@@ -546,75 +548,75 @@ class ListLoggingConfigurationsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_managed_rule_sets' function.
 class ListManagedRuleSetsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class ManagedRuleSetSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Id: Optional[str] = None
-    Description: Optional[str] = None
-    LockToken: Optional[str] = None
-    ARN: Optional[str] = None
-    LabelNamespace: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
+    LockToken: Optional[Annotated[str, _aws_pattern("Wafv2", "LockToken")]] = None
+    ARN: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
+    LabelNamespace: Optional[Annotated[str, _aws_pattern("Wafv2", "LabelName")]] = None
 
 
 # This class is the input for the 'list_mobile_sdk_releases' function.
 class ListMobileSdkReleasesRequestTypeDef(BaseValidatorModel):
     Platform: PlatformType
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class ReleaseSummaryTypeDef(BaseValidatorModel):
-    ReleaseVersion: Optional[str] = None
+    ReleaseVersion: Optional[Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]] = None
     Timestamp: Optional[datetime] = None
 
 
 # This class is the input for the 'list_regex_pattern_sets' function.
 class ListRegexPatternSetsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_resources_for_web_acl' function.
 class ListResourcesForWebACLRequestTypeDef(BaseValidatorModel):
-    WebACLArn: str
+    WebACLArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     ResourceType: Optional[ResourceTypeType] = None
 
 
 # This class is the input for the 'list_rule_groups' function.
 class ListRuleGroupsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    NextMarker: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_web_acls' function.
 class ListWebACLsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
-    NextMarker: Optional[str] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
     Limit: Optional[int] = None
 
 
 class PasswordFieldTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Wafv2", "FieldIdentifier")]
 
 
 class UsernameFieldTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Wafv2", "FieldIdentifier")]
 
 
 class ManagedRuleSetVersionTypeDef(BaseValidatorModel):
-    AssociatedRuleGroupArn: Optional[str] = None
+    AssociatedRuleGroupArn: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
     Capacity: Optional[int] = None
     ForecastedLifetime: Optional[int] = None
     PublishTimestamp: Optional[datetime] = None
@@ -639,17 +641,17 @@ class OrStatementTypeDef(BaseValidatorModel):
 
 
 class PhoneNumberFieldTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Wafv2", "FieldIdentifier")]
 
 
 class VersionToPublishTypeDef(BaseValidatorModel):
-    AssociatedRuleGroupArn: Optional[str] = None
+    AssociatedRuleGroupArn: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
     ForecastedLifetime: Optional[int] = None
 
 
 class PutPermissionPolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    Policy: str
+    ResourceArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
+    Policy: Annotated[str, _aws_pattern("Wafv2", "PolicyString")]
 
 
 class RateLimitJA3FingerprintTypeDef(BaseValidatorModel):
@@ -661,7 +663,7 @@ class RateLimitJA4FingerprintTypeDef(BaseValidatorModel):
 
 
 class RateLimitLabelNamespaceTypeDef(BaseValidatorModel):
-    Namespace: str
+    Namespace: Annotated[str, _aws_pattern("Wafv2", "LabelNamespace")]
 
 
 class ResponseInspectionBodyContainsOutputTypeDef(BaseValidatorModel):
@@ -670,8 +672,8 @@ class ResponseInspectionBodyContainsOutputTypeDef(BaseValidatorModel):
 
 
 class ResponseInspectionBodyContainsTypeDef(BaseValidatorModel):
-    SuccessStrings: List[str]
-    FailureStrings: List[str]
+    SuccessStrings: List[Annotated[str, _aws_pattern("Wafv2", "SuccessValue")]]
+    FailureStrings: List[Annotated[str, _aws_pattern("Wafv2", "FailureValue")]]
 
 
 class ResponseInspectionHeaderOutputTypeDef(BaseValidatorModel):
@@ -681,9 +683,9 @@ class ResponseInspectionHeaderOutputTypeDef(BaseValidatorModel):
 
 
 class ResponseInspectionHeaderTypeDef(BaseValidatorModel):
-    Name: str
-    SuccessValues: List[str]
-    FailureValues: List[str]
+    Name: Annotated[str, _aws_pattern("Wafv2", "ResponseInspectionHeaderName")]
+    SuccessValues: List[Annotated[str, _aws_pattern("Wafv2", "SuccessValue")]]
+    FailureValues: List[Annotated[str, _aws_pattern("Wafv2", "FailureValue")]]
 
 
 class ResponseInspectionJsonOutputTypeDef(BaseValidatorModel):
@@ -693,9 +695,9 @@ class ResponseInspectionJsonOutputTypeDef(BaseValidatorModel):
 
 
 class ResponseInspectionJsonTypeDef(BaseValidatorModel):
-    Identifier: str
-    SuccessValues: List[str]
-    FailureValues: List[str]
+    Identifier: Annotated[str, _aws_pattern("Wafv2", "FieldIdentifier")]
+    SuccessValues: List[Annotated[str, _aws_pattern("Wafv2", "SuccessValue")]]
+    FailureValues: List[Annotated[str, _aws_pattern("Wafv2", "FailureValue")]]
 
 
 class ResponseInspectionStatusCodeOutputTypeDef(BaseValidatorModel):
@@ -712,18 +714,18 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    TagKeys: List[str]
+    ResourceARN: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Wafv2", "TagKey")]]
 
 
 # This class is the input for the 'update_ip_set' function.
 class UpdateIPSetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
-    Addresses: List[str]
-    LockToken: str
-    Description: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
+    Addresses: List[Annotated[str, _aws_pattern("Wafv2", "IPAddress")]]
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
 
 
 AndStatementUnionTypeDef = Union[AndStatementOutputTypeDef, AndStatementTypeDef]
@@ -771,7 +773,7 @@ class RateLimitCookieOutputTypeDef(BaseValidatorModel):
 
 
 class RateLimitCookieTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "FieldToMatchData")]
     TextTransformations: List[TextTransformationTypeDef]
 
 
@@ -781,7 +783,7 @@ class RateLimitHeaderOutputTypeDef(BaseValidatorModel):
 
 
 class RateLimitHeaderTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "FieldToMatchData")]
     TextTransformations: List[TextTransformationTypeDef]
 
 
@@ -791,7 +793,7 @@ class RateLimitQueryArgumentOutputTypeDef(BaseValidatorModel):
 
 
 class RateLimitQueryArgumentTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "FieldToMatchData")]
     TextTransformations: List[TextTransformationTypeDef]
 
 
@@ -827,13 +829,13 @@ class CheckCapacityResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_api_key' function.
 class CreateAPIKeyResponseTypeDef(BaseValidatorModel):
-    APIKey: str
+    APIKey: Annotated[str, _aws_pattern("Wafv2", "APIKey")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_firewall_manager_rule_groups' function.
 class DeleteFirewallManagerRuleGroupsResponseTypeDef(BaseValidatorModel):
-    NextWebACLLockToken: str
+    NextWebACLLockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -845,20 +847,20 @@ class GenerateMobileSdkReleaseUrlResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_decrypted_api_key' function.
 class GetDecryptedAPIKeyResponseTypeDef(BaseValidatorModel):
-    TokenDomains: List[str]
+    TokenDomains: List[Annotated[str, _aws_pattern("Wafv2", "TokenDomain")]]
     CreationTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_permission_policy' function.
 class GetPermissionPolicyResponseTypeDef(BaseValidatorModel):
-    Policy: str
+    Policy: Annotated[str, _aws_pattern("Wafv2", "PolicyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_api_keys' function.
 class ListAPIKeysResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     APIKeySummaries: List[APIKeySummaryTypeDef]
     ApplicationIntegrationURL: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -866,45 +868,45 @@ class ListAPIKeysResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_resources_for_web_acl' function.
 class ListResourcesForWebACLResponseTypeDef(BaseValidatorModel):
-    ResourceArns: List[str]
+    ResourceArns: List[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_managed_rule_set_versions' function.
 class PutManagedRuleSetVersionsResponseTypeDef(BaseValidatorModel):
-    NextLockToken: str
+    NextLockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_ip_set' function.
 class UpdateIPSetResponseTypeDef(BaseValidatorModel):
-    NextLockToken: str
+    NextLockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_managed_rule_set_version_expiry_date' function.
 class UpdateManagedRuleSetVersionExpiryDateResponseTypeDef(BaseValidatorModel):
-    ExpiringVersion: str
+    ExpiringVersion: Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]
     ExpiryTimestamp: datetime
-    NextLockToken: str
+    NextLockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_regex_pattern_set' function.
 class UpdateRegexPatternSetResponseTypeDef(BaseValidatorModel):
-    NextLockToken: str
+    NextLockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_rule_group' function.
 class UpdateRuleGroupResponseTypeDef(BaseValidatorModel):
-    NextLockToken: str
+    NextLockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_web_acl' function.
 class UpdateWebACLResponseTypeDef(BaseValidatorModel):
-    NextLockToken: str
+    NextLockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -921,21 +923,21 @@ class ClientSideActionTypeDef(BaseValidatorModel):
 
 
 class RegexPatternSetTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Id: Optional[str] = None
-    ARN: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityId")]] = None
+    ARN: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
     RegularExpressionList: Optional[List[RegexTypeDef]] = None
 
 
 # This class is the input for the 'update_regex_pattern_set' function.
 class UpdateRegexPatternSetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
     RegularExpressionList: List[RegexTypeDef]
-    LockToken: str
-    Description: Optional[str] = None
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
 
 
 class ConditionTypeDef(BaseValidatorModel):
@@ -954,37 +956,37 @@ CookieMatchPatternUnionTypeDef = Union[CookieMatchPatternOutputTypeDef, CookieMa
 
 # This class is the input for the 'create_ip_set' function.
 class CreateIPSetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
     IPAddressVersion: IPAddressVersionType
-    Addresses: List[str]
-    Description: Optional[str] = None
+    Addresses: List[Annotated[str, _aws_pattern("Wafv2", "IPAddress")]]
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_regex_pattern_set' function.
 class CreateRegexPatternSetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
     RegularExpressionList: List[RegexTypeDef]
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class MobileSdkReleaseTypeDef(BaseValidatorModel):
-    ReleaseVersion: Optional[str] = None
+    ReleaseVersion: Optional[Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]] = None
     Timestamp: Optional[datetime] = None
     ReleaseNotes: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class TagInfoForResourceTypeDef(BaseValidatorModel):
-    ResourceARN: Optional[str] = None
+    ResourceARN: Optional[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]] = None
     TagList: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     Tags: List[TagTypeDef]
 
 
@@ -996,7 +998,7 @@ class CreateIPSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_ip_sets' function.
 class ListIPSetsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     IPSets: List[IPSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1009,7 +1011,7 @@ class CreateRegexPatternSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_regex_pattern_sets' function.
 class ListRegexPatternSetsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     RegexPatternSets: List[RegexPatternSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1022,7 +1024,7 @@ class CreateRuleGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_rule_groups' function.
 class ListRuleGroupsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     RuleGroups: List[RuleGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1035,7 +1037,7 @@ class CreateWebACLResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_web_acls' function.
 class ListWebACLsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     WebACLs: List[WebACLSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1056,7 +1058,7 @@ class CustomResponseOutputTypeDef(BaseValidatorModel):
 
 class CustomResponseTypeDef(BaseValidatorModel):
     ResponseCode: int
-    CustomResponseBodyKey: Optional[str] = None
+    CustomResponseBodyKey: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
     ResponseHeaders: Optional[List[CustomHTTPHeaderTypeDef]] = None
 
 
@@ -1097,7 +1099,7 @@ class PathStatisticsTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_ip_set' function.
 class GetIPSetResponseTypeDef(BaseValidatorModel):
     IPSet: IPSetTypeDef
-    LockToken: str
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1127,7 +1129,7 @@ HeaderMatchPatternUnionTypeDef = Union[HeaderMatchPatternOutputTypeDef, HeaderMa
 
 
 class IPSetReferenceStatementTypeDef(BaseValidatorModel):
-    ARN: str
+    ARN: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     IPSetForwardedIPConfig: Optional[IPSetForwardedIPConfigTypeDef] = None
 
 
@@ -1143,22 +1145,22 @@ JsonMatchPatternUnionTypeDef = Union[JsonMatchPatternOutputTypeDef, JsonMatchPat
 
 # This class is the output for the 'list_available_managed_rule_group_versions' function.
 class ListAvailableManagedRuleGroupVersionsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     Versions: List[ManagedRuleGroupVersionTypeDef]
-    CurrentDefaultVersion: str
+    CurrentDefaultVersion: Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_available_managed_rule_groups' function.
 class ListAvailableManagedRuleGroupsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     ManagedRuleGroups: List[ManagedRuleGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_managed_rule_sets' function.
 class ListManagedRuleSetsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     ManagedRuleSets: List[ManagedRuleSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1166,7 +1168,7 @@ class ListManagedRuleSetsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_mobile_sdk_releases' function.
 class ListMobileSdkReleasesResponseTypeDef(BaseValidatorModel):
     ReleaseSummaries: List[ReleaseSummaryTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1177,13 +1179,13 @@ class RequestInspectionTypeDef(BaseValidatorModel):
 
 
 class ManagedRuleSetTypeDef(BaseValidatorModel):
-    Name: str
-    Id: str
-    ARN: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
+    ARN: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
     PublishedVersions: Optional[Dict[str, ManagedRuleSetVersionTypeDef]] = None
-    RecommendedVersion: Optional[str] = None
-    LabelNamespace: Optional[str] = None
+    RecommendedVersion: Optional[Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]] = None
+    LabelNamespace: Optional[Annotated[str, _aws_pattern("Wafv2", "LabelName")]] = None
 
 
 NotStatementUnionTypeDef = Union[NotStatementOutputTypeDef, NotStatementTypeDef]
@@ -1211,11 +1213,11 @@ class RequestInspectionACFPTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_managed_rule_set_versions' function.
 class PutManagedRuleSetVersionsRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
-    LockToken: str
-    RecommendedVersion: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
+    RecommendedVersion: Optional[Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]] = None
     VersionsToPublish: Optional[Dict[str, VersionToPublishTypeDef]] = None
 
 
@@ -1247,11 +1249,11 @@ class TimeWindowTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_managed_rule_set_version_expiry_date' function.
 class UpdateManagedRuleSetVersionExpiryDateRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
-    LockToken: str
-    VersionToExpire: str
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
+    VersionToExpire: Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]
     ExpiryTimestamp: TimestampTypeDef
 
 
@@ -1300,7 +1302,7 @@ ClientSideActionUnionTypeDef = Union[ClientSideActionOutputTypeDef, ClientSideAc
 # This class is the output for the 'get_regex_pattern_set' function.
 class GetRegexPatternSetResponseTypeDef(BaseValidatorModel):
     RegexPatternSet: RegexPatternSetTypeDef
-    LockToken: str
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1330,7 +1332,7 @@ class GetMobileSdkReleaseResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     TagInfoForResource: TagInfoForResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1373,7 +1375,7 @@ class DataProtectionConfigTypeDef(BaseValidatorModel):
 class GetTopPathStatisticsByTrafficResponseTypeDef(BaseValidatorModel):
     PathStatistics: List[PathStatisticsTypeDef]
     TotalRequestCount: int
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     TopCategories: List[PathStatisticsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1383,7 +1385,7 @@ class SampledHTTPRequestTypeDef(BaseValidatorModel):
     Weight: int
     Timestamp: Optional[datetime] = None
     Action: Optional[str] = None
-    RuleNameWithinRuleGroup: Optional[str] = None
+    RuleNameWithinRuleGroup: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
     RequestHeadersInserted: Optional[List[HTTPHeaderTypeDef]] = None
     ResponseCodeSent: Optional[int] = None
     Labels: Optional[List[LabelTypeDef]] = None
@@ -1425,7 +1427,7 @@ class JsonBodyTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_managed_rule_set' function.
 class GetManagedRuleSetResponseTypeDef(BaseValidatorModel):
     ManagedRuleSet: ManagedRuleSetTypeDef
-    LockToken: str
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1599,8 +1601,8 @@ ResponseInspectionUnionTypeDef = Union[ResponseInspectionOutputTypeDef, Response
 
 # This class is the input for the 'get_sampled_requests' function.
 class GetSampledRequestsRequestTypeDef(BaseValidatorModel):
-    WebAclArn: str
-    RuleMetricName: str
+    WebAclArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
+    RuleMetricName: Annotated[str, _aws_pattern("Wafv2", "MetricName")]
     Scope: ScopeType
     TimeWindow: TimeWindowUnionTypeDef
     MaxItems: int
@@ -1608,16 +1610,16 @@ class GetSampledRequestsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_top_path_statistics_by_traffic' function.
 class GetTopPathStatisticsByTrafficRequestTypeDef(BaseValidatorModel):
-    WebAclArn: str
+    WebAclArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     Scope: ScopeType
     TimeWindow: TimeWindowUnionTypeDef
     Limit: int
     NumberOfTopTrafficBotsPerPath: int
-    UriPathPrefix: Optional[str] = None
-    BotCategory: Optional[str] = None
-    BotOrganization: Optional[str] = None
-    BotName: Optional[str] = None
-    NextMarker: Optional[str] = None
+    UriPathPrefix: Optional[Annotated[str, _aws_pattern("Wafv2", "UriPathPrefixString")]] = None
+    BotCategory: Optional[Annotated[str, _aws_pattern("Wafv2", "FilterString")]] = None
+    BotOrganization: Optional[Annotated[str, _aws_pattern("Wafv2", "FilterString")]] = None
+    BotName: Optional[Annotated[str, _aws_pattern("Wafv2", "FilterString")]] = None
+    NextMarker: Optional[Annotated[str, _aws_pattern("Wafv2", "NextMarker")]] = None
 
 
 RateBasedStatementCustomKeyUnionTypeDef = Union[
@@ -1664,7 +1666,7 @@ class RuleActionOverrideOutputTypeDef(BaseValidatorModel):
 
 
 class RuleSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityName")]] = None
     Action: Optional[RuleActionOutputTypeDef] = None
 
 
@@ -1694,8 +1696,8 @@ class FieldToMatchTypeDef(BaseValidatorModel):
 
 
 class AWSManagedRulesACFPRuleSetTypeDef(BaseValidatorModel):
-    CreationPath: str
-    RegistrationPagePath: str
+    CreationPath: Annotated[str, _aws_pattern("Wafv2", "CreationPathString")]
+    RegistrationPagePath: Annotated[str, _aws_pattern("Wafv2", "RegistrationPagePathString")]
     RequestInspection: RequestInspectionACFPUnionTypeDef
     ResponseInspection: Optional[ResponseInspectionUnionTypeDef] = None
     EnableRegexInPath: Optional[bool] = None
@@ -1731,7 +1733,7 @@ class GetLoggingConfigurationResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_logging_configurations' function.
 class ListLoggingConfigurationsResponseTypeDef(BaseValidatorModel):
     LoggingConfigurations: List[LoggingConfigurationOutputTypeDef]
-    NextMarker: str
+    NextMarker: Annotated[str, _aws_pattern("Wafv2", "NextMarker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1764,11 +1766,11 @@ class RuleGroupReferenceStatementOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_managed_rule_group' function.
 class DescribeManagedRuleGroupResponseTypeDef(BaseValidatorModel):
-    VersionName: str
-    SnsTopicArn: str
+    VersionName: Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]
+    SnsTopicArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     Capacity: int
     Rules: List[RuleSummaryTypeDef]
-    LabelNamespace: str
+    LabelNamespace: Annotated[str, _aws_pattern("Wafv2", "LabelName")]
     AvailableLabels: List[LabelSummaryTypeDef]
     ConsumedLabels: List[LabelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1788,8 +1790,8 @@ FieldToMatchUnionTypeDef = Union[FieldToMatchOutputTypeDef, FieldToMatchTypeDef]
 
 
 class LoggingConfigurationTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    LogDestinationConfigs: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
+    LogDestinationConfigs: List[Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]]
     RedactedFields: Optional[List[FieldToMatchTypeDef]] = None
     ManagedByFirewallManager: Optional[bool] = None
     LoggingFilter: Optional[LoggingFilterTypeDef] = None
@@ -1847,13 +1849,13 @@ class ByteMatchStatementTypeDef(BaseValidatorModel):
 
 
 class RegexMatchStatementTypeDef(BaseValidatorModel):
-    RegexString: str
+    RegexString: Annotated[str, _aws_pattern("Wafv2", "RegexPatternString")]
     FieldToMatch: FieldToMatchUnionTypeDef
     TextTransformations: List[TextTransformationTypeDef]
 
 
 class RegexPatternSetReferenceStatementTypeDef(BaseValidatorModel):
-    ARN: str
+    ARN: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     FieldToMatch: FieldToMatchUnionTypeDef
     TextTransformations: List[TextTransformationTypeDef]
 
@@ -1880,7 +1882,7 @@ LoggingConfigurationUnionTypeDef = Union[LoggingConfigurationOutputTypeDef, Logg
 
 
 class ManagedRuleGroupConfigTypeDef(BaseValidatorModel):
-    LoginPath: Optional[str] = None
+    LoginPath: Optional[Annotated[str, _aws_pattern("Wafv2", "LoginPathString")]] = None
     PayloadType: Optional[PayloadTypeType] = None
     UsernameField: Optional[UsernameFieldTypeDef] = None
     PasswordField: Optional[PasswordFieldTypeDef] = None
@@ -1891,7 +1893,7 @@ class ManagedRuleGroupConfigTypeDef(BaseValidatorModel):
 
 
 class FirewallManagerRuleGroupTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Priority: int
     FirewallManagerStatement: FirewallManagerStatementTypeDef
     OverrideAction: OverrideActionOutputTypeDef
@@ -1911,7 +1913,7 @@ class RuleOutputTypeDef(BaseValidatorModel):
 
 
 class RuleActionOverrideTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     ActionToUse: RuleActionUnionTypeDef
 
 
@@ -1939,37 +1941,37 @@ ManagedRuleGroupConfigUnionTypeDef = Union[ManagedRuleGroupConfigOutputTypeDef, 
 
 
 class RuleGroupTypeDef(BaseValidatorModel):
-    Name: str
-    Id: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
     Capacity: int
-    ARN: str
+    ARN: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     VisibilityConfig: VisibilityConfigTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
     Rules: Optional[List[RuleOutputTypeDef]] = None
-    LabelNamespace: Optional[str] = None
+    LabelNamespace: Optional[Annotated[str, _aws_pattern("Wafv2", "LabelName")]] = None
     CustomResponseBodies: Optional[Dict[str, CustomResponseBodyTypeDef]] = None
     AvailableLabels: Optional[List[LabelSummaryTypeDef]] = None
     ConsumedLabels: Optional[List[LabelSummaryTypeDef]] = None
 
 
 class WebACLTypeDef(BaseValidatorModel):
-    Name: str
-    Id: str
-    ARN: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
+    ARN: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     DefaultAction: DefaultActionOutputTypeDef
     VisibilityConfig: VisibilityConfigTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
     Rules: Optional[List[RuleOutputTypeDef]] = None
     DataProtectionConfig: Optional[DataProtectionConfigOutputTypeDef] = None
     Capacity: Optional[int] = None
     PreProcessFirewallManagerRuleGroups: Optional[List[FirewallManagerRuleGroupTypeDef]] = None
     PostProcessFirewallManagerRuleGroups: Optional[List[FirewallManagerRuleGroupTypeDef]] = None
     ManagedByFirewallManager: Optional[bool] = None
-    LabelNamespace: Optional[str] = None
+    LabelNamespace: Optional[Annotated[str, _aws_pattern("Wafv2", "LabelName")]] = None
     CustomResponseBodies: Optional[Dict[str, CustomResponseBodyTypeDef]] = None
     CaptchaConfig: Optional[CaptchaConfigTypeDef] = None
     ChallengeConfig: Optional[ChallengeConfigTypeDef] = None
-    TokenDomains: Optional[List[str]] = None
+    TokenDomains: Optional[List[Annotated[str, _aws_pattern("Wafv2", "TokenDomain")]]] = None
     AssociationConfig: Optional[AssociationConfigOutputTypeDef] = None
     RetrofittedByFirewallManager: Optional[bool] = None
     OnSourceDDoSProtectionConfig: Optional[OnSourceDDoSProtectionConfigTypeDef] = None
@@ -1982,7 +1984,7 @@ RuleActionOverrideUnionTypeDef = Union[RuleActionOverrideOutputTypeDef, RuleActi
 # This class is the output for the 'get_rule_group' function.
 class GetRuleGroupResponseTypeDef(BaseValidatorModel):
     RuleGroup: RuleGroupTypeDef
-    LockToken: str
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1995,15 +1997,15 @@ class GetWebACLForResourceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_web_acl' function.
 class GetWebACLResponseTypeDef(BaseValidatorModel):
     WebACL: WebACLTypeDef
-    LockToken: str
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
     ApplicationIntegrationURL: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ManagedRuleGroupStatementTypeDef(BaseValidatorModel):
-    VendorName: str
-    Name: str
-    Version: Optional[str] = None
+    VendorName: Annotated[str, _aws_pattern("Wafv2", "VendorName")]
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
+    Version: Optional[Annotated[str, _aws_pattern("Wafv2", "VersionKeyString")]] = None
     ExcludedRules: Optional[List[ExcludedRuleTypeDef]] = None
     ScopeDownStatement: Optional[Dict[str, Any]] = None
     ManagedRuleGroupConfigs: Optional[List[ManagedRuleGroupConfigUnionTypeDef]] = None
@@ -2011,7 +2013,7 @@ class ManagedRuleGroupStatementTypeDef(BaseValidatorModel):
 
 
 class RuleGroupReferenceStatementTypeDef(BaseValidatorModel):
-    ARN: str
+    ARN: Annotated[str, _aws_pattern("Wafv2", "ResourceArn")]
     ExcludedRules: Optional[List[ExcludedRuleTypeDef]] = None
     RuleActionOverrides: Optional[List[RuleActionOverrideUnionTypeDef]] = None
 
@@ -2046,7 +2048,7 @@ StatementUnionTypeDef = Union[StatementOutputTypeDef, StatementTypeDef]
 
 
 class RuleTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Priority: int
     Statement: StatementUnionTypeDef
     VisibilityConfig: VisibilityConfigTypeDef
@@ -2068,11 +2070,11 @@ class CheckCapacityRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_rule_group' function.
 class CreateRuleGroupRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
     Capacity: int
     VisibilityConfig: VisibilityConfigTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
     Rules: Optional[List[RuleUnionTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
     CustomResponseBodies: Optional[Dict[str, CustomResponseBodyTypeDef]] = None
@@ -2080,18 +2082,18 @@ class CreateRuleGroupRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_web_acl' function.
 class CreateWebACLRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
     DefaultAction: DefaultActionUnionTypeDef
     VisibilityConfig: VisibilityConfigTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
     Rules: Optional[List[RuleUnionTypeDef]] = None
     DataProtectionConfig: Optional[DataProtectionConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
     CustomResponseBodies: Optional[Dict[str, CustomResponseBodyTypeDef]] = None
     CaptchaConfig: Optional[CaptchaConfigTypeDef] = None
     ChallengeConfig: Optional[ChallengeConfigTypeDef] = None
-    TokenDomains: Optional[List[str]] = None
+    TokenDomains: Optional[List[Annotated[str, _aws_pattern("Wafv2", "TokenDomain")]]] = None
     AssociationConfig: Optional[AssociationConfigUnionTypeDef] = None
     OnSourceDDoSProtectionConfig: Optional[OnSourceDDoSProtectionConfigTypeDef] = None
     ApplicationConfig: Optional[ApplicationConfigUnionTypeDef] = None
@@ -2099,31 +2101,31 @@ class CreateWebACLRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_rule_group' function.
 class UpdateRuleGroupRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
     VisibilityConfig: VisibilityConfigTypeDef
-    LockToken: str
-    Description: Optional[str] = None
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
     Rules: Optional[List[RuleUnionTypeDef]] = None
     CustomResponseBodies: Optional[Dict[str, CustomResponseBodyTypeDef]] = None
 
 
 # This class is the input for the 'update_web_acl' function.
 class UpdateWebACLRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Wafv2", "EntityName")]
     Scope: ScopeType
-    Id: str
+    Id: Annotated[str, _aws_pattern("Wafv2", "EntityId")]
     DefaultAction: DefaultActionUnionTypeDef
     VisibilityConfig: VisibilityConfigTypeDef
-    LockToken: str
-    Description: Optional[str] = None
+    LockToken: Annotated[str, _aws_pattern("Wafv2", "LockToken")]
+    Description: Optional[Annotated[str, _aws_pattern("Wafv2", "EntityDescription")]] = None
     Rules: Optional[List[RuleUnionTypeDef]] = None
     DataProtectionConfig: Optional[DataProtectionConfigUnionTypeDef] = None
     CustomResponseBodies: Optional[Dict[str, CustomResponseBodyTypeDef]] = None
     CaptchaConfig: Optional[CaptchaConfigTypeDef] = None
     ChallengeConfig: Optional[ChallengeConfigTypeDef] = None
-    TokenDomains: Optional[List[str]] = None
+    TokenDomains: Optional[List[Annotated[str, _aws_pattern("Wafv2", "TokenDomain")]]] = None
     AssociationConfig: Optional[AssociationConfigUnionTypeDef] = None
     OnSourceDDoSProtectionConfig: Optional[OnSourceDDoSProtectionConfigTypeDef] = None
     ApplicationConfig: Optional[ApplicationConfigUnionTypeDef] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.fms.fms_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,18 +47,18 @@ class AccountScopeOutputTypeDef(BaseValidatorModel):
 
 
 class AccountScopeTypeDef(BaseValidatorModel):
-    Accounts: Optional[List[str]] = None
+    Accounts: Optional[List[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]]] = None
     AllAccountsEnabled: Optional[bool] = None
     ExcludeSpecifiedAccounts: Optional[bool] = None
 
 
 class ActionTargetTypeDef(BaseValidatorModel):
-    ResourceId: Optional[str] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     Description: Optional[str] = None
 
 
 class AdminAccountSummaryTypeDef(BaseValidatorModel):
-    AdminAccount: Optional[str] = None
+    AdminAccount: Optional[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]] = None
     DefaultAdmin: Optional[bool] = None
     Status: Optional[OrganizationStatusType] = None
 
@@ -78,7 +80,7 @@ class RegionScopeOutputTypeDef(BaseValidatorModel):
 
 
 class OrganizationalUnitScopeTypeDef(BaseValidatorModel):
-    OrganizationalUnits: Optional[List[str]] = None
+    OrganizationalUnits: Optional[List[Annotated[str, _aws_pattern("Fms", "OrganizationalUnitId")]]] = None
     AllOrganizationalUnitsEnabled: Optional[bool] = None
     ExcludeSpecifiedOrganizationalUnits: Optional[bool] = None
 
@@ -89,13 +91,13 @@ class PolicyTypeScopeTypeDef(BaseValidatorModel):
 
 
 class RegionScopeTypeDef(BaseValidatorModel):
-    Regions: Optional[List[str]] = None
+    Regions: Optional[List[Annotated[str, _aws_pattern("Fms", "AWSRegion")]]] = None
     AllRegionsEnabled: Optional[bool] = None
 
 
 class AppTypeDef(BaseValidatorModel):
-    AppName: str
-    Protocol: str
+    AppName: Annotated[str, _aws_pattern("Fms", "ResourceName")]
+    Protocol: Annotated[str, _aws_pattern("Fms", "Protocol")]
     Port: int
 
 
@@ -104,7 +106,7 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'associate_admin_account' function.
 class AssociateAdminAccountRequestTypeDef(BaseValidatorModel):
-    AdminAccount: str
+    AdminAccount: Annotated[str, _aws_pattern("Fms", "AWSAccountId")]
 
 
 # This class is the input for the 'associate_third_party_firewall' function.
@@ -121,58 +123,58 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AwsEc2NetworkInterfaceViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
-    ViolatingSecurityGroups: Optional[List[str]] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
+    ViolatingSecurityGroups: Optional[List[Annotated[str, _aws_pattern("Fms", "ResourceId")]]] = None
 
 
 class PartialMatchTypeDef(BaseValidatorModel):
     Reference: Optional[str] = None
-    TargetViolationReasons: Optional[List[str]] = None
+    TargetViolationReasons: Optional[List[Annotated[str, _aws_pattern("Fms", "TargetViolationReason")]]] = None
 
 
 # This class is the input for the 'batch_associate_resource' function.
 class BatchAssociateResourceRequestTypeDef(BaseValidatorModel):
-    ResourceSetIdentifier: str
-    Items: List[str]
+    ResourceSetIdentifier: Annotated[str, _aws_pattern("Fms", "Identifier")]
+    Items: List[Annotated[str, _aws_pattern("Fms", "Identifier")]]
 
 
 class FailedItemTypeDef(BaseValidatorModel):
-    URI: Optional[str] = None
+    URI: Optional[Annotated[str, _aws_pattern("Fms", "Identifier")]] = None
     Reason: Optional[FailedItemReasonType] = None
 
 
 # This class is the input for the 'batch_disassociate_resource' function.
 class BatchDisassociateResourceRequestTypeDef(BaseValidatorModel):
-    ResourceSetIdentifier: str
-    Items: List[str]
+    ResourceSetIdentifier: Annotated[str, _aws_pattern("Fms", "Identifier")]
+    Items: List[Annotated[str, _aws_pattern("Fms", "Identifier")]]
 
 
 class ComplianceViolatorTypeDef(BaseValidatorModel):
-    ResourceId: Optional[str] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     ViolationReason: Optional[ViolationReasonType] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Fms", "ResourceType")]] = None
     Metadata: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'delete_apps_list' function.
 class DeleteAppsListRequestTypeDef(BaseValidatorModel):
-    ListId: str
+    ListId: Annotated[str, _aws_pattern("Fms", "ListId")]
 
 
 # This class is the input for the 'delete_policy' function.
 class DeletePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
+    PolicyId: Annotated[str, _aws_pattern("Fms", "PolicyId")]
     DeleteAllPolicyResources: Optional[bool] = None
 
 
 # This class is the input for the 'delete_protocols_list' function.
 class DeleteProtocolsListRequestTypeDef(BaseValidatorModel):
-    ListId: str
+    ListId: Annotated[str, _aws_pattern("Fms", "ListId")]
 
 
 # This class is the input for the 'delete_resource_set' function.
 class DeleteResourceSetRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Fms", "Base62Id")]
 
 
 # This class is the input for the 'disassociate_third_party_firewall' function.
@@ -181,28 +183,28 @@ class DisassociateThirdPartyFirewallRequestTypeDef(BaseValidatorModel):
 
 
 class DiscoveredResourceTypeDef(BaseValidatorModel):
-    URI: Optional[str] = None
-    AccountId: Optional[str] = None
-    Type: Optional[str] = None
-    Name: Optional[str] = None
+    URI: Optional[Annotated[str, _aws_pattern("Fms", "Identifier")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Fms", "ResourceType")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Fms", "ResourceName")]] = None
 
 
 class DnsDuplicateRuleGroupViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
     ViolationTargetDescription: Optional[str] = None
 
 
 class DnsRuleGroupLimitExceededViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
     ViolationTargetDescription: Optional[str] = None
     NumberOfRuleGroupsAlreadyAssociated: Optional[int] = None
 
 
 class DnsRuleGroupPriorityConflictViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
     ViolationTargetDescription: Optional[str] = None
     ConflictingPriority: Optional[int] = None
-    ConflictingPolicyId: Optional[str] = None
+    ConflictingPolicyId: Optional[Annotated[str, _aws_pattern("Fms", "PolicyId")]] = None
     UnavailablePriorities: Optional[List[int]] = None
 
 
@@ -213,59 +215,59 @@ class EvaluationResultTypeDef(BaseValidatorModel):
 
 
 class ExpectedRouteTypeDef(BaseValidatorModel):
-    IpV4Cidr: Optional[str] = None
-    PrefixListId: Optional[str] = None
-    IpV6Cidr: Optional[str] = None
-    ContributingSubnets: Optional[List[str]] = None
+    IpV4Cidr: Optional[Annotated[str, _aws_pattern("Fms", "CIDR")]] = None
+    PrefixListId: Optional[Annotated[str, _aws_pattern("Fms", "CIDR")]] = None
+    IpV6Cidr: Optional[Annotated[str, _aws_pattern("Fms", "CIDR")]] = None
+    ContributingSubnets: Optional[List[Annotated[str, _aws_pattern("Fms", "ResourceId")]]] = None
     AllowedTargets: Optional[List[str]] = None
-    RouteTableId: Optional[str] = None
+    RouteTableId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
 
 
 class FMSPolicyUpdateFirewallCreationConfigActionTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
-    FirewallCreationConfig: Optional[str] = None
+    FirewallCreationConfig: Optional[Annotated[str, _aws_pattern("Fms", "ManagedServiceData")]] = None
 
 
 class FirewallSubnetIsOutOfScopeViolationTypeDef(BaseValidatorModel):
-    FirewallSubnetId: Optional[str] = None
-    VpcId: Optional[str] = None
+    FirewallSubnetId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     SubnetAvailabilityZone: Optional[str] = None
     SubnetAvailabilityZoneId: Optional[str] = None
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
 
 
 class FirewallSubnetMissingVPCEndpointViolationTypeDef(BaseValidatorModel):
-    FirewallSubnetId: Optional[str] = None
-    VpcId: Optional[str] = None
+    FirewallSubnetId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     SubnetAvailabilityZone: Optional[str] = None
     SubnetAvailabilityZoneId: Optional[str] = None
 
 
 # This class is the input for the 'get_admin_scope' function.
 class GetAdminScopeRequestTypeDef(BaseValidatorModel):
-    AdminAccount: str
+    AdminAccount: Annotated[str, _aws_pattern("Fms", "AWSAccountId")]
 
 
 # This class is the input for the 'get_apps_list' function.
 class GetAppsListRequestTypeDef(BaseValidatorModel):
-    ListId: str
+    ListId: Annotated[str, _aws_pattern("Fms", "ListId")]
     DefaultList: Optional[bool] = None
 
 
 # This class is the input for the 'get_compliance_detail' function.
 class GetComplianceDetailRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
-    MemberAccount: str
+    PolicyId: Annotated[str, _aws_pattern("Fms", "PolicyId")]
+    MemberAccount: Annotated[str, _aws_pattern("Fms", "AWSAccountId")]
 
 
 # This class is the input for the 'get_policy' function.
 class GetPolicyRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
+    PolicyId: Annotated[str, _aws_pattern("Fms", "PolicyId")]
 
 
 # This class is the input for the 'get_protocols_list' function.
 class GetProtocolsListRequestTypeDef(BaseValidatorModel):
-    ListId: str
+    ListId: Annotated[str, _aws_pattern("Fms", "ListId")]
     DefaultList: Optional[bool] = None
 
 
@@ -281,7 +283,7 @@ class ProtocolsListDataOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_resource_set' function.
 class GetResourceSetRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Fms", "Base62Id")]
 
 
 class ResourceSetOutputTypeDef(BaseValidatorModel):
@@ -301,10 +303,10 @@ class GetThirdPartyFirewallAssociationStatusRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_violation_details' function.
 class GetViolationDetailsRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
-    MemberAccount: str
-    ResourceId: str
-    ResourceType: str
+    PolicyId: Annotated[str, _aws_pattern("Fms", "PolicyId")]
+    MemberAccount: Annotated[str, _aws_pattern("Fms", "AWSAccountId")]
+    ResourceId: Annotated[str, _aws_pattern("Fms", "ResourceId")]
+    ResourceType: Annotated[str, _aws_pattern("Fms", "ResourceType")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -315,13 +317,13 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_admin_accounts_for_organization' function.
 class ListAdminAccountsForOrganizationRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_admins_managing_account' function.
 class ListAdminsManagingAccountRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -329,41 +331,41 @@ class ListAdminsManagingAccountRequestTypeDef(BaseValidatorModel):
 class ListAppsListsRequestTypeDef(BaseValidatorModel):
     MaxResults: int
     DefaultLists: Optional[bool] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_compliance_status' function.
 class ListComplianceStatusRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
-    NextToken: Optional[str] = None
+    PolicyId: Annotated[str, _aws_pattern("Fms", "PolicyId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_discovered_resources' function.
 class ListDiscoveredResourcesRequestTypeDef(BaseValidatorModel):
-    MemberAccountIds: List[str]
-    ResourceType: str
+    MemberAccountIds: List[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]]
+    ResourceType: Annotated[str, _aws_pattern("Fms", "ResourceType")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_member_accounts' function.
 class ListMemberAccountsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_policies' function.
 class ListPoliciesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class PolicySummaryTypeDef(BaseValidatorModel):
-    PolicyArn: Optional[str] = None
-    PolicyId: Optional[str] = None
-    PolicyName: Optional[str] = None
-    ResourceType: Optional[str] = None
+    PolicyArn: Optional[Annotated[str, _aws_pattern("Fms", "ResourceArn")]] = None
+    PolicyId: Optional[Annotated[str, _aws_pattern("Fms", "PolicyId")]] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Fms", "ResourceName")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Fms", "ResourceType")]] = None
     SecurityServiceType: Optional[SecurityServiceTypeType] = None
     RemediationEnabled: Optional[bool] = None
     DeleteUnusedFMManagedResources: Optional[bool] = None
@@ -374,62 +376,62 @@ class PolicySummaryTypeDef(BaseValidatorModel):
 class ListProtocolsListsRequestTypeDef(BaseValidatorModel):
     MaxResults: int
     DefaultLists: Optional[bool] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 class ProtocolsListDataSummaryTypeDef(BaseValidatorModel):
-    ListArn: Optional[str] = None
-    ListId: Optional[str] = None
-    ListName: Optional[str] = None
-    ProtocolsList: Optional[List[str]] = None
+    ListArn: Optional[Annotated[str, _aws_pattern("Fms", "ResourceArn")]] = None
+    ListId: Optional[Annotated[str, _aws_pattern("Fms", "ListId")]] = None
+    ListName: Optional[Annotated[str, _aws_pattern("Fms", "ResourceName")]] = None
+    ProtocolsList: Optional[List[Annotated[str, _aws_pattern("Fms", "Protocol")]]] = None
 
 
 # This class is the input for the 'list_resource_set_resources' function.
 class ListResourceSetResourcesRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Fms", "ResourceId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 class ResourceTypeDef(BaseValidatorModel):
-    URI: str
-    AccountId: Optional[str] = None
+    URI: Annotated[str, _aws_pattern("Fms", "Identifier")]
+    AccountId: Optional[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]] = None
 
 
 # This class is the input for the 'list_resource_sets' function.
 class ListResourceSetsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ResourceSetSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Fms", "Base62Id")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Fms", "Name")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Fms", "Description")]] = None
     LastUpdateTime: Optional[datetime] = None
     ResourceSetStatus: Optional[ResourceSetStatusType] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Fms", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Fms", "TagValue")]
 
 
 # This class is the input for the 'list_third_party_firewall_firewall_policies' function.
 class ListThirdPartyFirewallFirewallPoliciesRequestTypeDef(BaseValidatorModel):
     ThirdPartyFirewall: ThirdPartyFirewallType
     MaxResults: int
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 class ThirdPartyFirewallFirewallPolicyTypeDef(BaseValidatorModel):
-    FirewallPolicyId: Optional[str] = None
-    FirewallPolicyName: Optional[str] = None
+    FirewallPolicyId: Optional[Annotated[str, _aws_pattern("Fms", "FirewallPolicyId")]] = None
+    FirewallPolicyName: Optional[Annotated[str, _aws_pattern("Fms", "FirewallPolicyName")]] = None
 
 
 class NetworkAclIcmpTypeCodeTypeDef(BaseValidatorModel):
@@ -450,25 +452,25 @@ class RouteTypeDef(BaseValidatorModel):
 
 
 class NetworkFirewallMissingExpectedRTViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
-    VPC: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
+    VPC: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     AvailabilityZone: Optional[str] = None
-    CurrentRouteTable: Optional[str] = None
-    ExpectedRouteTable: Optional[str] = None
+    CurrentRouteTable: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    ExpectedRouteTable: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
 
 
 class NetworkFirewallMissingFirewallViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
-    VPC: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
+    VPC: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     AvailabilityZone: Optional[str] = None
-    TargetViolationReason: Optional[str] = None
+    TargetViolationReason: Optional[Annotated[str, _aws_pattern("Fms", "TargetViolationReason")]] = None
 
 
 class NetworkFirewallMissingSubnetViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
-    VPC: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
+    VPC: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     AvailabilityZone: Optional[str] = None
-    TargetViolationReason: Optional[str] = None
+    TargetViolationReason: Optional[Annotated[str, _aws_pattern("Fms", "TargetViolationReason")]] = None
 
 
 class StatefulEngineOptionsTypeDef(BaseValidatorModel):
@@ -477,8 +479,8 @@ class StatefulEngineOptionsTypeDef(BaseValidatorModel):
 
 
 class StatelessRuleGroupTypeDef(BaseValidatorModel):
-    RuleGroupName: Optional[str] = None
-    ResourceId: Optional[str] = None
+    RuleGroupName: Optional[Annotated[str, _aws_pattern("Fms", "NetworkFirewallResourceName")]] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     Priority: Optional[int] = None
 
 
@@ -495,60 +497,60 @@ class ThirdPartyFirewallPolicyTypeDef(BaseValidatorModel):
 
 
 class ResourceTagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Fms", "ResourceTagKey")]
+    Value: Optional[Annotated[str, _aws_pattern("Fms", "ResourceTagValue")]] = None
 
 
 # This class is the input for the 'put_notification_channel' function.
 class PutNotificationChannelRequestTypeDef(BaseValidatorModel):
-    SnsTopicArn: str
-    SnsRoleName: str
+    SnsTopicArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
+    SnsRoleName: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
 
 
 class ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
-    VPC: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
+    VPC: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     AvailabilityZone: Optional[str] = None
-    CurrentRouteTable: Optional[str] = None
-    ExpectedRouteTable: Optional[str] = None
+    CurrentRouteTable: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    ExpectedRouteTable: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
 
 
 class ThirdPartyFirewallMissingFirewallViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
-    VPC: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
+    VPC: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     AvailabilityZone: Optional[str] = None
-    TargetViolationReason: Optional[str] = None
+    TargetViolationReason: Optional[Annotated[str, _aws_pattern("Fms", "TargetViolationReason")]] = None
 
 
 class ThirdPartyFirewallMissingSubnetViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
-    VPC: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
+    VPC: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     AvailabilityZone: Optional[str] = None
-    TargetViolationReason: Optional[str] = None
+    TargetViolationReason: Optional[Annotated[str, _aws_pattern("Fms", "TargetViolationReason")]] = None
 
 
 class WebACLHasIncompatibleConfigurationViolationTypeDef(BaseValidatorModel):
-    WebACLArn: Optional[str] = None
+    WebACLArn: Optional[Annotated[str, _aws_pattern("Fms", "ResourceArn")]] = None
     Description: Optional[str] = None
 
 
 class WebACLHasOutOfScopeResourcesViolationTypeDef(BaseValidatorModel):
-    WebACLArn: Optional[str] = None
-    OutOfScopeResourceList: Optional[List[str]] = None
+    WebACLArn: Optional[Annotated[str, _aws_pattern("Fms", "ResourceArn")]] = None
+    OutOfScopeResourceList: Optional[List[Annotated[str, _aws_pattern("Fms", "ResourceArn")]]] = None
 
 
 class SecurityGroupRuleDescriptionTypeDef(BaseValidatorModel):
-    IPV4Range: Optional[str] = None
-    IPV6Range: Optional[str] = None
-    PrefixListId: Optional[str] = None
+    IPV4Range: Optional[Annotated[str, _aws_pattern("Fms", "CIDR")]] = None
+    IPV6Range: Optional[Annotated[str, _aws_pattern("Fms", "CIDR")]] = None
+    PrefixListId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     Protocol: Optional[str] = None
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Fms", "TagKey")]]
 
 
 class CreateNetworkAclActionTypeDef(BaseValidatorModel):
@@ -573,9 +575,9 @@ class EC2CopyRouteTableActionTypeDef(BaseValidatorModel):
 class EC2CreateRouteActionTypeDef(BaseValidatorModel):
     RouteTableId: ActionTargetTypeDef
     Description: Optional[str] = None
-    DestinationCidrBlock: Optional[str] = None
-    DestinationPrefixListId: Optional[str] = None
-    DestinationIpv6CidrBlock: Optional[str] = None
+    DestinationCidrBlock: Optional[Annotated[str, _aws_pattern("Fms", "CIDR")]] = None
+    DestinationPrefixListId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    DestinationIpv6CidrBlock: Optional[Annotated[str, _aws_pattern("Fms", "CIDR")]] = None
     VpcEndpointId: Optional[ActionTargetTypeDef] = None
     GatewayId: Optional[ActionTargetTypeDef] = None
 
@@ -588,17 +590,17 @@ class EC2CreateRouteTableActionTypeDef(BaseValidatorModel):
 class EC2DeleteRouteActionTypeDef(BaseValidatorModel):
     RouteTableId: ActionTargetTypeDef
     Description: Optional[str] = None
-    DestinationCidrBlock: Optional[str] = None
-    DestinationPrefixListId: Optional[str] = None
-    DestinationIpv6CidrBlock: Optional[str] = None
+    DestinationCidrBlock: Optional[Annotated[str, _aws_pattern("Fms", "CIDR")]] = None
+    DestinationPrefixListId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    DestinationIpv6CidrBlock: Optional[Annotated[str, _aws_pattern("Fms", "CIDR")]] = None
 
 
 class EC2ReplaceRouteActionTypeDef(BaseValidatorModel):
     RouteTableId: ActionTargetTypeDef
     Description: Optional[str] = None
-    DestinationCidrBlock: Optional[str] = None
-    DestinationPrefixListId: Optional[str] = None
-    DestinationIpv6CidrBlock: Optional[str] = None
+    DestinationCidrBlock: Optional[Annotated[str, _aws_pattern("Fms", "CIDR")]] = None
+    DestinationPrefixListId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    DestinationIpv6CidrBlock: Optional[Annotated[str, _aws_pattern("Fms", "CIDR")]] = None
     GatewayId: Optional[ActionTargetTypeDef] = None
 
 
@@ -640,17 +642,17 @@ class AppsListDataOutputTypeDef(BaseValidatorModel):
 
 
 class AppsListDataSummaryTypeDef(BaseValidatorModel):
-    ListArn: Optional[str] = None
-    ListId: Optional[str] = None
-    ListName: Optional[str] = None
+    ListArn: Optional[Annotated[str, _aws_pattern("Fms", "ResourceArn")]] = None
+    ListId: Optional[Annotated[str, _aws_pattern("Fms", "ListId")]] = None
+    ListName: Optional[Annotated[str, _aws_pattern("Fms", "ResourceName")]] = None
     AppsList: Optional[List[AppTypeDef]] = None
 
 
 class AppsListDataTypeDef(BaseValidatorModel):
-    ListName: str
+    ListName: Annotated[str, _aws_pattern("Fms", "ResourceName")]
     AppsList: List[AppTypeDef]
-    ListId: Optional[str] = None
-    ListUpdateToken: Optional[str] = None
+    ListId: Optional[Annotated[str, _aws_pattern("Fms", "ListId")]] = None
+    ListUpdateToken: Optional[Annotated[str, _aws_pattern("Fms", "UpdateToken")]] = None
     CreateTime: Optional[TimestampTypeDef] = None
     LastUpdateTime: Optional[TimestampTypeDef] = None
     PreviousAppsList: Optional[Dict[str, List[AppTypeDef]]] = None
@@ -658,30 +660,30 @@ class AppsListDataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_protection_status' function.
 class GetProtectionStatusRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
-    MemberAccountId: Optional[str] = None
+    PolicyId: Annotated[str, _aws_pattern("Fms", "PolicyId")]
+    MemberAccountId: Optional[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ProtocolsListDataTypeDef(BaseValidatorModel):
-    ListName: str
-    ProtocolsList: List[str]
-    ListId: Optional[str] = None
-    ListUpdateToken: Optional[str] = None
+    ListName: Annotated[str, _aws_pattern("Fms", "ResourceName")]
+    ProtocolsList: List[Annotated[str, _aws_pattern("Fms", "Protocol")]]
+    ListId: Optional[Annotated[str, _aws_pattern("Fms", "ListId")]] = None
+    ListUpdateToken: Optional[Annotated[str, _aws_pattern("Fms", "UpdateToken")]] = None
     CreateTime: Optional[TimestampTypeDef] = None
     LastUpdateTime: Optional[TimestampTypeDef] = None
     PreviousProtocolsList: Optional[Dict[str, List[str]]] = None
 
 
 class ResourceSetTypeDef(BaseValidatorModel):
-    Name: str
-    ResourceTypeList: List[str]
-    Id: Optional[str] = None
-    Description: Optional[str] = None
-    UpdateToken: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Fms", "Name")]
+    ResourceTypeList: List[Annotated[str, _aws_pattern("Fms", "ResourceType")]]
+    Id: Optional[Annotated[str, _aws_pattern("Fms", "Base62Id")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Fms", "Description")]] = None
+    UpdateToken: Optional[Annotated[str, _aws_pattern("Fms", "UpdateToken")]] = None
     LastUpdateTime: Optional[TimestampTypeDef] = None
     ResourceSetStatus: Optional[ResourceSetStatusType] = None
 
@@ -704,24 +706,24 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class GetAdminAccountResponseTypeDef(BaseValidatorModel):
-    AdminAccount: str
+    AdminAccount: Annotated[str, _aws_pattern("Fms", "AWSAccountId")]
     RoleStatus: AccountRoleStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class GetNotificationChannelResponseTypeDef(BaseValidatorModel):
-    SnsTopicArn: str
-    SnsRoleName: str
+    SnsTopicArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
+    SnsRoleName: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_protection_status' function.
 class GetProtectionStatusResponseTypeDef(BaseValidatorModel):
-    AdminAccountId: str
+    AdminAccountId: Annotated[str, _aws_pattern("Fms", "AWSAccountId")]
     ServiceType: SecurityServiceTypeType
     Data: str
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 # This class is the output for the 'get_third_party_firewall_association_status' function.
@@ -735,46 +737,46 @@ class GetThirdPartyFirewallAssociationStatusResponseTypeDef(BaseValidatorModel):
 class ListAdminAccountsForOrganizationResponseTypeDef(BaseValidatorModel):
     AdminAccounts: List[AdminAccountSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_admins_managing_account' function.
 class ListAdminsManagingAccountResponseTypeDef(BaseValidatorModel):
-    AdminAccounts: List[str]
+    AdminAccounts: List[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_member_accounts' function.
 class ListMemberAccountsResponseTypeDef(BaseValidatorModel):
-    MemberAccounts: List[str]
+    MemberAccounts: List[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 class AwsEc2InstanceViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
     AwsEc2NetworkInterfaceViolations: Optional[List[AwsEc2NetworkInterfaceViolationTypeDef]] = None
 
 
 # This class is the output for the 'batch_associate_resource' function.
 class BatchAssociateResourceResponseTypeDef(BaseValidatorModel):
-    ResourceSetIdentifier: str
+    ResourceSetIdentifier: Annotated[str, _aws_pattern("Fms", "Identifier")]
     FailedItems: List[FailedItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'batch_disassociate_resource' function.
 class BatchDisassociateResourceResponseTypeDef(BaseValidatorModel):
-    ResourceSetIdentifier: str
+    ResourceSetIdentifier: Annotated[str, _aws_pattern("Fms", "Identifier")]
     FailedItems: List[FailedItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class PolicyComplianceDetailTypeDef(BaseValidatorModel):
-    PolicyOwner: Optional[str] = None
-    PolicyId: Optional[str] = None
-    MemberAccount: Optional[str] = None
+    PolicyOwner: Optional[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]] = None
+    PolicyId: Optional[Annotated[str, _aws_pattern("Fms", "PolicyId")]] = None
+    MemberAccount: Optional[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]] = None
     Violators: Optional[List[ComplianceViolatorTypeDef]] = None
     EvaluationLimitExceeded: Optional[bool] = None
     ExpiredAt: Optional[datetime] = None
@@ -785,50 +787,50 @@ class PolicyComplianceDetailTypeDef(BaseValidatorModel):
 class ListDiscoveredResourcesResponseTypeDef(BaseValidatorModel):
     Items: List[DiscoveredResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 class PolicyComplianceStatusTypeDef(BaseValidatorModel):
-    PolicyOwner: Optional[str] = None
-    PolicyId: Optional[str] = None
-    PolicyName: Optional[str] = None
-    MemberAccount: Optional[str] = None
+    PolicyOwner: Optional[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]] = None
+    PolicyId: Optional[Annotated[str, _aws_pattern("Fms", "PolicyId")]] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Fms", "ResourceName")]] = None
+    MemberAccount: Optional[Annotated[str, _aws_pattern("Fms", "AWSAccountId")]] = None
     EvaluationResults: Optional[List[EvaluationResultTypeDef]] = None
     LastUpdated: Optional[datetime] = None
     IssueInfoMap: Optional[Dict[DependentServiceNameType, str]] = None
 
 
 class NetworkFirewallMissingExpectedRoutesViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
     ExpectedRoutes: Optional[List[ExpectedRouteTypeDef]] = None
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
 
 
 # This class is the output for the 'get_protocols_list' function.
 class GetProtocolsListResponseTypeDef(BaseValidatorModel):
     ProtocolsList: ProtocolsListDataOutputTypeDef
-    ProtocolsListArn: str
+    ProtocolsListArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_protocols_list' function.
 class PutProtocolsListResponseTypeDef(BaseValidatorModel):
     ProtocolsList: ProtocolsListDataOutputTypeDef
-    ProtocolsListArn: str
+    ProtocolsListArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_resource_set' function.
 class GetResourceSetResponseTypeDef(BaseValidatorModel):
     ResourceSet: ResourceSetOutputTypeDef
-    ResourceSetArn: str
+    ResourceSetArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_resource_set' function.
 class PutResourceSetResponseTypeDef(BaseValidatorModel):
     ResourceSet: ResourceSetOutputTypeDef
-    ResourceSetArn: str
+    ResourceSetArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -872,28 +874,28 @@ class ListThirdPartyFirewallFirewallPoliciesRequestPaginateTypeDef(BaseValidator
 class ListPoliciesResponseTypeDef(BaseValidatorModel):
     PolicyList: List[PolicySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_protocols_lists' function.
 class ListProtocolsListsResponseTypeDef(BaseValidatorModel):
     ProtocolsLists: List[ProtocolsListDataSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_resource_set_resources' function.
 class ListResourceSetResourcesResponseTypeDef(BaseValidatorModel):
     Items: List[ResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_resource_sets' function.
 class ListResourceSetsResponseTypeDef(BaseValidatorModel):
     ResourceSets: List[ResourceSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -903,7 +905,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
     TagList: List[TagTypeDef]
 
 
@@ -911,7 +913,7 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 class ListThirdPartyFirewallFirewallPoliciesResponseTypeDef(BaseValidatorModel):
     ThirdPartyFirewallFirewallPolicies: List[ThirdPartyFirewallFirewallPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 class NetworkAclEntryTypeDef(BaseValidatorModel):
@@ -925,89 +927,89 @@ class NetworkAclEntryTypeDef(BaseValidatorModel):
 
 
 class NetworkFirewallBlackHoleRouteDetectedViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
-    RouteTableId: Optional[str] = None
-    VpcId: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
+    RouteTableId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     ViolatingRoutes: Optional[List[RouteTypeDef]] = None
 
 
 class NetworkFirewallInternetTrafficNotInspectedViolationTypeDef(BaseValidatorModel):
-    SubnetId: Optional[str] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     SubnetAvailabilityZone: Optional[str] = None
-    RouteTableId: Optional[str] = None
+    RouteTableId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     ViolatingRoutes: Optional[List[RouteTypeDef]] = None
     IsRouteTableUsedInDifferentAZ: Optional[bool] = None
-    CurrentFirewallSubnetRouteTable: Optional[str] = None
-    ExpectedFirewallEndpoint: Optional[str] = None
-    FirewallSubnetId: Optional[str] = None
+    CurrentFirewallSubnetRouteTable: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    ExpectedFirewallEndpoint: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    FirewallSubnetId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     ExpectedFirewallSubnetRoutes: Optional[List[ExpectedRouteTypeDef]] = None
     ActualFirewallSubnetRoutes: Optional[List[RouteTypeDef]] = None
-    InternetGatewayId: Optional[str] = None
-    CurrentInternetGatewayRouteTable: Optional[str] = None
+    InternetGatewayId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    CurrentInternetGatewayRouteTable: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     ExpectedInternetGatewayRoutes: Optional[List[ExpectedRouteTypeDef]] = None
     ActualInternetGatewayRoutes: Optional[List[RouteTypeDef]] = None
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
 
 
 class NetworkFirewallInvalidRouteConfigurationViolationTypeDef(BaseValidatorModel):
-    AffectedSubnets: Optional[List[str]] = None
-    RouteTableId: Optional[str] = None
+    AffectedSubnets: Optional[List[Annotated[str, _aws_pattern("Fms", "ResourceId")]]] = None
+    RouteTableId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     IsRouteTableUsedInDifferentAZ: Optional[bool] = None
     ViolatingRoute: Optional[RouteTypeDef] = None
-    CurrentFirewallSubnetRouteTable: Optional[str] = None
-    ExpectedFirewallEndpoint: Optional[str] = None
-    ActualFirewallEndpoint: Optional[str] = None
-    ExpectedFirewallSubnetId: Optional[str] = None
-    ActualFirewallSubnetId: Optional[str] = None
+    CurrentFirewallSubnetRouteTable: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    ExpectedFirewallEndpoint: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    ActualFirewallEndpoint: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    ExpectedFirewallSubnetId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    ActualFirewallSubnetId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     ExpectedFirewallSubnetRoutes: Optional[List[ExpectedRouteTypeDef]] = None
     ActualFirewallSubnetRoutes: Optional[List[RouteTypeDef]] = None
-    InternetGatewayId: Optional[str] = None
-    CurrentInternetGatewayRouteTable: Optional[str] = None
+    InternetGatewayId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    CurrentInternetGatewayRouteTable: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     ExpectedInternetGatewayRoutes: Optional[List[ExpectedRouteTypeDef]] = None
     ActualInternetGatewayRoutes: Optional[List[RouteTypeDef]] = None
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
 
 
 class NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef(BaseValidatorModel):
-    FirewallSubnetId: Optional[str] = None
+    FirewallSubnetId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     ViolatingRoutes: Optional[List[RouteTypeDef]] = None
-    RouteTableId: Optional[str] = None
-    FirewallEndpoint: Optional[str] = None
-    VpcId: Optional[str] = None
+    RouteTableId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    FirewallEndpoint: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
 
 
 class NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef(BaseValidatorModel):
-    GatewayId: Optional[str] = None
+    GatewayId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     ViolatingRoutes: Optional[List[RouteTypeDef]] = None
-    RouteTableId: Optional[str] = None
-    VpcId: Optional[str] = None
+    RouteTableId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
 
 
 class RouteHasOutOfScopeEndpointViolationTypeDef(BaseValidatorModel):
-    SubnetId: Optional[str] = None
-    VpcId: Optional[str] = None
-    RouteTableId: Optional[str] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    RouteTableId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     ViolatingRoutes: Optional[List[RouteTypeDef]] = None
     SubnetAvailabilityZone: Optional[str] = None
     SubnetAvailabilityZoneId: Optional[str] = None
-    CurrentFirewallSubnetRouteTable: Optional[str] = None
-    FirewallSubnetId: Optional[str] = None
+    CurrentFirewallSubnetRouteTable: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    FirewallSubnetId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     FirewallSubnetRoutes: Optional[List[RouteTypeDef]] = None
-    InternetGatewayId: Optional[str] = None
-    CurrentInternetGatewayRouteTable: Optional[str] = None
+    InternetGatewayId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    CurrentInternetGatewayRouteTable: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     InternetGatewayRoutes: Optional[List[RouteTypeDef]] = None
 
 
 class StatefulRuleGroupTypeDef(BaseValidatorModel):
-    RuleGroupName: Optional[str] = None
-    ResourceId: Optional[str] = None
+    RuleGroupName: Optional[Annotated[str, _aws_pattern("Fms", "NetworkFirewallResourceName")]] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     Priority: Optional[int] = None
     Override: Optional[NetworkFirewallStatefulRuleGroupOverrideTypeDef] = None
 
 
 class SecurityGroupRemediationActionTypeDef(BaseValidatorModel):
     RemediationActionType: Optional[RemediationActionTypeType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Fms", "RemediationActionDescription")]] = None
     RemediationResult: Optional[SecurityGroupRuleDescriptionTypeDef] = None
     IsDefaultAction: Optional[bool] = None
 
@@ -1025,14 +1027,14 @@ AdminScopeUnionTypeDef = Union[AdminScopeOutputTypeDef, AdminScopeTypeDef]
 # This class is the output for the 'get_apps_list' function.
 class GetAppsListResponseTypeDef(BaseValidatorModel):
     AppsList: AppsListDataOutputTypeDef
-    AppsListArn: str
+    AppsListArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_apps_list' function.
 class PutAppsListResponseTypeDef(BaseValidatorModel):
     AppsList: AppsListDataOutputTypeDef
-    AppsListArn: str
+    AppsListArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1040,7 +1042,7 @@ class PutAppsListResponseTypeDef(BaseValidatorModel):
 class ListAppsListsResponseTypeDef(BaseValidatorModel):
     AppsLists: List[AppsListDataSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 AppsListDataUnionTypeDef = Union[AppsListDataOutputTypeDef, AppsListDataTypeDef]
@@ -1060,7 +1062,7 @@ class GetComplianceDetailResponseTypeDef(BaseValidatorModel):
 class ListComplianceStatusResponseTypeDef(BaseValidatorModel):
     PolicyComplianceStatusList: List[PolicyComplianceStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Fms", "PaginationToken")]] = None
 
 
 class EntryDescriptionTypeDef(BaseValidatorModel):
@@ -1085,16 +1087,16 @@ class NetworkAclEntrySetTypeDef(BaseValidatorModel):
 
 class NetworkFirewallPolicyDescriptionTypeDef(BaseValidatorModel):
     StatelessRuleGroups: Optional[List[StatelessRuleGroupTypeDef]] = None
-    StatelessDefaultActions: Optional[List[str]] = None
-    StatelessFragmentDefaultActions: Optional[List[str]] = None
-    StatelessCustomActions: Optional[List[str]] = None
+    StatelessDefaultActions: Optional[List[Annotated[str, _aws_pattern("Fms", "NetworkFirewallAction")]]] = None
+    StatelessFragmentDefaultActions: Optional[List[Annotated[str, _aws_pattern("Fms", "NetworkFirewallAction")]]] = None
+    StatelessCustomActions: Optional[List[Annotated[str, _aws_pattern("Fms", "NetworkFirewallAction")]]] = None
     StatefulRuleGroups: Optional[List[StatefulRuleGroupTypeDef]] = None
-    StatefulDefaultActions: Optional[List[str]] = None
+    StatefulDefaultActions: Optional[List[Annotated[str, _aws_pattern("Fms", "NetworkFirewallAction")]]] = None
     StatefulEngineOptions: Optional[StatefulEngineOptionsTypeDef] = None
 
 
 class AwsVPCSecurityGroupViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
     ViolationTargetDescription: Optional[str] = None
     PartialMatches: Optional[List[PartialMatchTypeDef]] = None
     PossibleSecurityGroupRemediationActions: Optional[List[SecurityGroupRemediationActionTypeDef]] = None
@@ -1102,7 +1104,7 @@ class AwsVPCSecurityGroupViolationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_admin_account' function.
 class PutAdminAccountRequestTypeDef(BaseValidatorModel):
-    AdminAccount: str
+    AdminAccount: Annotated[str, _aws_pattern("Fms", "AWSAccountId")]
     AdminScope: Optional[AdminScopeUnionTypeDef] = None
 
 
@@ -1156,7 +1158,7 @@ class NetworkAclCommonPolicyTypeDef(BaseValidatorModel):
 
 
 class NetworkFirewallPolicyModifiedViolationTypeDef(BaseValidatorModel):
-    ViolationTarget: Optional[str] = None
+    ViolationTarget: Optional[Annotated[str, _aws_pattern("Fms", "ViolationTarget")]] = None
     CurrentPolicyDescription: Optional[NetworkFirewallPolicyDescriptionTypeDef] = None
     ExpectedPolicyDescription: Optional[NetworkFirewallPolicyDescriptionTypeDef] = None
 
@@ -1178,10 +1180,10 @@ class RemediationActionTypeDef(BaseValidatorModel):
 
 
 class InvalidNetworkAclEntriesViolationTypeDef(BaseValidatorModel):
-    Vpc: Optional[str] = None
-    Subnet: Optional[str] = None
+    Vpc: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
+    Subnet: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     SubnetAvailabilityZone: Optional[str] = None
-    CurrentAssociatedNetworkAcl: Optional[str] = None
+    CurrentAssociatedNetworkAcl: Optional[Annotated[str, _aws_pattern("Fms", "ResourceId")]] = None
     EntryViolations: Optional[List[EntryViolationTypeDef]] = None
 
 
@@ -1210,7 +1212,7 @@ class SecurityServicePolicyDataOutputTypeDef(BaseValidatorModel):
 
 class SecurityServicePolicyDataTypeDef(BaseValidatorModel):
     Type: SecurityServiceTypeType
-    ManagedServiceData: Optional[str] = None
+    ManagedServiceData: Optional[Annotated[str, _aws_pattern("Fms", "ManagedServiceData")]] = None
     PolicyOption: Optional[PolicyOptionTypeDef] = None
 
 
@@ -1240,20 +1242,20 @@ class PolicyOutputTypeDef(BaseValidatorModel):
 
 
 class PolicyTypeDef(BaseValidatorModel):
-    PolicyName: str
+    PolicyName: Annotated[str, _aws_pattern("Fms", "ResourceName")]
     SecurityServicePolicyData: SecurityServicePolicyDataTypeDef
-    ResourceType: str
+    ResourceType: Annotated[str, _aws_pattern("Fms", "ResourceType")]
     ExcludeResourceTags: bool
     RemediationEnabled: bool
-    PolicyId: Optional[str] = None
-    PolicyUpdateToken: Optional[str] = None
-    ResourceTypeList: Optional[List[str]] = None
+    PolicyId: Optional[Annotated[str, _aws_pattern("Fms", "PolicyId")]] = None
+    PolicyUpdateToken: Optional[Annotated[str, _aws_pattern("Fms", "PolicyUpdateToken")]] = None
+    ResourceTypeList: Optional[List[Annotated[str, _aws_pattern("Fms", "ResourceType")]]] = None
     ResourceTags: Optional[List[ResourceTagTypeDef]] = None
     DeleteUnusedFMManagedResources: Optional[bool] = None
     IncludeMap: Optional[Dict[CustomerPolicyScopeIdTypeType, List[str]]] = None
     ExcludeMap: Optional[Dict[CustomerPolicyScopeIdTypeType, List[str]]] = None
-    ResourceSetIds: Optional[List[str]] = None
-    PolicyDescription: Optional[str] = None
+    ResourceSetIds: Optional[List[Annotated[str, _aws_pattern("Fms", "Base62Id")]]] = None
+    PolicyDescription: Optional[Annotated[str, _aws_pattern("Fms", "ResourceDescription")]] = None
     PolicyStatus: Optional[CustomerPolicyStatusType] = None
     ResourceTagLogicalOperator: Optional[ResourceTagLogicalOperatorType] = None
 
@@ -1266,14 +1268,14 @@ class PossibleRemediationActionsTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_policy' function.
 class GetPolicyResponseTypeDef(BaseValidatorModel):
     Policy: PolicyOutputTypeDef
-    PolicyArn: str
+    PolicyArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_policy' function.
 class PutPolicyResponseTypeDef(BaseValidatorModel):
     Policy: PolicyOutputTypeDef
-    PolicyArn: str
+    PolicyArn: Annotated[str, _aws_pattern("Fms", "ResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1328,10 +1330,10 @@ class PutPolicyRequestTypeDef(BaseValidatorModel):
 
 
 class ViolationDetailTypeDef(BaseValidatorModel):
-    PolicyId: str
-    MemberAccount: str
-    ResourceId: str
-    ResourceType: str
+    PolicyId: Annotated[str, _aws_pattern("Fms", "PolicyId")]
+    MemberAccount: Annotated[str, _aws_pattern("Fms", "AWSAccountId")]
+    ResourceId: Annotated[str, _aws_pattern("Fms", "ResourceId")]
+    ResourceType: Annotated[str, _aws_pattern("Fms", "ResourceType")]
     ResourceViolations: List[ResourceViolationTypeDef]
     ResourceTags: Optional[List[TagTypeDef]] = None
     ResourceDescription: Optional[str] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mediaconnect.mediaconnect_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -113,36 +115,36 @@ class SilentAudioTypeDef(BaseValidatorModel):
 
 
 class BatchGetRouterInputErrorTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
     Code: str
     Message: str
 
 
 # This class is the input for the 'batch_get_router_input' function.
 class BatchGetRouterInputRequestTypeDef(BaseValidatorModel):
-    Arns: List[str]
+    Arns: List[Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]]
 
 
 class BatchGetRouterNetworkInterfaceErrorTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]
     Code: str
     Message: str
 
 
 # This class is the input for the 'batch_get_router_network_interface' function.
 class BatchGetRouterNetworkInterfaceRequestTypeDef(BaseValidatorModel):
-    Arns: List[str]
+    Arns: List[Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]]
 
 
 class BatchGetRouterOutputErrorTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
     Code: str
     Message: str
 
 
 # This class is the input for the 'batch_get_router_output' function.
 class BatchGetRouterOutputRequestTypeDef(BaseValidatorModel):
-    Arns: List[str]
+    Arns: List[Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]]
 
 
 class BlackFramesTypeDef(BaseValidatorModel):
@@ -194,48 +196,50 @@ class GatewayNetworkTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_bridge' function.
 class DeleteBridgeRequestTypeDef(BaseValidatorModel):
-    BridgeArn: str
+    BridgeArn: Annotated[str, _aws_pattern("Mediaconnect", "DeleteBridgeRequestBridgeArnString")]
 
 
 # This class is the input for the 'delete_flow' function.
 class DeleteFlowRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "DeleteFlowRequestFlowArnString")]
 
 
 # This class is the input for the 'delete_gateway' function.
 class DeleteGatewayRequestTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("Mediaconnect", "DeleteGatewayRequestGatewayArnString")]
 
 
 # This class is the input for the 'delete_router_input' function.
 class DeleteRouterInputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
 
 
 # This class is the input for the 'delete_router_network_interface' function.
 class DeleteRouterNetworkInterfaceRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]
 
 
 # This class is the input for the 'delete_router_output' function.
 class DeleteRouterOutputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
 
 
 # This class is the input for the 'deregister_gateway_instance' function.
 class DeregisterGatewayInstanceRequestTypeDef(BaseValidatorModel):
-    GatewayInstanceArn: str
+    GatewayInstanceArn: Annotated[
+        str, _aws_pattern("Mediaconnect", "DeregisterGatewayInstanceRequestGatewayInstanceArnString")
+    ]
     Force: Optional[bool] = None
 
 
 # This class is the input for the 'describe_bridge' function.
 class DescribeBridgeRequestTypeDef(BaseValidatorModel):
-    BridgeArn: str
+    BridgeArn: Annotated[str, _aws_pattern("Mediaconnect", "DescribeBridgeRequestBridgeArnString")]
 
 
 # This class is the input for the 'describe_flow' function.
 class DescribeFlowRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "DescribeFlowRequestFlowArnString")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -249,22 +253,24 @@ class MessagesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_flow_source_metadata' function.
 class DescribeFlowSourceMetadataRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "FlowArn")]
 
 
 # This class is the input for the 'describe_flow_source_thumbnail' function.
 class DescribeFlowSourceThumbnailRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "FlowArn")]
 
 
 # This class is the input for the 'describe_gateway_instance' function.
 class DescribeGatewayInstanceRequestTypeDef(BaseValidatorModel):
-    GatewayInstanceArn: str
+    GatewayInstanceArn: Annotated[
+        str, _aws_pattern("Mediaconnect", "DescribeGatewayInstanceRequestGatewayInstanceArnString")
+    ]
 
 
 # This class is the input for the 'describe_gateway' function.
 class DescribeGatewayRequestTypeDef(BaseValidatorModel):
-    GatewayArn: str
+    GatewayArn: Annotated[str, _aws_pattern("Mediaconnect", "DescribeGatewayRequestGatewayArnString")]
 
 
 # This class is the input for the 'describe_offering' function.
@@ -315,8 +321,8 @@ class RtpRouterInputConfigurationTypeDef(BaseValidatorModel):
 
 
 class SecretsManagerEncryptionKeyConfigurationTypeDef(BaseValidatorModel):
-    SecretArn: str
-    RoleArn: str
+    SecretArn: Annotated[str, _aws_pattern("Mediaconnect", "SecretArn")]
+    RoleArn: Annotated[str, _aws_pattern("Mediaconnect", "RoleArn")]
 
 
 class MaintenanceTypeDef(BaseValidatorModel):
@@ -358,27 +364,27 @@ class FrozenFramesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_router_input' function.
 class GetRouterInputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
 
 
 # This class is the input for the 'get_router_input_source_metadata' function.
 class GetRouterInputSourceMetadataRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
 
 
 # This class is the input for the 'get_router_input_thumbnail' function.
 class GetRouterInputThumbnailRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
 
 
 # This class is the input for the 'get_router_network_interface' function.
 class GetRouterNetworkInterfaceRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]
 
 
 # This class is the input for the 'get_router_output' function.
 class GetRouterOutputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -461,7 +467,9 @@ class ListReservationsRequestTypeDef(BaseValidatorModel):
 class RouterInputFilterTypeDef(BaseValidatorModel):
     NameContains: Optional[List[str]] = None
     RegionNames: Optional[List[str]] = None
-    NetworkInterfaceArns: Optional[List[str]] = None
+    NetworkInterfaceArns: Optional[List[Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]]] = (
+        None
+    )
     RoutingScopes: Optional[List[RoutingScopeType]] = None
     InputTypes: Optional[List[RouterInputTypeType]] = None
 
@@ -474,7 +482,7 @@ class RouterNetworkInterfaceFilterTypeDef(BaseValidatorModel):
 
 class ListedRouterNetworkInterfaceTypeDef(BaseValidatorModel):
     Name: str
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]
     Id: str
     NetworkInterfaceType: RouterNetworkInterfaceTypeType
     AssociatedOutputCount: int
@@ -487,10 +495,12 @@ class ListedRouterNetworkInterfaceTypeDef(BaseValidatorModel):
 
 class RouterOutputFilterTypeDef(BaseValidatorModel):
     RegionNames: Optional[List[str]] = None
-    NetworkInterfaceArns: Optional[List[str]] = None
+    NetworkInterfaceArns: Optional[List[Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]]] = (
+        None
+    )
     RoutingScopes: Optional[List[RoutingScopeType]] = None
     OutputTypes: Optional[List[RouterOutputTypeType]] = None
-    RoutedInputArns: Optional[List[str]] = None
+    RoutedInputArns: Optional[List[Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]]] = None
     NameContains: Optional[List[str]] = None
 
 
@@ -552,54 +562,54 @@ class PurchaseOfferingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'remove_bridge_output' function.
 class RemoveBridgeOutputRequestTypeDef(BaseValidatorModel):
-    BridgeArn: str
+    BridgeArn: Annotated[str, _aws_pattern("Mediaconnect", "RemoveBridgeOutputRequestBridgeArnString")]
     OutputName: str
 
 
 # This class is the input for the 'remove_bridge_source' function.
 class RemoveBridgeSourceRequestTypeDef(BaseValidatorModel):
-    BridgeArn: str
+    BridgeArn: Annotated[str, _aws_pattern("Mediaconnect", "RemoveBridgeSourceRequestBridgeArnString")]
     SourceName: str
 
 
 # This class is the input for the 'remove_flow_media_stream' function.
 class RemoveFlowMediaStreamRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "RemoveFlowMediaStreamRequestFlowArnString")]
     MediaStreamName: str
 
 
 # This class is the input for the 'remove_flow_output' function.
 class RemoveFlowOutputRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
-    OutputArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "RemoveFlowOutputRequestFlowArnString")]
+    OutputArn: Annotated[str, _aws_pattern("Mediaconnect", "RemoveFlowOutputRequestOutputArnString")]
 
 
 # This class is the input for the 'remove_flow_source' function.
 class RemoveFlowSourceRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
-    SourceArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "RemoveFlowSourceRequestFlowArnString")]
+    SourceArn: Annotated[str, _aws_pattern("Mediaconnect", "RemoveFlowSourceRequestSourceArnString")]
 
 
 # This class is the input for the 'remove_flow_vpc_interface' function.
 class RemoveFlowVpcInterfaceRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "RemoveFlowVpcInterfaceRequestFlowArnString")]
     VpcInterfaceName: str
 
 
 # This class is the input for the 'restart_router_input' function.
 class RestartRouterInputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
 
 
 # This class is the input for the 'restart_router_output' function.
 class RestartRouterOutputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
 
 
 # This class is the input for the 'revoke_flow_entitlement' function.
 class RevokeFlowEntitlementRequestTypeDef(BaseValidatorModel):
-    EntitlementArn: str
-    FlowArn: str
+    EntitlementArn: Annotated[str, _aws_pattern("Mediaconnect", "RevokeFlowEntitlementRequestEntitlementArnString")]
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "RevokeFlowEntitlementRequestFlowArnString")]
 
 
 class RistRouterOutputConfigurationTypeDef(BaseValidatorModel):
@@ -643,32 +653,32 @@ class StandardRouterOutputStreamDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_flow' function.
 class StartFlowRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "StartFlowRequestFlowArnString")]
 
 
 # This class is the input for the 'start_router_input' function.
 class StartRouterInputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
 
 
 # This class is the input for the 'start_router_output' function.
 class StartRouterOutputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
 
 
 # This class is the input for the 'stop_flow' function.
 class StopFlowRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "StopFlowRequestFlowArnString")]
 
 
 # This class is the input for the 'stop_router_input' function.
 class StopRouterInputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
 
 
 # This class is the input for the 'stop_router_output' function.
 class StopRouterOutputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
 
 
 # This class is the input for the 'tag_global_resource' function.
@@ -685,8 +695,8 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'take_router_input' function.
 class TakeRouterInputRequestTypeDef(BaseValidatorModel):
-    RouterOutputArn: str
-    RouterInputArn: Optional[str] = None
+    RouterOutputArn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
+    RouterInputArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]] = None
 
 
 # This class is the input for the 'untag_global_resource' function.
@@ -720,7 +730,7 @@ class UpdateIngressGatewayBridgeRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_bridge_state' function.
 class UpdateBridgeStateRequestTypeDef(BaseValidatorModel):
-    BridgeArn: str
+    BridgeArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateBridgeStateRequestBridgeArnString")]
     DesiredState: DesiredStateType
 
 
@@ -744,12 +754,14 @@ class UpdateMaintenanceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_gateway_instance' function.
 class UpdateGatewayInstanceRequestTypeDef(BaseValidatorModel):
-    GatewayInstanceArn: str
+    GatewayInstanceArn: Annotated[
+        str, _aws_pattern("Mediaconnect", "UpdateGatewayInstanceRequestGatewayInstanceArnString")
+    ]
     BridgePlacement: Optional[BridgePlacementType] = None
 
 
 class AddBridgeFlowSourceRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "AddBridgeFlowSourceRequestFlowArnString")]
     Name: str
     FlowVpcInterfaceAttachment: Optional[VpcInterfaceAttachmentTypeDef] = None
 
@@ -767,17 +779,19 @@ class GatewayBridgeSourceTypeDef(BaseValidatorModel):
 
 
 class SetGatewayBridgeSourceRequestTypeDef(BaseValidatorModel):
-    BridgeArn: str
+    BridgeArn: Annotated[str, _aws_pattern("Mediaconnect", "SetGatewayBridgeSourceRequestBridgeArnString")]
     VpcInterfaceAttachment: Optional[VpcInterfaceAttachmentTypeDef] = None
 
 
 class UpdateBridgeFlowSourceRequestTypeDef(BaseValidatorModel):
-    FlowArn: Optional[str] = None
+    FlowArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "UpdateBridgeFlowSourceRequestFlowArnString")]] = None
     FlowVpcInterfaceAttachment: Optional[VpcInterfaceAttachmentTypeDef] = None
 
 
 class UpdateGatewayBridgeSourceRequestTypeDef(BaseValidatorModel):
-    BridgeArn: Optional[str] = None
+    BridgeArn: Optional[
+        Annotated[str, _aws_pattern("Mediaconnect", "UpdateGatewayBridgeSourceRequestBridgeArnString")]
+    ] = None
     VpcInterfaceAttachment: Optional[VpcInterfaceAttachmentTypeDef] = None
 
 
@@ -832,7 +846,7 @@ class DeleteGatewayResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_router_input' function.
 class DeleteRouterInputResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
     Name: str
     State: RouterInputStateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -840,7 +854,7 @@ class DeleteRouterInputResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_router_network_interface' function.
 class DeleteRouterNetworkInterfaceResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]
     Name: str
     State: RouterNetworkInterfaceStateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -848,7 +862,7 @@ class DeleteRouterNetworkInterfaceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_router_output' function.
 class DeleteRouterOutputResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
     Name: str
     State: RouterOutputStateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -923,7 +937,7 @@ class RemoveFlowVpcInterfaceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'restart_router_input' function.
 class RestartRouterInputResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
     Name: str
     State: RouterInputStateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -931,7 +945,7 @@ class RestartRouterInputResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'restart_router_output' function.
 class RestartRouterOutputResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
     Name: str
     State: RouterOutputStateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -960,7 +974,7 @@ class StopFlowResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'stop_router_input' function.
 class StopRouterInputResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
     Name: str
     State: RouterInputStateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -968,7 +982,7 @@ class StopRouterInputResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'stop_router_output' function.
 class StopRouterOutputResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
     Name: str
     State: RouterOutputStateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -977,9 +991,9 @@ class StopRouterOutputResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'take_router_input' function.
 class TakeRouterInputResponseTypeDef(BaseValidatorModel):
     RoutedState: RouterOutputRoutedStateType
-    RouterOutputArn: str
+    RouterOutputArn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
     RouterOutputName: str
-    RouterInputArn: str
+    RouterInputArn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
     RouterInputName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1000,7 +1014,7 @@ class UpdateGatewayInstanceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_flow_vpc_interfaces' function.
 class AddFlowVpcInterfacesRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "AddFlowVpcInterfacesRequestFlowArnString")]
     VpcInterfaces: List[VpcInterfaceRequestTypeDef]
 
 
@@ -1464,15 +1478,15 @@ class RouterOutputStreamDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_bridge_output' function.
 class UpdateBridgeOutputRequestTypeDef(BaseValidatorModel):
-    BridgeArn: str
+    BridgeArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateBridgeOutputRequestBridgeArnString")]
     OutputName: str
     NetworkOutput: Optional[UpdateBridgeNetworkOutputRequestTypeDef] = None
 
 
 # This class is the input for the 'update_flow_entitlement' function.
 class UpdateFlowEntitlementRequestTypeDef(BaseValidatorModel):
-    EntitlementArn: str
-    FlowArn: str
+    EntitlementArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateFlowEntitlementRequestEntitlementArnString")]
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateFlowEntitlementRequestFlowArnString")]
     Description: Optional[str] = None
     Encryption: Optional[UpdateEncryptionTypeDef] = None
     EntitlementStatus: Optional[EntitlementStatusType] = None
@@ -1481,7 +1495,7 @@ class UpdateFlowEntitlementRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_bridge_outputs' function.
 class AddBridgeOutputsRequestTypeDef(BaseValidatorModel):
-    BridgeArn: str
+    BridgeArn: Annotated[str, _aws_pattern("Mediaconnect", "AddBridgeOutputsRequestBridgeArnString")]
     Outputs: List[AddBridgeOutputRequestTypeDef]
 
 
@@ -1497,7 +1511,7 @@ class BridgeSourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_bridge_source' function.
 class UpdateBridgeSourceRequestTypeDef(BaseValidatorModel):
-    BridgeArn: str
+    BridgeArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateBridgeSourceRequestBridgeArnString")]
     SourceName: str
     FlowSource: Optional[UpdateBridgeFlowSourceRequestTypeDef] = None
     NetworkSource: Optional[UpdateBridgeNetworkSourceRequestTypeDef] = None
@@ -1520,7 +1534,7 @@ class UpdateFlowEntitlementResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'grant_flow_entitlements' function.
 class GrantFlowEntitlementsRequestTypeDef(BaseValidatorModel):
     Entitlements: List[GrantEntitlementRequestTypeDef]
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "GrantFlowEntitlementsRequestFlowArnString")]
 
 
 # This class is the output for the 'add_bridge_outputs' function.
@@ -1589,7 +1603,7 @@ class MediaStreamSourceConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_bridge' function.
 class UpdateBridgeRequestTypeDef(BaseValidatorModel):
-    BridgeArn: str
+    BridgeArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateBridgeRequestBridgeArnString")]
     EgressGatewayBridge: Optional[UpdateEgressGatewayBridgeRequestTypeDef] = None
     IngressGatewayBridge: Optional[UpdateIngressGatewayBridgeRequestTypeDef] = None
     SourceFailoverConfig: Optional[UpdateFailoverConfigTypeDef] = None
@@ -1602,7 +1616,7 @@ class MergeRouterInputConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class MergeRouterInputConfigurationTypeDef(BaseValidatorModel):
-    NetworkInterfaceArn: str
+    NetworkInterfaceArn: Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]
     ProtocolConfigurations: List[MergeRouterInputProtocolConfigurationTypeDef]
     MergeRecoveryWindowMilliseconds: int
 
@@ -1685,7 +1699,7 @@ class AddMediaStreamRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_flow_media_stream' function.
 class UpdateFlowMediaStreamRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateFlowMediaStreamRequestFlowArnString")]
     MediaStreamName: str
     Attributes: Optional[MediaStreamAttributesRequestTypeDef] = None
     ClockRate: Optional[int] = None
@@ -1736,7 +1750,7 @@ MaintenanceConfigurationUnionTypeDef = Union[MaintenanceConfigurationOutputTypeD
 
 class ListedRouterInputTypeDef(BaseValidatorModel):
     Name: str
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
     Id: str
     InputType: RouterInputTypeType
     State: RouterInputStateType
@@ -1748,14 +1762,14 @@ class ListedRouterInputTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     UpdatedAt: datetime
     MessageCount: int
-    NetworkInterfaceArn: Optional[str] = None
+    NetworkInterfaceArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]] = None
     MaintenanceScheduleType: Optional[Literal["WINDOW"]] = None
     MaintenanceSchedule: Optional[MaintenanceScheduleTypeDef] = None
 
 
 class ListedRouterOutputTypeDef(BaseValidatorModel):
     Name: str
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
     Id: str
     OutputType: RouterOutputTypeType
     State: RouterOutputStateType
@@ -1767,15 +1781,15 @@ class ListedRouterOutputTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     UpdatedAt: datetime
     MessageCount: int
-    RoutedInputArn: Optional[str] = None
-    NetworkInterfaceArn: Optional[str] = None
+    RoutedInputArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]] = None
+    NetworkInterfaceArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]] = None
     MaintenanceScheduleType: Optional[Literal["WINDOW"]] = None
     MaintenanceSchedule: Optional[MaintenanceScheduleTypeDef] = None
 
 
 # This class is the output for the 'start_router_input' function.
 class StartRouterInputResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
     Name: str
     State: RouterInputStateType
     MaintenanceScheduleType: Literal["WINDOW"]
@@ -1785,7 +1799,7 @@ class StartRouterInputResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_router_output' function.
 class StartRouterOutputResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
     Name: str
     State: RouterOutputStateType
     MaintenanceScheduleType: Literal["WINDOW"]
@@ -1848,7 +1862,7 @@ class RouterNetworkInterfaceConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_router_input_thumbnail' function.
 class GetRouterInputThumbnailResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
     Name: str
     ThumbnailDetails: RouterInputThumbnailDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1975,14 +1989,14 @@ class MediaLiveInputRouterOutputConfigurationOutputTypeDef(BaseValidatorModel):
 
 class MediaLiveChannelRouterInputConfigurationTypeDef(BaseValidatorModel):
     SourceTransitDecryption: MediaLiveTransitEncryptionTypeDef
-    MediaLiveChannelArn: Optional[str] = None
+    MediaLiveChannelArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "MediaLiveChannelArn")]] = None
     MediaLivePipelineId: Optional[MediaLiveChannelPipelineIdType] = None
     MediaLiveChannelOutputName: Optional[str] = None
 
 
 class MediaLiveInputRouterOutputConfigurationTypeDef(BaseValidatorModel):
     DestinationTransitEncryption: MediaLiveTransitEncryptionTypeDef
-    MediaLiveInputArn: Optional[str] = None
+    MediaLiveInputArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "MediaLiveInputArn")]] = None
     MediaLivePipelineId: Optional[MediaLiveInputPipelineIdType] = None
 
 
@@ -2014,7 +2028,7 @@ class RouterOutputProtocolConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_flow_media_streams' function.
 class AddFlowMediaStreamsRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "AddFlowMediaStreamsRequestFlowArnString")]
     MediaStreams: List[AddMediaStreamRequestTypeDef]
 
 
@@ -2062,7 +2076,7 @@ class ListRouterOutputsResponseTypeDef(BaseValidatorModel):
 
 class RouterNetworkInterfaceTypeDef(BaseValidatorModel):
     Name: str
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]
     Id: str
     State: RouterNetworkInterfaceStateType
     NetworkInterfaceType: RouterNetworkInterfaceTypeType
@@ -2152,14 +2166,14 @@ FlowTransitEncryptionUnionTypeDef = Union[FlowTransitEncryptionOutputTypeDef, Fl
 
 class MediaConnectFlowRouterInputConfigurationTypeDef(BaseValidatorModel):
     SourceTransitDecryption: FlowTransitEncryptionTypeDef
-    FlowArn: Optional[str] = None
-    FlowOutputArn: Optional[str] = None
+    FlowArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "FlowArn")]] = None
+    FlowOutputArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "FlowOutputArn")]] = None
 
 
 class MediaConnectFlowRouterOutputConfigurationTypeDef(BaseValidatorModel):
     DestinationTransitEncryption: FlowTransitEncryptionTypeDef
-    FlowArn: Optional[str] = None
-    FlowSourceArn: Optional[str] = None
+    FlowArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "FlowArn")]] = None
+    FlowSourceArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "FlowSourceArn")]] = None
 
 
 class FailoverRouterInputConfigurationOutputTypeDef(BaseValidatorModel):
@@ -2170,20 +2184,20 @@ class FailoverRouterInputConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class FailoverRouterInputConfigurationTypeDef(BaseValidatorModel):
-    NetworkInterfaceArn: str
+    NetworkInterfaceArn: Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]
     ProtocolConfigurations: List[FailoverRouterInputProtocolConfigurationTypeDef]
     SourcePriorityMode: FailoverInputSourcePriorityModeType
     PrimarySourceIndex: Optional[int] = None
 
 
 class StandardRouterInputConfigurationTypeDef(BaseValidatorModel):
-    NetworkInterfaceArn: str
+    NetworkInterfaceArn: Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]
     ProtocolConfiguration: RouterInputProtocolConfigurationTypeDef
     Protocol: Optional[RouterInputProtocolType] = None
 
 
 class StandardRouterOutputConfigurationTypeDef(BaseValidatorModel):
-    NetworkInterfaceArn: str
+    NetworkInterfaceArn: Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]
     ProtocolConfiguration: RouterOutputProtocolConfigurationTypeDef
     Protocol: Optional[RouterOutputProtocolType] = None
 
@@ -2204,7 +2218,7 @@ class RouterInputMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_flow' function.
 class UpdateFlowRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateFlowRequestFlowArnString")]
     SourceFailoverConfig: Optional[UpdateFailoverConfigTypeDef] = None
     Maintenance: Optional[UpdateMaintenanceTypeDef] = None
     SourceMonitoringConfig: Optional[MonitoringConfigUnionTypeDef] = None
@@ -2249,7 +2263,7 @@ class CreateRouterNetworkInterfaceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_router_network_interface' function.
 class UpdateRouterNetworkInterfaceRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterNetworkInterfaceArn")]
     Name: Optional[str] = None
     Configuration: Optional[RouterNetworkInterfaceConfigurationUnionTypeDef] = None
 
@@ -2300,7 +2314,9 @@ class AddOutputRequestTypeDef(BaseValidatorModel):
 class SetSourceRequestTypeDef(BaseValidatorModel):
     Decryption: Optional[EncryptionTypeDef] = None
     Description: Optional[str] = None
-    EntitlementArn: Optional[str] = None
+    EntitlementArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "SetSourceRequestEntitlementArnString")]] = (
+        None
+    )
     IngestPort: Optional[int] = None
     MaxBitrate: Optional[int] = None
     MaxLatency: Optional[int] = None
@@ -2325,8 +2341,8 @@ class SetSourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_flow_output' function.
 class UpdateFlowOutputRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
-    OutputArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateFlowOutputRequestFlowArnString")]
+    OutputArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateFlowOutputRequestOutputArnString")]
     CidrAllowList: Optional[List[str]] = None
     Description: Optional[str] = None
     Destination: Optional[str] = None
@@ -2351,11 +2367,13 @@ class UpdateFlowOutputRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_flow_source' function.
 class UpdateFlowSourceRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
-    SourceArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateFlowSourceRequestFlowArnString")]
+    SourceArn: Annotated[str, _aws_pattern("Mediaconnect", "UpdateFlowSourceRequestSourceArnString")]
     Decryption: Optional[UpdateEncryptionTypeDef] = None
     Description: Optional[str] = None
-    EntitlementArn: Optional[str] = None
+    EntitlementArn: Optional[
+        Annotated[str, _aws_pattern("Mediaconnect", "UpdateFlowSourceRequestEntitlementArnString")]
+    ] = None
     IngestPort: Optional[int] = None
     MaxBitrate: Optional[int] = None
     MaxLatency: Optional[int] = None
@@ -2412,13 +2430,13 @@ class RouterInputSourceMetadataDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_flow_outputs' function.
 class AddFlowOutputsRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "AddFlowOutputsRequestFlowArnString")]
     Outputs: List[AddOutputRequestTypeDef]
 
 
 # This class is the input for the 'add_flow_sources' function.
 class AddFlowSourcesRequestTypeDef(BaseValidatorModel):
-    FlowArn: str
+    FlowArn: Annotated[str, _aws_pattern("Mediaconnect", "AddFlowSourcesRequestFlowArnString")]
     Sources: List[SetSourceRequestTypeDef]
 
 
@@ -2443,7 +2461,7 @@ class CreateFlowRequestTypeDef(BaseValidatorModel):
 
 class RouterInputTypeDef(BaseValidatorModel):
     Name: str
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
     Id: str
     State: RouterInputStateType
     InputType: RouterInputTypeType
@@ -2473,7 +2491,7 @@ RouterInputConfigurationUnionTypeDef = Union[RouterInputConfigurationOutputTypeD
 
 class RouterOutputTypeDef(BaseValidatorModel):
     Name: str
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
     Id: str
     State: RouterOutputStateType
     OutputType: RouterOutputTypeType
@@ -2492,7 +2510,7 @@ class RouterOutputTypeDef(BaseValidatorModel):
     MaintenanceType: MaintenanceTypeType
     MaintenanceConfiguration: MaintenanceConfigurationOutputTypeDef
     IpAddress: Optional[str] = None
-    RoutedInputArn: Optional[str] = None
+    RoutedInputArn: Optional[Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]] = None
     MaintenanceScheduleType: Optional[Literal["WINDOW"]] = None
     MaintenanceSchedule: Optional[MaintenanceScheduleTypeDef] = None
 
@@ -2502,7 +2520,7 @@ RouterOutputConfigurationUnionTypeDef = Union[RouterOutputConfigurationOutputTyp
 
 # This class is the output for the 'get_router_input_source_metadata' function.
 class GetRouterInputSourceMetadataResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
     Name: str
     SourceMetadataDetails: RouterInputSourceMetadataDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2550,7 +2568,7 @@ class CreateRouterInputRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_router_input' function.
 class UpdateRouterInputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterInputArn")]
     Name: Optional[str] = None
     Configuration: Optional[RouterInputConfigurationUnionTypeDef] = None
     MaximumBitrate: Optional[int] = None
@@ -2601,7 +2619,7 @@ class CreateRouterOutputRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_router_output' function.
 class UpdateRouterOutputRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mediaconnect", "RouterOutputArn")]
     Name: Optional[str] = None
     Configuration: Optional[RouterOutputConfigurationUnionTypeDef] = None
     MaximumBitrate: Optional[int] = None

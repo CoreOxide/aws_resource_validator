@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.s3files.s3files_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("S3files", "TagKey")]
+    value: Annotated[str, _aws_pattern("S3files", "TagValue")]
 
 
 class PosixUserOutputTypeDef(BaseValidatorModel):
@@ -59,39 +61,39 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_mount_target' function.
 class CreateMountTargetRequestTypeDef(BaseValidatorModel):
-    fileSystemId: str
-    subnetId: str
-    ipv4Address: Optional[str] = None
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
+    subnetId: Annotated[str, _aws_pattern("S3files", "SubnetId")]
+    ipv4Address: Optional[Annotated[str, _aws_pattern("S3files", "Ipv4Address")]] = None
     ipv6Address: Optional[str] = None
     ipAddressType: Optional[IpAddressTypeType] = None
-    securityGroups: Optional[List[str]] = None
+    securityGroups: Optional[List[Annotated[str, _aws_pattern("S3files", "SecurityGroup")]]] = None
 
 
 class CreationPermissionsTypeDef(BaseValidatorModel):
     ownerUid: int
     ownerGid: int
-    permissions: str
+    permissions: Annotated[str, _aws_pattern("S3files", "Permissions")]
 
 
 # This class is the input for the 'delete_access_point' function.
 class DeleteAccessPointRequestTypeDef(BaseValidatorModel):
-    accessPointId: str
+    accessPointId: Annotated[str, _aws_pattern("S3files", "AccessPointId")]
 
 
 # This class is the input for the 'delete_file_system_policy' function.
 class DeleteFileSystemPolicyRequestTypeDef(BaseValidatorModel):
-    fileSystemId: str
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
 
 
 # This class is the input for the 'delete_file_system' function.
 class DeleteFileSystemRequestTypeDef(BaseValidatorModel):
-    fileSystemId: str
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
     forceDelete: Optional[bool] = None
 
 
 # This class is the input for the 'delete_mount_target' function.
 class DeleteMountTargetRequestTypeDef(BaseValidatorModel):
-    mountTargetId: str
+    mountTargetId: Annotated[str, _aws_pattern("S3files", "MountTargetId")]
 
 
 class ExpirationDataRuleTypeDef(BaseValidatorModel):
@@ -100,31 +102,31 @@ class ExpirationDataRuleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_access_point' function.
 class GetAccessPointRequestTypeDef(BaseValidatorModel):
-    accessPointId: str
+    accessPointId: Annotated[str, _aws_pattern("S3files", "AccessPointId")]
 
 
 # This class is the input for the 'get_file_system_policy' function.
 class GetFileSystemPolicyRequestTypeDef(BaseValidatorModel):
-    fileSystemId: str
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
 
 
 # This class is the input for the 'get_file_system' function.
 class GetFileSystemRequestTypeDef(BaseValidatorModel):
-    fileSystemId: str
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
 
 
 # This class is the input for the 'get_mount_target' function.
 class GetMountTargetRequestTypeDef(BaseValidatorModel):
-    mountTargetId: str
+    mountTargetId: Annotated[str, _aws_pattern("S3files", "MountTargetId")]
 
 
 # This class is the input for the 'get_synchronization_configuration' function.
 class GetSynchronizationConfigurationRequestTypeDef(BaseValidatorModel):
-    fileSystemId: str
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
 
 
 class ImportDataRuleTypeDef(BaseValidatorModel):
-    prefix: str
+    prefix: Annotated[str, _aws_pattern("S3files", "ImportDataRulePrefixString")]
     trigger: ImportTriggerType
     sizeLessThan: int
 
@@ -137,37 +139,37 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_access_points' function.
 class ListAccessPointsRequestTypeDef(BaseValidatorModel):
-    fileSystemId: str
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ListFileSystemsDescriptionTypeDef(BaseValidatorModel):
     creationTime: datetime
-    fileSystemArn: str
-    fileSystemId: str
-    bucket: str
+    fileSystemArn: Annotated[str, _aws_pattern("S3files", "FileSystemArn")]
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
+    bucket: Annotated[str, _aws_pattern("S3files", "BucketArn")]
     status: LifeCycleStateType
-    roleArn: str
-    ownerId: str
-    name: Optional[str] = None
+    roleArn: Annotated[str, _aws_pattern("S3files", "RoleArn")]
+    ownerId: Annotated[str, _aws_pattern("S3files", "AwsAccountId")]
+    name: Optional[Annotated[str, _aws_pattern("S3files", "TagValue")]] = None
     statusMessage: Optional[str] = None
 
 
 # This class is the input for the 'list_file_systems' function.
 class ListFileSystemsRequestTypeDef(BaseValidatorModel):
-    bucket: Optional[str] = None
+    bucket: Optional[Annotated[str, _aws_pattern("S3files", "BucketArn")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ListMountTargetsDescriptionTypeDef(BaseValidatorModel):
-    mountTargetId: str
-    ownerId: str
-    subnetId: str
+    mountTargetId: Annotated[str, _aws_pattern("S3files", "MountTargetId")]
+    ownerId: Annotated[str, _aws_pattern("S3files", "AwsAccountId")]
+    subnetId: Annotated[str, _aws_pattern("S3files", "SubnetId")]
     availabilityZoneId: Optional[str] = None
-    fileSystemId: Optional[str] = None
-    ipv4Address: Optional[str] = None
+    fileSystemId: Optional[Annotated[str, _aws_pattern("S3files", "FileSystemId")]] = None
+    ipv4Address: Optional[Annotated[str, _aws_pattern("S3files", "Ipv4Address")]] = None
     ipv6Address: Optional[str] = None
     status: Optional[LifeCycleStateType] = None
     statusMessage: Optional[str] = None
@@ -177,15 +179,15 @@ class ListMountTargetsDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_mount_targets' function.
 class ListMountTargetsRequestTypeDef(BaseValidatorModel):
-    fileSystemId: Optional[str] = None
-    accessPointId: Optional[str] = None
+    fileSystemId: Optional[Annotated[str, _aws_pattern("S3files", "FileSystemId")]] = None
+    accessPointId: Optional[Annotated[str, _aws_pattern("S3files", "AccessPointId")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceId: str
+    resourceId: Annotated[str, _aws_pattern("S3files", "ResourceId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -197,69 +199,69 @@ class PosixUserTypeDef(BaseValidatorModel):
 
 
 class PutFileSystemPolicyRequestTypeDef(BaseValidatorModel):
-    fileSystemId: str
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
     policy: str
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceId: str
-    tagKeys: List[str]
+    resourceId: Annotated[str, _aws_pattern("S3files", "ResourceId")]
+    tagKeys: List[Annotated[str, _aws_pattern("S3files", "TagKey")]]
 
 
 # This class is the input for the 'update_mount_target' function.
 class UpdateMountTargetRequestTypeDef(BaseValidatorModel):
-    mountTargetId: str
-    securityGroups: List[str]
+    mountTargetId: Annotated[str, _aws_pattern("S3files", "MountTargetId")]
+    securityGroups: List[Annotated[str, _aws_pattern("S3files", "SecurityGroup")]]
 
 
 # This class is the input for the 'create_file_system' function.
 class CreateFileSystemRequestTypeDef(BaseValidatorModel):
-    bucket: str
-    roleArn: str
-    prefix: Optional[str] = None
-    clientToken: Optional[str] = None
-    kmsKeyId: Optional[str] = None
+    bucket: Annotated[str, _aws_pattern("S3files", "BucketArn")]
+    roleArn: Annotated[str, _aws_pattern("S3files", "RoleArn")]
+    prefix: Optional[Annotated[str, _aws_pattern("S3files", "CreateFileSystemRequestPrefixString")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("S3files", "CreationToken")]] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("S3files", "KmsKeyId")]] = None
     tags: Optional[List[TagTypeDef]] = None
     acceptBucketWarning: Optional[bool] = None
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceId: str
+    resourceId: Annotated[str, _aws_pattern("S3files", "ResourceId")]
     tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_file_system' function.
 class CreateFileSystemResponseTypeDef(BaseValidatorModel):
     creationTime: datetime
-    fileSystemArn: str
-    fileSystemId: str
-    bucket: str
+    fileSystemArn: Annotated[str, _aws_pattern("S3files", "FileSystemArn")]
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
+    bucket: Annotated[str, _aws_pattern("S3files", "BucketArn")]
     prefix: str
-    clientToken: str
-    kmsKeyId: str
+    clientToken: Annotated[str, _aws_pattern("S3files", "ClientToken")]
+    kmsKeyId: Annotated[str, _aws_pattern("S3files", "KmsKeyId")]
     status: LifeCycleStateType
     statusMessage: str
-    roleArn: str
-    ownerId: str
+    roleArn: Annotated[str, _aws_pattern("S3files", "RoleArn")]
+    ownerId: Annotated[str, _aws_pattern("S3files", "AwsAccountId")]
     tags: List[TagTypeDef]
-    name: str
+    name: Annotated[str, _aws_pattern("S3files", "TagValue")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_mount_target' function.
 class CreateMountTargetResponseTypeDef(BaseValidatorModel):
     availabilityZoneId: str
-    ownerId: str
-    mountTargetId: str
-    fileSystemId: str
-    subnetId: str
-    ipv4Address: str
+    ownerId: Annotated[str, _aws_pattern("S3files", "AwsAccountId")]
+    mountTargetId: Annotated[str, _aws_pattern("S3files", "MountTargetId")]
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
+    subnetId: Annotated[str, _aws_pattern("S3files", "SubnetId")]
+    ipv4Address: Annotated[str, _aws_pattern("S3files", "Ipv4Address")]
     ipv6Address: str
     networkInterfaceId: str
     vpcId: str
-    securityGroups: List[str]
+    securityGroups: List[Annotated[str, _aws_pattern("S3files", "SecurityGroup")]]
     status: LifeCycleStateType
     statusMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -272,7 +274,7 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_file_system_policy' function.
 class GetFileSystemPolicyResponseTypeDef(BaseValidatorModel):
-    fileSystemId: str
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
     policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -280,33 +282,33 @@ class GetFileSystemPolicyResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_file_system' function.
 class GetFileSystemResponseTypeDef(BaseValidatorModel):
     creationTime: datetime
-    fileSystemArn: str
-    fileSystemId: str
-    bucket: str
+    fileSystemArn: Annotated[str, _aws_pattern("S3files", "FileSystemArn")]
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
+    bucket: Annotated[str, _aws_pattern("S3files", "BucketArn")]
     prefix: str
-    clientToken: str
-    kmsKeyId: str
+    clientToken: Annotated[str, _aws_pattern("S3files", "ClientToken")]
+    kmsKeyId: Annotated[str, _aws_pattern("S3files", "KmsKeyId")]
     status: LifeCycleStateType
     statusMessage: str
-    roleArn: str
-    ownerId: str
+    roleArn: Annotated[str, _aws_pattern("S3files", "RoleArn")]
+    ownerId: Annotated[str, _aws_pattern("S3files", "AwsAccountId")]
     tags: List[TagTypeDef]
-    name: str
+    name: Annotated[str, _aws_pattern("S3files", "TagValue")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_mount_target' function.
 class GetMountTargetResponseTypeDef(BaseValidatorModel):
     availabilityZoneId: str
-    ownerId: str
-    mountTargetId: str
-    fileSystemId: str
-    subnetId: str
-    ipv4Address: str
+    ownerId: Annotated[str, _aws_pattern("S3files", "AwsAccountId")]
+    mountTargetId: Annotated[str, _aws_pattern("S3files", "MountTargetId")]
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
+    subnetId: Annotated[str, _aws_pattern("S3files", "SubnetId")]
+    ipv4Address: Annotated[str, _aws_pattern("S3files", "Ipv4Address")]
     ipv6Address: str
     networkInterfaceId: str
     vpcId: str
-    securityGroups: List[str]
+    securityGroups: List[Annotated[str, _aws_pattern("S3files", "SecurityGroup")]]
     status: LifeCycleStateType
     statusMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -322,22 +324,22 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_mount_target' function.
 class UpdateMountTargetResponseTypeDef(BaseValidatorModel):
     availabilityZoneId: str
-    ownerId: str
-    mountTargetId: str
-    fileSystemId: str
-    subnetId: str
-    ipv4Address: str
+    ownerId: Annotated[str, _aws_pattern("S3files", "AwsAccountId")]
+    mountTargetId: Annotated[str, _aws_pattern("S3files", "MountTargetId")]
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
+    subnetId: Annotated[str, _aws_pattern("S3files", "SubnetId")]
+    ipv4Address: Annotated[str, _aws_pattern("S3files", "Ipv4Address")]
     ipv6Address: str
     networkInterfaceId: str
     vpcId: str
-    securityGroups: List[str]
+    securityGroups: List[Annotated[str, _aws_pattern("S3files", "SecurityGroup")]]
     status: LifeCycleStateType
     statusMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class RootDirectoryTypeDef(BaseValidatorModel):
-    path: Optional[str] = None
+    path: Optional[Annotated[str, _aws_pattern("S3files", "Path")]] = None
     creationPermissions: Optional[CreationPermissionsTypeDef] = None
 
 
@@ -350,7 +352,7 @@ class GetSynchronizationConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class PutSynchronizationConfigurationRequestTypeDef(BaseValidatorModel):
-    fileSystemId: str
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
     importDataRules: List[ImportDataRuleTypeDef]
     expirationDataRules: List[ExpirationDataRuleTypeDef]
     latestVersionNumber: Optional[int] = None
@@ -396,49 +398,49 @@ PosixUserUnionTypeDef = Union[PosixUserOutputTypeDef, PosixUserTypeDef]
 
 # This class is the output for the 'create_access_point' function.
 class CreateAccessPointResponseTypeDef(BaseValidatorModel):
-    accessPointArn: str
-    accessPointId: str
-    clientToken: str
-    fileSystemId: str
+    accessPointArn: Annotated[str, _aws_pattern("S3files", "AccessPointArn")]
+    accessPointId: Annotated[str, _aws_pattern("S3files", "AccessPointId")]
+    clientToken: Annotated[str, _aws_pattern("S3files", "ClientToken")]
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
     status: LifeCycleStateType
-    ownerId: str
+    ownerId: Annotated[str, _aws_pattern("S3files", "AwsAccountId")]
     posixUser: PosixUserOutputTypeDef
     rootDirectory: RootDirectoryTypeDef
     tags: List[TagTypeDef]
-    name: str
+    name: Annotated[str, _aws_pattern("S3files", "TagValue")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_access_point' function.
 class GetAccessPointResponseTypeDef(BaseValidatorModel):
-    accessPointArn: str
-    accessPointId: str
-    clientToken: str
-    fileSystemId: str
+    accessPointArn: Annotated[str, _aws_pattern("S3files", "AccessPointArn")]
+    accessPointId: Annotated[str, _aws_pattern("S3files", "AccessPointId")]
+    clientToken: Annotated[str, _aws_pattern("S3files", "ClientToken")]
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
     status: LifeCycleStateType
-    ownerId: str
+    ownerId: Annotated[str, _aws_pattern("S3files", "AwsAccountId")]
     posixUser: PosixUserOutputTypeDef
     rootDirectory: RootDirectoryTypeDef
     tags: List[TagTypeDef]
-    name: str
+    name: Annotated[str, _aws_pattern("S3files", "TagValue")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ListAccessPointsDescriptionTypeDef(BaseValidatorModel):
-    accessPointArn: str
-    accessPointId: str
-    fileSystemId: str
+    accessPointArn: Annotated[str, _aws_pattern("S3files", "AccessPointArn")]
+    accessPointId: Annotated[str, _aws_pattern("S3files", "AccessPointId")]
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
     status: LifeCycleStateType
-    ownerId: str
+    ownerId: Annotated[str, _aws_pattern("S3files", "AwsAccountId")]
     posixUser: Optional[PosixUserOutputTypeDef] = None
     rootDirectory: Optional[RootDirectoryTypeDef] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("S3files", "TagValue")]] = None
 
 
 # This class is the input for the 'create_access_point' function.
 class CreateAccessPointRequestTypeDef(BaseValidatorModel):
-    fileSystemId: str
-    clientToken: Optional[str] = None
+    fileSystemId: Annotated[str, _aws_pattern("S3files", "FileSystemId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("S3files", "ClientToken")]] = None
     tags: Optional[List[TagTypeDef]] = None
     posixUser: Optional[PosixUserUnionTypeDef] = None
     rootDirectory: Optional[RootDirectoryTypeDef] = None

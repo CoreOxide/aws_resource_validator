@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.gameliftstreams.gameliftstreams_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -53,59 +55,59 @@ class RuntimeEnvironmentTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_applications' function.
 class AssociateApplicationsInputTypeDef(BaseValidatorModel):
-    Identifier: str
-    ApplicationIdentifiers: List[str]
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    ApplicationIdentifiers: List[Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]]
 
 
 class ReplicationStatusTypeDef(BaseValidatorModel):
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "LocationName")]] = None
     Status: Optional[ReplicationStatusTypeType] = None
 
 
 class DefaultApplicationTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Id")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]] = None
 
 
 # This class is the input for the 'create_stream_session_connection' function.
 class CreateStreamSessionConnectionInputTypeDef(BaseValidatorModel):
-    Identifier: str
-    StreamSessionIdentifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    StreamSessionIdentifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
     SignalRequest: str
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_application' function.
 class DeleteApplicationInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
 
 
 # This class is the input for the 'delete_stream_group' function.
 class DeleteStreamGroupInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
 
 
 # This class is the input for the 'disassociate_applications' function.
 class DisassociateApplicationsInputTypeDef(BaseValidatorModel):
-    Identifier: str
-    ApplicationIdentifiers: List[str]
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    ApplicationIdentifiers: List[Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]]
 
 
 class ExportFilesMetadataTypeDef(BaseValidatorModel):
     Status: Optional[ExportFilesStatusType] = None
     StatusReason: Optional[str] = None
-    OutputUri: Optional[str] = None
+    OutputUri: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "OutputUri")]] = None
 
 
 class ExportStreamSessionFilesInputTypeDef(BaseValidatorModel):
-    Identifier: str
-    StreamSessionIdentifier: str
-    OutputUri: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    StreamSessionIdentifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    OutputUri: Annotated[str, _aws_pattern("Gameliftstreams", "OutputUri")]
 
 
 # This class is the input for the 'get_application' function.
 class GetApplicationInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -115,13 +117,13 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_stream_group' function.
 class GetStreamGroupInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
 
 
 # This class is the input for the 'get_stream_session' function.
 class GetStreamSessionInputTypeDef(BaseValidatorModel):
-    Identifier: str
-    StreamSessionIdentifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    StreamSessionIdentifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
 
 
 class PerformanceStatsConfigurationTypeDef(BaseValidatorModel):
@@ -156,7 +158,7 @@ class ListStreamSessionsByAccountInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_stream_sessions' function.
 class ListStreamSessionsInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
     Status: Optional[StreamSessionStatusType] = None
     ExportFilesStatus: Optional[ExportFilesStatusType] = None
     NextToken: Optional[str] = None
@@ -165,55 +167,55 @@ class ListStreamSessionsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]
 
 
 class VpcTransitConfigurationTypeDef(BaseValidatorModel):
     VpcId: str
-    Ipv4CidrBlocks: List[str]
+    Ipv4CidrBlocks: List[Annotated[str, _aws_pattern("Gameliftstreams", "Ipv4CidrBlock")]]
 
 
 class VpcTransitConfigurationResponseTypeDef(BaseValidatorModel):
     VpcId: Optional[str] = None
-    Ipv4CidrBlocks: Optional[List[str]] = None
+    Ipv4CidrBlocks: Optional[List[Annotated[str, _aws_pattern("Gameliftstreams", "Ipv4CidrBlock")]]] = None
     TransitGatewayId: Optional[str] = None
     TransitGatewayResourceShareArn: Optional[str] = None
 
 
 # This class is the input for the 'remove_stream_group_locations' function.
 class RemoveStreamGroupLocationsInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
     Locations: List[str]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]
     Tags: Dict[str, str]
 
 
 # This class is the input for the 'terminate_stream_session' function.
 class TerminateStreamSessionInputTypeDef(BaseValidatorModel):
-    Identifier: str
-    StreamSessionIdentifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    StreamSessionIdentifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_application' function.
 class UpdateApplicationInputTypeDef(BaseValidatorModel):
-    Identifier: str
-    Description: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    Description: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Description")]] = None
     ApplicationLogPaths: Optional[List[str]] = None
-    ApplicationLogOutputUri: Optional[str] = None
+    ApplicationLogOutputUri: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "ApplicationLogOutputUri")]] = None
 
 
 # This class is the output for the 'associate_applications' function.
 class AssociateApplicationsOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    ApplicationArns: List[str]
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]
+    ApplicationArns: List[Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -225,8 +227,8 @@ class CreateStreamSessionConnectionOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'disassociate_applications' function.
 class DisassociateApplicationsOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    ApplicationArns: List[str]
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]
+    ApplicationArns: List[Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -242,9 +244,9 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class ApplicationSummaryTypeDef(BaseValidatorModel):
-    Arn: str
-    Id: Optional[str] = None
-    Description: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    Id: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Id")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Description")]] = None
     Status: Optional[ApplicationStatusType] = None
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
@@ -253,77 +255,77 @@ class ApplicationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationInputTypeDef(BaseValidatorModel):
-    Description: str
+    Description: Annotated[str, _aws_pattern("Gameliftstreams", "Description")]
     RuntimeEnvironment: RuntimeEnvironmentTypeDef
     ExecutablePath: str
     ApplicationSourceUri: str
     ApplicationLogPaths: Optional[List[str]] = None
-    ApplicationLogOutputUri: Optional[str] = None
+    ApplicationLogOutputUri: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "ApplicationLogOutputUri")]] = None
     Tags: Optional[Dict[str, str]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_application' function.
 class CreateApplicationOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Description: str
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    Description: Annotated[str, _aws_pattern("Gameliftstreams", "Description")]
     RuntimeEnvironment: RuntimeEnvironmentTypeDef
     ExecutablePath: str
     ApplicationLogPaths: List[str]
-    ApplicationLogOutputUri: str
+    ApplicationLogOutputUri: Annotated[str, _aws_pattern("Gameliftstreams", "ApplicationLogOutputUri")]
     ApplicationSourceUri: str
-    Id: str
+    Id: Annotated[str, _aws_pattern("Gameliftstreams", "Id")]
     Status: ApplicationStatusType
     StatusReason: ApplicationStatusReasonType
     ReplicationStatuses: List[ReplicationStatusTypeDef]
     CreatedAt: datetime
     LastUpdatedAt: datetime
-    AssociatedStreamGroups: List[str]
+    AssociatedStreamGroups: List[Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_application' function.
 class GetApplicationOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Description: str
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    Description: Annotated[str, _aws_pattern("Gameliftstreams", "Description")]
     RuntimeEnvironment: RuntimeEnvironmentTypeDef
     ExecutablePath: str
     ApplicationLogPaths: List[str]
-    ApplicationLogOutputUri: str
+    ApplicationLogOutputUri: Annotated[str, _aws_pattern("Gameliftstreams", "ApplicationLogOutputUri")]
     ApplicationSourceUri: str
-    Id: str
+    Id: Annotated[str, _aws_pattern("Gameliftstreams", "Id")]
     Status: ApplicationStatusType
     StatusReason: ApplicationStatusReasonType
     ReplicationStatuses: List[ReplicationStatusTypeDef]
     CreatedAt: datetime
     LastUpdatedAt: datetime
-    AssociatedStreamGroups: List[str]
+    AssociatedStreamGroups: List[Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_application' function.
 class UpdateApplicationOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Description: str
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    Description: Annotated[str, _aws_pattern("Gameliftstreams", "Description")]
     RuntimeEnvironment: RuntimeEnvironmentTypeDef
     ExecutablePath: str
     ApplicationLogPaths: List[str]
-    ApplicationLogOutputUri: str
+    ApplicationLogOutputUri: Annotated[str, _aws_pattern("Gameliftstreams", "ApplicationLogOutputUri")]
     ApplicationSourceUri: str
-    Id: str
+    Id: Annotated[str, _aws_pattern("Gameliftstreams", "Id")]
     Status: ApplicationStatusType
     StatusReason: ApplicationStatusReasonType
     ReplicationStatuses: List[ReplicationStatusTypeDef]
     CreatedAt: datetime
     LastUpdatedAt: datetime
-    AssociatedStreamGroups: List[str]
+    AssociatedStreamGroups: List[Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class StreamGroupSummaryTypeDef(BaseValidatorModel):
-    Arn: str
-    Id: Optional[str] = None
-    Description: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    Id: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Id")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Description")]] = None
     DefaultApplication: Optional[DefaultApplicationTypeDef] = None
     StreamClass: Optional[StreamClassType] = None
     Status: Optional[StreamGroupStatusType] = None
@@ -333,16 +335,16 @@ class StreamGroupSummaryTypeDef(BaseValidatorModel):
 
 
 class StreamSessionSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    UserId: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "UserId")]] = None
     Status: Optional[StreamSessionStatusType] = None
     StatusReason: Optional[StreamSessionStatusReasonType] = None
     Protocol: Optional[Literal["WebRTC"]] = None
     LastUpdatedAt: Optional[datetime] = None
     CreatedAt: Optional[datetime] = None
-    ApplicationArn: Optional[str] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]] = None
     ExportFilesMetadata: Optional[ExportFilesMetadataTypeDef] = None
-    Location: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "LocationName")]] = None
 
 
 class GetApplicationInputWaitExtraTypeDef(BaseValidatorModel):
@@ -373,14 +375,14 @@ class GetStreamSessionInputWaitTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_stream_session' function.
 class GetStreamSessionOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Description: str
-    StreamGroupId: str
-    UserId: str
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]
+    Description: Annotated[str, _aws_pattern("Gameliftstreams", "Description")]
+    StreamGroupId: Annotated[str, _aws_pattern("Gameliftstreams", "Id")]
+    UserId: Annotated[str, _aws_pattern("Gameliftstreams", "UserId")]
     Status: StreamSessionStatusType
     StatusReason: StreamSessionStatusReasonType
     Protocol: Literal["WebRTC"]
-    Location: str
+    Location: Annotated[str, _aws_pattern("Gameliftstreams", "LocationName")]
     SignalRequest: str
     SignalResponse: str
     ConnectionTimeoutSeconds: int
@@ -392,21 +394,21 @@ class GetStreamSessionOutputTypeDef(BaseValidatorModel):
     WebSdkProtocolUrl: str
     LastUpdatedAt: datetime
     CreatedAt: datetime
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]
     ExportFilesMetadata: ExportFilesMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'start_stream_session' function.
 class StartStreamSessionInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
     Protocol: Literal["WebRTC"]
     SignalRequest: str
-    ApplicationIdentifier: str
-    ClientToken: Optional[str] = None
-    Description: Optional[str] = None
-    UserId: Optional[str] = None
-    Locations: Optional[List[str]] = None
+    ApplicationIdentifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "ClientToken")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Description")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "UserId")]] = None
+    Locations: Optional[List[Annotated[str, _aws_pattern("Gameliftstreams", "LocationName")]]] = None
     ConnectionTimeoutSeconds: Optional[int] = None
     SessionLengthSeconds: Optional[int] = None
     AdditionalLaunchArgs: Optional[List[str]] = None
@@ -416,14 +418,14 @@ class StartStreamSessionInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_stream_session' function.
 class StartStreamSessionOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Description: str
-    StreamGroupId: str
-    UserId: str
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]
+    Description: Annotated[str, _aws_pattern("Gameliftstreams", "Description")]
+    StreamGroupId: Annotated[str, _aws_pattern("Gameliftstreams", "Id")]
+    UserId: Annotated[str, _aws_pattern("Gameliftstreams", "UserId")]
     Status: StreamSessionStatusType
     StatusReason: StreamSessionStatusReasonType
     Protocol: Literal["WebRTC"]
-    Location: str
+    Location: Annotated[str, _aws_pattern("Gameliftstreams", "LocationName")]
     SignalRequest: str
     SignalResponse: str
     ConnectionTimeoutSeconds: int
@@ -435,7 +437,7 @@ class StartStreamSessionOutputTypeDef(BaseValidatorModel):
     WebSdkProtocolUrl: str
     LastUpdatedAt: datetime
     CreatedAt: datetime
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]
     ExportFilesMetadata: ExportFilesMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -462,7 +464,7 @@ class ListStreamSessionsInputPaginateTypeDef(BaseValidatorModel):
 
 
 class LocationConfigurationTypeDef(BaseValidatorModel):
-    LocationName: str
+    LocationName: Annotated[str, _aws_pattern("Gameliftstreams", "LocationName")]
     AlwaysOnCapacity: Optional[int] = None
     OnDemandCapacity: Optional[int] = None
     TargetIdleCapacity: Optional[int] = None
@@ -471,7 +473,7 @@ class LocationConfigurationTypeDef(BaseValidatorModel):
 
 
 class LocationStateTypeDef(BaseValidatorModel):
-    LocationName: Optional[str] = None
+    LocationName: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "LocationName")]] = None
     Status: Optional[StreamGroupLocationStatusType] = None
     AlwaysOnCapacity: Optional[int] = None
     OnDemandCapacity: Optional[int] = None
@@ -480,7 +482,7 @@ class LocationStateTypeDef(BaseValidatorModel):
     RequestedCapacity: Optional[int] = None
     AllocatedCapacity: Optional[int] = None
     IdleCapacity: Optional[int] = None
-    InternalVpcIpv4CidrBlock: Optional[str] = None
+    InternalVpcIpv4CidrBlock: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Ipv4CidrBlock")]] = None
     VpcTransitConfiguration: Optional[VpcTransitConfigurationResponseTypeDef] = None
 
 
@@ -514,81 +516,81 @@ class ListStreamSessionsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_stream_group_locations' function.
 class AddStreamGroupLocationsInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
     LocationConfigurations: List[LocationConfigurationTypeDef]
 
 
 # This class is the input for the 'create_stream_group' function.
 class CreateStreamGroupInputTypeDef(BaseValidatorModel):
-    Description: str
+    Description: Annotated[str, _aws_pattern("Gameliftstreams", "Description")]
     StreamClass: StreamClassType
-    DefaultApplicationIdentifier: Optional[str] = None
+    DefaultApplicationIdentifier: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]] = None
     LocationConfigurations: Optional[List[LocationConfigurationTypeDef]] = None
     Tags: Optional[Dict[str, str]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_stream_group' function.
 class UpdateStreamGroupInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
     LocationConfigurations: Optional[List[LocationConfigurationTypeDef]] = None
-    Description: Optional[str] = None
-    DefaultApplicationIdentifier: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Description")]] = None
+    DefaultApplicationIdentifier: Optional[Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]] = None
 
 
 # This class is the output for the 'add_stream_group_locations' function.
 class AddStreamGroupLocationsOutputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
     Locations: List[LocationStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_stream_group' function.
 class CreateStreamGroupOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Description: str
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    Description: Annotated[str, _aws_pattern("Gameliftstreams", "Description")]
     DefaultApplication: DefaultApplicationTypeDef
     LocationStates: List[LocationStateTypeDef]
     StreamClass: StreamClassType
-    Id: str
+    Id: Annotated[str, _aws_pattern("Gameliftstreams", "Id")]
     Status: StreamGroupStatusType
     StatusReason: StreamGroupStatusReasonType
     LastUpdatedAt: datetime
     CreatedAt: datetime
     ExpiresAt: datetime
-    AssociatedApplications: List[str]
+    AssociatedApplications: List[Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_stream_group' function.
 class GetStreamGroupOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Description: str
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    Description: Annotated[str, _aws_pattern("Gameliftstreams", "Description")]
     DefaultApplication: DefaultApplicationTypeDef
     LocationStates: List[LocationStateTypeDef]
     StreamClass: StreamClassType
-    Id: str
+    Id: Annotated[str, _aws_pattern("Gameliftstreams", "Id")]
     Status: StreamGroupStatusType
     StatusReason: StreamGroupStatusReasonType
     LastUpdatedAt: datetime
     CreatedAt: datetime
     ExpiresAt: datetime
-    AssociatedApplications: List[str]
+    AssociatedApplications: List[Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_stream_group' function.
 class UpdateStreamGroupOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Description: str
+    Arn: Annotated[str, _aws_pattern("Gameliftstreams", "Identifier")]
+    Description: Annotated[str, _aws_pattern("Gameliftstreams", "Description")]
     DefaultApplication: DefaultApplicationTypeDef
     LocationStates: List[LocationStateTypeDef]
     StreamClass: StreamClassType
-    Id: str
+    Id: Annotated[str, _aws_pattern("Gameliftstreams", "Id")]
     Status: StreamGroupStatusType
     StatusReason: StreamGroupStatusReasonType
     LastUpdatedAt: datetime
     CreatedAt: datetime
     ExpiresAt: datetime
-    AssociatedApplications: List[str]
+    AssociatedApplications: List[Annotated[str, _aws_pattern("Gameliftstreams", "Arn")]]
     ResponseMetadata: ResponseMetadataTypeDef

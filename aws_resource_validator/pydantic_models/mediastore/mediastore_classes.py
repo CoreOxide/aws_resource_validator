@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mediastore.mediastore_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,10 +41,10 @@ except ImportError:  # pragma: no cover
 
 
 class ContainerTypeDef(BaseValidatorModel):
-    Endpoint: Optional[str] = None
+    Endpoint: Optional[Annotated[str, _aws_pattern("Mediastore", "Endpoint")]] = None
     CreationTime: Optional[datetime] = None
-    ARN: Optional[str] = None
-    Name: Optional[str] = None
+    ARN: Optional[Annotated[str, _aws_pattern("Mediastore", "ContainerARN")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Mediastore", "ContainerName")]] = None
     Status: Optional[ContainerStatusType] = None
     AccessLoggingEnabled: Optional[bool] = None
 
@@ -56,16 +58,16 @@ class CorsRuleOutputTypeDef(BaseValidatorModel):
 
 
 class CorsRuleTypeDef(BaseValidatorModel):
-    AllowedOrigins: List[str]
-    AllowedHeaders: List[str]
+    AllowedOrigins: List[Annotated[str, _aws_pattern("Mediastore", "Origin")]]
+    AllowedHeaders: List[Annotated[str, _aws_pattern("Mediastore", "Header")]]
     AllowedMethods: Optional[List[MethodNameType]] = None
     MaxAgeSeconds: Optional[int] = None
-    ExposeHeaders: Optional[List[str]] = None
+    ExposeHeaders: Optional[List[Annotated[str, _aws_pattern("Mediastore", "Header")]]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Mediastore", "TagKey")]
+    Value: Optional[Annotated[str, _aws_pattern("Mediastore", "TagValue")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -77,48 +79,48 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteContainerInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
 
 
 class DeleteContainerPolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
 
 
 class DeleteCorsPolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
 
 
 class DeleteLifecyclePolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
 
 
 class DeleteMetricPolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
 
 
 # This class is the input for the 'describe_container' function.
 class DescribeContainerInputTypeDef(BaseValidatorModel):
-    ContainerName: Optional[str] = None
+    ContainerName: Optional[Annotated[str, _aws_pattern("Mediastore", "ContainerName")]] = None
 
 
 # This class is the input for the 'get_container_policy' function.
 class GetContainerPolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
 
 
 # This class is the input for the 'get_cors_policy' function.
 class GetCorsPolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
 
 
 # This class is the input for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
 
 
 # This class is the input for the 'get_metric_policy' function.
 class GetMetricPolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -129,41 +131,41 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_containers' function.
 class ListContainersInputTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mediastore", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    Resource: str
+    Resource: Annotated[str, _aws_pattern("Mediastore", "ContainerARN")]
 
 
 class MetricPolicyRuleTypeDef(BaseValidatorModel):
-    ObjectGroup: str
-    ObjectGroupName: str
+    ObjectGroup: Annotated[str, _aws_pattern("Mediastore", "ObjectGroup")]
+    ObjectGroupName: Annotated[str, _aws_pattern("Mediastore", "ObjectGroupName")]
 
 
 class PutContainerPolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
-    Policy: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
+    Policy: Annotated[str, _aws_pattern("Mediastore", "ContainerPolicy")]
 
 
 class PutLifecyclePolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
-    LifecyclePolicy: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
+    LifecyclePolicy: Annotated[str, _aws_pattern("Mediastore", "LifecyclePolicy")]
 
 
 class StartAccessLoggingInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
 
 
 class StopAccessLoggingInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    Resource: str
-    TagKeys: List[str]
+    Resource: Annotated[str, _aws_pattern("Mediastore", "ContainerARN")]
+    TagKeys: List[Annotated[str, _aws_pattern("Mediastore", "TagKey")]]
 
 
 CorsRuleUnionTypeDef = Union[CorsRuleOutputTypeDef, CorsRuleTypeDef]
@@ -171,12 +173,12 @@ CorsRuleUnionTypeDef = Union[CorsRuleOutputTypeDef, CorsRuleTypeDef]
 
 # This class is the input for the 'create_container' function.
 class CreateContainerInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    Resource: str
+    Resource: Annotated[str, _aws_pattern("Mediastore", "ContainerARN")]
     Tags: List[TagTypeDef]
 
 
@@ -194,7 +196,7 @@ class DescribeContainerOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_container_policy' function.
 class GetContainerPolicyOutputTypeDef(BaseValidatorModel):
-    Policy: str
+    Policy: Annotated[str, _aws_pattern("Mediastore", "ContainerPolicy")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -206,7 +208,7 @@ class GetCorsPolicyOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyOutputTypeDef(BaseValidatorModel):
-    LifecyclePolicy: str
+    LifecyclePolicy: Annotated[str, _aws_pattern("Mediastore", "LifecyclePolicy")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -214,7 +216,7 @@ class GetLifecyclePolicyOutputTypeDef(BaseValidatorModel):
 class ListContainersOutputTypeDef(BaseValidatorModel):
     Containers: List[ContainerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Mediastore", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -238,7 +240,7 @@ class MetricPolicyTypeDef(BaseValidatorModel):
 
 
 class PutCorsPolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
     CorsPolicy: List[CorsRuleUnionTypeDef]
 
 
@@ -252,5 +254,5 @@ MetricPolicyUnionTypeDef = Union[MetricPolicyOutputTypeDef, MetricPolicyTypeDef]
 
 
 class PutMetricPolicyInputTypeDef(BaseValidatorModel):
-    ContainerName: str
+    ContainerName: Annotated[str, _aws_pattern("Mediastore", "ContainerName")]
     MetricPolicy: MetricPolicyUnionTypeDef

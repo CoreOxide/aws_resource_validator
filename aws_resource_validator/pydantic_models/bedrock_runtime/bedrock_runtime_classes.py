@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.bedrock_runtime.bedrock_runtime_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,9 +41,9 @@ except ImportError:  # pragma: no cover
 
 
 class AppliedGuardrailDetailsTypeDef(BaseValidatorModel):
-    guardrailId: Optional[str] = None
-    guardrailVersion: Optional[str] = None
-    guardrailArn: Optional[str] = None
+    guardrailId: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailId")]] = None
+    guardrailVersion: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailVersion")]] = None
+    guardrailArn: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailArn")]] = None
     guardrailOrigin: Optional[List[GuardrailOriginType]] = None
     guardrailOwnership: Optional[GuardrailOwnershipType] = None
 
@@ -71,9 +73,9 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AsyncInvokeS3OutputDataConfigTypeDef(BaseValidatorModel):
-    s3Uri: str
-    kmsKeyId: Optional[str] = None
-    bucketOwner: Optional[str] = None
+    s3Uri: Annotated[str, _aws_pattern("BedrockRuntime", "S3Uri")]
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "KmsKeyId")]] = None
+    bucketOwner: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "AccountId")]] = None
 
 
 class ErrorBlockTypeDef(BaseValidatorModel):
@@ -81,8 +83,8 @@ class ErrorBlockTypeDef(BaseValidatorModel):
 
 
 class S3LocationTypeDef(BaseValidatorModel):
-    uri: str
-    bucketOwner: Optional[str] = None
+    uri: Annotated[str, _aws_pattern("BedrockRuntime", "S3Uri")]
+    bucketOwner: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "AccountId")]] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
@@ -174,14 +176,14 @@ class ImageBlockStartTypeDef(BaseValidatorModel):
 
 
 class ToolResultBlockStartTypeDef(BaseValidatorModel):
-    toolUseId: str
+    toolUseId: Annotated[str, _aws_pattern("BedrockRuntime", "ToolUseId")]
     type: Optional[str] = None
     status: Optional[ToolResultStatusType] = None
 
 
 class ToolUseBlockStartTypeDef(BaseValidatorModel):
-    toolUseId: str
-    name: str
+    toolUseId: Annotated[str, _aws_pattern("BedrockRuntime", "ToolUseId")]
+    name: Annotated[str, _aws_pattern("BedrockRuntime", "ToolName")]
     type: Optional[ToolUseTypeType] = None
 
 
@@ -194,8 +196,8 @@ class ConverseMetricsTypeDef(BaseValidatorModel):
 
 
 class GuardrailConfigurationTypeDef(BaseValidatorModel):
-    guardrailIdentifier: Optional[str] = None
-    guardrailVersion: Optional[str] = None
+    guardrailIdentifier: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailIdentifier")]] = None
+    guardrailVersion: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailVersion")]] = None
     trace: Optional[GuardrailTraceType] = None
 
 
@@ -223,7 +225,7 @@ class ConverseStreamMetricsTypeDef(BaseValidatorModel):
 
 
 class InternalServerExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "NonBlankString")]] = None
 
 
 class MessageStartEventTypeDef(BaseValidatorModel):
@@ -236,32 +238,32 @@ class MessageStopEventTypeDef(BaseValidatorModel):
 
 
 class ModelStreamErrorExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "NonBlankString")]] = None
     originalStatusCode: Optional[int] = None
-    originalMessage: Optional[str] = None
+    originalMessage: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "NonBlankString")]] = None
 
 
 class ServiceUnavailableExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "NonBlankString")]] = None
 
 
 class ThrottlingExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "NonBlankString")]] = None
 
 
 class ValidationExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "NonBlankString")]] = None
 
 
 class GuardrailStreamConfigurationTypeDef(BaseValidatorModel):
-    guardrailIdentifier: Optional[str] = None
-    guardrailVersion: Optional[str] = None
+    guardrailIdentifier: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailIdentifier")]] = None
+    guardrailVersion: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailVersion")]] = None
     trace: Optional[GuardrailTraceType] = None
     streamProcessingMode: Optional[GuardrailStreamProcessingModeType] = None
 
 
 class PromptRouterTraceTypeDef(BaseValidatorModel):
-    invokedModelId: Optional[str] = None
+    invokedModelId: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "InvokedModelId")]] = None
 
 
 class DocumentContentBlockTypeDef(BaseValidatorModel):
@@ -270,12 +272,14 @@ class DocumentContentBlockTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_async_invoke' function.
 class GetAsyncInvokeRequestTypeDef(BaseValidatorModel):
-    invocationArn: str
+    invocationArn: Annotated[str, _aws_pattern("BedrockRuntime", "InvocationArn")]
 
 
 class GuardrailAutomatedReasoningRuleTypeDef(BaseValidatorModel):
-    identifier: Optional[str] = None
-    policyVersionArn: Optional[str] = None
+    identifier: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "AutomatedReasoningRuleIdentifier")]] = None
+    policyVersionArn: Optional[
+        Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailAutomatedReasoningPolicyVersionArn")]
+    ] = None
 
 
 class GuardrailAutomatedReasoningInputTextReferenceTypeDef(BaseValidatorModel):
@@ -368,7 +372,7 @@ class GuardrailTopicTypeDef(BaseValidatorModel):
 
 
 class ModelTimeoutExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "NonBlankString")]] = None
 
 
 class JsonSchemaDefinitionTypeDef(BaseValidatorModel):
@@ -400,16 +404,16 @@ class SearchResultContentBlockTypeDef(BaseValidatorModel):
 
 
 class SpecificToolChoiceTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockRuntime", "ToolName")]
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("BedrockRuntime", "TagKey")]
+    value: Annotated[str, _aws_pattern("BedrockRuntime", "TagValue")]
 
 
 class SystemToolTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockRuntime", "ToolName")]
 
 
 class ToolInputSchemaTypeDef(BaseValidatorModel):
@@ -417,8 +421,8 @@ class ToolInputSchemaTypeDef(BaseValidatorModel):
 
 
 class ToolUseBlockTypeDef(BaseValidatorModel):
-    toolUseId: str
-    name: str
+    toolUseId: Annotated[str, _aws_pattern("BedrockRuntime", "ToolUseId")]
+    name: Annotated[str, _aws_pattern("BedrockRuntime", "ToolName")]
     input: Dict[str, Any]
     type: Optional[ToolUseTypeType] = None
 
@@ -440,7 +444,7 @@ class InvokeModelResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_async_invoke' function.
 class StartAsyncInvokeResponseTypeDef(BaseValidatorModel):
-    invocationArn: str
+    invocationArn: Annotated[str, _aws_pattern("BedrockRuntime", "InvocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -487,13 +491,13 @@ class ImageSourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'invoke_model' function.
 class InvokeModelRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("BedrockRuntime", "InvokeModelIdentifier")]
     body: Optional[BlobTypeDef] = None
     contentType: Optional[str] = None
     accept: Optional[str] = None
     trace: Optional[TraceType] = None
-    guardrailIdentifier: Optional[str] = None
-    guardrailVersion: Optional[str] = None
+    guardrailIdentifier: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailIdentifier")]] = None
+    guardrailVersion: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailVersion")]] = None
     performanceConfigLatency: Optional[PerformanceConfigLatencyType] = None
     serviceTier: Optional[ServiceTierTypeType] = None
 
@@ -504,13 +508,13 @@ class InvokeModelTokensRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'invoke_model_with_response_stream' function.
 class InvokeModelWithResponseStreamRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("BedrockRuntime", "InvokeModelIdentifier")]
     body: Optional[BlobTypeDef] = None
     contentType: Optional[str] = None
     accept: Optional[str] = None
     trace: Optional[TraceType] = None
-    guardrailIdentifier: Optional[str] = None
-    guardrailVersion: Optional[str] = None
+    guardrailIdentifier: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailIdentifier")]] = None
+    guardrailVersion: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailVersion")]] = None
     performanceConfigLatency: Optional[PerformanceConfigLatencyType] = None
     serviceTier: Optional[ServiceTierTypeType] = None
 
@@ -641,7 +645,7 @@ class ListAsyncInvokesRequestTypeDef(BaseValidatorModel):
     submitTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[AsyncInvokeStatusType] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "PaginationToken")]] = None
     sortBy: Optional[Literal["SubmissionTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
@@ -687,7 +691,7 @@ class ToolChoiceTypeDef(BaseValidatorModel):
 
 
 class ToolSpecificationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockRuntime", "ToolName")]
     inputSchema: ToolInputSchemaTypeDef
     description: Optional[str] = None
     strict: Optional[bool] = None
@@ -697,11 +701,11 @@ ToolUseBlockUnionTypeDef = Union[ToolUseBlockOutputTypeDef, ToolUseBlockTypeDef]
 
 
 class AsyncInvokeSummaryTypeDef(BaseValidatorModel):
-    invocationArn: str
-    modelArn: str
+    invocationArn: Annotated[str, _aws_pattern("BedrockRuntime", "InvocationArn")]
+    modelArn: Annotated[str, _aws_pattern("BedrockRuntime", "AsyncInvokeArn")]
     submitTime: datetime
     outputDataConfig: AsyncInvokeOutputDataConfigTypeDef
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "AsyncInvokeIdempotencyToken")]] = None
     status: Optional[AsyncInvokeStatusType] = None
     failureMessage: Optional[str] = None
     lastModifiedTime: Optional[datetime] = None
@@ -710,9 +714,9 @@ class AsyncInvokeSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_async_invoke' function.
 class GetAsyncInvokeResponseTypeDef(BaseValidatorModel):
-    invocationArn: str
-    modelArn: str
-    clientRequestToken: str
+    invocationArn: Annotated[str, _aws_pattern("BedrockRuntime", "InvocationArn")]
+    modelArn: Annotated[str, _aws_pattern("BedrockRuntime", "AsyncInvokeArn")]
+    clientRequestToken: Annotated[str, _aws_pattern("BedrockRuntime", "AsyncInvokeIdempotencyToken")]
     status: AsyncInvokeStatusType
     failureMessage: str
     submitTime: datetime
@@ -724,10 +728,10 @@ class GetAsyncInvokeResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_async_invoke' function.
 class StartAsyncInvokeRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("BedrockRuntime", "AsyncInvokeIdentifier")]
     modelInput: Dict[str, Any]
     outputDataConfig: AsyncInvokeOutputDataConfigTypeDef
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "AsyncInvokeIdempotencyToken")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -883,7 +887,7 @@ class ToolTypeDef(BaseValidatorModel):
 class ListAsyncInvokesResponseTypeDef(BaseValidatorModel):
     asyncInvokeSummaries: List[AsyncInvokeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockRuntime", "PaginationToken")]] = None
 
 
 class AudioBlockTypeDef(BaseValidatorModel):
@@ -975,8 +979,8 @@ GuardrailConverseImageBlockUnionTypeDef = Union[
 
 # This class is the input for the 'apply_guardrail' function.
 class ApplyGuardrailRequestTypeDef(BaseValidatorModel):
-    guardrailIdentifier: str
-    guardrailVersion: str
+    guardrailIdentifier: Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailIdentifier")]
+    guardrailVersion: Annotated[str, _aws_pattern("BedrockRuntime", "GuardrailVersion")]
     source: GuardrailContentSourceType
     content: List[GuardrailContentBlockTypeDef]
     outputScope: Optional[GuardrailOutputScopeType] = None
@@ -1088,7 +1092,7 @@ class ConverseOutputTypeDef(BaseValidatorModel):
 
 
 class ToolResultBlockTypeDef(BaseValidatorModel):
-    toolUseId: str
+    toolUseId: Annotated[str, _aws_pattern("BedrockRuntime", "ToolUseId")]
     content: List[ToolResultContentBlockUnionTypeDef]
     status: Optional[ToolResultStatusType] = None
     type: Optional[str] = None
@@ -1193,7 +1197,7 @@ MessageUnionTypeDef = Union[MessageOutputTypeDef, MessageTypeDef]
 
 # This class is the input for the 'converse' function.
 class ConverseRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("BedrockRuntime", "ConversationalModelId")]
     messages: Optional[List[MessageUnionTypeDef]] = None
     system: Optional[List[SystemContentBlockTypeDef]] = None
     inferenceConfig: Optional[InferenceConfigurationTypeDef] = None
@@ -1210,7 +1214,7 @@ class ConverseRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'converse_stream' function.
 class ConverseStreamRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("BedrockRuntime", "ConversationalModelId")]
     messages: Optional[List[MessageUnionTypeDef]] = None
     system: Optional[List[SystemContentBlockTypeDef]] = None
     inferenceConfig: Optional[InferenceConfigurationTypeDef] = None
@@ -1239,5 +1243,5 @@ class CountTokensInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'count_tokens' function.
 class CountTokensRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("BedrockRuntime", "FoundationModelVersionIdentifier")]
     input: CountTokensInputTypeDef

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.logs.logs_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,7 +47,7 @@ class AccountPolicyTypeDef(BaseValidatorModel):
     policyType: Optional[PolicyTypeType] = None
     scope: Optional[Literal["ALL"]] = None
     selectionCriteria: Optional[str] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Logs", "AccountId")]] = None
 
 
 class AddKeyEntryTypeDef(BaseValidatorModel):
@@ -60,9 +62,9 @@ class GroupingIdentifierTypeDef(BaseValidatorModel):
 
 
 class AnomalyDetectorTypeDef(BaseValidatorModel):
-    anomalyDetectorArn: Optional[str] = None
+    anomalyDetectorArn: Optional[Annotated[str, _aws_pattern("Logs", "AnomalyDetectorArn")]] = None
     detectorName: Optional[str] = None
-    logGroupArnList: Optional[List[str]] = None
+    logGroupArnList: Optional[List[Annotated[str, _aws_pattern("Logs", "LogGroupArn")]]] = None
     evaluationFrequency: Optional[EvaluationFrequencyType] = None
     filterPattern: Optional[str] = None
     anomalyDetectorStatus: Optional[AnomalyDetectorStatusType] = None
@@ -88,8 +90,8 @@ class PatternTokenTypeDef(BaseValidatorModel):
 # This class is the input for the 'associate_kms_key' function.
 class AssociateKmsKeyRequestTypeDef(BaseValidatorModel):
     kmsKeyId: str
-    logGroupName: Optional[str] = None
-    resourceIdentifier: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
+    resourceIdentifier: Optional[Annotated[str, _aws_pattern("Logs", "ResourceIdentifier")]] = None
 
 
 class DataSourceTypeDef(BaseValidatorModel):
@@ -128,7 +130,7 @@ class CancelExportTaskRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_import_task' function.
 class CancelImportTaskRequestTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Logs", "ImportId")]
 
 
 class ImportStatisticsTypeDef(BaseValidatorModel):
@@ -140,9 +142,23 @@ class S3DeliveryConfigurationTypeDef(BaseValidatorModel):
     enableHiveCompatiblePath: Optional[bool] = None
 
 
+class DeliverySourceConfigurationSchemaTypeDef(BaseValidatorModel):
+    keyName: str
+    valueType: DeliverySourceConfigurationSchemaValueTypeType
+    defaultValue: str
+    supportedValues: Optional[List[str]] = None
+    minValue: Optional[float] = None
+    maxValue: Optional[float] = None
+
+
 class RecordFieldTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     mandatory: Optional[bool] = None
+
+
+class S3TablesIntegrationTypeDef(BaseValidatorModel):
+    datasourceName: Optional[str] = None
+    datasourceType: Optional[str] = None
 
 
 class CopyValueEntryTypeDef(BaseValidatorModel):
@@ -153,12 +169,12 @@ class CopyValueEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_export_task' function.
 class CreateExportTaskRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
     fromTime: int
     to: int
     destination: str
     taskName: Optional[str] = None
-    logStreamNamePrefix: Optional[str] = None
+    logStreamNamePrefix: Optional[Annotated[str, _aws_pattern("Logs", "LogStreamName")]] = None
     destinationPrefix: Optional[str] = None
 
 
@@ -169,18 +185,18 @@ class ImportFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_log_anomaly_detector' function.
 class CreateLogAnomalyDetectorRequestTypeDef(BaseValidatorModel):
-    logGroupArnList: List[str]
+    logGroupArnList: List[Annotated[str, _aws_pattern("Logs", "LogGroupArn")]]
     detectorName: Optional[str] = None
     evaluationFrequency: Optional[EvaluationFrequencyType] = None
     filterPattern: Optional[str] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Logs", "DetectorKmsKeyArn")]] = None
     anomalyVisibilityTime: Optional[int] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_log_group' function.
 class CreateLogGroupRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
     kmsKeyId: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
     logGroupClass: Optional[LogGroupClassType] = None
@@ -189,13 +205,13 @@ class CreateLogGroupRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_log_stream' function.
 class CreateLogStreamRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
-    logStreamName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
+    logStreamName: Annotated[str, _aws_pattern("Logs", "LogStreamName")]
 
 
 # This class is the input for the 'create_lookup_table' function.
 class CreateLookupTableRequestTypeDef(BaseValidatorModel):
-    lookupTableName: str
+    lookupTableName: Annotated[str, _aws_pattern("Logs", "LookupTableName")]
     tableBody: str
     description: Optional[str] = None
     kmsKeyId: Optional[str] = None
@@ -235,40 +251,40 @@ class DeleteAccountPolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_data_protection_policy' function.
 class DeleteDataProtectionPolicyRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
 
 
 # This class is the input for the 'delete_delivery_destination_policy' function.
 class DeleteDeliveryDestinationPolicyRequestTypeDef(BaseValidatorModel):
-    deliveryDestinationName: str
+    deliveryDestinationName: Annotated[str, _aws_pattern("Logs", "DeliveryDestinationName")]
 
 
 # This class is the input for the 'delete_delivery_destination' function.
 class DeleteDeliveryDestinationRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Logs", "DeliveryDestinationName")]
 
 
 # This class is the input for the 'delete_delivery' function.
 class DeleteDeliveryRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Logs", "DeliveryId")]
 
 
 # This class is the input for the 'delete_delivery_source' function.
 class DeleteDeliverySourceRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Logs", "DeliverySourceName")]
 
 
 # This class is the input for the 'delete_destination' function.
 class DeleteDestinationRequestTypeDef(BaseValidatorModel):
-    destinationName: str
+    destinationName: Annotated[str, _aws_pattern("Logs", "DestinationName")]
 
 
 class DeleteIndexPolicyRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
 
 
 class DeleteIntegrationRequestTypeDef(BaseValidatorModel):
-    integrationName: str
+    integrationName: Annotated[str, _aws_pattern("Logs", "IntegrationName")]
     force: Optional[bool] = None
 
 
@@ -282,18 +298,18 @@ class DeleteKeysTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_log_anomaly_detector' function.
 class DeleteLogAnomalyDetectorRequestTypeDef(BaseValidatorModel):
-    anomalyDetectorArn: str
+    anomalyDetectorArn: Annotated[str, _aws_pattern("Logs", "AnomalyDetectorArn")]
 
 
 # This class is the input for the 'delete_log_group' function.
 class DeleteLogGroupRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
 
 
 # This class is the input for the 'delete_log_stream' function.
 class DeleteLogStreamRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
-    logStreamName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
+    logStreamName: Annotated[str, _aws_pattern("Logs", "LogStreamName")]
 
 
 # This class is the input for the 'delete_lookup_table' function.
@@ -303,8 +319,8 @@ class DeleteLookupTableRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_metric_filter' function.
 class DeleteMetricFilterRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
-    filterName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
+    filterName: Annotated[str, _aws_pattern("Logs", "FilterName")]
 
 
 # This class is the input for the 'delete_query_definition' function.
@@ -321,22 +337,22 @@ class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_retention_policy' function.
 class DeleteRetentionPolicyRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
 
 
 class DeleteScheduledQueryRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Logs", "ScheduledQueryIdentifier")]
 
 
 # This class is the input for the 'delete_subscription_filter' function.
 class DeleteSubscriptionFilterRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
-    filterName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
+    filterName: Annotated[str, _aws_pattern("Logs", "FilterName")]
 
 
 # This class is the input for the 'delete_transformer' function.
 class DeleteTransformerRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
 
 
 class DeliveryDestinationConfigurationTypeDef(BaseValidatorModel):
@@ -344,19 +360,22 @@ class DeliveryDestinationConfigurationTypeDef(BaseValidatorModel):
 
 
 class DeliverySourceTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Logs", "DeliverySourceName")]] = None
     arn: Optional[str] = None
     resourceArns: Optional[List[str]] = None
-    service: Optional[str] = None
-    logType: Optional[str] = None
+    service: Optional[Annotated[str, _aws_pattern("Logs", "Service")]] = None
+    logType: Optional[Annotated[str, _aws_pattern("Logs", "LogType")]] = None
     tags: Optional[Dict[str, str]] = None
+    deliverySourceConfiguration: Optional[Dict[str, str]] = None
+    status: Optional[DeliverySourceStatusType] = None
+    statusReason: Optional[Literal["RESOURCE_DELETED"]] = None
 
 
 # This class is the input for the 'describe_account_policies' function.
 class DescribeAccountPoliciesRequestTypeDef(BaseValidatorModel):
     policyType: PolicyTypeType
     policyName: Optional[str] = None
-    accountIdentifiers: Optional[List[str]] = None
+    accountIdentifiers: Optional[List[Annotated[str, _aws_pattern("Logs", "AccountId")]]] = None
     nextToken: Optional[str] = None
 
 
@@ -368,9 +387,9 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_configuration_templates' function.
 class DescribeConfigurationTemplatesRequestTypeDef(BaseValidatorModel):
-    service: Optional[str] = None
-    logTypes: Optional[List[str]] = None
-    resourceTypes: Optional[List[str]] = None
+    service: Optional[Annotated[str, _aws_pattern("Logs", "Service")]] = None
+    logTypes: Optional[List[Annotated[str, _aws_pattern("Logs", "LogType")]]] = None
+    resourceTypes: Optional[List[Annotated[str, _aws_pattern("Logs", "ResourceType")]]] = None
     deliveryDestinationTypes: Optional[List[DeliveryDestinationTypeType]] = None
     nextToken: Optional[str] = None
     limit: Optional[int] = None
@@ -396,13 +415,13 @@ class DescribeDeliverySourcesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_destinations' function.
 class DescribeDestinationsRequestTypeDef(BaseValidatorModel):
-    DestinationNamePrefix: Optional[str] = None
+    DestinationNamePrefix: Optional[Annotated[str, _aws_pattern("Logs", "DestinationName")]] = None
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
 
 class DestinationTypeDef(BaseValidatorModel):
-    destinationName: Optional[str] = None
+    destinationName: Optional[Annotated[str, _aws_pattern("Logs", "DestinationName")]] = None
     targetArn: Optional[str] = None
     roleArn: Optional[str] = None
     accessPolicy: Optional[str] = None
@@ -420,13 +439,13 @@ class DescribeExportTasksRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_field_indexes' function.
 class DescribeFieldIndexesRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifiers: List[str]
+    logGroupIdentifiers: List[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]]
     nextToken: Optional[str] = None
 
 
 class FieldIndexTypeDef(BaseValidatorModel):
-    logGroupIdentifier: Optional[str] = None
-    fieldIndexName: Optional[str] = None
+    logGroupIdentifier: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]] = None
+    fieldIndexName: Optional[Annotated[str, _aws_pattern("Logs", "FieldIndexName")]] = None
     lastScanTime: Optional[int] = None
     firstEventTime: Optional[int] = None
     lastEventTime: Optional[int] = None
@@ -435,7 +454,7 @@ class FieldIndexTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_import_task_batches' function.
 class DescribeImportTaskBatchesRequestTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Logs", "ImportId")]
     batchImportStatus: Optional[List[ImportStatusType]] = None
     limit: Optional[int] = None
     nextToken: Optional[str] = None
@@ -449,7 +468,7 @@ class ImportBatchTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_import_tasks' function.
 class DescribeImportTasksRequestTypeDef(BaseValidatorModel):
-    importId: Optional[str] = None
+    importId: Optional[Annotated[str, _aws_pattern("Logs", "ImportId")]] = None
     importStatus: Optional[ImportStatusType] = None
     importSourceArn: Optional[str] = None
     limit: Optional[int] = None
@@ -458,12 +477,12 @@ class DescribeImportTasksRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_index_policies' function.
 class DescribeIndexPoliciesRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifiers: List[str]
+    logGroupIdentifiers: List[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]]
     nextToken: Optional[str] = None
 
 
 class IndexPolicyTypeDef(BaseValidatorModel):
-    logGroupIdentifier: Optional[str] = None
+    logGroupIdentifier: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]] = None
     lastUpdateTime: Optional[int] = None
     policyDocument: Optional[str] = None
     policyName: Optional[str] = None
@@ -472,18 +491,18 @@ class IndexPolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_log_groups' function.
 class DescribeLogGroupsRequestTypeDef(BaseValidatorModel):
-    accountIdentifiers: Optional[List[str]] = None
-    logGroupNamePrefix: Optional[str] = None
-    logGroupNamePattern: Optional[str] = None
+    accountIdentifiers: Optional[List[Annotated[str, _aws_pattern("Logs", "AccountId")]]] = None
+    logGroupNamePrefix: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
+    logGroupNamePattern: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupNamePattern")]] = None
     nextToken: Optional[str] = None
     limit: Optional[int] = None
     includeLinkedAccounts: Optional[bool] = None
     logGroupClass: Optional[LogGroupClassType] = None
-    logGroupIdentifiers: Optional[List[str]] = None
+    logGroupIdentifiers: Optional[List[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]]] = None
 
 
 class LogGroupTypeDef(BaseValidatorModel):
-    logGroupName: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
     creationTime: Optional[int] = None
     retentionInDays: Optional[int] = None
     metricFilterCount: Optional[int] = None
@@ -500,9 +519,9 @@ class LogGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_log_streams' function.
 class DescribeLogStreamsRequestTypeDef(BaseValidatorModel):
-    logGroupName: Optional[str] = None
-    logGroupIdentifier: Optional[str] = None
-    logStreamNamePrefix: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
+    logGroupIdentifier: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]] = None
+    logStreamNamePrefix: Optional[Annotated[str, _aws_pattern("Logs", "LogStreamName")]] = None
     orderBy: Optional[OrderByType] = None
     descending: Optional[bool] = None
     nextToken: Optional[str] = None
@@ -510,7 +529,7 @@ class DescribeLogStreamsRequestTypeDef(BaseValidatorModel):
 
 
 class LogStreamTypeDef(BaseValidatorModel):
-    logStreamName: Optional[str] = None
+    logStreamName: Optional[Annotated[str, _aws_pattern("Logs", "LogStreamName")]] = None
     creationTime: Optional[int] = None
     firstEventTimestamp: Optional[int] = None
     lastEventTimestamp: Optional[int] = None
@@ -522,14 +541,14 @@ class LogStreamTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_lookup_tables' function.
 class DescribeLookupTablesRequestTypeDef(BaseValidatorModel):
-    lookupTableNamePrefix: Optional[str] = None
+    lookupTableNamePrefix: Optional[Annotated[str, _aws_pattern("Logs", "LookupTableName")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class LookupTableTypeDef(BaseValidatorModel):
     lookupTableArn: Optional[str] = None
-    lookupTableName: Optional[str] = None
+    lookupTableName: Optional[Annotated[str, _aws_pattern("Logs", "LookupTableName")]] = None
     description: Optional[str] = None
     tableFields: Optional[List[str]] = None
     recordsCount: Optional[int] = None
@@ -540,17 +559,17 @@ class LookupTableTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_metric_filters' function.
 class DescribeMetricFiltersRequestTypeDef(BaseValidatorModel):
-    logGroupName: Optional[str] = None
-    filterNamePrefix: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
+    filterNamePrefix: Optional[Annotated[str, _aws_pattern("Logs", "FilterName")]] = None
     nextToken: Optional[str] = None
     limit: Optional[int] = None
-    metricName: Optional[str] = None
-    metricNamespace: Optional[str] = None
+    metricName: Optional[Annotated[str, _aws_pattern("Logs", "MetricName")]] = None
+    metricNamespace: Optional[Annotated[str, _aws_pattern("Logs", "MetricNamespace")]] = None
 
 
 # This class is the input for the 'describe_queries' function.
 class DescribeQueriesRequestTypeDef(BaseValidatorModel):
-    logGroupName: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
     status: Optional[QueryStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -563,7 +582,7 @@ class QueryInfoTypeDef(BaseValidatorModel):
     queryString: Optional[str] = None
     status: Optional[QueryStatusType] = None
     createTime: Optional[int] = None
-    logGroupName: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
     queryDuration: Optional[int] = None
     bytesScanned: Optional[float] = None
     userIdentity: Optional[str] = None
@@ -596,15 +615,15 @@ class ResourcePolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_subscription_filters' function.
 class DescribeSubscriptionFiltersRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
-    filterNamePrefix: Optional[str] = None
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
+    filterNamePrefix: Optional[Annotated[str, _aws_pattern("Logs", "FilterName")]] = None
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
 
 class SubscriptionFilterTypeDef(BaseValidatorModel):
-    filterName: Optional[str] = None
-    logGroupName: Optional[str] = None
+    filterName: Optional[Annotated[str, _aws_pattern("Logs", "FilterName")]] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
     filterPattern: Optional[str] = None
     destinationArn: Optional[str] = None
     roleArn: Optional[str] = None
@@ -616,16 +635,16 @@ class SubscriptionFilterTypeDef(BaseValidatorModel):
 
 
 class S3ConfigurationTypeDef(BaseValidatorModel):
-    destinationIdentifier: str
+    destinationIdentifier: Annotated[str, _aws_pattern("Logs", "S3Uri")]
     roleArn: str
-    ownerAccountId: Optional[str] = None
+    ownerAccountId: Optional[Annotated[str, _aws_pattern("Logs", "AccountId")]] = None
     kmsKeyId: Optional[str] = None
 
 
 # This class is the input for the 'disassociate_kms_key' function.
 class DisassociateKmsKeyRequestTypeDef(BaseValidatorModel):
-    logGroupName: Optional[str] = None
-    resourceIdentifier: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
+    resourceIdentifier: Optional[Annotated[str, _aws_pattern("Logs", "ResourceIdentifier")]] = None
 
 
 # This class is the input for the 'disassociate_source_from_s3_table_integration' function.
@@ -654,10 +673,10 @@ class FieldsDataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'filter_log_events' function.
 class FilterLogEventsRequestTypeDef(BaseValidatorModel):
-    logGroupName: Optional[str] = None
-    logGroupIdentifier: Optional[str] = None
-    logStreamNames: Optional[List[str]] = None
-    logStreamNamePrefix: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
+    logGroupIdentifier: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]] = None
+    logStreamNames: Optional[List[Annotated[str, _aws_pattern("Logs", "LogStreamName")]]] = None
+    logStreamNamePrefix: Optional[Annotated[str, _aws_pattern("Logs", "LogStreamName")]] = None
     startTime: Optional[int] = None
     endTime: Optional[int] = None
     filterPattern: Optional[str] = None
@@ -668,7 +687,7 @@ class FilterLogEventsRequestTypeDef(BaseValidatorModel):
 
 
 class FilteredLogEventTypeDef(BaseValidatorModel):
-    logStreamName: Optional[str] = None
+    logStreamName: Optional[Annotated[str, _aws_pattern("Logs", "LogStreamName")]] = None
     timestamp: Optional[int] = None
     message: Optional[str] = None
     ingestionTime: Optional[int] = None
@@ -676,18 +695,18 @@ class FilteredLogEventTypeDef(BaseValidatorModel):
 
 
 class SearchedLogStreamTypeDef(BaseValidatorModel):
-    logStreamName: Optional[str] = None
+    logStreamName: Optional[Annotated[str, _aws_pattern("Logs", "LogStreamName")]] = None
     searchedCompletely: Optional[bool] = None
 
 
 # This class is the input for the 'get_data_protection_policy' function.
 class GetDataProtectionPolicyRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
 
 
 # This class is the input for the 'get_delivery_destination_policy' function.
 class GetDeliveryDestinationPolicyRequestTypeDef(BaseValidatorModel):
-    deliveryDestinationName: str
+    deliveryDestinationName: Annotated[str, _aws_pattern("Logs", "DeliveryDestinationName")]
 
 
 class PolicyTypeDef(BaseValidatorModel):
@@ -696,34 +715,34 @@ class PolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_delivery_destination' function.
 class GetDeliveryDestinationRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Logs", "DeliveryDestinationName")]
 
 
 # This class is the input for the 'get_delivery' function.
 class GetDeliveryRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Logs", "DeliveryId")]
 
 
 # This class is the input for the 'get_delivery_source' function.
 class GetDeliverySourceRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Logs", "DeliverySourceName")]
 
 
 # This class is the input for the 'get_integration' function.
 class GetIntegrationRequestTypeDef(BaseValidatorModel):
-    integrationName: str
+    integrationName: Annotated[str, _aws_pattern("Logs", "IntegrationName")]
 
 
 # This class is the input for the 'get_log_anomaly_detector' function.
 class GetLogAnomalyDetectorRequestTypeDef(BaseValidatorModel):
-    anomalyDetectorArn: str
+    anomalyDetectorArn: Annotated[str, _aws_pattern("Logs", "AnomalyDetectorArn")]
 
 
 # This class is the input for the 'get_log_events' function.
 class GetLogEventsRequestTypeDef(BaseValidatorModel):
-    logStreamName: str
-    logGroupName: Optional[str] = None
-    logGroupIdentifier: Optional[str] = None
+    logStreamName: Annotated[str, _aws_pattern("Logs", "LogStreamName")]
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
+    logGroupIdentifier: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]] = None
     startTime: Optional[int] = None
     endTime: Optional[int] = None
     nextToken: Optional[str] = None
@@ -746,9 +765,9 @@ class GetLogFieldsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_log_group_fields' function.
 class GetLogGroupFieldsRequestTypeDef(BaseValidatorModel):
-    logGroupName: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
     time: Optional[int] = None
-    logGroupIdentifier: Optional[str] = None
+    logGroupIdentifier: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]] = None
 
 
 class LogGroupFieldTypeDef(BaseValidatorModel):
@@ -800,7 +819,7 @@ class ResultFieldTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_scheduled_query_history' function.
 class GetScheduledQueryHistoryRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Logs", "ScheduledQueryIdentifier")]
     startTime: int
     endTime: int
     executionStatuses: Optional[List[ExecutionStatusType]] = None
@@ -810,12 +829,12 @@ class GetScheduledQueryHistoryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_scheduled_query' function.
 class GetScheduledQueryRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Logs", "ScheduledQueryIdentifier")]
 
 
 # This class is the input for the 'get_transformer' function.
 class GetTransformerRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
 
 
 class GrokTypeDef(BaseValidatorModel):
@@ -829,14 +848,14 @@ class InputLogEventTypeDef(BaseValidatorModel):
 
 
 class IntegrationSummaryTypeDef(BaseValidatorModel):
-    integrationName: Optional[str] = None
+    integrationName: Optional[Annotated[str, _aws_pattern("Logs", "IntegrationName")]] = None
     integrationType: Optional[Literal["OPENSEARCH"]] = None
     integrationStatus: Optional[IntegrationStatusType] = None
 
 
 # This class is the input for the 'list_anomalies' function.
 class ListAnomaliesRequestTypeDef(BaseValidatorModel):
-    anomalyDetectorArn: Optional[str] = None
+    anomalyDetectorArn: Optional[Annotated[str, _aws_pattern("Logs", "AnomalyDetectorArn")]] = None
     suppressionState: Optional[SuppressionStateType] = None
     limit: Optional[int] = None
     nextToken: Optional[str] = None
@@ -844,14 +863,14 @@ class ListAnomaliesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_integrations' function.
 class ListIntegrationsRequestTypeDef(BaseValidatorModel):
-    integrationNamePrefix: Optional[str] = None
+    integrationNamePrefix: Optional[Annotated[str, _aws_pattern("Logs", "IntegrationNamePrefix")]] = None
     integrationType: Optional[Literal["OPENSEARCH"]] = None
     integrationStatus: Optional[IntegrationStatusType] = None
 
 
 # This class is the input for the 'list_log_anomaly_detectors' function.
 class ListLogAnomalyDetectorsRequestTypeDef(BaseValidatorModel):
-    filterLogGroupArn: Optional[str] = None
+    filterLogGroupArn: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupArn")]] = None
     limit: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -863,8 +882,13 @@ class ListLogGroupsForQueryRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+class TagFilterTypeDef(BaseValidatorModel):
+    key: Annotated[str, _aws_pattern("Logs", "TagFilterKey")]
+    values: Optional[List[Annotated[str, _aws_pattern("Logs", "TagFilterValue")]]] = None
+
+
 class LogGroupSummaryTypeDef(BaseValidatorModel):
-    logGroupName: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
     logGroupArn: Optional[str] = None
     logGroupClass: Optional[LogGroupClassType] = None
 
@@ -885,12 +909,12 @@ class ListSourcesForS3TableIntegrationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Logs", "AmazonResourceName")]
 
 
 # This class is the input for the 'list_tags_log_group' function.
 class ListTagsLogGroupRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
 
 
 class ListToMapTypeDef(BaseValidatorModel):
@@ -903,8 +927,8 @@ class ListToMapTypeDef(BaseValidatorModel):
 
 
 class LiveTailSessionLogEventTypeDef(BaseValidatorModel):
-    logStreamName: Optional[str] = None
-    logGroupIdentifier: Optional[str] = None
+    logStreamName: Optional[Annotated[str, _aws_pattern("Logs", "LogStreamName")]] = None
+    logGroupIdentifier: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]] = None
     message: Optional[str] = None
     timestamp: Optional[int] = None
     ingestionTime: Optional[int] = None
@@ -917,9 +941,9 @@ class LiveTailSessionMetadataTypeDef(BaseValidatorModel):
 class LiveTailSessionStartTypeDef(BaseValidatorModel):
     requestId: Optional[str] = None
     sessionId: Optional[str] = None
-    logGroupIdentifiers: Optional[List[str]] = None
-    logStreamNames: Optional[List[str]] = None
-    logStreamNamePrefixes: Optional[List[str]] = None
+    logGroupIdentifiers: Optional[List[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]]] = None
+    logStreamNames: Optional[List[Annotated[str, _aws_pattern("Logs", "LogStreamName")]]] = None
+    logStreamNamePrefixes: Optional[List[Annotated[str, _aws_pattern("Logs", "LogStreamName")]]] = None
     logEventFilterPattern: Optional[str] = None
 
 
@@ -953,8 +977,8 @@ class MetricTransformationOutputTypeDef(BaseValidatorModel):
 
 
 class MetricTransformationTypeDef(BaseValidatorModel):
-    metricName: str
-    metricNamespace: str
+    metricName: Annotated[str, _aws_pattern("Logs", "MetricName")]
+    metricNamespace: Annotated[str, _aws_pattern("Logs", "MetricNamespace")]
     metricValue: str
     defaultValue: Optional[float] = None
     dimensions: Optional[Dict[str, str]] = None
@@ -1011,7 +1035,7 @@ class ParseToOCSFTypeDef(BaseValidatorModel):
     eventSource: EventSourceType
     ocsfVersion: OCSFVersionType
     source: Optional[str] = None
-    mappingVersion: Optional[str] = None
+    mappingVersion: Optional[Annotated[str, _aws_pattern("Logs", "MappingVersion")]] = None
 
 
 class ParseVPCTypeDef(BaseValidatorModel):
@@ -1041,40 +1065,41 @@ class PutAccountPolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_bearer_token_authentication' function.
 class PutBearerTokenAuthenticationRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
     bearerTokenAuthenticationEnabled: bool
 
 
 # This class is the input for the 'put_data_protection_policy' function.
 class PutDataProtectionPolicyRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
     policyDocument: str
 
 
 # This class is the input for the 'put_delivery_destination_policy' function.
 class PutDeliveryDestinationPolicyRequestTypeDef(BaseValidatorModel):
-    deliveryDestinationName: str
+    deliveryDestinationName: Annotated[str, _aws_pattern("Logs", "DeliveryDestinationName")]
     deliveryDestinationPolicy: str
 
 
 # This class is the input for the 'put_delivery_source' function.
 class PutDeliverySourceRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Logs", "DeliverySourceName")]
     resourceArn: str
-    logType: str
+    logType: Annotated[str, _aws_pattern("Logs", "LogType")]
     tags: Optional[Dict[str, str]] = None
+    deliverySourceConfiguration: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'put_destination_policy' function.
 class PutDestinationPolicyRequestTypeDef(BaseValidatorModel):
-    destinationName: str
+    destinationName: Annotated[str, _aws_pattern("Logs", "DestinationName")]
     accessPolicy: str
     forceUpdate: Optional[bool] = None
 
 
 # This class is the input for the 'put_destination' function.
 class PutDestinationRequestTypeDef(BaseValidatorModel):
-    destinationName: str
+    destinationName: Annotated[str, _aws_pattern("Logs", "DestinationName")]
     targetArn: str
     roleArn: str
     tags: Optional[Dict[str, str]] = None
@@ -1082,7 +1107,7 @@ class PutDestinationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_index_policy' function.
 class PutIndexPolicyRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
     policyDocument: str
 
 
@@ -1098,12 +1123,12 @@ class RejectedLogEventsInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_log_group_deletion_protection' function.
 class PutLogGroupDeletionProtectionRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
     deletionProtectionEnabled: bool
 
 
 class QueryParameterTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Logs", "QueryParameterName")]
     defaultValue: Optional[str] = None
     description: Optional[str] = None
 
@@ -1118,14 +1143,14 @@ class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_retention_policy' function.
 class PutRetentionPolicyRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
     retentionInDays: int
 
 
 # This class is the input for the 'put_subscription_filter' function.
 class PutSubscriptionFilterRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
-    filterName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
+    filterName: Annotated[str, _aws_pattern("Logs", "FilterName")]
     filterPattern: str
     destinationArn: str
     roleArn: Optional[str] = None
@@ -1164,9 +1189,9 @@ class SplitStringEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_live_tail' function.
 class StartLiveTailRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifiers: List[str]
-    logStreamNames: Optional[List[str]] = None
-    logStreamNamePrefixes: Optional[List[str]] = None
+    logGroupIdentifiers: List[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]]
+    logStreamNames: Optional[List[Annotated[str, _aws_pattern("Logs", "LogStreamName")]]] = None
+    logStreamNamePrefixes: Optional[List[Annotated[str, _aws_pattern("Logs", "LogStreamName")]]] = None
     logEventFilterPattern: Optional[str] = None
 
 
@@ -1176,9 +1201,9 @@ class StartQueryRequestTypeDef(BaseValidatorModel):
     endTime: int
     queryString: str
     queryLanguage: Optional[QueryLanguageType] = None
-    logGroupName: Optional[str] = None
-    logGroupNames: Optional[List[str]] = None
-    logGroupIdentifiers: Optional[List[str]] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
+    logGroupNames: Optional[List[Annotated[str, _aws_pattern("Logs", "LogGroupName")]]] = None
+    logGroupIdentifiers: Optional[List[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]]] = None
     limit: Optional[int] = None
 
 
@@ -1200,13 +1225,13 @@ class SuppressionPeriodTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_log_group' function.
 class TagLogGroupRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
     tags: Dict[str, str]
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Logs", "AmazonResourceName")]
     tags: Dict[str, str]
 
 
@@ -1233,19 +1258,19 @@ class TypeConverterEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'untag_log_group' function.
 class UntagLogGroupRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
-    tags: List[str]
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
+    tags: List[Annotated[str, _aws_pattern("Logs", "TagKey")]]
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Logs", "AmazonResourceName")]
+    tagKeys: List[Annotated[str, _aws_pattern("Logs", "TagKey")]]
 
 
 # This class is the input for the 'update_log_anomaly_detector' function.
 class UpdateLogAnomalyDetectorRequestTypeDef(BaseValidatorModel):
-    anomalyDetectorArn: str
+    anomalyDetectorArn: Annotated[str, _aws_pattern("Logs", "AnomalyDetectorArn")]
     enabled: bool
     evaluationFrequency: Optional[EvaluationFrequencyType] = None
     filterPattern: Optional[str] = None
@@ -1280,7 +1305,7 @@ class AggregateLogGroupSummaryTypeDef(BaseValidatorModel):
 class AnomalyTypeDef(BaseValidatorModel):
     anomalyId: str
     patternId: str
-    anomalyDetectorArn: str
+    anomalyDetectorArn: Annotated[str, _aws_pattern("Logs", "AnomalyDetectorArn")]
     patternString: str
     firstSeen: int
     lastSeen: int
@@ -1290,7 +1315,7 @@ class AnomalyTypeDef(BaseValidatorModel):
     histogram: Dict[str, int]
     logSamples: List[LogEventTypeDef]
     patternTokens: List[PatternTokenTypeDef]
-    logGroupArnList: List[str]
+    logGroupArnList: List[Annotated[str, _aws_pattern("Logs", "LogGroupArn")]]
     patternRegex: Optional[str] = None
     priority: Optional[str] = None
     suppressed: Optional[bool] = None
@@ -1311,6 +1336,7 @@ class S3TableIntegrationSourceTypeDef(BaseValidatorModel):
     status: Optional[S3TableIntegrationSourceStatusType] = None
     statusReason: Optional[str] = None
     createdTimeStamp: Optional[int] = None
+    parentSourceIdentifier: Optional[str] = None
 
 
 # This class is the output for the 'associate_source_to_s3_table_integration' function.
@@ -1327,7 +1353,7 @@ class CreateExportTaskResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_import_task' function.
 class CreateImportTaskResponseTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Logs", "ImportId")]
     importDestinationArn: str
     creationTime: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1335,7 +1361,7 @@ class CreateImportTaskResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_log_anomaly_detector' function.
 class CreateLogAnomalyDetectorResponseTypeDef(BaseValidatorModel):
-    anomalyDetectorArn: str
+    anomalyDetectorArn: Annotated[str, _aws_pattern("Logs", "AnomalyDetectorArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1379,7 +1405,7 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_data_protection_policy' function.
 class GetDataProtectionPolicyResponseTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
     policyDocument: str
     lastUpdatedTime: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1388,7 +1414,7 @@ class GetDataProtectionPolicyResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_log_anomaly_detector' function.
 class GetLogAnomalyDetectorResponseTypeDef(BaseValidatorModel):
     detectorName: str
-    logGroupArnList: List[str]
+    logGroupArnList: List[Annotated[str, _aws_pattern("Logs", "LogGroupArn")]]
     evaluationFrequency: EvaluationFrequencyType
     filterPattern: str
     anomalyDetectorStatus: AnomalyDetectorStatusType
@@ -1408,7 +1434,7 @@ class GetLogRecordResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_lookup_table' function.
 class GetLookupTableResponseTypeDef(BaseValidatorModel):
     lookupTableArn: str
-    lookupTableName: str
+    lookupTableName: Annotated[str, _aws_pattern("Logs", "LookupTableName")]
     description: str
     tableBody: str
     sizeBytes: int
@@ -1426,7 +1452,7 @@ class ListLogAnomalyDetectorsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_log_groups_for_query' function.
 class ListLogGroupsForQueryResponseTypeDef(BaseValidatorModel):
-    logGroupIdentifiers: List[str]
+    logGroupIdentifiers: List[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -1451,7 +1477,7 @@ class PutAccountPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_data_protection_policy' function.
 class PutDataProtectionPolicyResponseTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
     policyDocument: str
     lastUpdatedTime: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1459,7 +1485,7 @@ class PutDataProtectionPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_integration' function.
 class PutIntegrationResponseTypeDef(BaseValidatorModel):
-    integrationName: str
+    integrationName: Annotated[str, _aws_pattern("Logs", "IntegrationName")]
     integrationStatus: IntegrationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1494,7 +1520,7 @@ CSVUnionTypeDef = Union[CSVOutputTypeDef, CSVTypeDef]
 
 # This class is the output for the 'cancel_import_task' function.
 class CancelImportTaskResponseTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Logs", "ImportId")]
     importStatistics: ImportStatisticsTypeDef
     importStatus: ImportStatusType
     creationTime: int
@@ -1510,7 +1536,7 @@ class ConfigurationTemplateDeliveryConfigValuesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_delivery' function.
 class CreateDeliveryRequestTypeDef(BaseValidatorModel):
-    deliverySourceName: str
+    deliverySourceName: Annotated[str, _aws_pattern("Logs", "DeliverySourceName")]
     deliveryDestinationArn: str
     recordFields: Optional[List[str]] = None
     fieldDelimiter: Optional[str] = None
@@ -1519,9 +1545,9 @@ class CreateDeliveryRequestTypeDef(BaseValidatorModel):
 
 
 class DeliveryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Logs", "DeliveryId")]] = None
     arn: Optional[str] = None
-    deliverySourceName: Optional[str] = None
+    deliverySourceName: Optional[Annotated[str, _aws_pattern("Logs", "DeliverySourceName")]] = None
     deliveryDestinationArn: Optional[str] = None
     deliveryDestinationType: Optional[DeliveryDestinationTypeType] = None
     recordFields: Optional[List[str]] = None
@@ -1531,7 +1557,7 @@ class DeliveryTypeDef(BaseValidatorModel):
 
 
 class UpdateDeliveryConfigurationRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Logs", "DeliveryId")]
     recordFields: Optional[List[str]] = None
     fieldDelimiter: Optional[str] = None
     s3DeliveryConfiguration: Optional[S3DeliveryConfigurationTypeDef] = None
@@ -1553,7 +1579,7 @@ class CreateImportTaskRequestTypeDef(BaseValidatorModel):
 
 
 class ImportTypeDef(BaseValidatorModel):
-    importId: Optional[str] = None
+    importId: Optional[Annotated[str, _aws_pattern("Logs", "ImportId")]] = None
     importSourceArn: Optional[str] = None
     importStatus: Optional[ImportStatusType] = None
     importDestinationArn: Optional[str] = None
@@ -1567,25 +1593,13 @@ class ImportTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_aggregate_log_group_summaries' function.
 class ListAggregateLogGroupSummariesRequestTypeDef(BaseValidatorModel):
     groupBy: ListAggregateLogGroupSummariesGroupByType
-    accountIdentifiers: Optional[List[str]] = None
+    accountIdentifiers: Optional[List[Annotated[str, _aws_pattern("Logs", "AccountId")]]] = None
     includeLinkedAccounts: Optional[bool] = None
     logGroupClass: Optional[LogGroupClassType] = None
-    logGroupNamePattern: Optional[str] = None
+    logGroupNamePattern: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupNameRegexPattern")]] = None
     dataSources: Optional[List[DataSourceFilterTypeDef]] = None
     nextToken: Optional[str] = None
     limit: Optional[int] = None
-
-
-# This class is the input for the 'list_log_groups' function.
-class ListLogGroupsRequestTypeDef(BaseValidatorModel):
-    logGroupNamePattern: Optional[str] = None
-    logGroupClass: Optional[LogGroupClassType] = None
-    includeLinkedAccounts: Optional[bool] = None
-    accountIdentifiers: Optional[List[str]] = None
-    nextToken: Optional[str] = None
-    limit: Optional[int] = None
-    dataSources: Optional[List[DataSourceFilterTypeDef]] = None
-    fieldIndexNames: Optional[List[str]] = None
 
 
 DateTimeConverterUnionTypeDef = Union[DateTimeConverterOutputTypeDef, DateTimeConverterTypeDef]
@@ -1594,7 +1608,7 @@ DeleteKeysUnionTypeDef = Union[DeleteKeysOutputTypeDef, DeleteKeysTypeDef]
 
 
 class DeliveryDestinationTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Logs", "DeliveryDestinationName")]] = None
     arn: Optional[str] = None
     deliveryDestinationType: Optional[DeliveryDestinationTypeType] = None
     outputFormat: Optional[OutputFormatType] = None
@@ -1604,7 +1618,7 @@ class DeliveryDestinationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_delivery_destination' function.
 class PutDeliveryDestinationRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Logs", "DeliveryDestinationName")]
     outputFormat: Optional[OutputFormatType] = None
     deliveryDestinationConfiguration: Optional[DeliveryDestinationConfigurationTypeDef] = None
     deliveryDestinationType: Optional[DeliveryDestinationTypeType] = None
@@ -1787,7 +1801,7 @@ class DescribeFieldIndexesResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_import_task_batches' function.
 class DescribeImportTaskBatchesResponseTypeDef(BaseValidatorModel):
     importSourceArn: str
-    importId: str
+    importId: Annotated[str, _aws_pattern("Logs", "ImportId")]
     importBatches: List[ImportBatchTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -1862,7 +1876,7 @@ class DestinationConfigurationTypeDef(BaseValidatorModel):
 class ExportTaskTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     taskName: Optional[str] = None
-    logGroupName: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
     from_: Optional[int] = Field(None, alias="from")
     to: Optional[int] = None
     destination: Optional[str] = None
@@ -1923,8 +1937,8 @@ class GetQueryResultsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_log_events' function.
 class PutLogEventsRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
-    logStreamName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
+    logStreamName: Annotated[str, _aws_pattern("Logs", "LogStreamName")]
     logEvents: List[InputLogEventTypeDef]
     sequenceToken: Optional[str] = None
     entity: Optional[EntityTypeDef] = None
@@ -1934,6 +1948,19 @@ class PutLogEventsRequestTypeDef(BaseValidatorModel):
 class ListIntegrationsResponseTypeDef(BaseValidatorModel):
     integrationSummaries: List[IntegrationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the input for the 'list_log_groups' function.
+class ListLogGroupsRequestTypeDef(BaseValidatorModel):
+    logGroupNamePattern: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupNameRegexPattern")]] = None
+    logGroupClass: Optional[LogGroupClassType] = None
+    includeLinkedAccounts: Optional[bool] = None
+    accountIdentifiers: Optional[List[Annotated[str, _aws_pattern("Logs", "AccountId")]]] = None
+    nextToken: Optional[str] = None
+    limit: Optional[int] = None
+    dataSources: Optional[List[DataSourceFilterTypeDef]] = None
+    fieldIndexNames: Optional[List[Annotated[str, _aws_pattern("Logs", "FieldIndexName")]]] = None
+    logGroupTags: Optional[List[TagFilterTypeDef]] = None
 
 
 # This class is the output for the 'list_log_groups' function.
@@ -1963,11 +1990,11 @@ class TestMetricFilterResponseTypeDef(BaseValidatorModel):
 
 
 class MetricFilterTypeDef(BaseValidatorModel):
-    filterName: Optional[str] = None
+    filterName: Optional[Annotated[str, _aws_pattern("Logs", "FilterName")]] = None
     filterPattern: Optional[str] = None
     metricTransformations: Optional[List[MetricTransformationOutputTypeDef]] = None
     creationTime: Optional[int] = None
-    logGroupName: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Logs", "LogGroupName")]] = None
     applyOnTransformedLogs: Optional[bool] = None
     fieldSelectionCriteria: Optional[str] = None
     emitSystemFieldDimensions: Optional[List[str]] = None
@@ -1985,45 +2012,45 @@ class MoveKeysTypeDef(BaseValidatorModel):
 
 
 class OpenSearchApplicationTypeDef(BaseValidatorModel):
-    applicationEndpoint: Optional[str] = None
+    applicationEndpoint: Optional[Annotated[str, _aws_pattern("Logs", "OpenSearchApplicationEndpoint")]] = None
     applicationArn: Optional[str] = None
-    applicationId: Optional[str] = None
+    applicationId: Optional[Annotated[str, _aws_pattern("Logs", "OpenSearchApplicationId")]] = None
     status: Optional[OpenSearchResourceStatusTypeDef] = None
 
 
 class OpenSearchCollectionTypeDef(BaseValidatorModel):
-    collectionEndpoint: Optional[str] = None
+    collectionEndpoint: Optional[Annotated[str, _aws_pattern("Logs", "OpenSearchCollectionEndpoint")]] = None
     collectionArn: Optional[str] = None
     status: Optional[OpenSearchResourceStatusTypeDef] = None
 
 
 class OpenSearchDataAccessPolicyTypeDef(BaseValidatorModel):
-    policyName: Optional[str] = None
+    policyName: Optional[Annotated[str, _aws_pattern("Logs", "OpenSearchPolicyName")]] = None
     status: Optional[OpenSearchResourceStatusTypeDef] = None
 
 
 class OpenSearchDataSourceTypeDef(BaseValidatorModel):
-    dataSourceName: Optional[str] = None
+    dataSourceName: Optional[Annotated[str, _aws_pattern("Logs", "OpenSearchDataSourceName")]] = None
     status: Optional[OpenSearchResourceStatusTypeDef] = None
 
 
 class OpenSearchEncryptionPolicyTypeDef(BaseValidatorModel):
-    policyName: Optional[str] = None
+    policyName: Optional[Annotated[str, _aws_pattern("Logs", "OpenSearchPolicyName")]] = None
     status: Optional[OpenSearchResourceStatusTypeDef] = None
 
 
 class OpenSearchLifecyclePolicyTypeDef(BaseValidatorModel):
-    policyName: Optional[str] = None
+    policyName: Optional[Annotated[str, _aws_pattern("Logs", "OpenSearchPolicyName")]] = None
     status: Optional[OpenSearchResourceStatusTypeDef] = None
 
 
 class OpenSearchNetworkPolicyTypeDef(BaseValidatorModel):
-    policyName: Optional[str] = None
+    policyName: Optional[Annotated[str, _aws_pattern("Logs", "OpenSearchPolicyName")]] = None
     status: Optional[OpenSearchResourceStatusTypeDef] = None
 
 
 class OpenSearchWorkspaceTypeDef(BaseValidatorModel):
-    workspaceId: Optional[str] = None
+    workspaceId: Optional[Annotated[str, _aws_pattern("Logs", "OpenSearchWorkspaceId")]] = None
     status: Optional[OpenSearchResourceStatusTypeDef] = None
 
 
@@ -2045,8 +2072,8 @@ class PutQueryDefinitionRequestTypeDef(BaseValidatorModel):
     queryString: str
     queryLanguage: Optional[QueryLanguageType] = None
     queryDefinitionId: Optional[str] = None
-    logGroupNames: Optional[List[str]] = None
-    clientToken: Optional[str] = None
+    logGroupNames: Optional[List[Annotated[str, _aws_pattern("Logs", "LogGroupName")]]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Logs", "ClientToken")]] = None
     parameters: Optional[List[QueryParameterTypeDef]] = None
 
 
@@ -2056,7 +2083,7 @@ class QueryDefinitionTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     queryString: Optional[str] = None
     lastModified: Optional[int] = None
-    logGroupNames: Optional[List[str]] = None
+    logGroupNames: Optional[List[Annotated[str, _aws_pattern("Logs", "LogGroupName")]]] = None
     parameters: Optional[List[QueryParameterTypeDef]] = None
 
 
@@ -2094,7 +2121,7 @@ class SubstituteStringTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_anomaly' function.
 class UpdateAnomalyRequestTypeDef(BaseValidatorModel):
-    anomalyDetectorArn: str
+    anomalyDetectorArn: Annotated[str, _aws_pattern("Logs", "AnomalyDetectorArn")]
     anomalyId: Optional[str] = None
     patternId: Optional[str] = None
     suppressionType: Optional[SuppressionTypeType] = None
@@ -2146,9 +2173,9 @@ class ListSourcesForS3TableIntegrationResponseTypeDef(BaseValidatorModel):
 
 
 class ConfigurationTemplateTypeDef(BaseValidatorModel):
-    service: Optional[str] = None
-    logType: Optional[str] = None
-    resourceType: Optional[str] = None
+    service: Optional[Annotated[str, _aws_pattern("Logs", "Service")]] = None
+    logType: Optional[Annotated[str, _aws_pattern("Logs", "LogType")]] = None
+    resourceType: Optional[Annotated[str, _aws_pattern("Logs", "ResourceType")]] = None
     deliveryDestinationType: Optional[DeliveryDestinationTypeType] = None
     defaultDeliveryConfigValues: Optional[ConfigurationTemplateDeliveryConfigValuesTypeDef] = None
     allowedFields: Optional[List[RecordFieldTypeDef]] = None
@@ -2156,6 +2183,8 @@ class ConfigurationTemplateTypeDef(BaseValidatorModel):
     allowedActionForAllowVendedLogsDeliveryForResource: Optional[str] = None
     allowedFieldDelimiters: Optional[List[str]] = None
     allowedSuffixPathFields: Optional[List[str]] = None
+    deliverySourceConfiguration: Optional[List[DeliverySourceConfigurationSchemaTypeDef]] = None
+    s3TablesIntegration: Optional[S3TablesIntegrationTypeDef] = None
 
 
 # This class is the output for the 'create_delivery' function.
@@ -2208,13 +2237,13 @@ class PutDeliveryDestinationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_scheduled_query' function.
 class CreateScheduledQueryRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Logs", "ScheduledQueryName")]
     queryLanguage: QueryLanguageType
     queryString: str
     scheduleExpression: str
     executionRoleArn: str
     description: Optional[str] = None
-    logGroupIdentifiers: Optional[List[str]] = None
+    logGroupIdentifiers: Optional[List[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]]] = None
     timezone: Optional[str] = None
     startTimeOffset: Optional[int] = None
     destinationConfiguration: Optional[DestinationConfigurationTypeDef] = None
@@ -2227,11 +2256,11 @@ class CreateScheduledQueryRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_scheduled_query' function.
 class GetScheduledQueryResponseTypeDef(BaseValidatorModel):
     scheduledQueryArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("Logs", "ScheduledQueryName")]
     description: str
     queryLanguage: QueryLanguageType
     queryString: str
-    logGroupIdentifiers: List[str]
+    logGroupIdentifiers: List[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]]
     scheduleExpression: str
     timezone: str
     startTimeOffset: int
@@ -2249,7 +2278,7 @@ class GetScheduledQueryResponseTypeDef(BaseValidatorModel):
 
 class ScheduledQuerySummaryTypeDef(BaseValidatorModel):
     scheduledQueryArn: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Logs", "ScheduledQueryName")]] = None
     state: Optional[ScheduledQueryStateType] = None
     lastTriggeredTime: Optional[int] = None
     lastExecutionStatus: Optional[ExecutionStatusType] = None
@@ -2262,13 +2291,13 @@ class ScheduledQuerySummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_scheduled_query' function.
 class UpdateScheduledQueryRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Logs", "ScheduledQueryIdentifier")]
     queryLanguage: QueryLanguageType
     queryString: str
     scheduleExpression: str
     executionRoleArn: str
     description: Optional[str] = None
-    logGroupIdentifiers: Optional[List[str]] = None
+    logGroupIdentifiers: Optional[List[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]]] = None
     timezone: Optional[str] = None
     startTimeOffset: Optional[int] = None
     destinationConfiguration: Optional[DestinationConfigurationTypeDef] = None
@@ -2280,11 +2309,11 @@ class UpdateScheduledQueryRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_scheduled_query' function.
 class UpdateScheduledQueryResponseTypeDef(BaseValidatorModel):
     scheduledQueryArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("Logs", "ScheduledQueryName")]
     description: str
     queryLanguage: QueryLanguageType
     queryString: str
-    logGroupIdentifiers: List[str]
+    logGroupIdentifiers: List[Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]]
     scheduleExpression: str
     timezone: str
     startTimeOffset: int
@@ -2334,8 +2363,8 @@ class DescribeMetricFiltersResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_metric_filter' function.
 class PutMetricFilterRequestTypeDef(BaseValidatorModel):
-    logGroupName: str
-    filterName: str
+    logGroupName: Annotated[str, _aws_pattern("Logs", "LogGroupName")]
+    filterName: Annotated[str, _aws_pattern("Logs", "FilterName")]
     filterPattern: str
     metricTransformations: List[MetricTransformationUnionTypeDef]
     applyOnTransformedLogs: Optional[bool] = None
@@ -2359,7 +2388,7 @@ class OpenSearchIntegrationDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_integration' function.
 class PutIntegrationRequestTypeDef(BaseValidatorModel):
-    integrationName: str
+    integrationName: Annotated[str, _aws_pattern("Logs", "IntegrationName")]
     resourceConfig: ResourceConfigTypeDef
     integrationType: Literal["OPENSEARCH"]
 
@@ -2376,7 +2405,7 @@ RenameKeysUnionTypeDef = Union[RenameKeysOutputTypeDef, RenameKeysTypeDef]
 
 # This class is the output for the 'get_scheduled_query_history' function.
 class GetScheduledQueryHistoryResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Logs", "ScheduledQueryName")]
     scheduledQueryArn: str
     triggerHistory: List[TriggerHistoryRecordTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2442,7 +2471,7 @@ class IntegrationDetailsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_transformer' function.
 class GetTransformerResponseTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
     creationTime: int
     lastModifiedTime: int
     transformerConfig: List[ProcessorOutputTypeDef]
@@ -2477,7 +2506,7 @@ class ProcessorTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_integration' function.
 class GetIntegrationResponseTypeDef(BaseValidatorModel):
-    integrationName: str
+    integrationName: Annotated[str, _aws_pattern("Logs", "IntegrationName")]
     integrationType: Literal["OPENSEARCH"]
     integrationStatus: IntegrationStatusType
     integrationDetails: IntegrationDetailsTypeDef
@@ -2489,7 +2518,7 @@ ProcessorUnionTypeDef = Union[ProcessorOutputTypeDef, ProcessorTypeDef]
 
 # This class is the input for the 'put_transformer' function.
 class PutTransformerRequestTypeDef(BaseValidatorModel):
-    logGroupIdentifier: str
+    logGroupIdentifier: Annotated[str, _aws_pattern("Logs", "LogGroupIdentifier")]
     transformerConfig: List[ProcessorUnionTypeDef]
 
 

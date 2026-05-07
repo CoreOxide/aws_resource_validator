@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,27 +41,27 @@ except ImportError:  # pragma: no cover
 
 
 class AddressTypeDef(BaseValidatorModel):
-    streetName: Optional[str] = None
-    streetSuffix: Optional[str] = None
-    postDirectional: Optional[str] = None
-    preDirectional: Optional[str] = None
-    streetNumber: Optional[str] = None
-    city: Optional[str] = None
-    state: Optional[str] = None
-    postalCode: Optional[str] = None
-    postalCodePlus4: Optional[str] = None
-    country: Optional[str] = None
+    streetName: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    streetSuffix: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    postDirectional: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    preDirectional: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    streetNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    city: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    state: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    postalCode: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    postalCodePlus4: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    country: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
 
 
 # This class is the input for the 'associate_phone_numbers_with_voice_connector_group' function.
 class AssociatePhoneNumbersWithVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorGroupId: str
-    E164PhoneNumbers: List[str]
+    VoiceConnectorGroupId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
+    E164PhoneNumbers: List[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]]
     ForceAssociate: Optional[bool] = None
 
 
 class PhoneNumberErrorTypeDef(BaseValidatorModel):
-    PhoneNumberId: Optional[str] = None
+    PhoneNumberId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
@@ -74,8 +76,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_phone_numbers_with_voice_connector' function.
 class AssociatePhoneNumbersWithVoiceConnectorRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    E164PhoneNumbers: List[str]
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
+    E164PhoneNumbers: List[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]]
     ForceAssociate: Optional[bool] = None
 
 
@@ -85,55 +87,55 @@ class BatchDeletePhoneNumberRequestTypeDef(BaseValidatorModel):
 
 
 class UpdatePhoneNumberRequestItemTypeDef(BaseValidatorModel):
-    PhoneNumberId: str
+    PhoneNumberId: Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]
     ProductType: Optional[PhoneNumberProductTypeType] = None
-    CallingName: Optional[str] = None
-    Name: Optional[str] = None
+    CallingName: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "CallingName")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "PhoneNumberName")]] = None
 
 
 class CallDetailsTypeDef(BaseValidatorModel):
-    VoiceConnectorId: Optional[str] = None
-    TransactionId: Optional[str] = None
+    VoiceConnectorId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]] = None
     IsCaller: Optional[bool] = None
 
 
 class CandidateAddressTypeDef(BaseValidatorModel):
-    streetInfo: Optional[str] = None
-    streetNumber: Optional[str] = None
-    city: Optional[str] = None
-    state: Optional[str] = None
-    postalCode: Optional[str] = None
-    postalCodePlus4: Optional[str] = None
-    country: Optional[str] = None
+    streetInfo: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    streetNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    city: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    state: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    postalCode: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    postalCodePlus4: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    country: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
 
 
 # This class is the input for the 'create_phone_number_order' function.
 class CreatePhoneNumberOrderRequestTypeDef(BaseValidatorModel):
     ProductType: PhoneNumberProductTypeType
-    E164PhoneNumbers: List[str]
-    Name: Optional[str] = None
+    E164PhoneNumbers: List[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]]
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "PhoneNumberName")]] = None
 
 
 class GeoMatchParamsTypeDef(BaseValidatorModel):
-    Country: str
-    AreaCode: str
+    Country: Annotated[str, _aws_pattern("ChimeSdkVoice", "Country")]
+    AreaCode: Annotated[str, _aws_pattern("ChimeSdkVoice", "AreaCode")]
 
 
 # This class is the input for the 'create_sip_media_application_call' function.
 class CreateSipMediaApplicationCallRequestTypeDef(BaseValidatorModel):
-    FromPhoneNumber: str
-    ToPhoneNumber: str
-    SipMediaApplicationId: str
+    FromPhoneNumber: Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]
+    ToPhoneNumber: Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]
+    SipMediaApplicationId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     SipHeaders: Optional[Dict[str, str]] = None
     ArgumentsMap: Optional[Dict[str, str]] = None
 
 
 class SipMediaApplicationCallTypeDef(BaseValidatorModel):
-    TransactionId: Optional[str] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "GuidString")]] = None
 
 
 class SipMediaApplicationEndpointTypeDef(BaseValidatorModel):
-    LambdaArn: Optional[str] = None
+    LambdaArn: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "FunctionArn")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -142,42 +144,42 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class SipRuleTargetApplicationTypeDef(BaseValidatorModel):
-    SipMediaApplicationId: Optional[str] = None
+    SipMediaApplicationId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
     Priority: Optional[int] = None
     AwsRegion: Optional[str] = None
 
 
 class VoiceConnectorItemTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     Priority: int
 
 
 class VoiceConnectorTypeDef(BaseValidatorModel):
-    VoiceConnectorId: Optional[str] = None
+    VoiceConnectorId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
     AwsRegion: Optional[VoiceConnectorAwsRegionType] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "VoiceConnectorName")]] = None
     OutboundHostName: Optional[str] = None
     RequireEncryption: Optional[bool] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
-    VoiceConnectorArn: Optional[str] = None
+    VoiceConnectorArn: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
     IntegrationType: Optional[VoiceConnectorIntegrationTypeType] = None
     NetworkType: Optional[NetworkTypeType] = None
 
 
 class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
-    KmsKeyArn: str
+    KmsKeyArn: Annotated[str, _aws_pattern("ChimeSdkVoice", "Arn")]
 
 
 # This class is the input for the 'create_voice_profile' function.
 class CreateVoiceProfileRequestTypeDef(BaseValidatorModel):
-    SpeakerSearchTaskId: str
+    SpeakerSearchTaskId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
 
 
 class VoiceProfileTypeDef(BaseValidatorModel):
-    VoiceProfileId: Optional[str] = None
-    VoiceProfileArn: Optional[str] = None
-    VoiceProfileDomainId: Optional[str] = None
+    VoiceProfileId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]] = None
+    VoiceProfileArn: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "Arn")]] = None
+    VoiceProfileDomainId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
     ExpirationTimestamp: Optional[datetime] = None
@@ -189,98 +191,98 @@ class CredentialTypeDef(BaseValidatorModel):
 
 
 class DNISEmergencyCallingConfigurationTypeDef(BaseValidatorModel):
-    EmergencyPhoneNumber: str
-    CallingCountry: str
-    TestPhoneNumber: Optional[str] = None
+    EmergencyPhoneNumber: Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]
+    CallingCountry: Annotated[str, _aws_pattern("ChimeSdkVoice", "Alpha2CountryCode")]
+    TestPhoneNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]] = None
 
 
 # This class is the input for the 'delete_phone_number' function.
 class DeletePhoneNumberRequestTypeDef(BaseValidatorModel):
-    PhoneNumberId: str
+    PhoneNumberId: Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]
 
 
 # This class is the input for the 'delete_proxy_session' function.
 class DeleteProxySessionRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    ProxySessionId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
+    ProxySessionId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
 
 
 # This class is the input for the 'delete_sip_media_application' function.
 class DeleteSipMediaApplicationRequestTypeDef(BaseValidatorModel):
-    SipMediaApplicationId: str
+    SipMediaApplicationId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_sip_rule' function.
 class DeleteSipRuleRequestTypeDef(BaseValidatorModel):
-    SipRuleId: str
+    SipRuleId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_voice_connector_emergency_calling_configuration' function.
 class DeleteVoiceConnectorEmergencyCallingConfigurationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_voice_connector_external_systems_configuration' function.
 class DeleteVoiceConnectorExternalSystemsConfigurationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_voice_connector_group' function.
 class DeleteVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorGroupId: str
+    VoiceConnectorGroupId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_voice_connector_origination' function.
 class DeleteVoiceConnectorOriginationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_voice_connector_proxy' function.
 class DeleteVoiceConnectorProxyRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
 
 
 # This class is the input for the 'delete_voice_connector' function.
 class DeleteVoiceConnectorRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_voice_connector_streaming_configuration' function.
 class DeleteVoiceConnectorStreamingConfigurationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_voice_connector_termination_credentials' function.
 class DeleteVoiceConnectorTerminationCredentialsRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     Usernames: List[str]
 
 
 # This class is the input for the 'delete_voice_connector_termination' function.
 class DeleteVoiceConnectorTerminationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_voice_profile_domain' function.
 class DeleteVoiceProfileDomainRequestTypeDef(BaseValidatorModel):
-    VoiceProfileDomainId: str
+    VoiceProfileDomainId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
 
 
 # This class is the input for the 'delete_voice_profile' function.
 class DeleteVoiceProfileRequestTypeDef(BaseValidatorModel):
-    VoiceProfileId: str
+    VoiceProfileId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
 
 
 # This class is the input for the 'disassociate_phone_numbers_from_voice_connector_group' function.
 class DisassociatePhoneNumbersFromVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorGroupId: str
-    E164PhoneNumbers: List[str]
+    VoiceConnectorGroupId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
+    E164PhoneNumbers: List[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]]
 
 
 # This class is the input for the 'disassociate_phone_numbers_from_voice_connector' function.
 class DisassociatePhoneNumbersFromVoiceConnectorRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    E164PhoneNumbers: List[str]
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
+    E164PhoneNumbers: List[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]]
 
 
 class ExternalSystemsConfigurationTypeDef(BaseValidatorModel):
@@ -294,23 +296,23 @@ class VoiceConnectorSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_phone_number_order' function.
 class GetPhoneNumberOrderRequestTypeDef(BaseValidatorModel):
-    PhoneNumberOrderId: str
+    PhoneNumberOrderId: Annotated[str, _aws_pattern("ChimeSdkVoice", "GuidString")]
 
 
 # This class is the input for the 'get_phone_number' function.
 class GetPhoneNumberRequestTypeDef(BaseValidatorModel):
-    PhoneNumberId: str
+    PhoneNumberId: Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]
 
 
 # This class is the input for the 'get_proxy_session' function.
 class GetProxySessionRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    ProxySessionId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
+    ProxySessionId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
 
 
 # This class is the input for the 'get_sip_media_application_alexa_skill_configuration' function.
 class GetSipMediaApplicationAlexaSkillConfigurationRequestTypeDef(BaseValidatorModel):
-    SipMediaApplicationId: str
+    SipMediaApplicationId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 class SipMediaApplicationAlexaSkillConfigurationOutputTypeDef(BaseValidatorModel):
@@ -320,7 +322,7 @@ class SipMediaApplicationAlexaSkillConfigurationOutputTypeDef(BaseValidatorModel
 
 # This class is the input for the 'get_sip_media_application_logging_configuration' function.
 class GetSipMediaApplicationLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    SipMediaApplicationId: str
+    SipMediaApplicationId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 class SipMediaApplicationLoggingConfigurationTypeDef(BaseValidatorModel):
@@ -329,38 +331,38 @@ class SipMediaApplicationLoggingConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_sip_media_application' function.
 class GetSipMediaApplicationRequestTypeDef(BaseValidatorModel):
-    SipMediaApplicationId: str
+    SipMediaApplicationId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'get_sip_rule' function.
 class GetSipRuleRequestTypeDef(BaseValidatorModel):
-    SipRuleId: str
+    SipRuleId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'get_speaker_search_task' function.
 class GetSpeakerSearchTaskRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    SpeakerSearchTaskId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
+    SpeakerSearchTaskId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
 
 
 # This class is the input for the 'get_voice_connector_emergency_calling_configuration' function.
 class GetVoiceConnectorEmergencyCallingConfigurationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'get_voice_connector_external_systems_configuration' function.
 class GetVoiceConnectorExternalSystemsConfigurationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'get_voice_connector_group' function.
 class GetVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorGroupId: str
+    VoiceConnectorGroupId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'get_voice_connector_logging_configuration' function.
 class GetVoiceConnectorLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 class LoggingConfigurationTypeDef(BaseValidatorModel):
@@ -370,34 +372,34 @@ class LoggingConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_voice_connector_origination' function.
 class GetVoiceConnectorOriginationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'get_voice_connector_proxy' function.
 class GetVoiceConnectorProxyRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
 
 
 class ProxyTypeDef(BaseValidatorModel):
     DefaultSessionExpiryMinutes: Optional[int] = None
     Disabled: Optional[bool] = None
-    FallBackPhoneNumber: Optional[str] = None
+    FallBackPhoneNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]] = None
     PhoneNumberCountries: Optional[List[str]] = None
 
 
 # This class is the input for the 'get_voice_connector' function.
 class GetVoiceConnectorRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'get_voice_connector_streaming_configuration' function.
 class GetVoiceConnectorStreamingConfigurationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'get_voice_connector_termination_health' function.
 class GetVoiceConnectorTerminationHealthRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 class TerminationHealthTypeDef(BaseValidatorModel):
@@ -407,7 +409,7 @@ class TerminationHealthTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_voice_connector_termination' function.
 class GetVoiceConnectorTerminationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 class TerminationOutputTypeDef(BaseValidatorModel):
@@ -420,18 +422,18 @@ class TerminationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_voice_profile_domain' function.
 class GetVoiceProfileDomainRequestTypeDef(BaseValidatorModel):
-    VoiceProfileDomainId: str
+    VoiceProfileDomainId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
 
 
 # This class is the input for the 'get_voice_profile' function.
 class GetVoiceProfileRequestTypeDef(BaseValidatorModel):
-    VoiceProfileId: str
+    VoiceProfileId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
 
 
 # This class is the input for the 'get_voice_tone_analysis_task' function.
 class GetVoiceToneAnalysisTaskRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    VoiceToneAnalysisTaskId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
+    VoiceToneAnalysisTaskId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
     IsCaller: bool
 
 
@@ -453,7 +455,7 @@ class ListPhoneNumbersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_proxy_sessions' function.
 class ListProxySessionsRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
     Status: Optional[ProxySessionStatusType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -473,7 +475,7 @@ class ListSipMediaApplicationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_sip_rules' function.
 class ListSipRulesRequestTypeDef(BaseValidatorModel):
-    SipMediaApplicationId: Optional[str] = None
+    SipMediaApplicationId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -484,13 +486,13 @@ class ListSupportedPhoneNumberCountriesRequestTypeDef(BaseValidatorModel):
 
 
 class PhoneNumberCountryTypeDef(BaseValidatorModel):
-    CountryCode: Optional[str] = None
+    CountryCode: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "Alpha2CountryCode")]] = None
     SupportedPhoneNumberTypes: Optional[List[PhoneNumberTypeType]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkVoice", "Arn")]
 
 
 # This class is the input for the 'list_voice_connector_groups' function.
@@ -501,7 +503,7 @@ class ListVoiceConnectorGroupsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_voice_connector_termination_credentials' function.
 class ListVoiceConnectorTerminationCredentialsRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
 
 
 # This class is the input for the 'list_voice_connectors' function.
@@ -517,9 +519,9 @@ class ListVoiceProfileDomainsRequestTypeDef(BaseValidatorModel):
 
 
 class VoiceProfileDomainSummaryTypeDef(BaseValidatorModel):
-    VoiceProfileDomainId: Optional[str] = None
-    VoiceProfileDomainArn: Optional[str] = None
-    Name: Optional[str] = None
+    VoiceProfileDomainId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]] = None
+    VoiceProfileDomainArn: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "Arn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "VoiceProfileDomainName")]] = None
     Description: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
@@ -527,15 +529,15 @@ class VoiceProfileDomainSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_voice_profiles' function.
 class ListVoiceProfilesRequestTypeDef(BaseValidatorModel):
-    VoiceProfileDomainId: str
+    VoiceProfileDomainId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class VoiceProfileSummaryTypeDef(BaseValidatorModel):
-    VoiceProfileId: Optional[str] = None
-    VoiceProfileArn: Optional[str] = None
-    VoiceProfileDomainId: Optional[str] = None
+    VoiceProfileId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]] = None
+    VoiceProfileArn: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "Arn")]] = None
+    VoiceProfileDomainId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
     ExpirationTimestamp: Optional[datetime] = None
@@ -543,11 +545,11 @@ class VoiceProfileSummaryTypeDef(BaseValidatorModel):
 
 class MediaInsightsConfigurationTypeDef(BaseValidatorModel):
     Disabled: Optional[bool] = None
-    ConfigurationArn: Optional[str] = None
+    ConfigurationArn: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "Arn")]] = None
 
 
 class OrderedPhoneNumberTypeDef(BaseValidatorModel):
-    E164PhoneNumber: Optional[str] = None
+    E164PhoneNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]] = None
     Status: Optional[OrderedPhoneNumberStatusType] = None
 
 
@@ -560,8 +562,8 @@ class OriginationRouteTypeDef(BaseValidatorModel):
 
 
 class ParticipantTypeDef(BaseValidatorModel):
-    PhoneNumber: Optional[str] = None
-    ProxyPhoneNumber: Optional[str] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]] = None
+    ProxyPhoneNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]] = None
 
 
 class PhoneNumberAssociationTypeDef(BaseValidatorModel):
@@ -581,32 +583,32 @@ class PhoneNumberCapabilitiesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_voice_connector_external_systems_configuration' function.
 class PutVoiceConnectorExternalSystemsConfigurationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
     SessionBorderControllerTypes: Optional[List[SessionBorderControllerTypeType]] = None
     ContactCenterSystemTypes: Optional[List[ContactCenterSystemTypeType]] = None
 
 
 # This class is the input for the 'put_voice_connector_proxy' function.
 class PutVoiceConnectorProxyRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
     DefaultSessionExpiryMinutes: int
-    PhoneNumberPoolCountries: List[str]
-    FallBackPhoneNumber: Optional[str] = None
+    PhoneNumberPoolCountries: List[Annotated[str, _aws_pattern("ChimeSdkVoice", "Country")]]
+    FallBackPhoneNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]] = None
     Disabled: Optional[bool] = None
 
 
 # This class is the input for the 'restore_phone_number' function.
 class RestorePhoneNumberRequestTypeDef(BaseValidatorModel):
-    PhoneNumberId: str
+    PhoneNumberId: Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]
 
 
 # This class is the input for the 'search_available_phone_numbers' function.
 class SearchAvailablePhoneNumbersRequestTypeDef(BaseValidatorModel):
     AreaCode: Optional[str] = None
     City: Optional[str] = None
-    Country: Optional[str] = None
+    Country: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "Alpha2CountryCode")]] = None
     State: Optional[str] = None
-    TollFreePrefix: Optional[str] = None
+    TollFreePrefix: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "TollFreePrefix")]] = None
     PhoneNumberType: Optional[PhoneNumberTypeType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -614,41 +616,41 @@ class SearchAvailablePhoneNumbersRequestTypeDef(BaseValidatorModel):
 
 class SipMediaApplicationAlexaSkillConfigurationTypeDef(BaseValidatorModel):
     AlexaSkillStatus: AlexaSkillStatusType
-    AlexaSkillIds: List[str]
+    AlexaSkillIds: List[Annotated[str, _aws_pattern("ChimeSdkVoice", "AlexaSkillId")]]
 
 
 class SpeakerSearchResultTypeDef(BaseValidatorModel):
     ConfidenceScore: Optional[float] = None
-    VoiceProfileId: Optional[str] = None
+    VoiceProfileId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]] = None
 
 
 # This class is the input for the 'start_speaker_search_task' function.
 class StartSpeakerSearchTaskRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    TransactionId: str
-    VoiceProfileDomainId: str
-    ClientRequestToken: Optional[str] = None
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
+    TransactionId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
+    VoiceProfileDomainId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "ClientRequestId")]] = None
     CallLeg: Optional[CallLegTypeType] = None
 
 
 # This class is the input for the 'start_voice_tone_analysis_task' function.
 class StartVoiceToneAnalysisTaskRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    TransactionId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
+    TransactionId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
     LanguageCode: Literal["en-US"]
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "ClientRequestId")]] = None
 
 
 # This class is the input for the 'stop_speaker_search_task' function.
 class StopSpeakerSearchTaskRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    SpeakerSearchTaskId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
+    SpeakerSearchTaskId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
 
 
 # This class is the input for the 'stop_voice_tone_analysis_task' function.
 class StopVoiceToneAnalysisTaskRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    VoiceToneAnalysisTaskId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
+    VoiceToneAnalysisTaskId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
 
 
 class StreamingNotificationTargetTypeDef(BaseValidatorModel):
@@ -657,7 +659,7 @@ class StreamingNotificationTargetTypeDef(BaseValidatorModel):
 
 class TerminationTypeDef(BaseValidatorModel):
     CpsLimit: Optional[int] = None
-    DefaultPhoneNumber: Optional[str] = None
+    DefaultPhoneNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]] = None
     CallingRegions: Optional[List[str]] = None
     CidrAllowedList: Optional[List[str]] = None
     Disabled: Optional[bool] = None
@@ -665,67 +667,67 @@ class TerminationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkVoice", "Arn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_phone_number' function.
 class UpdatePhoneNumberRequestTypeDef(BaseValidatorModel):
-    PhoneNumberId: str
+    PhoneNumberId: Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]
     ProductType: Optional[PhoneNumberProductTypeType] = None
-    CallingName: Optional[str] = None
-    Name: Optional[str] = None
+    CallingName: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "CallingName")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "PhoneNumberName")]] = None
 
 
 # This class is the input for the 'update_phone_number_settings' function.
 class UpdatePhoneNumberSettingsRequestTypeDef(BaseValidatorModel):
-    CallingName: str
+    CallingName: Annotated[str, _aws_pattern("ChimeSdkVoice", "CallingName")]
 
 
 # This class is the input for the 'update_proxy_session' function.
 class UpdateProxySessionRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    ProxySessionId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
+    ProxySessionId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
     Capabilities: List[CapabilityType]
     ExpiryMinutes: Optional[int] = None
 
 
 # This class is the input for the 'update_sip_media_application_call' function.
 class UpdateSipMediaApplicationCallRequestTypeDef(BaseValidatorModel):
-    SipMediaApplicationId: str
-    TransactionId: str
+    SipMediaApplicationId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
+    TransactionId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     Arguments: Dict[str, str]
 
 
 # This class is the input for the 'update_voice_connector' function.
 class UpdateVoiceConnectorRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    Name: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
+    Name: Annotated[str, _aws_pattern("ChimeSdkVoice", "VoiceConnectorName")]
     RequireEncryption: bool
 
 
 # This class is the input for the 'update_voice_profile_domain' function.
 class UpdateVoiceProfileDomainRequestTypeDef(BaseValidatorModel):
-    VoiceProfileDomainId: str
-    Name: Optional[str] = None
+    VoiceProfileDomainId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "VoiceProfileDomainName")]] = None
     Description: Optional[str] = None
 
 
 # This class is the input for the 'update_voice_profile' function.
 class UpdateVoiceProfileRequestTypeDef(BaseValidatorModel):
-    VoiceProfileId: str
-    SpeakerSearchTaskId: str
+    VoiceProfileId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
+    SpeakerSearchTaskId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]
 
 
 # This class is the input for the 'validate_e911_address' function.
 class ValidateE911AddressRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    StreetNumber: str
-    StreetInfo: str
-    City: str
-    State: str
-    Country: str
-    PostalCode: str
+    AwsAccountId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
+    StreetNumber: Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]
+    StreetInfo: Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]
+    City: Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]
+    State: Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]
+    Country: Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]
+    PostalCode: Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]
 
 
 # This class is the output for the 'associate_phone_numbers_with_voice_connector_group' function.
@@ -770,7 +772,7 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class GetPhoneNumberSettingsResponseTypeDef(BaseValidatorModel):
-    CallingName: str
+    CallingName: Annotated[str, _aws_pattern("ChimeSdkVoice", "CallingName")]
     CallingNameUpdatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -788,7 +790,7 @@ class ListVoiceConnectorTerminationCredentialsResponseTypeDef(BaseValidatorModel
 
 # This class is the output for the 'search_available_phone_numbers' function.
 class SearchAvailablePhoneNumbersResponseTypeDef(BaseValidatorModel):
-    E164PhoneNumbers: List[str]
+    E164PhoneNumbers: List[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -799,8 +801,8 @@ class BatchUpdatePhoneNumberRequestTypeDef(BaseValidatorModel):
 
 
 class VoiceToneAnalysisTaskTypeDef(BaseValidatorModel):
-    VoiceToneAnalysisTaskId: Optional[str] = None
-    VoiceToneAnalysisTaskStatus: Optional[str] = None
+    VoiceToneAnalysisTaskId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]] = None
+    VoiceToneAnalysisTaskStatus: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
     CallDetails: Optional[CallDetailsTypeDef] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
@@ -819,10 +821,10 @@ class ValidateE911AddressResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_proxy_session' function.
 class CreateProxySessionRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
-    ParticipantPhoneNumbers: List[str]
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]
+    ParticipantPhoneNumbers: List[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]]
     Capabilities: List[CapabilityType]
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "ProxySessionNameString")]] = None
     ExpiryMinutes: Optional[int] = None
     NumberSelectionBehavior: Optional[NumberSelectionBehaviorType] = None
     GeoMatchLevel: Optional[GeoMatchLevelType] = None
@@ -842,33 +844,33 @@ class UpdateSipMediaApplicationCallResponseTypeDef(BaseValidatorModel):
 
 
 class SipMediaApplicationTypeDef(BaseValidatorModel):
-    SipMediaApplicationId: Optional[str] = None
+    SipMediaApplicationId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
     AwsRegion: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SipMediaApplicationName")]] = None
     Endpoints: Optional[List[SipMediaApplicationEndpointTypeDef]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
-    SipMediaApplicationArn: Optional[str] = None
+    SipMediaApplicationArn: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'update_sip_media_application' function.
 class UpdateSipMediaApplicationRequestTypeDef(BaseValidatorModel):
-    SipMediaApplicationId: str
-    Name: Optional[str] = None
+    SipMediaApplicationId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SipMediaApplicationName")]] = None
     Endpoints: Optional[List[SipMediaApplicationEndpointTypeDef]] = None
 
 
 # This class is the input for the 'create_sip_media_application' function.
 class CreateSipMediaApplicationRequestTypeDef(BaseValidatorModel):
     AwsRegion: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("ChimeSdkVoice", "SipMediaApplicationName")]
     Endpoints: List[SipMediaApplicationEndpointTypeDef]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_voice_connector' function.
 class CreateVoiceConnectorRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("ChimeSdkVoice", "VoiceConnectorName")]
     RequireEncryption: bool
     AwsRegion: Optional[VoiceConnectorAwsRegionType] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -884,25 +886,25 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkVoice", "Arn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'create_sip_rule' function.
 class CreateSipRuleRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("ChimeSdkVoice", "SipRuleName")]
     TriggerType: SipRuleTriggerTypeType
-    TriggerValue: str
+    TriggerValue: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     Disabled: Optional[bool] = None
     TargetApplications: Optional[List[SipRuleTargetApplicationTypeDef]] = None
 
 
 class SipRuleTypeDef(BaseValidatorModel):
-    SipRuleId: Optional[str] = None
-    Name: Optional[str] = None
+    SipRuleId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SipRuleName")]] = None
     Disabled: Optional[bool] = None
     TriggerType: Optional[SipRuleTriggerTypeType] = None
-    TriggerValue: Optional[str] = None
+    TriggerValue: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
     TargetApplications: Optional[List[SipRuleTargetApplicationTypeDef]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
@@ -910,32 +912,32 @@ class SipRuleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_sip_rule' function.
 class UpdateSipRuleRequestTypeDef(BaseValidatorModel):
-    SipRuleId: str
-    Name: str
+    SipRuleId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
+    Name: Annotated[str, _aws_pattern("ChimeSdkVoice", "SipRuleName")]
     Disabled: Optional[bool] = None
     TargetApplications: Optional[List[SipRuleTargetApplicationTypeDef]] = None
 
 
 # This class is the input for the 'create_voice_connector_group' function.
 class CreateVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("ChimeSdkVoice", "VoiceConnectorGroupName")]
     VoiceConnectorItems: Optional[List[VoiceConnectorItemTypeDef]] = None
 
 
 # This class is the input for the 'update_voice_connector_group' function.
 class UpdateVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorGroupId: str
-    Name: str
+    VoiceConnectorGroupId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
+    Name: Annotated[str, _aws_pattern("ChimeSdkVoice", "VoiceConnectorGroupName")]
     VoiceConnectorItems: List[VoiceConnectorItemTypeDef]
 
 
 class VoiceConnectorGroupTypeDef(BaseValidatorModel):
-    VoiceConnectorGroupId: Optional[str] = None
-    Name: Optional[str] = None
+    VoiceConnectorGroupId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "VoiceConnectorGroupName")]] = None
     VoiceConnectorItems: Optional[List[VoiceConnectorItemTypeDef]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
-    VoiceConnectorGroupArn: Optional[str] = None
+    VoiceConnectorGroupArn: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
 
 
 # This class is the output for the 'create_voice_connector' function.
@@ -965,17 +967,17 @@ class UpdateVoiceConnectorResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_voice_profile_domain' function.
 class CreateVoiceProfileDomainRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("ChimeSdkVoice", "VoiceProfileDomainName")]
     ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
     Description: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "ClientRequestId")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class VoiceProfileDomainTypeDef(BaseValidatorModel):
-    VoiceProfileDomainId: Optional[str] = None
-    VoiceProfileDomainArn: Optional[str] = None
-    Name: Optional[str] = None
+    VoiceProfileDomainId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]] = None
+    VoiceProfileDomainArn: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "Arn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "VoiceProfileDomainName")]] = None
     Description: Optional[str] = None
     ServerSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     CreatedTimestamp: Optional[datetime] = None
@@ -1002,7 +1004,7 @@ class UpdateVoiceProfileResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_voice_connector_termination_credentials' function.
 class PutVoiceConnectorTerminationCredentialsRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     Credentials: Optional[List[CredentialTypeDef]] = None
 
 
@@ -1056,7 +1058,7 @@ class GetSipMediaApplicationLoggingConfigurationResponseTypeDef(BaseValidatorMod
 
 # This class is the input for the 'put_sip_media_application_logging_configuration' function.
 class PutSipMediaApplicationLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    SipMediaApplicationId: str
+    SipMediaApplicationId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     SipMediaApplicationLoggingConfiguration: Optional[SipMediaApplicationLoggingConfigurationTypeDef] = None
 
 
@@ -1074,7 +1076,7 @@ class GetVoiceConnectorLoggingConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_voice_connector_logging_configuration' function.
 class PutVoiceConnectorLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     LoggingConfiguration: LoggingConfigurationTypeDef
 
 
@@ -1144,7 +1146,7 @@ class ListVoiceProfilesResponseTypeDef(BaseValidatorModel):
 
 
 class PhoneNumberOrderTypeDef(BaseValidatorModel):
-    PhoneNumberOrderId: Optional[str] = None
+    PhoneNumberOrderId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "GuidString")]] = None
     ProductType: Optional[PhoneNumberProductTypeType] = None
     Status: Optional[PhoneNumberOrderStatusType] = None
     OrderType: Optional[PhoneNumberOrderTypeType] = None
@@ -1165,8 +1167,8 @@ class OriginationTypeDef(BaseValidatorModel):
 
 
 class ProxySessionTypeDef(BaseValidatorModel):
-    VoiceConnectorId: Optional[str] = None
-    ProxySessionId: Optional[str] = None
+    VoiceConnectorId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]] = None
+    ProxySessionId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString128")]] = None
     Name: Optional[str] = None
     Status: Optional[ProxySessionStatusType] = None
     ExpiryMinutes: Optional[int] = None
@@ -1181,21 +1183,21 @@ class ProxySessionTypeDef(BaseValidatorModel):
 
 
 class PhoneNumberTypeDef(BaseValidatorModel):
-    PhoneNumberId: Optional[str] = None
-    E164PhoneNumber: Optional[str] = None
-    Country: Optional[str] = None
+    PhoneNumberId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "SensitiveNonEmptyString")]] = None
+    E164PhoneNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "E164PhoneNumber")]] = None
+    Country: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "Alpha2CountryCode")]] = None
     Type: Optional[PhoneNumberTypeType] = None
     ProductType: Optional[PhoneNumberProductTypeType] = None
     Status: Optional[PhoneNumberStatusType] = None
     Capabilities: Optional[PhoneNumberCapabilitiesTypeDef] = None
     Associations: Optional[List[PhoneNumberAssociationTypeDef]] = None
-    CallingName: Optional[str] = None
+    CallingName: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "CallingName")]] = None
     CallingNameStatus: Optional[CallingNameStatusType] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
     DeletionTimestamp: Optional[datetime] = None
-    OrderId: Optional[str] = None
-    Name: Optional[str] = None
+    OrderId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "GuidString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "PhoneNumberName")]] = None
 
 
 SipMediaApplicationAlexaSkillConfigurationUnionTypeDef = Union[
@@ -1205,7 +1207,7 @@ SipMediaApplicationAlexaSkillConfigurationUnionTypeDef = Union[
 
 class SpeakerSearchDetailsTypeDef(BaseValidatorModel):
     Results: Optional[List[SpeakerSearchResultTypeDef]] = None
-    VoiceprintGenerationStatus: Optional[str] = None
+    VoiceprintGenerationStatus: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]] = None
 
 
 class StreamingConfigurationOutputTypeDef(BaseValidatorModel):
@@ -1433,13 +1435,13 @@ class UpdatePhoneNumberResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_sip_media_application_alexa_skill_configuration' function.
 class PutSipMediaApplicationAlexaSkillConfigurationRequestTypeDef(BaseValidatorModel):
-    SipMediaApplicationId: str
+    SipMediaApplicationId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     SipMediaApplicationAlexaSkillConfiguration: Optional[SipMediaApplicationAlexaSkillConfigurationUnionTypeDef] = None
 
 
 class SpeakerSearchTaskTypeDef(BaseValidatorModel):
-    SpeakerSearchTaskId: Optional[str] = None
-    SpeakerSearchTaskStatus: Optional[str] = None
+    SpeakerSearchTaskId: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString256")]] = None
+    SpeakerSearchTaskStatus: Optional[Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]] = None
     CallDetails: Optional[CallDetailsTypeDef] = None
     SpeakerSearchDetails: Optional[SpeakerSearchDetailsTypeDef] = None
     CreatedTimestamp: Optional[datetime] = None
@@ -1465,19 +1467,19 @@ StreamingConfigurationUnionTypeDef = Union[StreamingConfigurationOutputTypeDef, 
 
 # This class is the input for the 'put_voice_connector_termination' function.
 class PutVoiceConnectorTerminationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     Termination: TerminationUnionTypeDef
 
 
 # This class is the input for the 'put_voice_connector_emergency_calling_configuration' function.
 class PutVoiceConnectorEmergencyCallingConfigurationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     EmergencyCallingConfiguration: EmergencyCallingConfigurationUnionTypeDef
 
 
 # This class is the input for the 'put_voice_connector_origination' function.
 class PutVoiceConnectorOriginationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     Origination: OriginationUnionTypeDef
 
 
@@ -1495,5 +1497,5 @@ class StartSpeakerSearchTaskResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_voice_connector_streaming_configuration' function.
 class PutVoiceConnectorStreamingConfigurationRequestTypeDef(BaseValidatorModel):
-    VoiceConnectorId: str
+    VoiceConnectorId: Annotated[str, _aws_pattern("ChimeSdkVoice", "NonEmptyString")]
     StreamingConfiguration: StreamingConfigurationUnionTypeDef

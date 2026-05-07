@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -65,31 +67,31 @@ class PersistentStorageConfigurationTypeDef(BaseValidatorModel):
 
 
 class RepositoryInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
     branchName: Optional[str] = None
 
 
 # This class is the input for the 'create_project' function.
 class CreateProjectRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    displayName: str
-    description: Optional[str] = None
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    displayName: Annotated[str, _aws_pattern("Codecatalyst", "ProjectDisplayName")]
+    description: Optional[Annotated[str, _aws_pattern("Codecatalyst", "ProjectDescription")]] = None
 
 
 # This class is the input for the 'create_source_repository_branch' function.
 class CreateSourceRepositoryBranchRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    sourceRepositoryName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    sourceRepositoryName: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
     name: str
     headCommitId: Optional[str] = None
 
 
 # This class is the input for the 'create_source_repository' function.
 class CreateSourceRepositoryRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    name: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
     description: Optional[str] = None
 
 
@@ -99,27 +101,27 @@ class DeleteAccessTokenRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_dev_environment' function.
 class DeleteDevEnvironmentRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
 
 
 # This class is the input for the 'delete_project' function.
 class DeleteProjectRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    name: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
 
 
 # This class is the input for the 'delete_source_repository' function.
 class DeleteSourceRepositoryRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    name: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
 
 
 # This class is the input for the 'delete_space' function.
 class DeleteSpaceRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
 
 
 class DevEnvironmentAccessDetailsTypeDef(BaseValidatorModel):
@@ -128,7 +130,7 @@ class DevEnvironmentAccessDetailsTypeDef(BaseValidatorModel):
 
 
 class DevEnvironmentRepositorySummaryTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
     branchName: Optional[str] = None
 
 
@@ -138,9 +140,9 @@ class ExecuteCommandSessionConfigurationTypeDef(BaseValidatorModel):
 
 
 class DevEnvironmentSessionSummaryTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    devEnvironmentId: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    devEnvironmentId: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     startedTime: datetime
     id: str
 
@@ -184,52 +186,52 @@ class FilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_dev_environment' function.
 class GetDevEnvironmentRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
 
 
 # This class is the input for the 'get_project' function.
 class GetProjectRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    name: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
 
 
 # This class is the input for the 'get_source_repository_clone_urls' function.
 class GetSourceRepositoryCloneUrlsRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    sourceRepositoryName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    sourceRepositoryName: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
 
 
 # This class is the input for the 'get_source_repository' function.
 class GetSourceRepositoryRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    name: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
 
 
 # This class is the input for the 'get_space' function.
 class GetSpaceRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
 
 
 # This class is the input for the 'get_subscription' function.
 class GetSubscriptionRequestTypeDef(BaseValidatorModel):
-    spaceName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
 
 
 # This class is the input for the 'get_user_details' function.
 class GetUserDetailsRequestTypeDef(BaseValidatorModel):
     id: Optional[str] = None
-    userName: Optional[str] = None
+    userName: Optional[Annotated[str, _aws_pattern("Codecatalyst", "GetUserDetailsRequestUserNameString")]] = None
 
 
 # This class is the input for the 'get_workflow' function.
 class GetWorkflowRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    id: str
-    projectName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "GetWorkflowRequestProjectNameString")]
 
 
 class WorkflowDefinitionTypeDef(BaseValidatorModel):
@@ -238,9 +240,9 @@ class WorkflowDefinitionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_workflow_run' function.
 class GetWorkflowRunRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    id: str
-    projectName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "GetWorkflowRunRequestProjectNameString")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -257,9 +259,9 @@ class ListAccessTokensRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_dev_environment_sessions' function.
 class ListDevEnvironmentSessionsRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    devEnvironmentId: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    devEnvironmentId: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -277,8 +279,8 @@ class ProjectSummaryTypeDef(BaseValidatorModel):
 
 
 class ListSourceRepositoriesItemTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryIdString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
     lastUpdatedTime: datetime
     createdTime: datetime
     description: Optional[str] = None
@@ -286,8 +288,8 @@ class ListSourceRepositoriesItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_source_repositories' function.
 class ListSourceRepositoriesRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -301,9 +303,9 @@ class ListSourceRepositoryBranchesItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_source_repository_branches' function.
 class ListSourceRepositoryBranchesRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    sourceRepositoryName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    sourceRepositoryName: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -314,25 +316,25 @@ class ListSpacesRequestTypeDef(BaseValidatorModel):
 
 
 class SpaceSummaryTypeDef(BaseValidatorModel):
-    name: str
-    regionName: str
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    regionName: Annotated[str, _aws_pattern("Codecatalyst", "RegionString")]
     displayName: Optional[str] = None
     description: Optional[str] = None
 
 
 # This class is the input for the 'list_workflow_runs' function.
 class ListWorkflowRunsRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    workflowId: Optional[str] = None
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "ListWorkflowRunsRequestProjectNameString")]
+    workflowId: Optional[Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     sortBy: Optional[List[Dict[str, Any]]] = None
 
 
 class WorkflowRunSummaryTypeDef(BaseValidatorModel):
-    id: str
-    workflowId: str
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
+    workflowId: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     workflowName: str
     status: WorkflowRunStatusType
     startTime: datetime
@@ -343,8 +345,8 @@ class WorkflowRunSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_workflows' function.
 class ListWorkflowsRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "ListWorkflowsRequestSpaceNameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     sortBy: Optional[List[Dict[str, Any]]] = None
@@ -352,38 +354,40 @@ class ListWorkflowsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_workflow_run' function.
 class StartWorkflowRunRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    workflowId: str
-    clientToken: Optional[str] = None
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "StartWorkflowRunRequestSpaceNameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "StartWorkflowRunRequestProjectNameString")]
+    workflowId: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Codecatalyst", "StartWorkflowRunRequestClientTokenString")]] = (
+        None
+    )
 
 
 # This class is the input for the 'stop_dev_environment' function.
 class StopDevEnvironmentRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
 
 
 # This class is the input for the 'stop_dev_environment_session' function.
 class StopDevEnvironmentSessionRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     sessionId: str
 
 
 # This class is the input for the 'update_project' function.
 class UpdateProjectRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    name: str
-    description: Optional[str] = None
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    description: Optional[Annotated[str, _aws_pattern("Codecatalyst", "ProjectDescription")]] = None
 
 
 # This class is the input for the 'update_space' function.
 class UpdateSpaceRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    description: Optional[Annotated[str, _aws_pattern("Codecatalyst", "SpaceDescription")]] = None
 
 
 class WorkflowDefinitionSummaryTypeDef(BaseValidatorModel):
@@ -398,7 +402,7 @@ class CreateAccessTokenRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_event_logs' function.
 class ListEventLogsRequestTypeDef(BaseValidatorModel):
-    spaceName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     eventName: Optional[str] = None
@@ -417,17 +421,17 @@ class CreateAccessTokenResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_dev_environment' function.
 class CreateDevEnvironmentResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
-    vpcConnectionName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
+    vpcConnectionName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_project' function.
 class CreateProjectResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    name: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     displayName: str
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -444,47 +448,47 @@ class CreateSourceRepositoryBranchResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_source_repository' function.
 class CreateSourceRepositoryResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    name: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_dev_environment' function.
 class DeleteDevEnvironmentResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_project' function.
 class DeleteProjectResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    name: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     displayName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_source_repository' function.
 class DeleteSourceRepositoryResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    name: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_space' function.
 class DeleteSpaceResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     displayName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_project' function.
 class GetProjectResponseTypeDef(BaseValidatorModel):
-    spaceName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     name: str
     displayName: str
     description: str
@@ -499,9 +503,9 @@ class GetSourceRepositoryCloneUrlsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_source_repository' function.
 class GetSourceRepositoryResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    name: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
     description: str
     lastUpdatedTime: datetime
     createdTime: datetime
@@ -510,8 +514,8 @@ class GetSourceRepositoryResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_space' function.
 class GetSpaceResponseTypeDef(BaseValidatorModel):
-    name: str
-    regionName: str
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    regionName: Annotated[str, _aws_pattern("Codecatalyst", "RegionString")]
     displayName: str
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -520,7 +524,7 @@ class GetSpaceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_subscription' function.
 class GetSubscriptionResponseTypeDef(BaseValidatorModel):
     subscriptionType: str
-    awsAccountName: str
+    awsAccountName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     pendingSubscriptionType: str
     pendingSubscriptionStartTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -528,10 +532,10 @@ class GetSubscriptionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_workflow_run' function.
 class GetWorkflowRunResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
-    workflowId: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
+    workflowId: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     status: WorkflowRunStatusType
     statusReasons: List[Dict[str, Any]]
     startTime: datetime
@@ -549,44 +553,44 @@ class ListAccessTokensResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_dev_environment' function.
 class StartDevEnvironmentResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     status: DevEnvironmentStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_workflow_run' function.
 class StartWorkflowRunResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
-    workflowId: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
+    workflowId: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_dev_environment' function.
 class StopDevEnvironmentResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     status: DevEnvironmentStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_dev_environment_session' function.
 class StopDevEnvironmentSessionResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     sessionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_project' function.
 class UpdateProjectResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    name: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     displayName: str
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -594,7 +598,7 @@ class UpdateProjectResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_space' function.
 class UpdateSpaceResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     displayName: str
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -607,9 +611,9 @@ class VerifySessionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_dev_environment' function.
 class StartDevEnvironmentRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     ides: Optional[List[IdeConfigurationTypeDef]] = None
     instanceType: Optional[InstanceTypeType] = None
     inactivityTimeoutMinutes: Optional[int] = None
@@ -617,10 +621,10 @@ class StartDevEnvironmentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_dev_environment' function.
 class UpdateDevEnvironmentRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
-    alias: Optional[str] = None
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
+    alias: Optional[Annotated[str, _aws_pattern("Codecatalyst", "UpdateDevEnvironmentRequestAliasString")]] = None
     ides: Optional[List[IdeConfigurationTypeDef]] = None
     instanceType: Optional[InstanceTypeType] = None
     inactivityTimeoutMinutes: Optional[int] = None
@@ -629,10 +633,10 @@ class UpdateDevEnvironmentRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_dev_environment' function.
 class UpdateDevEnvironmentResponseTypeDef(BaseValidatorModel):
-    id: str
-    spaceName: str
-    projectName: str
-    alias: str
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    alias: Annotated[str, _aws_pattern("Codecatalyst", "UpdateDevEnvironmentResponseAliasString")]
     ides: List[IdeConfigurationTypeDef]
     instanceType: InstanceTypeType
     inactivityTimeoutMinutes: int
@@ -642,25 +646,25 @@ class UpdateDevEnvironmentResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_dev_environment' function.
 class CreateDevEnvironmentRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     instanceType: InstanceTypeType
     persistentStorage: PersistentStorageConfigurationTypeDef
     repositories: Optional[List[RepositoryInputTypeDef]] = None
     clientToken: Optional[str] = None
-    alias: Optional[str] = None
+    alias: Optional[Annotated[str, _aws_pattern("Codecatalyst", "CreateDevEnvironmentRequestAliasString")]] = None
     ides: Optional[List[IdeConfigurationTypeDef]] = None
     inactivityTimeoutMinutes: Optional[int] = None
-    vpcConnectionName: Optional[str] = None
+    vpcConnectionName: Optional[Annotated[str, _aws_pattern("Codecatalyst", "NameString")]] = None
 
 
 # This class is the output for the 'start_dev_environment_session' function.
 class StartDevEnvironmentSessionResponseTypeDef(BaseValidatorModel):
     accessDetails: DevEnvironmentAccessDetailsTypeDef
     sessionId: str
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -677,7 +681,7 @@ class ListDevEnvironmentSessionsResponseTypeDef(BaseValidatorModel):
 
 
 class DevEnvironmentSummaryTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     lastUpdatedTime: datetime
     creatorId: str
     status: DevEnvironmentStatusType
@@ -685,19 +689,19 @@ class DevEnvironmentSummaryTypeDef(BaseValidatorModel):
     instanceType: InstanceTypeType
     inactivityTimeoutMinutes: int
     persistentStorage: PersistentStorageTypeDef
-    spaceName: Optional[str] = None
-    projectName: Optional[str] = None
+    spaceName: Optional[Annotated[str, _aws_pattern("Codecatalyst", "NameString")]] = None
+    projectName: Optional[Annotated[str, _aws_pattern("Codecatalyst", "NameString")]] = None
     statusReason: Optional[str] = None
     alias: Optional[str] = None
     ides: Optional[List[IdeTypeDef]] = None
-    vpcConnectionName: Optional[str] = None
+    vpcConnectionName: Optional[Annotated[str, _aws_pattern("Codecatalyst", "NameString")]] = None
 
 
 # This class is the output for the 'get_dev_environment' function.
 class GetDevEnvironmentResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     lastUpdatedTime: datetime
     creatorId: str
     status: DevEnvironmentStatusType
@@ -708,7 +712,7 @@ class GetDevEnvironmentResponseTypeDef(BaseValidatorModel):
     instanceType: InstanceTypeType
     inactivityTimeoutMinutes: int
     persistentStorage: PersistentStorageTypeDef
-    vpcConnectionName: str
+    vpcConnectionName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -742,8 +746,8 @@ class EventLogEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_dev_environments' function.
 class ListDevEnvironmentsRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: Optional[str] = None
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Optional[Annotated[str, _aws_pattern("Codecatalyst", "NameString")]] = None
     filters: Optional[List[FilterTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -751,11 +755,11 @@ class ListDevEnvironmentsRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_workflow' function.
 class GetWorkflowResponseTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     name: str
-    sourceRepositoryName: str
+    sourceRepositoryName: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
     sourceBranchName: str
     definition: WorkflowDefinitionTypeDef
     createdTime: datetime
@@ -831,7 +835,7 @@ class ListProjectsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_projects' function.
 class ListProjectsRequestTypeDef(BaseValidatorModel):
-    spaceName: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[List[ProjectListFilterTypeDef]] = None
@@ -873,9 +877,9 @@ class ListWorkflowRunsResponseTypeDef(BaseValidatorModel):
 
 
 class WorkflowSummaryTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     name: str
-    sourceRepositoryName: str
+    sourceRepositoryName: Annotated[str, _aws_pattern("Codecatalyst", "SourceRepositoryNameString")]
     sourceBranchName: str
     definition: WorkflowDefinitionSummaryTypeDef
     createdTime: datetime
@@ -886,9 +890,9 @@ class WorkflowSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_dev_environment_session' function.
 class StartDevEnvironmentSessionRequestTypeDef(BaseValidatorModel):
-    spaceName: str
-    projectName: str
-    id: str
+    spaceName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    projectName: Annotated[str, _aws_pattern("Codecatalyst", "NameString")]
+    id: Annotated[str, _aws_pattern("Codecatalyst", "Uuid")]
     sessionConfiguration: DevEnvironmentSessionConfigurationTypeDef
 
 

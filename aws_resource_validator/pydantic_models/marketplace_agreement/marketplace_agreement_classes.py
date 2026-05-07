@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -38,83 +40,12 @@ except ImportError:  # pragma: no cover
     TransferConfig = Any  # type: ignore[assignment,misc]
 
 
-class ByolPricingTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-
-
-class RecurringPaymentTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    currencyCode: Optional[str] = None
-    billingPeriod: Optional[str] = None
-    price: Optional[str] = None
-
-
-class SupportTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    refundPolicy: Optional[str] = None
-
-
-class ValidityTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    agreementDuration: Optional[str] = None
-    agreementStartDate: Optional[datetime] = None
-    agreementEndDate: Optional[datetime] = None
-
-
-class AcceptorTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
-
-
-class AgreementCancellationRequestSummaryTypeDef(BaseValidatorModel):
-    agreementCancellationRequestId: Optional[str] = None
-    agreementId: Optional[str] = None
-    status: Optional[AgreementCancellationRequestStatusType] = None
-    reasonCode: Optional[AgreementCancellationRequestReasonCodeType] = None
-    agreementType: Optional[str] = None
-    catalog: Optional[str] = None
-    createdAt: Optional[datetime] = None
-    updatedAt: Optional[datetime] = None
-
-
-class InvoiceBillingPeriodTypeDef(BaseValidatorModel):
-    month: int
-    year: int
-
-
-class InvoicingEntityTypeDef(BaseValidatorModel):
-    legalName: Optional[str] = None
-    branchName: Optional[str] = None
-
-
-class PricingCurrencyAmountTypeDef(BaseValidatorModel):
-    amount: Optional[str] = None
-    maxAdjustmentAmount: Optional[str] = None
-    currencyCode: Optional[str] = None
-
-
-class ProposerTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
-
-
-class BatchCreateBillingAdjustmentErrorTypeDef(BaseValidatorModel):
-    code: BillingAdjustmentErrorCodeType
-    message: str
-    clientToken: str
-
-
-class BatchCreateBillingAdjustmentItemTypeDef(BaseValidatorModel):
-    billingAdjustmentRequestId: str
-    clientToken: str
-
-
-class BatchCreateBillingAdjustmentRequestEntryTypeDef(BaseValidatorModel):
-    agreementId: str
-    originalInvoiceId: str
-    adjustmentAmount: str
-    currencyCode: str
-    adjustmentReasonCode: BillingAdjustmentReasonCodeType
-    clientToken: str
-    description: Optional[str] = None
+# This class is the input for the 'accept_agreement_cancellation_request' function.
+class AcceptAgreementCancellationRequestInputTypeDef(BaseValidatorModel):
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    agreementCancellationRequestId: Annotated[
+        str, _aws_pattern("MarketplaceAgreement", "AgreementCancellationRequestId")
+    ]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -125,101 +56,223 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BillingAdjustmentSummaryTypeDef(BaseValidatorModel):
-    billingAdjustmentRequestId: str
+# This class is the input for the 'accept_agreement_payment_request' function.
+class AcceptAgreementPaymentRequestInputTypeDef(BaseValidatorModel):
+    paymentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestId")]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    purchaseOrderReference: Optional[str] = None
+
+
+class PurchaseOrderTypeDef(BaseValidatorModel):
+    chargeId: Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]
+    chargeRevision: Optional[int] = None
+    agreementId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
+    purchaseOrderReference: Optional[str] = None
+
+
+class ByolPricingTermTypeDef(BaseValidatorModel):
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
+
+
+class RecurringPaymentTermTypeDef(BaseValidatorModel):
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
+    currencyCode: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]] = None
+    billingPeriod: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    price: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+
+
+class SupportTermTypeDef(BaseValidatorModel):
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
+    refundPolicy: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+
+
+class ValidityTermTypeDef(BaseValidatorModel):
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
+    agreementDuration: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    agreementStartDate: Optional[datetime] = None
+    agreementEndDate: Optional[datetime] = None
+
+
+class AcceptorTypeDef(BaseValidatorModel):
+    accountId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AWSAccountId")]] = None
+
+
+class AgreementCancellationRequestSummaryTypeDef(BaseValidatorModel):
+    agreementCancellationRequestId: Optional[
+        Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementCancellationRequestId")]
+    ] = None
+    agreementId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]] = None
+    status: Optional[AgreementCancellationRequestStatusType] = None
+    reasonCode: Optional[AgreementCancellationRequestReasonCodeType] = None
+    agreementType: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementType")]] = None
+    catalog: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "Catalog")]] = None
+    createdAt: Optional[datetime] = None
+    updatedAt: Optional[datetime] = None
+
+
+class ResourceTypeDef(BaseValidatorModel):
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementResourceType")]] = None
+
+
+class InvoiceBillingPeriodTypeDef(BaseValidatorModel):
+    month: int
+    year: int
+
+
+class InvoicingEntityTypeDef(BaseValidatorModel):
+    legalName: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    branchName: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+
+
+class PricingCurrencyAmountTypeDef(BaseValidatorModel):
+    amount: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    maxAdjustmentAmount: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    currencyCode: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]] = None
+
+
+class ProposerTypeDef(BaseValidatorModel):
+    accountId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AWSAccountId")]] = None
+
+
+class BatchCreateBillingAdjustmentErrorTypeDef(BaseValidatorModel):
+    code: BillingAdjustmentErrorCodeType
+    message: str
+    clientToken: Annotated[str, _aws_pattern("MarketplaceAgreement", "ClientToken")]
+
+
+class BatchCreateBillingAdjustmentItemTypeDef(BaseValidatorModel):
+    billingAdjustmentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "BillingAdjustmentRequestId")]
+    clientToken: Annotated[str, _aws_pattern("MarketplaceAgreement", "ClientToken")]
+
+
+class BatchCreateBillingAdjustmentRequestEntryTypeDef(BaseValidatorModel):
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
     originalInvoiceId: str
-    adjustmentAmount: str
-    currencyCode: str
+    adjustmentAmount: Annotated[str, _aws_pattern("MarketplaceAgreement", "PositiveAmountUpto8Decimals")]
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]
+    adjustmentReasonCode: BillingAdjustmentReasonCodeType
+    clientToken: Annotated[str, _aws_pattern("MarketplaceAgreement", "ClientToken")]
+    description: Optional[str] = None
+
+
+class BillingAdjustmentSummaryTypeDef(BaseValidatorModel):
+    billingAdjustmentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "BillingAdjustmentRequestId")]
+    originalInvoiceId: str
+    adjustmentAmount: Annotated[str, _aws_pattern("MarketplaceAgreement", "PositiveAmountUpto8Decimals")]
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]
     status: BillingAdjustmentStatusType
-    agreementId: str
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
     createdAt: datetime
     updatedAt: datetime
-    agreementType: str
-    catalog: str
+    agreementType: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementType")]
+    catalog: Annotated[str, _aws_pattern("MarketplaceAgreement", "Catalog")]
 
 
 # This class is the input for the 'cancel_agreement_cancellation_request' function.
 class CancelAgreementCancellationRequestInputTypeDef(BaseValidatorModel):
-    agreementId: str
-    agreementCancellationRequestId: str
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    agreementCancellationRequestId: Annotated[
+        str, _aws_pattern("MarketplaceAgreement", "AgreementCancellationRequestId")
+    ]
     cancellationReason: str
+
+
+class CancelAgreementInputTypeDef(BaseValidatorModel):
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]
 
 
 # This class is the input for the 'cancel_agreement_payment_request' function.
 class CancelAgreementPaymentRequestInputTypeDef(BaseValidatorModel):
-    paymentRequestId: str
-    agreementId: str
+    paymentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestId")]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+
+
+class ItemizedChargeTypeDef(BaseValidatorModel):
+    dimensionKey: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    newQuantity: Optional[int] = None
+    oldQuantity: Optional[int] = None
+    chargeReference: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
+    incrementalChargeAmount: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+
+
+class ChargeTypeDef(BaseValidatorModel):
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
+    revision: Optional[int] = None
+    agreementId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
+    agreementType: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementType")]] = None
+    purchaseOrderReference: Optional[str] = None
+    currencyCode: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]] = None
+    amount: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    time: Optional[datetime] = None
 
 
 class DimensionTypeDef(BaseValidatorModel):
-    dimensionKey: str
+    dimensionKey: Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]
     dimensionValue: int
 
 
 class ConstraintsTypeDef(BaseValidatorModel):
-    multipleDimensionSelection: Optional[str] = None
-    quantityConfiguration: Optional[str] = None
+    multipleDimensionSelection: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    quantityConfiguration: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
 
 
 class RateCardItemTypeDef(BaseValidatorModel):
-    dimensionKey: Optional[str] = None
-    price: Optional[str] = None
+    dimensionKey: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    price: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
 
 
 class SelectorTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    value: Optional[str] = None
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    value: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+
+
+class TaxConfigurationTypeDef(BaseValidatorModel):
+    taxEstimation: Optional[TaxEstimationType] = None
 
 
 # This class is the input for the 'describe_agreement' function.
 class DescribeAgreementInputTypeDef(BaseValidatorModel):
-    agreementId: str
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]
 
 
 class EstimatedChargesTypeDef(BaseValidatorModel):
-    currencyCode: Optional[str] = None
-    agreementValue: Optional[str] = None
+    currencyCode: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]] = None
+    agreementValue: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
 
 
 class DocumentItemTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    url: Optional[str] = None
-    version: Optional[str] = None
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    url: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    version: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+
+
+class TaxBreakdownItemTypeDef(BaseValidatorModel):
+    amount: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    rate: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
 
 
 class FilterTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    values: Optional[List[str]] = None
+    name: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "FilterName")]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("MarketplaceAgreement", "FilterValue")]]] = None
 
 
 class GrantItemTypeDef(BaseValidatorModel):
-    dimensionKey: Optional[str] = None
+    dimensionKey: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
     maxQuantity: Optional[int] = None
 
 
 # This class is the input for the 'get_agreement_cancellation_request' function.
 class GetAgreementCancellationRequestInputTypeDef(BaseValidatorModel):
-    agreementCancellationRequestId: str
-    agreementId: str
-
-
-# This class is the input for the 'get_agreement_payment_request' function.
-class GetAgreementPaymentRequestInputTypeDef(BaseValidatorModel):
-    paymentRequestId: str
-    agreementId: str
-
-
-# This class is the input for the 'get_agreement_terms' function.
-class GetAgreementTermsInputTypeDef(BaseValidatorModel):
-    agreementId: str
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-
-
-# This class is the input for the 'get_billing_adjustment_request' function.
-class GetBillingAdjustmentRequestInputTypeDef(BaseValidatorModel):
-    agreementId: str
-    billingAdjustmentRequestId: str
+    agreementCancellationRequestId: Annotated[
+        str, _aws_pattern("MarketplaceAgreement", "AgreementCancellationRequestId")
+    ]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -228,15 +281,50 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_agreement_entitlements' function.
+class GetAgreementEntitlementsInputTypeDef(BaseValidatorModel):
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]
+    maxResults: Optional[int] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
+
+
+# This class is the input for the 'get_agreement_payment_request' function.
+class GetAgreementPaymentRequestInputTypeDef(BaseValidatorModel):
+    paymentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestId")]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+
+
+# This class is the input for the 'get_agreement_terms' function.
+class GetAgreementTermsInputTypeDef(BaseValidatorModel):
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]
+    maxResults: Optional[int] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
+
+
+# This class is the input for the 'get_billing_adjustment_request' function.
+class GetBillingAdjustmentRequestInputTypeDef(BaseValidatorModel):
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    billingAdjustmentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "BillingAdjustmentRequestId")]
+
+
 # This class is the input for the 'list_agreement_cancellation_requests' function.
 class ListAgreementCancellationRequestsInputTypeDef(BaseValidatorModel):
-    partyType: str
-    agreementId: Optional[str] = None
+    partyType: Annotated[str, _aws_pattern("MarketplaceAgreement", "PartyType")]
+    agreementId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]] = None
     status: Optional[AgreementCancellationRequestStatusType] = None
-    agreementType: Optional[str] = None
-    catalog: Optional[str] = None
+    agreementType: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementType")]] = None
+    catalog: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "Catalog")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
+
+
+# This class is the input for the 'list_agreement_charges' function.
+class ListAgreementChargesInputTypeDef(BaseValidatorModel):
+    catalog: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "Catalog")]] = None
+    agreementId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
+    agreementType: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementType")]] = None
+    maxResults: Optional[int] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -244,95 +332,120 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'list_agreement_payment_requests' function.
 class ListAgreementPaymentRequestsInputTypeDef(BaseValidatorModel):
-    partyType: str
-    agreementType: Optional[str] = None
-    catalog: Optional[str] = None
-    agreementId: Optional[str] = None
+    partyType: Annotated[str, _aws_pattern("MarketplaceAgreement", "PartyType")]
+    agreementType: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementType")]] = None
+    catalog: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "Catalog")]] = None
+    agreementId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]] = None
     status: Optional[PaymentRequestStatusType] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
 
 
 class PaymentRequestSummaryTypeDef(BaseValidatorModel):
-    paymentRequestId: Optional[str] = None
-    agreementId: Optional[str] = None
+    paymentRequestId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestId")]] = None
+    agreementId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]] = None
     status: Optional[PaymentRequestStatusType] = None
-    name: Optional[str] = None
-    chargeId: Optional[str] = None
-    chargeAmount: Optional[str] = None
-    currencyCode: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestName")]] = None
+    chargeId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ChargeId")]] = None
+    chargeAmount: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "PositiveAmountUpto8Decimals")]] = None
+    currencyCode: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
 
 class ScheduleItemTypeDef(BaseValidatorModel):
     chargeDate: Optional[datetime] = None
-    chargeAmount: Optional[str] = None
+    chargeAmount: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
 
 
-class ResourceTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    type: Optional[str] = None
+# This class is the input for the 'reject_agreement_cancellation_request' function.
+class RejectAgreementCancellationRequestInputTypeDef(BaseValidatorModel):
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    agreementCancellationRequestId: Annotated[
+        str, _aws_pattern("MarketplaceAgreement", "AgreementCancellationRequestId")
+    ]
+    rejectionReason: str
+
+
+# This class is the input for the 'reject_agreement_payment_request' function.
+class RejectAgreementPaymentRequestInputTypeDef(BaseValidatorModel):
+    paymentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestId")]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    rejectionReason: Optional[str] = None
 
 
 class RenewalTermConfigurationTypeDef(BaseValidatorModel):
     enableAutoRenew: bool
 
 
+class VariablePaymentTermConfigurationTypeDef(BaseValidatorModel):
+    paymentRequestApprovalStrategy: PaymentRequestApprovalStrategyType
+    expirationDuration: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ISO8601Duration")]] = None
+
+
 class SortTypeDef(BaseValidatorModel):
-    sortBy: Optional[str] = None
+    sortBy: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "SortBy")]] = None
     sortOrder: Optional[SortOrderType] = None
 
 
 # This class is the input for the 'send_agreement_cancellation_request' function.
 class SendAgreementCancellationRequestInputTypeDef(BaseValidatorModel):
-    agreementId: str
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
     reasonCode: AgreementCancellationRequestReasonCodeType
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ClientToken")]] = None
     description: Optional[str] = None
 
 
 # This class is the input for the 'send_agreement_payment_request' function.
 class SendAgreementPaymentRequestInputTypeDef(BaseValidatorModel):
-    agreementId: str
-    termId: str
-    name: str
-    chargeAmount: str
-    clientToken: Optional[str] = None
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    termId: Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]
+    name: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestName")]
+    chargeAmount: Annotated[str, _aws_pattern("MarketplaceAgreement", "PositiveAmountUpto8Decimals")]
+    clientToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ClientToken")]] = None
     description: Optional[str] = None
 
 
-class VariablePaymentTermConfigurationTypeDef(BaseValidatorModel):
-    paymentRequestApprovalStrategy: PaymentRequestApprovalStrategyType
-    expirationDuration: Optional[str] = None
+# This class is the output for the 'accept_agreement_cancellation_request' function.
+class AcceptAgreementCancellationRequestOutputTypeDef(BaseValidatorModel):
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    agreementCancellationRequestId: Annotated[
+        str, _aws_pattern("MarketplaceAgreement", "AgreementCancellationRequestId")
+    ]
+    status: AgreementCancellationRequestStatusType
+    reasonCode: AgreementCancellationRequestReasonCodeType
+    description: str
+    createdAt: datetime
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
 
-class AgreementInvoiceLineItemGroupSummaryTypeDef(BaseValidatorModel):
-    agreementId: Optional[str] = None
-    invoiceId: Optional[str] = None
-    pricingCurrencyAmount: Optional[PricingCurrencyAmountTypeDef] = None
-    invoiceBillingPeriod: Optional[InvoiceBillingPeriodTypeDef] = None
-    issuedTime: Optional[datetime] = None
-    invoiceType: Optional[InvoiceTypeType] = None
-    invoicingEntity: Optional[InvoicingEntityTypeDef] = None
+# This class is the output for the 'accept_agreement_payment_request' function.
+class AcceptAgreementPaymentRequestOutputTypeDef(BaseValidatorModel):
+    paymentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestId")]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    status: PaymentRequestStatusType
+    name: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestName")]
+    description: str
+    chargeAmount: Annotated[str, _aws_pattern("MarketplaceAgreement", "PositiveAmountUpto8Decimals")]
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]
+    createdAt: datetime
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
 
-# This class is the input for the 'batch_create_billing_adjustment_request' function.
-class BatchCreateBillingAdjustmentRequestInputTypeDef(BaseValidatorModel):
-    billingAdjustmentRequestEntries: List[BatchCreateBillingAdjustmentRequestEntryTypeDef]
-
-
-# This class is the output for the 'batch_create_billing_adjustment_request' function.
-class BatchCreateBillingAdjustmentRequestOutputTypeDef(BaseValidatorModel):
-    items: List[BatchCreateBillingAdjustmentItemTypeDef]
-    errors: List[BatchCreateBillingAdjustmentErrorTypeDef]
+# This class is the output for the 'accept_agreement_request' function.
+class AcceptAgreementRequestOutputTypeDef(BaseValidatorModel):
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'cancel_agreement_cancellation_request' function.
 class CancelAgreementCancellationRequestOutputTypeDef(BaseValidatorModel):
-    agreementCancellationRequestId: str
-    agreementId: str
+    agreementCancellationRequestId: Annotated[
+        str, _aws_pattern("MarketplaceAgreement", "AgreementCancellationRequestId")
+    ]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
     reasonCode: AgreementCancellationRequestReasonCodeType
     description: str
     status: AgreementCancellationRequestStatusType
@@ -344,13 +457,13 @@ class CancelAgreementCancellationRequestOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_agreement_payment_request' function.
 class CancelAgreementPaymentRequestOutputTypeDef(BaseValidatorModel):
-    paymentRequestId: str
-    agreementId: str
+    paymentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestId")]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
     status: PaymentRequestStatusType
-    name: str
+    name: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestName")]
     description: str
-    chargeAmount: str
-    currencyCode: str
+    chargeAmount: Annotated[str, _aws_pattern("MarketplaceAgreement", "PositiveAmountUpto8Decimals")]
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]
     createdAt: datetime
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -358,8 +471,10 @@ class CancelAgreementPaymentRequestOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_agreement_cancellation_request' function.
 class GetAgreementCancellationRequestOutputTypeDef(BaseValidatorModel):
-    agreementCancellationRequestId: str
-    agreementId: str
+    agreementCancellationRequestId: Annotated[
+        str, _aws_pattern("MarketplaceAgreement", "AgreementCancellationRequestId")
+    ]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
     reasonCode: AgreementCancellationRequestReasonCodeType
     description: str
     status: AgreementCancellationRequestStatusType
@@ -371,15 +486,15 @@ class GetAgreementCancellationRequestOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_agreement_payment_request' function.
 class GetAgreementPaymentRequestOutputTypeDef(BaseValidatorModel):
-    paymentRequestId: str
-    agreementId: str
+    paymentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestId")]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
     status: PaymentRequestStatusType
     statusMessage: str
-    name: str
+    name: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestName")]
     description: str
-    chargeId: str
-    chargeAmount: str
-    currencyCode: str
+    chargeId: Annotated[str, _aws_pattern("MarketplaceAgreement", "ChargeId")]
+    chargeAmount: Annotated[str, _aws_pattern("MarketplaceAgreement", "PositiveAmountUpto8Decimals")]
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]
     createdAt: datetime
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -387,13 +502,13 @@ class GetAgreementPaymentRequestOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_billing_adjustment_request' function.
 class GetBillingAdjustmentRequestOutputTypeDef(BaseValidatorModel):
-    billingAdjustmentRequestId: str
-    agreementId: str
+    billingAdjustmentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "BillingAdjustmentRequestId")]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
     adjustmentReasonCode: BillingAdjustmentReasonCodeType
     description: str
     originalInvoiceId: str
-    adjustmentAmount: str
-    currencyCode: str
+    adjustmentAmount: Annotated[str, _aws_pattern("MarketplaceAgreement", "PositiveAmountUpto8Decimals")]
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]
     status: BillingAdjustmentStatusType
     statusMessage: str
     createdAt: datetime
@@ -401,17 +516,42 @@ class GetBillingAdjustmentRequestOutputTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
 
-# This class is the output for the 'list_agreement_cancellation_requests' function.
-class ListAgreementCancellationRequestsOutputTypeDef(BaseValidatorModel):
-    items: List[AgreementCancellationRequestSummaryTypeDef]
+# This class is the output for the 'reject_agreement_cancellation_request' function.
+class RejectAgreementCancellationRequestOutputTypeDef(BaseValidatorModel):
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    agreementCancellationRequestId: Annotated[
+        str, _aws_pattern("MarketplaceAgreement", "AgreementCancellationRequestId")
+    ]
+    status: AgreementCancellationRequestStatusType
+    statusMessage: str
+    reasonCode: AgreementCancellationRequestReasonCodeType
+    description: str
+    createdAt: datetime
+    updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+
+
+# This class is the output for the 'reject_agreement_payment_request' function.
+class RejectAgreementPaymentRequestOutputTypeDef(BaseValidatorModel):
+    paymentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestId")]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    status: PaymentRequestStatusType
+    statusMessage: str
+    name: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestName")]
+    description: str
+    chargeAmount: Annotated[str, _aws_pattern("MarketplaceAgreement", "PositiveAmountUpto8Decimals")]
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]
+    createdAt: datetime
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'send_agreement_cancellation_request' function.
 class SendAgreementCancellationRequestOutputTypeDef(BaseValidatorModel):
-    agreementId: str
-    agreementCancellationRequestId: str
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
+    agreementCancellationRequestId: Annotated[
+        str, _aws_pattern("MarketplaceAgreement", "AgreementCancellationRequestId")
+    ]
     status: AgreementCancellationRequestStatusType
     reasonCode: AgreementCancellationRequestReasonCodeType
     description: str
@@ -422,26 +562,92 @@ class SendAgreementCancellationRequestOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'send_agreement_payment_request' function.
 class SendAgreementPaymentRequestOutputTypeDef(BaseValidatorModel):
-    paymentRequestId: str
-    agreementId: str
+    paymentRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestId")]
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]
     status: PaymentRequestStatusType
-    name: str
+    name: Annotated[str, _aws_pattern("MarketplaceAgreement", "PaymentRequestName")]
     description: str
-    chargeAmount: str
-    currencyCode: str
+    chargeAmount: Annotated[str, _aws_pattern("MarketplaceAgreement", "PositiveAmountUpto8Decimals")]
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the input for the 'accept_agreement_request' function.
+class AcceptAgreementRequestInputTypeDef(BaseValidatorModel):
+    agreementRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementRequestId")]
+    purchaseOrders: Optional[List[PurchaseOrderTypeDef]] = None
+
+
+class UpdatePurchaseOrdersInputTypeDef(BaseValidatorModel):
+    purchaseOrders: List[PurchaseOrderTypeDef]
+
+
+# This class is the output for the 'list_agreement_cancellation_requests' function.
+class ListAgreementCancellationRequestsOutputTypeDef(BaseValidatorModel):
+    items: List[AgreementCancellationRequestSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
+
+
+class AgreementEntitlementTypeDef(BaseValidatorModel):
+    resource: Optional[ResourceTypeDef] = None
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "EntitlementType")]] = None
+    registrationToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "RegistrationToken")]] = None
+    status: Optional[AgreementEntitlementStatusType] = None
+    statusReasonCode: Optional[AgreementEntitlementStatusReasonCodeType] = None
+    licenseArn: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AwsArn")]] = None
+
+
+class ProposalSummaryTypeDef(BaseValidatorModel):
+    resources: Optional[List[ResourceTypeDef]] = None
+    offerId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "OfferId")]] = None
+    offerSetId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "OfferSetId")]] = None
+
+
+class AgreementInvoiceLineItemGroupSummaryTypeDef(BaseValidatorModel):
+    agreementId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
+    invoiceId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
+    pricingCurrencyAmount: Optional[PricingCurrencyAmountTypeDef] = None
+    invoiceBillingPeriod: Optional[InvoiceBillingPeriodTypeDef] = None
+    issuedTime: Optional[datetime] = None
+    invoiceType: Optional[InvoiceTypeType] = None
+    invoicingEntity: Optional[InvoicingEntityTypeDef] = None
+
+
+# This class is the output for the 'batch_create_billing_adjustment_request' function.
+class BatchCreateBillingAdjustmentRequestOutputTypeDef(BaseValidatorModel):
+    items: List[BatchCreateBillingAdjustmentItemTypeDef]
+    errors: List[BatchCreateBillingAdjustmentErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the input for the 'batch_create_billing_adjustment_request' function.
+class BatchCreateBillingAdjustmentRequestInputTypeDef(BaseValidatorModel):
+    billingAdjustmentRequestEntries: List[BatchCreateBillingAdjustmentRequestEntryTypeDef]
 
 
 # This class is the output for the 'list_billing_adjustment_requests' function.
 class ListBillingAdjustmentRequestsOutputTypeDef(BaseValidatorModel):
     items: List[BillingAdjustmentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
+
+
+# This class is the output for the 'list_agreement_charges' function.
+class ListAgreementChargesOutputTypeDef(BaseValidatorModel):
+    items: List[ChargeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
+
+
+class ConfigurableUpfrontPricingTermConfigurationOutputTypeDef(BaseValidatorModel):
+    selectorValue: str
+    dimensions: List[DimensionTypeDef]
 
 
 class ConfigurableUpfrontPricingTermConfigurationTypeDef(BaseValidatorModel):
-    selectorValue: str
+    selectorValue: Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]
     dimensions: List[DimensionTypeDef]
 
 
@@ -456,22 +662,40 @@ class ConfigurableUpfrontRateCardItemTypeDef(BaseValidatorModel):
 
 
 class LegalTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
     documents: Optional[List[DocumentItemTypeDef]] = None
 
 
+class EstimatedTaxesTypeDef(BaseValidatorModel):
+    breakdown: Optional[List[TaxBreakdownItemTypeDef]] = None
+    totalAmount: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+
+
 class FixedUpfrontPricingTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    currencyCode: Optional[str] = None
-    duration: Optional[str] = None
-    price: Optional[str] = None
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
+    currencyCode: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]] = None
+    duration: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    price: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
     grants: Optional[List[GrantItemTypeDef]] = None
 
 
 class FreeTrialPricingTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    duration: Optional[str] = None
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
+    duration: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
     grants: Optional[List[GrantItemTypeDef]] = None
+
+
+class GetAgreementEntitlementsInputPaginateTypeDef(BaseValidatorModel):
+    agreementId: str
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class GetAgreementTermsInputPaginateTypeDef(BaseValidatorModel):
+    agreementId: str
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
 class ListAgreementCancellationRequestsInputPaginateTypeDef(BaseValidatorModel):
@@ -480,6 +704,13 @@ class ListAgreementCancellationRequestsInputPaginateTypeDef(BaseValidatorModel):
     status: Optional[AgreementCancellationRequestStatusType] = None
     agreementType: Optional[str] = None
     catalog: Optional[str] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListAgreementChargesInputPaginateTypeDef(BaseValidatorModel):
+    catalog: Optional[str] = None
+    agreementId: Optional[str] = None
+    agreementType: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
@@ -505,15 +736,15 @@ class ListAgreementInvoiceLineItemsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_agreement_invoice_line_items' function.
 class ListAgreementInvoiceLineItemsInputTypeDef(BaseValidatorModel):
-    agreementId: str
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]
     groupBy: Literal["INVOICE_ID"]
-    invoiceId: Optional[str] = None
+    invoiceId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
     invoiceType: Optional[InvoiceTypeType] = None
     invoiceBillingPeriod: Optional[InvoiceBillingPeriodTypeDef] = None
     beforeIssuedTime: Optional[TimestampTypeDef] = None
     afterIssuedTime: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
 
 
 class ListBillingAdjustmentRequestsInputPaginateTypeDef(BaseValidatorModel):
@@ -528,82 +759,73 @@ class ListBillingAdjustmentRequestsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_billing_adjustment_requests' function.
 class ListBillingAdjustmentRequestsInputTypeDef(BaseValidatorModel):
-    agreementId: Optional[str] = None
+    agreementId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementId")]] = None
     status: Optional[BillingAdjustmentStatusType] = None
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
-    catalog: Optional[str] = None
-    agreementType: Optional[str] = None
-    nextToken: Optional[str] = None
+    catalog: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "Catalog")]] = None
+    agreementType: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementType")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
 
 
 # This class is the output for the 'list_agreement_payment_requests' function.
 class ListAgreementPaymentRequestsOutputTypeDef(BaseValidatorModel):
     items: List[PaymentRequestSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
 
 
 class PaymentScheduleTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    currencyCode: Optional[str] = None
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
+    currencyCode: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]] = None
     schedule: Optional[List[ScheduleItemTypeDef]] = None
 
 
-class ProposalSummaryTypeDef(BaseValidatorModel):
-    resources: Optional[List[ResourceTypeDef]] = None
-    offerId: Optional[str] = None
-    offerSetId: Optional[str] = None
-
-
 class RenewalTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
     configuration: Optional[RenewalTermConfigurationTypeDef] = None
+
+
+class VariablePaymentTermTypeDef(BaseValidatorModel):
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
+    currencyCode: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]] = None
+    maxTotalChargeAmount: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    configuration: Optional[VariablePaymentTermConfigurationTypeDef] = None
+
+
+class SearchAgreementsInputPaginateTypeDef(BaseValidatorModel):
+    catalog: Optional[str] = None
+    filters: Optional[List[FilterTypeDef]] = None
+    sort: Optional[SortTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
 # This class is the input for the 'search_agreements' function.
 class SearchAgreementsInputTypeDef(BaseValidatorModel):
-    catalog: Optional[str] = None
+    catalog: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "Catalog")]] = None
     filters: Optional[List[FilterTypeDef]] = None
     sort: Optional[SortTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
 
 
-class VariablePaymentTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    currencyCode: Optional[str] = None
-    maxTotalChargeAmount: Optional[str] = None
-    configuration: Optional[VariablePaymentTermConfigurationTypeDef] = None
-
-
-# This class is the output for the 'list_agreement_invoice_line_items' function.
-class ListAgreementInvoiceLineItemsOutputTypeDef(BaseValidatorModel):
-    agreementInvoiceLineItemGroupSummaries: List[AgreementInvoiceLineItemGroupSummaryTypeDef]
+# This class is the output for the 'get_agreement_entitlements' function.
+class GetAgreementEntitlementsOutputTypeDef(BaseValidatorModel):
+    agreementEntitlements: List[AgreementEntitlementTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
-
-
-class UsageBasedPricingTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    currencyCode: Optional[str] = None
-    rateCards: Optional[List[UsageBasedRateCardItemTypeDef]] = None
-
-
-class ConfigurableUpfrontPricingTermTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    currencyCode: Optional[str] = None
-    rateCards: Optional[List[ConfigurableUpfrontRateCardItemTypeDef]] = None
-    configuration: Optional[ConfigurableUpfrontPricingTermConfigurationTypeDef] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
 
 
 class AgreementViewSummaryTypeDef(BaseValidatorModel):
-    agreementId: Optional[str] = None
+    agreementId: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
     acceptanceTime: Optional[datetime] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
-    agreementType: Optional[str] = None
+    agreementType: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementType")]] = None
     acceptor: Optional[AcceptorTypeDef] = None
     proposer: Optional[ProposerTypeDef] = None
     proposalSummary: Optional[ProposalSummaryTypeDef] = None
@@ -612,17 +834,68 @@ class AgreementViewSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_agreement' function.
 class DescribeAgreementOutputTypeDef(BaseValidatorModel):
-    agreementId: str
+    agreementId: Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]
     acceptor: AcceptorTypeDef
     proposer: ProposerTypeDef
     startTime: datetime
     endTime: datetime
     acceptanceTime: datetime
-    agreementType: str
+    agreementType: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementType")]
     estimatedCharges: EstimatedChargesTypeDef
     proposalSummary: ProposalSummaryTypeDef
     status: AgreementStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'list_agreement_invoice_line_items' function.
+class ListAgreementInvoiceLineItemsOutputTypeDef(BaseValidatorModel):
+    agreementInvoiceLineItemGroupSummaries: List[AgreementInvoiceLineItemGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
+
+
+ConfigurableUpfrontPricingTermConfigurationUnionTypeDef = Union[
+    ConfigurableUpfrontPricingTermConfigurationOutputTypeDef, ConfigurableUpfrontPricingTermConfigurationTypeDef
+]
+
+
+class UsageBasedPricingTermTypeDef(BaseValidatorModel):
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
+    currencyCode: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]] = None
+    rateCards: Optional[List[UsageBasedRateCardItemTypeDef]] = None
+
+
+class ConfigurableUpfrontPricingTermTypeDef(BaseValidatorModel):
+    type: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "UnversionedTermType")]] = None
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]] = None
+    currencyCode: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]] = None
+    rateCards: Optional[List[ConfigurableUpfrontRateCardItemTypeDef]] = None
+    configuration: Optional[ConfigurableUpfrontPricingTermConfigurationOutputTypeDef] = None
+
+
+class ExpectedChargeTypeDef(BaseValidatorModel):
+    id: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
+    time: Optional[datetime] = None
+    amount: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    amountAfterTax: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    timing: Optional[TimingType] = None
+    estimatedTaxes: Optional[EstimatedTaxesTypeDef] = None
+
+
+# This class is the output for the 'search_agreements' function.
+class SearchAgreementsOutputTypeDef(BaseValidatorModel):
+    agreementViewSummaries: List[AgreementViewSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
+
+
+class RequestedTermConfigurationTypeDef(BaseValidatorModel):
+    configurableUpfrontPricingTermConfiguration: Optional[ConfigurableUpfrontPricingTermConfigurationUnionTypeDef] = (
+        None
+    )
+    renewalTermConfiguration: Optional[RenewalTermConfigurationTypeDef] = None
+    variablePaymentTermConfiguration: Optional[VariablePaymentTermConfigurationTypeDef] = None
 
 
 class AcceptedTermTypeDef(BaseValidatorModel):
@@ -640,15 +913,42 @@ class AcceptedTermTypeDef(BaseValidatorModel):
     variablePaymentTerm: Optional[VariablePaymentTermTypeDef] = None
 
 
-# This class is the output for the 'search_agreements' function.
-class SearchAgreementsOutputTypeDef(BaseValidatorModel):
-    agreementViewSummaries: List[AgreementViewSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+class ChargeSummaryTypeDef(BaseValidatorModel):
+    currencyCode: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "CurrencyCode")]] = None
+    newAgreementValue: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    newAgreementValueAfterTax: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "BoundedString")]] = None
+    expectedCharges: Optional[List[ExpectedChargeTypeDef]] = None
+    estimatedTaxes: Optional[EstimatedTaxesTypeDef] = None
+    itemizedCharges: Optional[List[ItemizedChargeTypeDef]] = None
+    invoicingEntity: Optional[InvoicingEntityTypeDef] = None
+
+
+class RequestedTermTypeDef(BaseValidatorModel):
+    id: Annotated[str, _aws_pattern("MarketplaceAgreement", "TermId")]
+    configuration: Optional[RequestedTermConfigurationTypeDef] = None
 
 
 # This class is the output for the 'get_agreement_terms' function.
 class GetAgreementTermsOutputTypeDef(BaseValidatorModel):
     acceptedTerms: List[AcceptedTermTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "NextToken")]] = None
+
+
+# This class is the output for the 'create_agreement_request' function.
+class CreateAgreementRequestOutputTypeDef(BaseValidatorModel):
+    agreementRequestId: Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementRequestId")]
+    chargeSummary: ChargeSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the input for the 'create_agreement_request' function.
+class CreateAgreementRequestInputTypeDef(BaseValidatorModel):
+    intent: IntentType
+    requestedTerms: List[RequestedTermTypeDef]
+    clientToken: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ClientToken")]] = None
+    sourceAgreementIdentifier: Optional[Annotated[str, _aws_pattern("MarketplaceAgreement", "ResourceId")]] = None
+    agreementProposalIdentifier: Optional[
+        Annotated[str, _aws_pattern("MarketplaceAgreement", "AgreementProposalId")]
+    ] = None
+    taxConfiguration: Optional[TaxConfigurationTypeDef] = None

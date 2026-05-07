@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.acm.acm_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -66,8 +68,8 @@ class AcmCertificateMetadataTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Acm", "TagKey")]
+    Value: Optional[Annotated[str, _aws_pattern("Acm", "TagValue")]] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
@@ -88,9 +90,9 @@ class KeyUsageTypeDef(BaseValidatorModel):
 
 
 class CertificateSummaryTypeDef(BaseValidatorModel):
-    CertificateArn: Optional[str] = None
-    DomainName: Optional[str] = None
-    SubjectAlternativeNameSummaries: Optional[List[str]] = None
+    CertificateArn: Optional[Annotated[str, _aws_pattern("Acm", "Arn")]] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Acm", "DomainNameString")]] = None
+    SubjectAlternativeNameSummaries: Optional[List[Annotated[str, _aws_pattern("Acm", "DomainNameString")]]] = None
     HasAdditionalSubjectAlternativeNames: Optional[bool] = None
     Status: Optional[CertificateStatusType] = None
     Type: Optional[CertificateTypeType] = None
@@ -122,12 +124,12 @@ class CustomAttributeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_certificate' function.
 class DeleteCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
 
 
 # This class is the input for the 'describe_certificate' function.
 class DescribeCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -149,8 +151,8 @@ class DnsNameFilterTypeDef(BaseValidatorModel):
 
 
 class DomainValidationOptionTypeDef(BaseValidatorModel):
-    DomainName: str
-    ValidationDomain: str
+    DomainName: Annotated[str, _aws_pattern("Acm", "DomainNameString")]
+    ValidationDomain: Annotated[str, _aws_pattern("Acm", "DomainNameString")]
 
 
 class HttpRedirectTypeDef(BaseValidatorModel):
@@ -183,7 +185,7 @@ class OtherNameTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_certificate' function.
 class GetCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -194,24 +196,24 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_certificate' function.
 class ListTagsForCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
 
 
 # This class is the input for the 'renew_certificate' function.
 class RenewCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
 
 
 # This class is the input for the 'resend_validation_email' function.
 class ResendValidationEmailRequestTypeDef(BaseValidatorModel):
-    CertificateArn: str
-    Domain: str
-    ValidationDomain: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
+    Domain: Annotated[str, _aws_pattern("Acm", "DomainNameString")]
+    ValidationDomain: Annotated[str, _aws_pattern("Acm", "DomainNameString")]
 
 
 # This class is the input for the 'revoke_certificate' function.
 class RevokeCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
     RevocationReason: RevocationReasonType
 
 
@@ -224,19 +226,19 @@ class CertificateMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_tags_to_certificate' function.
 class AddTagsToCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'remove_tags_from_certificate' function.
 class RemoveTagsFromCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'export_certificate' function.
 class ExportCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
     Passphrase: BlobTypeDef
 
 
@@ -244,14 +246,14 @@ class ExportCertificateRequestTypeDef(BaseValidatorModel):
 class ImportCertificateRequestTypeDef(BaseValidatorModel):
     Certificate: BlobTypeDef
     PrivateKey: BlobTypeDef
-    CertificateArn: Optional[str] = None
+    CertificateArn: Optional[Annotated[str, _aws_pattern("Acm", "Arn")]] = None
     CertificateChain: Optional[BlobTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_certificate_options' function.
 class UpdateCertificateOptionsRequestTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
     Options: CertificateOptionsTypeDef
 
 
@@ -290,22 +292,22 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'export_certificate' function.
 class ExportCertificateResponseTypeDef(BaseValidatorModel):
-    Certificate: str
-    CertificateChain: str
-    PrivateKey: str
+    Certificate: Annotated[str, _aws_pattern("Acm", "CertificateBody")]
+    CertificateChain: Annotated[str, _aws_pattern("Acm", "CertificateChain")]
+    PrivateKey: Annotated[str, _aws_pattern("Acm", "PrivateKey")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_certificate' function.
 class GetCertificateResponseTypeDef(BaseValidatorModel):
-    Certificate: str
-    CertificateChain: str
+    Certificate: Annotated[str, _aws_pattern("Acm", "CertificateBody")]
+    CertificateChain: Annotated[str, _aws_pattern("Acm", "CertificateChain")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'import_certificate' function.
 class ImportCertificateResponseTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -313,7 +315,7 @@ class ImportCertificateResponseTypeDef(BaseValidatorModel):
 class ListCertificatesResponseTypeDef(BaseValidatorModel):
     CertificateSummaryList: List[CertificateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Acm", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_certificate' function.
@@ -324,13 +326,13 @@ class ListTagsForCertificateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'request_certificate' function.
 class RequestCertificateResponseTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'revoke_certificate' function.
 class RevokeCertificateResponseTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("Acm", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -340,22 +342,22 @@ class SubjectAlternativeNameFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'request_certificate' function.
 class RequestCertificateRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Acm", "DomainNameString")]
     ValidationMethod: Optional[ValidationMethodType] = None
-    SubjectAlternativeNames: Optional[List[str]] = None
-    IdempotencyToken: Optional[str] = None
+    SubjectAlternativeNames: Optional[List[Annotated[str, _aws_pattern("Acm", "DomainNameString")]]] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("Acm", "IdempotencyToken")]] = None
     DomainValidationOptions: Optional[List[DomainValidationOptionTypeDef]] = None
     Options: Optional[CertificateOptionsTypeDef] = None
-    CertificateAuthorityArn: Optional[str] = None
+    CertificateAuthorityArn: Optional[Annotated[str, _aws_pattern("Acm", "PcaArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     KeyAlgorithm: Optional[KeyAlgorithmType] = None
     ManagedBy: Optional[Literal["CLOUDFRONT"]] = None
 
 
 class DomainValidationTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Acm", "DomainNameString")]
     ValidationEmails: Optional[List[str]] = None
-    ValidationDomain: Optional[str] = None
+    ValidationDomain: Optional[Annotated[str, _aws_pattern("Acm", "DomainNameString")]] = None
     ValidationStatus: Optional[DomainStatusType] = None
     ResourceRecord: Optional[ResourceRecordTypeDef] = None
     HttpRedirect: Optional[HttpRedirectTypeDef] = None
@@ -369,7 +371,7 @@ class GetAccountConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_account_configuration' function.
 class PutAccountConfigurationRequestTypeDef(BaseValidatorModel):
-    IdempotencyToken: str
+    IdempotencyToken: Annotated[str, _aws_pattern("Acm", "IdempotencyToken")]
     ExpiryEvents: Optional[ExpiryEventsConfigurationTypeDef] = None
 
 
@@ -377,7 +379,7 @@ class PutAccountConfigurationRequestTypeDef(BaseValidatorModel):
 class ListCertificatesRequestTypeDef(BaseValidatorModel):
     CertificateStatuses: Optional[List[CertificateStatusType]] = None
     Includes: Optional[FiltersTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Acm", "NextToken")]] = None
     MaxItems: Optional[int] = None
     SortBy: Optional[Literal["CREATED_AT"]] = None
     SortOrder: Optional[SortOrderType] = None
@@ -419,7 +421,7 @@ class X509AttributeFilterTypeDef(BaseValidatorModel):
     ExtendedKeyUsage: Optional[ExtendedKeyUsageNameType] = None
     KeyUsage: Optional[KeyUsageNameType] = None
     KeyAlgorithm: Optional[KeyAlgorithmType] = None
-    SerialNumber: Optional[str] = None
+    SerialNumber: Optional[Annotated[str, _aws_pattern("Acm", "SerialNumber")]] = None
     NotAfter: Optional[TimestampRangeTypeDef] = None
     NotBefore: Optional[TimestampRangeTypeDef] = None
 
@@ -431,15 +433,15 @@ class X509AttributesTypeDef(BaseValidatorModel):
     ExtendedKeyUsages: Optional[List[ExtendedKeyUsageNameType]] = None
     KeyAlgorithm: Optional[KeyAlgorithmType] = None
     KeyUsages: Optional[List[KeyUsageNameType]] = None
-    SerialNumber: Optional[str] = None
+    SerialNumber: Optional[Annotated[str, _aws_pattern("Acm", "SerialNumber")]] = None
     NotAfter: Optional[datetime] = None
     NotBefore: Optional[datetime] = None
 
 
 class CertificateDetailTypeDef(BaseValidatorModel):
-    CertificateArn: Optional[str] = None
-    DomainName: Optional[str] = None
-    SubjectAlternativeNames: Optional[List[str]] = None
+    CertificateArn: Optional[Annotated[str, _aws_pattern("Acm", "Arn")]] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Acm", "DomainNameString")]] = None
+    SubjectAlternativeNames: Optional[List[Annotated[str, _aws_pattern("Acm", "DomainNameString")]]] = None
     ManagedBy: Optional[Literal["CLOUDFRONT"]] = None
     DomainValidationOptions: Optional[List[DomainValidationTypeDef]] = None
     Serial: Optional[str] = None
@@ -461,19 +463,19 @@ class CertificateDetailTypeDef(BaseValidatorModel):
     RenewalSummary: Optional[RenewalSummaryTypeDef] = None
     KeyUsages: Optional[List[KeyUsageTypeDef]] = None
     ExtendedKeyUsages: Optional[List[ExtendedKeyUsageTypeDef]] = None
-    CertificateAuthorityArn: Optional[str] = None
+    CertificateAuthorityArn: Optional[Annotated[str, _aws_pattern("Acm", "Arn")]] = None
     RenewalEligibility: Optional[RenewalEligibilityType] = None
     Options: Optional[CertificateOptionsTypeDef] = None
 
 
 class CertificateFilterTypeDef(BaseValidatorModel):
-    CertificateArn: Optional[str] = None
+    CertificateArn: Optional[Annotated[str, _aws_pattern("Acm", "Arn")]] = None
     X509AttributeFilter: Optional[X509AttributeFilterTypeDef] = None
     AcmCertificateMetadataFilter: Optional[AcmCertificateMetadataFilterTypeDef] = None
 
 
 class CertificateSearchResultTypeDef(BaseValidatorModel):
-    CertificateArn: Optional[str] = None
+    CertificateArn: Optional[Annotated[str, _aws_pattern("Acm", "Arn")]] = None
     X509Attributes: Optional[X509AttributesTypeDef] = None
     CertificateMetadata: Optional[CertificateMetadataTypeDef] = None
 
@@ -502,7 +504,7 @@ class CertificateFilterStatementTypeDef(BaseValidatorModel):
 class SearchCertificatesResponseTypeDef(BaseValidatorModel):
     Results: List[CertificateSearchResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Acm", "NextToken")]] = None
 
 
 class SearchCertificatesRequestPaginateTypeDef(BaseValidatorModel):
@@ -516,6 +518,6 @@ class SearchCertificatesRequestPaginateTypeDef(BaseValidatorModel):
 class SearchCertificatesRequestTypeDef(BaseValidatorModel):
     FilterStatement: Optional[CertificateFilterStatementTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Acm", "NextToken")]] = None
     SortBy: Optional[SearchCertificatesSortByType] = None
     SortOrder: Optional[SearchCertificatesSortOrderType] = None

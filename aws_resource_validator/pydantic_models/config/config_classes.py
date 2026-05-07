@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.config.config_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,7 +47,7 @@ class AccountAggregationSourceOutputTypeDef(BaseValidatorModel):
 
 
 class AccountAggregationSourceTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("Config", "AccountId")]]
     AllAwsRegions: Optional[bool] = None
     AwsRegions: Optional[List[str]] = None
 
@@ -63,19 +65,19 @@ class AggregateConformancePackComplianceCountTypeDef(BaseValidatorModel):
 
 
 class AggregateConformancePackComplianceFiltersTypeDef(BaseValidatorModel):
-    ConformancePackName: Optional[str] = None
+    ConformancePackName: Optional[Annotated[str, _aws_pattern("Config", "ConformancePackName")]] = None
     ComplianceType: Optional[ConformancePackComplianceTypeType] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     AwsRegion: Optional[str] = None
 
 
 class AggregateConformancePackComplianceSummaryFiltersTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     AwsRegion: Optional[str] = None
 
 
 class AggregateResourceIdentifierTypeDef(BaseValidatorModel):
-    SourceAccountId: str
+    SourceAccountId: Annotated[str, _aws_pattern("Config", "AccountId")]
     SourceRegion: str
     ResourceId: str
     ResourceType: ResourceTypeType
@@ -94,7 +96,7 @@ class AggregatedSourceStatusTypeDef(BaseValidatorModel):
 
 class AggregationAuthorizationTypeDef(BaseValidatorModel):
     AggregationAuthorizationArn: Optional[str] = None
-    AuthorizedAccountId: Optional[str] = None
+    AuthorizedAccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     AuthorizedAwsRegion: Optional[str] = None
     CreationTime: Optional[datetime] = None
 
@@ -106,7 +108,7 @@ class AggregatorFilterResourceTypeOutputTypeDef(BaseValidatorModel):
 
 class AggregatorFilterResourceTypeTypeDef(BaseValidatorModel):
     Type: Optional[Literal["INCLUDE"]] = None
-    Value: Optional[List[str]] = None
+    Value: Optional[List[Annotated[str, _aws_pattern("Config", "ResourceTypeValue")]]] = None
 
 
 class AggregatorFilterServicePrincipalOutputTypeDef(BaseValidatorModel):
@@ -116,7 +118,7 @@ class AggregatorFilterServicePrincipalOutputTypeDef(BaseValidatorModel):
 
 class AggregatorFilterServicePrincipalTypeDef(BaseValidatorModel):
     Type: Optional[Literal["INCLUDE"]] = None
-    Value: Optional[List[str]] = None
+    Value: Optional[List[Annotated[str, _aws_pattern("Config", "ServicePrincipalValue")]]] = None
 
 
 # This class is the input for the 'associate_resource_types' function.
@@ -135,7 +137,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 class BaseConfigurationItemTypeDef(BaseValidatorModel):
     version: Optional[str] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     configurationItemCaptureTime: Optional[datetime] = None
     configurationItemStatus: Optional[ConfigurationItemStatusType] = None
     configurationStateId: Optional[str] = None
@@ -172,19 +174,19 @@ class ConfigExportDeliveryInfoTypeDef(BaseValidatorModel):
 
 
 class ConfigRuleComplianceFiltersTypeDef(BaseValidatorModel):
-    ConfigRuleName: Optional[str] = None
+    ConfigRuleName: Optional[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]] = None
     ComplianceType: Optional[ComplianceTypeType] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     AwsRegion: Optional[str] = None
 
 
 class ConfigRuleComplianceSummaryFiltersTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     AwsRegion: Optional[str] = None
 
 
 class ConfigRuleEvaluationStatusTypeDef(BaseValidatorModel):
-    ConfigRuleName: Optional[str] = None
+    ConfigRuleName: Optional[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]] = None
     ConfigRuleArn: Optional[str] = None
     ConfigRuleId: Optional[str] = None
     LastSuccessfulInvocationTime: Optional[datetime] = None
@@ -245,7 +247,7 @@ class RelationshipTypeDef(BaseValidatorModel):
 
 class ConfigurationRecorderFilterTypeDef(BaseValidatorModel):
     filterName: Optional[Literal["recordingScope"]] = None
-    filterValue: Optional[List[str]] = None
+    filterValue: Optional[List[Annotated[str, _aws_pattern("Config", "ConfigurationRecorderFilterValue")]]] = None
 
 
 class ConfigurationRecorderStatusTypeDef(BaseValidatorModel):
@@ -258,14 +260,14 @@ class ConfigurationRecorderStatusTypeDef(BaseValidatorModel):
     lastErrorCode: Optional[str] = None
     lastErrorMessage: Optional[str] = None
     lastStatusChangeTime: Optional[datetime] = None
-    servicePrincipal: Optional[str] = None
+    servicePrincipal: Optional[Annotated[str, _aws_pattern("Config", "ServicePrincipal")]] = None
 
 
 class ConfigurationRecorderSummaryTypeDef(BaseValidatorModel):
     arn: str
     name: str
     recordingScope: RecordingScopeType
-    servicePrincipal: Optional[str] = None
+    servicePrincipal: Optional[Annotated[str, _aws_pattern("Config", "ServicePrincipal")]] = None
 
 
 class ConformancePackComplianceFiltersTypeDef(BaseValidatorModel):
@@ -275,16 +277,16 @@ class ConformancePackComplianceFiltersTypeDef(BaseValidatorModel):
 
 class ConformancePackComplianceScoreTypeDef(BaseValidatorModel):
     Score: Optional[str] = None
-    ConformancePackName: Optional[str] = None
+    ConformancePackName: Optional[Annotated[str, _aws_pattern("Config", "ConformancePackName")]] = None
     LastUpdatedTime: Optional[datetime] = None
 
 
 class ConformancePackComplianceScoresFiltersTypeDef(BaseValidatorModel):
-    ConformancePackNames: List[str]
+    ConformancePackNames: List[Annotated[str, _aws_pattern("Config", "ConformancePackName")]]
 
 
 class ConformancePackComplianceSummaryTypeDef(BaseValidatorModel):
-    ConformancePackName: str
+    ConformancePackName: Annotated[str, _aws_pattern("Config", "ConformancePackName")]
     ConformancePackComplianceStatus: ConformancePackComplianceTypeType
 
 
@@ -294,8 +296,8 @@ class ConformancePackInputParameterTypeDef(BaseValidatorModel):
 
 
 class TemplateSSMDocumentDetailsTypeDef(BaseValidatorModel):
-    DocumentName: str
-    DocumentVersion: Optional[str] = None
+    DocumentName: Annotated[str, _aws_pattern("Config", "SSMDocumentName")]
+    DocumentVersion: Optional[Annotated[str, _aws_pattern("Config", "SSMDocumentVersion")]] = None
 
 
 class ConformancePackEvaluationFiltersTypeDef(BaseValidatorModel):
@@ -306,13 +308,13 @@ class ConformancePackEvaluationFiltersTypeDef(BaseValidatorModel):
 
 
 class ConformancePackRuleComplianceTypeDef(BaseValidatorModel):
-    ConfigRuleName: Optional[str] = None
+    ConfigRuleName: Optional[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]] = None
     ComplianceType: Optional[ConformancePackComplianceTypeType] = None
     Controls: Optional[List[str]] = None
 
 
 class ConformancePackStatusDetailTypeDef(BaseValidatorModel):
-    ConformancePackName: str
+    ConformancePackName: Annotated[str, _aws_pattern("Config", "ConformancePackName")]
     ConformancePackId: str
     ConformancePackArn: str
     ConformancePackState: ConformancePackStateType
@@ -323,25 +325,25 @@ class ConformancePackStatusDetailTypeDef(BaseValidatorModel):
 
 
 class CustomPolicyDetailsTypeDef(BaseValidatorModel):
-    PolicyRuntime: str
+    PolicyRuntime: Annotated[str, _aws_pattern("Config", "PolicyRuntime")]
     PolicyText: str
     EnableDebugLogDelivery: Optional[bool] = None
 
 
 # This class is the input for the 'delete_aggregation_authorization' function.
 class DeleteAggregationAuthorizationRequestTypeDef(BaseValidatorModel):
-    AuthorizedAccountId: str
+    AuthorizedAccountId: Annotated[str, _aws_pattern("Config", "AccountId")]
     AuthorizedAwsRegion: str
 
 
 # This class is the input for the 'delete_config_rule' function.
 class DeleteConfigRuleRequestTypeDef(BaseValidatorModel):
-    ConfigRuleName: str
+    ConfigRuleName: Annotated[str, _aws_pattern("Config", "ConfigRuleName")]
 
 
 # This class is the input for the 'delete_configuration_aggregator' function.
 class DeleteConfigurationAggregatorRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
 
 
 # This class is the input for the 'delete_configuration_recorder' function.
@@ -351,7 +353,7 @@ class DeleteConfigurationRecorderRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_conformance_pack' function.
 class DeleteConformancePackRequestTypeDef(BaseValidatorModel):
-    ConformancePackName: str
+    ConformancePackName: Annotated[str, _aws_pattern("Config", "ConformancePackName")]
 
 
 # This class is the input for the 'delete_delivery_channel' function.
@@ -365,22 +367,22 @@ class DeleteEvaluationResultsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_organization_config_rule' function.
 class DeleteOrganizationConfigRuleRequestTypeDef(BaseValidatorModel):
-    OrganizationConfigRuleName: str
+    OrganizationConfigRuleName: Annotated[str, _aws_pattern("Config", "OrganizationConfigRuleName")]
 
 
 # This class is the input for the 'delete_organization_conformance_pack' function.
 class DeleteOrganizationConformancePackRequestTypeDef(BaseValidatorModel):
-    OrganizationConformancePackName: str
+    OrganizationConformancePackName: Annotated[str, _aws_pattern("Config", "OrganizationConformancePackName")]
 
 
 # This class is the input for the 'delete_pending_aggregation_request' function.
 class DeletePendingAggregationRequestRequestTypeDef(BaseValidatorModel):
-    RequesterAccountId: str
+    RequesterAccountId: Annotated[str, _aws_pattern("Config", "AccountId")]
     RequesterAwsRegion: str
 
 
 class DeleteRemediationConfigurationRequestTypeDef(BaseValidatorModel):
-    ConfigRuleName: str
+    ConfigRuleName: Annotated[str, _aws_pattern("Config", "ConfigRuleName")]
     ResourceType: Optional[str] = None
 
 
@@ -397,16 +399,16 @@ class DeleteResourceConfigRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_retention_configuration' function.
 class DeleteRetentionConfigurationRequestTypeDef(BaseValidatorModel):
-    RetentionConfigurationName: str
+    RetentionConfigurationName: Annotated[str, _aws_pattern("Config", "RetentionConfigurationName")]
 
 
 # This class is the input for the 'delete_service_linked_configuration_recorder' function.
 class DeleteServiceLinkedConfigurationRecorderRequestTypeDef(BaseValidatorModel):
-    ServicePrincipal: str
+    ServicePrincipal: Annotated[str, _aws_pattern("Config", "ServicePrincipal")]
 
 
 class DeleteStoredQueryRequestTypeDef(BaseValidatorModel):
-    QueryName: str
+    QueryName: Annotated[str, _aws_pattern("Config", "QueryName")]
 
 
 # This class is the input for the 'deliver_config_snapshot' function.
@@ -428,7 +430,7 @@ class DescribeAggregationAuthorizationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_compliance_by_config_rule' function.
 class DescribeComplianceByConfigRuleRequestTypeDef(BaseValidatorModel):
-    ConfigRuleNames: Optional[List[str]] = None
+    ConfigRuleNames: Optional[List[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]]] = None
     ComplianceTypes: Optional[List[ComplianceTypeType]] = None
     NextToken: Optional[str] = None
 
@@ -444,7 +446,7 @@ class DescribeComplianceByResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_config_rule_evaluation_status' function.
 class DescribeConfigRuleEvaluationStatusRequestTypeDef(BaseValidatorModel):
-    ConfigRuleNames: Optional[List[str]] = None
+    ConfigRuleNames: Optional[List[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
@@ -455,7 +457,7 @@ class DescribeConfigRulesFiltersTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_configuration_aggregator_sources_status' function.
 class DescribeConfigurationAggregatorSourcesStatusRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
     UpdateStatus: Optional[List[AggregatedSourceStatusTypeType]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
@@ -463,7 +465,9 @@ class DescribeConfigurationAggregatorSourcesStatusRequestTypeDef(BaseValidatorMo
 
 # This class is the input for the 'describe_configuration_aggregators' function.
 class DescribeConfigurationAggregatorsRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorNames: Optional[List[str]] = None
+    ConfigurationAggregatorNames: Optional[
+        List[Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]]
+    ] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
@@ -471,27 +475,27 @@ class DescribeConfigurationAggregatorsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_configuration_recorder_status' function.
 class DescribeConfigurationRecorderStatusRequestTypeDef(BaseValidatorModel):
     ConfigurationRecorderNames: Optional[List[str]] = None
-    ServicePrincipal: Optional[str] = None
+    ServicePrincipal: Optional[Annotated[str, _aws_pattern("Config", "ServicePrincipal")]] = None
     Arn: Optional[str] = None
 
 
 # This class is the input for the 'describe_configuration_recorders' function.
 class DescribeConfigurationRecordersRequestTypeDef(BaseValidatorModel):
     ConfigurationRecorderNames: Optional[List[str]] = None
-    ServicePrincipal: Optional[str] = None
+    ServicePrincipal: Optional[Annotated[str, _aws_pattern("Config", "ServicePrincipal")]] = None
     Arn: Optional[str] = None
 
 
 # This class is the input for the 'describe_conformance_pack_status' function.
 class DescribeConformancePackStatusRequestTypeDef(BaseValidatorModel):
-    ConformancePackNames: Optional[List[str]] = None
+    ConformancePackNames: Optional[List[Annotated[str, _aws_pattern("Config", "ConformancePackName")]]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_conformance_packs' function.
 class DescribeConformancePacksRequestTypeDef(BaseValidatorModel):
-    ConformancePackNames: Optional[List[str]] = None
+    ConformancePackNames: Optional[List[Annotated[str, _aws_pattern("Config", "ConformancePackName")]]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -514,7 +518,7 @@ class DescribeOrganizationConfigRuleStatusesRequestTypeDef(BaseValidatorModel):
 
 
 class OrganizationConfigRuleStatusTypeDef(BaseValidatorModel):
-    OrganizationConfigRuleName: str
+    OrganizationConfigRuleName: Annotated[str, _aws_pattern("Config", "OrganizationConfigRuleName")]
     OrganizationRuleStatus: OrganizationRuleStatusType
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
@@ -530,13 +534,15 @@ class DescribeOrganizationConfigRulesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_organization_conformance_pack_statuses' function.
 class DescribeOrganizationConformancePackStatusesRequestTypeDef(BaseValidatorModel):
-    OrganizationConformancePackNames: Optional[List[str]] = None
+    OrganizationConformancePackNames: Optional[
+        List[Annotated[str, _aws_pattern("Config", "OrganizationConformancePackName")]]
+    ] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class OrganizationConformancePackStatusTypeDef(BaseValidatorModel):
-    OrganizationConformancePackName: str
+    OrganizationConformancePackName: Annotated[str, _aws_pattern("Config", "OrganizationConformancePackName")]
     Status: OrganizationResourceStatusType
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
@@ -545,7 +551,9 @@ class OrganizationConformancePackStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_organization_conformance_packs' function.
 class DescribeOrganizationConformancePacksRequestTypeDef(BaseValidatorModel):
-    OrganizationConformancePackNames: Optional[List[str]] = None
+    OrganizationConformancePackNames: Optional[
+        List[Annotated[str, _aws_pattern("Config", "OrganizationConformancePackName")]]
+    ] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -557,17 +565,17 @@ class DescribePendingAggregationRequestsRequestTypeDef(BaseValidatorModel):
 
 
 class PendingAggregationRequestTypeDef(BaseValidatorModel):
-    RequesterAccountId: Optional[str] = None
+    RequesterAccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     RequesterAwsRegion: Optional[str] = None
 
 
 # This class is the input for the 'describe_remediation_configurations' function.
 class DescribeRemediationConfigurationsRequestTypeDef(BaseValidatorModel):
-    ConfigRuleNames: List[str]
+    ConfigRuleNames: List[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]]
 
 
 class RemediationExceptionTypeDef(BaseValidatorModel):
-    ConfigRuleName: str
+    ConfigRuleName: Annotated[str, _aws_pattern("Config", "ConfigRuleName")]
     ResourceType: str
     ResourceId: str
     Message: Optional[str] = None
@@ -576,12 +584,14 @@ class RemediationExceptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_retention_configurations' function.
 class DescribeRetentionConfigurationsRequestTypeDef(BaseValidatorModel):
-    RetentionConfigurationNames: Optional[List[str]] = None
+    RetentionConfigurationNames: Optional[
+        List[Annotated[str, _aws_pattern("Config", "RetentionConfigurationName")]]
+    ] = None
     NextToken: Optional[str] = None
 
 
 class RetentionConfigurationTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Config", "RetentionConfigurationName")]
     RetentionPeriodInDays: int
 
 
@@ -604,7 +614,7 @@ class EvaluationOutputTypeDef(BaseValidatorModel):
 
 
 class EvaluationResultQualifierTypeDef(BaseValidatorModel):
-    ConfigRuleName: Optional[str] = None
+    ConfigRuleName: Optional[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]] = None
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
     EvaluationMode: Optional[EvaluationModeType] = None
@@ -637,9 +647,9 @@ class FieldInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_aggregate_compliance_details_by_config_rule' function.
 class GetAggregateComplianceDetailsByConfigRuleRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
-    ConfigRuleName: str
-    AccountId: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
+    ConfigRuleName: Annotated[str, _aws_pattern("Config", "ConfigRuleName")]
+    AccountId: Annotated[str, _aws_pattern("Config", "AccountId")]
     AwsRegion: str
     ComplianceType: Optional[ComplianceTypeType] = None
     Limit: Optional[int] = None
@@ -648,7 +658,7 @@ class GetAggregateComplianceDetailsByConfigRuleRequestTypeDef(BaseValidatorModel
 
 class ResourceCountFiltersTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     Region: Optional[str] = None
 
 
@@ -681,14 +691,14 @@ class GetComplianceSummaryByResourceTypeRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_conformance_pack_compliance_summary' function.
 class GetConformancePackComplianceSummaryRequestTypeDef(BaseValidatorModel):
-    ConformancePackNames: List[str]
+    ConformancePackNames: List[Annotated[str, _aws_pattern("Config", "ConformancePackName")]]
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'get_custom_rule_policy' function.
 class GetCustomRulePolicyRequestTypeDef(BaseValidatorModel):
-    ConfigRuleName: Optional[str] = None
+    ConfigRuleName: Optional[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]] = None
 
 
 # This class is the input for the 'get_discovered_resource_counts' function.
@@ -704,12 +714,12 @@ class ResourceCountTypeDef(BaseValidatorModel):
 
 
 class StatusDetailFiltersTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     MemberAccountRuleStatus: Optional[MemberAccountRuleStatusType] = None
 
 
 class MemberAccountStatusTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Config", "AccountId")]
     ConfigRuleName: str
     MemberAccountRuleStatus: MemberAccountRuleStatusType
     ErrorCode: Optional[str] = None
@@ -718,12 +728,12 @@ class MemberAccountStatusTypeDef(BaseValidatorModel):
 
 
 class OrganizationResourceDetailedStatusFiltersTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     Status: Optional[OrganizationResourceDetailedStatusType] = None
 
 
 class OrganizationConformancePackDetailedStatusTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Config", "AccountId")]
     ConformancePackName: str
     Status: OrganizationResourceDetailedStatusType
     ErrorCode: Optional[str] = None
@@ -733,7 +743,7 @@ class OrganizationConformancePackDetailedStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_organization_custom_rule_policy' function.
 class GetOrganizationCustomRulePolicyRequestTypeDef(BaseValidatorModel):
-    OrganizationConfigRuleName: str
+    OrganizationConfigRuleName: Annotated[str, _aws_pattern("Config", "OrganizationConfigRuleName")]
 
 
 # This class is the input for the 'get_resource_evaluation_summary' function.
@@ -750,19 +760,19 @@ class ResourceDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_stored_query' function.
 class GetStoredQueryRequestTypeDef(BaseValidatorModel):
-    QueryName: str
+    QueryName: Annotated[str, _aws_pattern("Config", "QueryName")]
 
 
 class StoredQueryTypeDef(BaseValidatorModel):
-    QueryName: str
-    QueryId: Optional[str] = None
-    QueryArn: Optional[str] = None
-    Description: Optional[str] = None
-    Expression: Optional[str] = None
+    QueryName: Annotated[str, _aws_pattern("Config", "QueryName")]
+    QueryId: Optional[Annotated[str, _aws_pattern("Config", "QueryId")]] = None
+    QueryArn: Optional[Annotated[str, _aws_pattern("Config", "QueryArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Config", "QueryDescription")]] = None
+    Expression: Optional[Annotated[str, _aws_pattern("Config", "QueryExpression")]] = None
 
 
 class ResourceFiltersTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     ResourceId: Optional[str] = None
     ResourceName: Optional[str] = None
     Region: Optional[str] = None
@@ -798,10 +808,10 @@ class ListStoredQueriesRequestTypeDef(BaseValidatorModel):
 
 
 class StoredQueryMetadataTypeDef(BaseValidatorModel):
-    QueryId: str
-    QueryArn: str
-    QueryName: str
-    Description: Optional[str] = None
+    QueryId: Annotated[str, _aws_pattern("Config", "QueryId")]
+    QueryArn: Annotated[str, _aws_pattern("Config", "QueryArn")]
+    QueryName: Annotated[str, _aws_pattern("Config", "QueryName")]
+    Description: Optional[Annotated[str, _aws_pattern("Config", "QueryDescription")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -831,8 +841,8 @@ class OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef(BaseValidatorModel):
     ResourceIdScope: Optional[str] = None
     TagKeyScope: Optional[str] = None
     TagValueScope: Optional[str] = None
-    PolicyRuntime: Optional[str] = None
-    DebugLogDeliveryAccounts: Optional[List[str]] = None
+    PolicyRuntime: Optional[Annotated[str, _aws_pattern("Config", "PolicyRuntime")]] = None
+    DebugLogDeliveryAccounts: Optional[List[Annotated[str, _aws_pattern("Config", "AccountId")]]] = None
 
 
 class OrganizationCustomRuleMetadataOutputTypeDef(BaseValidatorModel):
@@ -859,7 +869,7 @@ class OrganizationManagedRuleMetadataOutputTypeDef(BaseValidatorModel):
 
 
 class OrganizationCustomPolicyRuleMetadataTypeDef(BaseValidatorModel):
-    PolicyRuntime: str
+    PolicyRuntime: Annotated[str, _aws_pattern("Config", "PolicyRuntime")]
     PolicyText: str
     Description: Optional[str] = None
     OrganizationConfigRuleTriggerTypes: Optional[List[OrganizationConfigRuleTriggerTypeNoSNType]] = None
@@ -869,7 +879,7 @@ class OrganizationCustomPolicyRuleMetadataTypeDef(BaseValidatorModel):
     ResourceIdScope: Optional[str] = None
     TagKeyScope: Optional[str] = None
     TagValueScope: Optional[str] = None
-    DebugLogDeliveryAccounts: Optional[List[str]] = None
+    DebugLogDeliveryAccounts: Optional[List[Annotated[str, _aws_pattern("Config", "AccountId")]]] = None
 
 
 class OrganizationCustomRuleMetadataTypeDef(BaseValidatorModel):
@@ -898,7 +908,7 @@ class OrganizationManagedRuleMetadataTypeDef(BaseValidatorModel):
 # This class is the input for the 'put_resource_config' function.
 class PutResourceConfigRequestTypeDef(BaseValidatorModel):
     ResourceType: str
-    SchemaVersionId: str
+    SchemaVersionId: Annotated[str, _aws_pattern("Config", "SchemaVersionId")]
     ResourceId: str
     Configuration: str
     ResourceName: Optional[str] = None
@@ -945,7 +955,7 @@ class StaticValueOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'select_aggregate_resource_config' function.
 class SelectAggregateResourceConfigRequestTypeDef(BaseValidatorModel):
     Expression: str
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
     Limit: Optional[int] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -965,7 +975,7 @@ class SourceDetailTypeDef(BaseValidatorModel):
 
 
 class StartConfigRulesEvaluationRequestTypeDef(BaseValidatorModel):
-    ConfigRuleNames: Optional[List[str]] = None
+    ConfigRuleNames: Optional[List[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]]] = None
 
 
 # This class is the input for the 'start_configuration_recorder' function.
@@ -992,9 +1002,9 @@ AccountAggregationSourceUnionTypeDef = Union[AccountAggregationSourceOutputTypeD
 
 
 class AggregateComplianceByConformancePackTypeDef(BaseValidatorModel):
-    ConformancePackName: Optional[str] = None
+    ConformancePackName: Optional[Annotated[str, _aws_pattern("Config", "ConformancePackName")]] = None
     Compliance: Optional[AggregateConformancePackComplianceTypeDef] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     AwsRegion: Optional[str] = None
 
 
@@ -1005,7 +1015,7 @@ class AggregateConformancePackComplianceSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_aggregate_compliance_by_conformance_packs' function.
 class DescribeAggregateComplianceByConformancePacksRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
     Filters: Optional[AggregateConformancePackComplianceFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1013,7 +1023,7 @@ class DescribeAggregateComplianceByConformancePacksRequestTypeDef(BaseValidatorM
 
 # This class is the input for the 'get_aggregate_conformance_pack_compliance_summary' function.
 class GetAggregateConformancePackComplianceSummaryRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
     Filters: Optional[AggregateConformancePackComplianceSummaryFiltersTypeDef] = None
     GroupByKey: Optional[AggregateConformancePackComplianceSummaryGroupKeyType] = None
     Limit: Optional[int] = None
@@ -1022,13 +1032,13 @@ class GetAggregateConformancePackComplianceSummaryRequestTypeDef(BaseValidatorMo
 
 # This class is the input for the 'batch_get_aggregate_resource_config' function.
 class BatchGetAggregateResourceConfigRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
     ResourceIdentifiers: List[AggregateResourceIdentifierTypeDef]
 
 
 # This class is the input for the 'get_aggregate_resource_config' function.
 class GetAggregateResourceConfigRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
     ResourceIdentifier: AggregateResourceIdentifierTypeDef
 
 
@@ -1126,7 +1136,7 @@ class PutServiceLinkedConfigurationRecorderResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_stored_query' function.
 class PutStoredQueryResponseTypeDef(BaseValidatorModel):
-    QueryArn: str
+    QueryArn: Annotated[str, _aws_pattern("Config", "QueryArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1157,7 +1167,7 @@ class BatchGetResourceConfigResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_remediation_execution_status' function.
 class DescribeRemediationExecutionStatusRequestTypeDef(BaseValidatorModel):
-    ConfigRuleName: str
+    ConfigRuleName: Annotated[str, _aws_pattern("Config", "ConfigRuleName")]
     ResourceKeys: Optional[List[ResourceKeyTypeDef]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1165,7 +1175,7 @@ class DescribeRemediationExecutionStatusRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_remediation_execution' function.
 class StartRemediationExecutionRequestTypeDef(BaseValidatorModel):
-    ConfigRuleName: str
+    ConfigRuleName: Annotated[str, _aws_pattern("Config", "ConfigRuleName")]
     ResourceKeys: List[ResourceKeyTypeDef]
 
 
@@ -1189,7 +1199,7 @@ class ComplianceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_aggregate_compliance_by_config_rules' function.
 class DescribeAggregateComplianceByConfigRulesRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
     Filters: Optional[ConfigRuleComplianceFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1197,7 +1207,7 @@ class DescribeAggregateComplianceByConfigRulesRequestTypeDef(BaseValidatorModel)
 
 # This class is the input for the 'get_aggregate_config_rule_compliance_summary' function.
 class GetAggregateConfigRuleComplianceSummaryRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
     Filters: Optional[ConfigRuleComplianceSummaryFiltersTypeDef] = None
     GroupByKey: Optional[ConfigRuleComplianceSummaryGroupKeyType] = None
     Limit: Optional[int] = None
@@ -1229,7 +1239,7 @@ class DeliveryChannelStatusTypeDef(BaseValidatorModel):
 
 class ConfigurationItemTypeDef(BaseValidatorModel):
     version: Optional[str] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     configurationItemCaptureTime: Optional[datetime] = None
     configurationItemStatus: Optional[ConfigurationItemStatusType] = None
     configurationStateId: Optional[str] = None
@@ -1272,7 +1282,7 @@ class ListConfigurationRecordersResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_conformance_pack_compliance' function.
 class DescribeConformancePackComplianceRequestTypeDef(BaseValidatorModel):
-    ConformancePackName: str
+    ConformancePackName: Annotated[str, _aws_pattern("Config", "ConformancePackName")]
     Filters: Optional[ConformancePackComplianceFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1302,28 +1312,28 @@ class GetConformancePackComplianceSummaryResponseTypeDef(BaseValidatorModel):
 
 
 class OrganizationConformancePackTypeDef(BaseValidatorModel):
-    OrganizationConformancePackName: str
+    OrganizationConformancePackName: Annotated[str, _aws_pattern("Config", "OrganizationConformancePackName")]
     OrganizationConformancePackArn: str
     LastUpdateTime: datetime
     DeliveryS3Bucket: Optional[str] = None
     DeliveryS3KeyPrefix: Optional[str] = None
     ConformancePackInputParameters: Optional[List[ConformancePackInputParameterTypeDef]] = None
-    ExcludedAccounts: Optional[List[str]] = None
+    ExcludedAccounts: Optional[List[Annotated[str, _aws_pattern("Config", "AccountId")]]] = None
 
 
 # This class is the input for the 'put_organization_conformance_pack' function.
 class PutOrganizationConformancePackRequestTypeDef(BaseValidatorModel):
-    OrganizationConformancePackName: str
-    TemplateS3Uri: Optional[str] = None
+    OrganizationConformancePackName: Annotated[str, _aws_pattern("Config", "OrganizationConformancePackName")]
+    TemplateS3Uri: Optional[Annotated[str, _aws_pattern("Config", "TemplateS3Uri")]] = None
     TemplateBody: Optional[str] = None
     DeliveryS3Bucket: Optional[str] = None
     DeliveryS3KeyPrefix: Optional[str] = None
     ConformancePackInputParameters: Optional[List[ConformancePackInputParameterTypeDef]] = None
-    ExcludedAccounts: Optional[List[str]] = None
+    ExcludedAccounts: Optional[List[Annotated[str, _aws_pattern("Config", "AccountId")]]] = None
 
 
 class ConformancePackDetailTypeDef(BaseValidatorModel):
-    ConformancePackName: str
+    ConformancePackName: Annotated[str, _aws_pattern("Config", "ConformancePackName")]
     ConformancePackArn: str
     ConformancePackId: str
     DeliveryS3Bucket: Optional[str] = None
@@ -1336,7 +1346,7 @@ class ConformancePackDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_conformance_pack_compliance_details' function.
 class GetConformancePackComplianceDetailsRequestTypeDef(BaseValidatorModel):
-    ConformancePackName: str
+    ConformancePackName: Annotated[str, _aws_pattern("Config", "ConformancePackName")]
     Filters: Optional[ConformancePackEvaluationFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1344,7 +1354,7 @@ class GetConformancePackComplianceDetailsRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_conformance_pack_compliance' function.
 class DescribeConformancePackComplianceResponseTypeDef(BaseValidatorModel):
-    ConformancePackName: str
+    ConformancePackName: Annotated[str, _aws_pattern("Config", "ConformancePackName")]
     ConformancePackRuleComplianceList: List[ConformancePackRuleComplianceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1359,13 +1369,13 @@ class DescribeConformancePackStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_remediation_exceptions' function.
 class DeleteRemediationExceptionsRequestTypeDef(BaseValidatorModel):
-    ConfigRuleName: str
+    ConfigRuleName: Annotated[str, _aws_pattern("Config", "ConfigRuleName")]
     ResourceKeys: List[RemediationExceptionResourceKeyTypeDef]
 
 
 # This class is the input for the 'describe_remediation_exceptions' function.
 class DescribeRemediationExceptionsRequestTypeDef(BaseValidatorModel):
-    ConfigRuleName: str
+    ConfigRuleName: Annotated[str, _aws_pattern("Config", "ConfigRuleName")]
     ResourceKeys: Optional[List[RemediationExceptionResourceKeyTypeDef]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1538,7 +1548,7 @@ class DescribeConfigRulesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_config_rules' function.
 class DescribeConfigRulesRequestTypeDef(BaseValidatorModel):
-    ConfigRuleNames: Optional[List[str]] = None
+    ConfigRuleNames: Optional[List[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]]] = None
     NextToken: Optional[str] = None
     Filters: Optional[DescribeConfigRulesFiltersTypeDef] = None
 
@@ -1639,7 +1649,7 @@ class GetResourceConfigHistoryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_remediation_exceptions' function.
 class PutRemediationExceptionsRequestTypeDef(BaseValidatorModel):
-    ConfigRuleName: str
+    ConfigRuleName: Annotated[str, _aws_pattern("Config", "ConfigRuleName")]
     ResourceKeys: List[RemediationExceptionResourceKeyTypeDef]
     Message: Optional[str] = None
     ExpirationTime: Optional[TimestampTypeDef] = None
@@ -1660,7 +1670,7 @@ class QueryInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_aggregate_discovered_resource_counts' function.
 class GetAggregateDiscoveredResourceCountsRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
     Filters: Optional[ResourceCountFiltersTypeDef] = None
     GroupByKey: Optional[ResourceCountGroupKeyType] = None
     Limit: Optional[int] = None
@@ -1692,7 +1702,7 @@ class GetOrganizationConfigRuleDetailedStatusRequestPaginateTypeDef(BaseValidato
 
 # This class is the input for the 'get_organization_config_rule_detailed_status' function.
 class GetOrganizationConfigRuleDetailedStatusRequestTypeDef(BaseValidatorModel):
-    OrganizationConfigRuleName: str
+    OrganizationConfigRuleName: Annotated[str, _aws_pattern("Config", "OrganizationConfigRuleName")]
     Filters: Optional[StatusDetailFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1713,7 +1723,7 @@ class GetOrganizationConformancePackDetailedStatusRequestPaginateTypeDef(BaseVal
 
 # This class is the input for the 'get_organization_conformance_pack_detailed_status' function.
 class GetOrganizationConformancePackDetailedStatusRequestTypeDef(BaseValidatorModel):
-    OrganizationConformancePackName: str
+    OrganizationConformancePackName: Annotated[str, _aws_pattern("Config", "OrganizationConformancePackName")]
     Filters: Optional[OrganizationResourceDetailedStatusFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1762,7 +1772,7 @@ class ListAggregateDiscoveredResourcesRequestPaginateTypeDef(BaseValidatorModel)
 
 # This class is the input for the 'list_aggregate_discovered_resources' function.
 class ListAggregateDiscoveredResourcesRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
     ResourceType: ResourceTypeType
     Filters: Optional[ResourceFiltersTypeDef] = None
     Limit: Optional[int] = None
@@ -1799,15 +1809,15 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_aggregation_authorization' function.
 class PutAggregationAuthorizationRequestTypeDef(BaseValidatorModel):
-    AuthorizedAccountId: str
+    AuthorizedAccountId: Annotated[str, _aws_pattern("Config", "AccountId")]
     AuthorizedAwsRegion: str
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'put_conformance_pack' function.
 class PutConformancePackRequestTypeDef(BaseValidatorModel):
-    ConformancePackName: str
-    TemplateS3Uri: Optional[str] = None
+    ConformancePackName: Annotated[str, _aws_pattern("Config", "ConformancePackName")]
+    TemplateS3Uri: Optional[Annotated[str, _aws_pattern("Config", "TemplateS3Uri")]] = None
     TemplateBody: Optional[str] = None
     DeliveryS3Bucket: Optional[str] = None
     DeliveryS3KeyPrefix: Optional[str] = None
@@ -1818,7 +1828,7 @@ class PutConformancePackRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_service_linked_configuration_recorder' function.
 class PutServiceLinkedConfigurationRecorderRequestTypeDef(BaseValidatorModel):
-    ServicePrincipal: str
+    ServicePrincipal: Annotated[str, _aws_pattern("Config", "ServicePrincipal")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1840,11 +1850,11 @@ OrganizationAggregationSourceUnionTypeDef = Union[
 
 
 class OrganizationConfigRuleTypeDef(BaseValidatorModel):
-    OrganizationConfigRuleName: str
+    OrganizationConfigRuleName: Annotated[str, _aws_pattern("Config", "OrganizationConfigRuleName")]
     OrganizationConfigRuleArn: str
     OrganizationManagedRuleMetadata: Optional[OrganizationManagedRuleMetadataOutputTypeDef] = None
     OrganizationCustomRuleMetadata: Optional[OrganizationCustomRuleMetadataOutputTypeDef] = None
-    ExcludedAccounts: Optional[List[str]] = None
+    ExcludedAccounts: Optional[List[Annotated[str, _aws_pattern("Config", "AccountId")]]] = None
     LastUpdateTime: Optional[datetime] = None
     OrganizationCustomPolicyRuleMetadata: Optional[OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef] = None
 
@@ -1930,8 +1940,8 @@ class GetAggregateConformancePackComplianceSummaryResponseTypeDef(BaseValidatorM
 
 
 class ConfigurationAggregatorTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: Optional[str] = None
-    ConfigurationAggregatorArn: Optional[str] = None
+    ConfigurationAggregatorName: Optional[Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]] = None
+    ConfigurationAggregatorArn: Optional[Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorArn")]] = None
     AccountAggregationSources: Optional[List[AccountAggregationSourceOutputTypeDef]] = None
     OrganizationAggregationSource: Optional[OrganizationAggregationSourceOutputTypeDef] = None
     CreationTime: Optional[datetime] = None
@@ -1959,9 +1969,9 @@ class GetComplianceSummaryByConfigRuleResponseTypeDef(BaseValidatorModel):
 
 
 class AggregateComplianceByConfigRuleTypeDef(BaseValidatorModel):
-    ConfigRuleName: Optional[str] = None
+    ConfigRuleName: Optional[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]] = None
     Compliance: Optional[ComplianceTypeDef] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     AwsRegion: Optional[str] = None
 
 
@@ -2038,7 +2048,7 @@ class AggregateEvaluationResultTypeDef(BaseValidatorModel):
     ResultRecordedTime: Optional[datetime] = None
     ConfigRuleInvokedTime: Optional[datetime] = None
     Annotation: Optional[str] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Config", "AccountId")]] = None
     AwsRegion: Optional[str] = None
 
 
@@ -2063,7 +2073,7 @@ EvaluationUnionTypeDef = Union[EvaluationOutputTypeDef, EvaluationTypeDef]
 
 
 class PutExternalEvaluationRequestTypeDef(BaseValidatorModel):
-    ConfigRuleName: str
+    ConfigRuleName: Annotated[str, _aws_pattern("Config", "ConfigRuleName")]
     ExternalEvaluation: ExternalEvaluationTypeDef
 
 
@@ -2098,10 +2108,10 @@ class DescribeOrganizationConfigRulesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_organization_config_rule' function.
 class PutOrganizationConfigRuleRequestTypeDef(BaseValidatorModel):
-    OrganizationConfigRuleName: str
+    OrganizationConfigRuleName: Annotated[str, _aws_pattern("Config", "OrganizationConfigRuleName")]
     OrganizationManagedRuleMetadata: Optional[OrganizationManagedRuleMetadataUnionTypeDef] = None
     OrganizationCustomRuleMetadata: Optional[OrganizationCustomRuleMetadataUnionTypeDef] = None
-    ExcludedAccounts: Optional[List[str]] = None
+    ExcludedAccounts: Optional[List[Annotated[str, _aws_pattern("Config", "AccountId")]]] = None
     OrganizationCustomPolicyRuleMetadata: Optional[OrganizationCustomPolicyRuleMetadataTypeDef] = None
 
 
@@ -2122,7 +2132,7 @@ class ConfigurationRecorderTypeDef(BaseValidatorModel):
     recordingGroup: Optional[RecordingGroupTypeDef] = None
     recordingMode: Optional[RecordingModeTypeDef] = None
     recordingScope: Optional[RecordingScopeType] = None
-    servicePrincipal: Optional[str] = None
+    servicePrincipal: Optional[Annotated[str, _aws_pattern("Config", "ServicePrincipal")]] = None
 
 
 # This class is the output for the 'describe_remediation_execution_status' function.
@@ -2163,7 +2173,7 @@ class ConfigRuleOutputTypeDef(BaseValidatorModel):
 
 class ConfigRuleTypeDef(BaseValidatorModel):
     Source: SourceTypeDef
-    ConfigRuleName: Optional[str] = None
+    ConfigRuleName: Optional[Annotated[str, _aws_pattern("Config", "ConfigRuleName")]] = None
     ConfigRuleArn: Optional[str] = None
     ConfigRuleId: Optional[str] = None
     Description: Optional[str] = None
@@ -2195,7 +2205,7 @@ class PutConfigurationAggregatorResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_configuration_aggregator' function.
 class PutConfigurationAggregatorRequestTypeDef(BaseValidatorModel):
-    ConfigurationAggregatorName: str
+    ConfigurationAggregatorName: Annotated[str, _aws_pattern("Config", "ConfigurationAggregatorName")]
     AccountAggregationSources: Optional[List[AccountAggregationSourceUnionTypeDef]] = None
     OrganizationAggregationSource: Optional[OrganizationAggregationSourceUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -2246,7 +2256,7 @@ class GetAggregateComplianceDetailsByConfigRuleResponseTypeDef(BaseValidatorMode
 
 # This class is the output for the 'get_conformance_pack_compliance_details' function.
 class GetConformancePackComplianceDetailsResponseTypeDef(BaseValidatorModel):
-    ConformancePackName: str
+    ConformancePackName: Annotated[str, _aws_pattern("Config", "ConformancePackName")]
     ConformancePackRuleEvaluationResults: List[ConformancePackEvaluationResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -2348,7 +2358,7 @@ class PutConfigRuleRequestTypeDef(BaseValidatorModel):
 
 
 class RemediationConfigurationTypeDef(BaseValidatorModel):
-    ConfigRuleName: str
+    ConfigRuleName: Annotated[str, _aws_pattern("Config", "ConfigRuleName")]
     TargetType: Literal["SSM_DOCUMENT"]
     TargetId: str
     TargetVersion: Optional[str] = None

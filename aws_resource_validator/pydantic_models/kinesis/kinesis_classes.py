@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kinesis.kinesis_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -41,30 +43,30 @@ except ImportError:  # pragma: no cover
 # This class is the input for the 'add_tags_to_stream' function.
 class AddTagsToStreamInputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class HashKeyRangeTypeDef(BaseValidatorModel):
-    StartingHashKey: str
-    EndingHashKey: str
+    StartingHashKey: Annotated[str, _aws_pattern("Kinesis", "HashKey")]
+    EndingHashKey: Annotated[str, _aws_pattern("Kinesis", "HashKey")]
 
 
 class ConsumerDescriptionTypeDef(BaseValidatorModel):
-    ConsumerName: str
-    ConsumerARN: str
+    ConsumerName: Annotated[str, _aws_pattern("Kinesis", "ConsumerName")]
+    ConsumerARN: Annotated[str, _aws_pattern("Kinesis", "ConsumerARN")]
     ConsumerStatus: ConsumerStatusType
     ConsumerCreationTimestamp: datetime
-    StreamARN: str
+    StreamARN: Annotated[str, _aws_pattern("Kinesis", "StreamARN")]
 
 
 class ConsumerTypeDef(BaseValidatorModel):
-    ConsumerName: str
-    ConsumerARN: str
+    ConsumerName: Annotated[str, _aws_pattern("Kinesis", "ConsumerName")]
+    ConsumerARN: Annotated[str, _aws_pattern("Kinesis", "ConsumerARN")]
     ConsumerStatus: ConsumerStatusType
     ConsumerCreationTimestamp: datetime
 
@@ -76,31 +78,31 @@ class StreamModeDetailsTypeDef(BaseValidatorModel):
 # This class is the input for the 'decrease_stream_retention_period' function.
 class DecreaseStreamRetentionPeriodInputTypeDef(BaseValidatorModel):
     RetentionPeriodHours: int
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    StreamId: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesis", "ResourceARN")]
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'delete_stream' function.
 class DeleteStreamInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
     EnforceConsumerDeletion: Optional[bool] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'deregister_stream_consumer' function.
 class DeregisterStreamConsumerInputTypeDef(BaseValidatorModel):
-    StreamARN: Optional[str] = None
-    ConsumerName: Optional[str] = None
-    ConsumerARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    ConsumerName: Optional[Annotated[str, _aws_pattern("Kinesis", "ConsumerName")]] = None
+    ConsumerARN: Optional[Annotated[str, _aws_pattern("Kinesis", "ConsumerARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class MinimumThroughputBillingCommitmentOutputTypeDef(BaseValidatorModel):
@@ -120,10 +122,10 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_stream_consumer' function.
 class DescribeStreamConsumerInputTypeDef(BaseValidatorModel):
-    StreamARN: Optional[str] = None
-    ConsumerName: Optional[str] = None
-    ConsumerARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    ConsumerName: Optional[Annotated[str, _aws_pattern("Kinesis", "ConsumerName")]] = None
+    ConsumerARN: Optional[Annotated[str, _aws_pattern("Kinesis", "ConsumerARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -134,11 +136,11 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_stream' function.
 class DescribeStreamInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
     Limit: Optional[int] = None
-    ExclusiveStartShardId: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    ExclusiveStartShardId: Optional[Annotated[str, _aws_pattern("Kinesis", "ShardId")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -148,25 +150,25 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_stream_summary' function.
 class DescribeStreamSummaryInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'disable_enhanced_monitoring' function.
 class DisableEnhancedMonitoringInputTypeDef(BaseValidatorModel):
     ShardLevelMetrics: List[MetricsNameType]
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'enable_enhanced_monitoring' function.
 class EnableEnhancedMonitoringInputTypeDef(BaseValidatorModel):
     ShardLevelMetrics: List[MetricsNameType]
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class EnhancedMetricsTypeDef(BaseValidatorModel):
@@ -177,12 +179,12 @@ class EnhancedMetricsTypeDef(BaseValidatorModel):
 class GetRecordsInputTypeDef(BaseValidatorModel):
     ShardIterator: str
     Limit: Optional[int] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class RecordTypeDef(BaseValidatorModel):
-    SequenceNumber: str
+    SequenceNumber: Annotated[str, _aws_pattern("Kinesis", "SequenceNumber")]
     Data: bytes
     PartitionKey: str
     ApproximateArrivalTimestamp: Optional[datetime] = None
@@ -191,8 +193,8 @@ class RecordTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    StreamId: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesis", "ResourceARN")]
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -201,9 +203,9 @@ TimestampTypeDef = Union[datetime, str]
 # This class is the input for the 'increase_stream_retention_period' function.
 class IncreaseStreamRetentionPeriodInputTypeDef(BaseValidatorModel):
     RetentionPeriodHours: int
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class InternalFailureExceptionTypeDef(BaseValidatorModel):
@@ -237,14 +239,14 @@ class KMSThrottlingExceptionTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_streams' function.
 class ListStreamsInputTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
-    ExclusiveStartStreamName: Optional[str] = None
+    ExclusiveStartStreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    StreamId: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesis", "ResourceARN")]
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -254,20 +256,20 @@ class TagTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_stream' function.
 class ListTagsForStreamInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
     ExclusiveStartTagKey: Optional[str] = None
     Limit: Optional[int] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'merge_shards' function.
 class MergeShardsInputTypeDef(BaseValidatorModel):
-    ShardToMerge: str
-    AdjacentShardToMerge: str
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    ShardToMerge: Annotated[str, _aws_pattern("Kinesis", "ShardId")]
+    AdjacentShardToMerge: Annotated[str, _aws_pattern("Kinesis", "ShardId")]
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class MinimumThroughputBillingCommitmentInputTypeDef(BaseValidatorModel):
@@ -275,33 +277,33 @@ class MinimumThroughputBillingCommitmentInputTypeDef(BaseValidatorModel):
 
 
 class PutRecordsResultEntryTypeDef(BaseValidatorModel):
-    SequenceNumber: Optional[str] = None
-    ShardId: Optional[str] = None
+    SequenceNumber: Optional[Annotated[str, _aws_pattern("Kinesis", "SequenceNumber")]] = None
+    ShardId: Optional[Annotated[str, _aws_pattern("Kinesis", "ShardId")]] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesis", "ResourceARN")]
     Policy: str
-    StreamId: Optional[str] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'register_stream_consumer' function.
 class RegisterStreamConsumerInputTypeDef(BaseValidatorModel):
-    StreamARN: str
-    ConsumerName: str
-    StreamId: Optional[str] = None
+    StreamARN: Annotated[str, _aws_pattern("Kinesis", "StreamARN")]
+    ConsumerName: Annotated[str, _aws_pattern("Kinesis", "ConsumerName")]
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'remove_tags_from_stream' function.
 class RemoveTagsFromStreamInputTypeDef(BaseValidatorModel):
     TagKeys: List[str]
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class ResourceInUseExceptionTypeDef(BaseValidatorModel):
@@ -313,35 +315,35 @@ class ResourceNotFoundExceptionTypeDef(BaseValidatorModel):
 
 
 class SequenceNumberRangeTypeDef(BaseValidatorModel):
-    StartingSequenceNumber: str
-    EndingSequenceNumber: Optional[str] = None
+    StartingSequenceNumber: Annotated[str, _aws_pattern("Kinesis", "SequenceNumber")]
+    EndingSequenceNumber: Optional[Annotated[str, _aws_pattern("Kinesis", "SequenceNumber")]] = None
 
 
 # This class is the input for the 'split_shard' function.
 class SplitShardInputTypeDef(BaseValidatorModel):
-    ShardToSplit: str
-    NewStartingHashKey: str
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    ShardToSplit: Annotated[str, _aws_pattern("Kinesis", "ShardId")]
+    NewStartingHashKey: Annotated[str, _aws_pattern("Kinesis", "HashKey")]
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'start_stream_encryption' function.
 class StartStreamEncryptionInputTypeDef(BaseValidatorModel):
     EncryptionType: EncryptionTypeType
     KeyId: str
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'stop_stream_encryption' function.
 class StopStreamEncryptionInputTypeDef(BaseValidatorModel):
     EncryptionType: EncryptionTypeType
     KeyId: str
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class WarmThroughputObjectTypeDef(BaseValidatorModel):
@@ -352,67 +354,67 @@ class WarmThroughputObjectTypeDef(BaseValidatorModel):
 # This class is the input for the 'tag_resource' function.
 class TagResourceInputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResourceARN: str
-    StreamId: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesis", "ResourceARN")]
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceInputTypeDef(BaseValidatorModel):
     TagKeys: List[str]
-    ResourceARN: str
-    StreamId: Optional[str] = None
+    ResourceARN: Annotated[str, _aws_pattern("Kinesis", "ResourceARN")]
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'update_max_record_size' function.
 class UpdateMaxRecordSizeInputTypeDef(BaseValidatorModel):
     MaxRecordSizeInKiB: int
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'update_shard_count' function.
 class UpdateShardCountInputTypeDef(BaseValidatorModel):
     TargetShardCount: int
     ScalingType: Literal["UNIFORM_SCALING"]
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'update_stream_warm_throughput' function.
 class UpdateStreamWarmThroughputInputTypeDef(BaseValidatorModel):
     WarmThroughputMiBps: int
-    StreamARN: Optional[str] = None
-    StreamName: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'put_record' function.
 class PutRecordInputTypeDef(BaseValidatorModel):
     Data: BlobTypeDef
     PartitionKey: str
-    StreamName: Optional[str] = None
-    ExplicitHashKey: Optional[str] = None
-    SequenceNumberForOrdering: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    ExplicitHashKey: Optional[Annotated[str, _aws_pattern("Kinesis", "HashKey")]] = None
+    SequenceNumberForOrdering: Optional[Annotated[str, _aws_pattern("Kinesis", "SequenceNumber")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class PutRecordsRequestEntryTypeDef(BaseValidatorModel):
     Data: BlobTypeDef
     PartitionKey: str
-    ExplicitHashKey: Optional[str] = None
+    ExplicitHashKey: Optional[Annotated[str, _aws_pattern("Kinesis", "HashKey")]] = None
 
 
 class ChildShardTypeDef(BaseValidatorModel):
-    ShardId: str
-    ParentShards: List[str]
+    ShardId: Annotated[str, _aws_pattern("Kinesis", "ShardId")]
+    ParentShards: List[Annotated[str, _aws_pattern("Kinesis", "ShardId")]]
     HashKeyRange: HashKeyRangeTypeDef
 
 
 # This class is the input for the 'create_stream' function.
 class CreateStreamInputTypeDef(BaseValidatorModel):
-    StreamName: str
+    StreamName: Annotated[str, _aws_pattern("Kinesis", "StreamName")]
     ShardCount: Optional[int] = None
     StreamModeDetails: Optional[StreamModeDetailsTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
@@ -421,8 +423,8 @@ class CreateStreamInputTypeDef(BaseValidatorModel):
 
 
 class StreamSummaryTypeDef(BaseValidatorModel):
-    StreamName: str
-    StreamARN: str
+    StreamName: Annotated[str, _aws_pattern("Kinesis", "StreamName")]
+    StreamARN: Annotated[str, _aws_pattern("Kinesis", "StreamARN")]
     StreamStatus: StreamStatusType
     StreamModeDetails: Optional[StreamModeDetailsTypeDef] = None
     StreamCreationTimestamp: Optional[datetime] = None
@@ -430,9 +432,9 @@ class StreamSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_stream_mode' function.
 class UpdateStreamModeInputTypeDef(BaseValidatorModel):
-    StreamARN: str
+    StreamARN: Annotated[str, _aws_pattern("Kinesis", "StreamARN")]
     StreamModeDetails: StreamModeDetailsTypeDef
-    StreamId: Optional[str] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
     WarmThroughputMiBps: Optional[int] = None
 
 
@@ -462,10 +464,10 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'disable_enhanced_monitoring' function.
 class EnhancedMonitoringOutputTypeDef(BaseValidatorModel):
-    StreamName: str
+    StreamName: Annotated[str, _aws_pattern("Kinesis", "StreamName")]
     CurrentShardLevelMetrics: List[MetricsNameType]
     DesiredShardLevelMetrics: List[MetricsNameType]
-    StreamARN: str
+    StreamARN: Annotated[str, _aws_pattern("Kinesis", "StreamARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -490,8 +492,8 @@ class ListStreamConsumersOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_record' function.
 class PutRecordOutputTypeDef(BaseValidatorModel):
-    ShardId: str
-    SequenceNumber: str
+    ShardId: Annotated[str, _aws_pattern("Kinesis", "ShardId")]
+    SequenceNumber: Annotated[str, _aws_pattern("Kinesis", "SequenceNumber")]
     EncryptionType: EncryptionTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -510,10 +512,10 @@ class UpdateAccountSettingsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_shard_count' function.
 class UpdateShardCountOutputTypeDef(BaseValidatorModel):
-    StreamName: str
+    StreamName: Annotated[str, _aws_pattern("Kinesis", "StreamName")]
     CurrentShardCount: int
     TargetShardCount: int
-    StreamARN: str
+    StreamARN: Annotated[str, _aws_pattern("Kinesis", "StreamARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -549,13 +551,13 @@ class DescribeStreamInputWaitTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_shard_iterator' function.
 class GetShardIteratorInputTypeDef(BaseValidatorModel):
-    ShardId: str
+    ShardId: Annotated[str, _aws_pattern("Kinesis", "ShardId")]
     ShardIteratorType: ShardIteratorTypeType
-    StreamName: Optional[str] = None
-    StartingSequenceNumber: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StartingSequenceNumber: Optional[Annotated[str, _aws_pattern("Kinesis", "SequenceNumber")]] = None
     Timestamp: Optional[TimestampTypeDef] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class ListStreamConsumersInputPaginateTypeDef(BaseValidatorModel):
@@ -567,22 +569,22 @@ class ListStreamConsumersInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_stream_consumers' function.
 class ListStreamConsumersInputTypeDef(BaseValidatorModel):
-    StreamARN: str
+    StreamARN: Annotated[str, _aws_pattern("Kinesis", "StreamARN")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     StreamCreationTimestamp: Optional[TimestampTypeDef] = None
-    StreamId: Optional[str] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 class ShardFilterTypeDef(BaseValidatorModel):
     Type: ShardFilterTypeType
-    ShardId: Optional[str] = None
+    ShardId: Optional[Annotated[str, _aws_pattern("Kinesis", "ShardId")]] = None
     Timestamp: Optional[TimestampTypeDef] = None
 
 
 class StartingPositionTypeDef(BaseValidatorModel):
     Type: ShardIteratorTypeType
-    SequenceNumber: Optional[str] = None
+    SequenceNumber: Optional[Annotated[str, _aws_pattern("Kinesis", "SequenceNumber")]] = None
     Timestamp: Optional[TimestampTypeDef] = None
 
 
@@ -613,22 +615,22 @@ class PutRecordsOutputTypeDef(BaseValidatorModel):
 
 
 class ShardTypeDef(BaseValidatorModel):
-    ShardId: str
+    ShardId: Annotated[str, _aws_pattern("Kinesis", "ShardId")]
     HashKeyRange: HashKeyRangeTypeDef
     SequenceNumberRange: SequenceNumberRangeTypeDef
-    ParentShardId: Optional[str] = None
-    AdjacentParentShardId: Optional[str] = None
+    ParentShardId: Optional[Annotated[str, _aws_pattern("Kinesis", "ShardId")]] = None
+    AdjacentParentShardId: Optional[Annotated[str, _aws_pattern("Kinesis", "ShardId")]] = None
 
 
 class StreamDescriptionSummaryTypeDef(BaseValidatorModel):
-    StreamName: str
-    StreamARN: str
+    StreamName: Annotated[str, _aws_pattern("Kinesis", "StreamName")]
+    StreamARN: Annotated[str, _aws_pattern("Kinesis", "StreamARN")]
     StreamStatus: StreamStatusType
     RetentionPeriodHours: int
     StreamCreationTimestamp: datetime
     EnhancedMonitoring: List[EnhancedMetricsTypeDef]
     OpenShardCount: int
-    StreamId: Optional[str] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
     StreamModeDetails: Optional[StreamModeDetailsTypeDef] = None
     EncryptionType: Optional[EncryptionTypeType] = None
     KeyId: Optional[str] = None
@@ -639,8 +641,8 @@ class StreamDescriptionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_stream_warm_throughput' function.
 class UpdateStreamWarmThroughputOutputTypeDef(BaseValidatorModel):
-    StreamARN: str
-    StreamName: str
+    StreamARN: Annotated[str, _aws_pattern("Kinesis", "StreamARN")]
+    StreamName: Annotated[str, _aws_pattern("Kinesis", "StreamName")]
     WarmThroughput: WarmThroughputObjectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -648,9 +650,9 @@ class UpdateStreamWarmThroughputOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'put_records' function.
 class PutRecordsInputTypeDef(BaseValidatorModel):
     Records: List[PutRecordsRequestEntryTypeDef]
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the output for the 'get_records' function.
@@ -664,14 +666,14 @@ class GetRecordsOutputTypeDef(BaseValidatorModel):
 
 class SubscribeToShardEventTypeDef(BaseValidatorModel):
     Records: List[RecordTypeDef]
-    ContinuationSequenceNumber: str
+    ContinuationSequenceNumber: Annotated[str, _aws_pattern("Kinesis", "SequenceNumber")]
     MillisBehindLatest: int
     ChildShards: Optional[List[ChildShardTypeDef]] = None
 
 
 # This class is the output for the 'list_streams' function.
 class ListStreamsOutputTypeDef(BaseValidatorModel):
-    StreamNames: List[str]
+    StreamNames: List[Annotated[str, _aws_pattern("Kinesis", "StreamName")]]
     HasMoreStreams: bool
     StreamSummaries: List[StreamSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -690,22 +692,22 @@ class ListShardsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_shards' function.
 class ListShardsInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamName")]] = None
     NextToken: Optional[str] = None
-    ExclusiveStartShardId: Optional[str] = None
+    ExclusiveStartShardId: Optional[Annotated[str, _aws_pattern("Kinesis", "ShardId")]] = None
     MaxResults: Optional[int] = None
     StreamCreationTimestamp: Optional[TimestampTypeDef] = None
     ShardFilter: Optional[ShardFilterTypeDef] = None
-    StreamARN: Optional[str] = None
-    StreamId: Optional[str] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamARN")]] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the input for the 'subscribe_to_shard' function.
 class SubscribeToShardInputTypeDef(BaseValidatorModel):
-    ConsumerARN: str
-    ShardId: str
+    ConsumerARN: Annotated[str, _aws_pattern("Kinesis", "ConsumerARN")]
+    ShardId: Annotated[str, _aws_pattern("Kinesis", "ShardId")]
     StartingPosition: StartingPositionTypeDef
-    StreamId: Optional[str] = None
+    StreamId: Optional[Annotated[str, _aws_pattern("Kinesis", "StreamId")]] = None
 
 
 # This class is the output for the 'list_shards' function.
@@ -716,8 +718,8 @@ class ListShardsOutputTypeDef(BaseValidatorModel):
 
 
 class StreamDescriptionTypeDef(BaseValidatorModel):
-    StreamName: str
-    StreamARN: str
+    StreamName: Annotated[str, _aws_pattern("Kinesis", "StreamName")]
+    StreamARN: Annotated[str, _aws_pattern("Kinesis", "StreamARN")]
     StreamStatus: StreamStatusType
     Shards: List[ShardTypeDef]
     HasMoreShards: bool

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ecs.ecs_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -113,8 +115,8 @@ class CapacityProviderStrategyItemTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
-    value: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("Ecs", "TagKey")]] = None
+    value: Optional[Annotated[str, _aws_pattern("Ecs", "TagValue")]] = None
 
 
 class CapacityReservationRequestTypeDef(BaseValidatorModel):
@@ -1172,7 +1174,7 @@ class TmpfsTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Ecs", "TagKey")]]
 
 
 # This class is the input for the 'update_container_agent' function.
@@ -1838,7 +1840,7 @@ class InstanceRequirementsRequestTypeDef(BaseValidatorModel):
     memoryMiB: MemoryMiBRequestTypeDef
     cpuManufacturers: Optional[List[CpuManufacturerType]] = None
     memoryGiBPerVCpu: Optional[MemoryGiBPerVCpuRequestTypeDef] = None
-    excludedInstanceTypes: Optional[List[str]] = None
+    excludedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Ecs", "ExcludedInstanceType")]]] = None
     instanceGenerations: Optional[List[InstanceGenerationType]] = None
     spotMaxPricePercentageOverLowestPrice: Optional[int] = None
     onDemandMaxPricePercentageOverLowestPrice: Optional[int] = None
@@ -1856,7 +1858,7 @@ class InstanceRequirementsRequestTypeDef(BaseValidatorModel):
     acceleratorNames: Optional[List[AcceleratorNameType]] = None
     acceleratorTotalMemoryMiB: Optional[AcceleratorTotalMemoryMiBRequestTypeDef] = None
     networkBandwidthGbps: Optional[NetworkBandwidthGbpsRequestTypeDef] = None
-    allowedInstanceTypes: Optional[List[str]] = None
+    allowedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Ecs", "AllowedInstanceType")]]] = None
     maxSpotPriceAsPercentageOfOptimalOnDemandPrice: Optional[int] = None
 
 

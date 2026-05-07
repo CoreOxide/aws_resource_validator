@@ -2,7 +2,7 @@
 # Do not edit manually; run `arv-generate pipeline-b` to refresh it.
 from typing import Literal
 
-AcceleratorNameType = Literal["a10g", "l4", "l40s", "t4"]
+AcceleratorNameType = Literal["a10g", "l4", "l40s", "rtx-pro-server-6000", "t4"]
 AcceleratorTypeType = Literal["gpu"]
 AutoScalingModeType = Literal["EVENT_BASED_AUTO_SCALING", "NO_SCALING"]
 AutoScalingStatusType = Literal["GROWING", "SHRINKING", "STEADY"]

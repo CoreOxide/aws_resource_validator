@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.amp.amp_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,7 +46,7 @@ class AlertManagerDefinitionStatusTypeDef(BaseValidatorModel):
 
 
 class AmpConfigurationTypeDef(BaseValidatorModel):
-    workspaceArn: str
+    workspaceArn: Annotated[str, _aws_pattern("Amp", "WorkspaceArn")]
 
 
 class AnomalyDetectorMissingDataActionTypeDef(BaseValidatorModel):
@@ -61,7 +63,7 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class CloudWatchLogDestinationTypeDef(BaseValidatorModel):
-    logGroupArn: str
+    logGroupArn: Annotated[str, _aws_pattern("Amp", "LogGroupArn")]
 
 
 class ComponentConfigOutputTypeDef(BaseValidatorModel):
@@ -82,9 +84,9 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_logging_configuration' function.
 class CreateLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    logGroupArn: str
-    clientToken: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    logGroupArn: Annotated[str, _aws_pattern("Amp", "LogGroupArn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 class LoggingConfigurationStatusTypeDef(BaseValidatorModel):
@@ -103,8 +105,8 @@ class RuleGroupsNamespaceStatusTypeDef(BaseValidatorModel):
 
 
 class RoleConfigurationTypeDef(BaseValidatorModel):
-    sourceRoleArn: Optional[str] = None
-    targetRoleArn: Optional[str] = None
+    sourceRoleArn: Optional[Annotated[str, _aws_pattern("Amp", "IamRoleArn")]] = None
+    targetRoleArn: Optional[Annotated[str, _aws_pattern("Amp", "IamRoleArn")]] = None
 
 
 class ScraperStatusTypeDef(BaseValidatorModel):
@@ -114,9 +116,9 @@ class ScraperStatusTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_workspace' function.
 class CreateWorkspaceRequestTypeDef(BaseValidatorModel):
     alias: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
     tags: Optional[Dict[str, str]] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Amp", "KmsKeyArn")]] = None
 
 
 class WorkspaceStatusTypeDef(BaseValidatorModel):
@@ -125,70 +127,70 @@ class WorkspaceStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_alert_manager_definition' function.
 class DeleteAlertManagerDefinitionRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    clientToken: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'delete_anomaly_detector' function.
 class DeleteAnomalyDetectorRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    anomalyDetectorId: str
-    clientToken: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    anomalyDetectorId: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'delete_logging_configuration' function.
 class DeleteLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    clientToken: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'delete_query_logging_configuration' function.
 class DeleteQueryLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    clientToken: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    clientToken: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
     revisionId: Optional[str] = None
 
 
 # This class is the input for the 'delete_rule_groups_namespace' function.
 class DeleteRuleGroupsNamespaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    name: str
-    clientToken: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    name: Annotated[str, _aws_pattern("Amp", "RuleGroupsNamespaceName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'delete_scraper_logging_configuration' function.
 class DeleteScraperLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    scraperId: str
-    clientToken: Optional[str] = None
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'delete_scraper' function.
 class DeleteScraperRequestTypeDef(BaseValidatorModel):
-    scraperId: str
-    clientToken: Optional[str] = None
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'delete_workspace' function.
 class DeleteWorkspaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    clientToken: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'describe_alert_manager_definition' function.
 class DescribeAlertManagerDefinitionRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
 
 
 # This class is the input for the 'describe_anomaly_detector' function.
 class DescribeAnomalyDetectorRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    anomalyDetectorId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    anomalyDetectorId: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -198,28 +200,28 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_logging_configuration' function.
 class DescribeLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
 
 
 # This class is the input for the 'describe_query_logging_configuration' function.
 class DescribeQueryLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
 
 
 # This class is the input for the 'describe_resource_policy' function.
 class DescribeResourcePolicyRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
 
 
 # This class is the input for the 'describe_rule_groups_namespace' function.
 class DescribeRuleGroupsNamespaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    name: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    name: Annotated[str, _aws_pattern("Amp", "RuleGroupsNamespaceName")]
 
 
 # This class is the input for the 'describe_scraper_logging_configuration' function.
 class DescribeScraperLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    scraperId: str
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
 
 
 class ScraperLoggingConfigurationStatusTypeDef(BaseValidatorModel):
@@ -229,17 +231,17 @@ class ScraperLoggingConfigurationStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_scraper' function.
 class DescribeScraperRequestTypeDef(BaseValidatorModel):
-    scraperId: str
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
 
 
 # This class is the input for the 'describe_workspace_configuration' function.
 class DescribeWorkspaceConfigurationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
 
 
 # This class is the input for the 'describe_workspace' function.
 class DescribeWorkspaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
 
 
 class EksConfigurationOutputTypeDef(BaseValidatorModel):
@@ -249,9 +251,9 @@ class EksConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class EksConfigurationTypeDef(BaseValidatorModel):
-    clusterArn: str
-    subnetIds: List[str]
-    securityGroupIds: Optional[List[str]] = None
+    clusterArn: Annotated[str, _aws_pattern("Amp", "ClusterArn")]
+    subnetIds: List[Annotated[str, _aws_pattern("Amp", "SubnetId")]]
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("Amp", "SecurityGroupId")]]] = None
 
 
 class IgnoreNearExpectedTypeDef(BaseValidatorModel):
@@ -271,16 +273,16 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_anomaly_detectors' function.
 class ListAnomalyDetectorsRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    alias: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    alias: Optional[Annotated[str, _aws_pattern("Amp", "AnomalyDetectorAlias")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_rule_groups_namespaces' function.
 class ListRuleGroupsNamespacesRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    name: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    name: Optional[Annotated[str, _aws_pattern("Amp", "RuleGroupsNamespaceName")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -310,9 +312,9 @@ class LoggingFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
     policyDocument: str
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
     revisionId: Optional[str] = None
 
 
@@ -326,8 +328,8 @@ class VpcConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class VpcConfigurationTypeDef(BaseValidatorModel):
-    securityGroupIds: List[str]
-    subnetIds: List[str]
+    securityGroupIds: List[Annotated[str, _aws_pattern("Amp", "SecurityGroupId")]]
+    subnetIds: List[Annotated[str, _aws_pattern("Amp", "SubnetId")]]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
@@ -337,21 +339,21 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Amp", "TagKey")]]
 
 
 # This class is the input for the 'update_logging_configuration' function.
 class UpdateLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    logGroupArn: str
-    clientToken: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    logGroupArn: Annotated[str, _aws_pattern("Amp", "LogGroupArn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'update_workspace_alias' function.
 class UpdateWorkspaceAliasRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
     alias: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 class WorkspaceConfigurationStatusTypeDef(BaseValidatorModel):
@@ -371,9 +373,9 @@ class DestinationTypeDef(BaseValidatorModel):
 
 
 class AnomalyDetectorSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    anomalyDetectorId: str
-    alias: str
+    arn: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorArn")]
+    anomalyDetectorId: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorId")]
+    alias: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorAlias")]
     status: AnomalyDetectorStatusTypeDef
     createdAt: datetime
     modifiedAt: datetime
@@ -382,33 +384,33 @@ class AnomalyDetectorSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_alert_manager_definition' function.
 class CreateAlertManagerDefinitionRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
     data: BlobTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'create_rule_groups_namespace' function.
 class CreateRuleGroupsNamespaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    name: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    name: Annotated[str, _aws_pattern("Amp", "RuleGroupsNamespaceName")]
     data: BlobTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'put_alert_manager_definition' function.
 class PutAlertManagerDefinitionRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
     data: BlobTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'put_rule_groups_namespace' function.
 class PutRuleGroupsNamespaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    name: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    name: Annotated[str, _aws_pattern("Amp", "RuleGroupsNamespaceName")]
     data: BlobTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 class ScrapeConfigurationTypeDef(BaseValidatorModel):
@@ -435,8 +437,8 @@ class CreateAlertManagerDefinitionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_anomaly_detector' function.
 class CreateAnomalyDetectorResponseTypeDef(BaseValidatorModel):
-    anomalyDetectorId: str
-    arn: str
+    anomalyDetectorId: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorId")]
+    arn: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorArn")]
     status: AnomalyDetectorStatusTypeDef
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -474,8 +476,8 @@ class PutAlertManagerDefinitionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_anomaly_detector' function.
 class PutAnomalyDetectorResponseTypeDef(BaseValidatorModel):
-    anomalyDetectorId: str
-    arn: str
+    anomalyDetectorId: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorId")]
+    arn: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorArn")]
     status: AnomalyDetectorStatusTypeDef
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -496,8 +498,8 @@ class CreateLoggingConfigurationResponseTypeDef(BaseValidatorModel):
 
 class LoggingConfigurationMetadataTypeDef(BaseValidatorModel):
     status: LoggingConfigurationStatusTypeDef
-    workspace: str
-    logGroupArn: str
+    workspace: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    logGroupArn: Annotated[str, _aws_pattern("Amp", "LogGroupArn")]
     createdAt: datetime
     modifiedAt: datetime
 
@@ -522,7 +524,7 @@ class UpdateQueryLoggingConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_rule_groups_namespace' function.
 class CreateRuleGroupsNamespaceResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Amp", "RuleGroupsNamespaceName")]
     arn: str
     status: RuleGroupsNamespaceStatusTypeDef
     tags: Dict[str, str]
@@ -531,7 +533,7 @@ class CreateRuleGroupsNamespaceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_rule_groups_namespace' function.
 class PutRuleGroupsNamespaceResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Amp", "RuleGroupsNamespaceName")]
     arn: str
     status: RuleGroupsNamespaceStatusTypeDef
     tags: Dict[str, str]
@@ -540,7 +542,7 @@ class PutRuleGroupsNamespaceResponseTypeDef(BaseValidatorModel):
 
 class RuleGroupsNamespaceDescriptionTypeDef(BaseValidatorModel):
     arn: str
-    name: str
+    name: Annotated[str, _aws_pattern("Amp", "RuleGroupsNamespaceName")]
     status: RuleGroupsNamespaceStatusTypeDef
     data: bytes
     createdAt: datetime
@@ -550,7 +552,7 @@ class RuleGroupsNamespaceDescriptionTypeDef(BaseValidatorModel):
 
 class RuleGroupsNamespaceSummaryTypeDef(BaseValidatorModel):
     arn: str
-    name: str
+    name: Annotated[str, _aws_pattern("Amp", "RuleGroupsNamespaceName")]
     status: RuleGroupsNamespaceStatusTypeDef
     createdAt: datetime
     modifiedAt: datetime
@@ -559,7 +561,7 @@ class RuleGroupsNamespaceSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_scraper' function.
 class CreateScraperResponseTypeDef(BaseValidatorModel):
-    scraperId: str
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
     arn: str
     status: ScraperStatusTypeDef
     tags: Dict[str, str]
@@ -568,14 +570,14 @@ class CreateScraperResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_scraper' function.
 class DeleteScraperResponseTypeDef(BaseValidatorModel):
-    scraperId: str
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
     status: ScraperStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_scraper' function.
 class UpdateScraperResponseTypeDef(BaseValidatorModel):
-    scraperId: str
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
     arn: str
     status: ScraperStatusTypeDef
     tags: Dict[str, str]
@@ -584,33 +586,33 @@ class UpdateScraperResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_workspace' function.
 class CreateWorkspaceResponseTypeDef(BaseValidatorModel):
-    workspaceId: str
-    arn: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    arn: Annotated[str, _aws_pattern("Amp", "WorkspaceArn")]
     status: WorkspaceStatusTypeDef
     tags: Dict[str, str]
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Amp", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class WorkspaceDescriptionTypeDef(BaseValidatorModel):
-    workspaceId: str
-    arn: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    arn: Annotated[str, _aws_pattern("Amp", "WorkspaceArn")]
     status: WorkspaceStatusTypeDef
     createdAt: datetime
     alias: Optional[str] = None
     prometheusEndpoint: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Amp", "KmsKeyArn")]] = None
 
 
 class WorkspaceSummaryTypeDef(BaseValidatorModel):
-    workspaceId: str
-    arn: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    arn: Annotated[str, _aws_pattern("Amp", "WorkspaceArn")]
     status: WorkspaceStatusTypeDef
     createdAt: datetime
     alias: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Amp", "KmsKeyArn")]] = None
 
 
 class DescribeAnomalyDetectorRequestWaitExtraTypeDef(BaseValidatorModel):
@@ -731,7 +733,7 @@ ScrapeConfigurationUnionTypeDef = Union[ScrapeConfigurationOutputTypeDef, Scrape
 # This class is the output for the 'describe_scraper_logging_configuration' function.
 class DescribeScraperLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     status: ScraperLoggingConfigurationStatusTypeDef
-    scraperId: str
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
     loggingDestination: ScraperLoggingDestinationTypeDef
     scraperComponents: List[ScraperComponentOutputTypeDef]
     modifiedAt: datetime
@@ -790,14 +792,14 @@ LimitsPerLabelSetUnionTypeDef = Union[LimitsPerLabelSetOutputTypeDef, LimitsPerL
 
 # This class is the input for the 'create_query_logging_configuration' function.
 class CreateQueryLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
     destinations: List[LoggingDestinationTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 class QueryLoggingConfigurationMetadataTypeDef(BaseValidatorModel):
     status: QueryLoggingConfigurationStatusTypeDef
-    workspace: str
+    workspace: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
     destinations: List[LoggingDestinationTypeDef]
     createdAt: datetime
     modifiedAt: datetime
@@ -805,37 +807,37 @@ class QueryLoggingConfigurationMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_query_logging_configuration' function.
 class UpdateQueryLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
     destinations: List[LoggingDestinationTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 class ScraperDescriptionTypeDef(BaseValidatorModel):
-    scraperId: str
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
     arn: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Amp", "IamRoleArn")]
     status: ScraperStatusTypeDef
     createdAt: datetime
     lastModifiedAt: datetime
     scrapeConfiguration: ScrapeConfigurationOutputTypeDef
     source: SourceOutputTypeDef
     destination: DestinationTypeDef
-    alias: Optional[str] = None
+    alias: Optional[Annotated[str, _aws_pattern("Amp", "ScraperAlias")]] = None
     tags: Optional[Dict[str, str]] = None
     statusReason: Optional[str] = None
     roleConfiguration: Optional[RoleConfigurationTypeDef] = None
 
 
 class ScraperSummaryTypeDef(BaseValidatorModel):
-    scraperId: str
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
     arn: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Amp", "IamRoleArn")]
     status: ScraperStatusTypeDef
     createdAt: datetime
     lastModifiedAt: datetime
     source: SourceOutputTypeDef
     destination: DestinationTypeDef
-    alias: Optional[str] = None
+    alias: Optional[Annotated[str, _aws_pattern("Amp", "ScraperAlias")]] = None
     tags: Optional[Dict[str, str]] = None
     statusReason: Optional[str] = None
     roleConfiguration: Optional[RoleConfigurationTypeDef] = None
@@ -846,21 +848,21 @@ SourceUnionTypeDef = Union[SourceOutputTypeDef, SourceTypeDef]
 
 # This class is the input for the 'update_scraper' function.
 class UpdateScraperRequestTypeDef(BaseValidatorModel):
-    scraperId: str
-    alias: Optional[str] = None
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
+    alias: Optional[Annotated[str, _aws_pattern("Amp", "ScraperAlias")]] = None
     scrapeConfiguration: Optional[ScrapeConfigurationUnionTypeDef] = None
     destination: Optional[DestinationTypeDef] = None
     roleConfiguration: Optional[RoleConfigurationTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 ScraperComponentUnionTypeDef = Union[ScraperComponentOutputTypeDef, ScraperComponentTypeDef]
 
 
 class AnomalyDetectorDescriptionTypeDef(BaseValidatorModel):
-    arn: str
-    anomalyDetectorId: str
-    alias: str
+    arn: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorArn")]
+    anomalyDetectorId: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorId")]
+    alias: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorAlias")]
     status: AnomalyDetectorStatusTypeDef
     createdAt: datetime
     modifiedAt: datetime
@@ -873,25 +875,25 @@ class AnomalyDetectorDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_anomaly_detector' function.
 class CreateAnomalyDetectorRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    alias: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    alias: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorAlias")]
     configuration: AnomalyDetectorConfigurationTypeDef
     evaluationIntervalInSeconds: Optional[int] = None
     missingDataAction: Optional[AnomalyDetectorMissingDataActionTypeDef] = None
     labels: Optional[Dict[str, str]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'put_anomaly_detector' function.
 class PutAnomalyDetectorRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    anomalyDetectorId: str
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    anomalyDetectorId: Annotated[str, _aws_pattern("Amp", "AnomalyDetectorId")]
     configuration: AnomalyDetectorConfigurationTypeDef
     evaluationIntervalInSeconds: Optional[int] = None
     missingDataAction: Optional[AnomalyDetectorMissingDataActionTypeDef] = None
     labels: Optional[Dict[str, str]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
 
 
 # This class is the output for the 'describe_workspace_configuration' function.
@@ -902,8 +904,8 @@ class DescribeWorkspaceConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_workspace_configuration' function.
 class UpdateWorkspaceConfigurationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    clientToken: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Amp", "WorkspaceId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
     limitsPerLabelSet: Optional[List[LimitsPerLabelSetUnionTypeDef]] = None
     retentionPeriodInDays: Optional[int] = None
 
@@ -932,15 +934,15 @@ class CreateScraperRequestTypeDef(BaseValidatorModel):
     scrapeConfiguration: ScrapeConfigurationUnionTypeDef
     source: SourceUnionTypeDef
     destination: DestinationTypeDef
-    alias: Optional[str] = None
+    alias: Optional[Annotated[str, _aws_pattern("Amp", "ScraperAlias")]] = None
     roleConfiguration: Optional[RoleConfigurationTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Amp", "IdempotencyToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_scraper_logging_configuration' function.
 class UpdateScraperLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    scraperId: str
+    scraperId: Annotated[str, _aws_pattern("Amp", "ScraperId")]
     loggingDestination: ScraperLoggingDestinationTypeDef
     scraperComponents: Optional[List[ScraperComponentUnionTypeDef]] = None
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'delete_report_definition' function.
 class DeleteReportDefinitionRequestTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -53,17 +55,17 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_report_definition' function.
 class GetReportDefinitionRequestTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportId")]
 
 
 class S3LocationTypeDef(BaseValidatorModel):
-    bucket: str
-    prefix: str
+    bucket: Annotated[str, _aws_pattern("Applicationcostprofiler", "S3Bucket")]
+    prefix: Annotated[str, _aws_pattern("Applicationcostprofiler", "S3Prefix")]
 
 
 class SourceS3LocationTypeDef(BaseValidatorModel):
-    bucket: str
-    key: str
+    bucket: Annotated[str, _aws_pattern("Applicationcostprofiler", "S3Bucket")]
+    key: Annotated[str, _aws_pattern("Applicationcostprofiler", "S3Key")]
     region: Optional[S3BucketRegionType] = None
 
 
@@ -75,38 +77,38 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_report_definitions' function.
 class ListReportDefinitionsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Applicationcostprofiler", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the output for the 'delete_report_definition' function.
 class DeleteReportDefinitionResultTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'import_application_usage' function.
 class ImportApplicationUsageResultTypeDef(BaseValidatorModel):
-    importId: str
+    importId: Annotated[str, _aws_pattern("Applicationcostprofiler", "ImportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_report_definition' function.
 class PutReportDefinitionResultTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_report_definition' function.
 class UpdateReportDefinitionResultTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_report_definition' function.
 class GetReportDefinitionResultTypeDef(BaseValidatorModel):
-    reportId: str
-    reportDescription: str
+    reportId: Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportId")]
+    reportDescription: Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportDescription")]
     reportFrequency: ReportFrequencyType
     format: FormatType
     destinationS3Location: S3LocationTypeDef
@@ -117,16 +119,16 @@ class GetReportDefinitionResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_report_definition' function.
 class PutReportDefinitionRequestTypeDef(BaseValidatorModel):
-    reportId: str
-    reportDescription: str
+    reportId: Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportId")]
+    reportDescription: Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportDescription")]
     reportFrequency: ReportFrequencyType
     format: FormatType
     destinationS3Location: S3LocationTypeDef
 
 
 class ReportDefinitionTypeDef(BaseValidatorModel):
-    reportId: Optional[str] = None
-    reportDescription: Optional[str] = None
+    reportId: Optional[Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportId")]] = None
+    reportDescription: Optional[Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportDescription")]] = None
     reportFrequency: Optional[ReportFrequencyType] = None
     format: Optional[FormatType] = None
     destinationS3Location: Optional[S3LocationTypeDef] = None
@@ -136,8 +138,8 @@ class ReportDefinitionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_report_definition' function.
 class UpdateReportDefinitionRequestTypeDef(BaseValidatorModel):
-    reportId: str
-    reportDescription: str
+    reportId: Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportId")]
+    reportDescription: Annotated[str, _aws_pattern("Applicationcostprofiler", "ReportDescription")]
     reportFrequency: ReportFrequencyType
     format: FormatType
     destinationS3Location: S3LocationTypeDef
@@ -156,4 +158,4 @@ class ListReportDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
 class ListReportDefinitionsResultTypeDef(BaseValidatorModel):
     reportDefinitions: List[ReportDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Applicationcostprofiler", "Token")]] = None

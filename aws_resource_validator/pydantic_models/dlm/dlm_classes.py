@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.dlm.dlm_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,7 +47,7 @@ class RetentionArchiveTierTypeDef(BaseValidatorModel):
 
 
 class CrossRegionCopyTargetTypeDef(BaseValidatorModel):
-    TargetRegion: Optional[str] = None
+    TargetRegion: Optional[Annotated[str, _aws_pattern("Dlm", "TargetRegion")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -66,7 +68,7 @@ class ScriptOutputTypeDef(BaseValidatorModel):
 
 
 class ScriptTypeDef(BaseValidatorModel):
-    ExecutionHandler: str
+    ExecutionHandler: Annotated[str, _aws_pattern("Dlm", "ExecutionHandler")]
     Stages: Optional[List[StageValuesType]] = None
     ExecutionHandlerService: Optional[Literal["AWS_SYSTEMS_MANAGER"]] = None
     ExecuteOperationOnScriptFailure: Optional[bool] = None
@@ -81,7 +83,7 @@ class CrossRegionCopyRetainRuleTypeDef(BaseValidatorModel):
 
 class EncryptionConfigurationTypeDef(BaseValidatorModel):
     Encrypted: bool
-    CmkArn: Optional[str] = None
+    CmkArn: Optional[Annotated[str, _aws_pattern("Dlm", "CmkArn")]] = None
 
 
 class CrossRegionCopyDeprecateRuleTypeDef(BaseValidatorModel):
@@ -90,7 +92,7 @@ class CrossRegionCopyDeprecateRuleTypeDef(BaseValidatorModel):
 
 
 class DeleteLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
+    PolicyId: Annotated[str, _aws_pattern("Dlm", "PolicyId")]
 
 
 class DeprecateRuleTypeDef(BaseValidatorModel):
@@ -107,13 +109,13 @@ class EventParametersOutputTypeDef(BaseValidatorModel):
 
 class EventParametersTypeDef(BaseValidatorModel):
     EventType: Literal["shareSnapshot"]
-    SnapshotOwner: List[str]
-    DescriptionRegex: str
+    SnapshotOwner: List[Annotated[str, _aws_pattern("Dlm", "AwsAccountId")]]
+    DescriptionRegex: Annotated[str, _aws_pattern("Dlm", "DescriptionRegex")]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Dlm", "String")]
+    Value: Annotated[str, _aws_pattern("Dlm", "String")]
 
 
 class FastRestoreRuleOutputTypeDef(BaseValidatorModel):
@@ -128,23 +130,23 @@ class FastRestoreRuleTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
     Interval: Optional[int] = None
     IntervalUnit: Optional[RetentionIntervalUnitValuesType] = None
-    AvailabilityZones: Optional[List[str]] = None
-    AvailabilityZoneIds: Optional[List[str]] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Dlm", "AvailabilityZone")]]] = None
+    AvailabilityZoneIds: Optional[List[Annotated[str, _aws_pattern("Dlm", "AvailabilityZoneId")]]] = None
 
 
 # This class is the input for the 'get_lifecycle_policies' function.
 class GetLifecyclePoliciesRequestTypeDef(BaseValidatorModel):
-    PolicyIds: Optional[List[str]] = None
+    PolicyIds: Optional[List[Annotated[str, _aws_pattern("Dlm", "PolicyId")]]] = None
     State: Optional[GettablePolicyStateValuesType] = None
     ResourceTypes: Optional[List[ResourceTypeValuesType]] = None
-    TargetTags: Optional[List[str]] = None
-    TagsToAdd: Optional[List[str]] = None
+    TargetTags: Optional[List[Annotated[str, _aws_pattern("Dlm", "TagFilter")]]] = None
+    TagsToAdd: Optional[List[Annotated[str, _aws_pattern("Dlm", "TagFilter")]]] = None
     DefaultPolicyType: Optional[DefaultPoliciesTypeValuesType] = None
 
 
 class LifecyclePolicySummaryTypeDef(BaseValidatorModel):
-    PolicyId: Optional[str] = None
-    Description: Optional[str] = None
+    PolicyId: Optional[Annotated[str, _aws_pattern("Dlm", "PolicyId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Dlm", "PolicyDescription")]] = None
     State: Optional[GettablePolicyStateValuesType] = None
     Tags: Optional[Dict[str, str]] = None
     PolicyType: Optional[PolicyTypeValuesType] = None
@@ -153,12 +155,12 @@ class LifecyclePolicySummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
+    PolicyId: Annotated[str, _aws_pattern("Dlm", "PolicyId")]
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Dlm", "PolicyArn")]
 
 
 class RetainRuleTypeDef(BaseValidatorModel):
@@ -174,19 +176,19 @@ class ShareRuleOutputTypeDef(BaseValidatorModel):
 
 
 class ShareRuleTypeDef(BaseValidatorModel):
-    TargetAccounts: List[str]
+    TargetAccounts: List[Annotated[str, _aws_pattern("Dlm", "AwsAccountId")]]
     UnshareInterval: Optional[int] = None
     UnshareIntervalUnit: Optional[RetentionIntervalUnitValuesType] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Dlm", "PolicyArn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Dlm", "PolicyArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Dlm", "TagKey")]]
 
 
 class ArchiveRetainRuleTypeDef(BaseValidatorModel):
@@ -195,7 +197,7 @@ class ArchiveRetainRuleTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_lifecycle_policy' function.
 class CreateLifecyclePolicyResponseTypeDef(BaseValidatorModel):
-    PolicyId: str
+    PolicyId: Annotated[str, _aws_pattern("Dlm", "PolicyId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -218,22 +220,22 @@ class CreateRuleTypeDef(BaseValidatorModel):
     Location: Optional[LocationValuesType] = None
     Interval: Optional[int] = None
     IntervalUnit: Optional[Literal["HOURS"]] = None
-    Times: Optional[List[str]] = None
-    CronExpression: Optional[str] = None
+    Times: Optional[List[Annotated[str, _aws_pattern("Dlm", "Time")]]] = None
+    CronExpression: Optional[Annotated[str, _aws_pattern("Dlm", "CronExpression")]] = None
     Scripts: Optional[List[ScriptTypeDef]] = None
 
 
 class CrossRegionCopyActionTypeDef(BaseValidatorModel):
-    Target: str
+    Target: Annotated[str, _aws_pattern("Dlm", "Target")]
     EncryptionConfiguration: EncryptionConfigurationTypeDef
     RetainRule: Optional[CrossRegionCopyRetainRuleTypeDef] = None
 
 
 class CrossRegionCopyRuleTypeDef(BaseValidatorModel):
     Encrypted: bool
-    TargetRegion: Optional[str] = None
-    Target: Optional[str] = None
-    CmkArn: Optional[str] = None
+    TargetRegion: Optional[Annotated[str, _aws_pattern("Dlm", "TargetRegion")]] = None
+    Target: Optional[Annotated[str, _aws_pattern("Dlm", "Target")]] = None
+    CmkArn: Optional[Annotated[str, _aws_pattern("Dlm", "CmkArn")]] = None
     CopyTags: Optional[bool] = None
     RetainRule: Optional[CrossRegionCopyRetainRuleTypeDef] = None
     DeprecateRule: Optional[CrossRegionCopyDeprecateRuleTypeDef] = None
@@ -289,7 +291,7 @@ class ActionOutputTypeDef(BaseValidatorModel):
 
 
 class ActionTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Dlm", "ActionName")]
     CrossRegionCopy: List[CrossRegionCopyActionTypeDef]
 
 
@@ -311,7 +313,7 @@ class ScheduleOutputTypeDef(BaseValidatorModel):
 
 
 class ScheduleTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Dlm", "ScheduleName")]] = None
     CopyTags: Optional[bool] = None
     TagsToAdd: Optional[List[TagTypeDef]] = None
     VariableTags: Optional[List[TagTypeDef]] = None
@@ -363,16 +365,16 @@ class PolicyDetailsTypeDef(BaseValidatorModel):
 
 
 class LifecyclePolicyTypeDef(BaseValidatorModel):
-    PolicyId: Optional[str] = None
-    Description: Optional[str] = None
+    PolicyId: Optional[Annotated[str, _aws_pattern("Dlm", "PolicyId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Dlm", "PolicyDescription")]] = None
     State: Optional[GettablePolicyStateValuesType] = None
-    StatusMessage: Optional[str] = None
-    ExecutionRoleArn: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Dlm", "StatusMessage")]] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Dlm", "ExecutionRoleArn")]] = None
     DateCreated: Optional[datetime] = None
     DateModified: Optional[datetime] = None
     PolicyDetails: Optional[PolicyDetailsOutputTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
-    PolicyArn: Optional[str] = None
+    PolicyArn: Optional[Annotated[str, _aws_pattern("Dlm", "PolicyArn")]] = None
     DefaultPolicy: Optional[bool] = None
 
 
@@ -387,8 +389,8 @@ class GetLifecyclePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_lifecycle_policy' function.
 class CreateLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    ExecutionRoleArn: str
-    Description: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("Dlm", "ExecutionRoleArn")]
+    Description: Annotated[str, _aws_pattern("Dlm", "PolicyDescription")]
     State: SettablePolicyStateValuesType
     PolicyDetails: Optional[PolicyDetailsUnionTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
@@ -402,10 +404,10 @@ class CreateLifecyclePolicyRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
-    ExecutionRoleArn: Optional[str] = None
+    PolicyId: Annotated[str, _aws_pattern("Dlm", "PolicyId")]
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Dlm", "ExecutionRoleArn")]] = None
     State: Optional[SettablePolicyStateValuesType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Dlm", "PolicyDescription")]] = None
     PolicyDetails: Optional[PolicyDetailsUnionTypeDef] = None
     CreateInterval: Optional[int] = None
     RetainInterval: Optional[int] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class CreateMonitorProbeInputTypeDef(BaseValidatorModel):
-    sourceArn: str
+    sourceArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
     destination: str
     protocol: ProtocolType
     destinationPort: Optional[int] = None
@@ -56,7 +58,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ProbeInputTypeDef(BaseValidatorModel):
-    sourceArn: str
+    sourceArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
     destination: str
     protocol: ProtocolType
     destinationPort: Optional[int] = None
@@ -65,29 +67,29 @@ class ProbeInputTypeDef(BaseValidatorModel):
 
 
 class DeleteMonitorInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
 
 
 class DeleteProbeInputTypeDef(BaseValidatorModel):
-    monitorName: str
-    probeId: str
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
+    probeId: Annotated[str, _aws_pattern("Networkmonitor", "ProbeId")]
 
 
 # This class is the input for the 'get_monitor' function.
 class GetMonitorInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
 
 
 class ProbeTypeDef(BaseValidatorModel):
-    sourceArn: str
+    sourceArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
     destination: str
     protocol: ProtocolType
-    probeId: Optional[str] = None
-    probeArn: Optional[str] = None
+    probeId: Optional[Annotated[str, _aws_pattern("Networkmonitor", "ProbeId")]] = None
+    probeArn: Optional[Annotated[str, _aws_pattern("Networkmonitor", "Arn")]] = None
     destinationPort: Optional[int] = None
     packetSize: Optional[int] = None
     addressFamily: Optional[AddressFamilyType] = None
-    vpcId: Optional[str] = None
+    vpcId: Optional[Annotated[str, _aws_pattern("Networkmonitor", "VpcId")]] = None
     state: Optional[ProbeStateType] = None
     createdAt: Optional[datetime] = None
     modifiedAt: Optional[datetime] = None
@@ -96,8 +98,8 @@ class ProbeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_probe' function.
 class GetProbeInputTypeDef(BaseValidatorModel):
-    monitorName: str
-    probeId: str
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
+    probeId: Annotated[str, _aws_pattern("Networkmonitor", "ProbeId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -114,8 +116,8 @@ class ListMonitorsInputTypeDef(BaseValidatorModel):
 
 
 class MonitorSummaryTypeDef(BaseValidatorModel):
-    monitorArn: str
-    monitorName: str
+    monitorArn: Annotated[str, _aws_pattern("Networkmonitor", "MonitorArn")]
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
     state: MonitorStateType
     aggregationPeriod: Optional[int] = None
     tags: Optional[Dict[str, str]] = None
@@ -123,29 +125,29 @@ class MonitorSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_monitor' function.
 class UpdateMonitorInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
     aggregationPeriod: int
 
 
 # This class is the input for the 'update_probe' function.
 class UpdateProbeInputTypeDef(BaseValidatorModel):
-    monitorName: str
-    probeId: str
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
+    probeId: Annotated[str, _aws_pattern("Networkmonitor", "ProbeId")]
     state: Optional[ProbeStateType] = None
     destination: Optional[str] = None
     destinationPort: Optional[int] = None
@@ -155,7 +157,7 @@ class UpdateProbeInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_monitor' function.
 class CreateMonitorInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
     probes: Optional[List[CreateMonitorProbeInputTypeDef]] = None
     aggregationPeriod: Optional[int] = None
     clientToken: Optional[str] = None
@@ -164,8 +166,8 @@ class CreateMonitorInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_monitor' function.
 class CreateMonitorOutputTypeDef(BaseValidatorModel):
-    monitorArn: str
-    monitorName: str
+    monitorArn: Annotated[str, _aws_pattern("Networkmonitor", "MonitorArn")]
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
     state: MonitorStateType
     aggregationPeriod: int
     tags: Dict[str, str]
@@ -174,15 +176,15 @@ class CreateMonitorOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_probe' function.
 class CreateProbeOutputTypeDef(BaseValidatorModel):
-    probeId: str
-    probeArn: str
-    sourceArn: str
+    probeId: Annotated[str, _aws_pattern("Networkmonitor", "ProbeId")]
+    probeArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
+    sourceArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
     destination: str
     destinationPort: int
     protocol: ProtocolType
     packetSize: int
     addressFamily: AddressFamilyType
-    vpcId: str
+    vpcId: Annotated[str, _aws_pattern("Networkmonitor", "VpcId")]
     state: ProbeStateType
     createdAt: datetime
     modifiedAt: datetime
@@ -192,15 +194,15 @@ class CreateProbeOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_probe' function.
 class GetProbeOutputTypeDef(BaseValidatorModel):
-    probeId: str
-    probeArn: str
-    sourceArn: str
+    probeId: Annotated[str, _aws_pattern("Networkmonitor", "ProbeId")]
+    probeArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
+    sourceArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
     destination: str
     destinationPort: int
     protocol: ProtocolType
     packetSize: int
     addressFamily: AddressFamilyType
-    vpcId: str
+    vpcId: Annotated[str, _aws_pattern("Networkmonitor", "VpcId")]
     state: ProbeStateType
     createdAt: datetime
     modifiedAt: datetime
@@ -216,8 +218,8 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_monitor' function.
 class UpdateMonitorOutputTypeDef(BaseValidatorModel):
-    monitorArn: str
-    monitorName: str
+    monitorArn: Annotated[str, _aws_pattern("Networkmonitor", "MonitorArn")]
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
     state: MonitorStateType
     aggregationPeriod: int
     tags: Dict[str, str]
@@ -226,15 +228,15 @@ class UpdateMonitorOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_probe' function.
 class UpdateProbeOutputTypeDef(BaseValidatorModel):
-    probeId: str
-    probeArn: str
-    sourceArn: str
+    probeId: Annotated[str, _aws_pattern("Networkmonitor", "ProbeId")]
+    probeArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
+    sourceArn: Annotated[str, _aws_pattern("Networkmonitor", "Arn")]
     destination: str
     destinationPort: int
     protocol: ProtocolType
     packetSize: int
     addressFamily: AddressFamilyType
-    vpcId: str
+    vpcId: Annotated[str, _aws_pattern("Networkmonitor", "VpcId")]
     state: ProbeStateType
     createdAt: datetime
     modifiedAt: datetime
@@ -244,7 +246,7 @@ class UpdateProbeOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_probe' function.
 class CreateProbeInputTypeDef(BaseValidatorModel):
-    monitorName: str
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
     probe: ProbeInputTypeDef
     clientToken: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -252,8 +254,8 @@ class CreateProbeInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_monitor' function.
 class GetMonitorOutputTypeDef(BaseValidatorModel):
-    monitorArn: str
-    monitorName: str
+    monitorArn: Annotated[str, _aws_pattern("Networkmonitor", "MonitorArn")]
+    monitorName: Annotated[str, _aws_pattern("Networkmonitor", "ResourceName")]
     state: MonitorStateType
     aggregationPeriod: int
     tags: Dict[str, str]

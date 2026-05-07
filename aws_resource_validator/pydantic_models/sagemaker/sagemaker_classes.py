@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.sagemaker.sagemaker_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,16 +41,16 @@ except ImportError:  # pragma: no cover
 
 
 class AIBenchmarkInferenceComponentTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Sagemaker", "AIResourceIdentifier")]
 
 
 class AIBenchmarkJobSummaryTypeDef(BaseValidatorModel):
-    AIBenchmarkJobName: str
-    AIBenchmarkJobArn: str
+    AIBenchmarkJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
+    AIBenchmarkJobArn: Annotated[str, _aws_pattern("Sagemaker", "AIBenchmarkJobArn")]
     AIBenchmarkJobStatus: AIBenchmarkJobStatusType
     CreationTime: datetime
     EndTime: Optional[datetime] = None
-    AIWorkloadConfigName: Optional[str] = None
+    AIWorkloadConfigName: Optional[Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]] = None
 
 
 class VpcConfigOutputTypeDef(BaseValidatorModel):
@@ -57,12 +59,12 @@ class VpcConfigOutputTypeDef(BaseValidatorModel):
 
 
 class VpcConfigTypeDef(BaseValidatorModel):
-    SecurityGroupIds: List[str]
-    Subnets: List[str]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Sagemaker", "SecurityGroupId")]]
+    Subnets: List[Annotated[str, _aws_pattern("Sagemaker", "SubnetId")]]
 
 
 class AIBenchmarkOutputConfigTypeDef(BaseValidatorModel):
-    S3OutputLocation: str
+    S3OutputLocation: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
 
 
 class AICloudWatchLogsTypeDef(BaseValidatorModel):
@@ -77,11 +79,11 @@ class AICapacityReservationConfigOutputTypeDef(BaseValidatorModel):
 
 class AICapacityReservationConfigTypeDef(BaseValidatorModel):
     CapacityReservationPreference: Optional[Literal["capacity-reservations-only"]] = None
-    MlReservationArns: Optional[List[str]] = None
+    MlReservationArns: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "AIMlReservationArn")]]] = None
 
 
 class AIModelSourceS3TypeDef(BaseValidatorModel):
-    S3Uri: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
 
 
 class AIRecommendationConstraintTypeDef(BaseValidatorModel):
@@ -89,8 +91,8 @@ class AIRecommendationConstraintTypeDef(BaseValidatorModel):
 
 
 class AIRecommendationDeploymentS3ChannelTypeDef(BaseValidatorModel):
-    ChannelName: Optional[str] = None
-    Uri: Optional[str] = None
+    ChannelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "AIChannelName")]] = None
+    Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
 
 
 class AIRecommendationInferenceSpecificationTypeDef(BaseValidatorModel):
@@ -104,8 +106,8 @@ class AIRecommendationInstanceDetailTypeDef(BaseValidatorModel):
 
 
 class AIRecommendationJobSummaryTypeDef(BaseValidatorModel):
-    AIRecommendationJobName: str
-    AIRecommendationJobArn: str
+    AIRecommendationJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
+    AIRecommendationJobArn: Annotated[str, _aws_pattern("Sagemaker", "AIRecommendationJobArn")]
     AIRecommendationJobStatus: AIRecommendationJobStatusType
     CreationTime: datetime
     EndTime: Optional[datetime] = None
@@ -117,13 +119,13 @@ class AIRecommendationOptimizationDetailTypeDef(BaseValidatorModel):
 
 
 class AIRecommendationOutputConfigTypeDef(BaseValidatorModel):
-    S3OutputLocation: Optional[str] = None
-    ModelPackageGroupIdentifier: Optional[str] = None
+    S3OutputLocation: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
+    ModelPackageGroupIdentifier: Optional[Annotated[str, _aws_pattern("Sagemaker", "AIResourceIdentifier")]] = None
 
 
 class AIRecommendationOutputResultTypeDef(BaseValidatorModel):
-    S3OutputLocation: str
-    ModelPackageGroupIdentifier: Optional[str] = None
+    S3OutputLocation: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    ModelPackageGroupIdentifier: Optional[Annotated[str, _aws_pattern("Sagemaker", "AIResourceIdentifier")]] = None
 
 
 class AIRecommendationPerformanceMetricTypeDef(BaseValidatorModel):
@@ -134,8 +136,8 @@ class AIRecommendationPerformanceMetricTypeDef(BaseValidatorModel):
 
 
 class AIWorkloadConfigSummaryTypeDef(BaseValidatorModel):
-    AIWorkloadConfigName: str
-    AIWorkloadConfigArn: str
+    AIWorkloadConfigName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
+    AIWorkloadConfigArn: Annotated[str, _aws_pattern("Sagemaker", "AIWorkloadConfigArn")]
     CreationTime: datetime
 
 
@@ -144,7 +146,7 @@ class WorkloadSpecTypeDef(BaseValidatorModel):
 
 
 class AIWorkloadS3DataSourceTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
 
 
 class AcceleratorPartitionConfigTypeDef(BaseValidatorModel):
@@ -153,15 +155,15 @@ class AcceleratorPartitionConfigTypeDef(BaseValidatorModel):
 
 
 class ActionSourceTypeDef(BaseValidatorModel):
-    SourceUri: str
+    SourceUri: Annotated[str, _aws_pattern("Sagemaker", "SourceUri")]
     SourceType: Optional[str] = None
     SourceId: Optional[str] = None
 
 
 # This class is the input for the 'add_association' function.
 class AddAssociationRequestTypeDef(BaseValidatorModel):
-    SourceArn: str
-    DestinationArn: str
+    SourceArn: Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]
+    DestinationArn: Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]
     AssociationType: Optional[AssociationEdgeTypeType] = None
 
 
@@ -174,15 +176,15 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AddClusterNodeSpecificationTypeDef(BaseValidatorModel):
-    InstanceGroupName: str
+    InstanceGroupName: Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]
     IncrementTargetCountBy: int
-    AvailabilityZones: Optional[List[str]] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterAvailabilityZone")]]] = None
     InstanceTypes: Optional[List[ClusterInstanceTypeType]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Sagemaker", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Sagemaker", "TagValue")]
 
 
 class AdditionalEnisTypeDef(BaseValidatorModel):
@@ -191,58 +193,58 @@ class AdditionalEnisTypeDef(BaseValidatorModel):
 
 class AdditionalS3DataSourceTypeDef(BaseValidatorModel):
     S3DataType: AdditionalS3DataSourceDataTypeType
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     CompressionType: Optional[CompressionTypeType] = None
     ETag: Optional[str] = None
 
 
 class AgentVersionTypeDef(BaseValidatorModel):
-    Version: str
+    Version: Annotated[str, _aws_pattern("Sagemaker", "EdgeVersion")]
     AgentCount: int
 
 
 class AlarmDetailsTypeDef(BaseValidatorModel):
-    AlarmName: str
+    AlarmName: Annotated[str, _aws_pattern("Sagemaker", "AlarmName")]
 
 
 class AlarmTypeDef(BaseValidatorModel):
-    AlarmName: Optional[str] = None
+    AlarmName: Optional[Annotated[str, _aws_pattern("Sagemaker", "AlarmName")]] = None
 
 
 class MetricDefinitionTypeDef(BaseValidatorModel):
-    Name: str
-    Regex: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "MetricName")]
+    Regex: Annotated[str, _aws_pattern("Sagemaker", "MetricRegex")]
 
 
 class AlgorithmStatusItemTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     Status: DetailedAlgorithmStatusType
     FailureReason: Optional[str] = None
 
 
 class AlgorithmSummaryTypeDef(BaseValidatorModel):
-    AlgorithmName: str
-    AlgorithmArn: str
+    AlgorithmName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    AlgorithmArn: Annotated[str, _aws_pattern("Sagemaker", "AlgorithmArn")]
     CreationTime: datetime
     AlgorithmStatus: AlgorithmStatusType
-    AlgorithmDescription: Optional[str] = None
+    AlgorithmDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
 
 
 class AmazonQSettingsTypeDef(BaseValidatorModel):
     Status: Optional[FeatureStatusType] = None
-    QProfileArn: Optional[str] = None
+    QProfileArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "QProfileArn")]] = None
 
 
 class AnnotationConsolidationConfigTypeDef(BaseValidatorModel):
-    AnnotationConsolidationLambdaArn: str
+    AnnotationConsolidationLambdaArn: Annotated[str, _aws_pattern("Sagemaker", "LambdaFunctionArn")]
 
 
 class ResourceSpecTypeDef(BaseValidatorModel):
-    SageMakerImageArn: Optional[str] = None
-    SageMakerImageVersionArn: Optional[str] = None
-    SageMakerImageVersionAlias: Optional[str] = None
+    SageMakerImageArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageArn")]] = None
+    SageMakerImageVersionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageVersionArn")]] = None
+    SageMakerImageVersionAlias: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageVersionAlias")]] = None
     InstanceType: Optional[AppInstanceTypeType] = None
-    LifecycleConfigArn: Optional[str] = None
+    LifecycleConfigArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigArn")]] = None
 
 
 class IdleSettingsTypeDef(BaseValidatorModel):
@@ -259,9 +261,9 @@ class AppSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class AppSpecificationTypeDef(BaseValidatorModel):
-    ImageUri: str
-    ContainerEntrypoint: Optional[List[str]] = None
-    ContainerArguments: Optional[List[str]] = None
+    ImageUri: Annotated[str, _aws_pattern("Sagemaker", "ImageUri")]
+    ContainerEntrypoint: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ContainerEntrypointString")]]] = None
+    ContainerArguments: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ContainerArgument")]]] = None
 
 
 class ArtifactSourceTypeTypeDef(BaseValidatorModel):
@@ -271,8 +273,8 @@ class ArtifactSourceTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_trial_component' function.
 class AssociateTrialComponentRequestTypeDef(BaseValidatorModel):
-    TrialComponentName: str
-    TrialName: str
+    TrialComponentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    TrialName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
 
 
 class AssociationInfoTypeDef(BaseValidatorModel):
@@ -291,32 +293,32 @@ class AsyncInferenceNotificationConfigOutputTypeDef(BaseValidatorModel):
 
 
 class AsyncInferenceNotificationConfigTypeDef(BaseValidatorModel):
-    SuccessTopic: Optional[str] = None
-    ErrorTopic: Optional[str] = None
+    SuccessTopic: Optional[Annotated[str, _aws_pattern("Sagemaker", "SnsTopicArn")]] = None
+    ErrorTopic: Optional[Annotated[str, _aws_pattern("Sagemaker", "SnsTopicArn")]] = None
     IncludeInferenceResponseIn: Optional[List[AsyncNotificationTopicTypesType]] = None
 
 
 class AthenaDatasetDefinitionTypeDef(BaseValidatorModel):
-    Catalog: str
-    Database: str
-    QueryString: str
-    OutputS3Uri: str
+    Catalog: Annotated[str, _aws_pattern("Sagemaker", "AthenaCatalog")]
+    Database: Annotated[str, _aws_pattern("Sagemaker", "AthenaDatabase")]
+    QueryString: Annotated[str, _aws_pattern("Sagemaker", "AthenaQueryString")]
+    OutputS3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     OutputFormat: AthenaResultFormatType
-    WorkGroup: Optional[str] = None
-    KmsKeyId: Optional[str] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Sagemaker", "AthenaWorkGroup")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     OutputCompression: Optional[AthenaResultCompressionTypeType] = None
 
 
 # This class is the input for the 'attach_cluster_node_volume' function.
 class AttachClusterNodeVolumeRequestTypeDef(BaseValidatorModel):
-    ClusterArn: str
-    NodeId: str
-    VolumeId: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
+    NodeId: Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]
+    VolumeId: Annotated[str, _aws_pattern("Sagemaker", "VolumeId")]
 
 
 class AuthorizedUrlTypeDef(BaseValidatorModel):
-    Url: Optional[str] = None
-    LocalPath: Optional[str] = None
+    Url: Optional[Annotated[str, _aws_pattern("Sagemaker", "LongS3Uri")]] = None
+    LocalPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "LocalPath")]] = None
 
 
 class AutoMLAlgorithmConfigOutputTypeDef(BaseValidatorModel):
@@ -329,13 +331,13 @@ class AutoMLAlgorithmConfigTypeDef(BaseValidatorModel):
 
 class AutoMLCandidateStepTypeDef(BaseValidatorModel):
     CandidateStepType: CandidateStepTypeType
-    CandidateStepArn: str
+    CandidateStepArn: Annotated[str, _aws_pattern("Sagemaker", "CandidateStepArn")]
     CandidateStepName: str
 
 
 class AutoMLContainerDefinitionTypeDef(BaseValidatorModel):
-    Image: str
-    ModelDataUrl: str
+    Image: Annotated[str, _aws_pattern("Sagemaker", "ContainerImage")]
+    ModelDataUrl: Annotated[str, _aws_pattern("Sagemaker", "Url")]
     Environment: Optional[Dict[str, str]] = None
 
 
@@ -347,12 +349,12 @@ class FinalAutoMLJobObjectiveMetricTypeDef(BaseValidatorModel):
 
 
 class EmrServerlessComputeConfigTypeDef(BaseValidatorModel):
-    ExecutionRoleARN: str
+    ExecutionRoleARN: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
 
 
 class AutoMLS3DataSourceTypeDef(BaseValidatorModel):
     S3DataType: AutoMLS3DataTypeType
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
 
 
 class AutoMLDataSplitConfigTypeDef(BaseValidatorModel):
@@ -375,7 +377,7 @@ class AutoMLJobObjectiveTypeDef(BaseValidatorModel):
 
 
 class AutoMLJobStepMetadataTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]] = None
 
 
 class AutoMLPartialFailureReasonTypeDef(BaseValidatorModel):
@@ -383,8 +385,8 @@ class AutoMLPartialFailureReasonTypeDef(BaseValidatorModel):
 
 
 class AutoMLOutputDataConfigTypeDef(BaseValidatorModel):
-    S3OutputPath: str
-    KmsKeyId: Optional[str] = None
+    S3OutputPath: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class TabularResolvedAttributesTypeDef(BaseValidatorModel):
@@ -392,12 +394,12 @@ class TabularResolvedAttributesTypeDef(BaseValidatorModel):
 
 
 class TextGenerationResolvedAttributesTypeDef(BaseValidatorModel):
-    BaseModelName: Optional[str] = None
+    BaseModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "BaseModelName")]] = None
 
 
 class AutoParameterTypeDef(BaseValidatorModel):
-    Name: str
-    ValueHint: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "ParameterKey")]
+    ValueHint: Annotated[str, _aws_pattern("Sagemaker", "ParameterValue")]
 
 
 class AutotuneTypeDef(BaseValidatorModel):
@@ -405,56 +407,56 @@ class AutotuneTypeDef(BaseValidatorModel):
 
 
 class AvailableUpgradeTypeDef(BaseValidatorModel):
-    Version: Optional[str] = None
+    Version: Optional[Annotated[str, _aws_pattern("Sagemaker", "MajorMinorVersion")]] = None
     ReleaseNotes: Optional[List[str]] = None
 
 
 class BaseModelTypeDef(BaseValidatorModel):
-    HubContentName: Optional[str] = None
-    HubContentVersion: Optional[str] = None
+    HubContentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]] = None
+    HubContentVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentVersion")]] = None
     RecipeName: Optional[str] = None
 
 
 class BatchAddClusterNodesErrorTypeDef(BaseValidatorModel):
-    InstanceGroupName: str
+    InstanceGroupName: Annotated[str, _aws_pattern("Sagemaker", "InstanceGroupName")]
     ErrorCode: BatchAddClusterNodesErrorCodeType
     FailedCount: int
-    AvailabilityZones: Optional[List[str]] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterAvailabilityZone")]]] = None
     InstanceTypes: Optional[List[ClusterInstanceTypeType]] = None
     Message: Optional[str] = None
 
 
 class NodeAdditionResultTypeDef(BaseValidatorModel):
-    NodeLogicalId: str
-    InstanceGroupName: str
+    NodeLogicalId: Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]
+    InstanceGroupName: Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]
     Status: ClusterInstanceStatusType
-    AvailabilityZones: Optional[List[str]] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterAvailabilityZone")]]] = None
     InstanceTypes: Optional[List[ClusterInstanceTypeType]] = None
 
 
 class BatchDataCaptureConfigTypeDef(BaseValidatorModel):
-    DestinationS3Uri: str
-    KmsKeyId: Optional[str] = None
+    DestinationS3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     GenerateInferenceId: Optional[bool] = None
 
 
 class BatchDeleteClusterNodeLogicalIdsErrorTypeDef(BaseValidatorModel):
     Code: BatchDeleteClusterNodesErrorCodeType
     Message: str
-    NodeLogicalId: str
+    NodeLogicalId: Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]
 
 
 class BatchDeleteClusterNodesErrorTypeDef(BaseValidatorModel):
     Code: BatchDeleteClusterNodesErrorCodeType
     Message: str
-    NodeId: str
+    NodeId: Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]
 
 
 # This class is the input for the 'batch_delete_cluster_nodes' function.
 class BatchDeleteClusterNodesRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
-    NodeIds: Optional[List[str]] = None
-    NodeLogicalIds: Optional[List[str]] = None
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
+    NodeIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]]] = None
+    NodeLogicalIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]]] = None
 
 
 class BatchDescribeModelPackageErrorTypeDef(BaseValidatorModel):
@@ -464,45 +466,45 @@ class BatchDescribeModelPackageErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_describe_model_package' function.
 class BatchDescribeModelPackageInputTypeDef(BaseValidatorModel):
-    ModelPackageArnList: List[str]
+    ModelPackageArnList: List[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]]
 
 
 class BatchRebootClusterNodeLogicalIdsErrorTypeDef(BaseValidatorModel):
-    NodeLogicalId: str
+    NodeLogicalId: Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]
     ErrorCode: BatchRebootClusterNodesErrorCodeType
     Message: str
 
 
 class BatchRebootClusterNodesErrorTypeDef(BaseValidatorModel):
-    NodeId: str
+    NodeId: Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]
     ErrorCode: BatchRebootClusterNodesErrorCodeType
     Message: str
 
 
 # This class is the input for the 'batch_reboot_cluster_nodes' function.
 class BatchRebootClusterNodesRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
-    NodeIds: Optional[List[str]] = None
-    NodeLogicalIds: Optional[List[str]] = None
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
+    NodeIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]]] = None
+    NodeLogicalIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]]] = None
 
 
 class BatchReplaceClusterNodeLogicalIdsErrorTypeDef(BaseValidatorModel):
-    NodeLogicalId: str
+    NodeLogicalId: Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]
     ErrorCode: BatchReplaceClusterNodesErrorCodeType
     Message: str
 
 
 class BatchReplaceClusterNodesErrorTypeDef(BaseValidatorModel):
-    NodeId: str
+    NodeId: Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]
     ErrorCode: BatchReplaceClusterNodesErrorCodeType
     Message: str
 
 
 # This class is the input for the 'batch_replace_cluster_nodes' function.
 class BatchReplaceClusterNodesRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
-    NodeIds: Optional[List[str]] = None
-    NodeLogicalIds: Optional[List[str]] = None
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
+    NodeIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]]] = None
+    NodeLogicalIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]]] = None
 
 
 class BedrockCustomModelDeploymentMetadataTypeDef(BaseValidatorModel):
@@ -526,13 +528,13 @@ class BestObjectiveNotImprovingTypeDef(BaseValidatorModel):
 
 
 class MetricsSourceTypeDef(BaseValidatorModel):
-    ContentType: str
-    S3Uri: str
-    ContentDigest: Optional[str] = None
+    ContentType: Annotated[str, _aws_pattern("Sagemaker", "ContentType")]
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    ContentDigest: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContentDigest")]] = None
 
 
 class CacheHitResultTypeDef(BaseValidatorModel):
-    SourcePipelineExecutionArn: Optional[str] = None
+    SourcePipelineExecutionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]] = None
 
 
 class OutputParameterTypeDef(BaseValidatorModel):
@@ -558,18 +560,18 @@ class DirectDeploySettingsTypeDef(BaseValidatorModel):
 
 
 class EmrServerlessSettingsTypeDef(BaseValidatorModel):
-    ExecutionRoleArn: Optional[str] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     Status: Optional[FeatureStatusType] = None
 
 
 class GenerativeAiSettingsTypeDef(BaseValidatorModel):
-    AmazonBedrockRoleArn: Optional[str] = None
+    AmazonBedrockRoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
 
 
 class IdentityProviderOAuthSettingTypeDef(BaseValidatorModel):
     DataSourceName: Optional[DataSourceNameType] = None
     Status: Optional[FeatureStatusType] = None
-    SecretArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "SecretArn")]] = None
 
 
 class KendraSettingsTypeDef(BaseValidatorModel):
@@ -578,17 +580,17 @@ class KendraSettingsTypeDef(BaseValidatorModel):
 
 class ModelRegisterSettingsTypeDef(BaseValidatorModel):
     Status: Optional[FeatureStatusType] = None
-    CrossAccountModelRegisterRoleArn: Optional[str] = None
+    CrossAccountModelRegisterRoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
 
 
 class TimeSeriesForecastingSettingsTypeDef(BaseValidatorModel):
     Status: Optional[FeatureStatusType] = None
-    AmazonForecastRoleArn: Optional[str] = None
+    AmazonForecastRoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
 
 
 class WorkspaceSettingsTypeDef(BaseValidatorModel):
-    S3ArtifactPath: Optional[str] = None
-    S3KmsKeyId: Optional[str] = None
+    S3ArtifactPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
+    S3KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class CapacityReservationTypeDef(BaseValidatorModel):
@@ -612,8 +614,8 @@ class CaptureContentTypeHeaderOutputTypeDef(BaseValidatorModel):
 
 
 class CaptureContentTypeHeaderTypeDef(BaseValidatorModel):
-    CsvContentTypes: Optional[List[str]] = None
-    JsonContentTypes: Optional[List[str]] = None
+    CsvContentTypes: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "CsvContentType")]]] = None
+    JsonContentTypes: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "JsonContentType")]]] = None
 
 
 class CaptureOptionTypeDef(BaseValidatorModel):
@@ -635,12 +637,12 @@ class CategoricalParameterRangeSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class CategoricalParameterRangeSpecificationTypeDef(BaseValidatorModel):
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Sagemaker", "ParameterValue")]]
 
 
 class CategoricalParameterRangeTypeDef(BaseValidatorModel):
-    Name: str
-    Values: List[str]
+    Name: Annotated[str, _aws_pattern("Sagemaker", "ParameterKey")]
+    Values: List[Annotated[str, _aws_pattern("Sagemaker", "ParameterValue")]]
 
 
 class CategoricalParameterTypeDef(BaseValidatorModel):
@@ -649,24 +651,24 @@ class CategoricalParameterTypeDef(BaseValidatorModel):
 
 
 class CfnStackCreateParameterTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Sagemaker", "CfnStackParameterKey")]
+    Value: Optional[Annotated[str, _aws_pattern("Sagemaker", "CfnStackParameterValue")]] = None
 
 
 class CfnStackDetailTypeDef(BaseValidatorModel):
-    StatusMessage: str
-    Name: Optional[str] = None
-    Id: Optional[str] = None
+    StatusMessage: Annotated[str, _aws_pattern("Sagemaker", "CfnStackStatusMessage")]
+    Name: Optional[Annotated[str, _aws_pattern("Sagemaker", "CfnStackName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Sagemaker", "CfnStackId")]] = None
 
 
 class CfnStackParameterTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Sagemaker", "CfnStackParameterKey")]
+    Value: Optional[Annotated[str, _aws_pattern("Sagemaker", "CfnStackParameterValue")]] = None
 
 
 class CfnStackUpdateParameterTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Sagemaker", "CfnStackParameterKey")]
+    Value: Optional[Annotated[str, _aws_pattern("Sagemaker", "CfnStackParameterValue")]] = None
 
 
 class ShuffleConfigTypeDef(BaseValidatorModel):
@@ -683,17 +685,17 @@ class ChannelSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class ChannelSpecificationTypeDef(BaseValidatorModel):
-    Name: str
-    SupportedContentTypes: List[str]
+    Name: Annotated[str, _aws_pattern("Sagemaker", "ChannelName")]
+    SupportedContentTypes: List[Annotated[str, _aws_pattern("Sagemaker", "ContentType")]]
     SupportedInputModes: List[TrainingInputModeType]
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     IsRequired: Optional[bool] = None
     SupportedCompressionTypes: Optional[List[CompressionTypeType]] = None
 
 
 class CheckpointConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
-    LocalPath: Optional[str] = None
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    LocalPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "DirectoryPath")]] = None
 
 
 class ClarifyCheckStepMetadataTypeDef(BaseValidatorModel):
@@ -722,23 +724,23 @@ class ClarifyInferenceConfigOutputTypeDef(BaseValidatorModel):
 
 
 class ClarifyInferenceConfigTypeDef(BaseValidatorModel):
-    FeaturesAttribute: Optional[str] = None
-    ContentTemplate: Optional[str] = None
+    FeaturesAttribute: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClarifyFeaturesAttribute")]] = None
+    ContentTemplate: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClarifyContentTemplate")]] = None
     MaxRecordCount: Optional[int] = None
     MaxPayloadInMB: Optional[int] = None
     ProbabilityIndex: Optional[int] = None
     LabelIndex: Optional[int] = None
-    ProbabilityAttribute: Optional[str] = None
-    LabelAttribute: Optional[str] = None
-    LabelHeaders: Optional[List[str]] = None
-    FeatureHeaders: Optional[List[str]] = None
+    ProbabilityAttribute: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClarifyProbabilityAttribute")]] = None
+    LabelAttribute: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClarifyLabelAttribute")]] = None
+    LabelHeaders: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClarifyHeader")]]] = None
+    FeatureHeaders: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClarifyHeader")]]] = None
     FeatureTypes: Optional[List[ClarifyFeatureTypeType]] = None
 
 
 class ClarifyShapBaselineConfigTypeDef(BaseValidatorModel):
-    MimeType: Optional[str] = None
-    ShapBaseline: Optional[str] = None
-    ShapBaselineUri: Optional[str] = None
+    MimeType: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClarifyMimeType")]] = None
+    ShapBaseline: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClarifyShapBaseline")]] = None
+    ShapBaselineUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "Url")]] = None
 
 
 class ClarifyTextConfigTypeDef(BaseValidatorModel):
@@ -770,30 +772,30 @@ class ClusterCapacityRequirementsTypeDef(BaseValidatorModel):
 
 class ClusterEbsVolumeConfigTypeDef(BaseValidatorModel):
     VolumeSizeInGB: Optional[int] = None
-    VolumeKmsKeyId: Optional[str] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     RootVolume: Optional[bool] = None
 
 
 class ClusterEventSummaryTypeDef(BaseValidatorModel):
-    EventId: str
-    ClusterArn: str
-    ClusterName: str
+    EventId: Annotated[str, _aws_pattern("Sagemaker", "EventId")]
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterName")]
     ResourceType: ClusterEventResourceTypeType
     EventTime: datetime
-    InstanceGroupName: Optional[str] = None
+    InstanceGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]] = None
     InstanceId: Optional[str] = None
     Description: Optional[str] = None
 
 
 class ClusterFsxLustreConfigTypeDef(BaseValidatorModel):
-    DnsName: str
-    MountName: str
-    MountPath: Optional[str] = None
+    DnsName: Annotated[str, _aws_pattern("Sagemaker", "ClusterDnsName")]
+    MountName: Annotated[str, _aws_pattern("Sagemaker", "ClusterMountName")]
+    MountPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterFsxMountPath")]] = None
 
 
 class ClusterFsxOpenZfsConfigTypeDef(BaseValidatorModel):
-    DnsName: str
-    MountPath: Optional[str] = None
+    DnsName: Annotated[str, _aws_pattern("Sagemaker", "ClusterDnsName")]
+    MountPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterFsxMountPath")]] = None
 
 
 class ClusterInstanceRequirementDetailsTypeDef(BaseValidatorModel):
@@ -808,9 +810,9 @@ class ClusterInstanceTypeDetailTypeDef(BaseValidatorModel):
 
 
 class ClusterLifeCycleConfigTypeDef(BaseValidatorModel):
-    SourceS3Uri: Optional[str] = None
-    OnCreate: Optional[str] = None
-    OnInitComplete: Optional[str] = None
+    SourceS3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
+    OnCreate: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterLifeCycleConfigFileName")]] = None
+    OnInitComplete: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterLifeCycleConfigFileName")]] = None
 
 
 class ClusterNetworkInterfaceDetailsTypeDef(BaseValidatorModel):
@@ -819,7 +821,7 @@ class ClusterNetworkInterfaceDetailsTypeDef(BaseValidatorModel):
 
 class ClusterSlurmConfigDetailsTypeDef(BaseValidatorModel):
     NodeType: ClusterSlurmNodeTypeType
-    PartitionNames: Optional[List[str]] = None
+    PartitionNames: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterPartitionName")]]] = None
 
 
 class ClusterInstanceRequirementsTypeDef(BaseValidatorModel):
@@ -832,12 +834,12 @@ class ClusterNetworkInterfaceTypeDef(BaseValidatorModel):
 
 class ClusterSlurmConfigTypeDef(BaseValidatorModel):
     NodeType: ClusterSlurmNodeTypeType
-    PartitionNames: Optional[List[str]] = None
+    PartitionNames: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterPartitionName")]]] = None
 
 
 class ClusterInstancePlacementTypeDef(BaseValidatorModel):
-    AvailabilityZone: Optional[str] = None
-    AvailabilityZoneId: Optional[str] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterAvailabilityZone")]] = None
+    AvailabilityZoneId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterAvailabilityZoneId")]] = None
 
 
 class ClusterInstanceStatusDetailsTypeDef(BaseValidatorModel):
@@ -846,9 +848,9 @@ class ClusterInstanceStatusDetailsTypeDef(BaseValidatorModel):
 
 
 class ClusterKubernetesTaintTypeDef(BaseValidatorModel):
-    Key: str
+    Key: Annotated[str, _aws_pattern("Sagemaker", "ClusterKubernetesTaintKey")]
     Effect: ClusterKubernetesTaintEffectType
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterKubernetesTaintValue")]] = None
 
 
 class ClusterMetadataTypeDef(BaseValidatorModel):
@@ -863,7 +865,7 @@ class UltraServerInfoTypeDef(BaseValidatorModel):
 
 
 class ClusterOrchestratorEksConfigTypeDef(BaseValidatorModel):
-    ClusterArn: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "EksClusterArn")]
 
 
 class ClusterOrchestratorSlurmConfigTypeDef(BaseValidatorModel):
@@ -871,22 +873,22 @@ class ClusterOrchestratorSlurmConfigTypeDef(BaseValidatorModel):
 
 
 class ClusterSchedulerConfigSummaryTypeDef(BaseValidatorModel):
-    ClusterSchedulerConfigArn: str
-    ClusterSchedulerConfigId: str
-    Name: str
+    ClusterSchedulerConfigArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterSchedulerConfigArn")]
+    ClusterSchedulerConfigId: Annotated[str, _aws_pattern("Sagemaker", "ClusterSchedulerConfigId")]
+    Name: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     CreationTime: datetime
     Status: SchedulerResourceStatusType
     ClusterSchedulerConfigVersion: Optional[int] = None
     LastModifiedTime: Optional[datetime] = None
-    ClusterArn: Optional[str] = None
+    ClusterArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]] = None
 
 
 class ClusterSummaryTypeDef(BaseValidatorModel):
-    ClusterArn: str
-    ClusterName: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterName")]
     CreationTime: datetime
     ClusterStatus: ClusterStatusType
-    TrainingPlanArns: Optional[List[str]] = None
+    TrainingPlanArns: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]]] = None
 
 
 class ClusterTieredStorageConfigTypeDef(BaseValidatorModel):
@@ -901,42 +903,42 @@ class ContainerConfigOutputTypeDef(BaseValidatorModel):
 
 
 class FileSystemConfigTypeDef(BaseValidatorModel):
-    MountPath: Optional[str] = None
+    MountPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "MountPath")]] = None
     DefaultUid: Optional[int] = None
     DefaultGid: Optional[int] = None
 
 
 class ContainerConfigTypeDef(BaseValidatorModel):
-    ContainerArguments: Optional[List[str]] = None
-    ContainerEntrypoint: Optional[List[str]] = None
+    ContainerArguments: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString64")]]] = None
+    ContainerEntrypoint: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString256")]]] = None
     ContainerEnvironmentVariables: Optional[Dict[str, str]] = None
 
 
 class CustomImageTypeDef(BaseValidatorModel):
-    ImageName: str
-    AppImageConfigName: str
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
+    AppImageConfigName: Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigName")]
     ImageVersionNumber: Optional[int] = None
 
 
 class GitConfigTypeDef(BaseValidatorModel):
-    RepositoryUrl: str
-    Branch: Optional[str] = None
-    SecretArn: Optional[str] = None
+    RepositoryUrl: Annotated[str, _aws_pattern("Sagemaker", "GitConfigUrl")]
+    Branch: Optional[Annotated[str, _aws_pattern("Sagemaker", "Branch")]] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "SecretArn")]] = None
 
 
 class CodeRepositoryTypeDef(BaseValidatorModel):
-    RepositoryUrl: str
+    RepositoryUrl: Annotated[str, _aws_pattern("Sagemaker", "RepositoryUrl")]
 
 
 class CognitoConfigTypeDef(BaseValidatorModel):
-    UserPool: str
-    ClientId: str
+    UserPool: Annotated[str, _aws_pattern("Sagemaker", "CognitoUserPool")]
+    ClientId: Annotated[str, _aws_pattern("Sagemaker", "ClientId")]
 
 
 class CognitoMemberDefinitionTypeDef(BaseValidatorModel):
-    UserPool: str
-    UserGroup: str
-    ClientId: str
+    UserPool: Annotated[str, _aws_pattern("Sagemaker", "CognitoUserPool")]
+    UserGroup: Annotated[str, _aws_pattern("Sagemaker", "CognitoUserGroup")]
+    ClientId: Annotated[str, _aws_pattern("Sagemaker", "ClientId")]
 
 
 class VectorConfigTypeDef(BaseValidatorModel):
@@ -949,13 +951,13 @@ class CollectionConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class CollectionConfigurationTypeDef(BaseValidatorModel):
-    CollectionName: Optional[str] = None
+    CollectionName: Optional[Annotated[str, _aws_pattern("Sagemaker", "CollectionName")]] = None
     CollectionParameters: Optional[Dict[str, str]] = None
 
 
 class CompilationJobSummaryTypeDef(BaseValidatorModel):
-    CompilationJobName: str
-    CompilationJobArn: str
+    CompilationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    CompilationJobArn: Annotated[str, _aws_pattern("Sagemaker", "CompilationJobArn")]
     CreationTime: datetime
     CompilationJobStatus: CompilationJobStatusType
     CompilationStartTime: Optional[datetime] = None
@@ -968,7 +970,7 @@ class CompilationJobSummaryTypeDef(BaseValidatorModel):
 
 
 class ComputeQuotaTargetTypeDef(BaseValidatorModel):
-    TeamName: str
+    TeamName: Annotated[str, _aws_pattern("Sagemaker", "ComputeQuotaTargetTeamName")]
     FairShareWeight: Optional[int] = None
 
 
@@ -981,20 +983,20 @@ class MultiModelConfigTypeDef(BaseValidatorModel):
 
 
 class ContextSourceTypeDef(BaseValidatorModel):
-    SourceUri: str
+    SourceUri: Annotated[str, _aws_pattern("Sagemaker", "SourceUri")]
     SourceType: Optional[str] = None
     SourceId: Optional[str] = None
 
 
 class ContinuousParameterRangeSpecificationTypeDef(BaseValidatorModel):
-    MinValue: str
-    MaxValue: str
+    MinValue: Annotated[str, _aws_pattern("Sagemaker", "ParameterValue")]
+    MaxValue: Annotated[str, _aws_pattern("Sagemaker", "ParameterValue")]
 
 
 class ContinuousParameterRangeTypeDef(BaseValidatorModel):
-    Name: str
-    MinValue: str
-    MaxValue: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "ParameterKey")]
+    MinValue: Annotated[str, _aws_pattern("Sagemaker", "ParameterValue")]
+    MaxValue: Annotated[str, _aws_pattern("Sagemaker", "ParameterValue")]
     ScalingType: Optional[HyperParameterScalingTypeType] = None
 
 
@@ -1003,22 +1005,22 @@ class ConvergenceDetectedTypeDef(BaseValidatorModel):
 
 
 class MetadataPropertiesTypeDef(BaseValidatorModel):
-    CommitId: Optional[str] = None
-    Repository: Optional[str] = None
-    GeneratedBy: Optional[str] = None
-    ProjectId: Optional[str] = None
+    CommitId: Optional[Annotated[str, _aws_pattern("Sagemaker", "MetadataPropertyValue")]] = None
+    Repository: Optional[Annotated[str, _aws_pattern("Sagemaker", "MetadataPropertyValue")]] = None
+    GeneratedBy: Optional[Annotated[str, _aws_pattern("Sagemaker", "MetadataPropertyValue")]] = None
+    ProjectId: Optional[Annotated[str, _aws_pattern("Sagemaker", "MetadataPropertyValue")]] = None
 
 
 class ModelDeployConfigTypeDef(BaseValidatorModel):
     AutoGenerateEndpointName: Optional[bool] = None
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
 
 
 class InputConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     Framework: FrameworkType
-    DataInputConfig: Optional[str] = None
-    FrameworkVersion: Optional[str] = None
+    DataInputConfig: Optional[Annotated[str, _aws_pattern("Sagemaker", "DataInputConfig")]] = None
+    FrameworkVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "FrameworkVersion")]] = None
 
 
 class StoppingConditionTypeDef(BaseValidatorModel):
@@ -1032,15 +1034,15 @@ class MonitoringStoppingConditionTypeDef(BaseValidatorModel):
 
 
 class EdgeOutputConfigTypeDef(BaseValidatorModel):
-    S3OutputLocation: str
-    KmsKeyId: Optional[str] = None
+    S3OutputLocation: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     PresetDeploymentType: Optional[Literal["GreengrassV2Component"]] = None
     PresetDeploymentConfig: Optional[str] = None
 
 
 class EdgeDeploymentModelConfigTypeDef(BaseValidatorModel):
-    ModelHandle: str
-    EdgePackagingJobName: str
+    ModelHandle: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    EdgePackagingJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 class MetricsConfigTypeDef(BaseValidatorModel):
@@ -1055,8 +1057,8 @@ class ThroughputConfigTypeDef(BaseValidatorModel):
 
 
 class FlowDefinitionOutputConfigTypeDef(BaseValidatorModel):
-    S3OutputPath: str
-    KmsKeyId: Optional[str] = None
+    S3OutputPath: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class HumanLoopRequestSourceTypeDef(BaseValidatorModel):
@@ -1071,30 +1073,30 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 class PresignedUrlAccessConfigTypeDef(BaseValidatorModel):
     AcceptEula: Optional[bool] = None
-    ExpectedS3Url: Optional[str] = None
+    ExpectedS3Url: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3ModelUri")]] = None
 
 
 class HubS3StorageConfigTypeDef(BaseValidatorModel):
-    S3OutputPath: Optional[str] = None
+    S3OutputPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3OutputPath")]] = None
 
 
 class UiTemplateTypeDef(BaseValidatorModel):
-    Content: str
+    Content: Annotated[str, _aws_pattern("Sagemaker", "TemplateContent")]
 
 
 # This class is the input for the 'create_image_version' function.
 class CreateImageVersionRequestTypeDef(BaseValidatorModel):
-    BaseImage: str
-    ClientToken: str
-    ImageName: str
-    Aliases: Optional[List[str]] = None
+    BaseImage: Annotated[str, _aws_pattern("Sagemaker", "ImageBaseImage")]
+    ClientToken: Annotated[str, _aws_pattern("Sagemaker", "ClientToken")]
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
+    Aliases: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "SageMakerImageVersionAlias")]]] = None
     VendorGuidance: Optional[VendorGuidanceType] = None
     JobType: Optional[JobTypeType] = None
-    MLFramework: Optional[str] = None
-    ProgrammingLang: Optional[str] = None
+    MLFramework: Optional[Annotated[str, _aws_pattern("Sagemaker", "MLFramework")]] = None
+    ProgrammingLang: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProgrammingLang")]] = None
     Processor: Optional[ProcessorType] = None
     Horovod: Optional[bool] = None
-    ReleaseNotes: Optional[str] = None
+    ReleaseNotes: Optional[Annotated[str, _aws_pattern("Sagemaker", "ReleaseNotes")]] = None
 
 
 class InferenceComponentRuntimeConfigTypeDef(BaseValidatorModel):
@@ -1102,9 +1104,9 @@ class InferenceComponentRuntimeConfigTypeDef(BaseValidatorModel):
 
 
 class LabelingJobOutputConfigTypeDef(BaseValidatorModel):
-    S3OutputPath: str
-    KmsKeyId: Optional[str] = None
-    SnsTopicArn: Optional[str] = None
+    S3OutputPath: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
+    SnsTopicArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "SnsTopicArn")]] = None
 
 
 class LabelingJobStoppingConditionsTypeDef(BaseValidatorModel):
@@ -1113,11 +1115,11 @@ class LabelingJobStoppingConditionsTypeDef(BaseValidatorModel):
 
 
 class ModelCardExportOutputConfigTypeDef(BaseValidatorModel):
-    S3OutputPath: str
+    S3OutputPath: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
 
 
 class ModelCardSecurityConfigTypeDef(BaseValidatorModel):
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class InferenceExecutionConfigTypeDef(BaseValidatorModel):
@@ -1125,37 +1127,39 @@ class InferenceExecutionConfigTypeDef(BaseValidatorModel):
 
 
 class ModelLifeCycleTypeDef(BaseValidatorModel):
-    Stage: str
-    StageStatus: str
-    StageDescription: Optional[str] = None
+    Stage: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    StageStatus: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    StageDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "StageDescription")]] = None
 
 
 class ModelPackageModelCardTypeDef(BaseValidatorModel):
-    ModelCardContent: Optional[str] = None
+    ModelCardContent: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelCardContent")]] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
 
 
 class ModelPackageSecurityConfigTypeDef(BaseValidatorModel):
-    KmsKeyId: str
+    KmsKeyId: Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]
 
 
 class InstanceMetadataServiceConfigurationTypeDef(BaseValidatorModel):
-    MinimumInstanceMetadataServiceVersion: str
+    MinimumInstanceMetadataServiceVersion: Annotated[
+        str, _aws_pattern("Sagemaker", "MinimumInstanceMetadataServiceVersion")
+    ]
 
 
 class NotebookInstanceLifecycleHookTypeDef(BaseValidatorModel):
-    Content: Optional[str] = None
+    Content: Optional[Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigContent")]] = None
 
 
 # This class is the input for the 'create_partner_app_presigned_url' function.
 class CreatePartnerAppPresignedUrlRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "PartnerAppArn")]
     ExpiresInSeconds: Optional[int] = None
     SessionExpirationDurationInSeconds: Optional[int] = None
 
 
 class PartnerAppMaintenanceConfigTypeDef(BaseValidatorModel):
-    MaintenanceWindowStart: Optional[str] = None
+    MaintenanceWindowStart: Optional[Annotated[str, _aws_pattern("Sagemaker", "WeeklyScheduleTimeFormat")]] = None
 
 
 class ParallelismConfigurationTypeDef(BaseValidatorModel):
@@ -1163,46 +1167,46 @@ class ParallelismConfigurationTypeDef(BaseValidatorModel):
 
 
 class PipelineDefinitionS3LocationTypeDef(BaseValidatorModel):
-    Bucket: str
-    ObjectKey: str
-    VersionId: Optional[str] = None
+    Bucket: Annotated[str, _aws_pattern("Sagemaker", "BucketName")]
+    ObjectKey: Annotated[str, _aws_pattern("Sagemaker", "Key")]
+    VersionId: Optional[Annotated[str, _aws_pattern("Sagemaker", "VersionId")]] = None
 
 
 # This class is the input for the 'create_presigned_domain_url' function.
 class CreatePresignedDomainUrlRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    UserProfileName: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    UserProfileName: Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]
     SessionExpirationDurationInSeconds: Optional[int] = None
     ExpiresInSeconds: Optional[int] = None
-    SpaceName: Optional[str] = None
+    SpaceName: Optional[Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]] = None
     LandingUri: Optional[str] = None
 
 
 # This class is the input for the 'create_presigned_mlflow_app_url' function.
 class CreatePresignedMlflowAppUrlRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "MlflowAppArn")]
     ExpiresInSeconds: Optional[int] = None
     SessionExpirationDurationInSeconds: Optional[int] = None
 
 
 # This class is the input for the 'create_presigned_mlflow_tracking_server_url' function.
 class CreatePresignedMlflowTrackingServerUrlRequestTypeDef(BaseValidatorModel):
-    TrackingServerName: str
+    TrackingServerName: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerName")]
     ExpiresInSeconds: Optional[int] = None
     SessionExpirationDurationInSeconds: Optional[int] = None
 
 
 # This class is the input for the 'create_presigned_notebook_instance_url' function.
 class CreatePresignedNotebookInstanceUrlInputTypeDef(BaseValidatorModel):
-    NotebookInstanceName: str
+    NotebookInstanceName: Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceName")]
     SessionExpirationDurationInSeconds: Optional[int] = None
 
 
 class ExperimentConfigTypeDef(BaseValidatorModel):
-    ExperimentName: Optional[str] = None
-    TrialName: Optional[str] = None
-    TrialComponentDisplayName: Optional[str] = None
-    RunName: Optional[str] = None
+    ExperimentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    TrialName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    TrialComponentDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    RunName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
 
 
 class ProcessingStoppingConditionTypeDef(BaseValidatorModel):
@@ -1210,7 +1214,7 @@ class ProcessingStoppingConditionTypeDef(BaseValidatorModel):
 
 
 class OwnershipSettingsTypeDef(BaseValidatorModel):
-    OwnerUserProfileName: str
+    OwnerUserProfileName: Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]
 
 
 class SpaceSharingSettingsTypeDef(BaseValidatorModel):
@@ -1222,19 +1226,19 @@ class InfraCheckConfigTypeDef(BaseValidatorModel):
 
 
 class MlflowConfigTypeDef(BaseValidatorModel):
-    MlflowResourceArn: str
-    MlflowExperimentName: Optional[str] = None
-    MlflowRunName: Optional[str] = None
+    MlflowResourceArn: Annotated[str, _aws_pattern("Sagemaker", "MlFlowResourceArn")]
+    MlflowExperimentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowExperimentName")]] = None
+    MlflowRunName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowRunName")]] = None
 
 
 class ModelPackageConfigTypeDef(BaseValidatorModel):
-    ModelPackageGroupArn: str
-    SourceModelPackageArn: Optional[str] = None
+    ModelPackageGroupArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageGroupArn")]
+    SourceModelPackageArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]] = None
 
 
 class OutputDataConfigTypeDef(BaseValidatorModel):
-    S3OutputPath: str
-    KmsKeyId: Optional[str] = None
+    S3OutputPath: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     CompressionType: Optional[OutputCompressionTypeType] = None
 
 
@@ -1247,13 +1251,13 @@ class RetryStrategyTypeDef(BaseValidatorModel):
 
 
 class ServerlessJobConfigTypeDef(BaseValidatorModel):
-    BaseModelArn: str
+    BaseModelArn: Annotated[str, _aws_pattern("Sagemaker", "ServerlessJobBaseModelArn")]
     JobType: ServerlessJobTypeType
     AcceptEula: Optional[bool] = None
     CustomizationTechnique: Optional[CustomizationTechniqueType] = None
     Peft: Optional[Literal["LORA"]] = None
     EvaluationType: Optional[EvaluationTypeType] = None
-    EvaluatorArn: Optional[str] = None
+    EvaluatorArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "EvaluatorArn")]] = None
 
 
 class SessionChainingConfigTypeDef(BaseValidatorModel):
@@ -1261,8 +1265,8 @@ class SessionChainingConfigTypeDef(BaseValidatorModel):
 
 
 class TensorBoardOutputConfigTypeDef(BaseValidatorModel):
-    S3OutputPath: str
-    LocalPath: Optional[str] = None
+    S3OutputPath: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    LocalPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "DirectoryPath")]] = None
 
 
 class DataProcessingTypeDef(BaseValidatorModel):
@@ -1277,85 +1281,85 @@ class ModelClientConfigTypeDef(BaseValidatorModel):
 
 
 class TransformOutputTypeDef(BaseValidatorModel):
-    S3OutputPath: str
-    Accept: Optional[str] = None
+    S3OutputPath: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    Accept: Optional[Annotated[str, _aws_pattern("Sagemaker", "Accept")]] = None
     AssembleWith: Optional[AssemblyTypeType] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class TransformResourcesTypeDef(BaseValidatorModel):
     InstanceType: TransformInstanceTypeType
     InstanceCount: int
-    VolumeKmsKeyId: Optional[str] = None
-    TransformAmiVersion: Optional[str] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
+    TransformAmiVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "TransformAmiVersion")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class TrialComponentArtifactTypeDef(BaseValidatorModel):
-    Value: str
-    MediaType: Optional[str] = None
+    Value: Annotated[str, _aws_pattern("Sagemaker", "TrialComponentArtifactValue")]
+    MediaType: Optional[Annotated[str, _aws_pattern("Sagemaker", "MediaType")]] = None
 
 
 class TrialComponentParameterValueTypeDef(BaseValidatorModel):
-    StringValue: Optional[str] = None
+    StringValue: Optional[Annotated[str, _aws_pattern("Sagemaker", "StringParameterValue")]] = None
     NumberValue: Optional[float] = None
 
 
 class TrialComponentStatusTypeDef(BaseValidatorModel):
     PrimaryStatus: Optional[TrialComponentPrimaryStatusType] = None
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrialComponentStatusMessage")]] = None
 
 
 class OidcConfigTypeDef(BaseValidatorModel):
-    ClientId: str
-    ClientSecret: str
-    Issuer: str
-    AuthorizationEndpoint: str
-    TokenEndpoint: str
-    UserInfoEndpoint: str
-    LogoutEndpoint: str
-    JwksUri: str
-    Scope: Optional[str] = None
+    ClientId: Annotated[str, _aws_pattern("Sagemaker", "ClientId")]
+    ClientSecret: Annotated[str, _aws_pattern("Sagemaker", "ClientSecret")]
+    Issuer: Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]
+    AuthorizationEndpoint: Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]
+    TokenEndpoint: Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]
+    UserInfoEndpoint: Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]
+    LogoutEndpoint: Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]
+    JwksUri: Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]
+    Scope: Optional[Annotated[str, _aws_pattern("Sagemaker", "Scope")]] = None
     AuthenticationRequestExtraParams: Optional[Dict[str, str]] = None
 
 
 class WorkforceVpcConfigRequestTypeDef(BaseValidatorModel):
-    VpcId: Optional[str] = None
-    SecurityGroupIds: Optional[List[str]] = None
-    Subnets: Optional[List[str]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Sagemaker", "WorkforceVpcId")]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "WorkforceSecurityGroupId")]]] = None
+    Subnets: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "WorkforceSubnetId")]]] = None
 
 
 class NotificationConfigurationTypeDef(BaseValidatorModel):
-    NotificationTopicArn: Optional[str] = None
+    NotificationTopicArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "NotificationTopicArn")]] = None
 
 
 class EFSFileSystemConfigTypeDef(BaseValidatorModel):
-    FileSystemId: str
-    FileSystemPath: Optional[str] = None
+    FileSystemId: Annotated[str, _aws_pattern("Sagemaker", "FileSystemId")]
+    FileSystemPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "FileSystemPath")]] = None
 
 
 class FSxLustreFileSystemConfigTypeDef(BaseValidatorModel):
-    FileSystemId: str
-    FileSystemPath: Optional[str] = None
+    FileSystemId: Annotated[str, _aws_pattern("Sagemaker", "FileSystemId")]
+    FileSystemPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "FileSystemPath")]] = None
 
 
 class S3FileSystemConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3SchemaUri")]
     MountPath: Optional[str] = None
 
 
 class EFSFileSystemTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Sagemaker", "FileSystemId")]
 
 
 class FSxLustreFileSystemTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Sagemaker", "FileSystemId")]
 
 
 class S3FileSystemTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3SchemaUri")]
 
 
 class CustomPosixUserConfigTypeDef(BaseValidatorModel):
@@ -1373,14 +1377,14 @@ class DataCaptureConfigSummaryTypeDef(BaseValidatorModel):
     EnableCapture: bool
     CaptureStatus: CaptureStatusType
     CurrentSamplingPercentage: int
-    DestinationS3Uri: str
-    KmsKeyId: str
+    DestinationS3Uri: Annotated[str, _aws_pattern("Sagemaker", "DestinationS3Uri")]
+    KmsKeyId: Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]
 
 
 class DataCatalogConfigTypeDef(BaseValidatorModel):
-    TableName: str
-    Catalog: str
-    Database: str
+    TableName: Annotated[str, _aws_pattern("Sagemaker", "TableName")]
+    Catalog: Annotated[str, _aws_pattern("Sagemaker", "Catalog")]
+    Database: Annotated[str, _aws_pattern("Sagemaker", "Database")]
 
 
 class DataQualityAppSpecificationOutputTypeDef(BaseValidatorModel):
@@ -1393,56 +1397,56 @@ class DataQualityAppSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class DataQualityAppSpecificationTypeDef(BaseValidatorModel):
-    ImageUri: str
-    ContainerEntrypoint: Optional[List[str]] = None
-    ContainerArguments: Optional[List[str]] = None
-    RecordPreprocessorSourceUri: Optional[str] = None
-    PostAnalyticsProcessorSourceUri: Optional[str] = None
+    ImageUri: Annotated[str, _aws_pattern("Sagemaker", "ImageUri")]
+    ContainerEntrypoint: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ContainerEntrypointString")]]] = None
+    ContainerArguments: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ContainerArgument")]]] = None
+    RecordPreprocessorSourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
+    PostAnalyticsProcessorSourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     Environment: Optional[Dict[str, str]] = None
 
 
 class MonitoringConstraintsResourceTypeDef(BaseValidatorModel):
-    S3Uri: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
 
 
 class MonitoringStatisticsResourceTypeDef(BaseValidatorModel):
-    S3Uri: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
 
 
 class EndpointInputTypeDef(BaseValidatorModel):
-    EndpointName: str
-    LocalPath: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
+    LocalPath: Annotated[str, _aws_pattern("Sagemaker", "ProcessingLocalPath")]
     S3InputMode: Optional[ProcessingS3InputModeType] = None
     S3DataDistributionType: Optional[ProcessingS3DataDistributionTypeType] = None
     FeaturesAttribute: Optional[str] = None
     InferenceAttribute: Optional[str] = None
     ProbabilityAttribute: Optional[str] = None
     ProbabilityThresholdAttribute: Optional[float] = None
-    StartTimeOffset: Optional[str] = None
-    EndTimeOffset: Optional[str] = None
+    StartTimeOffset: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringTimeOffsetString")]] = None
+    EndTimeOffset: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringTimeOffsetString")]] = None
     ExcludeFeaturesAttribute: Optional[str] = None
 
 
 class DatasetSourceTypeDef(BaseValidatorModel):
-    DatasetArn: str
+    DatasetArn: Annotated[str, _aws_pattern("Sagemaker", "HubDataSetArn")]
 
 
 class FileSystemDataSourceTypeDef(BaseValidatorModel):
-    FileSystemId: str
+    FileSystemId: Annotated[str, _aws_pattern("Sagemaker", "FileSystemId")]
     FileSystemAccessMode: FileSystemAccessModeType
     FileSystemType: FileSystemTypeType
-    DirectoryPath: str
+    DirectoryPath: Annotated[str, _aws_pattern("Sagemaker", "DirectoryPath")]
 
 
 class RedshiftDatasetDefinitionTypeDef(BaseValidatorModel):
-    ClusterId: str
-    Database: str
-    DbUser: str
-    QueryString: str
-    ClusterRoleArn: str
-    OutputS3Uri: str
+    ClusterId: Annotated[str, _aws_pattern("Sagemaker", "RedshiftClusterId")]
+    Database: Annotated[str, _aws_pattern("Sagemaker", "RedshiftDatabase")]
+    DbUser: Annotated[str, _aws_pattern("Sagemaker", "RedshiftUserName")]
+    QueryString: Annotated[str, _aws_pattern("Sagemaker", "RedshiftQueryString")]
+    ClusterRoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
+    OutputS3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     OutputFormat: RedshiftResultFormatType
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     OutputCompression: Optional[RedshiftResultCompressionTypeType] = None
 
 
@@ -1457,20 +1461,20 @@ class DebugRuleConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class DebugRuleConfigurationTypeDef(BaseValidatorModel):
-    RuleConfigurationName: str
-    RuleEvaluatorImage: str
-    LocalPath: Optional[str] = None
-    S3OutputPath: Optional[str] = None
+    RuleConfigurationName: Annotated[str, _aws_pattern("Sagemaker", "RuleConfigurationName")]
+    RuleEvaluatorImage: Annotated[str, _aws_pattern("Sagemaker", "AlgorithmImage")]
+    LocalPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "DirectoryPath")]] = None
+    S3OutputPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     InstanceType: Optional[ProcessingInstanceTypeType] = None
     VolumeSizeInGB: Optional[int] = None
     RuleParameters: Optional[Dict[str, str]] = None
 
 
 class DebugRuleEvaluationStatusTypeDef(BaseValidatorModel):
-    RuleConfigurationName: Optional[str] = None
-    RuleEvaluationJobArn: Optional[str] = None
+    RuleConfigurationName: Optional[Annotated[str, _aws_pattern("Sagemaker", "RuleConfigurationName")]] = None
+    RuleEvaluationJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobArn")]] = None
     RuleEvaluationStatus: Optional[RuleEvaluationStatusType] = None
-    StatusDetails: Optional[str] = None
+    StatusDetails: Optional[Annotated[str, _aws_pattern("Sagemaker", "StatusDetails")]] = None
     LastModifiedTime: Optional[datetime] = None
 
 
@@ -1481,87 +1485,87 @@ class DefaultEbsStorageSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_ai_benchmark_job' function.
 class DeleteAIBenchmarkJobRequestTypeDef(BaseValidatorModel):
-    AIBenchmarkJobName: str
+    AIBenchmarkJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
 
 
 # This class is the input for the 'delete_ai_recommendation_job' function.
 class DeleteAIRecommendationJobRequestTypeDef(BaseValidatorModel):
-    AIRecommendationJobName: str
+    AIRecommendationJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
 
 
 # This class is the input for the 'delete_ai_workload_config' function.
 class DeleteAIWorkloadConfigRequestTypeDef(BaseValidatorModel):
-    AIWorkloadConfigName: str
+    AIWorkloadConfigName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
 
 
 # This class is the input for the 'delete_action' function.
 class DeleteActionRequestTypeDef(BaseValidatorModel):
-    ActionName: str
+    ActionName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
 
 
 # This class is the input for the 'delete_algorithm' function.
 class DeleteAlgorithmInputTypeDef(BaseValidatorModel):
-    AlgorithmName: str
+    AlgorithmName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'delete_app_image_config' function.
 class DeleteAppImageConfigRequestTypeDef(BaseValidatorModel):
-    AppImageConfigName: str
+    AppImageConfigName: Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigName")]
 
 
 # This class is the input for the 'delete_app' function.
 class DeleteAppRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
     AppType: AppTypeType
-    AppName: str
-    UserProfileName: Optional[str] = None
-    SpaceName: Optional[str] = None
+    AppName: Annotated[str, _aws_pattern("Sagemaker", "AppName")]
+    UserProfileName: Optional[Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]] = None
+    SpaceName: Optional[Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]] = None
 
 
 # This class is the input for the 'delete_association' function.
 class DeleteAssociationRequestTypeDef(BaseValidatorModel):
-    SourceArn: str
-    DestinationArn: str
+    SourceArn: Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]
+    DestinationArn: Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]
 
 
 # This class is the input for the 'delete_cluster' function.
 class DeleteClusterRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
 
 
 # This class is the input for the 'delete_cluster_scheduler_config' function.
 class DeleteClusterSchedulerConfigRequestTypeDef(BaseValidatorModel):
-    ClusterSchedulerConfigId: str
+    ClusterSchedulerConfigId: Annotated[str, _aws_pattern("Sagemaker", "ClusterSchedulerConfigId")]
 
 
 # This class is the input for the 'delete_code_repository' function.
 class DeleteCodeRepositoryInputTypeDef(BaseValidatorModel):
-    CodeRepositoryName: str
+    CodeRepositoryName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'delete_compilation_job' function.
 class DeleteCompilationJobRequestTypeDef(BaseValidatorModel):
-    CompilationJobName: str
+    CompilationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'delete_compute_quota' function.
 class DeleteComputeQuotaRequestTypeDef(BaseValidatorModel):
-    ComputeQuotaId: str
+    ComputeQuotaId: Annotated[str, _aws_pattern("Sagemaker", "ComputeQuotaId")]
 
 
 # This class is the input for the 'delete_context' function.
 class DeleteContextRequestTypeDef(BaseValidatorModel):
-    ContextName: str
+    ContextName: Annotated[str, _aws_pattern("Sagemaker", "ContextName")]
 
 
 # This class is the input for the 'delete_data_quality_job_definition' function.
 class DeleteDataQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
 
 
 # This class is the input for the 'delete_device_fleet' function.
 class DeleteDeviceFleetRequestTypeDef(BaseValidatorModel):
-    DeviceFleetName: str
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 class RetentionPolicyTypeDef(BaseValidatorModel):
@@ -1570,229 +1574,231 @@ class RetentionPolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_edge_deployment_plan' function.
 class DeleteEdgeDeploymentPlanRequestTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanName: str
+    EdgeDeploymentPlanName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'delete_edge_deployment_stage' function.
 class DeleteEdgeDeploymentStageRequestTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanName: str
-    StageName: str
+    EdgeDeploymentPlanName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    StageName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'delete_endpoint_config' function.
 class DeleteEndpointConfigInputTypeDef(BaseValidatorModel):
-    EndpointConfigName: str
+    EndpointConfigName: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigName")]
 
 
 # This class is the input for the 'delete_endpoint' function.
 class DeleteEndpointInputTypeDef(BaseValidatorModel):
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
 
 
 # This class is the input for the 'delete_experiment' function.
 class DeleteExperimentRequestTypeDef(BaseValidatorModel):
-    ExperimentName: str
+    ExperimentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
 
 
 # This class is the input for the 'delete_feature_group' function.
 class DeleteFeatureGroupRequestTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
+    FeatureGroupName: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupName")]
 
 
 class DeleteFlowDefinitionRequestTypeDef(BaseValidatorModel):
-    FlowDefinitionName: str
+    FlowDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "FlowDefinitionName")]
 
 
 # This class is the input for the 'delete_hub_content_reference' function.
 class DeleteHubContentReferenceRequestTypeDef(BaseValidatorModel):
-    HubName: str
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
     HubContentType: HubContentTypeType
-    HubContentName: str
+    HubContentName: Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]
 
 
 # This class is the input for the 'delete_hub_content' function.
 class DeleteHubContentRequestTypeDef(BaseValidatorModel):
-    HubName: str
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
     HubContentType: HubContentTypeType
-    HubContentName: str
-    HubContentVersion: str
+    HubContentName: Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]
+    HubContentVersion: Annotated[str, _aws_pattern("Sagemaker", "HubContentVersion")]
 
 
 # This class is the input for the 'delete_hub' function.
 class DeleteHubRequestTypeDef(BaseValidatorModel):
-    HubName: str
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
 
 
 class DeleteHumanTaskUiRequestTypeDef(BaseValidatorModel):
-    HumanTaskUiName: str
+    HumanTaskUiName: Annotated[str, _aws_pattern("Sagemaker", "HumanTaskUiName")]
 
 
 # This class is the input for the 'delete_hyper_parameter_tuning_job' function.
 class DeleteHyperParameterTuningJobRequestTypeDef(BaseValidatorModel):
-    HyperParameterTuningJobName: str
+    HyperParameterTuningJobName: Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobName")]
 
 
 class DeleteImageRequestTypeDef(BaseValidatorModel):
-    ImageName: str
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
 
 
 class DeleteImageVersionRequestTypeDef(BaseValidatorModel):
-    ImageName: str
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
     Version: Optional[int] = None
-    Alias: Optional[str] = None
+    Alias: Optional[Annotated[str, _aws_pattern("Sagemaker", "SageMakerImageVersionAlias")]] = None
 
 
 # This class is the input for the 'delete_inference_component' function.
 class DeleteInferenceComponentInputTypeDef(BaseValidatorModel):
-    InferenceComponentName: str
+    InferenceComponentName: Annotated[str, _aws_pattern("Sagemaker", "InferenceComponentName")]
 
 
 # This class is the input for the 'delete_inference_experiment' function.
 class DeleteInferenceExperimentRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentName")]
 
 
 # This class is the input for the 'delete_mlflow_app' function.
 class DeleteMlflowAppRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "MlflowAppArn")]
 
 
 # This class is the input for the 'delete_mlflow_tracking_server' function.
 class DeleteMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
-    TrackingServerName: str
+    TrackingServerName: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerName")]
 
 
 # This class is the input for the 'delete_model_bias_job_definition' function.
 class DeleteModelBiasJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
 
 
 # This class is the input for the 'delete_model_card' function.
 class DeleteModelCardRequestTypeDef(BaseValidatorModel):
-    ModelCardName: str
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'delete_model_explainability_job_definition' function.
 class DeleteModelExplainabilityJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
 
 
 # This class is the input for the 'delete_model' function.
 class DeleteModelInputTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "ModelName")]
 
 
 # This class is the input for the 'delete_model_package_group' function.
 class DeleteModelPackageGroupInputTypeDef(BaseValidatorModel):
-    ModelPackageGroupName: str
+    ModelPackageGroupName: Annotated[str, _aws_pattern("Sagemaker", "ArnOrName")]
 
 
 # This class is the input for the 'delete_model_package_group_policy' function.
 class DeleteModelPackageGroupPolicyInputTypeDef(BaseValidatorModel):
-    ModelPackageGroupName: str
+    ModelPackageGroupName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'delete_model_package' function.
 class DeleteModelPackageInputTypeDef(BaseValidatorModel):
-    ModelPackageName: str
+    ModelPackageName: Annotated[str, _aws_pattern("Sagemaker", "VersionedArnOrName")]
 
 
 # This class is the input for the 'delete_model_quality_job_definition' function.
 class DeleteModelQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
 
 
 # This class is the input for the 'delete_monitoring_schedule' function.
 class DeleteMonitoringScheduleRequestTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: str
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
 
 
 # This class is the input for the 'delete_notebook_instance' function.
 class DeleteNotebookInstanceInputTypeDef(BaseValidatorModel):
-    NotebookInstanceName: str
+    NotebookInstanceName: Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceName")]
 
 
 # This class is the input for the 'delete_notebook_instance_lifecycle_config' function.
 class DeleteNotebookInstanceLifecycleConfigInputTypeDef(BaseValidatorModel):
-    NotebookInstanceLifecycleConfigName: str
+    NotebookInstanceLifecycleConfigName: Annotated[
+        str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigName")
+    ]
 
 
 # This class is the input for the 'delete_optimization_job' function.
 class DeleteOptimizationJobRequestTypeDef(BaseValidatorModel):
-    OptimizationJobName: str
+    OptimizationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'delete_partner_app' function.
 class DeletePartnerAppRequestTypeDef(BaseValidatorModel):
-    Arn: str
-    ClientToken: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "PartnerAppArn")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_pipeline' function.
 class DeletePipelineRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]
     ClientRequestToken: str
 
 
 # This class is the input for the 'delete_processing_job' function.
 class DeleteProcessingJobRequestTypeDef(BaseValidatorModel):
-    ProcessingJobName: str
+    ProcessingJobName: Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]
 
 
 # This class is the input for the 'delete_project' function.
 class DeleteProjectInputTypeDef(BaseValidatorModel):
-    ProjectName: str
+    ProjectName: Annotated[str, _aws_pattern("Sagemaker", "ProjectEntityName")]
 
 
 # This class is the input for the 'delete_space' function.
 class DeleteSpaceRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    SpaceName: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    SpaceName: Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]
 
 
 # This class is the input for the 'delete_studio_lifecycle_config' function.
 class DeleteStudioLifecycleConfigRequestTypeDef(BaseValidatorModel):
-    StudioLifecycleConfigName: str
+    StudioLifecycleConfigName: Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigName")]
 
 
 class DeleteTagsInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Sagemaker", "ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Sagemaker", "TagKey")]]
 
 
 # This class is the input for the 'delete_training_job' function.
 class DeleteTrainingJobRequestTypeDef(BaseValidatorModel):
-    TrainingJobName: str
+    TrainingJobName: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobName")]
 
 
 # This class is the input for the 'delete_trial_component' function.
 class DeleteTrialComponentRequestTypeDef(BaseValidatorModel):
-    TrialComponentName: str
+    TrialComponentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
 
 
 # This class is the input for the 'delete_trial' function.
 class DeleteTrialRequestTypeDef(BaseValidatorModel):
-    TrialName: str
+    TrialName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
 
 
 # This class is the input for the 'delete_user_profile' function.
 class DeleteUserProfileRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    UserProfileName: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    UserProfileName: Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]
 
 
 class DeleteWorkforceRequestTypeDef(BaseValidatorModel):
-    WorkforceName: str
+    WorkforceName: Annotated[str, _aws_pattern("Sagemaker", "WorkforceName")]
 
 
 # This class is the input for the 'delete_workteam' function.
 class DeleteWorkteamRequestTypeDef(BaseValidatorModel):
-    WorkteamName: str
+    WorkteamName: Annotated[str, _aws_pattern("Sagemaker", "WorkteamName")]
 
 
 class DeployedImageTypeDef(BaseValidatorModel):
-    SpecifiedImage: Optional[str] = None
-    ResolvedImage: Optional[str] = None
+    SpecifiedImage: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContainerImage")]] = None
+    ResolvedImage: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContainerImage")]] = None
     ResolutionTime: Optional[datetime] = None
 
 
@@ -1824,112 +1830,112 @@ class EdgeDeploymentStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'deregister_devices' function.
 class DeregisterDevicesRequestTypeDef(BaseValidatorModel):
-    DeviceFleetName: str
-    DeviceNames: List[str]
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    DeviceNames: List[Annotated[str, _aws_pattern("Sagemaker", "DeviceName")]]
 
 
 class DerivedInformationTypeDef(BaseValidatorModel):
-    DerivedDataInputConfig: Optional[str] = None
+    DerivedDataInputConfig: Optional[Annotated[str, _aws_pattern("Sagemaker", "DataInputConfig")]] = None
 
 
 # This class is the input for the 'describe_ai_benchmark_job' function.
 class DescribeAIBenchmarkJobRequestTypeDef(BaseValidatorModel):
-    AIBenchmarkJobName: str
+    AIBenchmarkJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
 
 
 # This class is the input for the 'describe_ai_recommendation_job' function.
 class DescribeAIRecommendationJobRequestTypeDef(BaseValidatorModel):
-    AIRecommendationJobName: str
+    AIRecommendationJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
 
 
 # This class is the input for the 'describe_ai_workload_config' function.
 class DescribeAIWorkloadConfigRequestTypeDef(BaseValidatorModel):
-    AIWorkloadConfigName: str
+    AIWorkloadConfigName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
 
 
 # This class is the input for the 'describe_action' function.
 class DescribeActionRequestTypeDef(BaseValidatorModel):
-    ActionName: str
+    ActionName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityNameOrArn")]
 
 
 # This class is the input for the 'describe_algorithm' function.
 class DescribeAlgorithmInputTypeDef(BaseValidatorModel):
-    AlgorithmName: str
+    AlgorithmName: Annotated[str, _aws_pattern("Sagemaker", "ArnOrName")]
 
 
 # This class is the input for the 'describe_app_image_config' function.
 class DescribeAppImageConfigRequestTypeDef(BaseValidatorModel):
-    AppImageConfigName: str
+    AppImageConfigName: Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigName")]
 
 
 # This class is the input for the 'describe_app' function.
 class DescribeAppRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
     AppType: AppTypeType
-    AppName: str
-    UserProfileName: Optional[str] = None
-    SpaceName: Optional[str] = None
+    AppName: Annotated[str, _aws_pattern("Sagemaker", "AppName")]
+    UserProfileName: Optional[Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]] = None
+    SpaceName: Optional[Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]] = None
 
 
 # This class is the input for the 'describe_artifact' function.
 class DescribeArtifactRequestTypeDef(BaseValidatorModel):
-    ArtifactArn: str
+    ArtifactArn: Annotated[str, _aws_pattern("Sagemaker", "ArtifactArn")]
 
 
 # This class is the input for the 'describe_auto_ml_job' function.
 class DescribeAutoMLJobRequestTypeDef(BaseValidatorModel):
-    AutoMLJobName: str
+    AutoMLJobName: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobName")]
 
 
 class ModelDeployResultTypeDef(BaseValidatorModel):
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
 
 
 # This class is the input for the 'describe_auto_ml_job_v2' function.
 class DescribeAutoMLJobV2RequestTypeDef(BaseValidatorModel):
-    AutoMLJobName: str
+    AutoMLJobName: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobName")]
 
 
 # This class is the input for the 'describe_cluster_event' function.
 class DescribeClusterEventRequestTypeDef(BaseValidatorModel):
-    EventId: str
-    ClusterName: str
+    EventId: Annotated[str, _aws_pattern("Sagemaker", "EventId")]
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
 
 
 # This class is the input for the 'describe_cluster_node' function.
 class DescribeClusterNodeRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
-    NodeId: Optional[str] = None
-    NodeLogicalId: Optional[str] = None
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
+    NodeId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]] = None
+    NodeLogicalId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]] = None
 
 
 # This class is the input for the 'describe_cluster' function.
 class DescribeClusterRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
 
 
 # This class is the input for the 'describe_cluster_scheduler_config' function.
 class DescribeClusterSchedulerConfigRequestTypeDef(BaseValidatorModel):
-    ClusterSchedulerConfigId: str
+    ClusterSchedulerConfigId: Annotated[str, _aws_pattern("Sagemaker", "ClusterSchedulerConfigId")]
     ClusterSchedulerConfigVersion: Optional[int] = None
 
 
 # This class is the input for the 'describe_code_repository' function.
 class DescribeCodeRepositoryInputTypeDef(BaseValidatorModel):
-    CodeRepositoryName: str
+    CodeRepositoryName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'describe_compilation_job' function.
 class DescribeCompilationJobRequestTypeDef(BaseValidatorModel):
-    CompilationJobName: str
+    CompilationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 class ModelArtifactsTypeDef(BaseValidatorModel):
-    S3ModelArtifacts: str
+    S3ModelArtifacts: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
 
 
 class ModelDigestsTypeDef(BaseValidatorModel):
-    ArtifactDigest: Optional[str] = None
+    ArtifactDigest: Optional[Annotated[str, _aws_pattern("Sagemaker", "ArtifactDigest")]] = None
 
 
 class NeoVpcConfigOutputTypeDef(BaseValidatorModel):
@@ -1939,54 +1945,54 @@ class NeoVpcConfigOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_compute_quota' function.
 class DescribeComputeQuotaRequestTypeDef(BaseValidatorModel):
-    ComputeQuotaId: str
+    ComputeQuotaId: Annotated[str, _aws_pattern("Sagemaker", "ComputeQuotaId")]
     ComputeQuotaVersion: Optional[int] = None
 
 
 # This class is the input for the 'describe_context' function.
 class DescribeContextRequestTypeDef(BaseValidatorModel):
-    ContextName: str
+    ContextName: Annotated[str, _aws_pattern("Sagemaker", "ContextNameOrArn")]
 
 
 # This class is the input for the 'describe_data_quality_job_definition' function.
 class DescribeDataQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
 
 
 # This class is the input for the 'describe_device_fleet' function.
 class DescribeDeviceFleetRequestTypeDef(BaseValidatorModel):
-    DeviceFleetName: str
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'describe_device' function.
 class DescribeDeviceRequestTypeDef(BaseValidatorModel):
-    DeviceName: str
-    DeviceFleetName: str
-    NextToken: Optional[str] = None
+    DeviceName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class EdgeModelTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelVersion: str
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelVersion: Annotated[str, _aws_pattern("Sagemaker", "EdgeVersion")]
     LatestSampleTime: Optional[datetime] = None
     LatestInference: Optional[datetime] = None
 
 
 # This class is the input for the 'describe_domain' function.
 class DescribeDomainRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
 
 
 # This class is the input for the 'describe_edge_deployment_plan' function.
 class DescribeEdgeDeploymentPlanRequestTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanName: str
-    NextToken: Optional[str] = None
+    EdgeDeploymentPlanName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_edge_packaging_job' function.
 class DescribeEdgePackagingJobRequestTypeDef(BaseValidatorModel):
-    EdgePackagingJobName: str
+    EdgePackagingJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 class EdgePresetDeploymentOutputTypeDef(BaseValidatorModel):
@@ -1998,12 +2004,12 @@ class EdgePresetDeploymentOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_endpoint_config' function.
 class DescribeEndpointConfigInputTypeDef(BaseValidatorModel):
-    EndpointConfigName: str
+    EndpointConfigName: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigName")]
 
 
 # This class is the input for the 'describe_endpoint' function.
 class DescribeEndpointInputTypeDef(BaseValidatorModel):
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -2013,18 +2019,18 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_experiment' function.
 class DescribeExperimentRequestTypeDef(BaseValidatorModel):
-    ExperimentName: str
+    ExperimentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
 
 
 class ExperimentSourceTypeDef(BaseValidatorModel):
-    SourceArn: str
+    SourceArn: Annotated[str, _aws_pattern("Sagemaker", "ExperimentSourceArn")]
     SourceType: Optional[str] = None
 
 
 # This class is the input for the 'describe_feature_group' function.
 class DescribeFeatureGroupRequestTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
-    NextToken: Optional[str] = None
+    FeatureGroupName: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupNameOrArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class LastUpdateStatusTypeDef(BaseValidatorModel):
@@ -2045,41 +2051,41 @@ class ThroughputConfigDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_feature_metadata' function.
 class DescribeFeatureMetadataRequestTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
-    FeatureName: str
+    FeatureGroupName: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupNameOrArn")]
+    FeatureName: Annotated[str, _aws_pattern("Sagemaker", "FeatureName")]
 
 
 class FeatureParameterTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Sagemaker", "FeatureParameterKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Sagemaker", "FeatureParameterValue")]] = None
 
 
 # This class is the input for the 'describe_flow_definition' function.
 class DescribeFlowDefinitionRequestTypeDef(BaseValidatorModel):
-    FlowDefinitionName: str
+    FlowDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "FlowDefinitionName")]
 
 
 # This class is the input for the 'describe_hub_content' function.
 class DescribeHubContentRequestTypeDef(BaseValidatorModel):
-    HubName: str
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
     HubContentType: HubContentTypeType
-    HubContentName: str
-    HubContentVersion: Optional[str] = None
+    HubContentName: Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]
+    HubContentVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentVersion")]] = None
 
 
 class HubContentDependencyTypeDef(BaseValidatorModel):
-    DependencyOriginPath: Optional[str] = None
-    DependencyCopyPath: Optional[str] = None
+    DependencyOriginPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "DependencyOriginPath")]] = None
+    DependencyCopyPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "DependencyCopyPath")]] = None
 
 
 # This class is the input for the 'describe_hub' function.
 class DescribeHubRequestTypeDef(BaseValidatorModel):
-    HubName: str
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
 
 
 # This class is the input for the 'describe_human_task_ui' function.
 class DescribeHumanTaskUiRequestTypeDef(BaseValidatorModel):
-    HumanTaskUiName: str
+    HumanTaskUiName: Annotated[str, _aws_pattern("Sagemaker", "HumanTaskUiName")]
 
 
 class UiTemplateInfoTypeDef(BaseValidatorModel):
@@ -2089,7 +2095,7 @@ class UiTemplateInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_hyper_parameter_tuning_job' function.
 class DescribeHyperParameterTuningJobRequestTypeDef(BaseValidatorModel):
-    HyperParameterTuningJobName: str
+    HyperParameterTuningJobName: Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobName")]
 
 
 class HyperParameterTuningJobCompletionDetailsTypeDef(BaseValidatorModel):
@@ -2117,34 +2123,29 @@ class TrainingJobStatusCountersTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_image' function.
 class DescribeImageRequestTypeDef(BaseValidatorModel):
-    ImageName: str
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
 
 
 # This class is the input for the 'describe_image_version' function.
 class DescribeImageVersionRequestTypeDef(BaseValidatorModel):
-    ImageName: str
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
     Version: Optional[int] = None
-    Alias: Optional[str] = None
+    Alias: Optional[Annotated[str, _aws_pattern("Sagemaker", "SageMakerImageVersionAlias")]] = None
 
 
 # This class is the input for the 'describe_inference_component' function.
 class DescribeInferenceComponentInputTypeDef(BaseValidatorModel):
-    InferenceComponentName: str
-
-
-class InferenceComponentRuntimeConfigSummaryTypeDef(BaseValidatorModel):
-    DesiredCopyCount: Optional[int] = None
-    CurrentCopyCount: Optional[int] = None
+    InferenceComponentName: Annotated[str, _aws_pattern("Sagemaker", "InferenceComponentName")]
 
 
 # This class is the input for the 'describe_inference_experiment' function.
 class DescribeInferenceExperimentRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentName")]
 
 
 class EndpointMetadataTypeDef(BaseValidatorModel):
-    EndpointName: str
-    EndpointConfigName: Optional[str] = None
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
+    EndpointConfigName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigName")]] = None
     EndpointStatus: Optional[EndpointStatusType] = None
     FailureReason: Optional[str] = None
 
@@ -2156,12 +2157,12 @@ class InferenceExperimentScheduleOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_inference_recommendations_job' function.
 class DescribeInferenceRecommendationsJobRequestTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobName")]
 
 
 # This class is the input for the 'describe_labeling_job' function.
 class DescribeLabelingJobRequestTypeDef(BaseValidatorModel):
-    LabelingJobName: str
+    LabelingJobName: Annotated[str, _aws_pattern("Sagemaker", "LabelingJobName")]
 
 
 class LabelCountersTypeDef(BaseValidatorModel):
@@ -2173,28 +2174,28 @@ class LabelCountersTypeDef(BaseValidatorModel):
 
 
 class LabelingJobOutputTypeDef(BaseValidatorModel):
-    OutputDatasetS3Uri: str
-    FinalActiveLearningModelArn: Optional[str] = None
+    OutputDatasetS3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    FinalActiveLearningModelArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelArn")]] = None
 
 
 # This class is the input for the 'describe_lineage_group' function.
 class DescribeLineageGroupRequestTypeDef(BaseValidatorModel):
-    LineageGroupName: str
+    LineageGroupName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
 
 
 # This class is the input for the 'describe_mlflow_app' function.
 class DescribeMlflowAppRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "MlflowAppArn")]
 
 
 # This class is the input for the 'describe_mlflow_tracking_server' function.
 class DescribeMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
-    TrackingServerName: str
+    TrackingServerName: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerName")]
 
 
 # This class is the input for the 'describe_model_bias_job_definition' function.
 class DescribeModelBiasJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
 
 
 class ModelBiasAppSpecificationOutputTypeDef(BaseValidatorModel):
@@ -2205,22 +2206,22 @@ class ModelBiasAppSpecificationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_model_card_export_job' function.
 class DescribeModelCardExportJobRequestTypeDef(BaseValidatorModel):
-    ModelCardExportJobArn: str
+    ModelCardExportJobArn: Annotated[str, _aws_pattern("Sagemaker", "ModelCardExportJobArn")]
 
 
 class ModelCardExportArtifactsTypeDef(BaseValidatorModel):
-    S3ExportArtifacts: str
+    S3ExportArtifacts: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
 
 
 # This class is the input for the 'describe_model_card' function.
 class DescribeModelCardRequestTypeDef(BaseValidatorModel):
-    ModelCardName: str
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "ModelCardNameOrArn")]
     ModelCardVersion: Optional[int] = None
 
 
 # This class is the input for the 'describe_model_explainability_job_definition' function.
 class DescribeModelExplainabilityJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
 
 
 class ModelExplainabilityAppSpecificationOutputTypeDef(BaseValidatorModel):
@@ -2231,22 +2232,22 @@ class ModelExplainabilityAppSpecificationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_model' function.
 class DescribeModelInputTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "ModelName")]
 
 
 # This class is the input for the 'describe_model_package_group' function.
 class DescribeModelPackageGroupInputTypeDef(BaseValidatorModel):
-    ModelPackageGroupName: str
+    ModelPackageGroupName: Annotated[str, _aws_pattern("Sagemaker", "ArnOrName")]
 
 
 # This class is the input for the 'describe_model_package' function.
 class DescribeModelPackageInputTypeDef(BaseValidatorModel):
-    ModelPackageName: str
+    ModelPackageName: Annotated[str, _aws_pattern("Sagemaker", "VersionedArnOrName")]
 
 
 # This class is the input for the 'describe_model_quality_job_definition' function.
 class DescribeModelQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
 
 
 class ModelQualityAppSpecificationOutputTypeDef(BaseValidatorModel):
@@ -2261,39 +2262,43 @@ class ModelQualityAppSpecificationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_monitoring_schedule' function.
 class DescribeMonitoringScheduleRequestTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: str
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
 
 
 class MonitoringExecutionSummaryTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: str
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
     ScheduledTime: datetime
     CreationTime: datetime
     LastModifiedTime: datetime
     MonitoringExecutionStatus: ExecutionStatusType
-    ProcessingJobArn: Optional[str] = None
-    EndpointName: Optional[str] = None
+    ProcessingJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobArn")]] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
     FailureReason: Optional[str] = None
-    MonitoringJobDefinitionName: Optional[str] = None
+    MonitoringJobDefinitionName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]] = (
+        None
+    )
     MonitoringType: Optional[MonitoringTypeType] = None
 
 
 # This class is the input for the 'describe_notebook_instance' function.
 class DescribeNotebookInstanceInputTypeDef(BaseValidatorModel):
-    NotebookInstanceName: str
+    NotebookInstanceName: Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceName")]
 
 
 # This class is the input for the 'describe_notebook_instance_lifecycle_config' function.
 class DescribeNotebookInstanceLifecycleConfigInputTypeDef(BaseValidatorModel):
-    NotebookInstanceLifecycleConfigName: str
+    NotebookInstanceLifecycleConfigName: Annotated[
+        str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigName")
+    ]
 
 
 # This class is the input for the 'describe_optimization_job' function.
 class DescribeOptimizationJobRequestTypeDef(BaseValidatorModel):
-    OptimizationJobName: str
+    OptimizationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 class OptimizationOutputTypeDef(BaseValidatorModel):
-    RecommendedInferenceImage: Optional[str] = None
+    RecommendedInferenceImage: Optional[Annotated[str, _aws_pattern("Sagemaker", "OptimizationContainerImage")]] = None
 
 
 class OptimizationVpcConfigOutputTypeDef(BaseValidatorModel):
@@ -2303,63 +2308,65 @@ class OptimizationVpcConfigOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_partner_app' function.
 class DescribePartnerAppRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "PartnerAppArn")]
     IncludeAvailableUpgrade: Optional[bool] = None
 
 
 class ErrorInfoTypeDef(BaseValidatorModel):
-    Code: Optional[str] = None
-    Reason: Optional[str] = None
+    Code: Optional[Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString64")]] = None
+    Reason: Optional[Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString256")]] = None
 
 
 # This class is the input for the 'describe_pipeline_definition_for_execution' function.
 class DescribePipelineDefinitionForExecutionRequestTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
 
 
 # This class is the input for the 'describe_pipeline_execution' function.
 class DescribePipelineExecutionRequestTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
 
 
 class MLflowConfigurationTypeDef(BaseValidatorModel):
-    MlflowResourceArn: Optional[str] = None
-    MlflowExperimentName: Optional[str] = None
+    MlflowResourceArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "MLflowArn")]] = None
+    MlflowExperimentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowExperimentEntityName")]] = None
 
 
 class PipelineExperimentConfigTypeDef(BaseValidatorModel):
-    ExperimentName: Optional[str] = None
-    TrialName: Optional[str] = None
+    ExperimentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    TrialName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
 
 
 # This class is the input for the 'describe_pipeline' function.
 class DescribePipelineRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Sagemaker", "PipelineNameOrArn")]
     PipelineVersionId: Optional[int] = None
 
 
 # This class is the input for the 'describe_processing_job' function.
 class DescribeProcessingJobRequestTypeDef(BaseValidatorModel):
-    ProcessingJobName: str
+    ProcessingJobName: Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]
 
 
 # This class is the input for the 'describe_project' function.
 class DescribeProjectInputTypeDef(BaseValidatorModel):
-    ProjectName: str
+    ProjectName: Annotated[str, _aws_pattern("Sagemaker", "ProjectEntityName")]
 
 
 class ServiceCatalogProvisionedProductDetailsTypeDef(BaseValidatorModel):
-    ProvisionedProductId: Optional[str] = None
-    ProvisionedProductStatusMessage: Optional[str] = None
+    ProvisionedProductId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ServiceCatalogEntityId")]] = None
+    ProvisionedProductStatusMessage: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "ProvisionedProductStatusMessage")]
+    ] = None
 
 
 # This class is the input for the 'describe_reserved_capacity' function.
 class DescribeReservedCapacityRequestTypeDef(BaseValidatorModel):
-    ReservedCapacityArn: str
+    ReservedCapacityArn: Annotated[str, _aws_pattern("Sagemaker", "ReservedCapacityArn")]
 
 
 class UltraServerSummaryTypeDef(BaseValidatorModel):
-    UltraServerType: str
+    UltraServerType: Annotated[str, _aws_pattern("Sagemaker", "UltraServerType")]
     InstanceType: ReservedCapacityInstanceTypeType
     UltraServerCount: Optional[int] = None
     AvailableSpareInstanceCount: Optional[int] = None
@@ -2368,42 +2375,42 @@ class UltraServerSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_space' function.
 class DescribeSpaceRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    SpaceName: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    SpaceName: Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]
 
 
 # This class is the input for the 'describe_studio_lifecycle_config' function.
 class DescribeStudioLifecycleConfigRequestTypeDef(BaseValidatorModel):
-    StudioLifecycleConfigName: str
+    StudioLifecycleConfigName: Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigName")]
 
 
 # This class is the input for the 'describe_subscribed_workteam' function.
 class DescribeSubscribedWorkteamRequestTypeDef(BaseValidatorModel):
-    WorkteamArn: str
+    WorkteamArn: Annotated[str, _aws_pattern("Sagemaker", "WorkteamArn")]
 
 
 class SubscribedWorkteamTypeDef(BaseValidatorModel):
-    WorkteamArn: str
-    MarketplaceTitle: Optional[str] = None
+    WorkteamArn: Annotated[str, _aws_pattern("Sagemaker", "WorkteamArn")]
+    MarketplaceTitle: Optional[Annotated[str, _aws_pattern("Sagemaker", "String200")]] = None
     SellerName: Optional[str] = None
-    MarketplaceDescription: Optional[str] = None
+    MarketplaceDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "String200")]] = None
     ListingId: Optional[str] = None
 
 
 # This class is the input for the 'describe_training_job' function.
 class DescribeTrainingJobRequestTypeDef(BaseValidatorModel):
-    TrainingJobName: str
+    TrainingJobName: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobName")]
 
 
 class MetricDataTypeDef(BaseValidatorModel):
-    MetricName: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MetricName")]] = None
     Value: Optional[float] = None
     Timestamp: Optional[datetime] = None
 
 
 class MlflowDetailsTypeDef(BaseValidatorModel):
-    MlflowExperimentId: Optional[str] = None
-    MlflowRunId: Optional[str] = None
+    MlflowExperimentId: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowExperimentId")]] = None
+    MlflowRunId: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowRunId")]] = None
 
 
 class ProfilerConfigOutputTypeDef(BaseValidatorModel):
@@ -2424,10 +2431,10 @@ class ProfilerRuleConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class ProfilerRuleEvaluationStatusTypeDef(BaseValidatorModel):
-    RuleConfigurationName: Optional[str] = None
-    RuleEvaluationJobArn: Optional[str] = None
+    RuleConfigurationName: Optional[Annotated[str, _aws_pattern("Sagemaker", "RuleConfigurationName")]] = None
+    RuleEvaluationJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobArn")]] = None
     RuleEvaluationStatus: Optional[RuleEvaluationStatusType] = None
-    StatusDetails: Optional[str] = None
+    StatusDetails: Optional[Annotated[str, _aws_pattern("Sagemaker", "StatusDetails")]] = None
     LastModifiedTime: Optional[datetime] = None
 
 
@@ -2448,13 +2455,13 @@ class TrainingProgressInfoTypeDef(BaseValidatorModel):
 class WarmPoolStatusTypeDef(BaseValidatorModel):
     Status: WarmPoolResourceStatusType
     ResourceRetainedBillableTimeInSeconds: Optional[int] = None
-    ReusedByJob: Optional[str] = None
+    ReusedByJob: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingJobName")]] = None
 
 
 # This class is the input for the 'describe_training_plan_extension_history' function.
 class DescribeTrainingPlanExtensionHistoryRequestTypeDef(BaseValidatorModel):
-    TrainingPlanArn: str
-    NextToken: Optional[str] = None
+    TrainingPlanArn: Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -2466,7 +2473,7 @@ class TrainingPlanExtensionTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
     PaymentStatus: Optional[str] = None
     AvailabilityZone: Optional[str] = None
-    AvailabilityZoneId: Optional[str] = None
+    AvailabilityZoneId: Optional[Annotated[str, _aws_pattern("Sagemaker", "AvailabilityZoneId")]] = None
     DurationHours: Optional[int] = None
     UpfrontFee: Optional[str] = None
     CurrencyCode: Optional[str] = None
@@ -2474,18 +2481,18 @@ class TrainingPlanExtensionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_training_plan' function.
 class DescribeTrainingPlanRequestTypeDef(BaseValidatorModel):
-    TrainingPlanName: str
+    TrainingPlanName: Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanName")]
 
 
 class ReservedCapacitySummaryTypeDef(BaseValidatorModel):
-    ReservedCapacityArn: str
+    ReservedCapacityArn: Annotated[str, _aws_pattern("Sagemaker", "ReservedCapacityArn")]
     InstanceType: ReservedCapacityInstanceTypeType
     TotalInstanceCount: int
     Status: ReservedCapacityStatusType
     ReservedCapacityType: Optional[ReservedCapacityTypeType] = None
-    UltraServerType: Optional[str] = None
+    UltraServerType: Optional[Annotated[str, _aws_pattern("Sagemaker", "UltraServerType")]] = None
     UltraServerCount: Optional[int] = None
-    AvailabilityZone: Optional[str] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Sagemaker", "AvailabilityZone")]] = None
     DurationHours: Optional[int] = None
     DurationMinutes: Optional[int] = None
     StartTime: Optional[datetime] = None
@@ -2494,17 +2501,17 @@ class ReservedCapacitySummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_transform_job' function.
 class DescribeTransformJobRequestTypeDef(BaseValidatorModel):
-    TransformJobName: str
+    TransformJobName: Annotated[str, _aws_pattern("Sagemaker", "TransformJobName")]
 
 
 # This class is the input for the 'describe_trial_component' function.
 class DescribeTrialComponentRequestTypeDef(BaseValidatorModel):
-    TrialComponentName: str
+    TrialComponentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityNameOrArn")]
 
 
 class TrialComponentMetricSummaryTypeDef(BaseValidatorModel):
-    MetricName: Optional[str] = None
-    SourceArn: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MetricName")]] = None
+    SourceArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrialComponentSourceArn")]] = None
     TimeStamp: Optional[datetime] = None
     Max: Optional[float] = None
     Min: Optional[float] = None
@@ -2515,34 +2522,34 @@ class TrialComponentMetricSummaryTypeDef(BaseValidatorModel):
 
 
 class TrialComponentSourceTypeDef(BaseValidatorModel):
-    SourceArn: str
+    SourceArn: Annotated[str, _aws_pattern("Sagemaker", "TrialComponentSourceArn")]
     SourceType: Optional[str] = None
 
 
 # This class is the input for the 'describe_trial' function.
 class DescribeTrialRequestTypeDef(BaseValidatorModel):
-    TrialName: str
+    TrialName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
 
 
 class TrialSourceTypeDef(BaseValidatorModel):
-    SourceArn: str
+    SourceArn: Annotated[str, _aws_pattern("Sagemaker", "TrialSourceArn")]
     SourceType: Optional[str] = None
 
 
 # This class is the input for the 'describe_user_profile' function.
 class DescribeUserProfileRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    UserProfileName: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    UserProfileName: Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]
 
 
 # This class is the input for the 'describe_workforce' function.
 class DescribeWorkforceRequestTypeDef(BaseValidatorModel):
-    WorkforceName: str
+    WorkforceName: Annotated[str, _aws_pattern("Sagemaker", "WorkforceName")]
 
 
 # This class is the input for the 'describe_workteam' function.
 class DescribeWorkteamRequestTypeDef(BaseValidatorModel):
-    WorkteamName: str
+    WorkteamName: Annotated[str, _aws_pattern("Sagemaker", "WorkteamName")]
 
 
 class ProductionVariantServerlessUpdateConfigTypeDef(BaseValidatorModel):
@@ -2552,28 +2559,28 @@ class ProductionVariantServerlessUpdateConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'detach_cluster_node_volume' function.
 class DetachClusterNodeVolumeRequestTypeDef(BaseValidatorModel):
-    ClusterArn: str
-    NodeId: str
-    VolumeId: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
+    NodeId: Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]
+    VolumeId: Annotated[str, _aws_pattern("Sagemaker", "VolumeId")]
 
 
 class DeviceDeploymentSummaryTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanArn: str
-    EdgeDeploymentPlanName: str
-    StageName: str
-    DeviceName: str
-    DeviceArn: str
-    DeployedStageName: Optional[str] = None
-    DeviceFleetName: Optional[str] = None
+    EdgeDeploymentPlanArn: Annotated[str, _aws_pattern("Sagemaker", "EdgeDeploymentPlanArn")]
+    EdgeDeploymentPlanName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    StageName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    DeviceName: Annotated[str, _aws_pattern("Sagemaker", "DeviceName")]
+    DeviceArn: Annotated[str, _aws_pattern("Sagemaker", "DeviceArn")]
+    DeployedStageName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
+    DeviceFleetName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
     DeviceDeploymentStatus: Optional[DeviceDeploymentStatusType] = None
     DeviceDeploymentStatusMessage: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "DeviceDescription")]] = None
     DeploymentStartTime: Optional[datetime] = None
 
 
 class DeviceFleetSummaryTypeDef(BaseValidatorModel):
-    DeviceFleetArn: str
-    DeviceFleetName: str
+    DeviceFleetArn: Annotated[str, _aws_pattern("Sagemaker", "DeviceFleetArn")]
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
@@ -2581,8 +2588,8 @@ class DeviceFleetSummaryTypeDef(BaseValidatorModel):
 class DeviceSelectionConfigTypeDef(BaseValidatorModel):
     DeviceSubsetType: DeviceSubsetTypeType
     Percentage: Optional[int] = None
-    DeviceNames: Optional[List[str]] = None
-    DeviceNameContains: Optional[str] = None
+    DeviceNames: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "DeviceName")]]] = None
+    DeviceNameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "DeviceName")]] = None
 
 
 class DeviceStatsTypeDef(BaseValidatorModel):
@@ -2591,20 +2598,20 @@ class DeviceStatsTypeDef(BaseValidatorModel):
 
 
 class EdgeModelSummaryTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelVersion: str
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelVersion: Annotated[str, _aws_pattern("Sagemaker", "EdgeVersion")]
 
 
 class DeviceTypeDef(BaseValidatorModel):
-    DeviceName: str
-    Description: Optional[str] = None
-    IotThingName: Optional[str] = None
+    DeviceName: Annotated[str, _aws_pattern("Sagemaker", "DeviceName")]
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "DeviceDescription")]] = None
+    IotThingName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ThingName")]] = None
 
 
 # This class is the input for the 'disassociate_trial_component' function.
 class DisassociateTrialComponentRequestTypeDef(BaseValidatorModel):
-    TrialComponentName: str
-    TrialName: str
+    TrialComponentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    TrialName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
 
 
 class DockerSettingsOutputTypeDef(BaseValidatorModel):
@@ -2615,14 +2622,14 @@ class DockerSettingsOutputTypeDef(BaseValidatorModel):
 
 class DockerSettingsTypeDef(BaseValidatorModel):
     EnableDockerAccess: Optional[FeatureStatusType] = None
-    VpcOnlyTrustedAccounts: Optional[List[str]] = None
+    VpcOnlyTrustedAccounts: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "AccountId")]]] = None
     RootlessDocker: Optional[FeatureStatusType] = None
 
 
 class DomainDetailsTypeDef(BaseValidatorModel):
-    DomainArn: Optional[str] = None
-    DomainId: Optional[str] = None
-    DomainName: Optional[str] = None
+    DomainArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "DomainArn")]] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("Sagemaker", "DomainId")]] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Sagemaker", "DomainName")]] = None
     Status: Optional[DomainStatusType] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
@@ -2635,19 +2642,19 @@ class TrustedIdentityPropagationSettingsTypeDef(BaseValidatorModel):
 
 class UnifiedStudioSettingsTypeDef(BaseValidatorModel):
     StudioWebPortalAccess: Optional[FeatureStatusType] = None
-    DomainAccountId: Optional[str] = None
+    DomainAccountId: Optional[Annotated[str, _aws_pattern("Sagemaker", "AccountId")]] = None
     DomainRegion: Optional[str] = None
-    DomainId: Optional[str] = None
-    ProjectId: Optional[str] = None
-    EnvironmentId: Optional[str] = None
-    ProjectS3Path: Optional[str] = None
-    SingleSignOnApplicationArn: Optional[str] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("Sagemaker", "UnifiedStudioDomainId")]] = None
+    ProjectId: Optional[Annotated[str, _aws_pattern("Sagemaker", "UnifiedStudioProjectId")]] = None
+    EnvironmentId: Optional[Annotated[str, _aws_pattern("Sagemaker", "UnifiedStudioEnvironmentId")]] = None
+    ProjectS3Path: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
+    SingleSignOnApplicationArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "SingleSignOnApplicationArn")]] = None
 
 
 class FileSourceTypeDef(BaseValidatorModel):
-    S3Uri: str
-    ContentType: Optional[str] = None
-    ContentDigest: Optional[str] = None
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    ContentType: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContentType")]] = None
+    ContentDigest: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContentDigest")]] = None
 
 
 class EMRStepMetadataTypeDef(BaseValidatorModel):
@@ -2669,9 +2676,9 @@ class Ec2CapacityReservationTypeDef(BaseValidatorModel):
 
 
 class EdgeDeploymentPlanSummaryTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanArn: str
-    EdgeDeploymentPlanName: str
-    DeviceFleetName: str
+    EdgeDeploymentPlanArn: Annotated[str, _aws_pattern("Sagemaker", "EdgeDeploymentPlanArn")]
+    EdgeDeploymentPlanName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     EdgeDeploymentSuccess: int
     EdgeDeploymentPending: int
     EdgeDeploymentFailed: int
@@ -2680,8 +2687,8 @@ class EdgeDeploymentPlanSummaryTypeDef(BaseValidatorModel):
 
 
 class EdgeModelStatTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelVersion: str
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelVersion: Annotated[str, _aws_pattern("Sagemaker", "EdgeVersion")]
     OfflineDeviceCount: int
     ConnectedDeviceCount: int
     ActiveDeviceCount: int
@@ -2689,19 +2696,19 @@ class EdgeModelStatTypeDef(BaseValidatorModel):
 
 
 class EdgePackagingJobSummaryTypeDef(BaseValidatorModel):
-    EdgePackagingJobArn: str
-    EdgePackagingJobName: str
+    EdgePackagingJobArn: Annotated[str, _aws_pattern("Sagemaker", "EdgePackagingJobArn")]
+    EdgePackagingJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     EdgePackagingJobStatus: EdgePackagingJobStatusType
-    CompilationJobName: Optional[str] = None
-    ModelName: Optional[str] = None
-    ModelVersion: Optional[str] = None
+    CompilationJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
+    ModelVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "EdgeVersion")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
 class EdgeTypeDef(BaseValidatorModel):
-    SourceArn: Optional[str] = None
-    DestinationArn: Optional[str] = None
+    SourceArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]] = None
     AssociationType: Optional[AssociationEdgeTypeType] = None
 
 
@@ -2711,22 +2718,22 @@ class EmrSettingsOutputTypeDef(BaseValidatorModel):
 
 
 class EmrSettingsTypeDef(BaseValidatorModel):
-    AssumableRoleArns: Optional[List[str]] = None
-    ExecutionRoleArns: Optional[List[str]] = None
+    AssumableRoleArns: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]]] = None
+    ExecutionRoleArns: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]]] = None
 
 
 class EndpointConfigStepMetadataTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigArn")]] = None
 
 
 class EndpointConfigSummaryTypeDef(BaseValidatorModel):
-    EndpointConfigName: str
-    EndpointConfigArn: str
+    EndpointConfigName: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigName")]
+    EndpointConfigArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigArn")]
     CreationTime: datetime
 
 
 class EndpointInfoTypeDef(BaseValidatorModel):
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
 
 
 class ProductionVariantServerlessConfigTypeDef(BaseValidatorModel):
@@ -2741,12 +2748,12 @@ class InferenceMetricsTypeDef(BaseValidatorModel):
 
 
 class EndpointStepMetadataTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointArn")]] = None
 
 
 class EndpointSummaryTypeDef(BaseValidatorModel):
-    EndpointName: str
-    EndpointArn: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
+    EndpointArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointArn")]
     CreationTime: datetime
     LastModifiedTime: datetime
     EndpointStatus: EndpointStatusType
@@ -2780,20 +2787,20 @@ class FailStepMetadataTypeDef(BaseValidatorModel):
 
 
 class FilterTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "ResourcePropertyName")]
     Operator: Optional[OperatorType] = None
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Sagemaker", "FilterValue")]] = None
 
 
 class FinalHyperParameterTuningJobObjectiveMetricTypeDef(BaseValidatorModel):
-    MetricName: str
+    MetricName: Annotated[str, _aws_pattern("Sagemaker", "MetricName")]
     Value: float
     Type: Optional[HyperParameterTuningJobObjectiveTypeType] = None
 
 
 class FlowDefinitionSummaryTypeDef(BaseValidatorModel):
-    FlowDefinitionName: str
-    FlowDefinitionArn: str
+    FlowDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "FlowDefinitionName")]
+    FlowDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "FlowDefinitionArn")]
     FlowDefinitionStatus: FlowDefinitionStatusType
     CreationTime: datetime
     FailureReason: Optional[str] = None
@@ -2801,17 +2808,17 @@ class FlowDefinitionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_device_fleet_report' function.
 class GetDeviceFleetReportRequestTypeDef(BaseValidatorModel):
-    DeviceFleetName: str
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'get_lineage_group_policy' function.
 class GetLineageGroupPolicyRequestTypeDef(BaseValidatorModel):
-    LineageGroupName: str
+    LineageGroupName: Annotated[str, _aws_pattern("Sagemaker", "LineageGroupNameOrArn")]
 
 
 # This class is the input for the 'get_model_package_group_policy' function.
 class GetModelPackageGroupPolicyInputTypeDef(BaseValidatorModel):
-    ModelPackageGroupName: str
+    ModelPackageGroupName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 class ScalingPolicyObjectiveTypeDef(BaseValidatorModel):
@@ -2825,11 +2832,11 @@ class ScalingPolicyMetricTypeDef(BaseValidatorModel):
 
 
 class PropertyNameSuggestionTypeDef(BaseValidatorModel):
-    PropertyName: Optional[str] = None
+    PropertyName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ResourcePropertyName")]] = None
 
 
 class GitConfigForUpdateTypeDef(BaseValidatorModel):
-    SecretArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "SecretArn")]] = None
 
 
 class HiddenSageMakerImageOutputTypeDef(BaseValidatorModel):
@@ -2839,42 +2846,46 @@ class HiddenSageMakerImageOutputTypeDef(BaseValidatorModel):
 
 class HiddenSageMakerImageTypeDef(BaseValidatorModel):
     SageMakerImageName: Optional[Literal["sagemaker_distribution"]] = None
-    VersionAliases: Optional[List[str]] = None
+    VersionAliases: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ImageVersionAliasPattern")]]] = None
 
 
 class HolidayConfigAttributesTypeDef(BaseValidatorModel):
-    CountryCode: Optional[str] = None
+    CountryCode: Optional[Annotated[str, _aws_pattern("Sagemaker", "CountryCode")]] = None
 
 
 class HubAccessConfigTypeDef(BaseValidatorModel):
-    HubContentArn: str
+    HubContentArn: Annotated[str, _aws_pattern("Sagemaker", "HubContentArn")]
 
 
 class HubContentInfoTypeDef(BaseValidatorModel):
-    HubContentName: str
-    HubContentArn: str
-    HubContentVersion: str
+    HubContentName: Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]
+    HubContentArn: Annotated[str, _aws_pattern("Sagemaker", "HubContentArn")]
+    HubContentVersion: Annotated[str, _aws_pattern("Sagemaker", "HubContentVersion")]
     HubContentType: HubContentTypeType
-    DocumentSchemaVersion: str
+    DocumentSchemaVersion: Annotated[str, _aws_pattern("Sagemaker", "DocumentSchemaVersion")]
     HubContentStatus: HubContentStatusType
     CreationTime: datetime
-    SageMakerPublicHubContentArn: Optional[str] = None
-    HubContentDisplayName: Optional[str] = None
-    HubContentDescription: Optional[str] = None
+    SageMakerPublicHubContentArn: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "SageMakerPublicHubContentArn")]
+    ] = None
+    HubContentDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentDisplayName")]] = None
+    HubContentDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentDescription")]] = None
     SupportStatus: Optional[HubContentSupportStatusType] = None
-    HubContentSearchKeywords: Optional[List[str]] = None
+    HubContentSearchKeywords: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "HubContentSearchKeyword")]]] = (
+        None
+    )
     OriginalCreationTime: Optional[datetime] = None
 
 
 class HubInfoTypeDef(BaseValidatorModel):
-    HubName: str
-    HubArn: str
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubName")]
+    HubArn: Annotated[str, _aws_pattern("Sagemaker", "HubArn")]
     HubStatus: HubStatusType
     CreationTime: datetime
     LastModifiedTime: datetime
-    HubDisplayName: Optional[str] = None
-    HubDescription: Optional[str] = None
-    HubSearchKeywords: Optional[List[str]] = None
+    HubDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubDisplayName")]] = None
+    HubDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubDescription")]] = None
+    HubSearchKeywords: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "HubSearchKeyword")]]] = None
 
 
 class HumanLoopActivationConditionsConfigTypeDef(BaseValidatorModel):
@@ -2882,19 +2893,19 @@ class HumanLoopActivationConditionsConfigTypeDef(BaseValidatorModel):
 
 
 class UiConfigTypeDef(BaseValidatorModel):
-    UiTemplateS3Uri: Optional[str] = None
-    HumanTaskUiArn: Optional[str] = None
+    UiTemplateS3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
+    HumanTaskUiArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "HumanTaskUiArn")]] = None
 
 
 class HumanTaskUiSummaryTypeDef(BaseValidatorModel):
-    HumanTaskUiName: str
-    HumanTaskUiArn: str
+    HumanTaskUiName: Annotated[str, _aws_pattern("Sagemaker", "HumanTaskUiName")]
+    HumanTaskUiArn: Annotated[str, _aws_pattern("Sagemaker", "HumanTaskUiArn")]
     CreationTime: datetime
 
 
 class HyperParameterTuningJobObjectiveTypeDef(BaseValidatorModel):
     Type: HyperParameterTuningJobObjectiveTypeType
-    MetricName: str
+    MetricName: Annotated[str, _aws_pattern("Sagemaker", "MetricName")]
 
 
 class HyperParameterTuningInstanceConfigTypeDef(BaseValidatorModel):
@@ -2915,7 +2926,9 @@ class HyperbandStrategyConfigTypeDef(BaseValidatorModel):
 
 
 class ParentHyperParameterTuningJobTypeDef(BaseValidatorModel):
-    HyperParameterTuningJobName: Optional[str] = None
+    HyperParameterTuningJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobName")]] = (
+        None
+    )
 
 
 class IamIdentityTypeDef(BaseValidatorModel):
@@ -2930,24 +2943,24 @@ class IamPolicyConstraintsTypeDef(BaseValidatorModel):
 
 
 class RepositoryAuthConfigTypeDef(BaseValidatorModel):
-    RepositoryCredentialsProviderArn: str
+    RepositoryCredentialsProviderArn: Annotated[str, _aws_pattern("Sagemaker", "RepositoryCredentialsProviderArn")]
 
 
 class ImageTypeDef(BaseValidatorModel):
     CreationTime: datetime
-    ImageArn: str
-    ImageName: str
+    ImageArn: Annotated[str, _aws_pattern("Sagemaker", "ImageArn")]
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
     ImageStatus: ImageStatusType
     LastModifiedTime: datetime
-    Description: Optional[str] = None
-    DisplayName: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageDescription")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageDisplayName")]] = None
     FailureReason: Optional[str] = None
 
 
 class ImageVersionTypeDef(BaseValidatorModel):
     CreationTime: datetime
-    ImageArn: str
-    ImageVersionArn: str
+    ImageArn: Annotated[str, _aws_pattern("Sagemaker", "ImageArn")]
+    ImageVersionArn: Annotated[str, _aws_pattern("Sagemaker", "ImageVersionArn")]
     ImageVersionStatus: ImageVersionStatusType
     LastModifiedTime: datetime
     Version: int
@@ -2972,8 +2985,8 @@ class InferenceComponentComputeResourceRequirementsTypeDef(BaseValidatorModel):
 
 
 class InferenceComponentContainerSpecificationTypeDef(BaseValidatorModel):
-    Image: Optional[str] = None
-    ArtifactUrl: Optional[str] = None
+    Image: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContainerImage")]] = None
+    ArtifactUrl: Optional[Annotated[str, _aws_pattern("Sagemaker", "Url")]] = None
     Environment: Optional[Dict[str, str]] = None
 
 
@@ -2989,6 +3002,11 @@ class InferenceComponentMetadataTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+class InferenceComponentPlacementStatusTypeDef(BaseValidatorModel):
+    InstanceType: ProductionVariantInstanceTypeType
+    CurrentCopyCount: int
+
+
 class InferenceComponentStartupParametersTypeDef(BaseValidatorModel):
     ModelDataDownloadTimeoutInSeconds: Optional[int] = None
     ContainerStartupHealthCheckTimeoutInSeconds: Optional[int] = None
@@ -2997,16 +3015,16 @@ class InferenceComponentStartupParametersTypeDef(BaseValidatorModel):
 class InferenceComponentSummaryTypeDef(BaseValidatorModel):
     CreationTime: datetime
     InferenceComponentArn: str
-    InferenceComponentName: str
-    EndpointArn: str
-    EndpointName: str
-    VariantName: str
+    InferenceComponentName: Annotated[str, _aws_pattern("Sagemaker", "InferenceComponentName")]
+    EndpointArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointArn")]
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
+    VariantName: Annotated[str, _aws_pattern("Sagemaker", "VariantName")]
     LastModifiedTime: datetime
     InferenceComponentStatus: Optional[InferenceComponentStatusType] = None
 
 
 class InferenceHubAccessConfigTypeDef(BaseValidatorModel):
-    HubContentArn: str
+    HubContentArn: Annotated[str, _aws_pattern("Sagemaker", "HubContentArn")]
 
 
 class RecommendationMetricsTypeDef(BaseValidatorModel):
@@ -3020,31 +3038,31 @@ class RecommendationMetricsTypeDef(BaseValidatorModel):
 
 
 class InferenceRecommendationsJobTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobName")]
     JobDescription: str
     JobType: RecommendationJobTypeType
-    JobArn: str
+    JobArn: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobArn")]
     Status: RecommendationJobStatusType
     CreationTime: datetime
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     LastModifiedTime: datetime
     CompletionTime: Optional[datetime] = None
     FailureReason: Optional[str] = None
-    ModelName: Optional[str] = None
-    SamplePayloadUrl: Optional[str] = None
-    ModelPackageVersionArn: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelName")]] = None
+    SamplePayloadUrl: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
+    ModelPackageVersionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]] = None
 
 
 class InstanceGroupHealthCheckConfigurationTypeDef(BaseValidatorModel):
-    InstanceGroupName: str
+    InstanceGroupName: Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]
     DeepHealthChecks: List[DeepHealthCheckTypeType]
-    InstanceIds: Optional[List[str]] = None
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]]] = None
 
 
 class InstanceGroupTypeDef(BaseValidatorModel):
     InstanceType: TrainingInstanceTypeType
     InstanceCount: int
-    InstanceGroupName: str
+    InstanceGroupName: Annotated[str, _aws_pattern("Sagemaker", "InstanceGroupName")]
 
 
 class PlacementSpecificationTypeDef(BaseValidatorModel):
@@ -3052,15 +3070,26 @@ class PlacementSpecificationTypeDef(BaseValidatorModel):
     UltraServerId: Optional[str] = None
 
 
+class InstancePoolSummaryTypeDef(BaseValidatorModel):
+    InstanceType: ProductionVariantInstanceTypeType
+    CurrentInstanceCount: int
+
+
+class InstancePoolTypeDef(BaseValidatorModel):
+    InstanceType: ProductionVariantInstanceTypeType
+    Priority: int
+    ModelNameOverride: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelName")]] = None
+
+
 class IntegerParameterRangeSpecificationTypeDef(BaseValidatorModel):
-    MinValue: str
-    MaxValue: str
+    MinValue: Annotated[str, _aws_pattern("Sagemaker", "ParameterValue")]
+    MaxValue: Annotated[str, _aws_pattern("Sagemaker", "ParameterValue")]
 
 
 class IntegerParameterRangeTypeDef(BaseValidatorModel):
-    Name: str
-    MinValue: str
-    MaxValue: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "ParameterKey")]
+    MinValue: Annotated[str, _aws_pattern("Sagemaker", "ParameterValue")]
+    MaxValue: Annotated[str, _aws_pattern("Sagemaker", "ParameterValue")]
     ScalingType: Optional[HyperParameterScalingTypeType] = None
 
 
@@ -3084,106 +3113,106 @@ class LabelingJobDataAttributesTypeDef(BaseValidatorModel):
 
 
 class LabelingJobS3DataSourceTypeDef(BaseValidatorModel):
-    ManifestS3Uri: str
+    ManifestS3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
 
 
 class LabelingJobSnsDataSourceTypeDef(BaseValidatorModel):
-    SnsTopicArn: str
+    SnsTopicArn: Annotated[str, _aws_pattern("Sagemaker", "SnsTopicArn")]
 
 
 class LineageGroupSummaryTypeDef(BaseValidatorModel):
-    LineageGroupArn: Optional[str] = None
-    LineageGroupName: Optional[str] = None
-    DisplayName: Optional[str] = None
+    LineageGroupArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "LineageGroupArn")]] = None
+    LineageGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
 # This class is the input for the 'list_aliases' function.
 class ListAliasesRequestTypeDef(BaseValidatorModel):
-    ImageName: str
-    Alias: Optional[str] = None
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
+    Alias: Optional[Annotated[str, _aws_pattern("Sagemaker", "SageMakerImageVersionAlias")]] = None
     Version: Optional[int] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the input for the 'list_apps' function.
 class ListAppsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     SortOrder: Optional[SortOrderType] = None
     SortBy: Optional[Literal["CreationTime"]] = None
-    DomainIdEquals: Optional[str] = None
-    UserProfileNameEquals: Optional[str] = None
-    SpaceNameEquals: Optional[str] = None
+    DomainIdEquals: Optional[Annotated[str, _aws_pattern("Sagemaker", "DomainId")]] = None
+    UserProfileNameEquals: Optional[Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]] = None
+    SpaceNameEquals: Optional[Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]] = None
 
 
 # This class is the input for the 'list_candidates_for_auto_ml_job' function.
 class ListCandidatesForAutoMLJobRequestTypeDef(BaseValidatorModel):
-    AutoMLJobName: str
+    AutoMLJobName: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobName")]
     StatusEquals: Optional[CandidateStatusType] = None
     CandidateNameEquals: Optional[str] = None
     SortOrder: Optional[AutoMLSortOrderType] = None
     SortBy: Optional[CandidateSortByType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class MonitoringJobDefinitionSummaryTypeDef(BaseValidatorModel):
-    MonitoringJobDefinitionName: str
-    MonitoringJobDefinitionArn: str
+    MonitoringJobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
+    MonitoringJobDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionArn")]
     CreationTime: datetime
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
 
 
 # This class is the input for the 'list_domains' function.
 class ListDomainsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_inference_recommendations_job_steps' function.
 class ListInferenceRecommendationsJobStepsRequestTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobName")]
     Status: Optional[RecommendationJobStatusType] = None
     StepType: Optional[Literal["BENCHMARK"]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class MlflowAppSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowAppArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowAppName")]] = None
     Status: Optional[MlflowAppStatusType] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    MlflowVersion: Optional[str] = None
+    MlflowVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowVersion")]] = None
 
 
 class TrackingServerSummaryTypeDef(BaseValidatorModel):
-    TrackingServerArn: Optional[str] = None
-    TrackingServerName: Optional[str] = None
+    TrackingServerArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrackingServerArn")]] = None
+    TrackingServerName: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrackingServerName")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     TrackingServerStatus: Optional[TrackingServerStatusType] = None
     IsActive: Optional[IsTrackingServerActiveType] = None
-    MlflowVersion: Optional[str] = None
+    MlflowVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowVersion")]] = None
 
 
 class ModelCardExportJobSummaryTypeDef(BaseValidatorModel):
-    ModelCardExportJobName: str
-    ModelCardExportJobArn: str
+    ModelCardExportJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelCardExportJobArn: Annotated[str, _aws_pattern("Sagemaker", "ModelCardExportJobArn")]
     Status: ModelCardExportJobStatusType
-    ModelCardName: str
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     ModelCardVersion: int
     CreatedAt: datetime
     LastModifiedAt: datetime
 
 
 class ModelCardVersionSummaryTypeDef(BaseValidatorModel):
-    ModelCardName: str
-    ModelCardArn: str
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelCardArn: Annotated[str, _aws_pattern("Sagemaker", "ModelCardArn")]
     ModelCardStatus: ModelCardStatusType
     ModelCardVersion: int
     CreationTime: datetime
@@ -3191,8 +3220,8 @@ class ModelCardVersionSummaryTypeDef(BaseValidatorModel):
 
 
 class ModelCardSummaryTypeDef(BaseValidatorModel):
-    ModelCardName: str
-    ModelCardArn: str
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelCardArn: Annotated[str, _aws_pattern("Sagemaker", "ModelCardArn")]
     ModelCardStatus: ModelCardStatusType
     CreationTime: datetime
     LastModifiedTime: Optional[datetime] = None
@@ -3207,67 +3236,75 @@ class ModelMetadataSummaryTypeDef(BaseValidatorModel):
 
 
 class ModelPackageGroupSummaryTypeDef(BaseValidatorModel):
-    ModelPackageGroupName: str
-    ModelPackageGroupArn: str
+    ModelPackageGroupName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelPackageGroupArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageGroupArn")]
     CreationTime: datetime
     ModelPackageGroupStatus: ModelPackageGroupStatusType
-    ModelPackageGroupDescription: Optional[str] = None
+    ModelPackageGroupDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
 
 
 class ModelSummaryTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelArn: str
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "ModelName")]
+    ModelArn: Annotated[str, _aws_pattern("Sagemaker", "ModelArn")]
     CreationTime: datetime
 
 
 class MonitoringAlertHistorySummaryTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: str
-    MonitoringAlertName: str
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
+    MonitoringAlertName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringAlertName")]
     CreationTime: datetime
     AlertStatus: MonitoringAlertStatusType
 
 
 # This class is the input for the 'list_monitoring_alerts' function.
 class ListMonitoringAlertsRequestTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: str
-    NextToken: Optional[str] = None
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class MonitoringScheduleSummaryTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: str
-    MonitoringScheduleArn: str
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
+    MonitoringScheduleArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleArn")]
     CreationTime: datetime
     LastModifiedTime: datetime
     MonitoringScheduleStatus: ScheduleStatusType
-    EndpointName: Optional[str] = None
-    MonitoringJobDefinitionName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
+    MonitoringJobDefinitionName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]] = (
+        None
+    )
     MonitoringType: Optional[MonitoringTypeType] = None
 
 
 class NotebookInstanceLifecycleConfigSummaryTypeDef(BaseValidatorModel):
-    NotebookInstanceLifecycleConfigName: str
+    NotebookInstanceLifecycleConfigName: Annotated[
+        str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigName")
+    ]
     NotebookInstanceLifecycleConfigArn: str
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
 class NotebookInstanceSummaryTypeDef(BaseValidatorModel):
-    NotebookInstanceName: str
+    NotebookInstanceName: Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceName")]
     NotebookInstanceArn: str
     NotebookInstanceStatus: Optional[NotebookInstanceStatusType] = None
     Url: Optional[str] = None
     InstanceType: Optional[InstanceTypeType] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    NotebookInstanceLifecycleConfigName: Optional[str] = None
-    DefaultCodeRepository: Optional[str] = None
-    AdditionalCodeRepositories: Optional[List[str]] = None
+    NotebookInstanceLifecycleConfigName: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigName")]
+    ] = None
+    DefaultCodeRepository: Optional[Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryNameOrUrl")]] = None
+    AdditionalCodeRepositories: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryNameOrUrl")]]] = (
+        None
+    )
 
 
 class OptimizationJobSummaryTypeDef(BaseValidatorModel):
-    OptimizationJobName: str
-    OptimizationJobArn: str
+    OptimizationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    OptimizationJobArn: Annotated[str, _aws_pattern("Sagemaker", "OptimizationJobArn")]
     CreationTime: datetime
     OptimizationJobStatus: OptimizationJobStatusType
     DeploymentInstanceType: OptimizationJobDeploymentInstanceTypeType
@@ -3281,12 +3318,12 @@ class OptimizationJobSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_partner_apps' function.
 class ListPartnerAppsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class PartnerAppSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PartnerAppArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Sagemaker", "PartnerAppName")]] = None
     Type: Optional[PartnerAppTypeType] = None
     Status: Optional[PartnerAppStatusType] = None
     CreationTime: Optional[datetime] = None
@@ -3294,75 +3331,79 @@ class PartnerAppSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pipeline_execution_steps' function.
 class ListPipelineExecutionStepsRequestTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: Optional[str] = None
-    NextToken: Optional[str] = None
+    PipelineExecutionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     SortOrder: Optional[SortOrderType] = None
 
 
 class PipelineExecutionSummaryTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: Optional[str] = None
+    PipelineExecutionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]] = None
     StartTime: Optional[datetime] = None
     PipelineExecutionStatus: Optional[PipelineExecutionStatusType] = None
-    PipelineExecutionDescription: Optional[str] = None
-    PipelineExecutionDisplayName: Optional[str] = None
+    PipelineExecutionDescription: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionDescription")]
+    ] = None
+    PipelineExecutionDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionName")]] = None
     PipelineExecutionFailureReason: Optional[str] = None
 
 
 # This class is the input for the 'list_pipeline_parameters_for_execution' function.
 class ListPipelineParametersForExecutionRequestTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
-    NextToken: Optional[str] = None
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ParameterTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "PipelineParameterName")]
     Value: str
 
 
 class PipelineVersionSummaryTypeDef(BaseValidatorModel):
-    PipelineArn: Optional[str] = None
+    PipelineArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]] = None
     PipelineVersionId: Optional[int] = None
     CreationTime: Optional[datetime] = None
-    PipelineVersionDescription: Optional[str] = None
-    PipelineVersionDisplayName: Optional[str] = None
-    LastExecutionPipelineExecutionArn: Optional[str] = None
+    PipelineVersionDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineVersionDescription")]] = None
+    PipelineVersionDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineVersionName")]] = None
+    LastExecutionPipelineExecutionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]] = (
+        None
+    )
 
 
 class PipelineSummaryTypeDef(BaseValidatorModel):
-    PipelineArn: Optional[str] = None
-    PipelineName: Optional[str] = None
-    PipelineDisplayName: Optional[str] = None
-    PipelineDescription: Optional[str] = None
-    RoleArn: Optional[str] = None
+    PipelineArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]] = None
+    PipelineName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]] = None
+    PipelineDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]] = None
+    PipelineDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineDescription")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     LastExecutionTime: Optional[datetime] = None
 
 
 class ProcessingJobSummaryTypeDef(BaseValidatorModel):
-    ProcessingJobName: str
-    ProcessingJobArn: str
+    ProcessingJobName: Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]
+    ProcessingJobArn: Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobArn")]
     CreationTime: datetime
     ProcessingJobStatus: ProcessingJobStatusType
     ProcessingEndTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     FailureReason: Optional[str] = None
-    ExitMessage: Optional[str] = None
+    ExitMessage: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExitMessage")]] = None
 
 
 class ProjectSummaryTypeDef(BaseValidatorModel):
-    ProjectName: str
-    ProjectArn: str
-    ProjectId: str
+    ProjectName: Annotated[str, _aws_pattern("Sagemaker", "ProjectEntityName")]
+    ProjectArn: Annotated[str, _aws_pattern("Sagemaker", "ProjectArn")]
+    ProjectId: Annotated[str, _aws_pattern("Sagemaker", "ProjectId")]
     CreationTime: datetime
     ProjectStatus: ProjectStatusType
-    ProjectDescription: Optional[str] = None
+    ProjectDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
 
 
 class ResourceCatalogTypeDef(BaseValidatorModel):
-    ResourceCatalogArn: str
+    ResourceCatalogArn: Annotated[str, _aws_pattern("Sagemaker", "ResourceCatalogArn")]
     ResourceCatalogName: str
     Description: str
     CreationTime: datetime
@@ -3370,26 +3411,26 @@ class ResourceCatalogTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_spaces' function.
 class ListSpacesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     SortOrder: Optional[SortOrderType] = None
     SortBy: Optional[SpaceSortKeyType] = None
-    DomainIdEquals: Optional[str] = None
-    SpaceNameContains: Optional[str] = None
+    DomainIdEquals: Optional[Annotated[str, _aws_pattern("Sagemaker", "DomainId")]] = None
+    SpaceNameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]] = None
 
 
 # This class is the input for the 'list_stage_devices' function.
 class ListStageDevicesRequestTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanName: str
-    StageName: str
-    NextToken: Optional[str] = None
+    EdgeDeploymentPlanName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    StageName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     ExcludeDevicesDeployedInOtherStage: Optional[bool] = None
 
 
 class StudioLifecycleConfigDetailsTypeDef(BaseValidatorModel):
-    StudioLifecycleConfigArn: Optional[str] = None
-    StudioLifecycleConfigName: Optional[str] = None
+    StudioLifecycleConfigArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigArn")]] = None
+    StudioLifecycleConfigName: Optional[Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigName")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     StudioLifecycleConfigAppType: Optional[StudioLifecycleConfigAppTypeType] = None
@@ -3397,22 +3438,22 @@ class StudioLifecycleConfigDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_subscribed_workteams' function.
 class ListSubscribedWorkteamsRequestTypeDef(BaseValidatorModel):
-    NameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "WorkteamName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags' function.
 class ListTagsInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    NextToken: Optional[str] = None
+    ResourceArn: Annotated[str, _aws_pattern("Sagemaker", "ResourceArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_training_jobs_for_hyper_parameter_tuning_job' function.
 class ListTrainingJobsForHyperParameterTuningJobRequestTypeDef(BaseValidatorModel):
-    HyperParameterTuningJobName: str
-    NextToken: Optional[str] = None
+    HyperParameterTuningJobName: Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobName")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     StatusEquals: Optional[TrainingJobStatusType] = None
     SortBy: Optional[TrainingJobSortByOptionsType] = None
@@ -3425,8 +3466,8 @@ class TrainingPlanFilterTypeDef(BaseValidatorModel):
 
 
 class TransformJobSummaryTypeDef(BaseValidatorModel):
-    TransformJobName: str
-    TransformJobArn: str
+    TransformJobName: Annotated[str, _aws_pattern("Sagemaker", "TransformJobName")]
+    TransformJobArn: Annotated[str, _aws_pattern("Sagemaker", "TransformJobArn")]
     CreationTime: datetime
     TransformJobStatus: TransformJobStatusType
     TransformEndTime: Optional[datetime] = None
@@ -3436,15 +3477,15 @@ class TransformJobSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_ultra_servers_by_reserved_capacity' function.
 class ListUltraServersByReservedCapacityRequestTypeDef(BaseValidatorModel):
-    ReservedCapacityArn: str
+    ReservedCapacityArn: Annotated[str, _aws_pattern("Sagemaker", "ReservedCapacityArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class UltraServerTypeDef(BaseValidatorModel):
-    UltraServerId: str
-    UltraServerType: str
-    AvailabilityZone: str
+    UltraServerId: Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString256")]
+    UltraServerType: Annotated[str, _aws_pattern("Sagemaker", "UltraServerType")]
+    AvailabilityZone: Annotated[str, _aws_pattern("Sagemaker", "AvailabilityZone")]
     InstanceType: ReservedCapacityInstanceTypeType
     TotalInstanceCount: int
     ConfiguredSpareInstanceCount: Optional[int] = None
@@ -3457,17 +3498,17 @@ class UltraServerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_user_profiles' function.
 class ListUserProfilesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     SortOrder: Optional[SortOrderType] = None
     SortBy: Optional[UserProfileSortKeyType] = None
-    DomainIdEquals: Optional[str] = None
-    UserProfileNameContains: Optional[str] = None
+    DomainIdEquals: Optional[Annotated[str, _aws_pattern("Sagemaker", "DomainId")]] = None
+    UserProfileNameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]] = None
 
 
 class UserProfileDetailsTypeDef(BaseValidatorModel):
-    DomainId: Optional[str] = None
-    UserProfileName: Optional[str] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("Sagemaker", "DomainId")]] = None
+    UserProfileName: Optional[Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]] = None
     Status: Optional[UserProfileStatusType] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
@@ -3477,8 +3518,8 @@ class UserProfileDetailsTypeDef(BaseValidatorModel):
 class ListWorkforcesRequestTypeDef(BaseValidatorModel):
     SortBy: Optional[ListWorkforcesSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
-    NameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "WorkforceName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -3486,8 +3527,8 @@ class ListWorkforcesRequestTypeDef(BaseValidatorModel):
 class ListWorkteamsRequestTypeDef(BaseValidatorModel):
     SortBy: Optional[ListWorkteamsSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
-    NameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "WorkteamName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -3504,13 +3545,13 @@ class ModelAccessConfigTypeDef(BaseValidatorModel):
 
 
 class ModelBiasAppSpecificationTypeDef(BaseValidatorModel):
-    ImageUri: str
-    ConfigUri: str
+    ImageUri: Annotated[str, _aws_pattern("Sagemaker", "ImageUri")]
+    ConfigUri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     Environment: Optional[Dict[str, str]] = None
 
 
 class MonitoringGroundTruthS3InputTypeDef(BaseValidatorModel):
-    S3Uri: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringS3Uri")]] = None
 
 
 class ModelCompilationConfigOutputTypeDef(BaseValidatorModel):
@@ -3519,13 +3560,13 @@ class ModelCompilationConfigOutputTypeDef(BaseValidatorModel):
 
 
 class ModelCompilationConfigTypeDef(BaseValidatorModel):
-    Image: Optional[str] = None
+    Image: Optional[Annotated[str, _aws_pattern("Sagemaker", "OptimizationContainerImage")]] = None
     OverrideEnvironment: Optional[Dict[str, str]] = None
 
 
 class ModelDashboardEndpointTypeDef(BaseValidatorModel):
-    EndpointName: str
-    EndpointArn: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
+    EndpointArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointArn")]
     CreationTime: datetime
     LastModifiedTime: datetime
     EndpointStatus: EndpointStatusType
@@ -3536,8 +3577,8 @@ class ModelDashboardIndicatorActionTypeDef(BaseValidatorModel):
 
 
 class ModelExplainabilityAppSpecificationTypeDef(BaseValidatorModel):
-    ImageUri: str
-    ConfigUri: str
+    ImageUri: Annotated[str, _aws_pattern("Sagemaker", "ImageUri")]
+    ConfigUri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     Environment: Optional[Dict[str, str]] = None
 
 
@@ -3547,7 +3588,7 @@ class RealTimeInferenceConfigTypeDef(BaseValidatorModel):
 
 
 class ModelInputTypeDef(BaseValidatorModel):
-    DataInputConfig: str
+    DataInputConfig: Annotated[str, _aws_pattern("Sagemaker", "DataInputConfig")]
 
 
 class ModelLatencyThresholdTypeDef(BaseValidatorModel):
@@ -3561,17 +3602,17 @@ class ModelMetadataFilterTypeDef(BaseValidatorModel):
 
 
 class ModelPackageStatusItemTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     Status: DetailedModelPackageStatusType
     FailureReason: Optional[str] = None
 
 
 class ModelQualityAppSpecificationTypeDef(BaseValidatorModel):
-    ImageUri: str
-    ContainerEntrypoint: Optional[List[str]] = None
-    ContainerArguments: Optional[List[str]] = None
-    RecordPreprocessorSourceUri: Optional[str] = None
-    PostAnalyticsProcessorSourceUri: Optional[str] = None
+    ImageUri: Annotated[str, _aws_pattern("Sagemaker", "ImageUri")]
+    ContainerEntrypoint: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ContainerEntrypointString")]]] = None
+    ContainerArguments: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ContainerArgument")]]] = None
+    RecordPreprocessorSourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
+    PostAnalyticsProcessorSourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     ProblemType: Optional[MonitoringProblemTypeType] = None
     Environment: Optional[Dict[str, str]] = None
 
@@ -3582,7 +3623,7 @@ class ModelQuantizationConfigOutputTypeDef(BaseValidatorModel):
 
 
 class ModelQuantizationConfigTypeDef(BaseValidatorModel):
-    Image: Optional[str] = None
+    Image: Optional[Annotated[str, _aws_pattern("Sagemaker", "OptimizationContainerImage")]] = None
     OverrideEnvironment: Optional[Dict[str, str]] = None
 
 
@@ -3592,12 +3633,12 @@ class ModelShardingConfigOutputTypeDef(BaseValidatorModel):
 
 
 class ModelShardingConfigTypeDef(BaseValidatorModel):
-    Image: Optional[str] = None
+    Image: Optional[Annotated[str, _aws_pattern("Sagemaker", "OptimizationContainerImage")]] = None
     OverrideEnvironment: Optional[Dict[str, str]] = None
 
 
 class ModelSpeculativeDecodingTrainingDataSourceTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     S3DataType: ModelSpeculativeDecodingS3DataTypeType
 
 
@@ -3614,18 +3655,18 @@ class MonitoringAppSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class MonitoringAppSpecificationTypeDef(BaseValidatorModel):
-    ImageUri: str
-    ContainerEntrypoint: Optional[List[str]] = None
-    ContainerArguments: Optional[List[str]] = None
-    RecordPreprocessorSourceUri: Optional[str] = None
-    PostAnalyticsProcessorSourceUri: Optional[str] = None
+    ImageUri: Annotated[str, _aws_pattern("Sagemaker", "ImageUri")]
+    ContainerEntrypoint: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ContainerEntrypointString")]]] = None
+    ContainerArguments: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ContainerArgument")]]] = None
+    RecordPreprocessorSourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
+    PostAnalyticsProcessorSourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
 
 
 class MonitoringClusterConfigTypeDef(BaseValidatorModel):
     InstanceCount: int
     InstanceType: ProcessingInstanceTypeType
     VolumeSizeInGB: int
-    VolumeKmsKeyId: Optional[str] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class MonitoringCsvDatasetFormatTypeDef(BaseValidatorModel):
@@ -3637,8 +3678,8 @@ class MonitoringJsonDatasetFormatTypeDef(BaseValidatorModel):
 
 
 class MonitoringS3OutputTypeDef(BaseValidatorModel):
-    S3Uri: str
-    LocalPath: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "MonitoringS3Uri")]
+    LocalPath: Annotated[str, _aws_pattern("Sagemaker", "ProcessingLocalPath")]
     S3UploadMode: Optional[ProcessingS3UploadModeType] = None
 
 
@@ -3649,34 +3690,34 @@ class ScheduleConfigTypeDef(BaseValidatorModel):
 
 
 class NeoVpcConfigTypeDef(BaseValidatorModel):
-    SecurityGroupIds: List[str]
-    Subnets: List[str]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Sagemaker", "NeoVpcSecurityGroupId")]]
+    Subnets: List[Annotated[str, _aws_pattern("Sagemaker", "NeoVpcSubnetId")]]
 
 
 class S3StorageConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
-    KmsKeyId: Optional[str] = None
-    ResolvedOutputS3Uri: Optional[str] = None
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
+    ResolvedOutputS3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
 
 
 class OidcConfigForResponseTypeDef(BaseValidatorModel):
-    ClientId: Optional[str] = None
-    Issuer: Optional[str] = None
-    AuthorizationEndpoint: Optional[str] = None
-    TokenEndpoint: Optional[str] = None
-    UserInfoEndpoint: Optional[str] = None
-    LogoutEndpoint: Optional[str] = None
-    JwksUri: Optional[str] = None
-    Scope: Optional[str] = None
+    ClientId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClientId")]] = None
+    Issuer: Optional[Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]] = None
+    AuthorizationEndpoint: Optional[Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]] = None
+    TokenEndpoint: Optional[Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]] = None
+    UserInfoEndpoint: Optional[Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]] = None
+    LogoutEndpoint: Optional[Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]] = None
+    JwksUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "OidcEndpoint")]] = None
+    Scope: Optional[Annotated[str, _aws_pattern("Sagemaker", "Scope")]] = None
     AuthenticationRequestExtraParams: Optional[Dict[str, str]] = None
 
 
 class OidcMemberDefinitionTypeDef(BaseValidatorModel):
-    Groups: Optional[List[str]] = None
+    Groups: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "Group")]]] = None
 
 
 class OnlineStoreSecurityConfigTypeDef(BaseValidatorModel):
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class TtlDurationTypeDef(BaseValidatorModel):
@@ -3689,12 +3730,12 @@ class OptimizationModelAccessConfigTypeDef(BaseValidatorModel):
 
 
 class OptimizationSageMakerModelTypeDef(BaseValidatorModel):
-    ModelName: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelName")]] = None
 
 
 class OptimizationVpcConfigTypeDef(BaseValidatorModel):
-    SecurityGroupIds: List[str]
-    Subnets: List[str]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Sagemaker", "OptimizationVpcSecurityGroupId")]]
+    Subnets: List[Annotated[str, _aws_pattern("Sagemaker", "OptimizationVpcSubnetId")]]
 
 
 class TargetPlatformTypeDef(BaseValidatorModel):
@@ -3704,12 +3745,12 @@ class TargetPlatformTypeDef(BaseValidatorModel):
 
 
 class OwnershipSettingsSummaryTypeDef(BaseValidatorModel):
-    OwnerUserProfileName: Optional[str] = None
+    OwnerUserProfileName: Optional[Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]] = None
 
 
 class ParentTypeDef(BaseValidatorModel):
-    TrialName: Optional[str] = None
-    ExperimentName: Optional[str] = None
+    TrialName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    ExperimentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
 
 
 class RoleGroupAssignmentOutputTypeDef(BaseValidatorModel):
@@ -3718,8 +3759,8 @@ class RoleGroupAssignmentOutputTypeDef(BaseValidatorModel):
 
 
 class RoleGroupAssignmentTypeDef(BaseValidatorModel):
-    RoleName: str
-    GroupPatterns: List[str]
+    RoleName: Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString256")]
+    GroupPatterns: List[Annotated[str, _aws_pattern("Sagemaker", "GroupNamePattern")]]
 
 
 class ProductionVariantRoutingConfigTypeDef(BaseValidatorModel):
@@ -3739,7 +3780,7 @@ class PhaseTypeDef(BaseValidatorModel):
 
 
 class ProcessingJobStepMetadataTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobArn")]] = None
 
 
 class QualityCheckStepMetadataTypeDef(BaseValidatorModel):
@@ -3760,23 +3801,23 @@ class RegisterModelStepMetadataTypeDef(BaseValidatorModel):
 
 
 class TrainingJobStepMetadataTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingJobArn")]] = None
 
 
 class TransformJobStepMetadataTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TransformJobArn")]] = None
 
 
 class TuningJobStepMetaDataTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobArn")]] = None
 
 
 class SelectiveExecutionResultTypeDef(BaseValidatorModel):
-    SourcePipelineExecutionArn: Optional[str] = None
+    SourcePipelineExecutionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]] = None
 
 
 class PriorityClassTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "ClusterSchedulerPriorityClassName")]
     Weight: int
 
 
@@ -3784,36 +3825,36 @@ class ProcessingClusterConfigTypeDef(BaseValidatorModel):
     InstanceCount: int
     InstanceType: ProcessingInstanceTypeType
     VolumeSizeInGB: int
-    VolumeKmsKeyId: Optional[str] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class ProcessingFeatureStoreOutputTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
+    FeatureGroupName: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupName")]
 
 
 class ProcessingS3InputTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     S3DataType: ProcessingS3DataTypeType
-    LocalPath: Optional[str] = None
+    LocalPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingLocalPath")]] = None
     S3InputMode: Optional[ProcessingS3InputModeType] = None
     S3DataDistributionType: Optional[ProcessingS3DataDistributionTypeType] = None
     S3CompressionType: Optional[ProcessingS3CompressionTypeType] = None
 
 
 class ProcessingS3OutputTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     S3UploadMode: ProcessingS3UploadModeType
-    LocalPath: Optional[str] = None
+    LocalPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingLocalPath")]] = None
 
 
 class ProductionVariantCapacityReservationConfigTypeDef(BaseValidatorModel):
     CapacityReservationPreference: Optional[Literal["capacity-reservations-only"]] = None
-    MlReservationArn: Optional[str] = None
+    MlReservationArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlReservationArn")]] = None
 
 
 class ProductionVariantCoreDumpConfigTypeDef(BaseValidatorModel):
-    DestinationS3Uri: str
-    KmsKeyId: Optional[str] = None
+    DestinationS3Uri: Annotated[str, _aws_pattern("Sagemaker", "DestinationS3Uri")]
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class ProductionVariantManagedInstanceScalingScaleInPolicyTypeDef(BaseValidatorModel):
@@ -3823,36 +3864,36 @@ class ProductionVariantManagedInstanceScalingScaleInPolicyTypeDef(BaseValidatorM
 
 
 class ProfilerConfigForUpdateTypeDef(BaseValidatorModel):
-    S3OutputPath: Optional[str] = None
+    S3OutputPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     ProfilingIntervalInMilliseconds: Optional[int] = None
     ProfilingParameters: Optional[Dict[str, str]] = None
     DisableProfiler: Optional[bool] = None
 
 
 class ProfilerConfigTypeDef(BaseValidatorModel):
-    S3OutputPath: Optional[str] = None
+    S3OutputPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     ProfilingIntervalInMilliseconds: Optional[int] = None
     ProfilingParameters: Optional[Dict[str, str]] = None
     DisableProfiler: Optional[bool] = None
 
 
 class ProfilerRuleConfigurationTypeDef(BaseValidatorModel):
-    RuleConfigurationName: str
-    RuleEvaluatorImage: str
-    LocalPath: Optional[str] = None
-    S3OutputPath: Optional[str] = None
+    RuleConfigurationName: Annotated[str, _aws_pattern("Sagemaker", "RuleConfigurationName")]
+    RuleEvaluatorImage: Annotated[str, _aws_pattern("Sagemaker", "AlgorithmImage")]
+    LocalPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "DirectoryPath")]] = None
+    S3OutputPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     InstanceType: Optional[ProcessingInstanceTypeType] = None
     VolumeSizeInGB: Optional[int] = None
     RuleParameters: Optional[Dict[str, str]] = None
 
 
 class PropertyNameQueryTypeDef(BaseValidatorModel):
-    PropertyNameHint: str
+    PropertyNameHint: Annotated[str, _aws_pattern("Sagemaker", "PropertyNameHint")]
 
 
 class ProvisioningParameterTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProvisioningParameterKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProvisioningParameterValue")]] = None
 
 
 class USDTypeDef(BaseValidatorModel):
@@ -3863,12 +3904,12 @@ class USDTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_model_package_group_policy' function.
 class PutModelPackageGroupPolicyInputTypeDef(BaseValidatorModel):
-    ModelPackageGroupName: str
-    ResourcePolicy: str
+    ModelPackageGroupName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ResourcePolicy: Annotated[str, _aws_pattern("Sagemaker", "PolicyString")]
 
 
 class VertexTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]] = None
     Type: Optional[str] = None
     LineageType: Optional[LineageTypeType] = None
 
@@ -3879,7 +3920,7 @@ class RStudioServerProAppSettingsTypeDef(BaseValidatorModel):
 
 
 class RecommendationJobCompiledOutputConfigTypeDef(BaseValidatorModel):
-    S3OutputUri: Optional[str] = None
+    S3OutputUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
 
 
 class RecommendationJobPayloadConfigOutputTypeDef(BaseValidatorModel):
@@ -3888,8 +3929,10 @@ class RecommendationJobPayloadConfigOutputTypeDef(BaseValidatorModel):
 
 
 class RecommendationJobPayloadConfigTypeDef(BaseValidatorModel):
-    SamplePayloadUrl: Optional[str] = None
-    SupportedContentTypes: Optional[List[str]] = None
+    SamplePayloadUrl: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
+    SupportedContentTypes: Optional[
+        List[Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobSupportedContentType")]]
+    ] = None
 
 
 class RecommendationJobResourceLimitTypeDef(BaseValidatorModel):
@@ -3903,8 +3946,8 @@ class RecommendationJobVpcConfigOutputTypeDef(BaseValidatorModel):
 
 
 class RecommendationJobVpcConfigTypeDef(BaseValidatorModel):
-    SecurityGroupIds: List[str]
-    Subnets: List[str]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobVpcSecurityGroupId")]]
+    Subnets: List[Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobVpcSubnetId")]]
 
 
 class RemoteDebugConfigForUpdateTypeDef(BaseValidatorModel):
@@ -3912,7 +3955,7 @@ class RemoteDebugConfigForUpdateTypeDef(BaseValidatorModel):
 
 
 class RenderableTaskTypeDef(BaseValidatorModel):
-    Input: str
+    Input: Annotated[str, _aws_pattern("Sagemaker", "TaskInput")]
 
 
 class RenderingErrorTypeDef(BaseValidatorModel):
@@ -3924,9 +3967,9 @@ class ReservedCapacityOfferingTypeDef(BaseValidatorModel):
     InstanceType: ReservedCapacityInstanceTypeType
     InstanceCount: int
     ReservedCapacityType: Optional[ReservedCapacityTypeType] = None
-    UltraServerType: Optional[str] = None
+    UltraServerType: Optional[Annotated[str, _aws_pattern("Sagemaker", "UltraServerType")]] = None
     UltraServerCount: Optional[int] = None
-    AvailabilityZone: Optional[str] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Sagemaker", "AvailabilityZone")]] = None
     DurationHours: Optional[int] = None
     DurationMinutes: Optional[int] = None
     StartTime: Optional[datetime] = None
@@ -3940,8 +3983,8 @@ class ResourceConfigForUpdateTypeDef(BaseValidatorModel):
 
 
 class VisibilityConditionsTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Sagemaker", "VisibilityConditionsKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Sagemaker", "VisibilityConditionsValue")]] = None
 
 
 class TotalHitsTypeDef(BaseValidatorModel):
@@ -3965,20 +4008,20 @@ class SelectedStepTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'send_pipeline_execution_step_failure' function.
 class SendPipelineExecutionStepFailureRequestTypeDef(BaseValidatorModel):
-    CallbackToken: str
+    CallbackToken: Annotated[str, _aws_pattern("Sagemaker", "CallbackToken")]
     FailureReason: Optional[str] = None
     ClientRequestToken: Optional[str] = None
 
 
 class ShadowModelVariantConfigTypeDef(BaseValidatorModel):
-    ShadowModelVariantName: str
+    ShadowModelVariantName: Annotated[str, _aws_pattern("Sagemaker", "ModelVariantName")]
     SamplingPercentage: int
 
 
 class SharingSettingsTypeDef(BaseValidatorModel):
     NotebookOutputOption: Optional[NotebookOutputOptionType] = None
-    S3OutputPath: Optional[str] = None
-    S3KmsKeyId: Optional[str] = None
+    S3OutputPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
+    S3KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class SourceIpConfigOutputTypeDef(BaseValidatorModel):
@@ -3986,7 +4029,7 @@ class SourceIpConfigOutputTypeDef(BaseValidatorModel):
 
 
 class SourceIpConfigTypeDef(BaseValidatorModel):
-    Cidrs: List[str]
+    Cidrs: List[Annotated[str, _aws_pattern("Sagemaker", "Cidr")]]
 
 
 class SpaceIdleSettingsTypeDef(BaseValidatorModel):
@@ -4005,120 +4048,120 @@ class StairsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_edge_deployment_stage' function.
 class StartEdgeDeploymentStageRequestTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanName: str
-    StageName: str
+    EdgeDeploymentPlanName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    StageName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'start_inference_experiment' function.
 class StartInferenceExperimentRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentName")]
 
 
 # This class is the input for the 'start_mlflow_tracking_server' function.
 class StartMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
-    TrackingServerName: str
+    TrackingServerName: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerName")]
 
 
 # This class is the input for the 'start_monitoring_schedule' function.
 class StartMonitoringScheduleRequestTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: str
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
 
 
 # This class is the input for the 'start_notebook_instance' function.
 class StartNotebookInstanceInputTypeDef(BaseValidatorModel):
-    NotebookInstanceName: str
+    NotebookInstanceName: Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceName")]
 
 
 # This class is the input for the 'start_session' function.
 class StartSessionRequestTypeDef(BaseValidatorModel):
-    ResourceIdentifier: str
+    ResourceIdentifier: Annotated[str, _aws_pattern("Sagemaker", "ResourceIdentifier")]
 
 
 # This class is the input for the 'stop_ai_benchmark_job' function.
 class StopAIBenchmarkJobRequestTypeDef(BaseValidatorModel):
-    AIBenchmarkJobName: str
+    AIBenchmarkJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
 
 
 # This class is the input for the 'stop_ai_recommendation_job' function.
 class StopAIRecommendationJobRequestTypeDef(BaseValidatorModel):
-    AIRecommendationJobName: str
+    AIRecommendationJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
 
 
 # This class is the input for the 'stop_auto_ml_job' function.
 class StopAutoMLJobRequestTypeDef(BaseValidatorModel):
-    AutoMLJobName: str
+    AutoMLJobName: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobName")]
 
 
 # This class is the input for the 'stop_compilation_job' function.
 class StopCompilationJobRequestTypeDef(BaseValidatorModel):
-    CompilationJobName: str
+    CompilationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'stop_edge_deployment_stage' function.
 class StopEdgeDeploymentStageRequestTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanName: str
-    StageName: str
+    EdgeDeploymentPlanName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    StageName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'stop_edge_packaging_job' function.
 class StopEdgePackagingJobRequestTypeDef(BaseValidatorModel):
-    EdgePackagingJobName: str
+    EdgePackagingJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'stop_hyper_parameter_tuning_job' function.
 class StopHyperParameterTuningJobRequestTypeDef(BaseValidatorModel):
-    HyperParameterTuningJobName: str
+    HyperParameterTuningJobName: Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobName")]
 
 
 # This class is the input for the 'stop_inference_recommendations_job' function.
 class StopInferenceRecommendationsJobRequestTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobName")]
 
 
 # This class is the input for the 'stop_labeling_job' function.
 class StopLabelingJobRequestTypeDef(BaseValidatorModel):
-    LabelingJobName: str
+    LabelingJobName: Annotated[str, _aws_pattern("Sagemaker", "LabelingJobName")]
 
 
 # This class is the input for the 'stop_mlflow_tracking_server' function.
 class StopMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
-    TrackingServerName: str
+    TrackingServerName: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerName")]
 
 
 # This class is the input for the 'stop_monitoring_schedule' function.
 class StopMonitoringScheduleRequestTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: str
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
 
 
 # This class is the input for the 'stop_notebook_instance' function.
 class StopNotebookInstanceInputTypeDef(BaseValidatorModel):
-    NotebookInstanceName: str
+    NotebookInstanceName: Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceName")]
 
 
 # This class is the input for the 'stop_optimization_job' function.
 class StopOptimizationJobRequestTypeDef(BaseValidatorModel):
-    OptimizationJobName: str
+    OptimizationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
 
 
 # This class is the input for the 'stop_pipeline_execution' function.
 class StopPipelineExecutionRequestTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
     ClientRequestToken: str
 
 
 # This class is the input for the 'stop_processing_job' function.
 class StopProcessingJobRequestTypeDef(BaseValidatorModel):
-    ProcessingJobName: str
+    ProcessingJobName: Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]
 
 
 # This class is the input for the 'stop_training_job' function.
 class StopTrainingJobRequestTypeDef(BaseValidatorModel):
-    TrainingJobName: str
+    TrainingJobName: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobName")]
 
 
 # This class is the input for the 'stop_transform_job' function.
 class StopTransformJobRequestTypeDef(BaseValidatorModel):
-    TransformJobName: str
+    TransformJobName: Annotated[str, _aws_pattern("Sagemaker", "TransformJobName")]
 
 
 class ThroughputConfigUpdateTypeDef(BaseValidatorModel):
@@ -4152,41 +4195,43 @@ class TimeSeriesTransformationsTypeDef(BaseValidatorModel):
 
 
 class TrainingRepositoryAuthConfigTypeDef(BaseValidatorModel):
-    TrainingRepositoryCredentialsProviderArn: str
+    TrainingRepositoryCredentialsProviderArn: Annotated[
+        str, _aws_pattern("Sagemaker", "TrainingRepositoryCredentialsProviderArn")
+    ]
 
 
 class TransformS3DataSourceTypeDef(BaseValidatorModel):
     S3DataType: S3DataTypeType
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
 
 
 # This class is the input for the 'update_action' function.
 class UpdateActionRequestTypeDef(BaseValidatorModel):
-    ActionName: str
-    Description: Optional[str] = None
+    ActionName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentDescription")]] = None
     Status: Optional[ActionStatusType] = None
     Properties: Optional[Dict[str, str]] = None
-    PropertiesToRemove: Optional[List[str]] = None
+    PropertiesToRemove: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "StringParameterValue")]]] = None
 
 
 # This class is the input for the 'update_artifact' function.
 class UpdateArtifactRequestTypeDef(BaseValidatorModel):
-    ArtifactArn: str
-    ArtifactName: Optional[str] = None
+    ArtifactArn: Annotated[str, _aws_pattern("Sagemaker", "ArtifactArn")]
+    ArtifactName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     Properties: Optional[Dict[str, str]] = None
-    PropertiesToRemove: Optional[List[str]] = None
+    PropertiesToRemove: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "StringParameterValue")]]] = None
 
 
 class UpdateClusterSoftwareInstanceGroupSpecificationTypeDef(BaseValidatorModel):
-    InstanceGroupName: str
+    InstanceGroupName: Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]
 
 
 # This class is the input for the 'update_context' function.
 class UpdateContextRequestTypeDef(BaseValidatorModel):
-    ContextName: str
-    Description: Optional[str] = None
+    ContextName: Annotated[str, _aws_pattern("Sagemaker", "ContextName")]
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentDescription")]] = None
     Properties: Optional[Dict[str, str]] = None
-    PropertiesToRemove: Optional[List[str]] = None
+    PropertiesToRemove: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "StringParameterValue")]]] = None
 
 
 class VariantPropertyTypeDef(BaseValidatorModel):
@@ -4195,121 +4240,127 @@ class VariantPropertyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_experiment' function.
 class UpdateExperimentRequestTypeDef(BaseValidatorModel):
-    ExperimentName: str
-    DisplayName: Optional[str] = None
-    Description: Optional[str] = None
+    ExperimentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentDescription")]] = None
 
 
 # This class is the input for the 'update_hub_content_reference' function.
 class UpdateHubContentReferenceRequestTypeDef(BaseValidatorModel):
-    HubName: str
-    HubContentName: str
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
+    HubContentName: Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]
     HubContentType: HubContentTypeType
-    MinVersion: Optional[str] = None
+    MinVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentVersion")]] = None
 
 
 # This class is the input for the 'update_hub_content' function.
 class UpdateHubContentRequestTypeDef(BaseValidatorModel):
-    HubName: str
-    HubContentName: str
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
+    HubContentName: Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]
     HubContentType: HubContentTypeType
-    HubContentVersion: str
-    HubContentDisplayName: Optional[str] = None
-    HubContentDescription: Optional[str] = None
+    HubContentVersion: Annotated[str, _aws_pattern("Sagemaker", "HubContentVersion")]
+    HubContentDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentDisplayName")]] = None
+    HubContentDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentDescription")]] = None
     HubContentMarkdown: Optional[str] = None
-    HubContentSearchKeywords: Optional[List[str]] = None
+    HubContentSearchKeywords: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "HubContentSearchKeyword")]]] = (
+        None
+    )
     SupportStatus: Optional[HubContentSupportStatusType] = None
 
 
 # This class is the input for the 'update_hub' function.
 class UpdateHubRequestTypeDef(BaseValidatorModel):
-    HubName: str
-    HubDescription: Optional[str] = None
-    HubDisplayName: Optional[str] = None
-    HubSearchKeywords: Optional[List[str]] = None
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
+    HubDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubDescription")]] = None
+    HubDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubDisplayName")]] = None
+    HubSearchKeywords: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "HubSearchKeyword")]]] = None
 
 
 # This class is the input for the 'update_image' function.
 class UpdateImageRequestTypeDef(BaseValidatorModel):
-    ImageName: str
-    DeleteProperties: Optional[List[str]] = None
-    Description: Optional[str] = None
-    DisplayName: Optional[str] = None
-    RoleArn: Optional[str] = None
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
+    DeleteProperties: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ImageDeleteProperty")]]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageDescription")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageDisplayName")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
 
 
 # This class is the input for the 'update_image_version' function.
 class UpdateImageVersionRequestTypeDef(BaseValidatorModel):
-    ImageName: str
-    Alias: Optional[str] = None
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
+    Alias: Optional[Annotated[str, _aws_pattern("Sagemaker", "SageMakerImageVersionAlias")]] = None
     Version: Optional[int] = None
-    AliasesToAdd: Optional[List[str]] = None
-    AliasesToDelete: Optional[List[str]] = None
+    AliasesToAdd: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "SageMakerImageVersionAlias")]]] = None
+    AliasesToDelete: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "SageMakerImageVersionAlias")]]] = None
     VendorGuidance: Optional[VendorGuidanceType] = None
     JobType: Optional[JobTypeType] = None
-    MLFramework: Optional[str] = None
-    ProgrammingLang: Optional[str] = None
+    MLFramework: Optional[Annotated[str, _aws_pattern("Sagemaker", "MLFramework")]] = None
+    ProgrammingLang: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProgrammingLang")]] = None
     Processor: Optional[ProcessorType] = None
     Horovod: Optional[bool] = None
-    ReleaseNotes: Optional[str] = None
+    ReleaseNotes: Optional[Annotated[str, _aws_pattern("Sagemaker", "ReleaseNotes")]] = None
 
 
 # This class is the input for the 'update_mlflow_app' function.
 class UpdateMlflowAppRequestTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: Optional[str] = None
-    ArtifactStoreUri: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "MlflowAppArn")]
+    Name: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowAppName")]] = None
+    ArtifactStoreUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     ModelRegistrationMode: Optional[ModelRegistrationModeType] = None
-    WeeklyMaintenanceWindowStart: Optional[str] = None
-    DefaultDomainIdList: Optional[List[str]] = None
+    WeeklyMaintenanceWindowStart: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "WeeklyMaintenanceWindowStart")]
+    ] = None
+    DefaultDomainIdList: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "DomainId")]]] = None
     AccountDefaultStatus: Optional[AccountDefaultStatusType] = None
 
 
 # This class is the input for the 'update_mlflow_tracking_server' function.
 class UpdateMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
-    TrackingServerName: str
-    ArtifactStoreUri: Optional[str] = None
+    TrackingServerName: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerName")]
+    ArtifactStoreUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     TrackingServerSize: Optional[TrackingServerSizeType] = None
     AutomaticModelRegistration: Optional[bool] = None
-    WeeklyMaintenanceWindowStart: Optional[str] = None
-    S3BucketOwnerAccountId: Optional[str] = None
+    WeeklyMaintenanceWindowStart: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "WeeklyMaintenanceWindowStart")]
+    ] = None
+    S3BucketOwnerAccountId: Optional[Annotated[str, _aws_pattern("Sagemaker", "AccountId")]] = None
     S3BucketOwnerVerification: Optional[bool] = None
 
 
 # This class is the input for the 'update_model_card' function.
 class UpdateModelCardRequestTypeDef(BaseValidatorModel):
-    ModelCardName: str
-    Content: Optional[str] = None
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "ModelCardNameOrArn")]
+    Content: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelCardContent")]] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
 
 
 # This class is the input for the 'update_monitoring_alert' function.
 class UpdateMonitoringAlertRequestTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: str
-    MonitoringAlertName: str
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
+    MonitoringAlertName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringAlertName")]
     DatapointsToAlert: int
     EvaluationPeriod: int
 
 
 # This class is the input for the 'update_pipeline_version' function.
 class UpdatePipelineVersionRequestTypeDef(BaseValidatorModel):
-    PipelineArn: str
+    PipelineArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]
     PipelineVersionId: int
-    PipelineVersionDisplayName: Optional[str] = None
-    PipelineVersionDescription: Optional[str] = None
+    PipelineVersionDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineVersionName")]] = None
+    PipelineVersionDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineVersionDescription")]] = None
 
 
 # This class is the input for the 'update_trial' function.
 class UpdateTrialRequestTypeDef(BaseValidatorModel):
-    TrialName: str
-    DisplayName: Optional[str] = None
+    TrialName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
 
 
 class WorkforceVpcConfigResponseTypeDef(BaseValidatorModel):
-    VpcId: str
-    SecurityGroupIds: List[str]
-    Subnets: List[str]
-    VpcEndpointId: Optional[str] = None
+    VpcId: Annotated[str, _aws_pattern("Sagemaker", "WorkforceVpcId")]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Sagemaker", "WorkforceSecurityGroupId")]]
+    Subnets: List[Annotated[str, _aws_pattern("Sagemaker", "WorkforceSubnetId")]]
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Sagemaker", "WorkforceVpcEndpointId")]] = None
 
 
 class AIBenchmarkEndpointOutputTypeDef(BaseValidatorModel):
@@ -4319,7 +4370,7 @@ class AIBenchmarkEndpointOutputTypeDef(BaseValidatorModel):
 
 
 class AIBenchmarkEndpointTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Sagemaker", "AIResourceIdentifier")]
     TargetContainerHostname: Optional[str] = None
     InferenceComponents: Optional[List[AIBenchmarkInferenceComponentTypeDef]] = None
 
@@ -4356,13 +4407,13 @@ class AIBenchmarkNetworkConfigTypeDef(BaseValidatorModel):
 
 
 class AutoMLSecurityConfigTypeDef(BaseValidatorModel):
-    VolumeKmsKeyId: Optional[str] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     EnableInterContainerTrafficEncryption: Optional[bool] = None
     VpcConfig: Optional[VpcConfigTypeDef] = None
 
 
 class LabelingJobResourceConfigTypeDef(BaseValidatorModel):
-    VolumeKmsKeyId: Optional[str] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigTypeDef] = None
 
 
@@ -4382,7 +4433,7 @@ VpcConfigUnionTypeDef = Union[VpcConfigOutputTypeDef, VpcConfigTypeDef]
 
 
 class AIBenchmarkOutputResultTypeDef(BaseValidatorModel):
-    S3OutputLocation: str
+    S3OutputLocation: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     CloudWatchLogs: Optional[List[AICloudWatchLogsTypeDef]] = None
 
 
@@ -4418,8 +4469,10 @@ class AIRecommendationDeploymentConfigurationTypeDef(BaseValidatorModel):
 
 
 class AIRecommendationModelDetailsTypeDef(BaseValidatorModel):
-    ModelPackageArn: Optional[str] = None
-    InferenceSpecificationName: Optional[str] = None
+    ModelPackageArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]] = None
+    InferenceSpecificationName: Optional[Annotated[str, _aws_pattern("Sagemaker", "AIInferenceSpecificationName")]] = (
+        None
+    )
     InstanceDetails: Optional[List[AIRecommendationInstanceDetailTypeDef]] = None
 
 
@@ -4441,8 +4494,8 @@ class ComputeQuotaResourceConfigTypeDef(BaseValidatorModel):
 
 
 class ActionSummaryTypeDef(BaseValidatorModel):
-    ActionArn: Optional[str] = None
-    ActionName: Optional[str] = None
+    ActionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ActionArn")]] = None
+    ActionName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     Source: Optional[ActionSourceTypeDef] = None
     ActionType: Optional[str] = None
     Status: Optional[ActionStatusType] = None
@@ -4452,211 +4505,211 @@ class ActionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'add_association' function.
 class AddAssociationResponseTypeDef(BaseValidatorModel):
-    SourceArn: str
-    DestinationArn: str
+    SourceArn: Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]
+    DestinationArn: Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_trial_component' function.
 class AssociateTrialComponentResponseTypeDef(BaseValidatorModel):
-    TrialComponentArn: str
-    TrialArn: str
+    TrialComponentArn: Annotated[str, _aws_pattern("Sagemaker", "TrialComponentArn")]
+    TrialArn: Annotated[str, _aws_pattern("Sagemaker", "TrialArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'attach_cluster_node_volume' function.
 class AttachClusterNodeVolumeResponseTypeDef(BaseValidatorModel):
-    ClusterArn: str
-    NodeId: str
-    VolumeId: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
+    NodeId: Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]
+    VolumeId: Annotated[str, _aws_pattern("Sagemaker", "VolumeId")]
     AttachTime: datetime
     Status: VolumeAttachmentStatusType
-    DeviceName: str
+    DeviceName: Annotated[str, _aws_pattern("Sagemaker", "VolumeDeviceName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ai_benchmark_job' function.
 class CreateAIBenchmarkJobResponseTypeDef(BaseValidatorModel):
-    AIBenchmarkJobArn: str
+    AIBenchmarkJobArn: Annotated[str, _aws_pattern("Sagemaker", "AIBenchmarkJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ai_recommendation_job' function.
 class CreateAIRecommendationJobResponseTypeDef(BaseValidatorModel):
-    AIRecommendationJobArn: str
+    AIRecommendationJobArn: Annotated[str, _aws_pattern("Sagemaker", "AIRecommendationJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ai_workload_config' function.
 class CreateAIWorkloadConfigResponseTypeDef(BaseValidatorModel):
-    AIWorkloadConfigArn: str
+    AIWorkloadConfigArn: Annotated[str, _aws_pattern("Sagemaker", "AIWorkloadConfigArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_action' function.
 class CreateActionResponseTypeDef(BaseValidatorModel):
-    ActionArn: str
+    ActionArn: Annotated[str, _aws_pattern("Sagemaker", "ActionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_algorithm' function.
 class CreateAlgorithmOutputTypeDef(BaseValidatorModel):
-    AlgorithmArn: str
+    AlgorithmArn: Annotated[str, _aws_pattern("Sagemaker", "AlgorithmArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_app_image_config' function.
 class CreateAppImageConfigResponseTypeDef(BaseValidatorModel):
-    AppImageConfigArn: str
+    AppImageConfigArn: Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_app' function.
 class CreateAppResponseTypeDef(BaseValidatorModel):
-    AppArn: str
+    AppArn: Annotated[str, _aws_pattern("Sagemaker", "AppArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_artifact' function.
 class CreateArtifactResponseTypeDef(BaseValidatorModel):
-    ArtifactArn: str
+    ArtifactArn: Annotated[str, _aws_pattern("Sagemaker", "ArtifactArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_auto_ml_job' function.
 class CreateAutoMLJobResponseTypeDef(BaseValidatorModel):
-    AutoMLJobArn: str
+    AutoMLJobArn: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_auto_ml_job_v2' function.
 class CreateAutoMLJobV2ResponseTypeDef(BaseValidatorModel):
-    AutoMLJobArn: str
+    AutoMLJobArn: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_cluster' function.
 class CreateClusterResponseTypeDef(BaseValidatorModel):
-    ClusterArn: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_cluster_scheduler_config' function.
 class CreateClusterSchedulerConfigResponseTypeDef(BaseValidatorModel):
-    ClusterSchedulerConfigArn: str
-    ClusterSchedulerConfigId: str
+    ClusterSchedulerConfigArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterSchedulerConfigArn")]
+    ClusterSchedulerConfigId: Annotated[str, _aws_pattern("Sagemaker", "ClusterSchedulerConfigId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_code_repository' function.
 class CreateCodeRepositoryOutputTypeDef(BaseValidatorModel):
-    CodeRepositoryArn: str
+    CodeRepositoryArn: Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_compilation_job' function.
 class CreateCompilationJobResponseTypeDef(BaseValidatorModel):
-    CompilationJobArn: str
+    CompilationJobArn: Annotated[str, _aws_pattern("Sagemaker", "CompilationJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_compute_quota' function.
 class CreateComputeQuotaResponseTypeDef(BaseValidatorModel):
-    ComputeQuotaArn: str
-    ComputeQuotaId: str
+    ComputeQuotaArn: Annotated[str, _aws_pattern("Sagemaker", "ComputeQuotaArn")]
+    ComputeQuotaId: Annotated[str, _aws_pattern("Sagemaker", "ComputeQuotaId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_context' function.
 class CreateContextResponseTypeDef(BaseValidatorModel):
-    ContextArn: str
+    ContextArn: Annotated[str, _aws_pattern("Sagemaker", "ContextArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_quality_job_definition' function.
 class CreateDataQualityJobDefinitionResponseTypeDef(BaseValidatorModel):
-    JobDefinitionArn: str
+    JobDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_domain' function.
 class CreateDomainResponseTypeDef(BaseValidatorModel):
-    DomainArn: str
-    DomainId: str
+    DomainArn: Annotated[str, _aws_pattern("Sagemaker", "DomainArn")]
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
     Url: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_edge_deployment_plan' function.
 class CreateEdgeDeploymentPlanResponseTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanArn: str
+    EdgeDeploymentPlanArn: Annotated[str, _aws_pattern("Sagemaker", "EdgeDeploymentPlanArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_endpoint_config' function.
 class CreateEndpointConfigOutputTypeDef(BaseValidatorModel):
-    EndpointConfigArn: str
+    EndpointConfigArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_endpoint' function.
 class CreateEndpointOutputTypeDef(BaseValidatorModel):
-    EndpointArn: str
+    EndpointArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_experiment' function.
 class CreateExperimentResponseTypeDef(BaseValidatorModel):
-    ExperimentArn: str
+    ExperimentArn: Annotated[str, _aws_pattern("Sagemaker", "ExperimentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_feature_group' function.
 class CreateFeatureGroupResponseTypeDef(BaseValidatorModel):
-    FeatureGroupArn: str
+    FeatureGroupArn: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_flow_definition' function.
 class CreateFlowDefinitionResponseTypeDef(BaseValidatorModel):
-    FlowDefinitionArn: str
+    FlowDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "FlowDefinitionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_hub_content_reference' function.
 class CreateHubContentReferenceResponseTypeDef(BaseValidatorModel):
-    HubArn: str
-    HubContentArn: str
+    HubArn: Annotated[str, _aws_pattern("Sagemaker", "HubArn")]
+    HubContentArn: Annotated[str, _aws_pattern("Sagemaker", "HubContentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_hub' function.
 class CreateHubResponseTypeDef(BaseValidatorModel):
-    HubArn: str
+    HubArn: Annotated[str, _aws_pattern("Sagemaker", "HubArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_human_task_ui' function.
 class CreateHumanTaskUiResponseTypeDef(BaseValidatorModel):
-    HumanTaskUiArn: str
+    HumanTaskUiArn: Annotated[str, _aws_pattern("Sagemaker", "HumanTaskUiArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_hyper_parameter_tuning_job' function.
 class CreateHyperParameterTuningJobResponseTypeDef(BaseValidatorModel):
-    HyperParameterTuningJobArn: str
+    HyperParameterTuningJobArn: Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_image' function.
 class CreateImageResponseTypeDef(BaseValidatorModel):
-    ImageArn: str
+    ImageArn: Annotated[str, _aws_pattern("Sagemaker", "ImageArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_image_version' function.
 class CreateImageVersionResponseTypeDef(BaseValidatorModel):
-    ImageVersionArn: str
+    ImageVersionArn: Annotated[str, _aws_pattern("Sagemaker", "ImageVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -4668,85 +4721,85 @@ class CreateInferenceComponentOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_inference_experiment' function.
 class CreateInferenceExperimentResponseTypeDef(BaseValidatorModel):
-    InferenceExperimentArn: str
+    InferenceExperimentArn: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_inference_recommendations_job' function.
 class CreateInferenceRecommendationsJobResponseTypeDef(BaseValidatorModel):
-    JobArn: str
+    JobArn: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_labeling_job' function.
 class CreateLabelingJobResponseTypeDef(BaseValidatorModel):
-    LabelingJobArn: str
+    LabelingJobArn: Annotated[str, _aws_pattern("Sagemaker", "LabelingJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_mlflow_app' function.
 class CreateMlflowAppResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "MlflowAppArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_mlflow_tracking_server' function.
 class CreateMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
-    TrackingServerArn: str
+    TrackingServerArn: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_bias_job_definition' function.
 class CreateModelBiasJobDefinitionResponseTypeDef(BaseValidatorModel):
-    JobDefinitionArn: str
+    JobDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_card_export_job' function.
 class CreateModelCardExportJobResponseTypeDef(BaseValidatorModel):
-    ModelCardExportJobArn: str
+    ModelCardExportJobArn: Annotated[str, _aws_pattern("Sagemaker", "ModelCardExportJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_card' function.
 class CreateModelCardResponseTypeDef(BaseValidatorModel):
-    ModelCardArn: str
+    ModelCardArn: Annotated[str, _aws_pattern("Sagemaker", "ModelCardArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_explainability_job_definition' function.
 class CreateModelExplainabilityJobDefinitionResponseTypeDef(BaseValidatorModel):
-    JobDefinitionArn: str
+    JobDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model' function.
 class CreateModelOutputTypeDef(BaseValidatorModel):
-    ModelArn: str
+    ModelArn: Annotated[str, _aws_pattern("Sagemaker", "ModelArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_package_group' function.
 class CreateModelPackageGroupOutputTypeDef(BaseValidatorModel):
-    ModelPackageGroupArn: str
+    ModelPackageGroupArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_package' function.
 class CreateModelPackageOutputTypeDef(BaseValidatorModel):
-    ModelPackageArn: str
+    ModelPackageArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_quality_job_definition' function.
 class CreateModelQualityJobDefinitionResponseTypeDef(BaseValidatorModel):
-    JobDefinitionArn: str
+    JobDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_monitoring_schedule' function.
 class CreateMonitoringScheduleResponseTypeDef(BaseValidatorModel):
-    MonitoringScheduleArn: str
+    MonitoringScheduleArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -4764,7 +4817,7 @@ class CreateNotebookInstanceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_optimization_job' function.
 class CreateOptimizationJobResponseTypeDef(BaseValidatorModel):
-    OptimizationJobArn: str
+    OptimizationJobArn: Annotated[str, _aws_pattern("Sagemaker", "OptimizationJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -4776,13 +4829,13 @@ class CreatePartnerAppPresignedUrlResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_partner_app' function.
 class CreatePartnerAppResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "PartnerAppArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_pipeline' function.
 class CreatePipelineResponseTypeDef(BaseValidatorModel):
-    PipelineArn: str
+    PipelineArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -4812,171 +4865,171 @@ class CreatePresignedNotebookInstanceUrlOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_processing_job' function.
 class CreateProcessingJobResponseTypeDef(BaseValidatorModel):
-    ProcessingJobArn: str
+    ProcessingJobArn: Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_project' function.
 class CreateProjectOutputTypeDef(BaseValidatorModel):
-    ProjectArn: str
-    ProjectId: str
+    ProjectArn: Annotated[str, _aws_pattern("Sagemaker", "ProjectArn")]
+    ProjectId: Annotated[str, _aws_pattern("Sagemaker", "ProjectId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_space' function.
 class CreateSpaceResponseTypeDef(BaseValidatorModel):
-    SpaceArn: str
+    SpaceArn: Annotated[str, _aws_pattern("Sagemaker", "SpaceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_studio_lifecycle_config' function.
 class CreateStudioLifecycleConfigResponseTypeDef(BaseValidatorModel):
-    StudioLifecycleConfigArn: str
+    StudioLifecycleConfigArn: Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_training_job' function.
 class CreateTrainingJobResponseTypeDef(BaseValidatorModel):
-    TrainingJobArn: str
+    TrainingJobArn: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_training_plan' function.
 class CreateTrainingPlanResponseTypeDef(BaseValidatorModel):
-    TrainingPlanArn: str
+    TrainingPlanArn: Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_transform_job' function.
 class CreateTransformJobResponseTypeDef(BaseValidatorModel):
-    TransformJobArn: str
+    TransformJobArn: Annotated[str, _aws_pattern("Sagemaker", "TransformJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_trial_component' function.
 class CreateTrialComponentResponseTypeDef(BaseValidatorModel):
-    TrialComponentArn: str
+    TrialComponentArn: Annotated[str, _aws_pattern("Sagemaker", "TrialComponentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_trial' function.
 class CreateTrialResponseTypeDef(BaseValidatorModel):
-    TrialArn: str
+    TrialArn: Annotated[str, _aws_pattern("Sagemaker", "TrialArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_user_profile' function.
 class CreateUserProfileResponseTypeDef(BaseValidatorModel):
-    UserProfileArn: str
+    UserProfileArn: Annotated[str, _aws_pattern("Sagemaker", "UserProfileArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_workforce' function.
 class CreateWorkforceResponseTypeDef(BaseValidatorModel):
-    WorkforceArn: str
+    WorkforceArn: Annotated[str, _aws_pattern("Sagemaker", "WorkforceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_workteam' function.
 class CreateWorkteamResponseTypeDef(BaseValidatorModel):
-    WorkteamArn: str
+    WorkteamArn: Annotated[str, _aws_pattern("Sagemaker", "WorkteamArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_ai_benchmark_job' function.
 class DeleteAIBenchmarkJobResponseTypeDef(BaseValidatorModel):
-    AIBenchmarkJobArn: str
+    AIBenchmarkJobArn: Annotated[str, _aws_pattern("Sagemaker", "AIBenchmarkJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_ai_recommendation_job' function.
 class DeleteAIRecommendationJobResponseTypeDef(BaseValidatorModel):
-    AIRecommendationJobArn: str
+    AIRecommendationJobArn: Annotated[str, _aws_pattern("Sagemaker", "AIRecommendationJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_ai_workload_config' function.
 class DeleteAIWorkloadConfigResponseTypeDef(BaseValidatorModel):
-    AIWorkloadConfigArn: str
+    AIWorkloadConfigArn: Annotated[str, _aws_pattern("Sagemaker", "AIWorkloadConfigArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_action' function.
 class DeleteActionResponseTypeDef(BaseValidatorModel):
-    ActionArn: str
+    ActionArn: Annotated[str, _aws_pattern("Sagemaker", "ActionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_artifact' function.
 class DeleteArtifactResponseTypeDef(BaseValidatorModel):
-    ArtifactArn: str
+    ArtifactArn: Annotated[str, _aws_pattern("Sagemaker", "ArtifactArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_association' function.
 class DeleteAssociationResponseTypeDef(BaseValidatorModel):
-    SourceArn: str
-    DestinationArn: str
+    SourceArn: Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]
+    DestinationArn: Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_cluster' function.
 class DeleteClusterResponseTypeDef(BaseValidatorModel):
-    ClusterArn: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_context' function.
 class DeleteContextResponseTypeDef(BaseValidatorModel):
-    ContextArn: str
+    ContextArn: Annotated[str, _aws_pattern("Sagemaker", "ContextArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_experiment' function.
 class DeleteExperimentResponseTypeDef(BaseValidatorModel):
-    ExperimentArn: str
+    ExperimentArn: Annotated[str, _aws_pattern("Sagemaker", "ExperimentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_inference_experiment' function.
 class DeleteInferenceExperimentResponseTypeDef(BaseValidatorModel):
-    InferenceExperimentArn: str
+    InferenceExperimentArn: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_mlflow_app' function.
 class DeleteMlflowAppResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "MlflowAppArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_mlflow_tracking_server' function.
 class DeleteMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
-    TrackingServerArn: str
+    TrackingServerArn: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_partner_app' function.
 class DeletePartnerAppResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "PartnerAppArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_pipeline' function.
 class DeletePipelineResponseTypeDef(BaseValidatorModel):
-    PipelineArn: str
+    PipelineArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_trial_component' function.
 class DeleteTrialComponentResponseTypeDef(BaseValidatorModel):
-    TrialComponentArn: str
+    TrialComponentArn: Annotated[str, _aws_pattern("Sagemaker", "TrialComponentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_trial' function.
 class DeleteTrialResponseTypeDef(BaseValidatorModel):
-    TrialArn: str
+    TrialArn: Annotated[str, _aws_pattern("Sagemaker", "TrialArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -4989,71 +5042,71 @@ class DeleteWorkteamResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_image' function.
 class DescribeImageResponseTypeDef(BaseValidatorModel):
     CreationTime: datetime
-    Description: str
-    DisplayName: str
+    Description: Annotated[str, _aws_pattern("Sagemaker", "ImageDescription")]
+    DisplayName: Annotated[str, _aws_pattern("Sagemaker", "ImageDisplayName")]
     FailureReason: str
-    ImageArn: str
-    ImageName: str
+    ImageArn: Annotated[str, _aws_pattern("Sagemaker", "ImageArn")]
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
     ImageStatus: ImageStatusType
     LastModifiedTime: datetime
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_image_version' function.
 class DescribeImageVersionResponseTypeDef(BaseValidatorModel):
-    BaseImage: str
+    BaseImage: Annotated[str, _aws_pattern("Sagemaker", "ImageBaseImage")]
     ContainerImage: str
     CreationTime: datetime
     FailureReason: str
-    ImageArn: str
-    ImageVersionArn: str
+    ImageArn: Annotated[str, _aws_pattern("Sagemaker", "ImageArn")]
+    ImageVersionArn: Annotated[str, _aws_pattern("Sagemaker", "ImageVersionArn")]
     ImageVersionStatus: ImageVersionStatusType
     LastModifiedTime: datetime
     Version: int
     VendorGuidance: VendorGuidanceType
     JobType: JobTypeType
-    MLFramework: str
-    ProgrammingLang: str
+    MLFramework: Annotated[str, _aws_pattern("Sagemaker", "MLFramework")]
+    ProgrammingLang: Annotated[str, _aws_pattern("Sagemaker", "ProgrammingLang")]
     Processor: ProcessorType
     Horovod: bool
-    ReleaseNotes: str
+    ReleaseNotes: Annotated[str, _aws_pattern("Sagemaker", "ReleaseNotes")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_pipeline_definition_for_execution' function.
 class DescribePipelineDefinitionForExecutionResponseTypeDef(BaseValidatorModel):
-    PipelineDefinition: str
+    PipelineDefinition: Annotated[str, _aws_pattern("Sagemaker", "PipelineDefinition")]
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_studio_lifecycle_config' function.
 class DescribeStudioLifecycleConfigResponseTypeDef(BaseValidatorModel):
-    StudioLifecycleConfigArn: str
-    StudioLifecycleConfigName: str
+    StudioLifecycleConfigArn: Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigArn")]
+    StudioLifecycleConfigName: Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigName")]
     CreationTime: datetime
     LastModifiedTime: datetime
-    StudioLifecycleConfigContent: str
+    StudioLifecycleConfigContent: Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigContent")]
     StudioLifecycleConfigAppType: StudioLifecycleConfigAppTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'detach_cluster_node_volume' function.
 class DetachClusterNodeVolumeResponseTypeDef(BaseValidatorModel):
-    ClusterArn: str
-    NodeId: str
-    VolumeId: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
+    NodeId: Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]
+    VolumeId: Annotated[str, _aws_pattern("Sagemaker", "VolumeId")]
     AttachTime: datetime
     Status: VolumeAttachmentStatusType
-    DeviceName: str
+    DeviceName: Annotated[str, _aws_pattern("Sagemaker", "VolumeDeviceName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disassociate_trial_component' function.
 class DisassociateTrialComponentResponseTypeDef(BaseValidatorModel):
-    TrialComponentArn: str
-    TrialArn: str
+    TrialComponentArn: Annotated[str, _aws_pattern("Sagemaker", "TrialComponentArn")]
+    TrialArn: Annotated[str, _aws_pattern("Sagemaker", "TrialArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -5064,14 +5117,14 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_lineage_group_policy' function.
 class GetLineageGroupPolicyResponseTypeDef(BaseValidatorModel):
-    LineageGroupArn: str
-    ResourcePolicy: str
+    LineageGroupArn: Annotated[str, _aws_pattern("Sagemaker", "LineageGroupArn")]
+    ResourcePolicy: Annotated[str, _aws_pattern("Sagemaker", "ResourcePolicyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_model_package_group_policy' function.
 class GetModelPackageGroupPolicyOutputTypeDef(BaseValidatorModel):
-    ResourcePolicy: str
+    ResourcePolicy: Annotated[str, _aws_pattern("Sagemaker", "PolicyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -5082,8 +5135,8 @@ class GetSagemakerServicecatalogPortfolioStatusOutputTypeDef(BaseValidatorModel)
 
 # This class is the output for the 'import_hub_content' function.
 class ImportHubContentResponseTypeDef(BaseValidatorModel):
-    HubArn: str
-    HubContentArn: str
+    HubArn: Annotated[str, _aws_pattern("Sagemaker", "HubArn")]
+    HubContentArn: Annotated[str, _aws_pattern("Sagemaker", "HubContentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -5091,75 +5144,75 @@ class ImportHubContentResponseTypeDef(BaseValidatorModel):
 class ListAIBenchmarkJobsResponseTypeDef(BaseValidatorModel):
     AIBenchmarkJobs: List[AIBenchmarkJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_ai_recommendation_jobs' function.
 class ListAIRecommendationJobsResponseTypeDef(BaseValidatorModel):
     AIRecommendationJobs: List[AIRecommendationJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_ai_workload_configs' function.
 class ListAIWorkloadConfigsResponseTypeDef(BaseValidatorModel):
     AIWorkloadConfigs: List[AIWorkloadConfigSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_aliases' function.
 class ListAliasesResponseTypeDef(BaseValidatorModel):
-    SageMakerImageVersionAliases: List[str]
+    SageMakerImageVersionAliases: List[Annotated[str, _aws_pattern("Sagemaker", "SageMakerImageVersionAlias")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'put_model_package_group_policy' function.
 class PutModelPackageGroupPolicyOutputTypeDef(BaseValidatorModel):
-    ModelPackageGroupArn: str
+    ModelPackageGroupArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'retry_pipeline_execution' function.
 class RetryPipelineExecutionResponseTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'send_pipeline_execution_step_failure' function.
 class SendPipelineExecutionStepFailureResponseTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'send_pipeline_execution_step_success' function.
 class SendPipelineExecutionStepSuccessResponseTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_cluster_health_check' function.
 class StartClusterHealthCheckResponseTypeDef(BaseValidatorModel):
-    ClusterArn: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_inference_experiment' function.
 class StartInferenceExperimentResponseTypeDef(BaseValidatorModel):
-    InferenceExperimentArn: str
+    InferenceExperimentArn: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_mlflow_tracking_server' function.
 class StartMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
-    TrackingServerArn: str
+    TrackingServerArn: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_pipeline_execution' function.
 class StartPipelineExecutionResponseTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -5173,149 +5226,149 @@ class StartSessionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'stop_ai_benchmark_job' function.
 class StopAIBenchmarkJobResponseTypeDef(BaseValidatorModel):
-    AIBenchmarkJobArn: str
+    AIBenchmarkJobArn: Annotated[str, _aws_pattern("Sagemaker", "AIBenchmarkJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_ai_recommendation_job' function.
 class StopAIRecommendationJobResponseTypeDef(BaseValidatorModel):
-    AIRecommendationJobArn: str
+    AIRecommendationJobArn: Annotated[str, _aws_pattern("Sagemaker", "AIRecommendationJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_inference_experiment' function.
 class StopInferenceExperimentResponseTypeDef(BaseValidatorModel):
-    InferenceExperimentArn: str
+    InferenceExperimentArn: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_mlflow_tracking_server' function.
 class StopMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
-    TrackingServerArn: str
+    TrackingServerArn: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_pipeline_execution' function.
 class StopPipelineExecutionResponseTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_action' function.
 class UpdateActionResponseTypeDef(BaseValidatorModel):
-    ActionArn: str
+    ActionArn: Annotated[str, _aws_pattern("Sagemaker", "ActionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_app_image_config' function.
 class UpdateAppImageConfigResponseTypeDef(BaseValidatorModel):
-    AppImageConfigArn: str
+    AppImageConfigArn: Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_artifact' function.
 class UpdateArtifactResponseTypeDef(BaseValidatorModel):
-    ArtifactArn: str
+    ArtifactArn: Annotated[str, _aws_pattern("Sagemaker", "ArtifactArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_cluster' function.
 class UpdateClusterResponseTypeDef(BaseValidatorModel):
-    ClusterArn: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_cluster_scheduler_config' function.
 class UpdateClusterSchedulerConfigResponseTypeDef(BaseValidatorModel):
-    ClusterSchedulerConfigArn: str
+    ClusterSchedulerConfigArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterSchedulerConfigArn")]
     ClusterSchedulerConfigVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_cluster_software' function.
 class UpdateClusterSoftwareResponseTypeDef(BaseValidatorModel):
-    ClusterArn: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_code_repository' function.
 class UpdateCodeRepositoryOutputTypeDef(BaseValidatorModel):
-    CodeRepositoryArn: str
+    CodeRepositoryArn: Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_compute_quota' function.
 class UpdateComputeQuotaResponseTypeDef(BaseValidatorModel):
-    ComputeQuotaArn: str
+    ComputeQuotaArn: Annotated[str, _aws_pattern("Sagemaker", "ComputeQuotaArn")]
     ComputeQuotaVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_context' function.
 class UpdateContextResponseTypeDef(BaseValidatorModel):
-    ContextArn: str
+    ContextArn: Annotated[str, _aws_pattern("Sagemaker", "ContextArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_domain' function.
 class UpdateDomainResponseTypeDef(BaseValidatorModel):
-    DomainArn: str
+    DomainArn: Annotated[str, _aws_pattern("Sagemaker", "DomainArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_endpoint' function.
 class UpdateEndpointOutputTypeDef(BaseValidatorModel):
-    EndpointArn: str
+    EndpointArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_endpoint_weights_and_capacities' function.
 class UpdateEndpointWeightsAndCapacitiesOutputTypeDef(BaseValidatorModel):
-    EndpointArn: str
+    EndpointArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_experiment' function.
 class UpdateExperimentResponseTypeDef(BaseValidatorModel):
-    ExperimentArn: str
+    ExperimentArn: Annotated[str, _aws_pattern("Sagemaker", "ExperimentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_feature_group' function.
 class UpdateFeatureGroupResponseTypeDef(BaseValidatorModel):
-    FeatureGroupArn: str
+    FeatureGroupArn: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_hub_content_reference' function.
 class UpdateHubContentReferenceResponseTypeDef(BaseValidatorModel):
-    HubArn: str
-    HubContentArn: str
+    HubArn: Annotated[str, _aws_pattern("Sagemaker", "HubArn")]
+    HubContentArn: Annotated[str, _aws_pattern("Sagemaker", "HubContentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_hub_content' function.
 class UpdateHubContentResponseTypeDef(BaseValidatorModel):
-    HubArn: str
-    HubContentArn: str
+    HubArn: Annotated[str, _aws_pattern("Sagemaker", "HubArn")]
+    HubContentArn: Annotated[str, _aws_pattern("Sagemaker", "HubContentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_hub' function.
 class UpdateHubResponseTypeDef(BaseValidatorModel):
-    HubArn: str
+    HubArn: Annotated[str, _aws_pattern("Sagemaker", "HubArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_image' function.
 class UpdateImageResponseTypeDef(BaseValidatorModel):
-    ImageArn: str
+    ImageArn: Annotated[str, _aws_pattern("Sagemaker", "ImageArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_image_version' function.
 class UpdateImageVersionResponseTypeDef(BaseValidatorModel):
-    ImageVersionArn: str
+    ImageVersionArn: Annotated[str, _aws_pattern("Sagemaker", "ImageVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -5333,119 +5386,121 @@ class UpdateInferenceComponentRuntimeConfigOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_inference_experiment' function.
 class UpdateInferenceExperimentResponseTypeDef(BaseValidatorModel):
-    InferenceExperimentArn: str
+    InferenceExperimentArn: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_mlflow_app' function.
 class UpdateMlflowAppResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "MlflowAppArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_mlflow_tracking_server' function.
 class UpdateMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
-    TrackingServerArn: str
+    TrackingServerArn: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_model_card' function.
 class UpdateModelCardResponseTypeDef(BaseValidatorModel):
-    ModelCardArn: str
+    ModelCardArn: Annotated[str, _aws_pattern("Sagemaker", "ModelCardArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_model_package' function.
 class UpdateModelPackageOutputTypeDef(BaseValidatorModel):
-    ModelPackageArn: str
+    ModelPackageArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_monitoring_alert' function.
 class UpdateMonitoringAlertResponseTypeDef(BaseValidatorModel):
-    MonitoringScheduleArn: str
-    MonitoringAlertName: str
+    MonitoringScheduleArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleArn")]
+    MonitoringAlertName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringAlertName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_monitoring_schedule' function.
 class UpdateMonitoringScheduleResponseTypeDef(BaseValidatorModel):
-    MonitoringScheduleArn: str
+    MonitoringScheduleArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_partner_app' function.
 class UpdatePartnerAppResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "PartnerAppArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_pipeline_execution' function.
 class UpdatePipelineExecutionResponseTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_pipeline' function.
 class UpdatePipelineResponseTypeDef(BaseValidatorModel):
-    PipelineArn: str
+    PipelineArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]
     PipelineVersionId: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_pipeline_version' function.
 class UpdatePipelineVersionResponseTypeDef(BaseValidatorModel):
-    PipelineArn: str
+    PipelineArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]
     PipelineVersionId: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_project' function.
 class UpdateProjectOutputTypeDef(BaseValidatorModel):
-    ProjectArn: str
+    ProjectArn: Annotated[str, _aws_pattern("Sagemaker", "ProjectArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_space' function.
 class UpdateSpaceResponseTypeDef(BaseValidatorModel):
-    SpaceArn: str
+    SpaceArn: Annotated[str, _aws_pattern("Sagemaker", "SpaceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_training_job' function.
 class UpdateTrainingJobResponseTypeDef(BaseValidatorModel):
-    TrainingJobArn: str
+    TrainingJobArn: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_trial_component' function.
 class UpdateTrialComponentResponseTypeDef(BaseValidatorModel):
-    TrialComponentArn: str
+    TrialComponentArn: Annotated[str, _aws_pattern("Sagemaker", "TrialComponentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_trial' function.
 class UpdateTrialResponseTypeDef(BaseValidatorModel):
-    TrialArn: str
+    TrialArn: Annotated[str, _aws_pattern("Sagemaker", "TrialArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_user_profile' function.
 class UpdateUserProfileResponseTypeDef(BaseValidatorModel):
-    UserProfileArn: str
+    UserProfileArn: Annotated[str, _aws_pattern("Sagemaker", "UserProfileArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'batch_add_cluster_nodes' function.
 class BatchAddClusterNodesRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
     NodesToAdd: List[AddClusterNodeSpecificationTypeDef]
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "BatchAddClusterNodesRequestClientTokenString")]] = (
+        None
+    )
 
 
 # This class is the input for the 'add_tags' function.
 class AddTagsInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Sagemaker", "ResourceArn")]
     Tags: List[TagTypeDef]
 
 
@@ -5457,92 +5512,98 @@ class AddTagsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_experiment' function.
 class CreateExperimentRequestTypeDef(BaseValidatorModel):
-    ExperimentName: str
-    DisplayName: Optional[str] = None
-    Description: Optional[str] = None
+    ExperimentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentDescription")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_hub_content_reference' function.
 class CreateHubContentReferenceRequestTypeDef(BaseValidatorModel):
-    HubName: str
-    SageMakerPublicHubContentArn: str
-    HubContentName: Optional[str] = None
-    MinVersion: Optional[str] = None
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
+    SageMakerPublicHubContentArn: Annotated[str, _aws_pattern("Sagemaker", "SageMakerPublicHubContentArn")]
+    HubContentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]] = None
+    MinVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentVersion")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_image' function.
 class CreateImageRequestTypeDef(BaseValidatorModel):
-    ImageName: str
-    RoleArn: str
-    Description: Optional[str] = None
-    DisplayName: Optional[str] = None
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageDescription")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageDisplayName")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_mlflow_app' function.
 class CreateMlflowAppRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ArtifactStoreUri: str
-    RoleArn: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "MlflowAppName")]
+    ArtifactStoreUri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ModelRegistrationMode: Optional[ModelRegistrationModeType] = None
-    WeeklyMaintenanceWindowStart: Optional[str] = None
+    WeeklyMaintenanceWindowStart: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "WeeklyMaintenanceWindowStart")]
+    ] = None
     AccountDefaultStatus: Optional[AccountDefaultStatusType] = None
-    DefaultDomainIdList: Optional[List[str]] = None
+    DefaultDomainIdList: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "DomainId")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_mlflow_tracking_server' function.
 class CreateMlflowTrackingServerRequestTypeDef(BaseValidatorModel):
-    TrackingServerName: str
-    ArtifactStoreUri: str
-    RoleArn: str
+    TrackingServerName: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerName")]
+    ArtifactStoreUri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     TrackingServerSize: Optional[TrackingServerSizeType] = None
-    MlflowVersion: Optional[str] = None
+    MlflowVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowVersion")]] = None
     AutomaticModelRegistration: Optional[bool] = None
-    WeeklyMaintenanceWindowStart: Optional[str] = None
+    WeeklyMaintenanceWindowStart: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "WeeklyMaintenanceWindowStart")]
+    ] = None
     Tags: Optional[List[TagTypeDef]] = None
-    S3BucketOwnerAccountId: Optional[str] = None
+    S3BucketOwnerAccountId: Optional[Annotated[str, _aws_pattern("Sagemaker", "AccountId")]] = None
     S3BucketOwnerVerification: Optional[bool] = None
 
 
 # This class is the input for the 'create_model_package_group' function.
 class CreateModelPackageGroupInputTypeDef(BaseValidatorModel):
-    ModelPackageGroupName: str
-    ModelPackageGroupDescription: Optional[str] = None
+    ModelPackageGroupName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelPackageGroupDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_studio_lifecycle_config' function.
 class CreateStudioLifecycleConfigRequestTypeDef(BaseValidatorModel):
-    StudioLifecycleConfigName: str
-    StudioLifecycleConfigContent: str
+    StudioLifecycleConfigName: Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigName")]
+    StudioLifecycleConfigContent: Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigContent")]
     StudioLifecycleConfigAppType: StudioLifecycleConfigAppTypeType
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_training_plan' function.
 class CreateTrainingPlanRequestTypeDef(BaseValidatorModel):
-    TrainingPlanName: str
-    TrainingPlanOfferingId: str
+    TrainingPlanName: Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanName")]
+    TrainingPlanOfferingId: Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanOfferingId")]
     SpareInstanceCountPerUltraServer: Optional[int] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'import_hub_content' function.
 class ImportHubContentRequestTypeDef(BaseValidatorModel):
-    HubContentName: str
+    HubContentName: Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]
     HubContentType: HubContentTypeType
-    DocumentSchemaVersion: str
-    HubName: str
-    HubContentDocument: str
-    HubContentVersion: Optional[str] = None
-    HubContentDisplayName: Optional[str] = None
-    HubContentDescription: Optional[str] = None
+    DocumentSchemaVersion: Annotated[str, _aws_pattern("Sagemaker", "DocumentSchemaVersion")]
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
+    HubContentDocument: Annotated[str, _aws_pattern("Sagemaker", "HubContentDocument")]
+    HubContentVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentVersion")]] = None
+    HubContentDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentDisplayName")]] = None
+    HubContentDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentDescription")]] = None
     HubContentMarkdown: Optional[str] = None
     SupportStatus: Optional[HubContentSupportStatusType] = None
-    HubContentSearchKeywords: Optional[List[str]] = None
+    HubContentSearchKeywords: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "HubContentSearchKeyword")]]] = (
+        None
+    )
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -5550,7 +5611,7 @@ class ImportHubContentRequestTypeDef(BaseValidatorModel):
 class ListTagsOutputTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class AutoRollbackConfigOutputTypeDef(BaseValidatorModel):
@@ -5570,8 +5631,8 @@ class HyperParameterAlgorithmSpecificationOutputTypeDef(BaseValidatorModel):
 
 class HyperParameterAlgorithmSpecificationTypeDef(BaseValidatorModel):
     TrainingInputMode: TrainingInputModeType
-    TrainingImage: Optional[str] = None
-    AlgorithmName: Optional[str] = None
+    TrainingImage: Optional[Annotated[str, _aws_pattern("Sagemaker", "AlgorithmImage")]] = None
+    AlgorithmName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ArnOrName")]] = None
     MetricDefinitions: Optional[List[MetricDefinitionTypeDef]] = None
 
 
@@ -5584,15 +5645,15 @@ class AlgorithmStatusDetailsTypeDef(BaseValidatorModel):
 class ListAlgorithmsOutputTypeDef(BaseValidatorModel):
     AlgorithmSummaryList: List[AlgorithmSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class AppDetailsTypeDef(BaseValidatorModel):
-    DomainId: Optional[str] = None
-    UserProfileName: Optional[str] = None
-    SpaceName: Optional[str] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("Sagemaker", "DomainId")]] = None
+    UserProfileName: Optional[Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]] = None
+    SpaceName: Optional[Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]] = None
     AppType: Optional[AppTypeType] = None
-    AppName: Optional[str] = None
+    AppName: Optional[Annotated[str, _aws_pattern("Sagemaker", "AppName")]] = None
     Status: Optional[AppStatusType] = None
     CreationTime: Optional[datetime] = None
     ResourceSpec: Optional[ResourceSpecTypeDef] = None
@@ -5600,11 +5661,11 @@ class AppDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_app' function.
 class CreateAppRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
     AppType: AppTypeType
-    AppName: str
-    UserProfileName: Optional[str] = None
-    SpaceName: Optional[str] = None
+    AppName: Annotated[str, _aws_pattern("Sagemaker", "AppName")]
+    UserProfileName: Optional[Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]] = None
+    SpaceName: Optional[Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     ResourceSpec: Optional[ResourceSpecTypeDef] = None
     RecoveryMode: Optional[bool] = None
@@ -5612,12 +5673,12 @@ class CreateAppRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_app' function.
 class DescribeAppResponseTypeDef(BaseValidatorModel):
-    AppArn: str
+    AppArn: Annotated[str, _aws_pattern("Sagemaker", "AppArn")]
     AppType: AppTypeType
-    AppName: str
-    DomainId: str
-    UserProfileName: str
-    SpaceName: str
+    AppName: Annotated[str, _aws_pattern("Sagemaker", "AppName")]
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    UserProfileName: Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]
+    SpaceName: Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]
     Status: AppStatusType
     EffectiveTrustedIdentityPropagationStatus: FeatureStatusType
     RecoveryMode: bool
@@ -5626,19 +5687,19 @@ class DescribeAppResponseTypeDef(BaseValidatorModel):
     CreationTime: datetime
     FailureReason: str
     ResourceSpec: ResourceSpecTypeDef
-    BuiltInLifecycleConfigArn: str
+    BuiltInLifecycleConfigArn: Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class RStudioServerProDomainSettingsForUpdateTypeDef(BaseValidatorModel):
-    DomainExecutionRoleArn: str
+    DomainExecutionRoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
     RStudioConnectUrl: Optional[str] = None
     RStudioPackageManagerUrl: Optional[str] = None
 
 
 class RStudioServerProDomainSettingsTypeDef(BaseValidatorModel):
-    DomainExecutionRoleArn: str
+    DomainExecutionRoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     RStudioConnectUrl: Optional[str] = None
     RStudioPackageManagerUrl: Optional[str] = None
     DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
@@ -5661,7 +5722,7 @@ class ArtifactSourceOutputTypeDef(BaseValidatorModel):
 
 
 class ArtifactSourceTypeDef(BaseValidatorModel):
-    SourceUri: str
+    SourceUri: Annotated[str, _aws_pattern("Sagemaker", "SourceUri")]
     SourceTypes: Optional[List[ArtifactSourceTypeTypeDef]] = None
 
 
@@ -5680,17 +5741,17 @@ class AsyncInferenceOutputConfigOutputTypeDef(BaseValidatorModel):
 
 
 class AsyncInferenceOutputConfigTypeDef(BaseValidatorModel):
-    KmsKeyId: Optional[str] = None
-    S3OutputPath: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
+    S3OutputPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "DestinationS3Uri")]] = None
     NotificationConfig: Optional[AsyncInferenceNotificationConfigTypeDef] = None
-    S3FailurePath: Optional[str] = None
+    S3FailurePath: Optional[Annotated[str, _aws_pattern("Sagemaker", "DestinationS3Uri")]] = None
 
 
 # This class is the output for the 'create_hub_content_presigned_urls' function.
 class CreateHubContentPresignedUrlsResponseTypeDef(BaseValidatorModel):
     AuthorizedUrlConfigs: List[AuthorizedUrlTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class AutoMLCandidateGenerationConfigOutputTypeDef(BaseValidatorModel):
@@ -5703,7 +5764,7 @@ class CandidateGenerationConfigOutputTypeDef(BaseValidatorModel):
 
 
 class AutoMLCandidateGenerationConfigTypeDef(BaseValidatorModel):
-    FeatureSpecificationS3Uri: Optional[str] = None
+    FeatureSpecificationS3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     AlgorithmsConfig: Optional[List[AutoMLAlgorithmConfigTypeDef]] = None
 
 
@@ -5736,8 +5797,8 @@ class ResolvedAttributesTypeDef(BaseValidatorModel):
 
 
 class AutoMLJobSummaryTypeDef(BaseValidatorModel):
-    AutoMLJobName: str
-    AutoMLJobArn: str
+    AutoMLJobName: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobName")]
+    AutoMLJobArn: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]
     AutoMLJobStatus: AutoMLJobStatusType
     AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatusType
     CreationTime: datetime
@@ -5762,27 +5823,27 @@ class BatchAddClusterNodesResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'batch_delete_cluster_nodes' function.
 class BatchDeleteClusterNodesResponseTypeDef(BaseValidatorModel):
     Failed: List[BatchDeleteClusterNodesErrorTypeDef]
-    Successful: List[str]
+    Successful: List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]]
     FailedNodeLogicalIds: List[BatchDeleteClusterNodeLogicalIdsErrorTypeDef]
-    SuccessfulNodeLogicalIds: List[str]
+    SuccessfulNodeLogicalIds: List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'batch_reboot_cluster_nodes' function.
 class BatchRebootClusterNodesResponseTypeDef(BaseValidatorModel):
-    Successful: List[str]
+    Successful: List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]]
     Failed: List[BatchRebootClusterNodesErrorTypeDef]
     FailedNodeLogicalIds: List[BatchRebootClusterNodeLogicalIdsErrorTypeDef]
-    SuccessfulNodeLogicalIds: List[str]
+    SuccessfulNodeLogicalIds: List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'batch_replace_cluster_nodes' function.
 class BatchReplaceClusterNodesResponseTypeDef(BaseValidatorModel):
-    Successful: List[str]
+    Successful: List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]]
     Failed: List[BatchReplaceClusterNodesErrorTypeDef]
     FailedNodeLogicalIds: List[BatchReplaceClusterNodeLogicalIdsErrorTypeDef]
-    SuccessfulNodeLogicalIds: List[str]
+    SuccessfulNodeLogicalIds: List[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -5817,7 +5878,7 @@ class ModelQualityTypeDef(BaseValidatorModel):
 
 
 class CallbackStepMetadataTypeDef(BaseValidatorModel):
-    CallbackToken: Optional[str] = None
+    CallbackToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "CallbackToken")]] = None
     SqsQueueUrl: Optional[str] = None
     OutputParameters: Optional[List[OutputParameterTypeDef]] = None
 
@@ -5829,7 +5890,7 @@ class LambdaStepMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'send_pipeline_execution_step_success' function.
 class SendPipelineExecutionStepSuccessRequestTypeDef(BaseValidatorModel):
-    CallbackToken: str
+    CallbackToken: Annotated[str, _aws_pattern("Sagemaker", "CallbackToken")]
     OutputParameters: Optional[List[OutputParameterTypeDef]] = None
     ClientRequestToken: Optional[str] = None
 
@@ -5866,7 +5927,7 @@ class InstanceGroupMetadataTypeDef(BaseValidatorModel):
     AvailabilityZoneId: Optional[str] = None
     CapacityReservation: Optional[CapacityReservationTypeDef] = None
     SubnetId: Optional[str] = None
-    SecurityGroupIds: Optional[List[str]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "SecurityGroupId")]]] = None
     AmiOverride: Optional[str] = None
 
 
@@ -5876,7 +5937,7 @@ class InstanceMetadataTypeDef(BaseValidatorModel):
     CapacityReservation: Optional[CapacityReservationTypeDef] = None
     FailureMessage: Optional[str] = None
     LcsExecutionState: Optional[str] = None
-    NodeLogicalId: Optional[str] = None
+    NodeLogicalId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]] = None
 
 
 class RollingDeploymentPolicyTypeDef(BaseValidatorModel):
@@ -5905,8 +5966,8 @@ class InferenceExperimentDataStorageConfigOutputTypeDef(BaseValidatorModel):
 
 
 class InferenceExperimentDataStorageConfigTypeDef(BaseValidatorModel):
-    Destination: str
-    KmsKey: Optional[str] = None
+    Destination: Annotated[str, _aws_pattern("Sagemaker", "DestinationS3Uri")]
+    KmsKey: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     ContentType: Optional[CaptureContentTypeHeaderTypeDef] = None
 
 
@@ -5921,10 +5982,10 @@ class DataCaptureConfigOutputTypeDef(BaseValidatorModel):
 
 class DataCaptureConfigTypeDef(BaseValidatorModel):
     InitialSamplingPercentage: int
-    DestinationS3Uri: str
+    DestinationS3Uri: Annotated[str, _aws_pattern("Sagemaker", "DestinationS3Uri")]
     CaptureOptions: List[CaptureOptionTypeDef]
     EnableCapture: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     CaptureContentTypeHeader: Optional[CaptureContentTypeHeaderTypeDef] = None
 
 
@@ -5940,23 +6001,23 @@ class EnvironmentParameterRangesTypeDef(BaseValidatorModel):
 
 
 class CfnCreateTemplateProviderTypeDef(BaseValidatorModel):
-    TemplateName: str
-    TemplateURL: str
-    RoleARN: Optional[str] = None
+    TemplateName: Annotated[str, _aws_pattern("Sagemaker", "CfnTemplateName")]
+    TemplateURL: Annotated[str, _aws_pattern("Sagemaker", "CfnTemplateURL")]
+    RoleARN: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     Parameters: Optional[List[CfnStackCreateParameterTypeDef]] = None
 
 
 class CfnTemplateProviderDetailTypeDef(BaseValidatorModel):
-    TemplateName: str
-    TemplateURL: str
-    RoleARN: Optional[str] = None
+    TemplateName: Annotated[str, _aws_pattern("Sagemaker", "CfnTemplateName")]
+    TemplateURL: Annotated[str, _aws_pattern("Sagemaker", "CfnTemplateURL")]
+    RoleARN: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     Parameters: Optional[List[CfnStackParameterTypeDef]] = None
     StackDetail: Optional[CfnStackDetailTypeDef] = None
 
 
 class CfnUpdateTemplateProviderTypeDef(BaseValidatorModel):
-    TemplateName: str
-    TemplateURL: str
+    TemplateName: Annotated[str, _aws_pattern("Sagemaker", "CfnTemplateName")]
+    TemplateURL: Annotated[str, _aws_pattern("Sagemaker", "CfnTemplateURL")]
     Parameters: Optional[List[CfnStackUpdateParameterTypeDef]] = None
 
 
@@ -5977,7 +6038,7 @@ ClusterCapacityRequirementsUnionTypeDef = Union[
 class ListClusterEventsResponseTypeDef(BaseValidatorModel):
     Events: List[ClusterEventSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class ClusterInstanceStorageConfigTypeDef(BaseValidatorModel):
@@ -6006,7 +6067,7 @@ class ClusterKubernetesConfigTypeDef(BaseValidatorModel):
 
 
 class ClusterNodeSummaryTypeDef(BaseValidatorModel):
-    InstanceGroupName: str
+    InstanceGroupName: Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]
     InstanceId: str
     InstanceType: ClusterInstanceTypeType
     LaunchTime: datetime
@@ -6014,7 +6075,8 @@ class ClusterNodeSummaryTypeDef(BaseValidatorModel):
     NodeLogicalId: Optional[str] = None
     LastSoftwareUpdateTime: Optional[datetime] = None
     UltraServerInfo: Optional[UltraServerInfoTypeDef] = None
-    PrivateDnsHostname: Optional[str] = None
+    PrivateDnsHostname: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterPrivateDnsHostname")]] = None
+    ImageVersionStatus: Optional[ClusterImageVersionStatusType] = None
 
 
 class ClusterOrchestratorTypeDef(BaseValidatorModel):
@@ -6026,14 +6088,14 @@ class ClusterOrchestratorTypeDef(BaseValidatorModel):
 class ListClusterSchedulerConfigsResponseTypeDef(BaseValidatorModel):
     ClusterSchedulerConfigSummaries: List[ClusterSchedulerConfigSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_clusters' function.
 class ListClustersResponseTypeDef(BaseValidatorModel):
     ClusterSummaries: List[ClusterSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class CodeEditorAppImageConfigOutputTypeDef(BaseValidatorModel):
@@ -6065,7 +6127,7 @@ class KernelGatewayAppSettingsOutputTypeDef(BaseValidatorModel):
 class KernelGatewayAppSettingsTypeDef(BaseValidatorModel):
     DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
     CustomImages: Optional[List[CustomImageTypeDef]] = None
-    LifecycleConfigArns: Optional[List[str]] = None
+    LifecycleConfigArns: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigArn")]]] = None
 
 
 class RSessionAppSettingsOutputTypeDef(BaseValidatorModel):
@@ -6079,8 +6141,8 @@ class RSessionAppSettingsTypeDef(BaseValidatorModel):
 
 
 class CodeRepositorySummaryTypeDef(BaseValidatorModel):
-    CodeRepositoryName: str
-    CodeRepositoryArn: str
+    CodeRepositoryName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    CodeRepositoryArn: Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryArn")]
     CreationTime: datetime
     LastModifiedTime: datetime
     GitConfig: Optional[GitConfigTypeDef] = None
@@ -6088,15 +6150,15 @@ class CodeRepositorySummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_code_repository' function.
 class CreateCodeRepositoryInputTypeDef(BaseValidatorModel):
-    CodeRepositoryName: str
+    CodeRepositoryName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     GitConfig: GitConfigTypeDef
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'describe_code_repository' function.
 class DescribeCodeRepositoryOutputTypeDef(BaseValidatorModel):
-    CodeRepositoryName: str
-    CodeRepositoryArn: str
+    CodeRepositoryName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    CodeRepositoryArn: Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryArn")]
     CreationTime: datetime
     LastModifiedTime: datetime
     GitConfig: GitConfigTypeDef
@@ -6111,7 +6173,7 @@ class JupyterServerAppSettingsOutputTypeDef(BaseValidatorModel):
 
 class JupyterServerAppSettingsTypeDef(BaseValidatorModel):
     DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
-    LifecycleConfigArns: Optional[List[str]] = None
+    LifecycleConfigArns: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigArn")]]] = None
     CodeRepositories: Optional[List[CodeRepositoryTypeDef]] = None
 
 
@@ -6127,8 +6189,8 @@ class DebugHookConfigOutputTypeDef(BaseValidatorModel):
 
 
 class DebugHookConfigTypeDef(BaseValidatorModel):
-    S3OutputPath: str
-    LocalPath: Optional[str] = None
+    S3OutputPath: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    LocalPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "DirectoryPath")]] = None
     HookParameters: Optional[Dict[str, str]] = None
     CollectionConfigurations: Optional[List[CollectionConfigurationTypeDef]] = None
 
@@ -6137,12 +6199,12 @@ class DebugHookConfigTypeDef(BaseValidatorModel):
 class ListCompilationJobsResponseTypeDef(BaseValidatorModel):
     CompilationJobSummaries: List[CompilationJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class ContextSummaryTypeDef(BaseValidatorModel):
-    ContextArn: Optional[str] = None
-    ContextName: Optional[str] = None
+    ContextArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContextArn")]] = None
+    ContextName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContextName")]] = None
     Source: Optional[ContextSourceTypeDef] = None
     ContextType: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -6151,10 +6213,10 @@ class ContextSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_context' function.
 class CreateContextRequestTypeDef(BaseValidatorModel):
-    ContextName: str
+    ContextName: Annotated[str, _aws_pattern("Sagemaker", "ContextName")]
     Source: ContextSourceTypeDef
     ContextType: str
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentDescription")]] = None
     Properties: Optional[Dict[str, str]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -6167,10 +6229,10 @@ class TuningJobCompletionCriteriaTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_action' function.
 class CreateActionRequestTypeDef(BaseValidatorModel):
-    ActionName: str
+    ActionName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
     Source: ActionSourceTypeDef
     ActionType: str
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentDescription")]] = None
     Status: Optional[ActionStatusType] = None
     Properties: Optional[Dict[str, str]] = None
     MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
@@ -6179,54 +6241,54 @@ class CreateActionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_trial' function.
 class CreateTrialRequestTypeDef(BaseValidatorModel):
-    TrialName: str
-    ExperimentName: str
-    DisplayName: Optional[str] = None
+    TrialName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    ExperimentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_device_fleet' function.
 class CreateDeviceFleetRequestTypeDef(BaseValidatorModel):
-    DeviceFleetName: str
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     OutputConfig: EdgeOutputConfigTypeDef
-    RoleArn: Optional[str] = None
-    Description: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "DeviceFleetDescription")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     EnableIotRoleAlias: Optional[bool] = None
 
 
 # This class is the input for the 'create_edge_packaging_job' function.
 class CreateEdgePackagingJobRequestTypeDef(BaseValidatorModel):
-    EdgePackagingJobName: str
-    CompilationJobName: str
-    ModelName: str
-    ModelVersion: str
-    RoleArn: str
+    EdgePackagingJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    CompilationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelVersion: Annotated[str, _aws_pattern("Sagemaker", "EdgeVersion")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     OutputConfig: EdgeOutputConfigTypeDef
-    ResourceKey: Optional[str] = None
+    ResourceKey: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'describe_device_fleet' function.
 class DescribeDeviceFleetResponseTypeDef(BaseValidatorModel):
-    DeviceFleetName: str
-    DeviceFleetArn: str
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    DeviceFleetArn: Annotated[str, _aws_pattern("Sagemaker", "DeviceFleetArn")]
     OutputConfig: EdgeOutputConfigTypeDef
-    Description: str
+    Description: Annotated[str, _aws_pattern("Sagemaker", "DeviceFleetDescription")]
     CreationTime: datetime
     LastModifiedTime: datetime
-    RoleArn: str
-    IotRoleAlias: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
+    IotRoleAlias: Annotated[str, _aws_pattern("Sagemaker", "IotRoleAlias")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_device_fleet' function.
 class UpdateDeviceFleetRequestTypeDef(BaseValidatorModel):
-    DeviceFleetName: str
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     OutputConfig: EdgeOutputConfigTypeDef
-    RoleArn: Optional[str] = None
-    Description: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "DeviceFleetDescription")]] = None
     EnableIotRoleAlias: Optional[bool] = None
 
 
@@ -6362,32 +6424,32 @@ class CreateHubContentPresignedUrlsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_hub_content_presigned_urls' function.
 class CreateHubContentPresignedUrlsRequestTypeDef(BaseValidatorModel):
-    HubName: str
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
     HubContentType: HubContentTypeType
-    HubContentName: str
-    HubContentVersion: Optional[str] = None
+    HubContentName: Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]
+    HubContentVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentVersion")]] = None
     AccessConfig: Optional[PresignedUrlAccessConfigTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the input for the 'create_hub' function.
 class CreateHubRequestTypeDef(BaseValidatorModel):
-    HubName: str
-    HubDescription: str
-    HubDisplayName: Optional[str] = None
-    HubSearchKeywords: Optional[List[str]] = None
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubName")]
+    HubDescription: Annotated[str, _aws_pattern("Sagemaker", "HubDescription")]
+    HubDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubDisplayName")]] = None
+    HubSearchKeywords: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "HubSearchKeyword")]]] = None
     S3StorageConfig: Optional[HubS3StorageConfigTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'describe_hub' function.
 class DescribeHubResponseTypeDef(BaseValidatorModel):
-    HubName: str
-    HubArn: str
-    HubDisplayName: str
-    HubDescription: str
-    HubSearchKeywords: List[str]
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubName")]
+    HubArn: Annotated[str, _aws_pattern("Sagemaker", "HubArn")]
+    HubDisplayName: Annotated[str, _aws_pattern("Sagemaker", "HubDisplayName")]
+    HubDescription: Annotated[str, _aws_pattern("Sagemaker", "HubDescription")]
+    HubSearchKeywords: List[Annotated[str, _aws_pattern("Sagemaker", "HubSearchKeyword")]]
     S3StorageConfig: HubS3StorageConfigTypeDef
     HubStatus: HubStatusType
     FailureReason: str
@@ -6398,42 +6460,42 @@ class DescribeHubResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_human_task_ui' function.
 class CreateHumanTaskUiRequestTypeDef(BaseValidatorModel):
-    HumanTaskUiName: str
+    HumanTaskUiName: Annotated[str, _aws_pattern("Sagemaker", "HumanTaskUiName")]
     UiTemplate: UiTemplateTypeDef
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_inference_component_runtime_config' function.
 class UpdateInferenceComponentRuntimeConfigInputTypeDef(BaseValidatorModel):
-    InferenceComponentName: str
+    InferenceComponentName: Annotated[str, _aws_pattern("Sagemaker", "InferenceComponentName")]
     DesiredRuntimeConfig: InferenceComponentRuntimeConfigTypeDef
 
 
 # This class is the input for the 'create_model_card_export_job' function.
 class CreateModelCardExportJobRequestTypeDef(BaseValidatorModel):
-    ModelCardName: str
-    ModelCardExportJobName: str
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "ModelCardNameOrArn")]
+    ModelCardExportJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     OutputConfig: ModelCardExportOutputConfigTypeDef
     ModelCardVersion: Optional[int] = None
 
 
 # This class is the input for the 'create_model_card' function.
 class CreateModelCardRequestTypeDef(BaseValidatorModel):
-    ModelCardName: str
-    Content: str
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    Content: Annotated[str, _aws_pattern("Sagemaker", "ModelCardContent")]
     ModelCardStatus: ModelCardStatusType
     SecurityConfig: Optional[ModelCardSecurityConfigTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class ModelPackageSummaryTypeDef(BaseValidatorModel):
-    ModelPackageArn: str
+    ModelPackageArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]
     CreationTime: datetime
     ModelPackageStatus: ModelPackageStatusType
-    ModelPackageName: Optional[str] = None
-    ModelPackageGroupName: Optional[str] = None
+    ModelPackageName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
+    ModelPackageGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
     ModelPackageVersion: Optional[int] = None
-    ModelPackageDescription: Optional[str] = None
+    ModelPackageDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
     ModelLifeCycle: Optional[ModelLifeCycleTypeDef] = None
     ModelPackageRegistrationType: Optional[ModelPackageRegistrationTypeType] = None
@@ -6441,64 +6503,74 @@ class ModelPackageSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_notebook_instance' function.
 class CreateNotebookInstanceInputTypeDef(BaseValidatorModel):
-    NotebookInstanceName: str
+    NotebookInstanceName: Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceName")]
     InstanceType: InstanceTypeType
-    RoleArn: str
-    SubnetId: Optional[str] = None
-    SecurityGroupIds: Optional[List[str]] = None
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
+    SubnetId: Optional[Annotated[str, _aws_pattern("Sagemaker", "SubnetId")]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "SecurityGroupId")]]] = None
     IpAddressType: Optional[IPAddressTypeType] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    LifecycleConfigName: Optional[str] = None
+    LifecycleConfigName: Optional[Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigName")]] = (
+        None
+    )
     DirectInternetAccess: Optional[DirectInternetAccessType] = None
     VolumeSizeInGB: Optional[int] = None
     AcceleratorTypes: Optional[List[NotebookInstanceAcceleratorTypeType]] = None
-    DefaultCodeRepository: Optional[str] = None
-    AdditionalCodeRepositories: Optional[List[str]] = None
+    DefaultCodeRepository: Optional[Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryNameOrUrl")]] = None
+    AdditionalCodeRepositories: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryNameOrUrl")]]] = (
+        None
+    )
     RootAccess: Optional[RootAccessType] = None
-    PlatformIdentifier: Optional[str] = None
+    PlatformIdentifier: Optional[Annotated[str, _aws_pattern("Sagemaker", "PlatformIdentifier")]] = None
     InstanceMetadataServiceConfiguration: Optional[InstanceMetadataServiceConfigurationTypeDef] = None
 
 
 # This class is the output for the 'describe_notebook_instance' function.
 class DescribeNotebookInstanceOutputTypeDef(BaseValidatorModel):
     NotebookInstanceArn: str
-    NotebookInstanceName: str
+    NotebookInstanceName: Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceName")]
     NotebookInstanceStatus: NotebookInstanceStatusType
     FailureReason: str
     Url: str
     InstanceType: InstanceTypeType
     IpAddressType: IPAddressTypeType
-    SubnetId: str
-    SecurityGroups: List[str]
-    RoleArn: str
-    KmsKeyId: str
+    SubnetId: Annotated[str, _aws_pattern("Sagemaker", "SubnetId")]
+    SecurityGroups: List[Annotated[str, _aws_pattern("Sagemaker", "SecurityGroupId")]]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
+    KmsKeyId: Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]
     NetworkInterfaceId: str
     LastModifiedTime: datetime
     CreationTime: datetime
-    NotebookInstanceLifecycleConfigName: str
+    NotebookInstanceLifecycleConfigName: Annotated[
+        str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigName")
+    ]
     DirectInternetAccess: DirectInternetAccessType
     VolumeSizeInGB: int
     AcceleratorTypes: List[NotebookInstanceAcceleratorTypeType]
-    DefaultCodeRepository: str
-    AdditionalCodeRepositories: List[str]
+    DefaultCodeRepository: Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryNameOrUrl")]
+    AdditionalCodeRepositories: List[Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryNameOrUrl")]]
     RootAccess: RootAccessType
-    PlatformIdentifier: str
+    PlatformIdentifier: Annotated[str, _aws_pattern("Sagemaker", "PlatformIdentifier")]
     InstanceMetadataServiceConfiguration: InstanceMetadataServiceConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class UpdateNotebookInstanceInputTypeDef(BaseValidatorModel):
-    NotebookInstanceName: str
+    NotebookInstanceName: Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceName")]
     InstanceType: Optional[InstanceTypeType] = None
     IpAddressType: Optional[IPAddressTypeType] = None
-    PlatformIdentifier: Optional[str] = None
-    RoleArn: Optional[str] = None
-    LifecycleConfigName: Optional[str] = None
+    PlatformIdentifier: Optional[Annotated[str, _aws_pattern("Sagemaker", "PlatformIdentifier")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
+    LifecycleConfigName: Optional[Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigName")]] = (
+        None
+    )
     DisassociateLifecycleConfig: Optional[bool] = None
     VolumeSizeInGB: Optional[int] = None
-    DefaultCodeRepository: Optional[str] = None
-    AdditionalCodeRepositories: Optional[List[str]] = None
+    DefaultCodeRepository: Optional[Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryNameOrUrl")]] = None
+    AdditionalCodeRepositories: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryNameOrUrl")]]] = (
+        None
+    )
     AcceleratorTypes: Optional[List[NotebookInstanceAcceleratorTypeType]] = None
     DisassociateAcceleratorTypes: Optional[bool] = None
     DisassociateDefaultCodeRepository: Optional[bool] = None
@@ -6509,7 +6581,9 @@ class UpdateNotebookInstanceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_notebook_instance_lifecycle_config' function.
 class CreateNotebookInstanceLifecycleConfigInputTypeDef(BaseValidatorModel):
-    NotebookInstanceLifecycleConfigName: str
+    NotebookInstanceLifecycleConfigName: Annotated[
+        str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigName")
+    ]
     OnCreate: Optional[List[NotebookInstanceLifecycleHookTypeDef]] = None
     OnStart: Optional[List[NotebookInstanceLifecycleHookTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -6518,7 +6592,9 @@ class CreateNotebookInstanceLifecycleConfigInputTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_notebook_instance_lifecycle_config' function.
 class DescribeNotebookInstanceLifecycleConfigOutputTypeDef(BaseValidatorModel):
     NotebookInstanceLifecycleConfigArn: str
-    NotebookInstanceLifecycleConfigName: str
+    NotebookInstanceLifecycleConfigName: Annotated[
+        str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigName")
+    ]
     OnCreate: List[NotebookInstanceLifecycleHookTypeDef]
     OnStart: List[NotebookInstanceLifecycleHookTypeDef]
     LastModifiedTime: datetime
@@ -6527,47 +6603,51 @@ class DescribeNotebookInstanceLifecycleConfigOutputTypeDef(BaseValidatorModel):
 
 
 class UpdateNotebookInstanceLifecycleConfigInputTypeDef(BaseValidatorModel):
-    NotebookInstanceLifecycleConfigName: str
+    NotebookInstanceLifecycleConfigName: Annotated[
+        str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigName")
+    ]
     OnCreate: Optional[List[NotebookInstanceLifecycleHookTypeDef]] = None
     OnStart: Optional[List[NotebookInstanceLifecycleHookTypeDef]] = None
 
 
 # This class is the input for the 'retry_pipeline_execution' function.
 class RetryPipelineExecutionRequestTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
     ClientRequestToken: str
     ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
 
 
 # This class is the input for the 'update_pipeline_execution' function.
 class UpdatePipelineExecutionRequestTypeDef(BaseValidatorModel):
-    PipelineExecutionArn: str
-    PipelineExecutionDescription: Optional[str] = None
-    PipelineExecutionDisplayName: Optional[str] = None
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
+    PipelineExecutionDescription: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionDescription")]
+    ] = None
+    PipelineExecutionDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionName")]] = None
     ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
 
 
 # This class is the input for the 'create_pipeline' function.
 class CreatePipelineRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]
     ClientRequestToken: str
-    RoleArn: str
-    PipelineDisplayName: Optional[str] = None
-    PipelineDefinition: Optional[str] = None
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
+    PipelineDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]] = None
+    PipelineDefinition: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineDefinition")]] = None
     PipelineDefinitionS3Location: Optional[PipelineDefinitionS3LocationTypeDef] = None
-    PipelineDescription: Optional[str] = None
+    PipelineDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineDescription")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
 
 
 # This class is the input for the 'update_pipeline' function.
 class UpdatePipelineRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
-    PipelineDisplayName: Optional[str] = None
-    PipelineDefinition: Optional[str] = None
+    PipelineName: Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]
+    PipelineDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]] = None
+    PipelineDefinition: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineDefinition")]] = None
     PipelineDefinitionS3Location: Optional[PipelineDefinitionS3LocationTypeDef] = None
-    PipelineDescription: Optional[str] = None
-    RoleArn: Optional[str] = None
+    PipelineDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineDescription")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
 
 
@@ -6589,8 +6669,8 @@ class ListAIBenchmarkJobsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_ai_benchmark_jobs' function.
 class ListAIBenchmarkJobsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    NameContains: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     StatusEquals: Optional[AIBenchmarkJobStatusType] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
@@ -6611,8 +6691,8 @@ class ListAIRecommendationJobsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_ai_recommendation_jobs' function.
 class ListAIRecommendationJobsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    NameContains: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     StatusEquals: Optional[AIRecommendationJobStatusType] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
@@ -6632,8 +6712,8 @@ class ListAIWorkloadConfigsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_ai_workload_configs' function.
 class ListAIWorkloadConfigsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    NameContains: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[ListAIWorkloadConfigsSortByType] = None
@@ -6652,13 +6732,13 @@ class ListActionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_actions' function.
 class ListActionsRequestTypeDef(BaseValidatorModel):
-    SourceUri: Optional[str] = None
+    SourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "SourceUri")]] = None
     ActionType: Optional[str] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[SortActionsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -6676,8 +6756,8 @@ class ListAlgorithmsInputTypeDef(BaseValidatorModel):
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     SortBy: Optional[AlgorithmSortByType] = None
     SortOrder: Optional[SortOrderType] = None
 
@@ -6696,8 +6776,8 @@ class ListAppImageConfigsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_app_image_configs' function.
 class ListAppImageConfigsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    NameContains: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigName")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     ModifiedTimeBefore: Optional[TimestampTypeDef] = None
@@ -6718,13 +6798,13 @@ class ListArtifactsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_artifacts' function.
 class ListArtifactsRequestTypeDef(BaseValidatorModel):
-    SourceUri: Optional[str] = None
+    SourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "SourceUri")]] = None
     ArtifactType: Optional[str] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[Literal["CreationTime"]] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -6743,8 +6823,8 @@ class ListAssociationsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_associations' function.
 class ListAssociationsRequestTypeDef(BaseValidatorModel):
-    SourceArn: Optional[str] = None
-    DestinationArn: Optional[str] = None
+    SourceArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]] = None
     SourceType: Optional[str] = None
     DestinationType: Optional[str] = None
     AssociationType: Optional[AssociationEdgeTypeType] = None
@@ -6752,7 +6832,7 @@ class ListAssociationsRequestTypeDef(BaseValidatorModel):
     CreatedBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[SortAssociationsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -6774,12 +6854,12 @@ class ListAutoMLJobsRequestTypeDef(BaseValidatorModel):
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "AutoMLNameContains")]] = None
     StatusEquals: Optional[AutoMLJobStatusType] = None
     SortOrder: Optional[AutoMLSortOrderType] = None
     SortBy: Optional[AutoMLSortByType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class ListClusterEventsRequestPaginateTypeDef(BaseValidatorModel):
@@ -6796,16 +6876,16 @@ class ListClusterEventsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_cluster_events' function.
 class ListClusterEventsRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
-    InstanceGroupName: Optional[str] = None
-    NodeId: Optional[str] = None
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
+    InstanceGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]] = None
+    NodeId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeId")]] = None
     EventTimeAfter: Optional[TimestampTypeDef] = None
     EventTimeBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[Literal["EventTime"]] = None
     SortOrder: Optional[SortOrderType] = None
     ResourceType: Optional[ClusterEventResourceTypeType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class ListClusterNodesRequestPaginateTypeDef(BaseValidatorModel):
@@ -6821,12 +6901,12 @@ class ListClusterNodesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_cluster_nodes' function.
 class ListClusterNodesRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
-    InstanceGroupNameContains: Optional[str] = None
+    InstanceGroupNameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     SortBy: Optional[ClusterSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     IncludeNodeLogicalIds: Optional[bool] = None
@@ -6847,12 +6927,12 @@ class ListClusterSchedulerConfigsRequestPaginateTypeDef(BaseValidatorModel):
 class ListClusterSchedulerConfigsRequestTypeDef(BaseValidatorModel):
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
-    NameContains: Optional[str] = None
-    ClusterArn: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
+    ClusterArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]] = None
     Status: Optional[SchedulerResourceStatusType] = None
     SortBy: Optional[SortClusterSchedulerConfigByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -6871,11 +6951,11 @@ class ListClustersRequestTypeDef(BaseValidatorModel):
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     SortBy: Optional[ClusterSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    TrainingPlanArn: Optional[str] = None
+    TrainingPlanArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]] = None
 
 
 class ListCodeRepositoriesInputPaginateTypeDef(BaseValidatorModel):
@@ -6896,8 +6976,8 @@ class ListCodeRepositoriesInputTypeDef(BaseValidatorModel):
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryNameContains")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     SortBy: Optional[CodeRepositorySortByType] = None
     SortOrder: Optional[CodeRepositorySortOrderType] = None
 
@@ -6916,13 +6996,13 @@ class ListCompilationJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_compilation_jobs' function.
 class ListCompilationJobsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     StatusEquals: Optional[CompilationJobStatusType] = None
     SortBy: Optional[ListCompilationJobsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
@@ -6943,12 +7023,12 @@ class ListComputeQuotasRequestPaginateTypeDef(BaseValidatorModel):
 class ListComputeQuotasRequestTypeDef(BaseValidatorModel):
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
     Status: Optional[SchedulerResourceStatusType] = None
-    ClusterArn: Optional[str] = None
+    ClusterArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]] = None
     SortBy: Optional[SortQuotaByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -6964,13 +7044,13 @@ class ListContextsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_contexts' function.
 class ListContextsRequestTypeDef(BaseValidatorModel):
-    SourceUri: Optional[str] = None
+    SourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "SourceUri")]] = None
     ContextType: Optional[str] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[SortContextsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -6986,12 +7066,12 @@ class ListDataQualityJobDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_quality_job_definitions' function.
 class ListDataQualityJobDefinitionsRequestTypeDef(BaseValidatorModel):
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
 
@@ -7009,13 +7089,13 @@ class ListDeviceFleetsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_device_fleets' function.
 class ListDeviceFleetsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     SortBy: Optional[ListDeviceFleetsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
 
@@ -7029,11 +7109,11 @@ class ListDevicesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_devices' function.
 class ListDevicesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     LatestHeartbeatAfter: Optional[TimestampTypeDef] = None
-    ModelName: Optional[str] = None
-    DeviceFleetName: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
+    DeviceFleetName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
 
 
 class ListEdgeDeploymentPlansRequestPaginateTypeDef(BaseValidatorModel):
@@ -7050,14 +7130,14 @@ class ListEdgeDeploymentPlansRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_edge_deployment_plans' function.
 class ListEdgeDeploymentPlansRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    NameContains: Optional[str] = None
-    DeviceFleetNameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
+    DeviceFleetNameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     SortBy: Optional[ListEdgeDeploymentPlansSortByType] = None
     SortOrder: Optional[SortOrderType] = None
 
@@ -7077,14 +7157,14 @@ class ListEdgePackagingJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_edge_packaging_jobs' function.
 class ListEdgePackagingJobsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    NameContains: Optional[str] = None
-    ModelNameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
+    ModelNameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     StatusEquals: Optional[EdgePackagingJobStatusType] = None
     SortBy: Optional[ListEdgePackagingJobsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
@@ -7103,9 +7183,9 @@ class ListEndpointConfigsInputPaginateTypeDef(BaseValidatorModel):
 class ListEndpointConfigsInputTypeDef(BaseValidatorModel):
     SortBy: Optional[EndpointConfigSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigNameContains")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
 
@@ -7126,9 +7206,9 @@ class ListEndpointsInputPaginateTypeDef(BaseValidatorModel):
 class ListEndpointsInputTypeDef(BaseValidatorModel):
     SortBy: Optional[EndpointSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointNameContains")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
@@ -7150,7 +7230,7 @@ class ListExperimentsRequestTypeDef(BaseValidatorModel):
     CreatedBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[SortExperimentsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -7175,7 +7255,7 @@ class ListFeatureGroupsRequestTypeDef(BaseValidatorModel):
     SortOrder: Optional[FeatureGroupSortOrderType] = None
     SortBy: Optional[FeatureGroupSortByType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class ListFlowDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
@@ -7190,42 +7270,42 @@ class ListFlowDefinitionsRequestTypeDef(BaseValidatorModel):
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_hub_content_versions' function.
 class ListHubContentVersionsRequestTypeDef(BaseValidatorModel):
-    HubName: str
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
     HubContentType: HubContentTypeType
-    HubContentName: str
-    MinVersion: Optional[str] = None
-    MaxSchemaVersion: Optional[str] = None
+    HubContentName: Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]
+    MinVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "HubContentVersion")]] = None
+    MaxSchemaVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "DocumentSchemaVersion")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     SortBy: Optional[HubContentSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the input for the 'list_hub_contents' function.
 class ListHubContentsRequestTypeDef(BaseValidatorModel):
-    HubName: str
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubNameOrArn")]
     HubContentType: HubContentTypeType
-    NameContains: Optional[str] = None
-    MaxSchemaVersion: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
+    MaxSchemaVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "DocumentSchemaVersion")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     SortBy: Optional[HubContentSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the input for the 'list_hubs' function.
 class ListHubsRequestTypeDef(BaseValidatorModel):
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
@@ -7233,7 +7313,7 @@ class ListHubsRequestTypeDef(BaseValidatorModel):
     SortBy: Optional[HubSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class ListHumanTaskUisRequestPaginateTypeDef(BaseValidatorModel):
@@ -7248,7 +7328,7 @@ class ListHumanTaskUisRequestTypeDef(BaseValidatorModel):
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -7266,11 +7346,11 @@ class ListHyperParameterTuningJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_hyper_parameter_tuning_jobs' function.
 class ListHyperParameterTuningJobsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     SortBy: Optional[HyperParameterTuningJobSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
@@ -7291,13 +7371,13 @@ class ListImageVersionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_image_versions' function.
 class ListImageVersionsRequestTypeDef(BaseValidatorModel):
-    ImageName: str
+    ImageName: Annotated[str, _aws_pattern("Sagemaker", "ImageName")]
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     SortBy: Optional[ImageVersionSortByType] = None
     SortOrder: Optional[ImageVersionSortOrderType] = None
 
@@ -7320,8 +7400,8 @@ class ListImagesRequestTypeDef(BaseValidatorModel):
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageNameContains")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     SortBy: Optional[ImageSortByType] = None
     SortOrder: Optional[ImageSortOrderType] = None
 
@@ -7344,16 +7424,16 @@ class ListInferenceComponentsInputPaginateTypeDef(BaseValidatorModel):
 class ListInferenceComponentsInputTypeDef(BaseValidatorModel):
     SortBy: Optional[InferenceComponentSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "InferenceComponentNameContains")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     StatusEquals: Optional[InferenceComponentStatusType] = None
-    EndpointNameEquals: Optional[str] = None
-    VariantNameEquals: Optional[str] = None
+    EndpointNameEquals: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
+    VariantNameEquals: Optional[Annotated[str, _aws_pattern("Sagemaker", "VariantName")]] = None
 
 
 class ListInferenceExperimentsRequestPaginateTypeDef(BaseValidatorModel):
@@ -7371,7 +7451,7 @@ class ListInferenceExperimentsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_inference_experiments' function.
 class ListInferenceExperimentsRequestTypeDef(BaseValidatorModel):
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     Type: Optional[Literal["ShadowMode"]] = None
     StatusEquals: Optional[InferenceExperimentStatusType] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
@@ -7380,7 +7460,7 @@ class ListInferenceExperimentsRequestTypeDef(BaseValidatorModel):
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[SortInferenceExperimentsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -7404,14 +7484,14 @@ class ListInferenceRecommendationsJobsRequestTypeDef(BaseValidatorModel):
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     StatusEquals: Optional[RecommendationJobStatusType] = None
     SortBy: Optional[ListInferenceRecommendationsJobsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    ModelNameEquals: Optional[str] = None
-    ModelPackageVersionArnEquals: Optional[str] = None
+    ModelNameEquals: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelName")]] = None
+    ModelPackageVersionArnEquals: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]] = None
 
 
 class ListLabelingJobsForWorkteamRequestPaginateTypeDef(BaseValidatorModel):
@@ -7426,12 +7506,12 @@ class ListLabelingJobsForWorkteamRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_labeling_jobs_for_workteam' function.
 class ListLabelingJobsForWorkteamRequestTypeDef(BaseValidatorModel):
-    WorkteamArn: str
+    WorkteamArn: Annotated[str, _aws_pattern("Sagemaker", "WorkteamArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
-    JobReferenceCodeContains: Optional[str] = None
+    JobReferenceCodeContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "JobReferenceCodeContains")]] = None
     SortBy: Optional[Literal["CreationTime"]] = None
     SortOrder: Optional[SortOrderType] = None
 
@@ -7455,8 +7535,8 @@ class ListLabelingJobsRequestTypeDef(BaseValidatorModel):
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    NameContains: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     SortBy: Optional[SortByType] = None
     SortOrder: Optional[SortOrderType] = None
     StatusEquals: Optional[LabelingJobStatusType] = None
@@ -7476,7 +7556,7 @@ class ListLineageGroupsRequestTypeDef(BaseValidatorModel):
     CreatedBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[SortLineageGroupsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -7497,12 +7577,12 @@ class ListMlflowAppsRequestTypeDef(BaseValidatorModel):
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     Status: Optional[MlflowAppStatusType] = None
-    MlflowVersion: Optional[str] = None
+    MlflowVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowVersion")]] = None
     DefaultForDomainId: Optional[str] = None
     AccountDefaultStatus: Optional[AccountDefaultStatusType] = None
     SortBy: Optional[SortMlflowAppByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -7521,10 +7601,10 @@ class ListMlflowTrackingServersRequestTypeDef(BaseValidatorModel):
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     TrackingServerStatus: Optional[TrackingServerStatusType] = None
-    MlflowVersion: Optional[str] = None
+    MlflowVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowVersion")]] = None
     SortBy: Optional[SortTrackingServerByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -7540,12 +7620,12 @@ class ListModelBiasJobDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_model_bias_job_definitions' function.
 class ListModelBiasJobDefinitionsRequestTypeDef(BaseValidatorModel):
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
 
@@ -7564,15 +7644,15 @@ class ListModelCardExportJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_model_card_export_jobs' function.
 class ListModelCardExportJobsRequestTypeDef(BaseValidatorModel):
-    ModelCardName: str
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     ModelCardVersion: Optional[int] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
-    ModelCardExportJobNameContains: Optional[str] = None
+    ModelCardExportJobNameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
     StatusEquals: Optional[ModelCardExportJobStatusType] = None
     SortBy: Optional[ModelCardExportJobSortByType] = None
     SortOrder: Optional[ModelCardExportJobSortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -7588,12 +7668,12 @@ class ListModelCardVersionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_model_card_versions' function.
 class ListModelCardVersionsRequestTypeDef(BaseValidatorModel):
-    ModelCardName: str
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "ModelCardNameOrArn")]
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     SortBy: Optional[Literal["Version"]] = None
     SortOrder: Optional[ModelCardSortOrderType] = None
 
@@ -7613,9 +7693,9 @@ class ListModelCardsRequestTypeDef(BaseValidatorModel):
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     SortBy: Optional[ModelCardSortByType] = None
     SortOrder: Optional[ModelCardSortOrderType] = None
 
@@ -7632,12 +7712,12 @@ class ListModelExplainabilityJobDefinitionsRequestPaginateTypeDef(BaseValidatorM
 
 # This class is the input for the 'list_model_explainability_job_definitions' function.
 class ListModelExplainabilityJobDefinitionsRequestTypeDef(BaseValidatorModel):
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
 
@@ -7657,8 +7737,8 @@ class ListModelPackageGroupsInputTypeDef(BaseValidatorModel):
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     SortBy: Optional[ModelPackageGroupSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     CrossAccountFilterOption: Optional[CrossAccountFilterOptionType] = None
@@ -7681,11 +7761,11 @@ class ListModelPackagesInputTypeDef(BaseValidatorModel):
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
-    ModelPackageGroupName: Optional[str] = None
+    ModelPackageGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ArnOrName")]] = None
     ModelPackageType: Optional[ModelPackageTypeType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     SortBy: Optional[ModelPackageSortByType] = None
     SortOrder: Optional[SortOrderType] = None
 
@@ -7702,12 +7782,12 @@ class ListModelQualityJobDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_model_quality_job_definitions' function.
 class ListModelQualityJobDefinitionsRequestTypeDef(BaseValidatorModel):
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
 
@@ -7725,9 +7805,9 @@ class ListModelsInputPaginateTypeDef(BaseValidatorModel):
 class ListModelsInputTypeDef(BaseValidatorModel):
     SortBy: Optional[ModelSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelNameContains")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
 
@@ -7745,11 +7825,11 @@ class ListMonitoringAlertHistoryRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_monitoring_alert_history' function.
 class ListMonitoringAlertHistoryRequestTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: Optional[str] = None
-    MonitoringAlertName: Optional[str] = None
+    MonitoringScheduleName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]] = None
+    MonitoringAlertName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringAlertName")]] = None
     SortBy: Optional[MonitoringAlertHistorySortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
@@ -7775,11 +7855,11 @@ class ListMonitoringExecutionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_monitoring_executions' function.
 class ListMonitoringExecutionsRequestTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: Optional[str] = None
-    EndpointName: Optional[str] = None
+    MonitoringScheduleName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
     SortBy: Optional[MonitoringExecutionSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     ScheduledTimeBefore: Optional[TimestampTypeDef] = None
     ScheduledTimeAfter: Optional[TimestampTypeDef] = None
@@ -7788,7 +7868,9 @@ class ListMonitoringExecutionsRequestTypeDef(BaseValidatorModel):
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     StatusEquals: Optional[ExecutionStatusType] = None
-    MonitoringJobDefinitionName: Optional[str] = None
+    MonitoringJobDefinitionName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]] = (
+        None
+    )
     MonitoringTypeEquals: Optional[MonitoringTypeType] = None
 
 
@@ -7809,18 +7891,20 @@ class ListMonitoringSchedulesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_monitoring_schedules' function.
 class ListMonitoringSchedulesRequestTypeDef(BaseValidatorModel):
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
     SortBy: Optional[MonitoringScheduleSortKeyType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     StatusEquals: Optional[ScheduleStatusType] = None
-    MonitoringJobDefinitionName: Optional[str] = None
+    MonitoringJobDefinitionName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]] = (
+        None
+    )
     MonitoringTypeEquals: Optional[MonitoringTypeType] = None
 
 
@@ -7837,11 +7921,13 @@ class ListNotebookInstanceLifecycleConfigsInputPaginateTypeDef(BaseValidatorMode
 
 # This class is the input for the 'list_notebook_instance_lifecycle_configs' function.
 class ListNotebookInstanceLifecycleConfigsInputTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     SortBy: Optional[NotebookInstanceLifecycleConfigSortKeyType] = None
     SortOrder: Optional[NotebookInstanceLifecycleConfigSortOrderType] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigNameContains")]] = (
+        None
+    )
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
@@ -7865,19 +7951,23 @@ class ListNotebookInstancesInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_notebook_instances' function.
 class ListNotebookInstancesInputTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     SortBy: Optional[NotebookInstanceSortKeyType] = None
     SortOrder: Optional[NotebookInstanceSortOrderType] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceNameContains")]] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     StatusEquals: Optional[NotebookInstanceStatusType] = None
-    NotebookInstanceLifecycleConfigNameContains: Optional[str] = None
-    DefaultCodeRepositoryContains: Optional[str] = None
-    AdditionalCodeRepositoryEquals: Optional[str] = None
+    NotebookInstanceLifecycleConfigNameContains: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "NotebookInstanceLifecycleConfigName")]
+    ] = None
+    DefaultCodeRepositoryContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryContains")]] = None
+    AdditionalCodeRepositoryEquals: Optional[Annotated[str, _aws_pattern("Sagemaker", "CodeRepositoryNameOrUrl")]] = (
+        None
+    )
 
 
 class ListOptimizationJobsRequestPaginateTypeDef(BaseValidatorModel):
@@ -7895,14 +7985,14 @@ class ListOptimizationJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_optimization_jobs' function.
 class ListOptimizationJobsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    OptimizationContains: Optional[str] = None
-    NameContains: Optional[str] = None
+    OptimizationContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     StatusEquals: Optional[OptimizationJobStatusType] = None
     SortBy: Optional[ListOptimizationJobsSortByType] = None
     SortOrder: Optional[SortOrderType] = None
@@ -7919,12 +8009,12 @@ class ListPipelineExecutionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pipeline_executions' function.
 class ListPipelineExecutionsRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Sagemaker", "PipelineNameOrArn")]
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[SortPipelineExecutionsByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -7938,11 +8028,11 @@ class ListPipelineVersionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pipeline_versions' function.
 class ListPipelineVersionsRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Sagemaker", "PipelineNameOrArn")]
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -7957,12 +8047,12 @@ class ListPipelinesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pipelines' function.
 class ListPipelinesRequestTypeDef(BaseValidatorModel):
-    PipelineNamePrefix: Optional[str] = None
+    PipelineNamePrefix: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[SortPipelinesByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -7988,7 +8078,7 @@ class ListProcessingJobsRequestTypeDef(BaseValidatorModel):
     StatusEquals: Optional[ProcessingJobStatusType] = None
     SortBy: Optional[SortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -7997,8 +8087,8 @@ class ListProjectsInputTypeDef(BaseValidatorModel):
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProjectEntityName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     SortBy: Optional[ProjectSortByType] = None
     SortOrder: Optional[ProjectSortOrderType] = None
 
@@ -8020,7 +8110,7 @@ class ListResourceCatalogsRequestTypeDef(BaseValidatorModel):
     SortOrder: Optional[ResourceCatalogSortOrderType] = None
     SortBy: Optional[Literal["CreationTime"]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class ListStudioLifecycleConfigsRequestPaginateTypeDef(BaseValidatorModel):
@@ -8038,8 +8128,8 @@ class ListStudioLifecycleConfigsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_studio_lifecycle_configs' function.
 class ListStudioLifecycleConfigsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    NameContains: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigName")]] = None
     AppTypeEquals: Optional[StudioLifecycleConfigAppTypeType] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
@@ -8065,18 +8155,18 @@ class ListTrainingJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_training_jobs' function.
 class ListTrainingJobsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     StatusEquals: Optional[TrainingJobStatusType] = None
     SortBy: Optional[SortByType] = None
     SortOrder: Optional[SortOrderType] = None
     WarmPoolStatusEquals: Optional[WarmPoolResourceStatusType] = None
-    TrainingPlanArnEquals: Optional[str] = None
+    TrainingPlanArnEquals: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]] = None
 
 
 class ListTransformJobsRequestPaginateTypeDef(BaseValidatorModel):
@@ -8097,11 +8187,11 @@ class ListTransformJobsRequestTypeDef(BaseValidatorModel):
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     LastModifiedTimeAfter: Optional[TimestampTypeDef] = None
     LastModifiedTimeBefore: Optional[TimestampTypeDef] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Sagemaker", "NameContains")]] = None
     StatusEquals: Optional[TransformJobStatusType] = None
     SortBy: Optional[SortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -8118,15 +8208,15 @@ class ListTrialComponentsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_trial_components' function.
 class ListTrialComponentsRequestTypeDef(BaseValidatorModel):
-    ExperimentName: Optional[str] = None
-    TrialName: Optional[str] = None
+    ExperimentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    TrialName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     SourceArn: Optional[str] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[SortTrialComponentsByType] = None
     SortOrder: Optional[SortOrderType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class ListTrialsRequestPaginateTypeDef(BaseValidatorModel):
@@ -8141,14 +8231,14 @@ class ListTrialsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_trials' function.
 class ListTrialsRequestTypeDef(BaseValidatorModel):
-    ExperimentName: Optional[str] = None
-    TrialComponentName: Optional[str] = None
+    ExperimentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    TrialComponentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     SortBy: Optional[SortTrialsByType] = None
     SortOrder: Optional[SortOrderType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class QueryFiltersTypeDef(BaseValidatorModel):
@@ -8165,7 +8255,7 @@ class QueryFiltersTypeDef(BaseValidatorModel):
 class SearchTrainingPlanOfferingsRequestTypeDef(BaseValidatorModel):
     InstanceType: Optional[ReservedCapacityInstanceTypeType] = None
     InstanceCount: Optional[int] = None
-    UltraServerType: Optional[str] = None
+    UltraServerType: Optional[Annotated[str, _aws_pattern("Sagemaker", "UltraServerType")]] = None
     UltraServerCount: Optional[int] = None
     StartTimeAfter: Optional[TimestampTypeDef] = None
     EndTimeBefore: Optional[TimestampTypeDef] = None
@@ -8176,8 +8266,8 @@ class SearchTrainingPlanOfferingsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_trial_component' function.
 class CreateTrialComponentRequestTypeDef(BaseValidatorModel):
-    TrialComponentName: str
-    DisplayName: Optional[str] = None
+    TrialComponentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     Status: Optional[TrialComponentStatusTypeDef] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
@@ -8190,17 +8280,17 @@ class CreateTrialComponentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_trial_component' function.
 class UpdateTrialComponentRequestTypeDef(BaseValidatorModel):
-    TrialComponentName: str
-    DisplayName: Optional[str] = None
+    TrialComponentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     Status: Optional[TrialComponentStatusTypeDef] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
     Parameters: Optional[Dict[str, TrialComponentParameterValueTypeDef]] = None
-    ParametersToRemove: Optional[List[str]] = None
+    ParametersToRemove: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "TrialComponentKey256")]]] = None
     InputArtifacts: Optional[Dict[str, TrialComponentArtifactTypeDef]] = None
-    InputArtifactsToRemove: Optional[List[str]] = None
+    InputArtifactsToRemove: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "TrialComponentKey256")]]] = None
     OutputArtifacts: Optional[Dict[str, TrialComponentArtifactTypeDef]] = None
-    OutputArtifactsToRemove: Optional[List[str]] = None
+    OutputArtifactsToRemove: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "TrialComponentKey256")]]] = None
 
 
 class CustomFileSystemConfigTypeDef(BaseValidatorModel):
@@ -8221,28 +8311,28 @@ DataQualityAppSpecificationUnionTypeDef = Union[
 
 
 class ModelBiasBaselineConfigTypeDef(BaseValidatorModel):
-    BaseliningJobName: Optional[str] = None
+    BaseliningJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]] = None
     ConstraintsResource: Optional[MonitoringConstraintsResourceTypeDef] = None
 
 
 class ModelExplainabilityBaselineConfigTypeDef(BaseValidatorModel):
-    BaseliningJobName: Optional[str] = None
+    BaseliningJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]] = None
     ConstraintsResource: Optional[MonitoringConstraintsResourceTypeDef] = None
 
 
 class ModelQualityBaselineConfigTypeDef(BaseValidatorModel):
-    BaseliningJobName: Optional[str] = None
+    BaseliningJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]] = None
     ConstraintsResource: Optional[MonitoringConstraintsResourceTypeDef] = None
 
 
 class DataQualityBaselineConfigTypeDef(BaseValidatorModel):
-    BaseliningJobName: Optional[str] = None
+    BaseliningJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]] = None
     ConstraintsResource: Optional[MonitoringConstraintsResourceTypeDef] = None
     StatisticsResource: Optional[MonitoringStatisticsResourceTypeDef] = None
 
 
 class MonitoringBaselineConfigTypeDef(BaseValidatorModel):
-    BaseliningJobName: Optional[str] = None
+    BaseliningJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]] = None
     ConstraintsResource: Optional[MonitoringConstraintsResourceTypeDef] = None
     StatisticsResource: Optional[MonitoringStatisticsResourceTypeDef] = None
 
@@ -8250,7 +8340,7 @@ class MonitoringBaselineConfigTypeDef(BaseValidatorModel):
 class DatasetDefinitionTypeDef(BaseValidatorModel):
     AthenaDatasetDefinition: Optional[AthenaDatasetDefinitionTypeDef] = None
     RedshiftDatasetDefinition: Optional[RedshiftDatasetDefinitionTypeDef] = None
-    LocalPath: Optional[str] = None
+    LocalPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingLocalPath")]] = None
     DataDistributionType: Optional[DataDistributionTypeType] = None
     InputMode: Optional[InputModeType] = None
 
@@ -8264,13 +8354,13 @@ class DefaultSpaceStorageSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_domain' function.
 class DeleteDomainRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
     RetentionPolicy: Optional[RetentionPolicyTypeDef] = None
 
 
 class InferenceComponentContainerSpecificationSummaryTypeDef(BaseValidatorModel):
     DeployedImage: Optional[DeployedImageTypeDef] = None
-    ArtifactUrl: Optional[str] = None
+    ArtifactUrl: Optional[Annotated[str, _aws_pattern("Sagemaker", "Url")]] = None
     Environment: Optional[Dict[str, str]] = None
 
 
@@ -8280,7 +8370,7 @@ class DeploymentRecommendationTypeDef(BaseValidatorModel):
 
 
 class DeploymentStageStatusSummaryTypeDef(BaseValidatorModel):
-    StageName: str
+    StageName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     DeviceSelectionConfig: DeviceSelectionConfigOutputTypeDef
     DeploymentConfig: EdgeDeploymentConfigTypeDef
     DeploymentStatus: EdgeDeploymentStatusTypeDef
@@ -8288,35 +8378,35 @@ class DeploymentStageStatusSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_device' function.
 class DescribeDeviceResponseTypeDef(BaseValidatorModel):
-    DeviceArn: str
-    DeviceName: str
-    Description: str
-    DeviceFleetName: str
-    IotThingName: str
+    DeviceArn: Annotated[str, _aws_pattern("Sagemaker", "DeviceArn")]
+    DeviceName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    Description: Annotated[str, _aws_pattern("Sagemaker", "DeviceDescription")]
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    IotThingName: Annotated[str, _aws_pattern("Sagemaker", "ThingName")]
     RegistrationTime: datetime
     LatestHeartbeat: datetime
     Models: List[EdgeModelTypeDef]
     MaxModels: int
-    AgentVersion: str
+    AgentVersion: Annotated[str, _aws_pattern("Sagemaker", "EdgeVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_edge_packaging_job' function.
 class DescribeEdgePackagingJobResponseTypeDef(BaseValidatorModel):
-    EdgePackagingJobArn: str
-    EdgePackagingJobName: str
-    CompilationJobName: str
-    ModelName: str
-    ModelVersion: str
-    RoleArn: str
+    EdgePackagingJobArn: Annotated[str, _aws_pattern("Sagemaker", "EdgePackagingJobArn")]
+    EdgePackagingJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    CompilationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelVersion: Annotated[str, _aws_pattern("Sagemaker", "EdgeVersion")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     OutputConfig: EdgeOutputConfigTypeDef
-    ResourceKey: str
+    ResourceKey: Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]
     EdgePackagingJobStatus: EdgePackagingJobStatusType
     EdgePackagingJobStatusMessage: str
     CreationTime: datetime
     LastModifiedTime: datetime
-    ModelArtifact: str
+    ModelArtifact: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     ModelSignature: str
     PresetDeploymentOutput: EdgePresetDeploymentOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -8392,17 +8482,17 @@ class DescribeTransformJobRequestWaitTypeDef(BaseValidatorModel):
 
 
 class ExperimentSummaryTypeDef(BaseValidatorModel):
-    ExperimentArn: Optional[str] = None
-    ExperimentName: Optional[str] = None
-    DisplayName: Optional[str] = None
+    ExperimentArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentArn")]] = None
+    ExperimentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     ExperimentSource: Optional[ExperimentSourceTypeDef] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
 class FeatureGroupSummaryTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
-    FeatureGroupArn: str
+    FeatureGroupName: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupName")]
+    FeatureGroupArn: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupArn")]
     CreationTime: datetime
     FeatureGroupStatus: Optional[FeatureGroupStatusType] = None
     OfflineStoreStatus: Optional[OfflineStoreStatusTypeDef] = None
@@ -8410,54 +8500,54 @@ class FeatureGroupSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_feature_metadata' function.
 class DescribeFeatureMetadataResponseTypeDef(BaseValidatorModel):
-    FeatureGroupArn: str
-    FeatureGroupName: str
-    FeatureName: str
+    FeatureGroupArn: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupArn")]
+    FeatureGroupName: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupName")]
+    FeatureName: Annotated[str, _aws_pattern("Sagemaker", "FeatureName")]
     FeatureType: FeatureTypeType
     CreationTime: datetime
     LastModifiedTime: datetime
-    Description: str
+    Description: Annotated[str, _aws_pattern("Sagemaker", "FeatureDescription")]
     Parameters: List[FeatureParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class FeatureMetadataTypeDef(BaseValidatorModel):
-    FeatureGroupArn: Optional[str] = None
-    FeatureGroupName: Optional[str] = None
-    FeatureName: Optional[str] = None
+    FeatureGroupArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupArn")]] = None
+    FeatureGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupName")]] = None
+    FeatureName: Optional[Annotated[str, _aws_pattern("Sagemaker", "FeatureName")]] = None
     FeatureType: Optional[FeatureTypeType] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "FeatureDescription")]] = None
     Parameters: Optional[List[FeatureParameterTypeDef]] = None
 
 
 # This class is the input for the 'update_feature_metadata' function.
 class UpdateFeatureMetadataRequestTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
-    FeatureName: str
-    Description: Optional[str] = None
+    FeatureGroupName: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupNameOrArn")]
+    FeatureName: Annotated[str, _aws_pattern("Sagemaker", "FeatureName")]
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "FeatureDescription")]] = None
     ParameterAdditions: Optional[List[FeatureParameterTypeDef]] = None
-    ParameterRemovals: Optional[List[str]] = None
+    ParameterRemovals: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "FeatureParameterKey")]]] = None
 
 
 # This class is the output for the 'describe_hub_content' function.
 class DescribeHubContentResponseTypeDef(BaseValidatorModel):
-    HubContentName: str
-    HubContentArn: str
-    HubContentVersion: str
+    HubContentName: Annotated[str, _aws_pattern("Sagemaker", "HubContentName")]
+    HubContentArn: Annotated[str, _aws_pattern("Sagemaker", "HubContentArn")]
+    HubContentVersion: Annotated[str, _aws_pattern("Sagemaker", "HubContentVersion")]
     HubContentType: HubContentTypeType
-    DocumentSchemaVersion: str
-    HubName: str
-    HubArn: str
-    HubContentDisplayName: str
-    HubContentDescription: str
+    DocumentSchemaVersion: Annotated[str, _aws_pattern("Sagemaker", "DocumentSchemaVersion")]
+    HubName: Annotated[str, _aws_pattern("Sagemaker", "HubName")]
+    HubArn: Annotated[str, _aws_pattern("Sagemaker", "HubArn")]
+    HubContentDisplayName: Annotated[str, _aws_pattern("Sagemaker", "HubContentDisplayName")]
+    HubContentDescription: Annotated[str, _aws_pattern("Sagemaker", "HubContentDescription")]
     HubContentMarkdown: str
-    HubContentDocument: str
-    SageMakerPublicHubContentArn: str
-    ReferenceMinVersion: str
+    HubContentDocument: Annotated[str, _aws_pattern("Sagemaker", "HubContentDocument")]
+    SageMakerPublicHubContentArn: Annotated[str, _aws_pattern("Sagemaker", "SageMakerPublicHubContentArn")]
+    ReferenceMinVersion: Annotated[str, _aws_pattern("Sagemaker", "ReferenceMinVersion")]
     SupportStatus: HubContentSupportStatusType
-    HubContentSearchKeywords: List[str]
+    HubContentSearchKeywords: List[Annotated[str, _aws_pattern("Sagemaker", "HubContentSearchKeyword")]]
     HubContentDependencies: List[HubContentDependencyTypeDef]
     HubContentStatus: HubContentStatusType
     FailureReason: str
@@ -8468,8 +8558,8 @@ class DescribeHubContentResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_human_task_ui' function.
 class DescribeHumanTaskUiResponseTypeDef(BaseValidatorModel):
-    HumanTaskUiArn: str
-    HumanTaskUiName: str
+    HumanTaskUiArn: Annotated[str, _aws_pattern("Sagemaker", "HumanTaskUiArn")]
+    HumanTaskUiName: Annotated[str, _aws_pattern("Sagemaker", "HumanTaskUiName")]
     HumanTaskUiStatus: HumanTaskUiStatusType
     CreationTime: datetime
     UiTemplate: UiTemplateInfoTypeDef
@@ -8477,24 +8567,24 @@ class DescribeHumanTaskUiResponseTypeDef(BaseValidatorModel):
 
 
 class InferenceExperimentSummaryTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentName")]
     Type: Literal["ShadowMode"]
     Status: InferenceExperimentStatusType
     CreationTime: datetime
     LastModifiedTime: datetime
     Schedule: Optional[InferenceExperimentScheduleOutputTypeDef] = None
-    StatusReason: Optional[str] = None
-    Description: Optional[str] = None
+    StatusReason: Optional[Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentStatusReason")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentDescription")]] = None
     CompletionTime: Optional[datetime] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
 
 
 # This class is the output for the 'describe_model_card_export_job' function.
 class DescribeModelCardExportJobResponseTypeDef(BaseValidatorModel):
-    ModelCardExportJobName: str
-    ModelCardExportJobArn: str
+    ModelCardExportJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelCardExportJobArn: Annotated[str, _aws_pattern("Sagemaker", "ModelCardExportJobArn")]
     Status: ModelCardExportJobStatusType
-    ModelCardName: str
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     ModelCardVersion: int
     OutputConfig: ModelCardExportOutputConfigTypeDef
     CreatedAt: datetime
@@ -8508,15 +8598,15 @@ class DescribeModelCardExportJobResponseTypeDef(BaseValidatorModel):
 class ListMonitoringExecutionsResponseTypeDef(BaseValidatorModel):
     MonitoringExecutionSummaries: List[MonitoringExecutionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_reserved_capacity' function.
 class DescribeReservedCapacityResponseTypeDef(BaseValidatorModel):
-    ReservedCapacityArn: str
+    ReservedCapacityArn: Annotated[str, _aws_pattern("Sagemaker", "ReservedCapacityArn")]
     ReservedCapacityType: ReservedCapacityTypeType
     Status: ReservedCapacityStatusType
-    AvailabilityZone: str
+    AvailabilityZone: Annotated[str, _aws_pattern("Sagemaker", "AvailabilityZone")]
     DurationHours: int
     DurationMinutes: int
     StartTime: datetime
@@ -8539,26 +8629,26 @@ class DescribeSubscribedWorkteamResponseTypeDef(BaseValidatorModel):
 class ListSubscribedWorkteamsResponseTypeDef(BaseValidatorModel):
     SubscribedWorkteams: List[SubscribedWorkteamTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class TrainingJobSummaryTypeDef(BaseValidatorModel):
-    TrainingJobName: str
-    TrainingJobArn: str
+    TrainingJobName: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobName")]
+    TrainingJobArn: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobArn")]
     CreationTime: datetime
     TrainingJobStatus: TrainingJobStatusType
     TrainingEndTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     SecondaryStatus: Optional[SecondaryStatusType] = None
     WarmPoolStatus: Optional[WarmPoolStatusTypeDef] = None
-    TrainingPlanArn: Optional[str] = None
+    TrainingPlanArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]] = None
 
 
 # This class is the output for the 'describe_training_plan_extension_history' function.
 class DescribeTrainingPlanExtensionHistoryResponseTypeDef(BaseValidatorModel):
     TrainingPlanExtensions: List[TrainingPlanExtensionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'extend_training_plan' function.
@@ -8569,8 +8659,8 @@ class ExtendTrainingPlanResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_training_plan' function.
 class DescribeTrainingPlanResponseTypeDef(BaseValidatorModel):
-    TrainingPlanArn: str
-    TrainingPlanName: str
+    TrainingPlanArn: Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]
+    TrainingPlanName: Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanName")]
     Status: TrainingPlanStatusType
     StatusMessage: str
     DurationHours: int
@@ -8591,8 +8681,8 @@ class DescribeTrainingPlanResponseTypeDef(BaseValidatorModel):
 
 
 class TrainingPlanSummaryTypeDef(BaseValidatorModel):
-    TrainingPlanArn: str
-    TrainingPlanName: str
+    TrainingPlanArn: Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]
+    TrainingPlanName: Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanName")]
     Status: TrainingPlanStatusType
     StatusMessage: Optional[str] = None
     DurationHours: Optional[int] = None
@@ -8610,16 +8700,16 @@ class TrainingPlanSummaryTypeDef(BaseValidatorModel):
 
 
 class TrialSummaryTypeDef(BaseValidatorModel):
-    TrialArn: Optional[str] = None
-    TrialName: Optional[str] = None
-    DisplayName: Optional[str] = None
+    TrialArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrialArn")]] = None
+    TrialName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     TrialSource: Optional[TrialSourceTypeDef] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
 class DesiredWeightAndCapacityTypeDef(BaseValidatorModel):
-    VariantName: str
+    VariantName: Annotated[str, _aws_pattern("Sagemaker", "VariantName")]
     DesiredWeight: Optional[float] = None
     DesiredInstanceCount: Optional[int] = None
     ServerlessUpdateConfig: Optional[ProductionVariantServerlessUpdateConfigTypeDef] = None
@@ -8629,41 +8719,41 @@ class DesiredWeightAndCapacityTypeDef(BaseValidatorModel):
 class ListStageDevicesResponseTypeDef(BaseValidatorModel):
     DeviceDeploymentSummaries: List[DeviceDeploymentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_device_fleets' function.
 class ListDeviceFleetsResponseTypeDef(BaseValidatorModel):
     DeviceFleetSummaries: List[DeviceFleetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 DeviceSelectionConfigUnionTypeDef = Union[DeviceSelectionConfigOutputTypeDef, DeviceSelectionConfigTypeDef]
 
 
 class DeviceSummaryTypeDef(BaseValidatorModel):
-    DeviceName: str
-    DeviceArn: str
-    Description: Optional[str] = None
-    DeviceFleetName: Optional[str] = None
-    IotThingName: Optional[str] = None
+    DeviceName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    DeviceArn: Annotated[str, _aws_pattern("Sagemaker", "DeviceArn")]
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "DeviceDescription")]] = None
+    DeviceFleetName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
+    IotThingName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ThingName")]] = None
     RegistrationTime: Optional[datetime] = None
     LatestHeartbeat: Optional[datetime] = None
     Models: Optional[List[EdgeModelSummaryTypeDef]] = None
-    AgentVersion: Optional[str] = None
+    AgentVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "EdgeVersion")]] = None
 
 
 # This class is the input for the 'register_devices' function.
 class RegisterDevicesRequestTypeDef(BaseValidatorModel):
-    DeviceFleetName: str
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     Devices: List[DeviceTypeDef]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_devices' function.
 class UpdateDevicesRequestTypeDef(BaseValidatorModel):
-    DeviceFleetName: str
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     Devices: List[DeviceTypeDef]
 
 
@@ -8674,7 +8764,7 @@ DockerSettingsUnionTypeDef = Union[DockerSettingsOutputTypeDef, DockerSettingsTy
 class ListDomainsResponseTypeDef(BaseValidatorModel):
     Domains: List[DomainDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class DriftCheckBiasTypeDef(BaseValidatorModel):
@@ -8693,7 +8783,7 @@ class SpaceStorageSettingsTypeDef(BaseValidatorModel):
 
 
 class ProductionVariantCapacityReservationSummaryTypeDef(BaseValidatorModel):
-    MlReservationArn: Optional[str] = None
+    MlReservationArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlReservationArn")]] = None
     CapacityReservationPreference: Optional[Literal["capacity-reservations-only"]] = None
     TotalInstanceCount: Optional[int] = None
     AvailableInstanceCount: Optional[int] = None
@@ -8705,15 +8795,15 @@ class ProductionVariantCapacityReservationSummaryTypeDef(BaseValidatorModel):
 class ListEdgeDeploymentPlansResponseTypeDef(BaseValidatorModel):
     EdgeDeploymentPlanSummaries: List[EdgeDeploymentPlanSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'get_device_fleet_report' function.
 class GetDeviceFleetReportResponseTypeDef(BaseValidatorModel):
-    DeviceFleetArn: str
-    DeviceFleetName: str
+    DeviceFleetArn: Annotated[str, _aws_pattern("Sagemaker", "DeviceFleetArn")]
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     OutputConfig: EdgeOutputConfigTypeDef
-    Description: str
+    Description: Annotated[str, _aws_pattern("Sagemaker", "DeviceFleetDescription")]
     ReportGenerated: datetime
     DeviceStats: DeviceStatsTypeDef
     AgentVersions: List[AgentVersionTypeDef]
@@ -8725,14 +8815,14 @@ class GetDeviceFleetReportResponseTypeDef(BaseValidatorModel):
 class ListEdgePackagingJobsResponseTypeDef(BaseValidatorModel):
     EdgePackagingJobSummaries: List[EdgePackagingJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_endpoint_configs' function.
 class ListEndpointConfigsOutputTypeDef(BaseValidatorModel):
     EndpointConfigs: List[EndpointConfigSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "PaginationToken")]] = None
 
 
 class EndpointOutputConfigurationTypeDef(BaseValidatorModel):
@@ -8752,12 +8842,12 @@ class EndpointPerformanceTypeDef(BaseValidatorModel):
 class ListEndpointsOutputTypeDef(BaseValidatorModel):
     Endpoints: List[EndpointSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "PaginationToken")]] = None
 
 
 class EnvironmentConfigDetailsTypeDef(BaseValidatorModel):
     FSxLustreConfig: Optional[FSxLustreConfigTypeDef] = None
-    S3OutputPath: Optional[str] = None
+    S3OutputPath: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
 
 
 class EnvironmentConfigTypeDef(BaseValidatorModel):
@@ -8765,24 +8855,28 @@ class EnvironmentConfigTypeDef(BaseValidatorModel):
 
 
 class ModelConfigurationTypeDef(BaseValidatorModel):
-    InferenceSpecificationName: Optional[str] = None
+    InferenceSpecificationName: Optional[Annotated[str, _aws_pattern("Sagemaker", "InferenceSpecificationName")]] = None
     EnvironmentParameters: Optional[List[EnvironmentParameterTypeDef]] = None
-    CompilationJobName: Optional[str] = None
+    CompilationJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobCompilationJobName")]] = (
+        None
+    )
 
 
 class NestedFiltersTypeDef(BaseValidatorModel):
-    NestedPropertyName: str
+    NestedPropertyName: Annotated[str, _aws_pattern("Sagemaker", "ResourcePropertyName")]
     Filters: List[FilterTypeDef]
 
 
 class HyperParameterTrainingJobSummaryTypeDef(BaseValidatorModel):
-    TrainingJobName: str
-    TrainingJobArn: str
+    TrainingJobName: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobName")]
+    TrainingJobArn: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobArn")]
     CreationTime: datetime
     TrainingJobStatus: TrainingJobStatusType
     TunedHyperParameters: Dict[str, str]
-    TrainingJobDefinitionName: Optional[str] = None
-    TuningJobName: Optional[str] = None
+    TrainingJobDefinitionName: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTrainingJobDefinitionName")]
+    ] = None
+    TuningJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobName")]] = None
     TrainingStartTime: Optional[datetime] = None
     TrainingEndTime: Optional[datetime] = None
     FailureReason: Optional[str] = None
@@ -8794,14 +8888,14 @@ class HyperParameterTrainingJobSummaryTypeDef(BaseValidatorModel):
 class ListFlowDefinitionsResponseTypeDef(BaseValidatorModel):
     FlowDefinitionSummaries: List[FlowDefinitionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the input for the 'get_scaling_configuration_recommendation' function.
 class GetScalingConfigurationRecommendationRequestTypeDef(BaseValidatorModel):
-    InferenceRecommendationsJobName: str
+    InferenceRecommendationsJobName: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobName")]
     RecommendationId: Optional[str] = None
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
     TargetCpuUtilizationPerCore: Optional[int] = None
     ScalingPolicyObjective: Optional[ScalingPolicyObjectiveTypeDef] = None
 
@@ -8814,7 +8908,7 @@ class GetSearchSuggestionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_code_repository' function.
 class UpdateCodeRepositoryInputTypeDef(BaseValidatorModel):
-    CodeRepositoryName: str
+    CodeRepositoryName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     GitConfig: Optional[GitConfigForUpdateTypeDef] = None
 
 
@@ -8836,21 +8930,21 @@ class StudioWebPortalSettingsTypeDef(BaseValidatorModel):
 class ListHubContentVersionsResponseTypeDef(BaseValidatorModel):
     HubContentSummaries: List[HubContentInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_hub_contents' function.
 class ListHubContentsResponseTypeDef(BaseValidatorModel):
     HubContentSummaries: List[HubContentInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_hubs' function.
 class ListHubsResponseTypeDef(BaseValidatorModel):
     HubSummaries: List[HubInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class HumanLoopActivationConfigTypeDef(BaseValidatorModel):
@@ -8861,7 +8955,7 @@ class HumanLoopActivationConfigTypeDef(BaseValidatorModel):
 class ListHumanTaskUisResponseTypeDef(BaseValidatorModel):
     HumanTaskUiSummaries: List[HumanTaskUiSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class HyperParameterTuningResourceConfigOutputTypeDef(BaseValidatorModel):
@@ -8877,14 +8971,14 @@ class HyperParameterTuningResourceConfigTypeDef(BaseValidatorModel):
     InstanceType: Optional[TrainingInstanceTypeType] = None
     InstanceCount: Optional[int] = None
     VolumeSizeInGB: Optional[int] = None
-    VolumeKmsKeyId: Optional[str] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     AllocationStrategy: Optional[Literal["Prioritized"]] = None
     InstanceConfigs: Optional[List[HyperParameterTuningInstanceConfigTypeDef]] = None
 
 
 class HyperParameterTuningJobSummaryTypeDef(BaseValidatorModel):
-    HyperParameterTuningJobName: str
-    HyperParameterTuningJobArn: str
+    HyperParameterTuningJobName: Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobName")]
+    HyperParameterTuningJobArn: Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobArn")]
     HyperParameterTuningJobStatus: HyperParameterTuningJobStatusType
     Strategy: HyperParameterTuningJobStrategyTypeType
     CreationTime: datetime
@@ -8929,14 +9023,14 @@ class ImageConfigTypeDef(BaseValidatorModel):
 class ListImagesResponseTypeDef(BaseValidatorModel):
     Images: List[ImageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_image_versions' function.
 class ListImageVersionsResponseTypeDef(BaseValidatorModel):
     ImageVersions: List[ImageVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class InferenceComponentSchedulingConfigTypeDef(BaseValidatorModel):
@@ -8951,23 +9045,29 @@ class InferenceComponentRollingUpdatePolicyTypeDef(BaseValidatorModel):
     RollbackMaximumBatchSize: Optional[InferenceComponentCapacitySizeTypeDef] = None
 
 
+class InferenceComponentRuntimeConfigSummaryTypeDef(BaseValidatorModel):
+    DesiredCopyCount: Optional[int] = None
+    CurrentCopyCount: Optional[int] = None
+    PlacementStatus: Optional[List[InferenceComponentPlacementStatusTypeDef]] = None
+
+
 # This class is the output for the 'list_inference_components' function.
 class ListInferenceComponentsOutputTypeDef(BaseValidatorModel):
     InferenceComponents: List[InferenceComponentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_inference_recommendations_jobs' function.
 class ListInferenceRecommendationsJobsResponseTypeDef(BaseValidatorModel):
     InferenceRecommendationsJobs: List[InferenceRecommendationsJobTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the input for the 'start_cluster_health_check' function.
 class StartClusterHealthCheckRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
     DeepHealthCheckConfigurations: List[InstanceGroupHealthCheckConfigurationTypeDef]
 
 
@@ -9011,10 +9111,10 @@ class KernelGatewayImageConfigTypeDef(BaseValidatorModel):
 
 
 class LabelingJobForWorkteamSummaryTypeDef(BaseValidatorModel):
-    JobReferenceCode: str
-    WorkRequesterAccountId: str
+    JobReferenceCode: Annotated[str, _aws_pattern("Sagemaker", "JobReferenceCode")]
+    WorkRequesterAccountId: Annotated[str, _aws_pattern("Sagemaker", "AccountId")]
     CreationTime: datetime
-    LabelingJobName: Optional[str] = None
+    LabelingJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "LabelingJobName")]] = None
     LabelCounters: Optional[LabelCountersForWorkteamTypeDef] = None
     NumberOfHumanWorkersPerDataObject: Optional[int] = None
 
@@ -9028,189 +9128,189 @@ class LabelingJobDataSourceTypeDef(BaseValidatorModel):
 class ListLineageGroupsResponseTypeDef(BaseValidatorModel):
     LineageGroupSummaries: List[LineageGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_data_quality_job_definitions' function.
 class ListDataQualityJobDefinitionsResponseTypeDef(BaseValidatorModel):
     JobDefinitionSummaries: List[MonitoringJobDefinitionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_model_bias_job_definitions' function.
 class ListModelBiasJobDefinitionsResponseTypeDef(BaseValidatorModel):
     JobDefinitionSummaries: List[MonitoringJobDefinitionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_model_explainability_job_definitions' function.
 class ListModelExplainabilityJobDefinitionsResponseTypeDef(BaseValidatorModel):
     JobDefinitionSummaries: List[MonitoringJobDefinitionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_model_quality_job_definitions' function.
 class ListModelQualityJobDefinitionsResponseTypeDef(BaseValidatorModel):
     JobDefinitionSummaries: List[MonitoringJobDefinitionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_mlflow_apps' function.
 class ListMlflowAppsResponseTypeDef(BaseValidatorModel):
     Summaries: List[MlflowAppSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_mlflow_tracking_servers' function.
 class ListMlflowTrackingServersResponseTypeDef(BaseValidatorModel):
     TrackingServerSummaries: List[TrackingServerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_model_card_export_jobs' function.
 class ListModelCardExportJobsResponseTypeDef(BaseValidatorModel):
     ModelCardExportJobSummaries: List[ModelCardExportJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_model_card_versions' function.
 class ListModelCardVersionsResponseTypeDef(BaseValidatorModel):
     ModelCardVersionSummaryList: List[ModelCardVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_model_cards' function.
 class ListModelCardsResponseTypeDef(BaseValidatorModel):
     ModelCardSummaries: List[ModelCardSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_model_metadata' function.
 class ListModelMetadataResponseTypeDef(BaseValidatorModel):
     ModelMetadataSummaries: List[ModelMetadataSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_model_package_groups' function.
 class ListModelPackageGroupsOutputTypeDef(BaseValidatorModel):
     ModelPackageGroupSummaryList: List[ModelPackageGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_models' function.
 class ListModelsOutputTypeDef(BaseValidatorModel):
     Models: List[ModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_monitoring_alert_history' function.
 class ListMonitoringAlertHistoryResponseTypeDef(BaseValidatorModel):
     MonitoringAlertHistory: List[MonitoringAlertHistorySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_monitoring_schedules' function.
 class ListMonitoringSchedulesResponseTypeDef(BaseValidatorModel):
     MonitoringScheduleSummaries: List[MonitoringScheduleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_notebook_instance_lifecycle_configs' function.
 class ListNotebookInstanceLifecycleConfigsOutputTypeDef(BaseValidatorModel):
     NotebookInstanceLifecycleConfigs: List[NotebookInstanceLifecycleConfigSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_notebook_instances' function.
 class ListNotebookInstancesOutputTypeDef(BaseValidatorModel):
     NotebookInstances: List[NotebookInstanceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_optimization_jobs' function.
 class ListOptimizationJobsResponseTypeDef(BaseValidatorModel):
     OptimizationJobSummaries: List[OptimizationJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_partner_apps' function.
 class ListPartnerAppsResponseTypeDef(BaseValidatorModel):
     Summaries: List[PartnerAppSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_pipeline_executions' function.
 class ListPipelineExecutionsResponseTypeDef(BaseValidatorModel):
     PipelineExecutionSummaries: List[PipelineExecutionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_pipeline_parameters_for_execution' function.
 class ListPipelineParametersForExecutionResponseTypeDef(BaseValidatorModel):
     PipelineParameters: List[ParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_pipeline_versions' function.
 class ListPipelineVersionsResponseTypeDef(BaseValidatorModel):
     PipelineVersionSummaries: List[PipelineVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_pipelines' function.
 class ListPipelinesResponseTypeDef(BaseValidatorModel):
     PipelineSummaries: List[PipelineSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_processing_jobs' function.
 class ListProcessingJobsResponseTypeDef(BaseValidatorModel):
     ProcessingJobSummaries: List[ProcessingJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_projects' function.
 class ListProjectsOutputTypeDef(BaseValidatorModel):
     ProjectSummaryList: List[ProjectSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_resource_catalogs' function.
 class ListResourceCatalogsResponseTypeDef(BaseValidatorModel):
     ResourceCatalogs: List[ResourceCatalogTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_studio_lifecycle_configs' function.
 class ListStudioLifecycleConfigsResponseTypeDef(BaseValidatorModel):
     StudioLifecycleConfigs: List[StudioLifecycleConfigDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class ListTrainingPlansRequestPaginateTypeDef(BaseValidatorModel):
@@ -9224,7 +9324,7 @@ class ListTrainingPlansRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_training_plans' function.
 class ListTrainingPlansRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     StartTimeAfter: Optional[TimestampTypeDef] = None
     StartTimeBefore: Optional[TimestampTypeDef] = None
@@ -9237,21 +9337,21 @@ class ListTrainingPlansRequestTypeDef(BaseValidatorModel):
 class ListTransformJobsResponseTypeDef(BaseValidatorModel):
     TransformJobSummaries: List[TransformJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_ultra_servers_by_reserved_capacity' function.
 class ListUltraServersByReservedCapacityResponseTypeDef(BaseValidatorModel):
     UltraServers: List[UltraServerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_user_profiles' function.
 class ListUserProfilesResponseTypeDef(BaseValidatorModel):
     UserProfiles: List[UserProfileDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class MemberDefinitionOutputTypeDef(BaseValidatorModel):
@@ -9276,21 +9376,21 @@ class S3DataSourceOutputTypeDef(BaseValidatorModel):
 
 class S3DataSourceTypeDef(BaseValidatorModel):
     S3DataType: S3DataTypeType
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     S3DataDistributionType: Optional[S3DataDistributionType] = None
-    AttributeNames: Optional[List[str]] = None
-    InstanceGroupNames: Optional[List[str]] = None
+    AttributeNames: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "AttributeName")]]] = None
+    InstanceGroupNames: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "InstanceGroupName")]]] = None
     ModelAccessConfig: Optional[ModelAccessConfigTypeDef] = None
     HubAccessConfig: Optional[HubAccessConfigTypeDef] = None
 
 
 class S3ModelDataSourceTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3ModelUri")]
     S3DataType: S3ModelDataTypeType
     CompressionType: ModelCompressionTypeType
     ModelAccessConfig: Optional[ModelAccessConfigTypeDef] = None
     HubAccessConfig: Optional[InferenceHubAccessConfigTypeDef] = None
-    ManifestS3Uri: Optional[str] = None
+    ManifestS3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3ModelUri")]] = None
     ETag: Optional[str] = None
     ManifestEtag: Optional[str] = None
 
@@ -9304,7 +9404,7 @@ class TextGenerationJobConfigOutputTypeDef(BaseValidatorModel):
 
 class TextGenerationJobConfigTypeDef(BaseValidatorModel):
     CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
-    BaseModelName: Optional[str] = None
+    BaseModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "BaseModelName")]] = None
     TextGenerationHyperParameters: Optional[Dict[str, str]] = None
     ModelAccessConfig: Optional[ModelAccessConfigTypeDef] = None
 
@@ -9408,13 +9508,13 @@ class OnlineStoreConfigUpdateTypeDef(BaseValidatorModel):
 
 
 class OptimizationJobModelSourceS3TypeDef(BaseValidatorModel):
-    S3Uri: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     ModelAccessConfig: Optional[OptimizationModelAccessConfigTypeDef] = None
 
 
 class OptimizationJobOutputConfigTypeDef(BaseValidatorModel):
-    S3OutputLocation: str
-    KmsKeyId: Optional[str] = None
+    S3OutputLocation: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     SageMakerModel: Optional[OptimizationSageMakerModelTypeDef] = None
 
 
@@ -9422,11 +9522,11 @@ OptimizationVpcConfigUnionTypeDef = Union[OptimizationVpcConfigOutputTypeDef, Op
 
 
 class OutputConfigTypeDef(BaseValidatorModel):
-    S3OutputLocation: str
+    S3OutputLocation: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     TargetDevice: Optional[TargetDeviceType] = None
     TargetPlatform: Optional[TargetPlatformTypeDef] = None
-    CompilerOptions: Optional[str] = None
-    KmsKeyId: Optional[str] = None
+    CompilerOptions: Optional[Annotated[str, _aws_pattern("Sagemaker", "CompilerOptions")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class PartnerAppConfigOutputTypeDef(BaseValidatorModel):
@@ -9437,9 +9537,9 @@ class PartnerAppConfigOutputTypeDef(BaseValidatorModel):
 
 
 class PartnerAppConfigTypeDef(BaseValidatorModel):
-    AdminUsers: Optional[List[str]] = None
+    AdminUsers: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString256")]]] = None
     Arguments: Optional[Dict[str, str]] = None
-    AssignedGroupPatterns: Optional[List[str]] = None
+    AssignedGroupPatterns: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "GroupNamePattern")]]] = None
     RoleGroupAssignments: Optional[List[RoleGroupAssignmentTypeDef]] = None
 
 
@@ -9490,14 +9590,14 @@ class ServiceCatalogProvisioningDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class ServiceCatalogProvisioningDetailsTypeDef(BaseValidatorModel):
-    ProductId: str
-    ProvisioningArtifactId: Optional[str] = None
-    PathId: Optional[str] = None
+    ProductId: Annotated[str, _aws_pattern("Sagemaker", "ServiceCatalogEntityId")]
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ServiceCatalogEntityId")]] = None
+    PathId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ServiceCatalogEntityId")]] = None
     ProvisioningParameters: Optional[List[ProvisioningParameterTypeDef]] = None
 
 
 class ServiceCatalogProvisioningUpdateDetailsTypeDef(BaseValidatorModel):
-    ProvisioningArtifactId: Optional[str] = None
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ServiceCatalogEntityId")]] = None
     ProvisioningParameters: Optional[List[ProvisioningParameterTypeDef]] = None
 
 
@@ -9514,7 +9614,7 @@ class QueryLineageResponseTypeDef(BaseValidatorModel):
 
 
 class RecommendationJobOutputConfigTypeDef(BaseValidatorModel):
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     CompiledOutputConfig: Optional[RecommendationJobCompiledOutputConfigTypeDef] = None
 
 
@@ -9535,21 +9635,23 @@ class RecommendationJobContainerConfigTypeDef(BaseValidatorModel):
     Domain: Optional[str] = None
     Task: Optional[str] = None
     Framework: Optional[str] = None
-    FrameworkVersion: Optional[str] = None
+    FrameworkVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobFrameworkVersion")]] = None
     PayloadConfig: Optional[RecommendationJobPayloadConfigTypeDef] = None
     NearestModelName: Optional[str] = None
     SupportedInstanceTypes: Optional[List[str]] = None
     SupportedEndpointType: Optional[RecommendationJobSupportedEndpointTypeType] = None
-    DataInputConfig: Optional[str] = None
-    SupportedResponseMIMETypes: Optional[List[str]] = None
+    DataInputConfig: Optional[Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobDataInputConfig")]] = None
+    SupportedResponseMIMETypes: Optional[
+        List[Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobSupportedResponseMIMEType")]]
+    ] = None
 
 
 # This class is the input for the 'render_ui_template' function.
 class RenderUiTemplateRequestTypeDef(BaseValidatorModel):
     Task: RenderableTaskTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     UiTemplate: Optional[UiTemplateTypeDef] = None
-    HumanTaskUiArn: Optional[str] = None
+    HumanTaskUiArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "HumanTaskUiArn")]] = None
 
 
 # This class is the output for the 'render_ui_template' function.
@@ -9560,7 +9662,7 @@ class RenderUiTemplateResponseTypeDef(BaseValidatorModel):
 
 
 class TrainingPlanOfferingTypeDef(BaseValidatorModel):
-    TrainingPlanOfferingId: str
+    TrainingPlanOfferingId: Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanOfferingId")]
     TargetResources: List[SageMakerResourceNameType]
     RequestedStartTimeAfter: Optional[datetime] = None
     RequestedEndTimeBefore: Optional[datetime] = None
@@ -9578,7 +9680,7 @@ class SelectiveExecutionConfigOutputTypeDef(BaseValidatorModel):
 
 class SelectiveExecutionConfigTypeDef(BaseValidatorModel):
     SelectedSteps: List[SelectedStepTypeDef]
-    SourcePipelineExecutionArn: Optional[str] = None
+    SourcePipelineExecutionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]] = None
 
 
 class ShadowModeConfigOutputTypeDef(BaseValidatorModel):
@@ -9587,7 +9689,7 @@ class ShadowModeConfigOutputTypeDef(BaseValidatorModel):
 
 
 class ShadowModeConfigTypeDef(BaseValidatorModel):
-    SourceModelVariantName: str
+    SourceModelVariantName: Annotated[str, _aws_pattern("Sagemaker", "ModelVariantName")]
     ShadowModelVariants: List[ShadowModelVariantConfigTypeDef]
 
 
@@ -9620,8 +9722,8 @@ class TransformDataSourceTypeDef(BaseValidatorModel):
 
 
 class WorkforceTypeDef(BaseValidatorModel):
-    WorkforceName: str
-    WorkforceArn: str
+    WorkforceName: Annotated[str, _aws_pattern("Sagemaker", "WorkforceName")]
+    WorkforceArn: Annotated[str, _aws_pattern("Sagemaker", "WorkforceArn")]
     LastUpdatedDate: Optional[datetime] = None
     SourceIpConfig: Optional[SourceIpConfigOutputTypeDef] = None
     SubDomain: Optional[str] = None
@@ -9630,7 +9732,7 @@ class WorkforceTypeDef(BaseValidatorModel):
     CreateDate: Optional[datetime] = None
     WorkforceVpcConfig: Optional[WorkforceVpcConfigResponseTypeDef] = None
     Status: Optional[WorkforceStatusType] = None
-    FailureReason: Optional[str] = None
+    FailureReason: Optional[Annotated[str, _aws_pattern("Sagemaker", "WorkforceFailureReason")]] = None
     IpAddressType: Optional[WorkforceIpAddressTypeType] = None
 
 
@@ -9654,8 +9756,10 @@ AutoMLSecurityConfigUnionTypeDef = Union[AutoMLSecurityConfigOutputTypeDef, Auto
 
 
 class LabelingJobAlgorithmsConfigTypeDef(BaseValidatorModel):
-    LabelingJobAlgorithmSpecificationArn: str
-    InitialActiveLearningModelArn: Optional[str] = None
+    LabelingJobAlgorithmSpecificationArn: Annotated[
+        str, _aws_pattern("Sagemaker", "LabelingJobAlgorithmSpecificationArn")
+    ]
+    InitialActiveLearningModelArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelArn")]] = None
     LabelingJobResourceConfig: Optional[LabelingJobResourceConfigTypeDef] = None
 
 
@@ -9677,12 +9781,12 @@ class AIRecommendationTypeDef(BaseValidatorModel):
     OptimizationDetails: Optional[List[AIRecommendationOptimizationDetailTypeDef]] = None
     ModelDetails: Optional[AIRecommendationModelDetailsTypeDef] = None
     DeploymentConfiguration: Optional[AIRecommendationDeploymentConfigurationTypeDef] = None
-    AIBenchmarkJobArn: Optional[str] = None
+    AIBenchmarkJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AIBenchmarkJobArn")]] = None
     ExpectedPerformance: Optional[List[AIRecommendationPerformanceMetricTypeDef]] = None
 
 
 class AIWorkloadInputDataConfigTypeDef(BaseValidatorModel):
-    ChannelName: str
+    ChannelName: Annotated[str, _aws_pattern("Sagemaker", "AIChannelName")]
     DataSource: AIWorkloadDataSourceTypeDef
 
 
@@ -9702,7 +9806,7 @@ class ResourceSharingConfigTypeDef(BaseValidatorModel):
 class ListActionsResponseTypeDef(BaseValidatorModel):
     ActionSummaries: List[ActionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 HyperParameterAlgorithmSpecificationUnionTypeDef = Union[
@@ -9714,7 +9818,7 @@ HyperParameterAlgorithmSpecificationUnionTypeDef = Union[
 class ListAppsResponseTypeDef(BaseValidatorModel):
     Apps: List[AppDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class DomainSettingsOutputTypeDef(BaseValidatorModel):
@@ -9729,7 +9833,7 @@ class DomainSettingsOutputTypeDef(BaseValidatorModel):
 
 
 class DomainSettingsTypeDef(BaseValidatorModel):
-    SecurityGroupIds: Optional[List[str]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "SecurityGroupId")]]] = None
     RStudioServerProDomainSettings: Optional[RStudioServerProDomainSettingsTypeDef] = None
     ExecutionRoleIdentityConfig: Optional[ExecutionRoleIdentityConfigType] = None
     TrustedIdentityPropagationSettings: Optional[TrustedIdentityPropagationSettingsTypeDef] = None
@@ -9750,9 +9854,9 @@ class CodeEditorAppSettingsOutputTypeDef(BaseValidatorModel):
 class CodeEditorAppSettingsTypeDef(BaseValidatorModel):
     DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
     CustomImages: Optional[List[CustomImageTypeDef]] = None
-    LifecycleConfigArns: Optional[List[str]] = None
+    LifecycleConfigArns: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigArn")]]] = None
     AppLifecycleManagement: Optional[AppLifecycleManagementTypeDef] = None
-    BuiltInLifecycleConfigArn: Optional[str] = None
+    BuiltInLifecycleConfigArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigArn")]] = None
 
 
 class JupyterLabAppSettingsOutputTypeDef(BaseValidatorModel):
@@ -9768,16 +9872,16 @@ class JupyterLabAppSettingsOutputTypeDef(BaseValidatorModel):
 class JupyterLabAppSettingsTypeDef(BaseValidatorModel):
     DefaultResourceSpec: Optional[ResourceSpecTypeDef] = None
     CustomImages: Optional[List[CustomImageTypeDef]] = None
-    LifecycleConfigArns: Optional[List[str]] = None
+    LifecycleConfigArns: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigArn")]]] = None
     CodeRepositories: Optional[List[CodeRepositoryTypeDef]] = None
     AppLifecycleManagement: Optional[AppLifecycleManagementTypeDef] = None
     EmrSettings: Optional[EmrSettingsTypeDef] = None
-    BuiltInLifecycleConfigArn: Optional[str] = None
+    BuiltInLifecycleConfigArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "StudioLifecycleConfigArn")]] = None
 
 
 class ArtifactSummaryTypeDef(BaseValidatorModel):
-    ArtifactArn: Optional[str] = None
-    ArtifactName: Optional[str] = None
+    ArtifactArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ArtifactArn")]] = None
+    ArtifactName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     Source: Optional[ArtifactSourceOutputTypeDef] = None
     ArtifactType: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -9840,20 +9944,20 @@ class TabularJobConfigTypeDef(BaseValidatorModel):
     TargetAttributeName: str
     CandidateGenerationConfig: Optional[CandidateGenerationConfigTypeDef] = None
     CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
-    FeatureSpecificationS3Uri: Optional[str] = None
+    FeatureSpecificationS3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     Mode: Optional[AutoMLModeType] = None
     GenerateCandidateDefinitionsOnly: Optional[bool] = None
     ProblemType: Optional[ProblemTypeType] = None
-    SampleWeightAttributeName: Optional[str] = None
+    SampleWeightAttributeName: Optional[Annotated[str, _aws_pattern("Sagemaker", "SampleWeightAttributeName")]] = None
 
 
 class TimeSeriesForecastingJobConfigTypeDef(BaseValidatorModel):
-    ForecastFrequency: str
+    ForecastFrequency: Annotated[str, _aws_pattern("Sagemaker", "ForecastFrequency")]
     ForecastHorizon: int
     TimeSeriesConfig: TimeSeriesConfigTypeDef
-    FeatureSpecificationS3Uri: Optional[str] = None
+    FeatureSpecificationS3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     CompletionCriteria: Optional[AutoMLJobCompletionCriteriaTypeDef] = None
-    ForecastQuantiles: Optional[List[str]] = None
+    ForecastQuantiles: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ForecastQuantile")]]] = None
     Transformations: Optional[TimeSeriesTransformationsTypeDef] = None
     HolidayConfig: Optional[List[HolidayConfigAttributesTypeDef]] = None
     CandidateGenerationConfig: Optional[CandidateGenerationConfigTypeDef] = None
@@ -9863,14 +9967,14 @@ class AutoMLChannelTypeDef(BaseValidatorModel):
     TargetAttributeName: str
     DataSource: Optional[AutoMLDataSourceTypeDef] = None
     CompressionType: Optional[CompressionTypeType] = None
-    ContentType: Optional[str] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContentType")]] = None
     ChannelType: Optional[AutoMLChannelTypeType] = None
-    SampleWeightAttributeName: Optional[str] = None
+    SampleWeightAttributeName: Optional[Annotated[str, _aws_pattern("Sagemaker", "SampleWeightAttributeName")]] = None
 
 
 class AutoMLJobChannelTypeDef(BaseValidatorModel):
     ChannelType: Optional[AutoMLChannelTypeType] = None
-    ContentType: Optional[str] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContentType")]] = None
     CompressionType: Optional[CompressionTypeType] = None
     DataSource: Optional[AutoMLDataSourceTypeDef] = None
 
@@ -9879,7 +9983,7 @@ class AutoMLJobChannelTypeDef(BaseValidatorModel):
 class ListAutoMLJobsResponseTypeDef(BaseValidatorModel):
     AutoMLJobSummaries: List[AutoMLJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class AutoMLResolvedAttributesTypeDef(BaseValidatorModel):
@@ -9986,7 +10090,7 @@ class ParameterRangesTypeDef(BaseValidatorModel):
 class EndpointInputConfigurationTypeDef(BaseValidatorModel):
     InstanceType: Optional[ProductionVariantInstanceTypeType] = None
     ServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
-    InferenceSpecificationName: Optional[str] = None
+    InferenceSpecificationName: Optional[Annotated[str, _aws_pattern("Sagemaker", "InferenceSpecificationName")]] = None
     EnvironmentParameterRanges: Optional[EnvironmentParameterRangesTypeDef] = None
 
 
@@ -10010,14 +10114,14 @@ class ClarifyExplainerConfigOutputTypeDef(BaseValidatorModel):
 
 class ClarifyExplainerConfigTypeDef(BaseValidatorModel):
     ShapConfig: ClarifyShapConfigTypeDef
-    EnableExplanations: Optional[str] = None
+    EnableExplanations: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClarifyEnableExplanations")]] = None
     InferenceConfig: Optional[ClarifyInferenceConfigTypeDef] = None
 
 
 class ClusterNodeDetailsTypeDef(BaseValidatorModel):
-    InstanceGroupName: Optional[str] = None
+    InstanceGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]] = None
     InstanceId: Optional[str] = None
-    NodeLogicalId: Optional[str] = None
+    NodeLogicalId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterNodeLogicalId")]] = None
     InstanceStatus: Optional[ClusterInstanceStatusDetailsTypeDef] = None
     InstanceType: Optional[ClusterInstanceTypeType] = None
     LaunchTime: Optional[datetime] = None
@@ -10026,12 +10130,13 @@ class ClusterNodeDetailsTypeDef(BaseValidatorModel):
     OverrideVpcConfig: Optional[VpcConfigOutputTypeDef] = None
     ThreadsPerCore: Optional[int] = None
     InstanceStorageConfigs: Optional[List[ClusterInstanceStorageConfigTypeDef]] = None
-    PrivatePrimaryIp: Optional[str] = None
+    PrivatePrimaryIp: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterPrivatePrimaryIp")]] = None
     PrivatePrimaryIpv6: Optional[str] = None
-    PrivateDnsHostname: Optional[str] = None
+    PrivateDnsHostname: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterPrivateDnsHostname")]] = None
     Placement: Optional[ClusterInstancePlacementTypeDef] = None
-    CurrentImageId: Optional[str] = None
-    DesiredImageId: Optional[str] = None
+    CurrentImageId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageId")]] = None
+    DesiredImageId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageId")]] = None
+    ImageVersionStatus: Optional[ClusterImageVersionStatusType] = None
     UltraServerInfo: Optional[UltraServerInfoTypeDef] = None
     KubernetesConfig: Optional[ClusterKubernetesConfigNodeDetailsTypeDef] = None
     CapacityType: Optional[ClusterCapacityTypeType] = None
@@ -10042,7 +10147,7 @@ class ClusterNodeDetailsTypeDef(BaseValidatorModel):
 class ListClusterNodesResponseTypeDef(BaseValidatorModel):
     ClusterNodeSummaries: List[ClusterNodeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 CodeEditorAppImageConfigUnionTypeDef = Union[CodeEditorAppImageConfigOutputTypeDef, CodeEditorAppImageConfigTypeDef]
@@ -10054,11 +10159,11 @@ JupyterLabAppImageConfigUnionTypeDef = Union[JupyterLabAppImageConfigOutputTypeD
 class ListCodeRepositoriesOutputTypeDef(BaseValidatorModel):
     CodeRepositorySummaryList: List[CodeRepositorySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class FeatureDefinitionTypeDef(BaseValidatorModel):
-    FeatureName: str
+    FeatureName: Annotated[str, _aws_pattern("Sagemaker", "FeatureName")]
     FeatureType: FeatureTypeType
     CollectionType: Optional[CollectionTypeType] = None
     CollectionConfig: Optional[CollectionConfigTypeDef] = None
@@ -10071,14 +10176,14 @@ DebugHookConfigUnionTypeDef = Union[DebugHookConfigOutputTypeDef, DebugHookConfi
 class ListContextsResponseTypeDef(BaseValidatorModel):
     ContextSummaries: List[ContextSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_model_packages' function.
 class ListModelPackagesOutputTypeDef(BaseValidatorModel):
     ModelPackageSummaryList: List[ModelPackageSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 InferenceExperimentScheduleUnionTypeDef = Union[
@@ -10088,7 +10193,7 @@ InferenceExperimentScheduleUnionTypeDef = Union[
 
 # This class is the input for the 'query_lineage' function.
 class QueryLineageRequestTypeDef(BaseValidatorModel):
-    StartArns: Optional[List[str]] = None
+    StartArns: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]]] = None
     Direction: Optional[DirectionType] = None
     IncludeEdges: Optional[bool] = None
     Filters: Optional[QueryFiltersTypeDef] = None
@@ -10106,10 +10211,10 @@ class ProcessingInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_edge_deployment_plan' function.
 class DescribeEdgeDeploymentPlanResponseTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanArn: str
-    EdgeDeploymentPlanName: str
+    EdgeDeploymentPlanArn: Annotated[str, _aws_pattern("Sagemaker", "EdgeDeploymentPlanArn")]
+    EdgeDeploymentPlanName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     ModelConfigs: List[EdgeDeploymentModelConfigTypeDef]
-    DeviceFleetName: str
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     EdgeDeploymentSuccess: int
     EdgeDeploymentPending: int
     EdgeDeploymentFailed: int
@@ -10117,59 +10222,59 @@ class DescribeEdgeDeploymentPlanResponseTypeDef(BaseValidatorModel):
     CreationTime: datetime
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_experiments' function.
 class ListExperimentsResponseTypeDef(BaseValidatorModel):
     ExperimentSummaries: List[ExperimentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_feature_groups' function.
 class ListFeatureGroupsResponseTypeDef(BaseValidatorModel):
     FeatureGroupSummaries: List[FeatureGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_inference_experiments' function.
 class ListInferenceExperimentsResponseTypeDef(BaseValidatorModel):
     InferenceExperiments: List[InferenceExperimentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_training_jobs' function.
 class ListTrainingJobsResponseTypeDef(BaseValidatorModel):
     TrainingJobSummaries: List[TrainingJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_training_plans' function.
 class ListTrainingPlansResponseTypeDef(BaseValidatorModel):
     TrainingPlanSummaries: List[TrainingPlanSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_trials' function.
 class ListTrialsResponseTypeDef(BaseValidatorModel):
     TrialSummaries: List[TrialSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the input for the 'update_endpoint_weights_and_capacities' function.
 class UpdateEndpointWeightsAndCapacitiesInputTypeDef(BaseValidatorModel):
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
     DesiredWeightsAndCapacities: List[DesiredWeightAndCapacityTypeDef]
 
 
 class DeploymentStageTypeDef(BaseValidatorModel):
-    StageName: str
+    StageName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     DeviceSelectionConfig: DeviceSelectionConfigUnionTypeDef
     DeploymentConfig: Optional[EdgeDeploymentConfigTypeDef] = None
 
@@ -10178,13 +10283,13 @@ class DeploymentStageTypeDef(BaseValidatorModel):
 class ListDevicesResponseTypeDef(BaseValidatorModel):
     DeviceSummaries: List[DeviceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class DomainSettingsForUpdateTypeDef(BaseValidatorModel):
     RStudioServerProDomainSettingsForUpdate: Optional[RStudioServerProDomainSettingsForUpdateTypeDef] = None
     ExecutionRoleIdentityConfig: Optional[ExecutionRoleIdentityConfigType] = None
-    SecurityGroupIds: Optional[List[str]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "SecurityGroupId")]]] = None
     TrustedIdentityPropagationSettings: Optional[TrustedIdentityPropagationSettingsTypeDef] = None
     DockerSettings: Optional[DockerSettingsUnionTypeDef] = None
     AmazonQSettings: Optional[AmazonQSettingsTypeDef] = None
@@ -10242,7 +10347,7 @@ class SearchExpressionTypeDef(BaseValidatorModel):
 class ListTrainingJobsForHyperParameterTuningJobResponseTypeDef(BaseValidatorModel):
     TrainingJobSummaries: List[HyperParameterTrainingJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 HyperParameterTuningResourceConfigUnionTypeDef = Union[
@@ -10254,7 +10359,7 @@ HyperParameterTuningResourceConfigUnionTypeDef = Union[
 class ListHyperParameterTuningJobsResponseTypeDef(BaseValidatorModel):
     HyperParameterTuningJobSummaries: List[HyperParameterTuningJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 HyperParameterTuningJobWarmStartConfigUnionTypeDef = Union[
@@ -10263,24 +10368,24 @@ HyperParameterTuningJobWarmStartConfigUnionTypeDef = Union[
 
 
 class AssociationSummaryTypeDef(BaseValidatorModel):
-    SourceArn: Optional[str] = None
-    DestinationArn: Optional[str] = None
+    SourceArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AssociationEntityArn")]] = None
     SourceType: Optional[str] = None
     DestinationType: Optional[str] = None
     AssociationType: Optional[AssociationEdgeTypeType] = None
-    SourceName: Optional[str] = None
-    DestinationName: Optional[str] = None
+    SourceName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    DestinationName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     CreationTime: Optional[datetime] = None
     CreatedBy: Optional[UserContextTypeDef] = None
 
 
 # This class is the output for the 'describe_action' function.
 class DescribeActionResponseTypeDef(BaseValidatorModel):
-    ActionName: str
-    ActionArn: str
+    ActionName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityNameOrArn")]
+    ActionArn: Annotated[str, _aws_pattern("Sagemaker", "ActionArn")]
     Source: ActionSourceTypeDef
     ActionType: str
-    Description: str
+    Description: Annotated[str, _aws_pattern("Sagemaker", "ExperimentDescription")]
     Status: ActionStatusType
     Properties: Dict[str, str]
     CreationTime: datetime
@@ -10288,14 +10393,14 @@ class DescribeActionResponseTypeDef(BaseValidatorModel):
     LastModifiedTime: datetime
     LastModifiedBy: UserContextTypeDef
     MetadataProperties: MetadataPropertiesTypeDef
-    LineageGroupArn: str
+    LineageGroupArn: Annotated[str, _aws_pattern("Sagemaker", "LineageGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_artifact' function.
 class DescribeArtifactResponseTypeDef(BaseValidatorModel):
-    ArtifactName: str
-    ArtifactArn: str
+    ArtifactName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityNameOrArn")]
+    ArtifactArn: Annotated[str, _aws_pattern("Sagemaker", "ArtifactArn")]
     Source: ArtifactSourceOutputTypeDef
     ArtifactType: str
     Properties: Dict[str, str]
@@ -10304,33 +10409,33 @@ class DescribeArtifactResponseTypeDef(BaseValidatorModel):
     LastModifiedTime: datetime
     LastModifiedBy: UserContextTypeDef
     MetadataProperties: MetadataPropertiesTypeDef
-    LineageGroupArn: str
+    LineageGroupArn: Annotated[str, _aws_pattern("Sagemaker", "LineageGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_context' function.
 class DescribeContextResponseTypeDef(BaseValidatorModel):
-    ContextName: str
-    ContextArn: str
+    ContextName: Annotated[str, _aws_pattern("Sagemaker", "ContextName")]
+    ContextArn: Annotated[str, _aws_pattern("Sagemaker", "ContextArn")]
     Source: ContextSourceTypeDef
     ContextType: str
-    Description: str
+    Description: Annotated[str, _aws_pattern("Sagemaker", "ExperimentDescription")]
     Properties: Dict[str, str]
     CreationTime: datetime
     CreatedBy: UserContextTypeDef
     LastModifiedTime: datetime
     LastModifiedBy: UserContextTypeDef
-    LineageGroupArn: str
+    LineageGroupArn: Annotated[str, _aws_pattern("Sagemaker", "LineageGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_experiment' function.
 class DescribeExperimentResponseTypeDef(BaseValidatorModel):
-    ExperimentName: str
-    ExperimentArn: str
-    DisplayName: str
+    ExperimentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    ExperimentArn: Annotated[str, _aws_pattern("Sagemaker", "ExperimentArn")]
+    DisplayName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
     Source: ExperimentSourceTypeDef
-    Description: str
+    Description: Annotated[str, _aws_pattern("Sagemaker", "ExperimentDescription")]
     CreationTime: datetime
     CreatedBy: UserContextTypeDef
     LastModifiedTime: datetime
@@ -10340,10 +10445,10 @@ class DescribeExperimentResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_lineage_group' function.
 class DescribeLineageGroupResponseTypeDef(BaseValidatorModel):
-    LineageGroupName: str
-    LineageGroupArn: str
-    DisplayName: str
-    Description: str
+    LineageGroupName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    LineageGroupArn: Annotated[str, _aws_pattern("Sagemaker", "LineageGroupArn")]
+    DisplayName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    Description: Annotated[str, _aws_pattern("Sagemaker", "ExperimentDescription")]
     CreationTime: datetime
     CreatedBy: UserContextTypeDef
     LastModifiedTime: datetime
@@ -10353,53 +10458,53 @@ class DescribeLineageGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_mlflow_app' function.
 class DescribeMlflowAppResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
-    ArtifactStoreUri: str
-    MlflowVersion: str
-    RoleArn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "MlflowAppArn")]
+    Name: Annotated[str, _aws_pattern("Sagemaker", "MlflowAppName")]
+    ArtifactStoreUri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
+    MlflowVersion: Annotated[str, _aws_pattern("Sagemaker", "MlflowVersion")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     Status: MlflowAppStatusType
     ModelRegistrationMode: ModelRegistrationModeType
     AccountDefaultStatus: AccountDefaultStatusType
-    DefaultDomainIdList: List[str]
+    DefaultDomainIdList: List[Annotated[str, _aws_pattern("Sagemaker", "DomainId")]]
     CreationTime: datetime
     CreatedBy: UserContextTypeDef
     LastModifiedTime: datetime
     LastModifiedBy: UserContextTypeDef
-    WeeklyMaintenanceWindowStart: str
+    WeeklyMaintenanceWindowStart: Annotated[str, _aws_pattern("Sagemaker", "WeeklyMaintenanceWindowStart")]
     MaintenanceStatus: MaintenanceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_mlflow_tracking_server' function.
 class DescribeMlflowTrackingServerResponseTypeDef(BaseValidatorModel):
-    TrackingServerArn: str
-    TrackingServerName: str
-    ArtifactStoreUri: str
+    TrackingServerArn: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerArn")]
+    TrackingServerName: Annotated[str, _aws_pattern("Sagemaker", "TrackingServerName")]
+    ArtifactStoreUri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     TrackingServerSize: TrackingServerSizeType
-    MlflowVersion: str
-    RoleArn: str
+    MlflowVersion: Annotated[str, _aws_pattern("Sagemaker", "MlflowVersion")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     TrackingServerStatus: TrackingServerStatusType
     TrackingServerMaintenanceStatus: TrackingServerMaintenanceStatusType
     IsActive: IsTrackingServerActiveType
     TrackingServerUrl: str
-    WeeklyMaintenanceWindowStart: str
+    WeeklyMaintenanceWindowStart: Annotated[str, _aws_pattern("Sagemaker", "WeeklyMaintenanceWindowStart")]
     AutomaticModelRegistration: bool
     CreationTime: datetime
     CreatedBy: UserContextTypeDef
     LastModifiedTime: datetime
     LastModifiedBy: UserContextTypeDef
-    S3BucketOwnerAccountId: str
+    S3BucketOwnerAccountId: Annotated[str, _aws_pattern("Sagemaker", "AccountId")]
     S3BucketOwnerVerification: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_model_card' function.
 class DescribeModelCardResponseTypeDef(BaseValidatorModel):
-    ModelCardArn: str
-    ModelCardName: str
+    ModelCardArn: Annotated[str, _aws_pattern("Sagemaker", "ModelCardArn")]
+    ModelCardName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     ModelCardVersion: int
-    Content: str
+    Content: Annotated[str, _aws_pattern("Sagemaker", "ModelCardContent")]
     ModelCardStatus: ModelCardStatusType
     SecurityConfig: ModelCardSecurityConfigTypeDef
     CreationTime: datetime
@@ -10412,9 +10517,9 @@ class DescribeModelCardResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_model_package_group' function.
 class DescribeModelPackageGroupOutputTypeDef(BaseValidatorModel):
-    ModelPackageGroupName: str
-    ModelPackageGroupArn: str
-    ModelPackageGroupDescription: str
+    ModelPackageGroupName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelPackageGroupArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageGroupArn")]
+    ModelPackageGroupDescription: Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]
     CreationTime: datetime
     CreatedBy: UserContextTypeDef
     ModelPackageGroupStatus: ModelPackageGroupStatusType
@@ -10423,12 +10528,12 @@ class DescribeModelPackageGroupOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_pipeline' function.
 class DescribePipelineResponseTypeDef(BaseValidatorModel):
-    PipelineArn: str
-    PipelineName: str
-    PipelineDisplayName: str
-    PipelineDefinition: str
-    PipelineDescription: str
-    RoleArn: str
+    PipelineArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]
+    PipelineName: Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]
+    PipelineDisplayName: Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]
+    PipelineDefinition: Annotated[str, _aws_pattern("Sagemaker", "PipelineDefinition")]
+    PipelineDescription: Annotated[str, _aws_pattern("Sagemaker", "PipelineDescription")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     PipelineStatus: PipelineStatusType
     CreationTime: datetime
     LastModifiedTime: datetime
@@ -10436,16 +10541,16 @@ class DescribePipelineResponseTypeDef(BaseValidatorModel):
     CreatedBy: UserContextTypeDef
     LastModifiedBy: UserContextTypeDef
     ParallelismConfiguration: ParallelismConfigurationTypeDef
-    PipelineVersionDisplayName: str
-    PipelineVersionDescription: str
+    PipelineVersionDisplayName: Annotated[str, _aws_pattern("Sagemaker", "PipelineVersionName")]
+    PipelineVersionDescription: Annotated[str, _aws_pattern("Sagemaker", "PipelineVersionDescription")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_trial_component' function.
 class DescribeTrialComponentResponseTypeDef(BaseValidatorModel):
-    TrialComponentName: str
-    TrialComponentArn: str
-    DisplayName: str
+    TrialComponentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    TrialComponentArn: Annotated[str, _aws_pattern("Sagemaker", "TrialComponentArn")]
+    DisplayName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
     Source: TrialComponentSourceTypeDef
     Status: TrialComponentStatusTypeDef
     StartTime: datetime
@@ -10459,17 +10564,17 @@ class DescribeTrialComponentResponseTypeDef(BaseValidatorModel):
     OutputArtifacts: Dict[str, TrialComponentArtifactTypeDef]
     MetadataProperties: MetadataPropertiesTypeDef
     Metrics: List[TrialComponentMetricSummaryTypeDef]
-    LineageGroupArn: str
+    LineageGroupArn: Annotated[str, _aws_pattern("Sagemaker", "LineageGroupArn")]
     Sources: List[TrialComponentSourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_trial' function.
 class DescribeTrialResponseTypeDef(BaseValidatorModel):
-    TrialName: str
-    TrialArn: str
-    DisplayName: str
-    ExperimentName: str
+    TrialName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    TrialArn: Annotated[str, _aws_pattern("Sagemaker", "TrialArn")]
+    DisplayName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
+    ExperimentName: Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]
     Source: TrialSourceTypeDef
     CreationTime: datetime
     CreatedBy: UserContextTypeDef
@@ -10480,11 +10585,11 @@ class DescribeTrialResponseTypeDef(BaseValidatorModel):
 
 
 class ExperimentTypeDef(BaseValidatorModel):
-    ExperimentName: Optional[str] = None
-    ExperimentArn: Optional[str] = None
-    DisplayName: Optional[str] = None
+    ExperimentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    ExperimentArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentArn")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     Source: Optional[ExperimentSourceTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentDescription")]] = None
     CreationTime: Optional[datetime] = None
     CreatedBy: Optional[UserContextTypeDef] = None
     LastModifiedTime: Optional[datetime] = None
@@ -10493,10 +10598,10 @@ class ExperimentTypeDef(BaseValidatorModel):
 
 
 class ModelCardTypeDef(BaseValidatorModel):
-    ModelCardArn: Optional[str] = None
-    ModelCardName: Optional[str] = None
+    ModelCardArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelCardArn")]] = None
+    ModelCardName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
     ModelCardVersion: Optional[int] = None
-    Content: Optional[str] = None
+    Content: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelCardContent")]] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
     SecurityConfig: Optional[ModelCardSecurityConfigTypeDef] = None
     CreationTime: Optional[datetime] = None
@@ -10510,8 +10615,8 @@ class ModelCardTypeDef(BaseValidatorModel):
 
 
 class ModelDashboardModelCardTypeDef(BaseValidatorModel):
-    ModelCardArn: Optional[str] = None
-    ModelCardName: Optional[str] = None
+    ModelCardArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelCardArn")]] = None
+    ModelCardName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
     ModelCardVersion: Optional[int] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
     SecurityConfig: Optional[ModelCardSecurityConfigTypeDef] = None
@@ -10525,9 +10630,9 @@ class ModelDashboardModelCardTypeDef(BaseValidatorModel):
 
 
 class ModelPackageGroupTypeDef(BaseValidatorModel):
-    ModelPackageGroupName: Optional[str] = None
-    ModelPackageGroupArn: Optional[str] = None
-    ModelPackageGroupDescription: Optional[str] = None
+    ModelPackageGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
+    ModelPackageGroupArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageGroupArn")]] = None
+    ModelPackageGroupDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     CreationTime: Optional[datetime] = None
     CreatedBy: Optional[UserContextTypeDef] = None
     ModelPackageGroupStatus: Optional[ModelPackageGroupStatusType] = None
@@ -10535,11 +10640,11 @@ class ModelPackageGroupTypeDef(BaseValidatorModel):
 
 
 class PipelineTypeDef(BaseValidatorModel):
-    PipelineArn: Optional[str] = None
-    PipelineName: Optional[str] = None
-    PipelineDisplayName: Optional[str] = None
-    PipelineDescription: Optional[str] = None
-    RoleArn: Optional[str] = None
+    PipelineArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]] = None
+    PipelineName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]] = None
+    PipelineDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineName")]] = None
+    PipelineDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineDescription")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     PipelineStatus: Optional[PipelineStatusType] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
@@ -10551,31 +10656,33 @@ class PipelineTypeDef(BaseValidatorModel):
 
 
 class PipelineVersionTypeDef(BaseValidatorModel):
-    PipelineArn: Optional[str] = None
+    PipelineArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]] = None
     PipelineVersionId: Optional[int] = None
-    PipelineVersionDisplayName: Optional[str] = None
-    PipelineVersionDescription: Optional[str] = None
+    PipelineVersionDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineVersionName")]] = None
+    PipelineVersionDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineVersionDescription")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     CreatedBy: Optional[UserContextTypeDef] = None
     LastModifiedBy: Optional[UserContextTypeDef] = None
-    LastExecutedPipelineExecutionArn: Optional[str] = None
-    LastExecutedPipelineExecutionDisplayName: Optional[str] = None
+    LastExecutedPipelineExecutionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]] = None
+    LastExecutedPipelineExecutionDisplayName: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionName")]
+    ] = None
     LastExecutedPipelineExecutionStatus: Optional[PipelineExecutionStatusType] = None
 
 
 class TrialComponentSimpleSummaryTypeDef(BaseValidatorModel):
-    TrialComponentName: Optional[str] = None
-    TrialComponentArn: Optional[str] = None
+    TrialComponentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    TrialComponentArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrialComponentArn")]] = None
     TrialComponentSource: Optional[TrialComponentSourceTypeDef] = None
     CreationTime: Optional[datetime] = None
     CreatedBy: Optional[UserContextTypeDef] = None
 
 
 class TrialComponentSummaryTypeDef(BaseValidatorModel):
-    TrialComponentName: Optional[str] = None
-    TrialComponentArn: Optional[str] = None
-    DisplayName: Optional[str] = None
+    TrialComponentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    TrialComponentArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrialComponentArn")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     TrialComponentSource: Optional[TrialComponentSourceTypeDef] = None
     Status: Optional[TrialComponentStatusTypeDef] = None
     StartTime: Optional[datetime] = None
@@ -10591,21 +10698,23 @@ class WorkerAccessConfigurationTypeDef(BaseValidatorModel):
 
 
 class InferenceComponentSpecificationSummaryTypeDef(BaseValidatorModel):
-    ModelName: Optional[str] = None
+    InstanceType: Optional[ProductionVariantInstanceTypeType] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelName")]] = None
     Container: Optional[InferenceComponentContainerSpecificationSummaryTypeDef] = None
     StartupParameters: Optional[InferenceComponentStartupParametersTypeDef] = None
     ComputeResourceRequirements: Optional[InferenceComponentComputeResourceRequirementsTypeDef] = None
-    BaseInferenceComponentName: Optional[str] = None
+    BaseInferenceComponentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "InferenceComponentName")]] = None
     DataCacheConfig: Optional[InferenceComponentDataCacheConfigSummaryTypeDef] = None
     SchedulingConfig: Optional[InferenceComponentSchedulingConfigTypeDef] = None
 
 
 class InferenceComponentSpecificationTypeDef(BaseValidatorModel):
-    ModelName: Optional[str] = None
+    InstanceType: Optional[ProductionVariantInstanceTypeType] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelName")]] = None
     Container: Optional[InferenceComponentContainerSpecificationTypeDef] = None
     StartupParameters: Optional[InferenceComponentStartupParametersTypeDef] = None
     ComputeResourceRequirements: Optional[InferenceComponentComputeResourceRequirementsTypeDef] = None
-    BaseInferenceComponentName: Optional[str] = None
+    BaseInferenceComponentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "InferenceComponentName")]] = None
     DataCacheConfig: Optional[InferenceComponentDataCacheConfigTypeDef] = None
     SchedulingConfig: Optional[InferenceComponentSchedulingConfigTypeDef] = None
 
@@ -10645,13 +10754,13 @@ class HyperParameterSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class HyperParameterSpecificationTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "ParameterName")]
     Type: ParameterTypeType
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     Range: Optional[ParameterRangeTypeDef] = None
     IsTunable: Optional[bool] = None
     IsRequired: Optional[bool] = None
-    DefaultValue: Optional[str] = None
+    DefaultValue: Optional[Annotated[str, _aws_pattern("Sagemaker", "HyperParameterValue")]] = None
 
 
 class HyperParameterTuningJobConfigOutputTypeDef(BaseValidatorModel):
@@ -10666,8 +10775,8 @@ class HyperParameterTuningJobConfigOutputTypeDef(BaseValidatorModel):
 
 
 class AppImageConfigDetailsTypeDef(BaseValidatorModel):
-    AppImageConfigArn: Optional[str] = None
-    AppImageConfigName: Optional[str] = None
+    AppImageConfigArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigArn")]] = None
+    AppImageConfigName: Optional[Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigName")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     KernelGatewayImageConfig: Optional[KernelGatewayImageConfigOutputTypeDef] = None
@@ -10677,8 +10786,8 @@ class AppImageConfigDetailsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_app_image_config' function.
 class DescribeAppImageConfigResponseTypeDef(BaseValidatorModel):
-    AppImageConfigArn: str
-    AppImageConfigName: str
+    AppImageConfigArn: Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigArn")]
+    AppImageConfigName: Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigName")]
     CreationTime: datetime
     LastModifiedTime: datetime
     KernelGatewayImageConfig: KernelGatewayImageConfigOutputTypeDef
@@ -10694,7 +10803,7 @@ KernelGatewayImageConfigUnionTypeDef = Union[KernelGatewayImageConfigOutputTypeD
 class ListLabelingJobsForWorkteamResponseTypeDef(BaseValidatorModel):
     LabelingJobSummaryList: List[LabelingJobForWorkteamSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class LabelingJobInputConfigOutputTypeDef(BaseValidatorModel):
@@ -10722,7 +10831,7 @@ S3DataSourceUnionTypeDef = Union[S3DataSourceOutputTypeDef, S3DataSourceTypeDef]
 
 
 class AdditionalModelDataSourceTypeDef(BaseValidatorModel):
-    ChannelName: str
+    ChannelName: Annotated[str, _aws_pattern("Sagemaker", "AdditionalModelChannelName")]
     S3DataSource: S3ModelDataSourceTypeDef
 
 
@@ -10731,7 +10840,7 @@ class ModelDataSourceTypeDef(BaseValidatorModel):
 
 
 class MonitoringAlertSummaryTypeDef(BaseValidatorModel):
-    MonitoringAlertName: str
+    MonitoringAlertName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringAlertName")]
     CreationTime: datetime
     LastModifiedTime: datetime
     AlertStatus: MonitoringAlertStatusType
@@ -10741,15 +10850,15 @@ class MonitoringAlertSummaryTypeDef(BaseValidatorModel):
 
 
 class ModelVariantConfigSummaryTypeDef(BaseValidatorModel):
-    ModelName: str
-    VariantName: str
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "ModelName")]
+    VariantName: Annotated[str, _aws_pattern("Sagemaker", "ModelVariantName")]
     InfrastructureConfig: ModelInfrastructureConfigTypeDef
     Status: ModelVariantStatusType
 
 
 class ModelVariantConfigTypeDef(BaseValidatorModel):
-    ModelName: str
-    VariantName: str
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "ModelName")]
+    VariantName: Annotated[str, _aws_pattern("Sagemaker", "ModelVariantName")]
     InfrastructureConfig: ModelInfrastructureConfigTypeDef
 
 
@@ -10766,7 +10875,7 @@ class ListModelMetadataRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_model_metadata' function.
 class ListModelMetadataRequestTypeDef(BaseValidatorModel):
     SearchExpression: Optional[ModelMetadataSearchExpressionTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -10800,17 +10909,17 @@ class BatchTransformInputOutputTypeDef(BaseValidatorModel):
 
 
 class BatchTransformInputTypeDef(BaseValidatorModel):
-    DataCapturedDestinationS3Uri: str
+    DataCapturedDestinationS3Uri: Annotated[str, _aws_pattern("Sagemaker", "DestinationS3Uri")]
     DatasetFormat: MonitoringDatasetFormatTypeDef
-    LocalPath: str
+    LocalPath: Annotated[str, _aws_pattern("Sagemaker", "ProcessingLocalPath")]
     S3InputMode: Optional[ProcessingS3InputModeType] = None
     S3DataDistributionType: Optional[ProcessingS3DataDistributionTypeType] = None
     FeaturesAttribute: Optional[str] = None
     InferenceAttribute: Optional[str] = None
     ProbabilityAttribute: Optional[str] = None
     ProbabilityThresholdAttribute: Optional[float] = None
-    StartTimeOffset: Optional[str] = None
-    EndTimeOffset: Optional[str] = None
+    StartTimeOffset: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringTimeOffsetString")]] = None
+    EndTimeOffset: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringTimeOffsetString")]] = None
     ExcludeFeaturesAttribute: Optional[str] = None
 
 
@@ -10821,7 +10930,7 @@ class MonitoringOutputConfigOutputTypeDef(BaseValidatorModel):
 
 class MonitoringOutputConfigTypeDef(BaseValidatorModel):
     MonitoringOutputs: List[MonitoringOutputTypeDef]
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class MemberDefinitionTypeDef(BaseValidatorModel):
@@ -10836,11 +10945,11 @@ class OptimizationJobModelSourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_compilation_job' function.
 class CreateCompilationJobRequestTypeDef(BaseValidatorModel):
-    CompilationJobName: str
-    RoleArn: str
+    CompilationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     OutputConfig: OutputConfigTypeDef
     StoppingCondition: StoppingConditionTypeDef
-    ModelPackageVersionArn: Optional[str] = None
+    ModelPackageVersionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]] = None
     InputConfig: Optional[InputConfigTypeDef] = None
     VpcConfig: Optional[NeoVpcConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -10848,20 +10957,20 @@ class CreateCompilationJobRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_compilation_job' function.
 class DescribeCompilationJobResponseTypeDef(BaseValidatorModel):
-    CompilationJobName: str
-    CompilationJobArn: str
+    CompilationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    CompilationJobArn: Annotated[str, _aws_pattern("Sagemaker", "CompilationJobArn")]
     CompilationJobStatus: CompilationJobStatusType
     CompilationStartTime: datetime
     CompilationEndTime: datetime
     StoppingCondition: StoppingConditionTypeDef
     InferenceImage: str
-    ModelPackageVersionArn: str
+    ModelPackageVersionArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]
     CreationTime: datetime
     LastModifiedTime: datetime
     FailureReason: str
     ModelArtifacts: ModelArtifactsTypeDef
     ModelDigests: ModelDigestsTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     InputConfig: InputConfigTypeDef
     OutputConfig: OutputConfigTypeDef
     VpcConfig: NeoVpcConfigOutputTypeDef
@@ -10871,18 +10980,18 @@ class DescribeCompilationJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_partner_app' function.
 class DescribePartnerAppResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "PartnerAppArn")]
+    Name: Annotated[str, _aws_pattern("Sagemaker", "PartnerAppName")]
     Type: PartnerAppTypeType
     Status: PartnerAppStatusType
     CreationTime: datetime
     LastModifiedTime: datetime
-    ExecutionRoleArn: str
-    KmsKeyId: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
+    KmsKeyId: Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]
     BaseUrl: str
     MaintenanceConfig: PartnerAppMaintenanceConfigTypeDef
-    Tier: str
-    Version: str
+    Tier: Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString64")]
+    Version: Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString64")]
     ApplicationConfig: PartnerAppConfigOutputTypeDef
     AuthType: Literal["IAM"]
     EnableIamSessionBasedIdentity: bool
@@ -10898,16 +11007,16 @@ PartnerAppConfigUnionTypeDef = Union[PartnerAppConfigOutputTypeDef, PartnerAppCo
 
 # This class is the output for the 'describe_cluster_scheduler_config' function.
 class DescribeClusterSchedulerConfigResponseTypeDef(BaseValidatorModel):
-    ClusterSchedulerConfigArn: str
-    ClusterSchedulerConfigId: str
-    Name: str
+    ClusterSchedulerConfigArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterSchedulerConfigArn")]
+    ClusterSchedulerConfigId: Annotated[str, _aws_pattern("Sagemaker", "ClusterSchedulerConfigId")]
+    Name: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     ClusterSchedulerConfigVersion: int
     Status: SchedulerResourceStatusType
     FailureReason: str
     StatusDetails: Dict[SchedulerConfigComponentType, SchedulerResourceStatusType]
-    ClusterArn: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
     SchedulerConfig: SchedulerConfigOutputTypeDef
-    Description: str
+    Description: Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]
     CreationTime: datetime
     CreatedBy: UserContextTypeDef
     LastModifiedTime: datetime
@@ -10925,17 +11034,18 @@ class ProcessingOutputConfigOutputTypeDef(BaseValidatorModel):
 
 class ProcessingOutputConfigTypeDef(BaseValidatorModel):
     Outputs: List[ProcessingOutputTypeDef]
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
 
 
 class PendingProductionVariantSummaryTypeDef(BaseValidatorModel):
-    VariantName: str
+    VariantName: Annotated[str, _aws_pattern("Sagemaker", "VariantName")]
     DeployedImages: Optional[List[DeployedImageTypeDef]] = None
     CurrentWeight: Optional[float] = None
     DesiredWeight: Optional[float] = None
     CurrentInstanceCount: Optional[int] = None
     DesiredInstanceCount: Optional[int] = None
     InstanceType: Optional[ProductionVariantInstanceTypeType] = None
+    InstancePools: Optional[List[InstancePoolSummaryTypeDef]] = None
     AcceleratorType: Optional[ProductionVariantAcceleratorTypeType] = None
     VariantStatus: Optional[List[ProductionVariantStatusTypeDef]] = None
     CurrentServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
@@ -10944,13 +11054,35 @@ class PendingProductionVariantSummaryTypeDef(BaseValidatorModel):
     RoutingConfig: Optional[ProductionVariantRoutingConfigTypeDef] = None
 
 
-class ProductionVariantSummaryTypeDef(BaseValidatorModel):
+class ProductionVariantOutputTypeDef(BaseValidatorModel):
     VariantName: str
+    ModelName: Optional[str] = None
+    InitialInstanceCount: Optional[int] = None
+    InstanceType: Optional[ProductionVariantInstanceTypeType] = None
+    InstancePools: Optional[List[InstancePoolTypeDef]] = None
+    VariantInstanceProvisionTimeoutInSeconds: Optional[int] = None
+    InitialVariantWeight: Optional[float] = None
+    AcceleratorType: Optional[ProductionVariantAcceleratorTypeType] = None
+    CoreDumpConfig: Optional[ProductionVariantCoreDumpConfigTypeDef] = None
+    ServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
+    VolumeSizeInGB: Optional[int] = None
+    ModelDataDownloadTimeoutInSeconds: Optional[int] = None
+    ContainerStartupHealthCheckTimeoutInSeconds: Optional[int] = None
+    EnableSSMAccess: Optional[bool] = None
+    ManagedInstanceScaling: Optional[ProductionVariantManagedInstanceScalingTypeDef] = None
+    RoutingConfig: Optional[ProductionVariantRoutingConfigTypeDef] = None
+    InferenceAmiVersion: Optional[ProductionVariantInferenceAmiVersionType] = None
+    CapacityReservationConfig: Optional[ProductionVariantCapacityReservationConfigTypeDef] = None
+
+
+class ProductionVariantSummaryTypeDef(BaseValidatorModel):
+    VariantName: Annotated[str, _aws_pattern("Sagemaker", "VariantName")]
     DeployedImages: Optional[List[DeployedImageTypeDef]] = None
     CurrentWeight: Optional[float] = None
     DesiredWeight: Optional[float] = None
     CurrentInstanceCount: Optional[int] = None
     DesiredInstanceCount: Optional[int] = None
+    InstancePools: Optional[List[InstancePoolSummaryTypeDef]] = None
     VariantStatus: Optional[List[ProductionVariantStatusTypeDef]] = None
     CurrentServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
     DesiredServerlessConfig: Optional[ProductionVariantServerlessConfigTypeDef] = None
@@ -10960,10 +11092,12 @@ class ProductionVariantSummaryTypeDef(BaseValidatorModel):
 
 
 class ProductionVariantTypeDef(BaseValidatorModel):
-    VariantName: str
-    ModelName: Optional[str] = None
+    VariantName: Annotated[str, _aws_pattern("Sagemaker", "VariantName")]
+    ModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelName")]] = None
     InitialInstanceCount: Optional[int] = None
     InstanceType: Optional[ProductionVariantInstanceTypeType] = None
+    InstancePools: Optional[List[InstancePoolTypeDef]] = None
+    VariantInstanceProvisionTimeoutInSeconds: Optional[int] = None
     InitialVariantWeight: Optional[float] = None
     AcceleratorType: Optional[ProductionVariantAcceleratorTypeType] = None
     CoreDumpConfig: Optional[ProductionVariantCoreDumpConfigTypeDef] = None
@@ -10980,7 +11114,7 @@ class ProductionVariantTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_training_job' function.
 class UpdateTrainingJobRequestTypeDef(BaseValidatorModel):
-    TrainingJobName: str
+    TrainingJobName: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobName")]
     ProfilerConfig: Optional[ProfilerConfigForUpdateTypeDef] = None
     ProfilerRuleConfigurations: Optional[List[ProfilerRuleConfigurationUnionTypeDef]] = None
     ResourceConfig: Optional[ResourceConfigForUpdateTypeDef] = None
@@ -11011,14 +11145,14 @@ class HumanLoopConfigOutputTypeDef(BaseValidatorModel):
 
 
 class HumanLoopConfigTypeDef(BaseValidatorModel):
-    WorkteamArn: str
-    HumanTaskUiArn: str
-    TaskTitle: str
-    TaskDescription: str
+    WorkteamArn: Annotated[str, _aws_pattern("Sagemaker", "WorkteamArn")]
+    HumanTaskUiArn: Annotated[str, _aws_pattern("Sagemaker", "HumanTaskUiArn")]
+    TaskTitle: Annotated[str, _aws_pattern("Sagemaker", "FlowDefinitionTaskTitle")]
+    TaskDescription: Annotated[str, _aws_pattern("Sagemaker", "FlowDefinitionTaskDescription")]
     TaskCount: int
     TaskAvailabilityLifetimeInSeconds: Optional[int] = None
     TaskTimeLimitInSeconds: Optional[int] = None
-    TaskKeywords: Optional[List[str]] = None
+    TaskKeywords: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "FlowDefinitionTaskKeyword")]]] = None
     PublicWorkforceTaskPrice: Optional[PublicWorkforceTaskPriceTypeDef] = None
 
 
@@ -11038,14 +11172,14 @@ class HumanTaskConfigOutputTypeDef(BaseValidatorModel):
 
 
 class HumanTaskConfigTypeDef(BaseValidatorModel):
-    WorkteamArn: str
+    WorkteamArn: Annotated[str, _aws_pattern("Sagemaker", "WorkteamArn")]
     UiConfig: UiConfigTypeDef
-    TaskTitle: str
-    TaskDescription: str
+    TaskTitle: Annotated[str, _aws_pattern("Sagemaker", "TaskTitle")]
+    TaskDescription: Annotated[str, _aws_pattern("Sagemaker", "TaskDescription")]
     NumberOfHumanWorkersPerDataObject: int
     TaskTimeLimitInSeconds: int
-    PreHumanTaskLambdaArn: Optional[str] = None
-    TaskKeywords: Optional[List[str]] = None
+    PreHumanTaskLambdaArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "LambdaFunctionArn")]] = None
+    TaskKeywords: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "TaskKeyword")]]] = None
     TaskAvailabilityLifetimeInSeconds: Optional[int] = None
     MaxConcurrentTaskCount: Optional[int] = None
     AnnotationConsolidationConfig: Optional[AnnotationConsolidationConfigTypeDef] = None
@@ -11061,13 +11195,13 @@ class SearchTrainingPlanOfferingsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_pipeline_execution' function.
 class DescribePipelineExecutionResponseTypeDef(BaseValidatorModel):
-    PipelineArn: str
-    PipelineExecutionArn: str
-    PipelineExecutionDisplayName: str
+    PipelineArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]
+    PipelineExecutionArn: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]
+    PipelineExecutionDisplayName: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionName")]
     PipelineExecutionStatus: PipelineExecutionStatusType
-    PipelineExecutionDescription: str
+    PipelineExecutionDescription: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionDescription")]
     PipelineExperimentConfig: PipelineExperimentConfigTypeDef
-    FailureReason: str
+    FailureReason: Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionFailureReason")]
     CreationTime: datetime
     LastModifiedTime: datetime
     CreatedBy: UserContextTypeDef
@@ -11080,13 +11214,15 @@ class DescribePipelineExecutionResponseTypeDef(BaseValidatorModel):
 
 
 class PipelineExecutionTypeDef(BaseValidatorModel):
-    PipelineArn: Optional[str] = None
-    PipelineExecutionArn: Optional[str] = None
-    PipelineExecutionDisplayName: Optional[str] = None
+    PipelineArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineArn")]] = None
+    PipelineExecutionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionArn")]] = None
+    PipelineExecutionDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionName")]] = None
     PipelineExecutionStatus: Optional[PipelineExecutionStatusType] = None
-    PipelineExecutionDescription: Optional[str] = None
+    PipelineExecutionDescription: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionDescription")]
+    ] = None
     PipelineExperimentConfig: Optional[PipelineExperimentConfigTypeDef] = None
-    FailureReason: Optional[str] = None
+    FailureReason: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionFailureReason")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     CreatedBy: Optional[UserContextTypeDef] = None
@@ -11095,7 +11231,7 @@ class PipelineExecutionTypeDef(BaseValidatorModel):
     SelectiveExecutionConfig: Optional[SelectiveExecutionConfigOutputTypeDef] = None
     PipelineParameters: Optional[List[ParameterTypeDef]] = None
     PipelineVersionId: Optional[int] = None
-    PipelineVersionDisplayName: Optional[str] = None
+    PipelineVersionDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineVersionName")]] = None
 
 
 SelectiveExecutionConfigUnionTypeDef = Union[SelectiveExecutionConfigOutputTypeDef, SelectiveExecutionConfigTypeDef]
@@ -11105,7 +11241,7 @@ ShadowModeConfigUnionTypeDef = Union[ShadowModeConfigOutputTypeDef, ShadowModeCo
 
 # This class is the input for the 'create_workforce' function.
 class CreateWorkforceRequestTypeDef(BaseValidatorModel):
-    WorkforceName: str
+    WorkforceName: Annotated[str, _aws_pattern("Sagemaker", "WorkforceName")]
     CognitoConfig: Optional[CognitoConfigTypeDef] = None
     OidcConfig: Optional[OidcConfigTypeDef] = None
     SourceIpConfig: Optional[SourceIpConfigUnionTypeDef] = None
@@ -11116,7 +11252,7 @@ class CreateWorkforceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_workforce' function.
 class UpdateWorkforceRequestTypeDef(BaseValidatorModel):
-    WorkforceName: str
+    WorkforceName: Annotated[str, _aws_pattern("Sagemaker", "WorkforceName")]
     SourceIpConfig: Optional[SourceIpConfigUnionTypeDef] = None
     OidcConfig: Optional[OidcConfigTypeDef] = None
     WorkforceVpcConfig: Optional[WorkforceVpcConfigRequestTypeDef] = None
@@ -11153,18 +11289,20 @@ class AlgorithmSpecificationOutputTypeDef(BaseValidatorModel):
 
 class AlgorithmSpecificationTypeDef(BaseValidatorModel):
     TrainingInputMode: TrainingInputModeType
-    TrainingImage: Optional[str] = None
-    AlgorithmName: Optional[str] = None
+    TrainingImage: Optional[Annotated[str, _aws_pattern("Sagemaker", "AlgorithmImage")]] = None
+    AlgorithmName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ArnOrName")]] = None
     MetricDefinitions: Optional[List[MetricDefinitionTypeDef]] = None
     EnableSageMakerMetricsTimeSeries: Optional[bool] = None
-    ContainerEntrypoint: Optional[List[str]] = None
-    ContainerArguments: Optional[List[str]] = None
+    ContainerEntrypoint: Optional[
+        List[Annotated[str, _aws_pattern("Sagemaker", "TrainingContainerEntrypointString")]]
+    ] = None
+    ContainerArguments: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "TrainingContainerArgument")]]] = None
     TrainingImageConfig: Optional[TrainingImageConfigTypeDef] = None
 
 
 class TransformInputTypeDef(BaseValidatorModel):
     DataSource: TransformDataSourceTypeDef
-    ContentType: Optional[str] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContentType")]] = None
     CompressionType: Optional[CompressionTypeType] = None
     SplitType: Optional[SplitTypeType] = None
 
@@ -11179,7 +11317,7 @@ class DescribeWorkforceResponseTypeDef(BaseValidatorModel):
 class ListWorkforcesResponseTypeDef(BaseValidatorModel):
     Workforces: List[WorkforceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'update_workforce' function.
@@ -11190,14 +11328,14 @@ class UpdateWorkforceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_ai_benchmark_job' function.
 class DescribeAIBenchmarkJobResponseTypeDef(BaseValidatorModel):
-    AIBenchmarkJobName: str
-    AIBenchmarkJobArn: str
+    AIBenchmarkJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
+    AIBenchmarkJobArn: Annotated[str, _aws_pattern("Sagemaker", "AIBenchmarkJobArn")]
     AIBenchmarkJobStatus: AIBenchmarkJobStatusType
     FailureReason: str
     BenchmarkTarget: AIBenchmarkTargetOutputTypeDef
     OutputConfig: AIBenchmarkOutputResultTypeDef
-    AIWorkloadConfigIdentifier: str
-    RoleArn: str
+    AIWorkloadConfigIdentifier: Annotated[str, _aws_pattern("Sagemaker", "AIResourceIdentifier")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     NetworkConfig: AIBenchmarkNetworkConfigOutputTypeDef
     CreationTime: datetime
     StartTime: datetime
@@ -11215,12 +11353,12 @@ LabelingJobAlgorithmsConfigUnionTypeDef = Union[
 
 # This class is the input for the 'create_ai_recommendation_job' function.
 class CreateAIRecommendationJobRequestTypeDef(BaseValidatorModel):
-    AIRecommendationJobName: str
+    AIRecommendationJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
     ModelSource: AIModelSourceTypeDef
     OutputConfig: AIRecommendationOutputConfigTypeDef
-    AIWorkloadConfigIdentifier: str
+    AIWorkloadConfigIdentifier: Annotated[str, _aws_pattern("Sagemaker", "AIResourceIdentifier")]
     PerformanceTarget: AIRecommendationPerformanceTargetUnionTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     InferenceSpecification: Optional[AIRecommendationInferenceSpecificationTypeDef] = None
     OptimizeModel: Optional[bool] = None
     ComputeSpec: Optional[AIRecommendationComputeSpecUnionTypeDef] = None
@@ -11229,18 +11367,18 @@ class CreateAIRecommendationJobRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_ai_recommendation_job' function.
 class DescribeAIRecommendationJobResponseTypeDef(BaseValidatorModel):
-    AIRecommendationJobName: str
-    AIRecommendationJobArn: str
+    AIRecommendationJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
+    AIRecommendationJobArn: Annotated[str, _aws_pattern("Sagemaker", "AIRecommendationJobArn")]
     AIRecommendationJobStatus: AIRecommendationJobStatusType
     FailureReason: str
     ModelSource: AIModelSourceTypeDef
     OutputConfig: AIRecommendationOutputResultTypeDef
     InferenceSpecification: AIRecommendationInferenceSpecificationTypeDef
-    AIWorkloadConfigIdentifier: str
+    AIWorkloadConfigIdentifier: Annotated[str, _aws_pattern("Sagemaker", "AIResourceIdentifier")]
     OptimizeModel: bool
     PerformanceTarget: AIRecommendationPerformanceTargetOutputTypeDef
     Recommendations: List[AIRecommendationTypeDef]
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ComputeSpec: AIRecommendationComputeSpecOutputTypeDef
     CreationTime: datetime
     StartTime: datetime
@@ -11305,8 +11443,8 @@ class UserSettingsOutputTypeDef(BaseValidatorModel):
 
 
 class DefaultSpaceSettingsTypeDef(BaseValidatorModel):
-    ExecutionRole: Optional[str] = None
-    SecurityGroups: Optional[List[str]] = None
+    ExecutionRole: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "SecurityGroupId")]]] = None
     JupyterServerAppSettings: Optional[JupyterServerAppSettingsTypeDef] = None
     KernelGatewayAppSettings: Optional[KernelGatewayAppSettingsTypeDef] = None
     JupyterLabAppSettings: Optional[JupyterLabAppSettingsTypeDef] = None
@@ -11316,8 +11454,8 @@ class DefaultSpaceSettingsTypeDef(BaseValidatorModel):
 
 
 class UserSettingsTypeDef(BaseValidatorModel):
-    ExecutionRole: Optional[str] = None
-    SecurityGroups: Optional[List[str]] = None
+    ExecutionRole: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "SecurityGroupId")]]] = None
     SharingSettings: Optional[SharingSettingsTypeDef] = None
     JupyterServerAppSettings: Optional[JupyterServerAppSettingsTypeDef] = None
     KernelGatewayAppSettings: Optional[KernelGatewayAppSettingsTypeDef] = None
@@ -11340,14 +11478,14 @@ class UserSettingsTypeDef(BaseValidatorModel):
 class ListArtifactsResponseTypeDef(BaseValidatorModel):
     ArtifactSummaries: List[ArtifactSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the input for the 'create_artifact' function.
 class CreateArtifactRequestTypeDef(BaseValidatorModel):
     Source: ArtifactSourceUnionTypeDef
     ArtifactType: str
-    ArtifactName: Optional[str] = None
+    ArtifactName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     Properties: Optional[Dict[str, str]] = None
     MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -11355,7 +11493,7 @@ class CreateArtifactRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_artifact' function.
 class DeleteArtifactRequestTypeDef(BaseValidatorModel):
-    ArtifactArn: Optional[str] = None
+    ArtifactArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ArtifactArn")]] = None
     Source: Optional[ArtifactSourceUnionTypeDef] = None
 
 
@@ -11382,9 +11520,9 @@ class AutoMLProblemTypeConfigTypeDef(BaseValidatorModel):
 
 
 class PipelineExecutionStepTypeDef(BaseValidatorModel):
-    StepName: Optional[str] = None
-    StepDisplayName: Optional[str] = None
-    StepDescription: Optional[str] = None
+    StepName: Optional[Annotated[str, _aws_pattern("Sagemaker", "StepName")]] = None
+    StepDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "StepDisplayName")]] = None
+    StepDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "StepDescription")]] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     StepStatus: Optional[StepStatusType] = None
@@ -11397,11 +11535,11 @@ class PipelineExecutionStepTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_auto_ml_job' function.
 class DescribeAutoMLJobResponseTypeDef(BaseValidatorModel):
-    AutoMLJobName: str
-    AutoMLJobArn: str
+    AutoMLJobName: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobName")]
+    AutoMLJobArn: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]
     InputDataConfig: List[AutoMLChannelTypeDef]
     OutputDataConfig: AutoMLOutputDataConfigTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     AutoMLJobObjective: AutoMLJobObjectiveTypeDef
     ProblemType: ProblemTypeType
     AutoMLJobConfig: AutoMLJobConfigOutputTypeDef
@@ -11425,7 +11563,7 @@ class DescribeAutoMLJobResponseTypeDef(BaseValidatorModel):
 class ListCandidatesForAutoMLJobResponseTypeDef(BaseValidatorModel):
     Candidates: List[AutoMLCandidateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class EventDetailsTypeDef(BaseValidatorModel):
@@ -11480,13 +11618,13 @@ ParameterRangesUnionTypeDef = Union[ParameterRangesOutputTypeDef, ParameterRange
 
 
 class RecommendationJobInputConfigTypeDef(BaseValidatorModel):
-    ModelPackageVersionArn: Optional[str] = None
-    ModelName: Optional[str] = None
+    ModelPackageVersionArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelName")]] = None
     JobDurationInSeconds: Optional[int] = None
     TrafficPattern: Optional[TrafficPatternTypeDef] = None
     ResourceLimit: Optional[RecommendationJobResourceLimitTypeDef] = None
     EndpointConfigurations: Optional[List[EndpointInputConfigurationTypeDef]] = None
-    VolumeKmsKeyId: Optional[str] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     ContainerConfig: Optional[RecommendationJobContainerConfigTypeDef] = None
     Endpoints: Optional[List[EndpointInfoTypeDef]] = None
     VpcConfig: Optional[RecommendationJobVpcConfigTypeDef] = None
@@ -11494,10 +11632,10 @@ class RecommendationJobInputConfigTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_project' function.
 class DescribeProjectOutputTypeDef(BaseValidatorModel):
-    ProjectArn: str
-    ProjectName: str
-    ProjectId: str
-    ProjectDescription: str
+    ProjectArn: Annotated[str, _aws_pattern("Sagemaker", "ProjectArn")]
+    ProjectName: Annotated[str, _aws_pattern("Sagemaker", "ProjectEntityName")]
+    ProjectId: Annotated[str, _aws_pattern("Sagemaker", "ProjectId")]
+    ProjectDescription: Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]
     ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetailsOutputTypeDef
     ServiceCatalogProvisionedProductDetails: ServiceCatalogProvisionedProductDetailsTypeDef
     ProjectStatus: ProjectStatusType
@@ -11510,10 +11648,10 @@ class DescribeProjectOutputTypeDef(BaseValidatorModel):
 
 
 class ProjectTypeDef(BaseValidatorModel):
-    ProjectArn: Optional[str] = None
-    ProjectName: Optional[str] = None
-    ProjectId: Optional[str] = None
-    ProjectDescription: Optional[str] = None
+    ProjectArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProjectArn")]] = None
+    ProjectName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProjectEntityName")]] = None
+    ProjectId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProjectId")]] = None
+    ProjectDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     ServiceCatalogProvisioningDetails: Optional[ServiceCatalogProvisioningDetailsOutputTypeDef] = None
     ServiceCatalogProvisionedProductDetails: Optional[ServiceCatalogProvisionedProductDetailsTypeDef] = None
     ProjectStatus: Optional[ProjectStatusType] = None
@@ -11527,8 +11665,8 @@ class ProjectTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_project' function.
 class UpdateProjectInputTypeDef(BaseValidatorModel):
-    ProjectName: str
-    ProjectDescription: Optional[str] = None
+    ProjectName: Annotated[str, _aws_pattern("Sagemaker", "ProjectEntityName")]
+    ProjectDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     ServiceCatalogProvisioningUpdateDetails: Optional[ServiceCatalogProvisioningUpdateDetailsTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
     TemplateProvidersToUpdate: Optional[List[UpdateTemplateProviderTypeDef]] = None
@@ -11550,52 +11688,52 @@ class DescribeClusterNodeResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_feature_group' function.
 class CreateFeatureGroupRequestTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
-    RecordIdentifierFeatureName: str
-    EventTimeFeatureName: str
+    FeatureGroupName: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupName")]
+    RecordIdentifierFeatureName: Annotated[str, _aws_pattern("Sagemaker", "FeatureName")]
+    EventTimeFeatureName: Annotated[str, _aws_pattern("Sagemaker", "FeatureName")]
     FeatureDefinitions: List[FeatureDefinitionTypeDef]
     OnlineStoreConfig: Optional[OnlineStoreConfigTypeDef] = None
     OfflineStoreConfig: Optional[OfflineStoreConfigTypeDef] = None
     ThroughputConfig: Optional[ThroughputConfigTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'describe_feature_group' function.
 class DescribeFeatureGroupResponseTypeDef(BaseValidatorModel):
-    FeatureGroupArn: str
-    FeatureGroupName: str
-    RecordIdentifierFeatureName: str
-    EventTimeFeatureName: str
+    FeatureGroupArn: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupArn")]
+    FeatureGroupName: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupName")]
+    RecordIdentifierFeatureName: Annotated[str, _aws_pattern("Sagemaker", "FeatureName")]
+    EventTimeFeatureName: Annotated[str, _aws_pattern("Sagemaker", "FeatureName")]
     FeatureDefinitions: List[FeatureDefinitionTypeDef]
     CreationTime: datetime
     LastModifiedTime: datetime
     OnlineStoreConfig: OnlineStoreConfigTypeDef
     OfflineStoreConfig: OfflineStoreConfigTypeDef
     ThroughputConfig: ThroughputConfigDescriptionTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     FeatureGroupStatus: FeatureGroupStatusType
     OfflineStoreStatus: OfflineStoreStatusTypeDef
     LastUpdateStatus: LastUpdateStatusTypeDef
     FailureReason: str
     Description: str
-    NextToken: str
+    NextToken: Annotated[str, _aws_pattern("Sagemaker", "NextToken")]
     OnlineStoreTotalSizeBytes: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class FeatureGroupTypeDef(BaseValidatorModel):
-    FeatureGroupArn: Optional[str] = None
-    FeatureGroupName: Optional[str] = None
-    RecordIdentifierFeatureName: Optional[str] = None
-    EventTimeFeatureName: Optional[str] = None
+    FeatureGroupArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupArn")]] = None
+    FeatureGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupName")]] = None
+    RecordIdentifierFeatureName: Optional[Annotated[str, _aws_pattern("Sagemaker", "FeatureName")]] = None
+    EventTimeFeatureName: Optional[Annotated[str, _aws_pattern("Sagemaker", "FeatureName")]] = None
     FeatureDefinitions: Optional[List[FeatureDefinitionTypeDef]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     OnlineStoreConfig: Optional[OnlineStoreConfigTypeDef] = None
     OfflineStoreConfig: Optional[OfflineStoreConfigTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     FeatureGroupStatus: Optional[FeatureGroupStatusType] = None
     OfflineStoreStatus: Optional[OfflineStoreStatusTypeDef] = None
     LastUpdateStatus: Optional[LastUpdateStatusTypeDef] = None
@@ -11606,7 +11744,7 @@ class FeatureGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_feature_group' function.
 class UpdateFeatureGroupRequestTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
+    FeatureGroupName: Annotated[str, _aws_pattern("Sagemaker", "FeatureGroupNameOrArn")]
     FeatureAdditions: Optional[List[FeatureDefinitionTypeDef]] = None
     OnlineStoreConfig: Optional[OnlineStoreConfigUpdateTypeDef] = None
     ThroughputConfig: Optional[ThroughputConfigUpdateTypeDef] = None
@@ -11614,34 +11752,34 @@ class UpdateFeatureGroupRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_edge_deployment_plan' function.
 class CreateEdgeDeploymentPlanRequestTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanName: str
+    EdgeDeploymentPlanName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     ModelConfigs: List[EdgeDeploymentModelConfigTypeDef]
-    DeviceFleetName: str
+    DeviceFleetName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     Stages: Optional[List[DeploymentStageTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_edge_deployment_stage' function.
 class CreateEdgeDeploymentStageRequestTypeDef(BaseValidatorModel):
-    EdgeDeploymentPlanName: str
+    EdgeDeploymentPlanName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     Stages: List[DeploymentStageTypeDef]
 
 
 class SpaceDetailsTypeDef(BaseValidatorModel):
-    DomainId: Optional[str] = None
-    SpaceName: Optional[str] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("Sagemaker", "DomainId")]] = None
+    SpaceName: Optional[Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]] = None
     Status: Optional[SpaceStatusType] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     SpaceSettingsSummary: Optional[SpaceSettingsSummaryTypeDef] = None
     SpaceSharingSettingsSummary: Optional[SpaceSharingSettingsSummaryTypeDef] = None
     OwnershipSettingsSummary: Optional[OwnershipSettingsSummaryTypeDef] = None
-    SpaceDisplayName: Optional[str] = None
+    SpaceDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString64")]] = None
 
 
 class InferenceRecommendationsJobStepTypeDef(BaseValidatorModel):
     StepType: Literal["BENCHMARK"]
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobName")]
     Status: RecommendationJobStatusType
     InferenceBenchmark: Optional[RecommendationJobInferenceBenchmarkTypeDef] = None
 
@@ -11660,9 +11798,9 @@ class SearchRequestPaginateTypeDef(BaseValidatorModel):
 class SearchRequestTypeDef(BaseValidatorModel):
     Resource: ResourceTypeType
     SearchExpression: Optional[SearchExpressionTypeDef] = None
-    SortBy: Optional[str] = None
+    SortBy: Optional[Annotated[str, _aws_pattern("Sagemaker", "ResourcePropertyName")]] = None
     SortOrder: Optional[SearchSortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
     MaxResults: Optional[int] = None
     CrossAccountFilterOption: Optional[CrossAccountFilterOptionType] = None
     VisibilityConditions: Optional[List[VisibilityConditionsTypeDef]] = None
@@ -11672,14 +11810,14 @@ class SearchRequestTypeDef(BaseValidatorModel):
 class ListAssociationsResponseTypeDef(BaseValidatorModel):
     AssociationSummaries: List[AssociationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class TrialTypeDef(BaseValidatorModel):
-    TrialName: Optional[str] = None
-    TrialArn: Optional[str] = None
-    DisplayName: Optional[str] = None
-    ExperimentName: Optional[str] = None
+    TrialName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    TrialArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrialArn")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    ExperimentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
     Source: Optional[TrialSourceTypeDef] = None
     CreationTime: Optional[datetime] = None
     CreatedBy: Optional[UserContextTypeDef] = None
@@ -11694,15 +11832,15 @@ class TrialTypeDef(BaseValidatorModel):
 class ListTrialComponentsResponseTypeDef(BaseValidatorModel):
     TrialComponentSummaries: List[TrialComponentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class WorkteamTypeDef(BaseValidatorModel):
-    WorkteamName: str
+    WorkteamName: Annotated[str, _aws_pattern("Sagemaker", "WorkteamName")]
     MemberDefinitions: List[MemberDefinitionOutputTypeDef]
-    WorkteamArn: str
-    Description: str
-    WorkforceArn: Optional[str] = None
+    WorkteamArn: Annotated[str, _aws_pattern("Sagemaker", "WorkteamArn")]
+    Description: Annotated[str, _aws_pattern("Sagemaker", "String200")]
+    WorkforceArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "WorkforceArn")]] = None
     ProductListingIds: Optional[List[str]] = None
     SubDomain: Optional[str] = None
     CreateDate: Optional[datetime] = None
@@ -11713,23 +11851,25 @@ class WorkteamTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_inference_component' function.
 class CreateInferenceComponentInputTypeDef(BaseValidatorModel):
-    InferenceComponentName: str
-    EndpointName: str
-    VariantName: Optional[str] = None
+    InferenceComponentName: Annotated[str, _aws_pattern("Sagemaker", "InferenceComponentName")]
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
+    VariantName: Optional[Annotated[str, _aws_pattern("Sagemaker", "VariantName")]] = None
     Specification: Optional[InferenceComponentSpecificationTypeDef] = None
+    Specifications: Optional[List[InferenceComponentSpecificationTypeDef]] = None
     RuntimeConfig: Optional[InferenceComponentRuntimeConfigTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'describe_inference_component' function.
 class DescribeInferenceComponentOutputTypeDef(BaseValidatorModel):
-    InferenceComponentName: str
+    InferenceComponentName: Annotated[str, _aws_pattern("Sagemaker", "InferenceComponentName")]
     InferenceComponentArn: str
-    EndpointName: str
-    EndpointArn: str
-    VariantName: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
+    EndpointArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointArn")]
+    VariantName: Annotated[str, _aws_pattern("Sagemaker", "VariantName")]
     FailureReason: str
     Specification: InferenceComponentSpecificationSummaryTypeDef
+    Specifications: List[InferenceComponentSpecificationSummaryTypeDef]
     RuntimeConfig: InferenceComponentRuntimeConfigSummaryTypeDef
     CreationTime: datetime
     LastModifiedTime: datetime
@@ -11747,10 +11887,10 @@ class ResourceConfigTypeDef(BaseValidatorModel):
     InstanceType: Optional[TrainingInstanceTypeType] = None
     InstanceCount: Optional[int] = None
     VolumeSizeInGB: Optional[int] = None
-    VolumeKmsKeyId: Optional[str] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     KeepAlivePeriodInSeconds: Optional[int] = None
     InstanceGroups: Optional[List[InstanceGroupTypeDef]] = None
-    TrainingPlanArn: Optional[str] = None
+    TrainingPlanArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]] = None
     InstancePlacementConfig: Optional[InstancePlacementConfigUnionTypeDef] = None
 
 
@@ -11767,10 +11907,10 @@ class TrainingSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class TrainingSpecificationTypeDef(BaseValidatorModel):
-    TrainingImage: str
+    TrainingImage: Annotated[str, _aws_pattern("Sagemaker", "ContainerImage")]
     SupportedTrainingInstanceTypes: List[TrainingInstanceTypeType]
     TrainingChannels: List[ChannelSpecificationTypeDef]
-    TrainingImageDigest: Optional[str] = None
+    TrainingImageDigest: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageDigest")]] = None
     SupportedHyperParameters: Optional[List[HyperParameterSpecificationTypeDef]] = None
     SupportsDistributedTraining: Optional[bool] = None
     MetricDefinitions: Optional[List[MetricDefinitionTypeDef]] = None
@@ -11782,12 +11922,12 @@ class TrainingSpecificationTypeDef(BaseValidatorModel):
 class ListAppImageConfigsResponseTypeDef(BaseValidatorModel):
     AppImageConfigs: List[AppImageConfigDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the input for the 'create_app_image_config' function.
 class CreateAppImageConfigRequestTypeDef(BaseValidatorModel):
-    AppImageConfigName: str
+    AppImageConfigName: Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigName")]
     Tags: Optional[List[TagTypeDef]] = None
     KernelGatewayImageConfig: Optional[KernelGatewayImageConfigUnionTypeDef] = None
     JupyterLabAppImageConfig: Optional[JupyterLabAppImageConfigUnionTypeDef] = None
@@ -11796,22 +11936,22 @@ class CreateAppImageConfigRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_app_image_config' function.
 class UpdateAppImageConfigRequestTypeDef(BaseValidatorModel):
-    AppImageConfigName: str
+    AppImageConfigName: Annotated[str, _aws_pattern("Sagemaker", "AppImageConfigName")]
     KernelGatewayImageConfig: Optional[KernelGatewayImageConfigUnionTypeDef] = None
     JupyterLabAppImageConfig: Optional[JupyterLabAppImageConfigUnionTypeDef] = None
     CodeEditorAppImageConfig: Optional[CodeEditorAppImageConfigUnionTypeDef] = None
 
 
 class LabelingJobSummaryTypeDef(BaseValidatorModel):
-    LabelingJobName: str
-    LabelingJobArn: str
+    LabelingJobName: Annotated[str, _aws_pattern("Sagemaker", "LabelingJobName")]
+    LabelingJobArn: Annotated[str, _aws_pattern("Sagemaker", "LabelingJobArn")]
     CreationTime: datetime
     LastModifiedTime: datetime
     LabelingJobStatus: LabelingJobStatusType
     LabelCounters: LabelCountersTypeDef
-    WorkteamArn: str
-    PreHumanTaskLambdaArn: Optional[str] = None
-    AnnotationConsolidationLambdaArn: Optional[str] = None
+    WorkteamArn: Annotated[str, _aws_pattern("Sagemaker", "WorkteamArn")]
+    PreHumanTaskLambdaArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "LambdaFunctionArn")]] = None
+    AnnotationConsolidationLambdaArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "LambdaFunctionArn")]] = None
     FailureReason: Optional[str] = None
     LabelingJobOutput: Optional[LabelingJobOutputTypeDef] = None
     InputConfig: Optional[LabelingJobInputConfigOutputTypeDef] = None
@@ -11855,16 +11995,16 @@ class ContainerDefinitionOutputTypeDef(BaseValidatorModel):
 
 
 class ContainerDefinitionTypeDef(BaseValidatorModel):
-    ContainerHostname: Optional[str] = None
-    Image: Optional[str] = None
+    ContainerHostname: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContainerHostname")]] = None
+    Image: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContainerImage")]] = None
     ImageConfig: Optional[ImageConfigTypeDef] = None
     Mode: Optional[ContainerModeType] = None
-    ModelDataUrl: Optional[str] = None
+    ModelDataUrl: Optional[Annotated[str, _aws_pattern("Sagemaker", "Url")]] = None
     ModelDataSource: Optional[ModelDataSourceTypeDef] = None
     AdditionalModelDataSources: Optional[List[AdditionalModelDataSourceTypeDef]] = None
     Environment: Optional[Dict[str, str]] = None
-    ModelPackageName: Optional[str] = None
-    InferenceSpecificationName: Optional[str] = None
+    ModelPackageName: Optional[Annotated[str, _aws_pattern("Sagemaker", "VersionedArnOrName")]] = None
+    InferenceSpecificationName: Optional[Annotated[str, _aws_pattern("Sagemaker", "InferenceSpecificationName")]] = None
     MultiModelConfig: Optional[MultiModelConfigTypeDef] = None
 
 
@@ -11888,16 +12028,16 @@ class ModelPackageContainerDefinitionOutputTypeDef(BaseValidatorModel):
 
 
 class ModelPackageContainerDefinitionTypeDef(BaseValidatorModel):
-    ContainerHostname: Optional[str] = None
-    Image: Optional[str] = None
-    ImageDigest: Optional[str] = None
-    ModelDataUrl: Optional[str] = None
+    ContainerHostname: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContainerHostname")]] = None
+    Image: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContainerImage")]] = None
+    ImageDigest: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageDigest")]] = None
+    ModelDataUrl: Optional[Annotated[str, _aws_pattern("Sagemaker", "Url")]] = None
     ModelDataSource: Optional[ModelDataSourceTypeDef] = None
-    ProductId: Optional[str] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProductId")]] = None
     Environment: Optional[Dict[str, str]] = None
     ModelInput: Optional[ModelInputTypeDef] = None
     Framework: Optional[str] = None
-    FrameworkVersion: Optional[str] = None
+    FrameworkVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageFrameworkVersion")]] = None
     NearestModelName: Optional[str] = None
     AdditionalModelDataSources: Optional[List[AdditionalModelDataSourceTypeDef]] = None
     AdditionalS3DataSource: Optional[AdditionalS3DataSourceTypeDef] = None
@@ -11907,8 +12047,8 @@ class ModelPackageContainerDefinitionTypeDef(BaseValidatorModel):
 
 
 class SourceAlgorithmTypeDef(BaseValidatorModel):
-    AlgorithmName: str
-    ModelDataUrl: Optional[str] = None
+    AlgorithmName: Annotated[str, _aws_pattern("Sagemaker", "ArnOrName")]
+    ModelDataUrl: Optional[Annotated[str, _aws_pattern("Sagemaker", "Url")]] = None
     ModelDataSource: Optional[ModelDataSourceTypeDef] = None
     ModelDataETag: Optional[str] = None
 
@@ -11917,37 +12057,37 @@ class SourceAlgorithmTypeDef(BaseValidatorModel):
 class ListMonitoringAlertsResponseTypeDef(BaseValidatorModel):
     MonitoringAlertSummaries: List[MonitoringAlertSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_inference_experiment' function.
 class DescribeInferenceExperimentResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentArn")]
+    Name: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentName")]
     Type: Literal["ShadowMode"]
     Schedule: InferenceExperimentScheduleOutputTypeDef
     Status: InferenceExperimentStatusType
-    StatusReason: str
-    Description: str
+    StatusReason: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentStatusReason")]
+    Description: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentDescription")]
     CreationTime: datetime
     CompletionTime: datetime
     LastModifiedTime: datetime
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     EndpointMetadata: EndpointMetadataTypeDef
     ModelVariants: List[ModelVariantConfigSummaryTypeDef]
     DataStorageConfig: InferenceExperimentDataStorageConfigOutputTypeDef
     ShadowModeConfig: ShadowModeConfigOutputTypeDef
-    KmsKey: str
+    KmsKey: Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'stop_inference_experiment' function.
 class StopInferenceExperimentRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentName")]
     ModelVariantActions: Dict[str, ModelVariantActionType]
     DesiredModelVariants: Optional[List[ModelVariantConfigTypeDef]] = None
     DesiredState: Optional[InferenceExperimentStopDesiredStateType] = None
-    Reason: Optional[str] = None
+    Reason: Optional[Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentStatusReason")]] = None
 
 
 OptimizationConfigUnionTypeDef = Union[OptimizationConfigOutputTypeDef, OptimizationConfigTypeDef]
@@ -12014,14 +12154,14 @@ MemberDefinitionUnionTypeDef = Union[MemberDefinitionOutputTypeDef, MemberDefini
 
 # This class is the output for the 'describe_optimization_job' function.
 class DescribeOptimizationJobResponseTypeDef(BaseValidatorModel):
-    OptimizationJobArn: str
+    OptimizationJobArn: Annotated[str, _aws_pattern("Sagemaker", "OptimizationJobArn")]
     OptimizationJobStatus: OptimizationJobStatusType
     OptimizationStartTime: datetime
     OptimizationEndTime: datetime
     CreationTime: datetime
     LastModifiedTime: datetime
     FailureReason: str
-    OptimizationJobName: str
+    OptimizationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     ModelSource: OptimizationJobModelSourceTypeDef
     OptimizationEnvironment: Dict[str, str]
     DeploymentInstanceType: OptimizationJobDeploymentInstanceTypeType
@@ -12029,7 +12169,7 @@ class DescribeOptimizationJobResponseTypeDef(BaseValidatorModel):
     OptimizationConfigs: List[OptimizationConfigOutputTypeDef]
     OutputConfig: OptimizationJobOutputConfigTypeDef
     OptimizationOutput: OptimizationOutputTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     StoppingCondition: StoppingConditionTypeDef
     VpcConfig: OptimizationVpcConfigOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -12037,98 +12177,98 @@ class DescribeOptimizationJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_partner_app' function.
 class CreatePartnerAppRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "PartnerAppName")]
     Type: PartnerAppTypeType
-    ExecutionRoleArn: str
-    Tier: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
+    Tier: Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString64")]
     AuthType: Literal["IAM"]
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     MaintenanceConfig: Optional[PartnerAppMaintenanceConfigTypeDef] = None
     ApplicationConfig: Optional[PartnerAppConfigUnionTypeDef] = None
     EnableIamSessionBasedIdentity: Optional[bool] = None
     EnableAutoMinorVersionUpgrade: Optional[bool] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClientToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_partner_app' function.
 class UpdatePartnerAppRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Sagemaker", "PartnerAppArn")]
     MaintenanceConfig: Optional[PartnerAppMaintenanceConfigTypeDef] = None
-    Tier: Optional[str] = None
+    Tier: Optional[Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString64")]] = None
     ApplicationConfig: Optional[PartnerAppConfigUnionTypeDef] = None
     EnableIamSessionBasedIdentity: Optional[bool] = None
     EnableAutoMinorVersionUpgrade: Optional[bool] = None
-    AppVersion: Optional[str] = None
-    ClientToken: Optional[str] = None
+    AppVersion: Optional[Annotated[str, _aws_pattern("Sagemaker", "MajorMinorVersion")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClientToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_cluster_scheduler_config' function.
 class CreateClusterSchedulerConfigRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ClusterArn: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
     SchedulerConfig: SchedulerConfigUnionTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_cluster_scheduler_config' function.
 class UpdateClusterSchedulerConfigRequestTypeDef(BaseValidatorModel):
-    ClusterSchedulerConfigId: str
+    ClusterSchedulerConfigId: Annotated[str, _aws_pattern("Sagemaker", "ClusterSchedulerConfigId")]
     TargetVersion: int
     SchedulerConfig: Optional[SchedulerConfigUnionTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
 
 
 # This class is the output for the 'describe_processing_job' function.
 class DescribeProcessingJobResponseTypeDef(BaseValidatorModel):
     ProcessingInputs: List[ProcessingInputTypeDef]
     ProcessingOutputConfig: ProcessingOutputConfigOutputTypeDef
-    ProcessingJobName: str
+    ProcessingJobName: Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]
     ProcessingResources: ProcessingResourcesTypeDef
     StoppingCondition: ProcessingStoppingConditionTypeDef
     AppSpecification: AppSpecificationOutputTypeDef
     Environment: Dict[str, str]
     NetworkConfig: NetworkConfigOutputTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ExperimentConfig: ExperimentConfigTypeDef
-    ProcessingJobArn: str
+    ProcessingJobArn: Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobArn")]
     ProcessingJobStatus: ProcessingJobStatusType
-    ExitMessage: str
+    ExitMessage: Annotated[str, _aws_pattern("Sagemaker", "ExitMessage")]
     FailureReason: str
     ProcessingEndTime: datetime
     ProcessingStartTime: datetime
     LastModifiedTime: datetime
     CreationTime: datetime
-    MonitoringScheduleArn: str
-    AutoMLJobArn: str
-    TrainingJobArn: str
+    MonitoringScheduleArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleArn")]
+    AutoMLJobArn: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]
+    TrainingJobArn: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ProcessingJobTypeDef(BaseValidatorModel):
     ProcessingInputs: Optional[List[ProcessingInputTypeDef]] = None
     ProcessingOutputConfig: Optional[ProcessingOutputConfigOutputTypeDef] = None
-    ProcessingJobName: Optional[str] = None
+    ProcessingJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]] = None
     ProcessingResources: Optional[ProcessingResourcesTypeDef] = None
     StoppingCondition: Optional[ProcessingStoppingConditionTypeDef] = None
     AppSpecification: Optional[AppSpecificationOutputTypeDef] = None
     Environment: Optional[Dict[str, str]] = None
     NetworkConfig: Optional[NetworkConfigOutputTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     ExperimentConfig: Optional[ExperimentConfigTypeDef] = None
-    ProcessingJobArn: Optional[str] = None
+    ProcessingJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobArn")]] = None
     ProcessingJobStatus: Optional[ProcessingJobStatusType] = None
-    ExitMessage: Optional[str] = None
+    ExitMessage: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExitMessage")]] = None
     FailureReason: Optional[str] = None
     ProcessingEndTime: Optional[datetime] = None
     ProcessingStartTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     CreationTime: Optional[datetime] = None
-    MonitoringScheduleArn: Optional[str] = None
-    AutoMLJobArn: Optional[str] = None
-    TrainingJobArn: Optional[str] = None
+    MonitoringScheduleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleArn")]] = None
+    AutoMLJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]] = None
+    TrainingJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingJobArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -12136,16 +12276,19 @@ ProcessingOutputConfigUnionTypeDef = Union[ProcessingOutputConfigOutputTypeDef, 
 
 
 class PendingDeploymentSummaryTypeDef(BaseValidatorModel):
-    EndpointConfigName: str
+    EndpointConfigName: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigName")]
     ProductionVariants: Optional[List[PendingProductionVariantSummaryTypeDef]] = None
     StartTime: Optional[datetime] = None
     ShadowProductionVariants: Optional[List[PendingProductionVariantSummaryTypeDef]] = None
 
 
+ProductionVariantUnionTypeDef = Union[ProductionVariantOutputTypeDef, ProductionVariantTypeDef]
+
+
 # This class is the input for the 'create_project' function.
 class CreateProjectInputTypeDef(BaseValidatorModel):
-    ProjectName: str
-    ProjectDescription: Optional[str] = None
+    ProjectName: Annotated[str, _aws_pattern("Sagemaker", "ProjectEntityName")]
+    ProjectDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     ServiceCatalogProvisioningDetails: Optional[ServiceCatalogProvisioningDetailsUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
     TemplateProviders: Optional[List[CreateTemplateProviderTypeDef]] = None
@@ -12153,15 +12296,15 @@ class CreateProjectInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_flow_definition' function.
 class DescribeFlowDefinitionResponseTypeDef(BaseValidatorModel):
-    FlowDefinitionArn: str
-    FlowDefinitionName: str
+    FlowDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "FlowDefinitionArn")]
+    FlowDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "FlowDefinitionName")]
     FlowDefinitionStatus: FlowDefinitionStatusType
     CreationTime: datetime
     HumanLoopRequestSource: HumanLoopRequestSourceTypeDef
     HumanLoopActivationConfig: HumanLoopActivationConfigTypeDef
     HumanLoopConfig: HumanLoopConfigOutputTypeDef
     OutputConfig: FlowDefinitionOutputConfigTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     FailureReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -12176,14 +12319,14 @@ class DescribeLabelingJobResponseTypeDef(BaseValidatorModel):
     FailureReason: str
     CreationTime: datetime
     LastModifiedTime: datetime
-    JobReferenceCode: str
-    LabelingJobName: str
-    LabelingJobArn: str
-    LabelAttributeName: str
+    JobReferenceCode: Annotated[str, _aws_pattern("Sagemaker", "JobReferenceCode")]
+    LabelingJobName: Annotated[str, _aws_pattern("Sagemaker", "LabelingJobName")]
+    LabelingJobArn: Annotated[str, _aws_pattern("Sagemaker", "LabelingJobArn")]
+    LabelAttributeName: Annotated[str, _aws_pattern("Sagemaker", "LabelAttributeName")]
     InputConfig: LabelingJobInputConfigOutputTypeDef
     OutputConfig: LabelingJobOutputConfigTypeDef
-    RoleArn: str
-    LabelCategoryConfigS3Uri: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
+    LabelCategoryConfigS3Uri: Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]
     StoppingConditions: LabelingJobStoppingConditionsTypeDef
     LabelingJobAlgorithmsConfig: LabelingJobAlgorithmsConfigOutputTypeDef
     HumanTaskConfig: HumanTaskConfigOutputTypeDef
@@ -12197,37 +12340,39 @@ HumanTaskConfigUnionTypeDef = Union[HumanTaskConfigOutputTypeDef, HumanTaskConfi
 
 # This class is the input for the 'start_pipeline_execution' function.
 class StartPipelineExecutionRequestTypeDef(BaseValidatorModel):
-    PipelineName: str
+    PipelineName: Annotated[str, _aws_pattern("Sagemaker", "PipelineNameOrArn")]
     ClientRequestToken: str
-    PipelineExecutionDisplayName: Optional[str] = None
+    PipelineExecutionDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionName")]] = None
     PipelineParameters: Optional[List[ParameterTypeDef]] = None
-    PipelineExecutionDescription: Optional[str] = None
+    PipelineExecutionDescription: Optional[
+        Annotated[str, _aws_pattern("Sagemaker", "PipelineExecutionDescription")]
+    ] = None
     ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
     SelectiveExecutionConfig: Optional[SelectiveExecutionConfigUnionTypeDef] = None
     PipelineVersionId: Optional[int] = None
-    MlflowExperimentName: Optional[str] = None
+    MlflowExperimentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MlflowExperimentEntityName")]] = None
 
 
 # This class is the input for the 'create_inference_experiment' function.
 class CreateInferenceExperimentRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentName")]
     Type: Literal["ShadowMode"]
-    RoleArn: str
-    EndpointName: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
     ModelVariants: List[ModelVariantConfigTypeDef]
     ShadowModeConfig: ShadowModeConfigUnionTypeDef
     Schedule: Optional[InferenceExperimentScheduleUnionTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentDescription")]] = None
     DataStorageConfig: Optional[InferenceExperimentDataStorageConfigUnionTypeDef] = None
-    KmsKey: Optional[str] = None
+    KmsKey: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_inference_experiment' function.
 class UpdateInferenceExperimentRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentName")]
     Schedule: Optional[InferenceExperimentScheduleUnionTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "InferenceExperimentDescription")]] = None
     ModelVariants: Optional[List[ModelVariantConfigTypeDef]] = None
     DataStorageConfig: Optional[InferenceExperimentDataStorageConfigUnionTypeDef] = None
     ShadowModeConfig: Optional[ShadowModeConfigUnionTypeDef] = None
@@ -12262,8 +12407,8 @@ AlgorithmSpecificationUnionTypeDef = Union[AlgorithmSpecificationOutputTypeDef, 
 
 # This class is the input for the 'create_transform_job' function.
 class CreateTransformJobRequestTypeDef(BaseValidatorModel):
-    TransformJobName: str
-    ModelName: str
+    TransformJobName: Annotated[str, _aws_pattern("Sagemaker", "TransformJobName")]
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "ModelName")]
     TransformInput: TransformInputTypeDef
     TransformOutput: TransformOutputTypeDef
     TransformResources: TransformResourcesTypeDef
@@ -12280,11 +12425,11 @@ class CreateTransformJobRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_transform_job' function.
 class DescribeTransformJobResponseTypeDef(BaseValidatorModel):
-    TransformJobName: str
-    TransformJobArn: str
+    TransformJobName: Annotated[str, _aws_pattern("Sagemaker", "TransformJobName")]
+    TransformJobArn: Annotated[str, _aws_pattern("Sagemaker", "TransformJobArn")]
     TransformJobStatus: TransformJobStatusType
     FailureReason: str
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "ModelName")]
     MaxConcurrentTransforms: int
     ModelClientConfig: ModelClientConfigTypeDef
     MaxPayloadInMB: int
@@ -12297,8 +12442,8 @@ class DescribeTransformJobResponseTypeDef(BaseValidatorModel):
     CreationTime: datetime
     TransformStartTime: datetime
     TransformEndTime: datetime
-    LabelingJobArn: str
-    AutoMLJobArn: str
+    LabelingJobArn: Annotated[str, _aws_pattern("Sagemaker", "LabelingJobArn")]
+    AutoMLJobArn: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]
     DataProcessing: DataProcessingTypeDef
     ExperimentConfig: ExperimentConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -12325,11 +12470,11 @@ class TransformJobDefinitionTypeDef(BaseValidatorModel):
 
 
 class TransformJobTypeDef(BaseValidatorModel):
-    TransformJobName: Optional[str] = None
-    TransformJobArn: Optional[str] = None
+    TransformJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "TransformJobName")]] = None
+    TransformJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TransformJobArn")]] = None
     TransformJobStatus: Optional[TransformJobStatusType] = None
     FailureReason: Optional[str] = None
-    ModelName: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelName")]] = None
     MaxConcurrentTransforms: Optional[int] = None
     ModelClientConfig: Optional[ModelClientConfigTypeDef] = None
     MaxPayloadInMB: Optional[int] = None
@@ -12342,8 +12487,8 @@ class TransformJobTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     TransformStartTime: Optional[datetime] = None
     TransformEndTime: Optional[datetime] = None
-    LabelingJobArn: Optional[str] = None
-    AutoMLJobArn: Optional[str] = None
+    LabelingJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "LabelingJobArn")]] = None
+    AutoMLJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]] = None
     DataProcessing: Optional[DataProcessingTypeDef] = None
     ExperimentConfig: Optional[ExperimentConfigTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -12351,19 +12496,19 @@ class TransformJobTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_ai_benchmark_job' function.
 class CreateAIBenchmarkJobRequestTypeDef(BaseValidatorModel):
-    AIBenchmarkJobName: str
+    AIBenchmarkJobName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
     BenchmarkTarget: AIBenchmarkTargetUnionTypeDef
     OutputConfig: AIBenchmarkOutputConfigTypeDef
-    AIWorkloadConfigIdentifier: str
-    RoleArn: str
+    AIWorkloadConfigIdentifier: Annotated[str, _aws_pattern("Sagemaker", "AIResourceIdentifier")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     NetworkConfig: Optional[AIBenchmarkNetworkConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'describe_ai_workload_config' function.
 class DescribeAIWorkloadConfigResponseTypeDef(BaseValidatorModel):
-    AIWorkloadConfigName: str
-    AIWorkloadConfigArn: str
+    AIWorkloadConfigName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
+    AIWorkloadConfigArn: Annotated[str, _aws_pattern("Sagemaker", "AIWorkloadConfigArn")]
     DatasetConfig: AIDatasetConfigOutputTypeDef
     AIWorkloadConfigs: AIWorkloadConfigsTypeDef
     Tags: List[TagTypeDef]
@@ -12375,14 +12520,14 @@ AIDatasetConfigUnionTypeDef = Union[AIDatasetConfigOutputTypeDef, AIDatasetConfi
 
 
 class ComputeQuotaSummaryTypeDef(BaseValidatorModel):
-    ComputeQuotaArn: str
-    ComputeQuotaId: str
-    Name: str
+    ComputeQuotaArn: Annotated[str, _aws_pattern("Sagemaker", "ComputeQuotaArn")]
+    ComputeQuotaId: Annotated[str, _aws_pattern("Sagemaker", "ComputeQuotaId")]
+    Name: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     Status: SchedulerResourceStatusType
     ComputeQuotaTarget: ComputeQuotaTargetTypeDef
     CreationTime: datetime
     ComputeQuotaVersion: Optional[int] = None
-    ClusterArn: Optional[str] = None
+    ClusterArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]] = None
     ComputeQuotaConfig: Optional[ComputeQuotaConfigOutputTypeDef] = None
     ActivationState: Optional[ActivationStateType] = None
     LastModifiedTime: Optional[datetime] = None
@@ -12390,14 +12535,14 @@ class ComputeQuotaSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_compute_quota' function.
 class DescribeComputeQuotaResponseTypeDef(BaseValidatorModel):
-    ComputeQuotaArn: str
-    ComputeQuotaId: str
-    Name: str
-    Description: str
+    ComputeQuotaArn: Annotated[str, _aws_pattern("Sagemaker", "ComputeQuotaArn")]
+    ComputeQuotaId: Annotated[str, _aws_pattern("Sagemaker", "ComputeQuotaId")]
+    Name: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    Description: Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]
     ComputeQuotaVersion: int
     Status: SchedulerResourceStatusType
     FailureReason: str
-    ClusterArn: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
     ComputeQuotaConfig: ComputeQuotaConfigOutputTypeDef
     ComputeQuotaTarget: ComputeQuotaTargetTypeDef
     ActivationState: ActivationStateType
@@ -12413,26 +12558,26 @@ ComputeQuotaConfigUnionTypeDef = Union[ComputeQuotaConfigOutputTypeDef, ComputeQ
 
 # This class is the output for the 'describe_domain' function.
 class DescribeDomainResponseTypeDef(BaseValidatorModel):
-    DomainArn: str
-    DomainId: str
-    DomainName: str
+    DomainArn: Annotated[str, _aws_pattern("Sagemaker", "DomainArn")]
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    DomainName: Annotated[str, _aws_pattern("Sagemaker", "DomainName")]
     HomeEfsFileSystemId: str
     SingleSignOnManagedApplicationInstanceId: str
-    SingleSignOnApplicationArn: str
+    SingleSignOnApplicationArn: Annotated[str, _aws_pattern("Sagemaker", "SingleSignOnApplicationArn")]
     Status: DomainStatusType
     CreationTime: datetime
     LastModifiedTime: datetime
     FailureReason: str
-    SecurityGroupIdForDomainBoundary: str
+    SecurityGroupIdForDomainBoundary: Annotated[str, _aws_pattern("Sagemaker", "SecurityGroupId")]
     AuthMode: AuthModeType
     DefaultUserSettings: UserSettingsOutputTypeDef
     DomainSettings: DomainSettingsOutputTypeDef
     AppNetworkAccessType: AppNetworkAccessTypeType
-    HomeEfsFileSystemKmsKeyId: str
-    SubnetIds: List[str]
+    HomeEfsFileSystemKmsKeyId: Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]
+    SubnetIds: List[Annotated[str, _aws_pattern("Sagemaker", "SubnetId")]]
     Url: str
-    VpcId: str
-    KmsKeyId: str
+    VpcId: Annotated[str, _aws_pattern("Sagemaker", "VpcId")]
+    KmsKeyId: Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]
     AppSecurityGroupManagement: AppSecurityGroupManagementType
     TagPropagation: TagPropagationType
     DefaultSpaceSettings: DefaultSpaceSettingsOutputTypeDef
@@ -12441,15 +12586,15 @@ class DescribeDomainResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_user_profile' function.
 class DescribeUserProfileResponseTypeDef(BaseValidatorModel):
-    DomainId: str
-    UserProfileArn: str
-    UserProfileName: str
-    HomeEfsFileSystemUid: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    UserProfileArn: Annotated[str, _aws_pattern("Sagemaker", "UserProfileArn")]
+    UserProfileName: Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]
+    HomeEfsFileSystemUid: Annotated[str, _aws_pattern("Sagemaker", "EfsUid")]
     Status: UserProfileStatusType
     LastModifiedTime: datetime
     CreationTime: datetime
     FailureReason: str
-    SingleSignOnUserIdentifier: str
+    SingleSignOnUserIdentifier: Annotated[str, _aws_pattern("Sagemaker", "SingleSignOnUserIdentifier")]
     SingleSignOnUserValue: str
     UserSettings: UserSettingsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -12462,11 +12607,11 @@ UserSettingsUnionTypeDef = Union[UserSettingsOutputTypeDef, UserSettingsTypeDef]
 
 # This class is the output for the 'describe_auto_ml_job_v2' function.
 class DescribeAutoMLJobV2ResponseTypeDef(BaseValidatorModel):
-    AutoMLJobName: str
-    AutoMLJobArn: str
+    AutoMLJobName: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobName")]
+    AutoMLJobArn: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]
     AutoMLJobInputDataConfig: List[AutoMLJobChannelTypeDef]
     OutputDataConfig: AutoMLOutputDataConfigTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     AutoMLJobObjective: AutoMLJobObjectiveTypeDef
     AutoMLProblemTypeConfig: AutoMLProblemTypeConfigOutputTypeDef
     AutoMLProblemTypeConfigName: AutoMLProblemTypeConfigNameType
@@ -12490,10 +12635,10 @@ class DescribeAutoMLJobV2ResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_auto_ml_job' function.
 class CreateAutoMLJobRequestTypeDef(BaseValidatorModel):
-    AutoMLJobName: str
+    AutoMLJobName: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobName")]
     InputDataConfig: List[AutoMLChannelTypeDef]
     OutputDataConfig: AutoMLOutputDataConfigTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ProblemType: Optional[ProblemTypeType] = None
     AutoMLJobObjective: Optional[AutoMLJobObjectiveTypeDef] = None
     AutoMLJobConfig: Optional[AutoMLJobConfigUnionTypeDef] = None
@@ -12509,16 +12654,16 @@ AutoMLProblemTypeConfigUnionTypeDef = Union[AutoMLProblemTypeConfigOutputTypeDef
 class ListPipelineExecutionStepsResponseTypeDef(BaseValidatorModel):
     PipelineExecutionSteps: List[PipelineExecutionStepTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class ClusterEventDetailTypeDef(BaseValidatorModel):
-    EventId: str
-    ClusterArn: str
-    ClusterName: str
+    EventId: Annotated[str, _aws_pattern("Sagemaker", "EventId")]
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterName")]
     ResourceType: ClusterEventResourceTypeType
     EventTime: datetime
-    InstanceGroupName: Optional[str] = None
+    InstanceGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]] = None
     InstanceId: Optional[str] = None
     EventDetails: Optional[EventDetailsTypeDef] = None
     Description: Optional[str] = None
@@ -12528,22 +12673,23 @@ class ClusterInstanceGroupDetailsTypeDef(BaseValidatorModel):
     CurrentCount: Optional[int] = None
     TargetCount: Optional[int] = None
     MinCount: Optional[int] = None
-    InstanceGroupName: Optional[str] = None
+    InstanceGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]] = None
     InstanceType: Optional[ClusterInstanceTypeType] = None
     InstanceRequirements: Optional[ClusterInstanceRequirementDetailsTypeDef] = None
     InstanceTypeDetails: Optional[List[ClusterInstanceTypeDetailTypeDef]] = None
     LifeCycleConfig: Optional[ClusterLifeCycleConfigTypeDef] = None
-    ExecutionRole: Optional[str] = None
+    ExecutionRole: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     ThreadsPerCore: Optional[int] = None
     InstanceStorageConfigs: Optional[List[ClusterInstanceStorageConfigTypeDef]] = None
     OnStartDeepHealthChecks: Optional[List[DeepHealthCheckTypeType]] = None
     Status: Optional[InstanceGroupStatusType] = None
-    TrainingPlanArn: Optional[str] = None
+    TrainingPlanArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]] = None
     TrainingPlanStatus: Optional[str] = None
     OverrideVpcConfig: Optional[VpcConfigOutputTypeDef] = None
     ScheduledUpdateConfig: Optional[ScheduledUpdateConfigOutputTypeDef] = None
-    CurrentImageId: Optional[str] = None
-    DesiredImageId: Optional[str] = None
+    CurrentImageId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageId")]] = None
+    DesiredImageId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageId")]] = None
+    ImageVersionStatus: Optional[ClusterImageVersionStatusType] = None
     ActiveOperations: Optional[Dict[Literal["Scaling"], int]] = None
     KubernetesConfig: Optional[ClusterKubernetesConfigDetailsTypeDef] = None
     CapacityRequirements: Optional[ClusterCapacityRequirementsOutputTypeDef] = None
@@ -12557,14 +12703,14 @@ class ClusterInstanceGroupDetailsTypeDef(BaseValidatorModel):
 class ClusterRestrictedInstanceGroupDetailsTypeDef(BaseValidatorModel):
     CurrentCount: Optional[int] = None
     TargetCount: Optional[int] = None
-    InstanceGroupName: Optional[str] = None
+    InstanceGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]] = None
     InstanceType: Optional[ClusterInstanceTypeType] = None
-    ExecutionRole: Optional[str] = None
+    ExecutionRole: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     ThreadsPerCore: Optional[int] = None
     InstanceStorageConfigs: Optional[List[ClusterInstanceStorageConfigTypeDef]] = None
     OnStartDeepHealthChecks: Optional[List[DeepHealthCheckTypeType]] = None
     Status: Optional[InstanceGroupStatusType] = None
-    TrainingPlanArn: Optional[str] = None
+    TrainingPlanArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]] = None
     TrainingPlanStatus: Optional[str] = None
     OverrideVpcConfig: Optional[VpcConfigOutputTypeDef] = None
     ScheduledUpdateConfig: Optional[ScheduledUpdateConfigOutputTypeDef] = None
@@ -12578,10 +12724,10 @@ class ScheduledUpdateConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_cluster_software' function.
 class UpdateClusterSoftwareRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
     InstanceGroups: Optional[List[UpdateClusterSoftwareInstanceGroupSpecificationTypeDef]] = None
     DeploymentConfig: Optional[DeploymentConfigurationUnionTypeDef] = None
-    ImageId: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageId")]] = None
 
 
 DeploymentConfigUnionTypeDef = Union[DeploymentConfigOutputTypeDef, DeploymentConfigTypeDef]
@@ -12589,11 +12735,11 @@ DeploymentConfigUnionTypeDef = Union[DeploymentConfigOutputTypeDef, DeploymentCo
 
 # This class is the output for the 'describe_inference_recommendations_job' function.
 class DescribeInferenceRecommendationsJobResponseTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobName")]
     JobDescription: str
     JobType: RecommendationJobTypeType
-    JobArn: str
-    RoleArn: str
+    JobArn: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobArn")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     Status: RecommendationJobStatusType
     CreationTime: datetime
     CompletionTime: datetime
@@ -12617,16 +12763,16 @@ RecommendationJobInputConfigUnionTypeDef = Union[
 
 # This class is the output for the 'describe_endpoint_config' function.
 class DescribeEndpointConfigOutputTypeDef(BaseValidatorModel):
-    EndpointConfigName: str
-    EndpointConfigArn: str
-    ProductionVariants: List[ProductionVariantTypeDef]
+    EndpointConfigName: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigName")]
+    EndpointConfigArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigArn")]
+    ProductionVariants: List[ProductionVariantOutputTypeDef]
     DataCaptureConfig: DataCaptureConfigOutputTypeDef
-    KmsKeyId: str
+    KmsKeyId: Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]
     CreationTime: datetime
     AsyncInferenceConfig: AsyncInferenceConfigOutputTypeDef
     ExplainerConfig: ExplainerConfigOutputTypeDef
-    ShadowProductionVariants: List[ProductionVariantTypeDef]
-    ExecutionRoleArn: str
+    ShadowProductionVariants: List[ProductionVariantOutputTypeDef]
+    ExecutionRoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     VpcConfig: VpcConfigOutputTypeDef
     EnableNetworkIsolation: bool
     MetricsConfig: MetricsConfigTypeDef
@@ -12640,14 +12786,14 @@ ExplainerConfigUnionTypeDef = Union[ExplainerConfigOutputTypeDef, ExplainerConfi
 class ListSpacesResponseTypeDef(BaseValidatorModel):
     Spaces: List[SpaceDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_inference_recommendations_job_steps' function.
 class ListInferenceRecommendationsJobStepsResponseTypeDef(BaseValidatorModel):
     Steps: List[InferenceRecommendationsJobStepTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_workteam' function.
@@ -12660,7 +12806,7 @@ class DescribeWorkteamResponseTypeDef(BaseValidatorModel):
 class ListWorkteamsResponseTypeDef(BaseValidatorModel):
     Workteams: List[WorkteamTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the output for the 'update_workteam' function.
@@ -12671,8 +12817,9 @@ class UpdateWorkteamResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_inference_component' function.
 class UpdateInferenceComponentInputTypeDef(BaseValidatorModel):
-    InferenceComponentName: str
+    InferenceComponentName: Annotated[str, _aws_pattern("Sagemaker", "InferenceComponentName")]
     Specification: Optional[InferenceComponentSpecificationTypeDef] = None
+    Specifications: Optional[List[InferenceComponentSpecificationTypeDef]] = None
     RuntimeConfig: Optional[InferenceComponentRuntimeConfigTypeDef] = None
     DeploymentConfig: Optional[InferenceComponentDeploymentConfigUnionTypeDef] = None
 
@@ -12686,7 +12833,7 @@ TrainingSpecificationUnionTypeDef = Union[TrainingSpecificationOutputTypeDef, Tr
 class ListLabelingJobsResponseTypeDef(BaseValidatorModel):
     LabelingJobSummaryList: List[LabelingJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 class DynamicScalingConfigurationTypeDef(BaseValidatorModel):
@@ -12699,18 +12846,18 @@ class DynamicScalingConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_training_job' function.
 class DescribeTrainingJobResponseTypeDef(BaseValidatorModel):
-    TrainingJobName: str
-    TrainingJobArn: str
-    TuningJobArn: str
-    LabelingJobArn: str
-    AutoMLJobArn: str
+    TrainingJobName: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobName")]
+    TrainingJobArn: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobArn")]
+    TuningJobArn: Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobArn")]
+    LabelingJobArn: Annotated[str, _aws_pattern("Sagemaker", "LabelingJobArn")]
+    AutoMLJobArn: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]
     ModelArtifacts: ModelArtifactsTypeDef
     TrainingJobStatus: TrainingJobStatusType
     SecondaryStatus: SecondaryStatusType
     FailureReason: str
     HyperParameters: Dict[str, str]
     AlgorithmSpecification: AlgorithmSpecificationOutputTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     InputDataConfig: List[ChannelOutputTypeDef]
     OutputDataConfig: OutputDataConfigTypeDef
     ResourceConfig: ResourceConfigOutputTypeDef
@@ -12748,7 +12895,7 @@ class DescribeTrainingJobResponseTypeDef(BaseValidatorModel):
     ModelPackageConfig: ModelPackageConfigTypeDef
     MlflowDetails: MlflowDetailsTypeDef
     ProgressInfo: TrainingProgressInfoTypeDef
-    OutputModelPackageArn: str
+    OutputModelPackageArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -12783,18 +12930,18 @@ class TrainingJobDefinitionOutputTypeDef(BaseValidatorModel):
 
 
 class TrainingJobTypeDef(BaseValidatorModel):
-    TrainingJobName: Optional[str] = None
-    TrainingJobArn: Optional[str] = None
-    TuningJobArn: Optional[str] = None
-    LabelingJobArn: Optional[str] = None
-    AutoMLJobArn: Optional[str] = None
+    TrainingJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingJobName")]] = None
+    TrainingJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingJobArn")]] = None
+    TuningJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobArn")]] = None
+    LabelingJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "LabelingJobArn")]] = None
+    AutoMLJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobArn")]] = None
     ModelArtifacts: Optional[ModelArtifactsTypeDef] = None
     TrainingJobStatus: Optional[TrainingJobStatusType] = None
     SecondaryStatus: Optional[SecondaryStatusType] = None
     FailureReason: Optional[str] = None
     HyperParameters: Optional[Dict[str, str]] = None
     AlgorithmSpecification: Optional[AlgorithmSpecificationOutputTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     InputDataConfig: Optional[List[ChannelOutputTypeDef]] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
     ResourceConfig: Optional[ResourceConfigOutputTypeDef] = None
@@ -12817,7 +12964,7 @@ class TrainingJobTypeDef(BaseValidatorModel):
     DebugRuleConfigurations: Optional[List[DebugRuleConfigurationOutputTypeDef]] = None
     TensorBoardOutputConfig: Optional[TensorBoardOutputConfigTypeDef] = None
     DebugRuleEvaluationStatuses: Optional[List[DebugRuleEvaluationStatusTypeDef]] = None
-    OutputModelPackageArn: Optional[str] = None
+    OutputModelPackageArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]] = None
     ModelPackageConfig: Optional[ModelPackageConfigTypeDef] = None
     ProfilerConfig: Optional[ProfilerConfigOutputTypeDef] = None
     Environment: Optional[Dict[str, str]] = None
@@ -12830,28 +12977,28 @@ DataSourceUnionTypeDef = Union[DataSourceOutputTypeDef, DataSourceTypeDef]
 
 # This class is the output for the 'describe_model' function.
 class DescribeModelOutputTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "ModelName")]
     PrimaryContainer: ContainerDefinitionOutputTypeDef
     Containers: List[ContainerDefinitionOutputTypeDef]
     InferenceExecutionConfig: InferenceExecutionConfigTypeDef
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     VpcConfig: VpcConfigOutputTypeDef
     CreationTime: datetime
-    ModelArn: str
+    ModelArn: Annotated[str, _aws_pattern("Sagemaker", "ModelArn")]
     EnableNetworkIsolation: bool
     DeploymentRecommendation: DeploymentRecommendationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ModelTypeDef(BaseValidatorModel):
-    ModelName: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelName")]] = None
     PrimaryContainer: Optional[ContainerDefinitionOutputTypeDef] = None
     Containers: Optional[List[ContainerDefinitionOutputTypeDef]] = None
     InferenceExecutionConfig: Optional[InferenceExecutionConfigTypeDef] = None
-    ExecutionRoleArn: Optional[str] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
     CreationTime: Optional[datetime] = None
-    ModelArn: Optional[str] = None
+    ModelArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelArn")]] = None
     EnableNetworkIsolation: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
     DeploymentRecommendation: Optional[DeploymentRecommendationTypeDef] = None
@@ -12882,8 +13029,8 @@ class InferenceSpecificationTypeDef(BaseValidatorModel):
     Containers: List[ModelPackageContainerDefinitionTypeDef]
     SupportedTransformInstanceTypes: Optional[List[TransformInstanceTypeType]] = None
     SupportedRealtimeInferenceInstanceTypes: Optional[List[ProductionVariantInstanceTypeType]] = None
-    SupportedContentTypes: Optional[List[str]] = None
-    SupportedResponseMIMETypes: Optional[List[str]] = None
+    SupportedContentTypes: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ContentType")]]] = None
+    SupportedResponseMIMETypes: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ResponseMIMEType")]]] = None
 
 
 ModelPackageContainerDefinitionUnionTypeDef = Union[
@@ -12901,8 +13048,8 @@ class SourceAlgorithmSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_optimization_job' function.
 class CreateOptimizationJobRequestTypeDef(BaseValidatorModel):
-    OptimizationJobName: str
-    RoleArn: str
+    OptimizationJobName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ModelSource: OptimizationJobModelSourceTypeDef
     DeploymentInstanceType: OptimizationJobDeploymentInstanceTypeType
     OptimizationConfigs: List[OptimizationConfigUnionTypeDef]
@@ -12916,8 +13063,8 @@ class CreateOptimizationJobRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_data_quality_job_definition' function.
 class DescribeDataQualityJobDefinitionResponseTypeDef(BaseValidatorModel):
-    JobDefinitionArn: str
-    JobDefinitionName: str
+    JobDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionArn")]
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
     CreationTime: datetime
     DataQualityBaselineConfig: DataQualityBaselineConfigTypeDef
     DataQualityAppSpecification: DataQualityAppSpecificationOutputTypeDef
@@ -12925,15 +13072,15 @@ class DescribeDataQualityJobDefinitionResponseTypeDef(BaseValidatorModel):
     DataQualityJobOutputConfig: MonitoringOutputConfigOutputTypeDef
     JobResources: MonitoringResourcesTypeDef
     NetworkConfig: MonitoringNetworkConfigOutputTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     StoppingCondition: MonitoringStoppingConditionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_model_bias_job_definition' function.
 class DescribeModelBiasJobDefinitionResponseTypeDef(BaseValidatorModel):
-    JobDefinitionArn: str
-    JobDefinitionName: str
+    JobDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionArn")]
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
     CreationTime: datetime
     ModelBiasBaselineConfig: ModelBiasBaselineConfigTypeDef
     ModelBiasAppSpecification: ModelBiasAppSpecificationOutputTypeDef
@@ -12941,15 +13088,15 @@ class DescribeModelBiasJobDefinitionResponseTypeDef(BaseValidatorModel):
     ModelBiasJobOutputConfig: MonitoringOutputConfigOutputTypeDef
     JobResources: MonitoringResourcesTypeDef
     NetworkConfig: MonitoringNetworkConfigOutputTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     StoppingCondition: MonitoringStoppingConditionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_model_explainability_job_definition' function.
 class DescribeModelExplainabilityJobDefinitionResponseTypeDef(BaseValidatorModel):
-    JobDefinitionArn: str
-    JobDefinitionName: str
+    JobDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionArn")]
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
     CreationTime: datetime
     ModelExplainabilityBaselineConfig: ModelExplainabilityBaselineConfigTypeDef
     ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecificationOutputTypeDef
@@ -12957,15 +13104,15 @@ class DescribeModelExplainabilityJobDefinitionResponseTypeDef(BaseValidatorModel
     ModelExplainabilityJobOutputConfig: MonitoringOutputConfigOutputTypeDef
     JobResources: MonitoringResourcesTypeDef
     NetworkConfig: MonitoringNetworkConfigOutputTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     StoppingCondition: MonitoringStoppingConditionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_model_quality_job_definition' function.
 class DescribeModelQualityJobDefinitionResponseTypeDef(BaseValidatorModel):
-    JobDefinitionArn: str
-    JobDefinitionName: str
+    JobDefinitionArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionArn")]
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
     CreationTime: datetime
     ModelQualityBaselineConfig: ModelQualityBaselineConfigTypeDef
     ModelQualityAppSpecification: ModelQualityAppSpecificationOutputTypeDef
@@ -12973,7 +13120,7 @@ class DescribeModelQualityJobDefinitionResponseTypeDef(BaseValidatorModel):
     ModelQualityJobOutputConfig: MonitoringOutputConfigOutputTypeDef
     JobResources: MonitoringResourcesTypeDef
     NetworkConfig: MonitoringNetworkConfigOutputTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     StoppingCondition: MonitoringStoppingConditionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -13006,7 +13153,7 @@ class MonitoringJobDefinitionTypeDef(BaseValidatorModel):
     MonitoringOutputConfig: MonitoringOutputConfigTypeDef
     MonitoringResources: MonitoringResourcesTypeDef
     MonitoringAppSpecification: MonitoringAppSpecificationTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     BaselineConfig: Optional[MonitoringBaselineConfigTypeDef] = None
     StoppingCondition: Optional[MonitoringStoppingConditionTypeDef] = None
     Environment: Optional[Dict[str, str]] = None
@@ -13015,10 +13162,10 @@ class MonitoringJobDefinitionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_workteam' function.
 class CreateWorkteamRequestTypeDef(BaseValidatorModel):
-    WorkteamName: str
+    WorkteamName: Annotated[str, _aws_pattern("Sagemaker", "WorkteamName")]
     MemberDefinitions: List[MemberDefinitionUnionTypeDef]
-    Description: str
-    WorkforceName: Optional[str] = None
+    Description: Annotated[str, _aws_pattern("Sagemaker", "String200")]
+    WorkforceName: Optional[Annotated[str, _aws_pattern("Sagemaker", "WorkforceName")]] = None
     NotificationConfiguration: Optional[NotificationConfigurationTypeDef] = None
     WorkerAccessConfiguration: Optional[WorkerAccessConfigurationTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -13026,19 +13173,19 @@ class CreateWorkteamRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_workteam' function.
 class UpdateWorkteamRequestTypeDef(BaseValidatorModel):
-    WorkteamName: str
+    WorkteamName: Annotated[str, _aws_pattern("Sagemaker", "WorkteamName")]
     MemberDefinitions: Optional[List[MemberDefinitionUnionTypeDef]] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "String200")]] = None
     NotificationConfiguration: Optional[NotificationConfigurationTypeDef] = None
     WorkerAccessConfiguration: Optional[WorkerAccessConfigurationTypeDef] = None
 
 
 # This class is the input for the 'create_processing_job' function.
 class CreateProcessingJobRequestTypeDef(BaseValidatorModel):
-    ProcessingJobName: str
+    ProcessingJobName: Annotated[str, _aws_pattern("Sagemaker", "ProcessingJobName")]
     ProcessingResources: ProcessingResourcesTypeDef
     AppSpecification: AppSpecificationUnionTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ProcessingInputs: Optional[List[ProcessingInputTypeDef]] = None
     ProcessingOutputConfig: Optional[ProcessingOutputConfigUnionTypeDef] = None
     StoppingCondition: Optional[ProcessingStoppingConditionTypeDef] = None
@@ -13050,9 +13197,9 @@ class CreateProcessingJobRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_endpoint' function.
 class DescribeEndpointOutputTypeDef(BaseValidatorModel):
-    EndpointName: str
-    EndpointArn: str
-    EndpointConfigName: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
+    EndpointArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointArn")]
+    EndpointConfigName: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigName")]
     ProductionVariants: List[ProductionVariantSummaryTypeDef]
     DataCaptureConfig: DataCaptureConfigSummaryTypeDef
     EndpointStatus: EndpointStatusType
@@ -13070,9 +13217,9 @@ class DescribeEndpointOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_flow_definition' function.
 class CreateFlowDefinitionRequestTypeDef(BaseValidatorModel):
-    FlowDefinitionName: str
+    FlowDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "FlowDefinitionName")]
     OutputConfig: FlowDefinitionOutputConfigTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     HumanLoopRequestSource: Optional[HumanLoopRequestSourceTypeDef] = None
     HumanLoopActivationConfig: Optional[HumanLoopActivationConfigTypeDef] = None
     HumanLoopConfig: Optional[HumanLoopConfigUnionTypeDef] = None
@@ -13081,13 +13228,13 @@ class CreateFlowDefinitionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_labeling_job' function.
 class CreateLabelingJobRequestTypeDef(BaseValidatorModel):
-    LabelingJobName: str
-    LabelAttributeName: str
+    LabelingJobName: Annotated[str, _aws_pattern("Sagemaker", "LabelingJobName")]
+    LabelAttributeName: Annotated[str, _aws_pattern("Sagemaker", "LabelAttributeName")]
     InputConfig: LabelingJobInputConfigUnionTypeDef
     OutputConfig: LabelingJobOutputConfigTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     HumanTaskConfig: HumanTaskConfigUnionTypeDef
-    LabelCategoryConfigS3Uri: Optional[str] = None
+    LabelCategoryConfigS3Uri: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     StoppingConditions: Optional[LabelingJobStoppingConditionsTypeDef] = None
     LabelingJobAlgorithmsConfig: Optional[LabelingJobAlgorithmsConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -13095,10 +13242,10 @@ class CreateLabelingJobRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_space' function.
 class DescribeSpaceResponseTypeDef(BaseValidatorModel):
-    DomainId: str
-    SpaceArn: str
-    SpaceName: str
-    HomeEfsFileSystemUid: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    SpaceArn: Annotated[str, _aws_pattern("Sagemaker", "SpaceArn")]
+    SpaceName: Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]
+    HomeEfsFileSystemUid: Annotated[str, _aws_pattern("Sagemaker", "EfsUid")]
     Status: SpaceStatusType
     LastModifiedTime: datetime
     CreationTime: datetime
@@ -13106,7 +13253,7 @@ class DescribeSpaceResponseTypeDef(BaseValidatorModel):
     SpaceSettings: SpaceSettingsOutputTypeDef
     OwnershipSettings: OwnershipSettingsTypeDef
     SpaceSharingSettings: SpaceSharingSettingsTypeDef
-    SpaceDisplayName: str
+    SpaceDisplayName: Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString64")]
     Url: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -13120,13 +13267,13 @@ class ModelPackageValidationProfileOutputTypeDef(BaseValidatorModel):
 
 
 class ModelPackageValidationProfileTypeDef(BaseValidatorModel):
-    ProfileName: str
+    ProfileName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     TransformJobDefinition: TransformJobDefinitionTypeDef
 
 
 # This class is the input for the 'create_ai_workload_config' function.
 class CreateAIWorkloadConfigRequestTypeDef(BaseValidatorModel):
-    AIWorkloadConfigName: str
+    AIWorkloadConfigName: Annotated[str, _aws_pattern("Sagemaker", "AIEntityName")]
     DatasetConfig: Optional[AIDatasetConfigUnionTypeDef] = None
     AIWorkloadConfigs: Optional[AIWorkloadConfigsTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -13136,42 +13283,42 @@ class CreateAIWorkloadConfigRequestTypeDef(BaseValidatorModel):
 class ListComputeQuotasResponseTypeDef(BaseValidatorModel):
     ComputeQuotaSummaries: List[ComputeQuotaSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the input for the 'create_compute_quota' function.
 class CreateComputeQuotaRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ClusterArn: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
     ComputeQuotaConfig: ComputeQuotaConfigUnionTypeDef
     ComputeQuotaTarget: ComputeQuotaTargetTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     ActivationState: Optional[ActivationStateType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_compute_quota' function.
 class UpdateComputeQuotaRequestTypeDef(BaseValidatorModel):
-    ComputeQuotaId: str
+    ComputeQuotaId: Annotated[str, _aws_pattern("Sagemaker", "ComputeQuotaId")]
     TargetVersion: int
     ComputeQuotaConfig: Optional[ComputeQuotaConfigUnionTypeDef] = None
     ComputeQuotaTarget: Optional[ComputeQuotaTargetTypeDef] = None
     ActivationState: Optional[ActivationStateType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
 
 
 # This class is the input for the 'create_domain' function.
 class CreateDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Sagemaker", "DomainName")]
     AuthMode: AuthModeType
     DefaultUserSettings: UserSettingsUnionTypeDef
     DomainSettings: Optional[DomainSettingsUnionTypeDef] = None
-    SubnetIds: Optional[List[str]] = None
-    VpcId: Optional[str] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "SubnetId")]]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Sagemaker", "VpcId")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     AppNetworkAccessType: Optional[AppNetworkAccessTypeType] = None
-    HomeEfsFileSystemKmsKeyId: Optional[str] = None
-    KmsKeyId: Optional[str] = None
+    HomeEfsFileSystemKmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     AppSecurityGroupManagement: Optional[AppSecurityGroupManagementType] = None
     TagPropagation: Optional[TagPropagationType] = None
     DefaultSpaceSettings: Optional[DefaultSpaceSettingsUnionTypeDef] = None
@@ -13179,9 +13326,9 @@ class CreateDomainRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user_profile' function.
 class CreateUserProfileRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    UserProfileName: str
-    SingleSignOnUserIdentifier: Optional[str] = None
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    UserProfileName: Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]
+    SingleSignOnUserIdentifier: Optional[Annotated[str, _aws_pattern("Sagemaker", "SingleSignOnUserIdentifier")]] = None
     SingleSignOnUserValue: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     UserSettings: Optional[UserSettingsUnionTypeDef] = None
@@ -13189,31 +13336,31 @@ class CreateUserProfileRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_domain' function.
 class UpdateDomainRequestTypeDef(BaseValidatorModel):
-    DomainId: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
     DefaultUserSettings: Optional[UserSettingsUnionTypeDef] = None
     DomainSettingsForUpdate: Optional[DomainSettingsForUpdateTypeDef] = None
     AppSecurityGroupManagement: Optional[AppSecurityGroupManagementType] = None
     DefaultSpaceSettings: Optional[DefaultSpaceSettingsUnionTypeDef] = None
-    SubnetIds: Optional[List[str]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "SubnetId")]]] = None
     AppNetworkAccessType: Optional[AppNetworkAccessTypeType] = None
     TagPropagation: Optional[TagPropagationType] = None
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Sagemaker", "VpcId")]] = None
 
 
 # This class is the input for the 'update_user_profile' function.
 class UpdateUserProfileRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    UserProfileName: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    UserProfileName: Annotated[str, _aws_pattern("Sagemaker", "UserProfileName")]
     UserSettings: Optional[UserSettingsUnionTypeDef] = None
 
 
 # This class is the input for the 'create_auto_ml_job_v2' function.
 class CreateAutoMLJobV2RequestTypeDef(BaseValidatorModel):
-    AutoMLJobName: str
+    AutoMLJobName: Annotated[str, _aws_pattern("Sagemaker", "AutoMLJobName")]
     AutoMLJobInputDataConfig: List[AutoMLJobChannelTypeDef]
     OutputDataConfig: AutoMLOutputDataConfigTypeDef
     AutoMLProblemTypeConfig: AutoMLProblemTypeConfigUnionTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     Tags: Optional[List[TagTypeDef]] = None
     SecurityConfig: Optional[AutoMLSecurityConfigUnionTypeDef] = None
     AutoMLJobObjective: Optional[AutoMLJobObjectiveTypeDef] = None
@@ -13230,8 +13377,8 @@ class DescribeClusterEventResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_cluster' function.
 class DescribeClusterResponseTypeDef(BaseValidatorModel):
-    ClusterArn: str
-    ClusterName: str
+    ClusterArn: Annotated[str, _aws_pattern("Sagemaker", "ClusterArn")]
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterName")]
     ClusterStatus: ClusterStatusType
     CreationTime: datetime
     FailureMessage: str
@@ -13242,7 +13389,7 @@ class DescribeClusterResponseTypeDef(BaseValidatorModel):
     TieredStorageConfig: ClusterTieredStorageConfigTypeDef
     NodeRecovery: ClusterNodeRecoveryType
     NodeProvisioningMode: Literal["Continuous"]
-    ClusterRole: str
+    ClusterRole: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     AutoScaling: ClusterAutoScalingConfigOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -13252,16 +13399,16 @@ ScheduledUpdateConfigUnionTypeDef = Union[ScheduledUpdateConfigOutputTypeDef, Sc
 
 # This class is the input for the 'create_endpoint' function.
 class CreateEndpointInputTypeDef(BaseValidatorModel):
-    EndpointName: str
-    EndpointConfigName: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
+    EndpointConfigName: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigName")]
     DeploymentConfig: Optional[DeploymentConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_endpoint' function.
 class UpdateEndpointInputTypeDef(BaseValidatorModel):
-    EndpointName: str
-    EndpointConfigName: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
+    EndpointConfigName: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigName")]
     RetainAllVariantProperties: Optional[bool] = None
     ExcludeRetainedVariantProperties: Optional[List[VariantPropertyTypeDef]] = None
     DeploymentConfig: Optional[DeploymentConfigUnionTypeDef] = None
@@ -13270,9 +13417,9 @@ class UpdateEndpointInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_inference_recommendations_job' function.
 class CreateInferenceRecommendationsJobRequestTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobName")]
     JobType: RecommendationJobTypeType
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     InputConfig: RecommendationJobInputConfigUnionTypeDef
     JobDescription: Optional[str] = None
     StoppingConditions: Optional[RecommendationJobStoppingConditionsUnionTypeDef] = None
@@ -13282,15 +13429,15 @@ class CreateInferenceRecommendationsJobRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_endpoint_config' function.
 class CreateEndpointConfigInputTypeDef(BaseValidatorModel):
-    EndpointConfigName: str
-    ProductionVariants: List[ProductionVariantTypeDef]
+    EndpointConfigName: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigName")]
+    ProductionVariants: List[ProductionVariantUnionTypeDef]
     DataCaptureConfig: Optional[DataCaptureConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Sagemaker", "KmsKeyId")]] = None
     AsyncInferenceConfig: Optional[AsyncInferenceConfigUnionTypeDef] = None
     ExplainerConfig: Optional[ExplainerConfigUnionTypeDef] = None
-    ShadowProductionVariants: Optional[List[ProductionVariantTypeDef]] = None
-    ExecutionRoleArn: Optional[str] = None
+    ShadowProductionVariants: Optional[List[ProductionVariantUnionTypeDef]] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
     EnableNetworkIsolation: Optional[bool] = None
     MetricsConfig: Optional[MetricsConfigTypeDef] = None
@@ -13298,9 +13445,9 @@ class CreateEndpointConfigInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_scaling_configuration_recommendation' function.
 class GetScalingConfigurationRecommendationResponseTypeDef(BaseValidatorModel):
-    InferenceRecommendationsJobName: str
+    InferenceRecommendationsJobName: Annotated[str, _aws_pattern("Sagemaker", "RecommendationJobName")]
     RecommendationId: str
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
     TargetCpuUtilizationPerCore: int
     ScalingPolicyObjective: ScalingPolicyObjectiveTypeDef
     Metric: ScalingPolicyMetricTypeDef
@@ -13310,8 +13457,8 @@ class GetScalingConfigurationRecommendationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_hyper_parameter_tuning_job' function.
 class DescribeHyperParameterTuningJobResponseTypeDef(BaseValidatorModel):
-    HyperParameterTuningJobName: str
-    HyperParameterTuningJobArn: str
+    HyperParameterTuningJobName: Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobName")]
+    HyperParameterTuningJobArn: Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobArn")]
     HyperParameterTuningJobConfig: HyperParameterTuningJobConfigOutputTypeDef
     TrainingJobDefinition: HyperParameterTrainingJobDefinitionOutputTypeDef
     TrainingJobDefinitions: List[HyperParameterTrainingJobDefinitionOutputTypeDef]
@@ -13332,8 +13479,10 @@ class DescribeHyperParameterTuningJobResponseTypeDef(BaseValidatorModel):
 
 
 class HyperParameterTuningJobSearchEntityTypeDef(BaseValidatorModel):
-    HyperParameterTuningJobName: Optional[str] = None
-    HyperParameterTuningJobArn: Optional[str] = None
+    HyperParameterTuningJobName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobName")]] = (
+        None
+    )
+    HyperParameterTuningJobArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobArn")]] = None
     HyperParameterTuningJobConfig: Optional[HyperParameterTuningJobConfigOutputTypeDef] = None
     TrainingJobDefinition: Optional[HyperParameterTrainingJobDefinitionOutputTypeDef] = None
     TrainingJobDefinitions: Optional[List[HyperParameterTrainingJobDefinitionOutputTypeDef]] = None
@@ -13359,16 +13508,16 @@ class AlgorithmValidationProfileOutputTypeDef(BaseValidatorModel):
 
 
 class TrialComponentSourceDetailTypeDef(BaseValidatorModel):
-    SourceArn: Optional[str] = None
+    SourceArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrialComponentSourceArn")]] = None
     TrainingJob: Optional[TrainingJobTypeDef] = None
     ProcessingJob: Optional[ProcessingJobTypeDef] = None
     TransformJob: Optional[TransformJobTypeDef] = None
 
 
 class ChannelTypeDef(BaseValidatorModel):
-    ChannelName: str
+    ChannelName: Annotated[str, _aws_pattern("Sagemaker", "ChannelName")]
     DataSource: DataSourceUnionTypeDef
-    ContentType: Optional[str] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("Sagemaker", "ContentType")]] = None
     CompressionType: Optional[CompressionTypeType] = None
     RecordWrapperType: Optional[RecordWrapperType] = None
     InputMode: Optional[TrainingInputModeType] = None
@@ -13377,24 +13526,24 @@ class ChannelTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_model' function.
 class CreateModelInputTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Sagemaker", "ModelName")]
     PrimaryContainer: Optional[ContainerDefinitionUnionTypeDef] = None
     Containers: Optional[List[ContainerDefinitionUnionTypeDef]] = None
     InferenceExecutionConfig: Optional[InferenceExecutionConfigTypeDef] = None
-    ExecutionRoleArn: Optional[str] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
     EnableNetworkIsolation: Optional[bool] = None
 
 
 class BatchDescribeModelPackageSummaryTypeDef(BaseValidatorModel):
-    ModelPackageGroupName: str
-    ModelPackageArn: str
+    ModelPackageGroupName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelPackageArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]
     CreationTime: datetime
     InferenceSpecification: InferenceSpecificationOutputTypeDef
     ModelPackageStatus: ModelPackageStatusType
     ModelPackageVersion: Optional[int] = None
-    ModelPackageDescription: Optional[str] = None
+    ModelPackageDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
     ModelPackageRegistrationType: Optional[ModelPackageRegistrationTypeType] = None
 
@@ -13403,13 +13552,13 @@ InferenceSpecificationUnionTypeDef = Union[InferenceSpecificationOutputTypeDef, 
 
 
 class AdditionalInferenceSpecificationDefinitionTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     Containers: List[ModelPackageContainerDefinitionUnionTypeDef]
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     SupportedTransformInstanceTypes: Optional[List[TransformInstanceTypeType]] = None
     SupportedRealtimeInferenceInstanceTypes: Optional[List[ProductionVariantInstanceTypeType]] = None
-    SupportedContentTypes: Optional[List[str]] = None
-    SupportedResponseMIMETypes: Optional[List[str]] = None
+    SupportedContentTypes: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ContentType")]]] = None
+    SupportedResponseMIMETypes: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ResponseMIMEType")]]] = None
 
 
 SourceAlgorithmSpecificationUnionTypeDef = Union[
@@ -13426,12 +13575,12 @@ class MonitoringScheduleConfigOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_quality_job_definition' function.
 class CreateDataQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
     DataQualityAppSpecification: DataQualityAppSpecificationUnionTypeDef
     DataQualityJobInput: DataQualityJobInputUnionTypeDef
     DataQualityJobOutputConfig: MonitoringOutputConfigUnionTypeDef
     JobResources: MonitoringResourcesTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     DataQualityBaselineConfig: Optional[DataQualityBaselineConfigTypeDef] = None
     NetworkConfig: Optional[MonitoringNetworkConfigUnionTypeDef] = None
     StoppingCondition: Optional[MonitoringStoppingConditionTypeDef] = None
@@ -13440,12 +13589,12 @@ class CreateDataQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_model_bias_job_definition' function.
 class CreateModelBiasJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
     ModelBiasAppSpecification: ModelBiasAppSpecificationUnionTypeDef
     ModelBiasJobInput: ModelBiasJobInputUnionTypeDef
     ModelBiasJobOutputConfig: MonitoringOutputConfigUnionTypeDef
     JobResources: MonitoringResourcesTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ModelBiasBaselineConfig: Optional[ModelBiasBaselineConfigTypeDef] = None
     NetworkConfig: Optional[MonitoringNetworkConfigUnionTypeDef] = None
     StoppingCondition: Optional[MonitoringStoppingConditionTypeDef] = None
@@ -13454,12 +13603,12 @@ class CreateModelBiasJobDefinitionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_model_explainability_job_definition' function.
 class CreateModelExplainabilityJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
     ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecificationUnionTypeDef
     ModelExplainabilityJobInput: ModelExplainabilityJobInputUnionTypeDef
     ModelExplainabilityJobOutputConfig: MonitoringOutputConfigUnionTypeDef
     JobResources: MonitoringResourcesTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ModelExplainabilityBaselineConfig: Optional[ModelExplainabilityBaselineConfigTypeDef] = None
     NetworkConfig: Optional[MonitoringNetworkConfigUnionTypeDef] = None
     StoppingCondition: Optional[MonitoringStoppingConditionTypeDef] = None
@@ -13468,12 +13617,12 @@ class CreateModelExplainabilityJobDefinitionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_model_quality_job_definition' function.
 class CreateModelQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
-    JobDefinitionName: str
+    JobDefinitionName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]
     ModelQualityAppSpecification: ModelQualityAppSpecificationUnionTypeDef
     ModelQualityJobInput: ModelQualityJobInputUnionTypeDef
     ModelQualityJobOutputConfig: MonitoringOutputConfigUnionTypeDef
     JobResources: MonitoringResourcesTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ModelQualityBaselineConfig: Optional[ModelQualityBaselineConfigTypeDef] = None
     NetworkConfig: Optional[MonitoringNetworkConfigUnionTypeDef] = None
     StoppingCondition: Optional[MonitoringStoppingConditionTypeDef] = None
@@ -13483,27 +13632,29 @@ class CreateModelQualityJobDefinitionRequestTypeDef(BaseValidatorModel):
 class MonitoringScheduleConfigTypeDef(BaseValidatorModel):
     ScheduleConfig: Optional[ScheduleConfigTypeDef] = None
     MonitoringJobDefinition: Optional[MonitoringJobDefinitionTypeDef] = None
-    MonitoringJobDefinitionName: Optional[str] = None
+    MonitoringJobDefinitionName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringJobDefinitionName")]] = (
+        None
+    )
     MonitoringType: Optional[MonitoringTypeType] = None
 
 
 # This class is the input for the 'create_space' function.
 class CreateSpaceRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    SpaceName: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    SpaceName: Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]
     Tags: Optional[List[TagTypeDef]] = None
     SpaceSettings: Optional[SpaceSettingsUnionTypeDef] = None
     OwnershipSettings: Optional[OwnershipSettingsTypeDef] = None
     SpaceSharingSettings: Optional[SpaceSharingSettingsTypeDef] = None
-    SpaceDisplayName: Optional[str] = None
+    SpaceDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString64")]] = None
 
 
 # This class is the input for the 'update_space' function.
 class UpdateSpaceRequestTypeDef(BaseValidatorModel):
-    DomainId: str
-    SpaceName: str
+    DomainId: Annotated[str, _aws_pattern("Sagemaker", "DomainId")]
+    SpaceName: Annotated[str, _aws_pattern("Sagemaker", "SpaceName")]
     SpaceSettings: Optional[SpaceSettingsUnionTypeDef] = None
-    SpaceDisplayName: Optional[str] = None
+    SpaceDisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "NonEmptyString64")]] = None
 
 
 class ModelPackageValidationSpecificationOutputTypeDef(BaseValidatorModel):
@@ -13512,14 +13663,14 @@ class ModelPackageValidationSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class ModelPackageValidationSpecificationTypeDef(BaseValidatorModel):
-    ValidationRole: str
+    ValidationRole: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ValidationProfiles: List[ModelPackageValidationProfileTypeDef]
 
 
 class ClusterInstanceGroupSpecificationTypeDef(BaseValidatorModel):
     InstanceCount: int
-    InstanceGroupName: str
-    ExecutionRole: str
+    InstanceGroupName: Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]
+    ExecutionRole: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     MinInstanceCount: Optional[int] = None
     InstanceType: Optional[ClusterInstanceTypeType] = None
     InstanceRequirements: Optional[ClusterInstanceRequirementsTypeDef] = None
@@ -13527,10 +13678,10 @@ class ClusterInstanceGroupSpecificationTypeDef(BaseValidatorModel):
     ThreadsPerCore: Optional[int] = None
     InstanceStorageConfigs: Optional[List[ClusterInstanceStorageConfigTypeDef]] = None
     OnStartDeepHealthChecks: Optional[List[DeepHealthCheckTypeType]] = None
-    TrainingPlanArn: Optional[str] = None
+    TrainingPlanArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]] = None
     OverrideVpcConfig: Optional[VpcConfigUnionTypeDef] = None
     ScheduledUpdateConfig: Optional[ScheduledUpdateConfigUnionTypeDef] = None
-    ImageId: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Sagemaker", "ImageId")]] = None
     KubernetesConfig: Optional[ClusterKubernetesConfigTypeDef] = None
     SlurmConfig: Optional[ClusterSlurmConfigTypeDef] = None
     CapacityRequirements: Optional[ClusterCapacityRequirementsUnionTypeDef] = None
@@ -13539,16 +13690,16 @@ class ClusterInstanceGroupSpecificationTypeDef(BaseValidatorModel):
 
 class ClusterRestrictedInstanceGroupSpecificationTypeDef(BaseValidatorModel):
     InstanceCount: int
-    InstanceGroupName: str
+    InstanceGroupName: Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]
     InstanceType: ClusterInstanceTypeType
-    ExecutionRole: str
-    EnvironmentConfig: EnvironmentConfigTypeDef
+    ExecutionRole: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ThreadsPerCore: Optional[int] = None
     InstanceStorageConfigs: Optional[List[ClusterInstanceStorageConfigTypeDef]] = None
     OnStartDeepHealthChecks: Optional[List[DeepHealthCheckTypeType]] = None
-    TrainingPlanArn: Optional[str] = None
+    TrainingPlanArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrainingPlanArn")]] = None
     OverrideVpcConfig: Optional[VpcConfigUnionTypeDef] = None
     ScheduledUpdateConfig: Optional[ScheduledUpdateConfigUnionTypeDef] = None
+    EnvironmentConfig: Optional[EnvironmentConfigTypeDef] = None
 
 
 class AlgorithmValidationSpecificationOutputTypeDef(BaseValidatorModel):
@@ -13557,9 +13708,9 @@ class AlgorithmValidationSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class TrialComponentTypeDef(BaseValidatorModel):
-    TrialComponentName: Optional[str] = None
-    DisplayName: Optional[str] = None
-    TrialComponentArn: Optional[str] = None
+    TrialComponentName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
+    TrialComponentArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "TrialComponentArn")]] = None
     Source: Optional[TrialComponentSourceTypeDef] = None
     Status: Optional[TrialComponentStatusTypeDef] = None
     StartTime: Optional[datetime] = None
@@ -13574,10 +13725,10 @@ class TrialComponentTypeDef(BaseValidatorModel):
     Metrics: Optional[List[TrialComponentMetricSummaryTypeDef]] = None
     MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
     SourceDetail: Optional[TrialComponentSourceDetailTypeDef] = None
-    LineageGroupArn: Optional[str] = None
+    LineageGroupArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "LineageGroupArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     Parents: Optional[List[ParentTypeDef]] = None
-    RunName: Optional[str] = None
+    RunName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ExperimentEntityName")]] = None
 
 
 ChannelUnionTypeDef = Union[ChannelOutputTypeDef, ChannelTypeDef]
@@ -13606,44 +13757,44 @@ AdditionalInferenceSpecificationDefinitionUnionTypeDef = Union[
 
 # This class is the output for the 'describe_monitoring_schedule' function.
 class DescribeMonitoringScheduleResponseTypeDef(BaseValidatorModel):
-    MonitoringScheduleArn: str
-    MonitoringScheduleName: str
+    MonitoringScheduleArn: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleArn")]
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
     MonitoringScheduleStatus: ScheduleStatusType
     MonitoringType: MonitoringTypeType
     FailureReason: str
     CreationTime: datetime
     LastModifiedTime: datetime
     MonitoringScheduleConfig: MonitoringScheduleConfigOutputTypeDef
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
     LastMonitoringExecutionSummary: MonitoringExecutionSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ModelDashboardMonitoringScheduleTypeDef(BaseValidatorModel):
-    MonitoringScheduleArn: Optional[str] = None
-    MonitoringScheduleName: Optional[str] = None
+    MonitoringScheduleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleArn")]] = None
+    MonitoringScheduleName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]] = None
     MonitoringScheduleStatus: Optional[ScheduleStatusType] = None
     MonitoringType: Optional[MonitoringTypeType] = None
     FailureReason: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     MonitoringScheduleConfig: Optional[MonitoringScheduleConfigOutputTypeDef] = None
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
     MonitoringAlertSummaries: Optional[List[MonitoringAlertSummaryTypeDef]] = None
     LastMonitoringExecutionSummary: Optional[MonitoringExecutionSummaryTypeDef] = None
     BatchTransformInput: Optional[BatchTransformInputOutputTypeDef] = None
 
 
 class MonitoringScheduleTypeDef(BaseValidatorModel):
-    MonitoringScheduleArn: Optional[str] = None
-    MonitoringScheduleName: Optional[str] = None
+    MonitoringScheduleArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleArn")]] = None
+    MonitoringScheduleName: Optional[Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]] = None
     MonitoringScheduleStatus: Optional[ScheduleStatusType] = None
     MonitoringType: Optional[MonitoringTypeType] = None
     FailureReason: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     MonitoringScheduleConfig: Optional[MonitoringScheduleConfigOutputTypeDef] = None
-    EndpointName: Optional[str] = None
+    EndpointName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]] = None
     LastMonitoringExecutionSummary: Optional[MonitoringExecutionSummaryTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -13653,12 +13804,12 @@ MonitoringScheduleConfigUnionTypeDef = Union[MonitoringScheduleConfigOutputTypeD
 
 # This class is the output for the 'describe_model_package' function.
 class DescribeModelPackageOutputTypeDef(BaseValidatorModel):
-    ModelPackageName: str
-    ModelPackageGroupName: str
+    ModelPackageName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    ModelPackageGroupName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     ModelPackageVersion: int
     ModelPackageRegistrationType: ModelPackageRegistrationTypeType
-    ModelPackageArn: str
-    ModelPackageDescription: str
+    ModelPackageArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]
+    ModelPackageDescription: Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]
     CreationTime: datetime
     InferenceSpecification: InferenceSpecificationOutputTypeDef
     SourceAlgorithmSpecification: SourceAlgorithmSpecificationOutputTypeDef
@@ -13672,7 +13823,7 @@ class DescribeModelPackageOutputTypeDef(BaseValidatorModel):
     ModelMetrics: ModelMetricsTypeDef
     LastModifiedTime: datetime
     LastModifiedBy: UserContextTypeDef
-    ApprovalDescription: str
+    ApprovalDescription: Annotated[str, _aws_pattern("Sagemaker", "ApprovalDescription")]
     Domain: str
     Task: str
     SamplePayloadUrl: str
@@ -13680,7 +13831,7 @@ class DescribeModelPackageOutputTypeDef(BaseValidatorModel):
     DriftCheckBaselines: DriftCheckBaselinesTypeDef
     AdditionalInferenceSpecifications: List[AdditionalInferenceSpecificationDefinitionOutputTypeDef]
     SkipModelValidation: SkipModelValidationType
-    SourceUri: str
+    SourceUri: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageSourceUri")]
     SecurityConfig: ModelPackageSecurityConfigTypeDef
     ModelCard: ModelPackageModelCardTypeDef
     ModelLifeCycle: ModelLifeCycleTypeDef
@@ -13688,12 +13839,12 @@ class DescribeModelPackageOutputTypeDef(BaseValidatorModel):
 
 
 class ModelPackageTypeDef(BaseValidatorModel):
-    ModelPackageName: Optional[str] = None
-    ModelPackageGroupName: Optional[str] = None
+    ModelPackageName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
+    ModelPackageGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
     ModelPackageVersion: Optional[int] = None
     ModelPackageRegistrationType: Optional[ModelPackageRegistrationTypeType] = None
-    ModelPackageArn: Optional[str] = None
-    ModelPackageDescription: Optional[str] = None
+    ModelPackageArn: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]] = None
+    ModelPackageDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     CreationTime: Optional[datetime] = None
     InferenceSpecification: Optional[InferenceSpecificationOutputTypeDef] = None
     SourceAlgorithmSpecification: Optional[SourceAlgorithmSpecificationOutputTypeDef] = None
@@ -13707,12 +13858,12 @@ class ModelPackageTypeDef(BaseValidatorModel):
     ModelMetrics: Optional[ModelMetricsTypeDef] = None
     LastModifiedTime: Optional[datetime] = None
     LastModifiedBy: Optional[UserContextTypeDef] = None
-    ApprovalDescription: Optional[str] = None
+    ApprovalDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "ApprovalDescription")]] = None
     Domain: Optional[str] = None
     Task: Optional[str] = None
     SamplePayloadUrl: Optional[str] = None
     AdditionalInferenceSpecifications: Optional[List[AdditionalInferenceSpecificationDefinitionOutputTypeDef]] = None
-    SourceUri: Optional[str] = None
+    SourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageSourceUri")]] = None
     SecurityConfig: Optional[ModelPackageSecurityConfigTypeDef] = None
     ModelCard: Optional[ModelPackageModelCardTypeDef] = None
     ModelLifeCycle: Optional[ModelLifeCycleTypeDef] = None
@@ -13729,7 +13880,7 @@ ModelPackageValidationSpecificationUnionTypeDef = Union[
 
 # This class is the input for the 'create_cluster' function.
 class CreateClusterRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterName")]
     InstanceGroups: Optional[List[ClusterInstanceGroupSpecificationTypeDef]] = None
     RestrictedInstanceGroups: Optional[List[ClusterRestrictedInstanceGroupSpecificationTypeDef]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
@@ -13738,44 +13889,44 @@ class CreateClusterRequestTypeDef(BaseValidatorModel):
     NodeRecovery: Optional[ClusterNodeRecoveryType] = None
     TieredStorageConfig: Optional[ClusterTieredStorageConfigTypeDef] = None
     NodeProvisioningMode: Optional[Literal["Continuous"]] = None
-    ClusterRole: Optional[str] = None
+    ClusterRole: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     AutoScaling: Optional[ClusterAutoScalingConfigTypeDef] = None
 
 
 # This class is the input for the 'update_cluster' function.
 class UpdateClusterRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
+    ClusterName: Annotated[str, _aws_pattern("Sagemaker", "ClusterNameOrArn")]
     InstanceGroups: Optional[List[ClusterInstanceGroupSpecificationTypeDef]] = None
     RestrictedInstanceGroups: Optional[List[ClusterRestrictedInstanceGroupSpecificationTypeDef]] = None
     TieredStorageConfig: Optional[ClusterTieredStorageConfigTypeDef] = None
     NodeRecovery: Optional[ClusterNodeRecoveryType] = None
-    InstanceGroupsToDelete: Optional[List[str]] = None
+    InstanceGroupsToDelete: Optional[List[Annotated[str, _aws_pattern("Sagemaker", "ClusterInstanceGroupName")]]] = None
     NodeProvisioningMode: Optional[Literal["Continuous"]] = None
-    ClusterRole: Optional[str] = None
+    ClusterRole: Optional[Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]] = None
     AutoScaling: Optional[ClusterAutoScalingConfigTypeDef] = None
     Orchestrator: Optional[ClusterOrchestratorTypeDef] = None
 
 
 # This class is the output for the 'describe_algorithm' function.
 class DescribeAlgorithmOutputTypeDef(BaseValidatorModel):
-    AlgorithmName: str
-    AlgorithmArn: str
-    AlgorithmDescription: str
+    AlgorithmName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
+    AlgorithmArn: Annotated[str, _aws_pattern("Sagemaker", "AlgorithmArn")]
+    AlgorithmDescription: Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]
     CreationTime: datetime
     TrainingSpecification: TrainingSpecificationOutputTypeDef
     InferenceSpecification: InferenceSpecificationOutputTypeDef
     ValidationSpecification: AlgorithmValidationSpecificationOutputTypeDef
     AlgorithmStatus: AlgorithmStatusType
     AlgorithmStatusDetails: AlgorithmStatusDetailsTypeDef
-    ProductId: str
+    ProductId: Annotated[str, _aws_pattern("Sagemaker", "ProductId")]
     CertifyForMarketplace: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_training_job' function.
 class CreateTrainingJobRequestTypeDef(BaseValidatorModel):
-    TrainingJobName: str
-    RoleArn: str
+    TrainingJobName: Annotated[str, _aws_pattern("Sagemaker", "TrainingJobName")]
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     OutputDataConfig: OutputDataConfigTypeDef
     HyperParameters: Optional[Dict[str, str]] = None
     AlgorithmSpecification: Optional[AlgorithmSpecificationUnionTypeDef] = None
@@ -13806,10 +13957,12 @@ class CreateTrainingJobRequestTypeDef(BaseValidatorModel):
 
 class HyperParameterTrainingJobDefinitionTypeDef(BaseValidatorModel):
     AlgorithmSpecification: HyperParameterAlgorithmSpecificationUnionTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     OutputDataConfig: OutputDataConfigTypeDef
     StoppingCondition: StoppingConditionTypeDef
-    DefinitionName: Optional[str] = None
+    DefinitionName: Optional[Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTrainingJobDefinitionName")]] = (
+        None
+    )
     TuningObjective: Optional[HyperParameterTuningJobObjectiveTypeDef] = None
     HyperParameterRanges: Optional[ParameterRangesUnionTypeDef] = None
     StaticHyperParameters: Optional[Dict[str, str]] = None
@@ -13826,27 +13979,29 @@ class HyperParameterTrainingJobDefinitionTypeDef(BaseValidatorModel):
 
 
 class AlgorithmValidationProfileTypeDef(BaseValidatorModel):
-    ProfileName: str
+    ProfileName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     TrainingJobDefinition: TrainingJobDefinitionTypeDef
     TransformJobDefinition: Optional[TransformJobDefinitionTypeDef] = None
 
 
 # This class is the input for the 'update_model_package' function.
 class UpdateModelPackageInputTypeDef(BaseValidatorModel):
-    ModelPackageArn: str
+    ModelPackageArn: Annotated[str, _aws_pattern("Sagemaker", "ModelPackageArn")]
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
     ModelPackageRegistrationType: Optional[ModelPackageRegistrationTypeType] = None
-    ApprovalDescription: Optional[str] = None
+    ApprovalDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "ApprovalDescription")]] = None
     CustomerMetadataProperties: Optional[Dict[str, str]] = None
-    CustomerMetadataPropertiesToRemove: Optional[List[str]] = None
+    CustomerMetadataPropertiesToRemove: Optional[
+        List[Annotated[str, _aws_pattern("Sagemaker", "CustomerMetadataKey")]]
+    ] = None
     AdditionalInferenceSpecificationsToAdd: Optional[List[AdditionalInferenceSpecificationDefinitionUnionTypeDef]] = (
         None
     )
     InferenceSpecification: Optional[InferenceSpecificationUnionTypeDef] = None
-    SourceUri: Optional[str] = None
+    SourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageSourceUri")]] = None
     ModelCard: Optional[ModelPackageModelCardTypeDef] = None
     ModelLifeCycle: Optional[ModelLifeCycleTypeDef] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClientToken")]] = None
 
 
 class ModelDashboardModelTypeDef(BaseValidatorModel):
@@ -13858,9 +14013,9 @@ class ModelDashboardModelTypeDef(BaseValidatorModel):
 
 
 class EndpointTypeDef(BaseValidatorModel):
-    EndpointName: str
-    EndpointArn: str
-    EndpointConfigName: str
+    EndpointName: Annotated[str, _aws_pattern("Sagemaker", "EndpointName")]
+    EndpointArn: Annotated[str, _aws_pattern("Sagemaker", "EndpointArn")]
+    EndpointConfigName: Annotated[str, _aws_pattern("Sagemaker", "EndpointConfigName")]
     EndpointStatus: EndpointStatusType
     CreationTime: datetime
     LastModifiedTime: datetime
@@ -13874,22 +14029,22 @@ class EndpointTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_monitoring_schedule' function.
 class CreateMonitoringScheduleRequestTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: str
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
     MonitoringScheduleConfig: MonitoringScheduleConfigUnionTypeDef
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_monitoring_schedule' function.
 class UpdateMonitoringScheduleRequestTypeDef(BaseValidatorModel):
-    MonitoringScheduleName: str
+    MonitoringScheduleName: Annotated[str, _aws_pattern("Sagemaker", "MonitoringScheduleName")]
     MonitoringScheduleConfig: MonitoringScheduleConfigUnionTypeDef
 
 
 # This class is the input for the 'create_model_package' function.
 class CreateModelPackageInputTypeDef(BaseValidatorModel):
-    ModelPackageName: Optional[str] = None
-    ModelPackageGroupName: Optional[str] = None
-    ModelPackageDescription: Optional[str] = None
+    ModelPackageName: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityName")]] = None
+    ModelPackageGroupName: Optional[Annotated[str, _aws_pattern("Sagemaker", "ArnOrName")]] = None
+    ModelPackageDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     ModelPackageRegistrationType: Optional[ModelPackageRegistrationTypeType] = None
     InferenceSpecification: Optional[InferenceSpecificationUnionTypeDef] = None
     ValidationSpecification: Optional[ModelPackageValidationSpecificationUnionTypeDef] = None
@@ -13899,15 +14054,15 @@ class CreateModelPackageInputTypeDef(BaseValidatorModel):
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
     MetadataProperties: Optional[MetadataPropertiesTypeDef] = None
     ModelMetrics: Optional[ModelMetricsTypeDef] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "ClientToken")]] = None
     Domain: Optional[str] = None
     Task: Optional[str] = None
-    SamplePayloadUrl: Optional[str] = None
+    SamplePayloadUrl: Optional[Annotated[str, _aws_pattern("Sagemaker", "S3Uri")]] = None
     CustomerMetadataProperties: Optional[Dict[str, str]] = None
     DriftCheckBaselines: Optional[DriftCheckBaselinesTypeDef] = None
     AdditionalInferenceSpecifications: Optional[List[AdditionalInferenceSpecificationDefinitionUnionTypeDef]] = None
     SkipModelValidation: Optional[SkipModelValidationType] = None
-    SourceUri: Optional[str] = None
+    SourceUri: Optional[Annotated[str, _aws_pattern("Sagemaker", "ModelPackageSourceUri")]] = None
     SecurityConfig: Optional[ModelPackageSecurityConfigTypeDef] = None
     ModelCard: Optional[ModelPackageModelCardTypeDef] = None
     ModelLifeCycle: Optional[ModelLifeCycleTypeDef] = None
@@ -13919,7 +14074,7 @@ HyperParameterTrainingJobDefinitionUnionTypeDef = Union[
 
 
 class AlgorithmValidationSpecificationTypeDef(BaseValidatorModel):
-    ValidationRole: str
+    ValidationRole: Annotated[str, _aws_pattern("Sagemaker", "RoleArn")]
     ValidationProfiles: List[AlgorithmValidationProfileTypeDef]
 
 
@@ -13944,7 +14099,7 @@ class SearchRecordTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_hyper_parameter_tuning_job' function.
 class CreateHyperParameterTuningJobRequestTypeDef(BaseValidatorModel):
-    HyperParameterTuningJobName: str
+    HyperParameterTuningJobName: Annotated[str, _aws_pattern("Sagemaker", "HyperParameterTuningJobName")]
     HyperParameterTuningJobConfig: HyperParameterTuningJobConfigUnionTypeDef
     TrainingJobDefinition: Optional[HyperParameterTrainingJobDefinitionUnionTypeDef] = None
     TrainingJobDefinitions: Optional[List[HyperParameterTrainingJobDefinitionUnionTypeDef]] = None
@@ -13963,14 +14118,14 @@ class SearchResponseTypeDef(BaseValidatorModel):
     Results: List[SearchRecordTypeDef]
     TotalHits: TotalHitsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Sagemaker", "NextToken")]] = None
 
 
 # This class is the input for the 'create_algorithm' function.
 class CreateAlgorithmInputTypeDef(BaseValidatorModel):
-    AlgorithmName: str
+    AlgorithmName: Annotated[str, _aws_pattern("Sagemaker", "EntityName")]
     TrainingSpecification: TrainingSpecificationUnionTypeDef
-    AlgorithmDescription: Optional[str] = None
+    AlgorithmDescription: Optional[Annotated[str, _aws_pattern("Sagemaker", "EntityDescription")]] = None
     InferenceSpecification: Optional[InferenceSpecificationUnionTypeDef] = None
     ValidationSpecification: Optional[AlgorithmValidationSpecificationUnionTypeDef] = None
     CertifyForMarketplace: Optional[bool] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kinesis_video_media.kinesis_video_media_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -51,20 +53,20 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the output for the 'get_media' function.
 class GetMediaOutputTypeDef(BaseValidatorModel):
-    ContentType: str
+    ContentType: Annotated[str, _aws_pattern("KinesisVideoMedia", "ContentType")]
     Payload: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class StartSelectorTypeDef(BaseValidatorModel):
     StartSelectorType: StartSelectorTypeType
-    AfterFragmentNumber: Optional[str] = None
+    AfterFragmentNumber: Optional[Annotated[str, _aws_pattern("KinesisVideoMedia", "FragmentNumberString")]] = None
     StartTimestamp: Optional[TimestampTypeDef] = None
-    ContinuationToken: Optional[str] = None
+    ContinuationToken: Optional[Annotated[str, _aws_pattern("KinesisVideoMedia", "ContinuationToken")]] = None
 
 
 # This class is the input for the 'get_media' function.
 class GetMediaInputTypeDef(BaseValidatorModel):
     StartSelector: StartSelectorTypeDef
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("KinesisVideoMedia", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("KinesisVideoMedia", "ResourceARN")]] = None

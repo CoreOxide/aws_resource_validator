@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.clouddirectory.clouddirectory_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,7 +46,7 @@ class ObjectReferenceTypeDef(BaseValidatorModel):
 
 class SchemaFacetTypeDef(BaseValidatorModel):
     SchemaArn: Optional[str] = None
-    FacetName: Optional[str] = None
+    FacetName: Optional[Annotated[str, _aws_pattern("Clouddirectory", "FacetName")]] = None
 
 
 # This class is the input for the 'apply_schema' function.
@@ -63,13 +65,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 class TypedLinkSchemaAndFacetNameTypeDef(BaseValidatorModel):
     SchemaArn: str
-    TypedLinkName: str
+    TypedLinkName: Annotated[str, _aws_pattern("Clouddirectory", "TypedLinkName")]
 
 
 class AttributeKeyTypeDef(BaseValidatorModel):
     SchemaArn: str
-    FacetName: str
-    Name: str
+    FacetName: Annotated[str, _aws_pattern("Clouddirectory", "FacetName")]
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]
 
 
 class TypedAttributeValueOutputTypeDef(BaseValidatorModel):
@@ -116,7 +118,7 @@ class PathToObjectIdentifiersTypeDef(BaseValidatorModel):
 
 class ObjectIdentifierAndLinkNameTupleTypeDef(BaseValidatorModel):
     ObjectIdentifier: Optional[str] = None
-    LinkName: Optional[str] = None
+    LinkName: Optional[Annotated[str, _aws_pattern("Clouddirectory", "LinkName")]] = None
 
 
 class BatchListObjectPoliciesResponseTypeDef(BaseValidatorModel):
@@ -143,13 +145,13 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'create_directory' function.
 class CreateDirectoryRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "DirectoryName")]
     SchemaArn: str
 
 
 # This class is the input for the 'create_schema' function.
 class CreateSchemaRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "SchemaName")]
 
 
 # This class is the input for the 'delete_directory' function.
@@ -159,7 +161,7 @@ class DeleteDirectoryRequestTypeDef(BaseValidatorModel):
 
 class DeleteFacetRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "FacetName")]
 
 
 # This class is the input for the 'delete_schema' function.
@@ -169,11 +171,11 @@ class DeleteSchemaRequestTypeDef(BaseValidatorModel):
 
 class DeleteTypedLinkFacetRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "TypedLinkName")]
 
 
 class DirectoryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Clouddirectory", "DirectoryName")]] = None
     DirectoryArn: Optional[str] = None
     State: Optional[DirectoryStateType] = None
     CreationDateTime: Optional[datetime] = None
@@ -195,12 +197,12 @@ class RuleOutputTypeDef(BaseValidatorModel):
 
 
 class FacetAttributeReferenceTypeDef(BaseValidatorModel):
-    TargetFacetName: str
-    TargetAttributeName: str
+    TargetFacetName: Annotated[str, _aws_pattern("Clouddirectory", "FacetName")]
+    TargetAttributeName: Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]
 
 
 class FacetTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Clouddirectory", "FacetName")]] = None
     ObjectType: Optional[ObjectTypeType] = None
     FacetStyle: Optional[FacetStyleType] = None
 
@@ -218,7 +220,7 @@ class GetDirectoryRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_facet' function.
 class GetFacetRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "FacetName")]
 
 
 # This class is the input for the 'get_schema_as_json' function.
@@ -229,7 +231,7 @@ class GetSchemaAsJsonRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_typed_link_facet_information' function.
 class GetTypedLinkFacetInformationRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "TypedLinkName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -262,7 +264,7 @@ class ListDirectoriesRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_facet_attributes' function.
 class ListFacetAttributesRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "FacetName")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -303,7 +305,7 @@ class TagTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_typed_link_facet_attributes' function.
 class ListTypedLinkFacetAttributesRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "TypedLinkName")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -324,9 +326,9 @@ class PolicyAttachmentTypeDef(BaseValidatorModel):
 # This class is the input for the 'publish_schema' function.
 class PublishSchemaRequestTypeDef(BaseValidatorModel):
     DevelopmentSchemaArn: str
-    Version: str
-    MinorVersion: Optional[str] = None
-    Name: Optional[str] = None
+    Version: Annotated[str, _aws_pattern("Clouddirectory", "Version")]
+    MinorVersion: Optional[Annotated[str, _aws_pattern("Clouddirectory", "Version")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Clouddirectory", "SchemaName")]] = None
 
 
 # This class is the input for the 'put_schema_from_json' function.
@@ -351,7 +353,7 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_schema' function.
 class UpdateSchemaRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "SchemaName")]
 
 
 # This class is the input for the 'upgrade_applied_schema' function.
@@ -365,7 +367,7 @@ class UpgradeAppliedSchemaRequestTypeDef(BaseValidatorModel):
 class UpgradePublishedSchemaRequestTypeDef(BaseValidatorModel):
     DevelopmentSchemaArn: str
     PublishedSchemaArn: str
-    MinorVersion: str
+    MinorVersion: Annotated[str, _aws_pattern("Clouddirectory", "Version")]
     DryRun: Optional[bool] = None
 
 
@@ -374,7 +376,7 @@ class AttachObjectRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ParentReference: ObjectReferenceTypeDef
     ChildReference: ObjectReferenceTypeDef
-    LinkName: str
+    LinkName: Annotated[str, _aws_pattern("Clouddirectory", "LinkName")]
 
 
 class AttachPolicyRequestTypeDef(BaseValidatorModel):
@@ -393,7 +395,7 @@ class AttachToIndexRequestTypeDef(BaseValidatorModel):
 class BatchAttachObjectTypeDef(BaseValidatorModel):
     ParentReference: ObjectReferenceTypeDef
     ChildReference: ObjectReferenceTypeDef
-    LinkName: str
+    LinkName: Annotated[str, _aws_pattern("Clouddirectory", "LinkName")]
 
 
 class BatchAttachPolicyTypeDef(BaseValidatorModel):
@@ -417,7 +419,7 @@ class BatchDetachFromIndexTypeDef(BaseValidatorModel):
 
 class BatchDetachObjectTypeDef(BaseValidatorModel):
     ParentReference: ObjectReferenceTypeDef
-    LinkName: str
+    LinkName: Annotated[str, _aws_pattern("Clouddirectory", "LinkName")]
     BatchReferenceName: Optional[str] = None
 
 
@@ -488,7 +490,7 @@ class DetachFromIndexRequestTypeDef(BaseValidatorModel):
 class DetachObjectRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ParentReference: ObjectReferenceTypeDef
-    LinkName: str
+    LinkName: Annotated[str, _aws_pattern("Clouddirectory", "LinkName")]
 
 
 class DetachPolicyRequestTypeDef(BaseValidatorModel):
@@ -569,7 +571,7 @@ class LookupPolicyRequestTypeDef(BaseValidatorModel):
 class BatchGetObjectAttributesTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
     SchemaFacet: SchemaFacetTypeDef
-    AttributeNames: List[str]
+    AttributeNames: List[Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]]
 
 
 class BatchGetObjectInformationResponseTypeDef(BaseValidatorModel):
@@ -594,7 +596,7 @@ class GetObjectAttributesRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     SchemaFacet: SchemaFacetTypeDef
-    AttributeNames: List[str]
+    AttributeNames: List[Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]]
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
 
@@ -636,7 +638,7 @@ class AttachToIndexResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_directory' function.
 class CreateDirectoryResponseTypeDef(BaseValidatorModel):
     DirectoryArn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "DirectoryName")]
     ObjectIdentifier: str
     AppliedSchemaArn: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -716,14 +718,14 @@ class GetObjectInformationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_schema_as_json' function.
 class GetSchemaAsJsonResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "SchemaName")]
     Document: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_typed_link_facet_information' function.
 class GetTypedLinkFacetInformationResponseTypeDef(BaseValidatorModel):
-    IdentityAttributeOrder: List[str]
+    IdentityAttributeOrder: List[Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -743,7 +745,7 @@ class ListDevelopmentSchemaArnsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_facet_names' function.
 class ListFacetNamesResponseTypeDef(BaseValidatorModel):
-    FacetNames: List[str]
+    FacetNames: List[Annotated[str, _aws_pattern("Clouddirectory", "FacetName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -785,7 +787,7 @@ class ListPublishedSchemaArnsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_typed_link_facet_names' function.
 class ListTypedLinkFacetNamesResponseTypeDef(BaseValidatorModel):
-    FacetNames: List[str]
+    FacetNames: List[Annotated[str, _aws_pattern("Clouddirectory", "TypedLinkName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -831,7 +833,7 @@ class BatchCreateIndexTypeDef(BaseValidatorModel):
     OrderedIndexedAttributeList: List[AttributeKeyTypeDef]
     IsUnique: bool
     ParentReference: Optional[ObjectReferenceTypeDef] = None
-    LinkName: Optional[str] = None
+    LinkName: Optional[Annotated[str, _aws_pattern("Clouddirectory", "LinkName")]] = None
     BatchReferenceName: Optional[str] = None
 
 
@@ -841,7 +843,7 @@ class CreateIndexRequestTypeDef(BaseValidatorModel):
     OrderedIndexedAttributeList: List[AttributeKeyTypeDef]
     IsUnique: bool
     ParentReference: Optional[ObjectReferenceTypeDef] = None
-    LinkName: Optional[str] = None
+    LinkName: Optional[Annotated[str, _aws_pattern("Clouddirectory", "LinkName")]] = None
 
 
 class AttributeKeyAndValueOutputTypeDef(BaseValidatorModel):
@@ -1179,7 +1181,7 @@ class AttributeKeyAndValueTypeDef(BaseValidatorModel):
 
 
 class AttributeNameAndValueTypeDef(BaseValidatorModel):
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]
     Value: TypedAttributeValueUnionTypeDef
 
 
@@ -1208,7 +1210,7 @@ class TypedAttributeValueRangeTypeDef(BaseValidatorModel):
 
 
 class TypedLinkAttributeDefinitionTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]
     Type: FacetAttributeTypeType
     RequiredBehavior: RequiredAttributeBehaviorType
     DefaultValue: Optional[TypedAttributeValueUnionTypeDef] = None
@@ -1258,7 +1260,7 @@ class BatchCreateObjectTypeDef(BaseValidatorModel):
     SchemaFacet: List[SchemaFacetTypeDef]
     ObjectAttributeList: List[AttributeKeyAndValueTypeDef]
     ParentReference: Optional[ObjectReferenceTypeDef] = None
-    LinkName: Optional[str] = None
+    LinkName: Optional[Annotated[str, _aws_pattern("Clouddirectory", "LinkName")]] = None
     BatchReferenceName: Optional[str] = None
 
 
@@ -1284,7 +1286,7 @@ class ObjectAttributeRangeTypeDef(BaseValidatorModel):
 
 class TypedLinkAttributeRangeTypeDef(BaseValidatorModel):
     Range: TypedAttributeValueRangeTypeDef
-    AttributeName: Optional[str] = None
+    AttributeName: Optional[Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]] = None
 
 
 TypedLinkAttributeDefinitionUnionTypeDef = Union[
@@ -1322,7 +1324,7 @@ class CreateObjectRequestTypeDef(BaseValidatorModel):
     SchemaFacets: List[SchemaFacetTypeDef]
     ObjectAttributeList: Optional[List[AttributeKeyAndValueUnionTypeDef]] = None
     ParentReference: Optional[ObjectReferenceTypeDef] = None
-    LinkName: Optional[str] = None
+    LinkName: Optional[Annotated[str, _aws_pattern("Clouddirectory", "LinkName")]] = None
 
 
 # This class is the input for the 'attach_typed_link' function.
@@ -1349,7 +1351,7 @@ class TypedLinkSpecifierTypeDef(BaseValidatorModel):
 
 
 class FacetAttributeTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]
     AttributeDefinition: Optional[FacetAttributeDefinitionUnionTypeDef] = None
     AttributeReference: Optional[FacetAttributeReferenceTypeDef] = None
     RequiredBehavior: Optional[RequiredAttributeBehaviorType] = None
@@ -1454,9 +1456,9 @@ class TypedLinkFacetAttributeUpdateTypeDef(BaseValidatorModel):
 
 
 class TypedLinkFacetTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "TypedLinkName")]
     Attributes: List[TypedLinkAttributeDefinitionUnionTypeDef]
-    IdentityAttributeOrder: List[str]
+    IdentityAttributeOrder: List[Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]]
 
 
 # This class is the output for the 'batch_read' function.
@@ -1472,9 +1474,9 @@ FacetAttributeUnionTypeDef = Union[FacetAttributeOutputTypeDef, FacetAttributeTy
 
 class UpdateTypedLinkFacetRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "TypedLinkName")]
     AttributeUpdates: List[TypedLinkFacetAttributeUpdateTypeDef]
-    IdentityAttributeOrder: List[str]
+    IdentityAttributeOrder: List[Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]]
 
 
 class CreateTypedLinkFacetRequestTypeDef(BaseValidatorModel):
@@ -1488,7 +1490,7 @@ class BatchDetachTypedLinkTypeDef(BaseValidatorModel):
 
 class BatchGetLinkAttributesTypeDef(BaseValidatorModel):
     TypedLinkSpecifier: TypedLinkSpecifierUnionTypeDef
-    AttributeNames: List[str]
+    AttributeNames: List[Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]]
 
 
 class BatchUpdateLinkAttributesTypeDef(BaseValidatorModel):
@@ -1506,7 +1508,7 @@ class DetachTypedLinkRequestTypeDef(BaseValidatorModel):
 class GetLinkAttributesRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     TypedLinkSpecifier: TypedLinkSpecifierUnionTypeDef
-    AttributeNames: List[str]
+    AttributeNames: List[Annotated[str, _aws_pattern("Clouddirectory", "AttributeName")]]
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
 
@@ -1518,7 +1520,7 @@ class UpdateLinkAttributesRequestTypeDef(BaseValidatorModel):
 
 class CreateFacetRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "FacetName")]
     Attributes: Optional[List[FacetAttributeUnionTypeDef]] = None
     ObjectType: Optional[ObjectTypeType] = None
     FacetStyle: Optional[FacetStyleType] = None
@@ -1566,7 +1568,7 @@ class BatchWriteOperationTypeDef(BaseValidatorModel):
 
 class UpdateFacetRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Clouddirectory", "FacetName")]
     AttributeUpdates: Optional[List[FacetAttributeUpdateTypeDef]] = None
     ObjectType: Optional[ObjectTypeType] = None
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.devicefarm.devicefarm_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,7 +46,7 @@ class TrialMinutesTypeDef(BaseValidatorModel):
 
 
 class ArtifactTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     type: Optional[ArtifactTypeType] = None
     extension: Optional[str] = None
@@ -91,7 +93,7 @@ class CreateInstanceProfileRequestTypeDef(BaseValidatorModel):
 
 
 class InstanceProfileTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     packageCleanup: Optional[bool] = None
     excludeAppPackagesFromCleanup: Optional[List[str]] = None
     rebootAfterUse: Optional[bool] = None
@@ -101,7 +103,7 @@ class InstanceProfileTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_network_profile' function.
 class CreateNetworkProfileRequestTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     name: str
     description: Optional[str] = None
     type: Optional[NetworkProfileTypeType] = None
@@ -116,7 +118,7 @@ class CreateNetworkProfileRequestTypeDef(BaseValidatorModel):
 
 
 class NetworkProfileTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     description: Optional[str] = None
     type: Optional[NetworkProfileTypeType] = None
@@ -131,31 +133,31 @@ class NetworkProfileTypeDef(BaseValidatorModel):
 
 
 class EnvironmentVariableTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Devicefarm", "EnvironmentVariableName")]
     value: str
 
 
 class DeviceProxyTypeDef(BaseValidatorModel):
-    host: str
+    host: Annotated[str, _aws_pattern("Devicefarm", "DeviceProxyHost")]
     port: int
 
 
 # This class is the input for the 'create_test_grid_url' function.
 class CreateTestGridUrlRequestTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]
     expiresInSeconds: int
 
 
 # This class is the input for the 'create_upload' function.
 class CreateUploadRequestTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     name: str
     type: UploadTypeType
     contentType: Optional[str] = None
 
 
 class UploadTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     created: Optional[datetime] = None
     type: Optional[UploadTypeType] = None
@@ -176,7 +178,7 @@ class CreateVPCEConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class VPCEConfigurationTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     vpceConfigurationName: Optional[str] = None
     vpceServiceName: Optional[str] = None
     serviceDnsName: Optional[str] = None
@@ -196,39 +198,39 @@ class CustomerArtifactPathsTypeDef(BaseValidatorModel):
 
 
 class DeleteDevicePoolRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 class DeleteInstanceProfileRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 class DeleteNetworkProfileRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 class DeleteProjectRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 class DeleteRemoteAccessSessionRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 class DeleteRunRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 class DeleteTestGridProjectRequestTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]
 
 
 class DeleteUploadRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 class DeleteVPCEConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 class DeviceFilterOutputTypeDef(BaseValidatorModel):
@@ -269,40 +271,40 @@ class ExecutionConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_device_instance' function.
 class GetDeviceInstanceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 class ScheduleRunTestTypeDef(BaseValidatorModel):
     type: TestTypeType
-    testPackageArn: Optional[str] = None
-    testSpecArn: Optional[str] = None
+    testPackageArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
+    testSpecArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     filter: Optional[str] = None
     parameters: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'get_device_pool' function.
 class GetDevicePoolRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'get_device' function.
 class GetDeviceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'get_instance_profile' function.
 class GetInstanceProfileRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'get_job' function.
 class GetJobRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'get_network_profile' function.
 class GetNetworkProfileRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -318,38 +320,38 @@ class GetOfferingStatusRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_project' function.
 class GetProjectRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'get_remote_access_session' function.
 class GetRemoteAccessSessionRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'get_run' function.
 class GetRunRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'get_suite' function.
 class GetSuiteRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'get_test_grid_project' function.
 class GetTestGridProjectRequestTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]
 
 
 # This class is the input for the 'get_test_grid_session' function.
 class GetTestGridSessionRequestTypeDef(BaseValidatorModel):
-    projectArn: Optional[str] = None
-    sessionId: Optional[str] = None
-    sessionArn: Optional[str] = None
+    projectArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("Devicefarm", "ResourceId")]] = None
+    sessionArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]] = None
 
 
 class TestGridSessionTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]] = None
     status: Optional[TestGridSessionStatusType] = None
     created: Optional[datetime] = None
     ended: Optional[datetime] = None
@@ -359,28 +361,28 @@ class TestGridSessionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_test' function.
 class GetTestRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'get_upload' function.
 class GetUploadRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'get_vpce_configuration' function.
 class GetVPCEConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'install_to_remote_access_session' function.
 class InstallToRemoteAccessSessionRequestTypeDef(BaseValidatorModel):
-    remoteAccessSessionArn: str
-    appArn: str
+    remoteAccessSessionArn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
+    appArn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'list_artifacts' function.
 class ListArtifactsRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     type: ArtifactCategoryType
     nextToken: Optional[str] = None
 
@@ -393,7 +395,7 @@ class ListDeviceInstancesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_device_pools' function.
 class ListDevicePoolsRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     type: Optional[DevicePoolTypeType] = None
     nextToken: Optional[str] = None
 
@@ -406,13 +408,13 @@ class ListInstanceProfilesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_jobs' function.
 class ListJobsRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_network_profiles' function.
 class ListNetworkProfilesRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     type: Optional[NetworkProfileTypeType] = None
     nextToken: Optional[str] = None
 
@@ -439,43 +441,43 @@ class ListOfferingsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_projects' function.
 class ListProjectsRequestTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_remote_access_sessions' function.
 class ListRemoteAccessSessionsRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_runs' function.
 class ListRunsRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_samples' function.
 class ListSamplesRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     nextToken: Optional[str] = None
 
 
 class SampleTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     type: Optional[SampleTypeType] = None
     url: Optional[str] = None
 
 
 # This class is the input for the 'list_suites' function.
 class ListSuitesRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -491,7 +493,7 @@ class ListTestGridProjectsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_test_grid_session_actions' function.
 class ListTestGridSessionActionsRequestTypeDef(BaseValidatorModel):
-    sessionArn: str
+    sessionArn: Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]
     maxResult: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -506,7 +508,7 @@ class TestGridSessionActionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_test_grid_session_artifacts' function.
 class ListTestGridSessionArtifactsRequestTypeDef(BaseValidatorModel):
-    sessionArn: str
+    sessionArn: Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]
     type: Optional[TestGridSessionArtifactCategoryType] = None
     maxResult: Optional[int] = None
     nextToken: Optional[str] = None
@@ -523,19 +525,19 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'list_tests' function.
 class ListTestsRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_unique_problems' function.
 class ListUniqueProblemsRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_uploads' function.
 class ListUploadsRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     type: Optional[UploadTypeType] = None
     nextToken: Optional[str] = None
 
@@ -557,7 +559,7 @@ class MonetaryAmountTypeDef(BaseValidatorModel):
 
 
 class ProblemDetailTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
 
 
@@ -594,17 +596,17 @@ class RenewOfferingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'stop_job' function.
 class StopJobRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'stop_remote_access_session' function.
 class StopRemoteAccessSessionRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 # This class is the input for the 'stop_run' function.
 class StopRunRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
 
 
 class TestGridVpcConfigOutputTypeDef(BaseValidatorModel):
@@ -614,26 +616,26 @@ class TestGridVpcConfigOutputTypeDef(BaseValidatorModel):
 
 
 class TestGridVpcConfigTypeDef(BaseValidatorModel):
-    securityGroupIds: List[str]
-    subnetIds: List[str]
-    vpcId: str
+    securityGroupIds: List[Annotated[str, _aws_pattern("Devicefarm", "NonEmptyString")]]
+    subnetIds: List[Annotated[str, _aws_pattern("Devicefarm", "NonEmptyString")]]
+    vpcId: Annotated[str, _aws_pattern("Devicefarm", "NonEmptyString")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_device_instance' function.
 class UpdateDeviceInstanceRequestTypeDef(BaseValidatorModel):
-    arn: str
-    profileArn: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
+    profileArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     labels: Optional[List[str]] = None
 
 
 # This class is the input for the 'update_instance_profile' function.
 class UpdateInstanceProfileRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     name: Optional[str] = None
     description: Optional[str] = None
     packageCleanup: Optional[bool] = None
@@ -643,7 +645,7 @@ class UpdateInstanceProfileRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_network_profile' function.
 class UpdateNetworkProfileRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     name: Optional[str] = None
     description: Optional[str] = None
     type: Optional[NetworkProfileTypeType] = None
@@ -659,7 +661,7 @@ class UpdateNetworkProfileRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_upload' function.
 class UpdateUploadRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     name: Optional[str] = None
     contentType: Optional[str] = None
     editContent: Optional[bool] = None
@@ -667,7 +669,7 @@ class UpdateUploadRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_vpce_configuration' function.
 class UpdateVPCEConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     vpceConfigurationName: Optional[str] = None
     vpceServiceName: Optional[str] = None
     serviceDnsName: Optional[str] = None
@@ -675,9 +677,9 @@ class UpdateVPCEConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class VpcConfigTypeDef(BaseValidatorModel):
-    securityGroupIds: List[str]
-    subnetIds: List[str]
-    vpcId: str
+    securityGroupIds: List[Annotated[str, _aws_pattern("Devicefarm", "SecurityGroupId")]]
+    subnetIds: List[Annotated[str, _aws_pattern("Devicefarm", "SubnetId")]]
+    vpcId: Annotated[str, _aws_pattern("Devicefarm", "NonEmptyString")]
 
 
 class AccountSettingsTypeDef(BaseValidatorModel):
@@ -693,7 +695,7 @@ class AccountSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_device_pool' function.
 class CreateDevicePoolRequestTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     name: str
     rules: List[RuleTypeDef]
     description: Optional[str] = None
@@ -701,7 +703,7 @@ class CreateDevicePoolRequestTypeDef(BaseValidatorModel):
 
 
 class DevicePoolTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     description: Optional[str] = None
     type: Optional[DevicePoolTypeType] = None
@@ -711,7 +713,7 @@ class DevicePoolTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_device_pool' function.
 class UpdateDevicePoolRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     name: Optional[str] = None
     description: Optional[str] = None
     rules: Optional[List[RuleTypeDef]] = None
@@ -740,8 +742,8 @@ class CreateInstanceProfileResultTypeDef(BaseValidatorModel):
 
 
 class DeviceInstanceTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    deviceArn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
+    deviceArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     labels: Optional[List[str]] = None
     status: Optional[InstanceStatusType] = None
     udid: Optional[str] = None
@@ -793,9 +795,9 @@ class UpdateNetworkProfileResultTypeDef(BaseValidatorModel):
 
 
 class CreateRemoteAccessSessionConfigurationTypeDef(BaseValidatorModel):
-    auxiliaryApps: Optional[List[str]] = None
+    auxiliaryApps: Optional[List[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]]] = None
     billingMethod: Optional[BillingMethodType] = None
-    vpceConfigurationArns: Optional[List[str]] = None
+    vpceConfigurationArns: Optional[List[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]]] = None
     deviceProxy: Optional[DeviceProxyTypeDef] = None
 
 
@@ -868,7 +870,7 @@ DeviceFilterUnionTypeDef = Union[DeviceFilterOutputTypeDef, DeviceFilterTypeDef]
 
 
 class SuiteTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     type: Optional[TestTypeType] = None
     created: Optional[datetime] = None
@@ -882,7 +884,7 @@ class SuiteTypeDef(BaseValidatorModel):
 
 
 class TestTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     type: Optional[TestTypeType] = None
     created: Optional[datetime] = None
@@ -1021,7 +1023,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]
     Tags: List[TagTypeDef]
 
 
@@ -1041,7 +1043,7 @@ class ListTestGridSessionArtifactsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_test_grid_sessions' function.
 class ListTestGridSessionsRequestTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]
     status: Optional[TestGridSessionStatusType] = None
     creationTimeAfter: Optional[TimestampTypeDef] = None
     creationTimeBefore: Optional[TimestampTypeDef] = None
@@ -1057,17 +1059,17 @@ class RecurringChargeTypeDef(BaseValidatorModel):
 
 
 class ProjectTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     defaultJobTimeoutMinutes: Optional[int] = None
     created: Optional[datetime] = None
     vpcConfig: Optional[VpcConfigOutputTypeDef] = None
     environmentVariables: Optional[List[EnvironmentVariableTypeDef]] = None
-    executionRoleArn: Optional[str] = None
+    executionRoleArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonRoleResourceName")]] = None
 
 
 class TestGridProjectTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]] = None
     name: Optional[str] = None
     description: Optional[str] = None
     vpcConfig: Optional[TestGridVpcConfigOutputTypeDef] = None
@@ -1110,7 +1112,7 @@ class UpdateDevicePoolResultTypeDef(BaseValidatorModel):
 
 
 class DeviceTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     manufacturer: Optional[str] = None
     model: Optional[str] = None
@@ -1154,10 +1156,10 @@ class UpdateDeviceInstanceResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_remote_access_session' function.
 class CreateRemoteAccessSessionRequestTypeDef(BaseValidatorModel):
-    projectArn: str
-    deviceArn: str
-    appArn: Optional[str] = None
-    instanceArn: Optional[str] = None
+    projectArn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
+    deviceArn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
+    appArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
+    instanceArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     configuration: Optional[CreateRemoteAccessSessionConfigurationTypeDef] = None
     interactionMode: Optional[InteractionModeType] = None
@@ -1165,22 +1167,22 @@ class CreateRemoteAccessSessionRequestTypeDef(BaseValidatorModel):
 
 
 class ScheduleRunConfigurationTypeDef(BaseValidatorModel):
-    extraDataPackageArn: Optional[str] = None
-    networkProfileArn: Optional[str] = None
+    extraDataPackageArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
+    networkProfileArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     locale: Optional[str] = None
     location: Optional[LocationTypeDef] = None
-    vpceConfigurationArns: Optional[List[str]] = None
+    vpceConfigurationArns: Optional[List[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]]] = None
     deviceProxy: Optional[DeviceProxyTypeDef] = None
     customerArtifactPaths: Optional[CustomerArtifactPathsUnionTypeDef] = None
     radios: Optional[RadiosTypeDef] = None
-    auxiliaryApps: Optional[List[str]] = None
+    auxiliaryApps: Optional[List[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]]] = None
     billingMethod: Optional[BillingMethodType] = None
     environmentVariables: Optional[List[EnvironmentVariableTypeDef]] = None
-    executionRoleArn: Optional[str] = None
+    executionRoleArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonRoleResourceName")]] = None
 
 
 class RunTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     type: Optional[TestTypeType] = None
     platform: Optional[DevicePlatformType] = None
@@ -1200,20 +1202,20 @@ class RunTypeDef(BaseValidatorModel):
     parsingResultUrl: Optional[str] = None
     resultCode: Optional[ExecutionResultCodeType] = None
     seed: Optional[int] = None
-    appUpload: Optional[str] = None
+    appUpload: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     eventCount: Optional[int] = None
     jobTimeoutMinutes: Optional[int] = None
-    devicePoolArn: Optional[str] = None
+    devicePoolArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     locale: Optional[str] = None
     radios: Optional[RadiosTypeDef] = None
     location: Optional[LocationTypeDef] = None
     customerArtifactPaths: Optional[CustomerArtifactPathsOutputTypeDef] = None
     webUrl: Optional[str] = None
     skipAppResign: Optional[bool] = None
-    testSpecArn: Optional[str] = None
+    testSpecArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     deviceSelectionResult: Optional[DeviceSelectionResultTypeDef] = None
     vpcConfig: Optional[VpcConfigOutputTypeDef] = None
-    executionRoleArn: Optional[str] = None
+    executionRoleArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonRoleResourceName")]] = None
     environmentVariables: Optional[List[EnvironmentVariableTypeDef]] = None
 
 
@@ -1230,7 +1232,7 @@ class ListDevicesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_devices' function.
 class ListDevicesRequestTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     nextToken: Optional[str] = None
     filters: Optional[List[DeviceFilterUnionTypeDef]] = None
 
@@ -1321,16 +1323,16 @@ class UpdateTestGridProjectResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_test_grid_project' function.
 class CreateTestGridProjectRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Devicefarm", "ResourceName")]
+    description: Optional[Annotated[str, _aws_pattern("Devicefarm", "ResourceDescription")]] = None
     vpcConfig: Optional[TestGridVpcConfigUnionTypeDef] = None
 
 
 # This class is the input for the 'update_test_grid_project' function.
 class UpdateTestGridProjectRequestTypeDef(BaseValidatorModel):
-    projectArn: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    projectArn: Annotated[str, _aws_pattern("Devicefarm", "DeviceFarmArn")]
+    name: Optional[Annotated[str, _aws_pattern("Devicefarm", "ResourceName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Devicefarm", "ResourceDescription")]] = None
     vpcConfig: Optional[TestGridVpcConfigUnionTypeDef] = None
 
 
@@ -1340,17 +1342,17 @@ class CreateProjectRequestTypeDef(BaseValidatorModel):
     defaultJobTimeoutMinutes: Optional[int] = None
     vpcConfig: Optional[VpcConfigUnionTypeDef] = None
     environmentVariables: Optional[List[EnvironmentVariableTypeDef]] = None
-    executionRoleArn: Optional[str] = None
+    executionRoleArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonRoleResourceName")]] = None
 
 
 # This class is the input for the 'update_project' function.
 class UpdateProjectRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     name: Optional[str] = None
     defaultJobTimeoutMinutes: Optional[int] = None
     vpcConfig: Optional[VpcConfigUnionTypeDef] = None
     environmentVariables: Optional[List[EnvironmentVariableTypeDef]] = None
-    executionRoleArn: Optional[str] = None
+    executionRoleArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonRoleResourceName")]] = None
 
 
 class DevicePoolCompatibilityResultTypeDef(BaseValidatorModel):
@@ -1366,7 +1368,7 @@ class GetDeviceResultTypeDef(BaseValidatorModel):
 
 
 class JobTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     type: Optional[TestTypeType] = None
     created: Optional[datetime] = None
@@ -1377,7 +1379,7 @@ class JobTypeDef(BaseValidatorModel):
     counters: Optional[CountersTypeDef] = None
     message: Optional[str] = None
     device: Optional[DeviceTypeDef] = None
-    instanceArn: Optional[str] = None
+    instanceArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     deviceMinutes: Optional[DeviceMinutesTypeDef] = None
     videoEndpoint: Optional[str] = None
     videoCapture: Optional[bool] = None
@@ -1401,7 +1403,7 @@ class ProblemTypeDef(BaseValidatorModel):
 
 
 class RemoteAccessSessionTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     name: Optional[str] = None
     created: Optional[datetime] = None
     status: Optional[ExecutionStatusType] = None
@@ -1410,7 +1412,7 @@ class RemoteAccessSessionTypeDef(BaseValidatorModel):
     started: Optional[datetime] = None
     stopped: Optional[datetime] = None
     device: Optional[DeviceTypeDef] = None
-    instanceArn: Optional[str] = None
+    instanceArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     billingMethod: Optional[BillingMethodType] = None
     deviceMinutes: Optional[DeviceMinutesTypeDef] = None
     endpoint: Optional[str] = None
@@ -1419,18 +1421,18 @@ class RemoteAccessSessionTypeDef(BaseValidatorModel):
     skipAppResign: Optional[bool] = None
     vpcConfig: Optional[VpcConfigOutputTypeDef] = None
     deviceProxy: Optional[DeviceProxyTypeDef] = None
-    appUpload: Optional[str] = None
+    appUpload: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     endpoints: Optional[RemoteAccessEndpointsTypeDef] = None
 
 
 # This class is the input for the 'get_device_pool_compatibility' function.
 class GetDevicePoolCompatibilityRequestTypeDef(BaseValidatorModel):
-    devicePoolArn: str
-    appArn: Optional[str] = None
+    devicePoolArn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
+    appArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     testType: Optional[TestTypeType] = None
     test: Optional[ScheduleRunTestTypeDef] = None
     configuration: Optional[ScheduleRunConfigurationTypeDef] = None
-    projectArn: Optional[str] = None
+    projectArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
 
 
 # This class is the output for the 'get_run' function.
@@ -1460,10 +1462,10 @@ class StopRunResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'schedule_run' function.
 class ScheduleRunRequestTypeDef(BaseValidatorModel):
-    projectArn: str
+    projectArn: Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]
     test: ScheduleRunTestTypeDef
-    appArn: Optional[str] = None
-    devicePoolArn: Optional[str] = None
+    appArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
+    devicePoolArn: Optional[Annotated[str, _aws_pattern("Devicefarm", "AmazonResourceName")]] = None
     deviceSelectionConfiguration: Optional[DeviceSelectionConfigurationTypeDef] = None
     name: Optional[str] = None
     configuration: Optional[ScheduleRunConfigurationTypeDef] = None

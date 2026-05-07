@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.securityhub.securityhub_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,42 +41,42 @@ except ImportError:  # pragma: no cover
 
 
 class AcceptAdministratorInvitationRequestTypeDef(BaseValidatorModel):
-    AdministratorId: str
-    InvitationId: str
+    AdministratorId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    InvitationId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class AcceptInvitationRequestTypeDef(BaseValidatorModel):
-    MasterId: str
-    InvitationId: str
+    MasterId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    InvitationId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class AccountDetailsTypeDef(BaseValidatorModel):
     AccountId: str
-    Email: Optional[str] = None
+    Email: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ActionLocalIpDetailsTypeDef(BaseValidatorModel):
-    IpAddressV4: Optional[str] = None
+    IpAddressV4: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ActionLocalPortDetailsTypeDef(BaseValidatorModel):
     Port: Optional[int] = None
-    PortName: Optional[str] = None
+    PortName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class DnsRequestActionTypeDef(BaseValidatorModel):
-    Domain: Optional[str] = None
-    Protocol: Optional[str] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Blocked: Optional[bool] = None
 
 
 class CityTypeDef(BaseValidatorModel):
-    CityName: Optional[str] = None
+    CityName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class CountryTypeDef(BaseValidatorModel):
-    CountryCode: Optional[str] = None
-    CountryName: Optional[str] = None
+    CountryCode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CountryName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class GeoLocationTypeDef(BaseValidatorModel):
@@ -84,61 +86,61 @@ class GeoLocationTypeDef(BaseValidatorModel):
 
 class IpOrganizationDetailsTypeDef(BaseValidatorModel):
     Asn: Optional[int] = None
-    AsnOrg: Optional[str] = None
-    Isp: Optional[str] = None
-    Org: Optional[str] = None
+    AsnOrg: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Isp: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Org: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ActionRemotePortDetailsTypeDef(BaseValidatorModel):
     Port: Optional[int] = None
-    PortName: Optional[str] = None
+    PortName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ActionTargetTypeDef(BaseValidatorModel):
-    ActionTargetArn: str
-    Name: str
-    Description: str
+    ActionTargetArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class ActorSessionTypeDef(BaseValidatorModel):
-    Uid: Optional[str] = None
+    Uid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     MfaStatus: Optional[ActorSessionMfaStatusType] = None
     CreatedTime: Optional[int] = None
-    Issuer: Optional[str] = None
+    Issuer: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class UserAccountTypeDef(BaseValidatorModel):
-    Uid: Optional[str] = None
-    Name: Optional[str] = None
+    Uid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AdjustmentTypeDef(BaseValidatorModel):
-    Metric: Optional[str] = None
-    Reason: Optional[str] = None
+    Metric: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Reason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AdminAccountTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Status: Optional[AdminStatusType] = None
 
 
 class AggregatorV2TypeDef(BaseValidatorModel):
-    AggregatorV2Arn: Optional[str] = None
+    AggregatorV2Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AssociatedStandardTypeDef(BaseValidatorModel):
-    StandardsId: Optional[str] = None
+    StandardsId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AssociationFiltersTypeDef(BaseValidatorModel):
-    ConfigurationPolicyId: Optional[str] = None
+    ConfigurationPolicyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AssociationType: Optional[AssociationTypeType] = None
     AssociationStatus: Optional[ConfigurationPolicyAssociationStatusType] = None
 
 
 class AssociationStateDetailsTypeDef(BaseValidatorModel):
-    State: Optional[str] = None
-    StatusMessage: Optional[str] = None
+    State: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AutomationRulesActionTypeObjectV2TypeDef(BaseValidatorModel):
@@ -147,22 +149,22 @@ class AutomationRulesActionTypeObjectV2TypeDef(BaseValidatorModel):
 
 class AutomationRulesFindingFieldsUpdateV2TypeDef(BaseValidatorModel):
     SeverityId: Optional[int] = None
-    Comment: Optional[str] = None
+    Comment: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     StatusId: Optional[int] = None
 
 
 class ExternalIntegrationConfigurationTypeDef(BaseValidatorModel):
-    ConnectorArn: Optional[str] = None
+    ConnectorArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class NoteUpdateTypeDef(BaseValidatorModel):
-    Text: str
-    UpdatedBy: str
+    Text: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    UpdatedBy: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class RelatedFindingTypeDef(BaseValidatorModel):
-    ProductArn: str
-    Id: str
+    ProductArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Id: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class SeverityUpdateTypeDef(BaseValidatorModel):
@@ -176,8 +178,8 @@ class WorkflowUpdateTypeDef(BaseValidatorModel):
 
 
 class MapFilterTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Comparison: Optional[MapFilterComparisonType] = None
 
 
@@ -190,29 +192,29 @@ class NumberFilterTypeDef(BaseValidatorModel):
 
 
 class StringFilterTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Comparison: Optional[StringFilterComparisonType] = None
 
 
 class AutomationRulesMetadataTypeDef(BaseValidatorModel):
-    RuleArn: Optional[str] = None
+    RuleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RuleStatus: Optional[RuleStatusType] = None
     RuleOrder: Optional[int] = None
-    RuleName: Optional[str] = None
-    Description: Optional[str] = None
+    RuleName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IsTerminal: Optional[bool] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
-    CreatedBy: Optional[str] = None
+    CreatedBy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AvailabilityZoneTypeDef(BaseValidatorModel):
-    ZoneName: Optional[str] = None
-    SubnetId: Optional[str] = None
+    ZoneName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef(BaseValidatorModel):
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     UseAwsOwnedKey: Optional[bool] = None
 
 
@@ -230,26 +232,26 @@ class AwsAmazonMqBrokerLdapServerMetadataDetailsOutputTypeDef(BaseValidatorModel
 
 
 class AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef(BaseValidatorModel):
-    DayOfWeek: Optional[str] = None
-    TimeOfDay: Optional[str] = None
-    TimeZone: Optional[str] = None
+    DayOfWeek: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TimeOfDay: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TimeZone: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAmazonMqBrokerUsersDetailsTypeDef(BaseValidatorModel):
-    PendingChange: Optional[str] = None
-    Username: Optional[str] = None
+    PendingChange: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Username: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAmazonMqBrokerLdapServerMetadataDetailsTypeDef(BaseValidatorModel):
-    Hosts: Optional[List[str]] = None
-    RoleBase: Optional[str] = None
-    RoleName: Optional[str] = None
-    RoleSearchMatching: Optional[str] = None
+    Hosts: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    RoleBase: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RoleName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RoleSearchMatching: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RoleSearchSubtree: Optional[bool] = None
-    ServiceAccountUsername: Optional[str] = None
-    UserBase: Optional[str] = None
-    UserRoleName: Optional[str] = None
-    UserSearchMatching: Optional[str] = None
+    ServiceAccountUsername: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    UserBase: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    UserRoleName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    UserSearchMatching: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     UserSearchSubtree: Optional[bool] = None
 
 
@@ -259,12 +261,12 @@ class AwsAmazonMqBrokerLogsPendingDetailsTypeDef(BaseValidatorModel):
 
 
 class AwsApiCallActionDomainDetailsTypeDef(BaseValidatorModel):
-    Domain: Optional[str] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsApiGatewayAccessLogSettingsTypeDef(BaseValidatorModel):
-    Format: Optional[str] = None
-    DestinationArn: Optional[str] = None
+    Format: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsApiGatewayCanarySettingsOutputTypeDef(BaseValidatorModel):
@@ -276,7 +278,7 @@ class AwsApiGatewayCanarySettingsOutputTypeDef(BaseValidatorModel):
 
 class AwsApiGatewayCanarySettingsTypeDef(BaseValidatorModel):
     PercentTraffic: Optional[float] = None
-    DeploymentId: Optional[str] = None
+    DeploymentId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     StageVariableOverrides: Optional[Dict[str, str]] = None
     UseStageCache: Optional[bool] = None
 
@@ -286,12 +288,12 @@ class AwsApiGatewayEndpointConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class AwsApiGatewayEndpointConfigurationTypeDef(BaseValidatorModel):
-    Types: Optional[List[str]] = None
+    Types: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsApiGatewayMethodSettingsTypeDef(BaseValidatorModel):
     MetricsEnabled: Optional[bool] = None
-    LoggingLevel: Optional[str] = None
+    LoggingLevel: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DataTraceEnabled: Optional[bool] = None
     ThrottlingBurstLimit: Optional[int] = None
     ThrottlingRateLimit: Optional[float] = None
@@ -299,9 +301,11 @@ class AwsApiGatewayMethodSettingsTypeDef(BaseValidatorModel):
     CacheTtlInSeconds: Optional[int] = None
     CacheDataEncrypted: Optional[bool] = None
     RequireAuthorizationForCacheControl: Optional[bool] = None
-    UnauthorizedCacheControlHeaderStrategy: Optional[str] = None
-    HttpMethod: Optional[str] = None
-    ResourcePath: Optional[str] = None
+    UnauthorizedCacheControlHeaderStrategy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = (
+        None
+    )
+    HttpMethod: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ResourcePath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCorsConfigurationOutputTypeDef(BaseValidatorModel):
@@ -315,7 +319,7 @@ class AwsCorsConfigurationOutputTypeDef(BaseValidatorModel):
 
 class AwsApiGatewayV2RouteSettingsTypeDef(BaseValidatorModel):
     DetailedMetricsEnabled: Optional[bool] = None
-    LoggingLevel: Optional[str] = None
+    LoggingLevel: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DataTraceEnabled: Optional[bool] = None
     ThrottlingBurstLimit: Optional[int] = None
     ThrottlingRateLimit: Optional[float] = None
@@ -323,74 +327,74 @@ class AwsApiGatewayV2RouteSettingsTypeDef(BaseValidatorModel):
 
 class AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef(BaseValidatorModel):
     AuthorizerResultTtlInSeconds: Optional[int] = None
-    AuthorizerUri: Optional[str] = None
-    IdentityValidationExpression: Optional[str] = None
+    AuthorizerUri: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    IdentityValidationExpression: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef(BaseValidatorModel):
     AuthTtL: Optional[int] = None
-    ClientId: Optional[str] = None
+    ClientId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IatTtL: Optional[int] = None
-    Issuer: Optional[str] = None
+    Issuer: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef(BaseValidatorModel):
-    AppIdClientRegex: Optional[str] = None
-    AwsRegion: Optional[str] = None
-    DefaultAction: Optional[str] = None
-    UserPoolId: Optional[str] = None
+    AppIdClientRegex: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AwsRegion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DefaultAction: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    UserPoolId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAppSyncGraphQlApiLogConfigDetailsTypeDef(BaseValidatorModel):
-    CloudWatchLogsRoleArn: Optional[str] = None
+    CloudWatchLogsRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ExcludeVerboseContent: Optional[bool] = None
-    FieldLogLevel: Optional[str] = None
+    FieldLogLevel: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetailsTypeDef(BaseValidatorModel):
-    EncryptionOption: Optional[str] = None
-    KmsKey: Optional[str] = None
+    EncryptionOption: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KmsKey: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef(BaseValidatorModel):
-    LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
-    Version: Optional[str] = None
+    LaunchTemplateId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef(BaseValidatorModel):
-    OnDemandAllocationStrategy: Optional[str] = None
+    OnDemandAllocationStrategy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     OnDemandBaseCapacity: Optional[int] = None
     OnDemandPercentageAboveBaseCapacity: Optional[int] = None
-    SpotAllocationStrategy: Optional[str] = None
+    SpotAllocationStrategy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SpotInstancePools: Optional[int] = None
-    SpotMaxPrice: Optional[str] = None
+    SpotMaxPrice: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef(
     BaseValidatorModel
 ):
-    LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
-    Version: Optional[str] = None
+    LaunchTemplateId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef(BaseValidatorModel):
-    InstanceType: Optional[str] = None
-    WeightedCapacity: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    WeightedCapacity: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef(BaseValidatorModel):
     DeleteOnTermination: Optional[bool] = None
     Encrypted: Optional[bool] = None
     Iops: Optional[int] = None
-    SnapshotId: Optional[str] = None
+    SnapshotId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     VolumeSize: Optional[int] = None
-    VolumeType: Optional[str] = None
+    VolumeType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef(BaseValidatorModel):
@@ -398,9 +402,9 @@ class AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef(BaseVali
 
 
 class AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef(BaseValidatorModel):
-    HttpEndpoint: Optional[str] = None
+    HttpEndpoint: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     HttpPutResponseHopLimit: Optional[int] = None
-    HttpTokens: Optional[str] = None
+    HttpTokens: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutputTypeDef(BaseValidatorModel):
@@ -410,7 +414,7 @@ class AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutputTypeDef(BaseValidato
 
 class AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef(BaseValidatorModel):
     BackupOptions: Optional[Dict[str, str]] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsBackupBackupPlanLifecycleDetailsTypeDef(BaseValidatorModel):
@@ -424,20 +428,20 @@ class AwsBackupBackupVaultNotificationsDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsBackupBackupVaultNotificationsDetailsTypeDef(BaseValidatorModel):
-    BackupVaultEvents: Optional[List[str]] = None
-    SnsTopicArn: Optional[str] = None
+    BackupVaultEvents: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SnsTopicArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef(BaseValidatorModel):
-    DeleteAt: Optional[str] = None
-    MoveToColdStorageAt: Optional[str] = None
+    DeleteAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MoveToColdStorageAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsBackupRecoveryPointCreatedByDetailsTypeDef(BaseValidatorModel):
-    BackupPlanArn: Optional[str] = None
-    BackupPlanId: Optional[str] = None
-    BackupPlanVersion: Optional[str] = None
-    BackupRuleId: Optional[str] = None
+    BackupPlanArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    BackupPlanId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    BackupPlanVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    BackupRuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsBackupRecoveryPointLifecycleDetailsTypeDef(BaseValidatorModel):
@@ -446,57 +450,59 @@ class AwsBackupRecoveryPointLifecycleDetailsTypeDef(BaseValidatorModel):
 
 
 class AwsCertificateManagerCertificateExtendedKeyUsageTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    OId: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCertificateManagerCertificateKeyUsageTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCertificateManagerCertificateOptionsTypeDef(BaseValidatorModel):
-    CertificateTransparencyLoggingPreference: Optional[str] = None
+    CertificateTransparencyLoggingPreference: Optional[
+        Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ] = None
 
 
 class AwsCertificateManagerCertificateResourceRecordTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Type: Optional[str] = None
-    Value: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudFormationStackDriftInformationDetailsTypeDef(BaseValidatorModel):
-    StackDriftStatus: Optional[str] = None
+    StackDriftStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudFormationStackOutputsDetailsTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
-    OutputKey: Optional[str] = None
-    OutputValue: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OutputKey: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OutputValue: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudFrontDistributionCacheBehaviorTypeDef(BaseValidatorModel):
-    ViewerProtocolPolicy: Optional[str] = None
+    ViewerProtocolPolicy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef(BaseValidatorModel):
-    ViewerProtocolPolicy: Optional[str] = None
+    ViewerProtocolPolicy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudFrontDistributionLoggingTypeDef(BaseValidatorModel):
-    Bucket: Optional[str] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Enabled: Optional[bool] = None
     IncludeCookies: Optional[bool] = None
-    Prefix: Optional[str] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudFrontDistributionViewerCertificateTypeDef(BaseValidatorModel):
-    AcmCertificateArn: Optional[str] = None
-    Certificate: Optional[str] = None
-    CertificateSource: Optional[str] = None
+    AcmCertificateArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Certificate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CertificateSource: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CloudFrontDefaultCertificate: Optional[bool] = None
-    IamCertificateId: Optional[str] = None
-    MinimumProtocolVersion: Optional[str] = None
-    SslSupportMethod: Optional[str] = None
+    IamCertificateId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MinimumProtocolVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SslSupportMethod: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudFrontDistributionOriginSslProtocolsOutputTypeDef(BaseValidatorModel):
@@ -515,52 +521,52 @@ class AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef(BaseValidat
 
 
 class AwsCloudFrontDistributionOriginS3OriginConfigTypeDef(BaseValidatorModel):
-    OriginAccessIdentity: Optional[str] = None
+    OriginAccessIdentity: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudFrontDistributionOriginSslProtocolsTypeDef(BaseValidatorModel):
-    Items: Optional[List[str]] = None
+    Items: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Quantity: Optional[int] = None
 
 
 class AwsCloudTrailTrailDetailsTypeDef(BaseValidatorModel):
-    CloudWatchLogsLogGroupArn: Optional[str] = None
-    CloudWatchLogsRoleArn: Optional[str] = None
+    CloudWatchLogsLogGroupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CloudWatchLogsRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     HasCustomEventSelectors: Optional[bool] = None
-    HomeRegion: Optional[str] = None
+    HomeRegion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IncludeGlobalServiceEvents: Optional[bool] = None
     IsMultiRegionTrail: Optional[bool] = None
     IsOrganizationTrail: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LogFileValidationEnabled: Optional[bool] = None
-    Name: Optional[str] = None
-    S3BucketName: Optional[str] = None
-    S3KeyPrefix: Optional[str] = None
-    SnsTopicArn: Optional[str] = None
-    SnsTopicName: Optional[str] = None
-    TrailArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    S3BucketName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    S3KeyPrefix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SnsTopicArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SnsTopicName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TrailArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudWatchAlarmDimensionsDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Value: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCodeBuildProjectArtifactsDetailsTypeDef(BaseValidatorModel):
-    ArtifactIdentifier: Optional[str] = None
+    ArtifactIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EncryptionDisabled: Optional[bool] = None
-    Location: Optional[str] = None
-    Name: Optional[str] = None
-    NamespaceType: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NamespaceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     OverrideArtifactName: Optional[bool] = None
-    Packaging: Optional[str] = None
-    Path: Optional[str] = None
-    Type: Optional[str] = None
+    Packaging: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Path: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCodeBuildProjectSourceTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
-    Location: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Location: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     GitCloneDepth: Optional[int] = None
     InsecureSsl: Optional[bool] = None
 
@@ -572,123 +578,123 @@ class AwsCodeBuildProjectVpcConfigOutputTypeDef(BaseValidatorModel):
 
 
 class AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Type: Optional[str] = None
-    Value: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCodeBuildProjectEnvironmentRegistryCredentialTypeDef(BaseValidatorModel):
-    Credential: Optional[str] = None
-    CredentialProvider: Optional[str] = None
+    Credential: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CredentialProvider: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCodeBuildProjectLogsConfigCloudWatchLogsDetailsTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    Status: Optional[str] = None
-    StreamName: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCodeBuildProjectLogsConfigS3LogsDetailsTypeDef(BaseValidatorModel):
     EncryptionDisabled: Optional[bool] = None
-    Location: Optional[str] = None
-    Status: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCodeBuildProjectVpcConfigTypeDef(BaseValidatorModel):
-    VpcId: Optional[str] = None
-    Subnets: Optional[List[str]] = None
-    SecurityGroupIds: Optional[List[str]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Subnets: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsCorsConfigurationTypeDef(BaseValidatorModel):
-    AllowOrigins: Optional[List[str]] = None
+    AllowOrigins: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     AllowCredentials: Optional[bool] = None
-    ExposeHeaders: Optional[List[str]] = None
+    ExposeHeaders: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     MaxAge: Optional[int] = None
-    AllowMethods: Optional[List[str]] = None
-    AllowHeaders: Optional[List[str]] = None
+    AllowMethods: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    AllowHeaders: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsDmsEndpointDetailsTypeDef(BaseValidatorModel):
-    CertificateArn: Optional[str] = None
-    DatabaseName: Optional[str] = None
-    EndpointArn: Optional[str] = None
-    EndpointIdentifier: Optional[str] = None
-    EndpointType: Optional[str] = None
-    EngineName: Optional[str] = None
-    ExternalId: Optional[str] = None
-    ExtraConnectionAttributes: Optional[str] = None
-    KmsKeyId: Optional[str] = None
+    CertificateArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EndpointArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EndpointIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EndpointType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EngineName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ExternalId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ExtraConnectionAttributes: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Port: Optional[int] = None
-    ServerName: Optional[str] = None
-    SslMode: Optional[str] = None
-    Username: Optional[str] = None
+    ServerName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SslMode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Username: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef(BaseValidatorModel):
-    ReplicationSubnetGroupIdentifier: Optional[str] = None
+    ReplicationSubnetGroupIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef(BaseValidatorModel):
-    VpcSecurityGroupId: Optional[str] = None
+    VpcSecurityGroupId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsDmsReplicationTaskDetailsTypeDef(BaseValidatorModel):
-    CdcStartPosition: Optional[str] = None
-    CdcStartTime: Optional[str] = None
-    CdcStopPosition: Optional[str] = None
-    MigrationType: Optional[str] = None
-    Id: Optional[str] = None
-    ResourceIdentifier: Optional[str] = None
-    ReplicationInstanceArn: Optional[str] = None
-    ReplicationTaskIdentifier: Optional[str] = None
-    ReplicationTaskSettings: Optional[str] = None
-    SourceEndpointArn: Optional[str] = None
-    TableMappings: Optional[str] = None
-    TargetEndpointArn: Optional[str] = None
-    TaskData: Optional[str] = None
+    CdcStartPosition: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CdcStartTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CdcStopPosition: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MigrationType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ResourceIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ReplicationInstanceArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ReplicationTaskIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ReplicationTaskSettings: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SourceEndpointArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TableMappings: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TargetEndpointArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TaskData: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsDynamoDbTableAttributeDefinitionTypeDef(BaseValidatorModel):
-    AttributeName: Optional[str] = None
-    AttributeType: Optional[str] = None
+    AttributeName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AttributeType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsDynamoDbTableBillingModeSummaryTypeDef(BaseValidatorModel):
-    BillingMode: Optional[str] = None
-    LastUpdateToPayPerRequestDateTime: Optional[str] = None
+    BillingMode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastUpdateToPayPerRequestDateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsDynamoDbTableKeySchemaTypeDef(BaseValidatorModel):
-    AttributeName: Optional[str] = None
-    KeyType: Optional[str] = None
+    AttributeName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KeyType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsDynamoDbTableProvisionedThroughputTypeDef(BaseValidatorModel):
-    LastDecreaseDateTime: Optional[str] = None
-    LastIncreaseDateTime: Optional[str] = None
+    LastDecreaseDateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastIncreaseDateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     NumberOfDecreasesToday: Optional[int] = None
     ReadCapacityUnits: Optional[int] = None
     WriteCapacityUnits: Optional[int] = None
 
 
 class AwsDynamoDbTableRestoreSummaryTypeDef(BaseValidatorModel):
-    SourceBackupArn: Optional[str] = None
-    SourceTableArn: Optional[str] = None
-    RestoreDateTime: Optional[str] = None
+    SourceBackupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SourceTableArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RestoreDateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RestoreInProgress: Optional[bool] = None
 
 
 class AwsDynamoDbTableSseDescriptionTypeDef(BaseValidatorModel):
-    InaccessibleEncryptionDateTime: Optional[str] = None
-    Status: Optional[str] = None
-    SseType: Optional[str] = None
-    KmsMasterKeyArn: Optional[str] = None
+    InaccessibleEncryptionDateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SseType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KmsMasterKeyArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsDynamoDbTableStreamSpecificationTypeDef(BaseValidatorModel):
     StreamEnabled: Optional[bool] = None
-    StreamViewType: Optional[str] = None
+    StreamViewType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsDynamoDbTableProjectionOutputTypeDef(BaseValidatorModel):
@@ -697,8 +703,8 @@ class AwsDynamoDbTableProjectionOutputTypeDef(BaseValidatorModel):
 
 
 class AwsDynamoDbTableProjectionTypeDef(BaseValidatorModel):
-    NonKeyAttributes: Optional[List[str]] = None
-    ProjectionType: Optional[str] = None
+    NonKeyAttributes: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    ProjectionType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsDynamoDbTableProvisionedThroughputOverrideTypeDef(BaseValidatorModel):
@@ -706,79 +712,79 @@ class AwsDynamoDbTableProvisionedThroughputOverrideTypeDef(BaseValidatorModel):
 
 
 class AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetailsTypeDef(BaseValidatorModel):
-    SamlProviderArn: Optional[str] = None
-    SelfServiceSamlProviderArn: Optional[str] = None
+    SamlProviderArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SelfServiceSamlProviderArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef(BaseValidatorModel):
-    ClientRootCertificateChain: Optional[str] = None
+    ClientRootCertificateChain: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef(BaseValidatorModel):
-    Code: Optional[str] = None
-    Message: Optional[str] = None
+    Code: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Message: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    BannerText: Optional[str] = None
+    BannerText: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    CloudwatchLogGroup: Optional[str] = None
-    CloudwatchLogStream: Optional[str] = None
+    CloudwatchLogGroup: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CloudwatchLogStream: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2EipDetailsTypeDef(BaseValidatorModel):
-    InstanceId: Optional[str] = None
-    PublicIp: Optional[str] = None
-    AllocationId: Optional[str] = None
-    AssociationId: Optional[str] = None
-    Domain: Optional[str] = None
-    PublicIpv4Pool: Optional[str] = None
-    NetworkBorderGroup: Optional[str] = None
-    NetworkInterfaceId: Optional[str] = None
-    NetworkInterfaceOwnerId: Optional[str] = None
-    PrivateIpAddress: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PublicIp: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AllocationId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PublicIpv4Pool: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NetworkBorderGroup: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NetworkInterfaceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NetworkInterfaceOwnerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PrivateIpAddress: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2InstanceMetadataOptionsTypeDef(BaseValidatorModel):
-    HttpEndpoint: Optional[str] = None
-    HttpProtocolIpv6: Optional[str] = None
+    HttpEndpoint: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HttpProtocolIpv6: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     HttpPutResponseHopLimit: Optional[int] = None
-    HttpTokens: Optional[str] = None
-    InstanceMetadataTags: Optional[str] = None
+    HttpTokens: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    InstanceMetadataTags: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2InstanceMonitoringDetailsTypeDef(BaseValidatorModel):
-    State: Optional[str] = None
+    State: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2InstanceNetworkInterfacesDetailsTypeDef(BaseValidatorModel):
-    NetworkInterfaceId: Optional[str] = None
+    NetworkInterfaceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef(BaseValidatorModel):
     DeleteOnTermination: Optional[bool] = None
     Encrypted: Optional[bool] = None
     Iops: Optional[int] = None
-    KmsKeyId: Optional[str] = None
-    SnapshotId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SnapshotId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Throughput: Optional[int] = None
     VolumeSize: Optional[int] = None
-    VolumeType: Optional[str] = None
+    VolumeType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef(
     BaseValidatorModel
 ):
-    CapacityReservationId: Optional[str] = None
-    CapacityReservationResourceGroupArn: Optional[str] = None
+    CapacityReservationId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CapacityReservationResourceGroupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef(BaseValidatorModel):
@@ -787,16 +793,16 @@ class AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef(BaseValidatorModel):
 
 
 class AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef(BaseValidatorModel):
-    CpuCredits: Optional[str] = None
+    CpuCredits: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef(BaseValidatorModel):
@@ -808,24 +814,24 @@ class AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef(BaseValidatorMode
 
 
 class AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef(BaseValidatorModel):
-    LicenseConfigurationArn: Optional[str] = None
+    LicenseConfigurationArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef(BaseValidatorModel):
-    AutoRecovery: Optional[str] = None
+    AutoRecovery: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef(BaseValidatorModel):
-    HttpEndpoint: Optional[str] = None
-    HttpProtocolIpv6: Optional[str] = None
-    HttpTokens: Optional[str] = None
+    HttpEndpoint: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HttpProtocolIpv6: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HttpTokens: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     HttpPutResponseHopLimit: Optional[int] = None
-    InstanceMetadataTags: Optional[str] = None
+    InstanceMetadataTags: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef(BaseValidatorModel):
@@ -833,28 +839,28 @@ class AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef(BaseValidatorModel):
 
 
 class AwsEc2LaunchTemplateDataPlacementDetailsTypeDef(BaseValidatorModel):
-    Affinity: Optional[str] = None
-    AvailabilityZone: Optional[str] = None
-    GroupName: Optional[str] = None
-    HostId: Optional[str] = None
-    HostResourceGroupArn: Optional[str] = None
+    Affinity: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HostId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HostResourceGroupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PartitionNumber: Optional[int] = None
-    SpreadDomain: Optional[str] = None
-    Tenancy: Optional[str] = None
+    SpreadDomain: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Tenancy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef(BaseValidatorModel):
     EnableResourceNameDnsAAAARecord: Optional[bool] = None
     EnableResourceNameDnsARecord: Optional[bool] = None
-    HostnameType: Optional[str] = None
+    HostnameType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef(BaseValidatorModel):
     BlockDurationMinutes: Optional[int] = None
-    InstanceInterruptionBehavior: Optional[str] = None
-    MaxPrice: Optional[str] = None
-    SpotInstanceType: Optional[str] = None
-    ValidUntil: Optional[str] = None
+    InstanceInterruptionBehavior: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MaxPrice: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SpotInstanceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ValidUntil: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef(BaseValidatorModel):
@@ -898,26 +904,26 @@ class AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef(BaseVa
 
 
 class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef(BaseValidatorModel):
-    Ipv4Prefix: Optional[str] = None
+    Ipv4Prefix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef(BaseValidatorModel):
-    Ipv6Address: Optional[str] = None
+    Ipv6Address: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef(BaseValidatorModel):
-    Ipv6Prefix: Optional[str] = None
+    Ipv6Prefix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef(BaseValidatorModel):
     Primary: Optional[bool] = None
-    PrivateIpAddress: Optional[str] = None
+    PrivateIpAddress: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2NetworkAclAssociationTypeDef(BaseValidatorModel):
-    NetworkAclAssociationId: Optional[str] = None
-    NetworkAclId: Optional[str] = None
-    SubnetId: Optional[str] = None
+    NetworkAclAssociationId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NetworkAclId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class IcmpTypeCodeTypeDef(BaseValidatorModel):
@@ -931,77 +937,77 @@ class PortRangeFromToTypeDef(BaseValidatorModel):
 
 
 class AwsEc2NetworkInterfaceAttachmentTypeDef(BaseValidatorModel):
-    AttachTime: Optional[str] = None
-    AttachmentId: Optional[str] = None
+    AttachTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AttachmentId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DeleteOnTermination: Optional[bool] = None
     DeviceIndex: Optional[int] = None
-    InstanceId: Optional[str] = None
-    InstanceOwnerId: Optional[str] = None
-    Status: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    InstanceOwnerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef(BaseValidatorModel):
-    IpV6Address: Optional[str] = None
+    IpV6Address: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef(BaseValidatorModel):
-    PrivateIpAddress: Optional[str] = None
-    PrivateDnsName: Optional[str] = None
+    PrivateIpAddress: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PrivateDnsName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2NetworkInterfaceSecurityGroupTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    GroupId: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    GroupId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class PropagatingVgwSetDetailsTypeDef(BaseValidatorModel):
-    GatewayId: Optional[str] = None
+    GatewayId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class RouteSetDetailsTypeDef(BaseValidatorModel):
-    CarrierGatewayId: Optional[str] = None
-    CoreNetworkArn: Optional[str] = None
-    DestinationCidrBlock: Optional[str] = None
-    DestinationIpv6CidrBlock: Optional[str] = None
-    DestinationPrefixListId: Optional[str] = None
-    EgressOnlyInternetGatewayId: Optional[str] = None
-    GatewayId: Optional[str] = None
-    InstanceId: Optional[str] = None
-    InstanceOwnerId: Optional[str] = None
-    LocalGatewayId: Optional[str] = None
-    NatGatewayId: Optional[str] = None
-    NetworkInterfaceId: Optional[str] = None
-    Origin: Optional[str] = None
-    State: Optional[str] = None
-    TransitGatewayId: Optional[str] = None
-    VpcPeeringConnectionId: Optional[str] = None
+    CarrierGatewayId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CoreNetworkArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DestinationCidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DestinationIpv6CidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DestinationPrefixListId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EgressOnlyInternetGatewayId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    GatewayId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    InstanceOwnerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LocalGatewayId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NatGatewayId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NetworkInterfaceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Origin: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    State: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TransitGatewayId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcPeeringConnectionId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2SecurityGroupIpRangeTypeDef(BaseValidatorModel):
-    CidrIp: Optional[str] = None
+    CidrIp: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2SecurityGroupIpv6RangeTypeDef(BaseValidatorModel):
-    CidrIpv6: Optional[str] = None
+    CidrIpv6: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2SecurityGroupPrefixListIdTypeDef(BaseValidatorModel):
-    PrefixListId: Optional[str] = None
+    PrefixListId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2SecurityGroupUserIdGroupPairTypeDef(BaseValidatorModel):
-    GroupId: Optional[str] = None
-    GroupName: Optional[str] = None
-    PeeringStatus: Optional[str] = None
-    UserId: Optional[str] = None
-    VpcId: Optional[str] = None
-    VpcPeeringConnectionId: Optional[str] = None
+    GroupId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PeeringStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcPeeringConnectionId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class Ipv6CidrBlockAssociationTypeDef(BaseValidatorModel):
-    AssociationId: Optional[str] = None
-    Ipv6CidrBlock: Optional[str] = None
-    CidrBlockState: Optional[str] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Ipv6CidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CidrBlockState: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2TransitGatewayDetailsOutputTypeDef(BaseValidatorModel):
@@ -1020,48 +1026,48 @@ class AwsEc2TransitGatewayDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEc2TransitGatewayDetailsTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Description: Optional[str] = None
-    DefaultRouteTablePropagation: Optional[str] = None
-    AutoAcceptSharedAttachments: Optional[str] = None
-    DefaultRouteTableAssociation: Optional[str] = None
-    TransitGatewayCidrBlocks: Optional[List[str]] = None
-    AssociationDefaultRouteTableId: Optional[str] = None
-    PropagationDefaultRouteTableId: Optional[str] = None
-    VpnEcmpSupport: Optional[str] = None
-    DnsSupport: Optional[str] = None
-    MulticastSupport: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DefaultRouteTablePropagation: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AutoAcceptSharedAttachments: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DefaultRouteTableAssociation: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TransitGatewayCidrBlocks: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    AssociationDefaultRouteTableId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PropagationDefaultRouteTableId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpnEcmpSupport: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DnsSupport: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MulticastSupport: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AmazonSideAsn: Optional[int] = None
 
 
 class AwsEc2VolumeAttachmentTypeDef(BaseValidatorModel):
-    AttachTime: Optional[str] = None
+    AttachTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DeleteOnTermination: Optional[bool] = None
-    InstanceId: Optional[str] = None
-    Status: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class CidrBlockAssociationTypeDef(BaseValidatorModel):
-    AssociationId: Optional[str] = None
-    CidrBlock: Optional[str] = None
-    CidrBlockState: Optional[str] = None
+    AssociationId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CidrBlockState: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef(BaseValidatorModel):
-    ServiceType: Optional[str] = None
+    ServiceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2VpcPeeringConnectionStatusDetailsTypeDef(BaseValidatorModel):
-    Code: Optional[str] = None
-    Message: Optional[str] = None
+    Code: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Message: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class VpcInfoCidrBlockSetDetailsTypeDef(BaseValidatorModel):
-    CidrBlock: Optional[str] = None
+    CidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class VpcInfoIpv6CidrBlockSetDetailsTypeDef(BaseValidatorModel):
-    Ipv6CidrBlock: Optional[str] = None
+    Ipv6CidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class VpcInfoPeeringOptionsDetailsTypeDef(BaseValidatorModel):
@@ -1071,17 +1077,17 @@ class VpcInfoPeeringOptionsDetailsTypeDef(BaseValidatorModel):
 
 
 class AwsEc2VpnConnectionRoutesDetailsTypeDef(BaseValidatorModel):
-    DestinationCidrBlock: Optional[str] = None
-    State: Optional[str] = None
+    DestinationCidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    State: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2VpnConnectionVgwTelemetryDetailsTypeDef(BaseValidatorModel):
     AcceptedRouteCount: Optional[int] = None
-    CertificateArn: Optional[str] = None
-    LastStatusChange: Optional[str] = None
-    OutsideIpAddress: Optional[str] = None
-    Status: Optional[str] = None
-    StatusMessage: Optional[str] = None
+    CertificateArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastStatusChange: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OutsideIpAddress: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutputTypeDef(BaseValidatorModel):
@@ -1105,21 +1111,21 @@ class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutputTypeDef(BaseValidatorM
 
 class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsTypeDef(BaseValidatorModel):
     DpdTimeoutSeconds: Optional[int] = None
-    IkeVersions: Optional[List[str]] = None
-    OutsideIpAddress: Optional[str] = None
+    IkeVersions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    OutsideIpAddress: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Phase1DhGroupNumbers: Optional[List[int]] = None
-    Phase1EncryptionAlgorithms: Optional[List[str]] = None
-    Phase1IntegrityAlgorithms: Optional[List[str]] = None
+    Phase1EncryptionAlgorithms: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    Phase1IntegrityAlgorithms: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Phase1LifetimeSeconds: Optional[int] = None
     Phase2DhGroupNumbers: Optional[List[int]] = None
-    Phase2EncryptionAlgorithms: Optional[List[str]] = None
-    Phase2IntegrityAlgorithms: Optional[List[str]] = None
+    Phase2EncryptionAlgorithms: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    Phase2IntegrityAlgorithms: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Phase2LifetimeSeconds: Optional[int] = None
-    PreSharedKey: Optional[str] = None
+    PreSharedKey: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RekeyFuzzPercentage: Optional[int] = None
     RekeyMarginTimeSeconds: Optional[int] = None
     ReplayWindowSize: Optional[int] = None
-    TunnelInsideCidr: Optional[str] = None
+    TunnelInsideCidr: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcrContainerImageDetailsOutputTypeDef(BaseValidatorModel):
@@ -1132,12 +1138,12 @@ class AwsEcrContainerImageDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEcrContainerImageDetailsTypeDef(BaseValidatorModel):
-    RegistryId: Optional[str] = None
-    RepositoryName: Optional[str] = None
-    Architecture: Optional[str] = None
-    ImageDigest: Optional[str] = None
-    ImageTags: Optional[List[str]] = None
-    ImagePublishedAt: Optional[str] = None
+    RegistryId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RepositoryName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Architecture: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ImageDigest: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ImageTags: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    ImagePublishedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcrRepositoryImageScanningConfigurationDetailsTypeDef(BaseValidatorModel):
@@ -1145,37 +1151,37 @@ class AwsEcrRepositoryImageScanningConfigurationDetailsTypeDef(BaseValidatorMode
 
 
 class AwsEcrRepositoryLifecyclePolicyDetailsTypeDef(BaseValidatorModel):
-    LifecyclePolicyText: Optional[str] = None
-    RegistryId: Optional[str] = None
+    LifecyclePolicyText: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RegistryId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsClusterClusterSettingsDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Value: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsTypeDef(BaseValidatorModel):
     CloudWatchEncryptionEnabled: Optional[bool] = None
-    CloudWatchLogGroupName: Optional[str] = None
-    S3BucketName: Optional[str] = None
+    CloudWatchLogGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    S3BucketName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     S3EncryptionEnabled: Optional[bool] = None
-    S3KeyPrefix: Optional[str] = None
+    S3KeyPrefix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef(BaseValidatorModel):
     Base: Optional[int] = None
-    CapacityProvider: Optional[str] = None
+    CapacityProvider: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Weight: Optional[int] = None
 
 
 class AwsMountPointTypeDef(BaseValidatorModel):
-    SourceVolume: Optional[str] = None
-    ContainerPath: Optional[str] = None
+    SourceVolume: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ContainerPath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsServiceCapacityProviderStrategyDetailsTypeDef(BaseValidatorModel):
     Base: Optional[int] = None
-    CapacityProvider: Optional[str] = None
+    CapacityProvider: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Weight: Optional[int] = None
 
 
@@ -1185,31 +1191,31 @@ class AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsTypeDef
 
 
 class AwsEcsServiceDeploymentControllerDetailsTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsServiceLoadBalancersDetailsTypeDef(BaseValidatorModel):
-    ContainerName: Optional[str] = None
+    ContainerName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ContainerPort: Optional[int] = None
-    LoadBalancerName: Optional[str] = None
-    TargetGroupArn: Optional[str] = None
+    LoadBalancerName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TargetGroupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsServicePlacementConstraintsDetailsTypeDef(BaseValidatorModel):
-    Expression: Optional[str] = None
-    Type: Optional[str] = None
+    Expression: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsServicePlacementStrategiesDetailsTypeDef(BaseValidatorModel):
-    Field: Optional[str] = None
-    Type: Optional[str] = None
+    Field: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsServiceServiceRegistriesDetailsTypeDef(BaseValidatorModel):
-    ContainerName: Optional[str] = None
+    ContainerName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ContainerPort: Optional[int] = None
     Port: Optional[int] = None
-    RegistryArn: Optional[str] = None
+    RegistryArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutputTypeDef(BaseValidatorModel):
@@ -1219,29 +1225,29 @@ class AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutputTypeDef(B
 
 
 class AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsTypeDef(BaseValidatorModel):
-    AssignPublicIp: Optional[str] = None
-    SecurityGroups: Optional[List[str]] = None
-    Subnets: Optional[List[str]] = None
+    AssignPublicIp: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    Subnets: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef(BaseValidatorModel):
-    Condition: Optional[str] = None
-    ContainerName: Optional[str] = None
+    Condition: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ContainerName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Value: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
-    Value: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsTypeDef(BaseValidatorModel):
-    Hostname: Optional[str] = None
-    IpAddress: Optional[str] = None
+    Hostname: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutputTypeDef(BaseValidatorModel):
@@ -1258,54 +1264,54 @@ class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutputTypeDef(Ba
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef(BaseValidatorModel):
-    ContainerPath: Optional[str] = None
+    ContainerPath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ReadOnly: Optional[bool] = None
-    SourceVolume: Optional[str] = None
+    SourceVolume: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef(BaseValidatorModel):
     ContainerPort: Optional[int] = None
     HostPort: Optional[int] = None
-    Protocol: Optional[str] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsTypeDef(BaseValidatorModel):
-    CredentialsParameter: Optional[str] = None
+    CredentialsParameter: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
-    Value: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ValueFrom: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ValueFrom: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef(BaseValidatorModel):
-    Namespace: Optional[str] = None
-    Value: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef(BaseValidatorModel):
     HardLimit: Optional[int] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SoftLimit: Optional[int] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef(BaseValidatorModel):
     ReadOnly: Optional[bool] = None
-    SourceContainer: Optional[str] = None
+    SourceContainer: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsTypeDef(BaseValidatorModel):
     Options: Optional[Dict[str, str]] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsTypeDef(BaseValidatorModel):
-    Command: Optional[List[str]] = None
+    Command: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Interval: Optional[int] = None
     Retries: Optional[int] = None
     StartPeriod: Optional[int] = None
@@ -1318,8 +1324,8 @@ class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsTypeDef(BaseValidatorModel):
-    Add: Optional[List[str]] = None
-    Drop: Optional[List[str]] = None
+    Add: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    Drop: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutputTypeDef(BaseValidatorModel):
@@ -1335,35 +1341,35 @@ class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutputT
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsTypeDef(BaseValidatorModel):
-    ContainerPath: Optional[str] = None
-    HostPath: Optional[str] = None
-    Permissions: Optional[List[str]] = None
+    ContainerPath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HostPath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Permissions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsTypeDef(BaseValidatorModel):
-    ContainerPath: Optional[str] = None
-    MountOptions: Optional[List[str]] = None
+    ContainerPath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MountOptions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Size: Optional[int] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ValueFrom: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ValueFrom: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef(BaseValidatorModel):
-    DeviceName: Optional[str] = None
-    DeviceType: Optional[str] = None
+    DeviceName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DeviceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef(BaseValidatorModel):
-    Expression: Optional[str] = None
-    Type: Optional[str] = None
+    Expression: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Value: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutputTypeDef(BaseValidatorModel):
@@ -1375,24 +1381,24 @@ class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutputTypeDef(B
 
 
 class AwsEcsTaskDefinitionVolumesHostDetailsTypeDef(BaseValidatorModel):
-    SourcePath: Optional[str] = None
+    SourcePath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsTypeDef(BaseValidatorModel):
     Autoprovision: Optional[bool] = None
-    Driver: Optional[str] = None
+    Driver: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DriverOpts: Optional[Dict[str, str]] = None
     Labels: Optional[Dict[str, str]] = None
-    Scope: Optional[str] = None
+    Scope: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsTypeDef(BaseValidatorModel):
-    AccessPointId: Optional[str] = None
-    Iam: Optional[str] = None
+    AccessPointId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Iam: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskVolumeHostDetailsTypeDef(BaseValidatorModel):
-    SourcePath: Optional[str] = None
+    SourcePath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEfsAccessPointPosixUserDetailsOutputTypeDef(BaseValidatorModel):
@@ -1402,15 +1408,15 @@ class AwsEfsAccessPointPosixUserDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEfsAccessPointPosixUserDetailsTypeDef(BaseValidatorModel):
-    Gid: Optional[str] = None
-    SecondaryGids: Optional[List[str]] = None
-    Uid: Optional[str] = None
+    Gid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SecondaryGids: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    Uid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef(BaseValidatorModel):
-    OwnerGid: Optional[str] = None
-    OwnerUid: Optional[str] = None
-    Permissions: Optional[str] = None
+    OwnerGid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OwnerUid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Permissions: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEksClusterResourcesVpcConfigDetailsOutputTypeDef(BaseValidatorModel):
@@ -1426,41 +1432,41 @@ class AwsEksClusterLoggingClusterLoggingDetailsOutputTypeDef(BaseValidatorModel)
 
 class AwsEksClusterLoggingClusterLoggingDetailsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    Types: Optional[List[str]] = None
+    Types: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsEksClusterResourcesVpcConfigDetailsTypeDef(BaseValidatorModel):
-    SecurityGroupIds: Optional[List[str]] = None
-    SubnetIds: Optional[List[str]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     EndpointPublicAccess: Optional[bool] = None
 
 
 class AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef(BaseValidatorModel):
-    EnvironmentName: Optional[str] = None
-    LinkName: Optional[str] = None
+    EnvironmentName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LinkName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElasticBeanstalkEnvironmentOptionSettingTypeDef(BaseValidatorModel):
-    Namespace: Optional[str] = None
-    OptionName: Optional[str] = None
-    ResourceName: Optional[str] = None
-    Value: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OptionName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ResourceName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElasticBeanstalkEnvironmentTierTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Type: Optional[str] = None
-    Version: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElasticsearchDomainDomainEndpointOptionsTypeDef(BaseValidatorModel):
     EnforceHTTPS: Optional[bool] = None
-    TLSSecurityPolicy: Optional[str] = None
+    TLSSecurityPolicy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef(BaseValidatorModel):
@@ -1468,13 +1474,13 @@ class AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef(BaseValidatorMode
 
 
 class AwsElasticsearchDomainServiceSoftwareOptionsTypeDef(BaseValidatorModel):
-    AutomatedUpdateDate: Optional[str] = None
+    AutomatedUpdateDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Cancellable: Optional[bool] = None
-    CurrentVersion: Optional[str] = None
-    Description: Optional[str] = None
-    NewVersion: Optional[str] = None
+    CurrentVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NewVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     UpdateAvailable: Optional[bool] = None
-    UpdateStatus: Optional[str] = None
+    UpdateStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElasticsearchDomainVPCOptionsOutputTypeDef(BaseValidatorModel):
@@ -1489,37 +1495,37 @@ class AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails
 
 
 class AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef(BaseValidatorModel):
-    CloudWatchLogsLogGroupArn: Optional[str] = None
+    CloudWatchLogsLogGroupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Enabled: Optional[bool] = None
 
 
 class AwsElasticsearchDomainVPCOptionsTypeDef(BaseValidatorModel):
-    AvailabilityZones: Optional[List[str]] = None
-    SecurityGroupIds: Optional[List[str]] = None
-    SubnetIds: Optional[List[str]] = None
-    VPCId: Optional[str] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    VPCId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElbAppCookieStickinessPolicyTypeDef(BaseValidatorModel):
-    CookieName: Optional[str] = None
-    PolicyName: Optional[str] = None
+    CookieName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElbLbCookieStickinessPolicyTypeDef(BaseValidatorModel):
     CookieExpirationPeriod: Optional[int] = None
-    PolicyName: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElbLoadBalancerAccessLogTypeDef(BaseValidatorModel):
     EmitInterval: Optional[int] = None
     Enabled: Optional[bool] = None
-    S3BucketName: Optional[str] = None
-    S3BucketPrefix: Optional[str] = None
+    S3BucketName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    S3BucketPrefix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElbLoadBalancerAdditionalAttributeTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElbLoadBalancerConnectionDrainingTypeDef(BaseValidatorModel):
@@ -1542,188 +1548,190 @@ class AwsElbLoadBalancerBackendServerDescriptionOutputTypeDef(BaseValidatorModel
 
 class AwsElbLoadBalancerBackendServerDescriptionTypeDef(BaseValidatorModel):
     InstancePort: Optional[int] = None
-    PolicyNames: Optional[List[str]] = None
+    PolicyNames: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsElbLoadBalancerHealthCheckTypeDef(BaseValidatorModel):
     HealthyThreshold: Optional[int] = None
     Interval: Optional[int] = None
-    Target: Optional[str] = None
+    Target: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Timeout: Optional[int] = None
     UnhealthyThreshold: Optional[int] = None
 
 
 class AwsElbLoadBalancerInstanceTypeDef(BaseValidatorModel):
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElbLoadBalancerSourceSecurityGroupTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    OwnerAlias: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OwnerAlias: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElbLoadBalancerListenerTypeDef(BaseValidatorModel):
     InstancePort: Optional[int] = None
-    InstanceProtocol: Optional[str] = None
+    InstanceProtocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LoadBalancerPort: Optional[int] = None
-    Protocol: Optional[str] = None
-    SslCertificateId: Optional[str] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SslCertificateId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElbv2LoadBalancerAttributeTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class LoadBalancerStateTypeDef(BaseValidatorModel):
-    Code: Optional[str] = None
-    Reason: Optional[str] = None
+    Code: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Reason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEventSchemasRegistryDetailsTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
-    RegistryArn: Optional[str] = None
-    RegistryName: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RegistryArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RegistryName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEventsEndpointEventBusesDetailsTypeDef(BaseValidatorModel):
-    EventBusArn: Optional[str] = None
+    EventBusArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEventsEndpointReplicationConfigDetailsTypeDef(BaseValidatorModel):
-    State: Optional[str] = None
+    State: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetailsTypeDef(BaseValidatorModel):
-    HealthCheck: Optional[str] = None
+    HealthCheck: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetailsTypeDef(BaseValidatorModel):
-    Route: Optional[str] = None
+    Route: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEventsEventbusDetailsTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
-    Policy: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Policy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsGuardDutyDetectorDataSourcesCloudTrailDetailsTypeDef(BaseValidatorModel):
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsGuardDutyDetectorDataSourcesDnsLogsDetailsTypeDef(BaseValidatorModel):
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsGuardDutyDetectorDataSourcesFlowLogsDetailsTypeDef(BaseValidatorModel):
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsGuardDutyDetectorDataSourcesS3LogsDetailsTypeDef(BaseValidatorModel):
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetailsTypeDef(BaseValidatorModel):
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetailsTypeDef(
     BaseValidatorModel
 ):
-    Reason: Optional[str] = None
-    Status: Optional[str] = None
+    Reason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsGuardDutyDetectorFeaturesDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Status: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamAccessKeySessionContextAttributesTypeDef(BaseValidatorModel):
     MfaAuthenticated: Optional[bool] = None
-    CreationDate: Optional[str] = None
+    CreationDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamAccessKeySessionContextSessionIssuerTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
-    PrincipalId: Optional[str] = None
-    Arn: Optional[str] = None
-    AccountId: Optional[str] = None
-    UserName: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PrincipalId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamAttachedManagedPolicyTypeDef(BaseValidatorModel):
-    PolicyName: Optional[str] = None
-    PolicyArn: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PolicyArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamGroupPolicyTypeDef(BaseValidatorModel):
-    PolicyName: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamInstanceProfileRoleTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    AssumeRolePolicyDocument: Optional[str] = None
-    CreateDate: Optional[str] = None
-    Path: Optional[str] = None
-    RoleId: Optional[str] = None
-    RoleName: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AssumeRolePolicyDocument: Optional[
+        Annotated[str, _aws_pattern("Securityhub", "AwsIamRoleAssumeRolePolicyDocument")]
+    ] = None
+    CreateDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Path: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RoleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RoleName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamPermissionsBoundaryTypeDef(BaseValidatorModel):
-    PermissionsBoundaryArn: Optional[str] = None
-    PermissionsBoundaryType: Optional[str] = None
+    PermissionsBoundaryArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PermissionsBoundaryType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamPolicyVersionTypeDef(BaseValidatorModel):
-    VersionId: Optional[str] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IsDefaultVersion: Optional[bool] = None
-    CreateDate: Optional[str] = None
+    CreateDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamRolePolicyTypeDef(BaseValidatorModel):
-    PolicyName: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamUserPolicyTypeDef(BaseValidatorModel):
-    PolicyName: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsKinesisStreamStreamEncryptionDetailsTypeDef(BaseValidatorModel):
-    EncryptionType: Optional[str] = None
-    KeyId: Optional[str] = None
+    EncryptionType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsKmsKeyDetailsTypeDef(BaseValidatorModel):
-    AWSAccountId: Optional[str] = None
+    AWSAccountId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CreationDate: Optional[float] = None
-    KeyId: Optional[str] = None
-    KeyManager: Optional[str] = None
-    KeyState: Optional[str] = None
-    Origin: Optional[str] = None
-    Description: Optional[str] = None
+    KeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KeyManager: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KeyState: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Origin: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     KeyRotationStatus: Optional[bool] = None
 
 
 class AwsLambdaFunctionCodeTypeDef(BaseValidatorModel):
-    S3Bucket: Optional[str] = None
-    S3Key: Optional[str] = None
-    S3ObjectVersion: Optional[str] = None
-    ZipFile: Optional[str] = None
+    S3Bucket: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    S3Key: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    S3ObjectVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ZipFile: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsLambdaFunctionDeadLetterConfigTypeDef(BaseValidatorModel):
-    TargetArn: Optional[str] = None
+    TargetArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsLambdaFunctionLayerTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CodeSize: Optional[int] = None
 
 
 class AwsLambdaFunctionTracingConfigTypeDef(BaseValidatorModel):
-    Mode: Optional[str] = None
+    Mode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsLambdaFunctionVpcConfigOutputTypeDef(BaseValidatorModel):
@@ -1733,14 +1741,14 @@ class AwsLambdaFunctionVpcConfigOutputTypeDef(BaseValidatorModel):
 
 
 class AwsLambdaFunctionEnvironmentErrorTypeDef(BaseValidatorModel):
-    ErrorCode: Optional[str] = None
-    Message: Optional[str] = None
+    ErrorCode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Message: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsLambdaFunctionVpcConfigTypeDef(BaseValidatorModel):
-    SecurityGroupIds: Optional[List[str]] = None
-    SubnetIds: Optional[List[str]] = None
-    VpcId: Optional[str] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsLambdaLayerVersionDetailsOutputTypeDef(BaseValidatorModel):
@@ -1751,8 +1759,8 @@ class AwsLambdaLayerVersionDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsLambdaLayerVersionDetailsTypeDef(BaseValidatorModel):
     Version: Optional[int] = None
-    CompatibleRuntimes: Optional[List[str]] = None
-    CreatedDate: Optional[str] = None
+    CompatibleRuntimes: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    CreatedDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutputTypeDef(BaseValidatorModel):
@@ -1773,27 +1781,27 @@ class AwsMskClusterClusterInfoClientAuthenticationSaslScramDetailsTypeDef(BaseVa
 
 
 class AwsMskClusterClusterInfoClientAuthenticationTlsDetailsTypeDef(BaseValidatorModel):
-    CertificateAuthorityArnList: Optional[List[str]] = None
+    CertificateAuthorityArnList: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Enabled: Optional[bool] = None
 
 
 class AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetailsTypeDef(BaseValidatorModel):
-    DataVolumeKMSKeyId: Optional[str] = None
+    DataVolumeKMSKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetailsTypeDef(BaseValidatorModel):
     InCluster: Optional[bool] = None
-    ClientBroker: Optional[str] = None
+    ClientBroker: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef(BaseValidatorModel):
-    SubnetId: Optional[str] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef(BaseValidatorModel):
-    MasterUserArn: Optional[str] = None
-    MasterUserName: Optional[str] = None
-    MasterUserPassword: Optional[str] = None
+    MasterUserArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MasterUserName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MasterUserPassword: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef(BaseValidatorModel):
@@ -1801,16 +1809,16 @@ class AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef(B
 
 
 class AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef(BaseValidatorModel):
-    CustomEndpointCertificateArn: Optional[str] = None
+    CustomEndpointCertificateArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CustomEndpointEnabled: Optional[bool] = None
     EnforceHTTPS: Optional[bool] = None
-    CustomEndpoint: Optional[str] = None
-    TLSSecurityPolicy: Optional[str] = None
+    CustomEndpoint: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TLSSecurityPolicy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef(BaseValidatorModel):
@@ -1818,13 +1826,13 @@ class AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef(BaseVa
 
 
 class AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef(BaseValidatorModel):
-    AutomatedUpdateDate: Optional[str] = None
+    AutomatedUpdateDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Cancellable: Optional[bool] = None
-    CurrentVersion: Optional[str] = None
-    Description: Optional[str] = None
-    NewVersion: Optional[str] = None
+    CurrentVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NewVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     UpdateAvailable: Optional[bool] = None
-    UpdateStatus: Optional[str] = None
+    UpdateStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     OptionalDeployment: Optional[bool] = None
 
 
@@ -1834,47 +1842,47 @@ class AwsOpenSearchServiceDomainVpcOptionsDetailsOutputTypeDef(BaseValidatorMode
 
 
 class AwsOpenSearchServiceDomainLogPublishingOptionTypeDef(BaseValidatorModel):
-    CloudWatchLogsLogGroupArn: Optional[str] = None
+    CloudWatchLogsLogGroupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Enabled: Optional[bool] = None
 
 
 class AwsOpenSearchServiceDomainVpcOptionsDetailsTypeDef(BaseValidatorModel):
-    SecurityGroupIds: Optional[List[str]] = None
-    SubnetIds: Optional[List[str]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsOrganizationScopeTypeDef(BaseValidatorModel):
-    OrganizationId: Optional[str] = None
-    OrganizationalUnitId: Optional[str] = None
+    OrganizationId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OrganizationalUnitId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbClusterAssociatedRoleTypeDef(BaseValidatorModel):
-    RoleArn: Optional[str] = None
-    Status: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbClusterMemberTypeDef(BaseValidatorModel):
     IsClusterWriter: Optional[bool] = None
     PromotionTier: Optional[int] = None
-    DbInstanceIdentifier: Optional[str] = None
-    DbClusterParameterGroupStatus: Optional[str] = None
+    DbInstanceIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DbClusterParameterGroupStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbClusterOptionGroupMembershipTypeDef(BaseValidatorModel):
-    DbClusterOptionGroupName: Optional[str] = None
-    Status: Optional[str] = None
+    DbClusterOptionGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbDomainMembershipTypeDef(BaseValidatorModel):
-    Domain: Optional[str] = None
-    Status: Optional[str] = None
-    Fqdn: Optional[str] = None
-    IamRoleName: Optional[str] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Fqdn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    IamRoleName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbInstanceVpcSecurityGroupTypeDef(BaseValidatorModel):
-    VpcSecurityGroupId: Optional[str] = None
-    Status: Optional[str] = None
+    VpcSecurityGroupId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutputTypeDef(BaseValidatorModel):
@@ -1883,42 +1891,42 @@ class AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutputTypeDef(BaseValidat
 
 
 class AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeTypeDef(BaseValidatorModel):
-    AttributeName: Optional[str] = None
-    AttributeValues: Optional[List[str]] = None
+    AttributeName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AttributeValues: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsRdsDbInstanceAssociatedRoleTypeDef(BaseValidatorModel):
-    RoleArn: Optional[str] = None
-    FeatureName: Optional[str] = None
-    Status: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FeatureName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbInstanceEndpointTypeDef(BaseValidatorModel):
-    Address: Optional[str] = None
+    Address: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Port: Optional[int] = None
-    HostedZoneId: Optional[str] = None
+    HostedZoneId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbOptionGroupMembershipTypeDef(BaseValidatorModel):
-    OptionGroupName: Optional[str] = None
-    Status: Optional[str] = None
+    OptionGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbParameterGroupTypeDef(BaseValidatorModel):
-    DbParameterGroupName: Optional[str] = None
-    ParameterApplyStatus: Optional[str] = None
+    DbParameterGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ParameterApplyStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbProcessorFeatureTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Value: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbStatusInfoTypeDef(BaseValidatorModel):
-    StatusType: Optional[str] = None
+    StatusType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Normal: Optional[bool] = None
-    Status: Optional[str] = None
-    Message: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Message: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsPendingCloudWatchLogsExportsOutputTypeDef(BaseValidatorModel):
@@ -1927,19 +1935,19 @@ class AwsRdsPendingCloudWatchLogsExportsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef(BaseValidatorModel):
-    Ec2SecurityGroupId: Optional[str] = None
-    Ec2SecurityGroupName: Optional[str] = None
-    Ec2SecurityGroupOwnerId: Optional[str] = None
-    Status: Optional[str] = None
+    Ec2SecurityGroupId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Ec2SecurityGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Ec2SecurityGroupOwnerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbSecurityGroupIpRangeTypeDef(BaseValidatorModel):
-    CidrIp: Optional[str] = None
-    Status: Optional[str] = None
+    CidrIp: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbSubnetGroupSubnetAvailabilityZoneTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsEventSubscriptionDetailsOutputTypeDef(BaseValidatorModel):
@@ -1956,100 +1964,100 @@ class AwsRdsEventSubscriptionDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsRdsEventSubscriptionDetailsTypeDef(BaseValidatorModel):
-    CustSubscriptionId: Optional[str] = None
-    CustomerAwsId: Optional[str] = None
+    CustSubscriptionId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CustomerAwsId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Enabled: Optional[bool] = None
-    EventCategoriesList: Optional[List[str]] = None
-    EventSubscriptionArn: Optional[str] = None
-    SnsTopicArn: Optional[str] = None
-    SourceIdsList: Optional[List[str]] = None
-    SourceType: Optional[str] = None
-    Status: Optional[str] = None
-    SubscriptionCreationTime: Optional[str] = None
+    EventCategoriesList: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    EventSubscriptionArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SnsTopicArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SourceIdsList: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SourceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SubscriptionCreationTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsPendingCloudWatchLogsExportsTypeDef(BaseValidatorModel):
-    LogTypesToEnable: Optional[List[str]] = None
-    LogTypesToDisable: Optional[List[str]] = None
+    LogTypesToEnable: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    LogTypesToDisable: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsRedshiftClusterClusterNodeTypeDef(BaseValidatorModel):
-    NodeRole: Optional[str] = None
-    PrivateIpAddress: Optional[str] = None
-    PublicIpAddress: Optional[str] = None
+    NodeRole: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PrivateIpAddress: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PublicIpAddress: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRedshiftClusterClusterParameterStatusTypeDef(BaseValidatorModel):
-    ParameterName: Optional[str] = None
-    ParameterApplyStatus: Optional[str] = None
-    ParameterApplyErrorDescription: Optional[str] = None
+    ParameterName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ParameterApplyStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ParameterApplyErrorDescription: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRedshiftClusterClusterSecurityGroupTypeDef(BaseValidatorModel):
-    ClusterSecurityGroupName: Optional[str] = None
-    Status: Optional[str] = None
+    ClusterSecurityGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef(BaseValidatorModel):
-    DestinationRegion: Optional[str] = None
+    DestinationRegion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ManualSnapshotRetentionPeriod: Optional[int] = None
     RetentionPeriod: Optional[int] = None
-    SnapshotCopyGrantName: Optional[str] = None
+    SnapshotCopyGrantName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRedshiftClusterDeferredMaintenanceWindowTypeDef(BaseValidatorModel):
-    DeferMaintenanceEndTime: Optional[str] = None
-    DeferMaintenanceIdentifier: Optional[str] = None
-    DeferMaintenanceStartTime: Optional[str] = None
+    DeferMaintenanceEndTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DeferMaintenanceIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DeferMaintenanceStartTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRedshiftClusterElasticIpStatusTypeDef(BaseValidatorModel):
-    ElasticIp: Optional[str] = None
-    Status: Optional[str] = None
+    ElasticIp: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRedshiftClusterEndpointTypeDef(BaseValidatorModel):
-    Address: Optional[str] = None
+    Address: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Port: Optional[int] = None
 
 
 class AwsRedshiftClusterHsmStatusTypeDef(BaseValidatorModel):
-    HsmClientCertificateIdentifier: Optional[str] = None
-    HsmConfigurationIdentifier: Optional[str] = None
-    Status: Optional[str] = None
+    HsmClientCertificateIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HsmConfigurationIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRedshiftClusterIamRoleTypeDef(BaseValidatorModel):
-    ApplyStatus: Optional[str] = None
-    IamRoleArn: Optional[str] = None
+    ApplyStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRedshiftClusterLoggingStatusTypeDef(BaseValidatorModel):
-    BucketName: Optional[str] = None
-    LastFailureMessage: Optional[str] = None
-    LastFailureTime: Optional[str] = None
-    LastSuccessfulDeliveryTime: Optional[str] = None
+    BucketName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastFailureMessage: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastFailureTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastSuccessfulDeliveryTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LoggingEnabled: Optional[bool] = None
-    S3KeyPrefix: Optional[str] = None
+    S3KeyPrefix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRedshiftClusterPendingModifiedValuesTypeDef(BaseValidatorModel):
     AutomatedSnapshotRetentionPeriod: Optional[int] = None
-    ClusterIdentifier: Optional[str] = None
-    ClusterType: Optional[str] = None
-    ClusterVersion: Optional[str] = None
-    EncryptionType: Optional[str] = None
+    ClusterIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClusterType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClusterVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EncryptionType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EnhancedVpcRouting: Optional[bool] = None
-    MaintenanceTrackName: Optional[str] = None
-    MasterUserPassword: Optional[str] = None
-    NodeType: Optional[str] = None
+    MaintenanceTrackName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MasterUserPassword: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NodeType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     NumberOfNodes: Optional[int] = None
     PubliclyAccessible: Optional[bool] = None
 
 
 class AwsRedshiftClusterResizeInfoTypeDef(BaseValidatorModel):
     AllowCancelResize: Optional[bool] = None
-    ResizeType: Optional[str] = None
+    ResizeType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRedshiftClusterRestoreStatusTypeDef(BaseValidatorModel):
@@ -2058,31 +2066,31 @@ class AwsRedshiftClusterRestoreStatusTypeDef(BaseValidatorModel):
     EstimatedTimeToCompletionInSeconds: Optional[int] = None
     ProgressInMegaBytes: Optional[int] = None
     SnapshotSizeInMegaBytes: Optional[int] = None
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRedshiftClusterVpcSecurityGroupTypeDef(BaseValidatorModel):
-    Status: Optional[str] = None
-    VpcSecurityGroupId: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcSecurityGroupId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRoute53HostedZoneConfigDetailsTypeDef(BaseValidatorModel):
-    Comment: Optional[str] = None
+    Comment: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRoute53HostedZoneVpcDetailsTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Region: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class CloudWatchLogsLogGroupArnConfigDetailsTypeDef(BaseValidatorModel):
-    CloudWatchLogsLogGroupArn: Optional[str] = None
-    HostedZoneId: Optional[str] = None
-    Id: Optional[str] = None
+    CloudWatchLogsLogGroupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HostedZoneId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3AccessPointVpcConfigurationDetailsTypeDef(BaseValidatorModel):
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3AccountPublicAccessBlockDetailsTypeDef(BaseValidatorModel):
@@ -2098,80 +2106,82 @@ class AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUpload
 
 class AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef(BaseValidatorModel):
     Days: Optional[int] = None
-    StorageClass: Optional[str] = None
+    StorageClass: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef(BaseValidatorModel):
-    Date: Optional[str] = None
+    Date: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Days: Optional[int] = None
-    StorageClass: Optional[str] = None
+    StorageClass: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetailsTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketBucketVersioningConfigurationTypeDef(BaseValidatorModel):
     IsMfaDeleteEnabled: Optional[bool] = None
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketLoggingConfigurationTypeDef(BaseValidatorModel):
-    DestinationBucketName: Optional[str] = None
-    LogFilePrefix: Optional[str] = None
+    DestinationBucketName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LogFilePrefix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef(BaseValidatorModel):
     Name: Optional[AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType] = None
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef(BaseValidatorModel):
     Days: Optional[int] = None
-    Mode: Optional[str] = None
+    Mode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Years: Optional[int] = None
 
 
 class AwsS3BucketServerSideEncryptionByDefaultTypeDef(BaseValidatorModel):
-    SSEAlgorithm: Optional[str] = None
-    KMSMasterKeyID: Optional[str] = None
+    SSEAlgorithm: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KMSMasterKeyID: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketWebsiteConfigurationRedirectToTypeDef(BaseValidatorModel):
-    Hostname: Optional[str] = None
-    Protocol: Optional[str] = None
+    Hostname: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketWebsiteConfigurationRoutingRuleConditionTypeDef(BaseValidatorModel):
-    HttpErrorCodeReturnedEquals: Optional[str] = None
-    KeyPrefixEquals: Optional[str] = None
+    HttpErrorCodeReturnedEquals: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KeyPrefixEquals: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketWebsiteConfigurationRoutingRuleRedirectTypeDef(BaseValidatorModel):
-    Hostname: Optional[str] = None
-    HttpRedirectCode: Optional[str] = None
-    Protocol: Optional[str] = None
-    ReplaceKeyPrefixWith: Optional[str] = None
-    ReplaceKeyWith: Optional[str] = None
+    Hostname: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HttpRedirectCode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ReplaceKeyPrefixWith: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ReplaceKeyWith: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3ObjectDetailsTypeDef(BaseValidatorModel):
-    LastModified: Optional[str] = None
-    ETag: Optional[str] = None
-    VersionId: Optional[str] = None
-    ContentType: Optional[str] = None
-    ServerSideEncryption: Optional[str] = None
-    SSEKMSKeyId: Optional[str] = None
+    LastModified: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ETag: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ServerSideEncryption: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SSEKMSKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef(BaseValidatorModel):
-    MinimumInstanceMetadataServiceVersion: Optional[str] = None
+    MinimumInstanceMetadataServiceVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = (
+        None
+    )
 
 
 class AwsSecretsManagerSecretRotationRulesTypeDef(BaseValidatorModel):
@@ -2183,16 +2193,16 @@ class BooleanFilterTypeDef(BaseValidatorModel):
 
 
 class IpFilterTypeDef(BaseValidatorModel):
-    Cidr: Optional[str] = None
+    Cidr: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class KeywordFilterTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsSecurityFindingIdentifierTypeDef(BaseValidatorModel):
-    Id: str
-    ProductArn: str
+    Id: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ProductArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class GeneratorDetailsOutputTypeDef(BaseValidatorModel):
@@ -2202,55 +2212,55 @@ class GeneratorDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class MalwareTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Type: Optional[MalwareTypeType] = None
-    Path: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     State: Optional[MalwareStateType] = None
 
 
 class NoteTypeDef(BaseValidatorModel):
-    Text: str
-    UpdatedBy: str
-    UpdatedAt: str
+    Text: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    UpdatedBy: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    UpdatedAt: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class PatchSummaryTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     InstalledCount: Optional[int] = None
     MissingCount: Optional[int] = None
     FailedCount: Optional[int] = None
     InstalledOtherCount: Optional[int] = None
     InstalledRejectedCount: Optional[int] = None
     InstalledPendingReboot: Optional[int] = None
-    OperationStartTime: Optional[str] = None
-    OperationEndTime: Optional[str] = None
-    RebootOption: Optional[str] = None
-    Operation: Optional[str] = None
+    OperationStartTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OperationEndTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RebootOption: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Operation: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ProcessDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Path: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Path: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Pid: Optional[int] = None
     ParentPid: Optional[int] = None
-    LaunchedAt: Optional[str] = None
-    TerminatedAt: Optional[str] = None
+    LaunchedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TerminatedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class SeverityTypeDef(BaseValidatorModel):
     Product: Optional[float] = None
     Label: Optional[SeverityLabelType] = None
     Normalized: Optional[int] = None
-    Original: Optional[str] = None
+    Original: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ThreatIntelIndicatorTypeDef(BaseValidatorModel):
     Type: Optional[ThreatIntelIndicatorTypeType] = None
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Category: Optional[ThreatIntelIndicatorCategoryType] = None
-    LastObservedAt: Optional[str] = None
-    Source: Optional[str] = None
-    SourceUrl: Optional[str] = None
+    LastObservedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Source: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SourceUrl: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class WorkflowTypeDef(BaseValidatorModel):
@@ -2258,23 +2268,23 @@ class WorkflowTypeDef(BaseValidatorModel):
 
 
 class AwsSnsTopicSubscriptionTypeDef(BaseValidatorModel):
-    Endpoint: Optional[str] = None
-    Protocol: Optional[str] = None
+    Endpoint: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsSqsQueueDetailsTypeDef(BaseValidatorModel):
     KmsDataKeyReusePeriodSeconds: Optional[int] = None
-    KmsMasterKeyId: Optional[str] = None
-    QueueName: Optional[str] = None
-    DeadLetterTargetArn: Optional[str] = None
+    KmsMasterKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    QueueName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DeadLetterTargetArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsSsmComplianceSummaryTypeDef(BaseValidatorModel):
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CompliantCriticalCount: Optional[int] = None
     CompliantHighCount: Optional[int] = None
     CompliantMediumCount: Optional[int] = None
-    ExecutionType: Optional[str] = None
+    ExecutionType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     NonCompliantCriticalCount: Optional[int] = None
     CompliantInformationalCount: Optional[int] = None
     NonCompliantInformationalCount: Optional[int] = None
@@ -2282,12 +2292,12 @@ class AwsSsmComplianceSummaryTypeDef(BaseValidatorModel):
     NonCompliantLowCount: Optional[int] = None
     NonCompliantHighCount: Optional[int] = None
     CompliantLowCount: Optional[int] = None
-    ComplianceType: Optional[str] = None
-    PatchBaselineId: Optional[str] = None
-    OverallSeverity: Optional[str] = None
+    ComplianceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PatchBaselineId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OverallSeverity: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     NonCompliantMediumCount: Optional[int] = None
     NonCompliantUnspecifiedCount: Optional[int] = None
-    PatchGroup: Optional[str] = None
+    PatchGroup: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsStepFunctionStateMachineTracingConfigurationDetailsTypeDef(BaseValidatorModel):
@@ -2297,69 +2307,69 @@ class AwsStepFunctionStateMachineTracingConfigurationDetailsTypeDef(BaseValidato
 class AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetailsTypeDef(
     BaseValidatorModel
 ):
-    LogGroupArn: Optional[str] = None
+    LogGroupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRateBasedRuleMatchPredicateTypeDef(BaseValidatorModel):
-    DataId: Optional[str] = None
+    DataId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Negated: Optional[bool] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRegionalRateBasedRuleMatchPredicateTypeDef(BaseValidatorModel):
-    DataId: Optional[str] = None
+    DataId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Negated: Optional[bool] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRegionalRulePredicateListDetailsTypeDef(BaseValidatorModel):
-    DataId: Optional[str] = None
+    DataId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Negated: Optional[bool] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRegionalRuleGroupRulesActionDetailsTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRegionalWebAclRulesListActionDetailsTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRulePredicateListDetailsTypeDef(BaseValidatorModel):
-    DataId: Optional[str] = None
+    DataId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Negated: Optional[bool] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRuleGroupRulesActionDetailsTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class WafActionTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class WafExcludedRuleTypeDef(BaseValidatorModel):
-    RuleId: Optional[str] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class WafOverrideActionTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafv2CustomHttpHeaderTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Value: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafv2VisibilityConfigDetailsTypeDef(BaseValidatorModel):
     CloudWatchMetricsEnabled: Optional[bool] = None
-    MetricName: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SampledRequestsEnabled: Optional[bool] = None
 
 
@@ -2368,14 +2378,14 @@ class AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef(BaseValidato
 
 
 class AwsXrayEncryptionConfigDetailsTypeDef(BaseValidatorModel):
-    KeyId: Optional[str] = None
-    Status: Optional[str] = None
-    Type: Optional[str] = None
+    KeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'batch_delete_automation_rules' function.
 class BatchDeleteAutomationRulesRequestTypeDef(BaseValidatorModel):
-    AutomationRulesArns: List[str]
+    AutomationRulesArns: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -2387,82 +2397,82 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class UnprocessedAutomationRuleTypeDef(BaseValidatorModel):
-    RuleArn: Optional[str] = None
+    RuleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ErrorCode: Optional[int] = None
-    ErrorMessage: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'batch_disable_standards' function.
 class BatchDisableStandardsRequestTypeDef(BaseValidatorModel):
-    StandardsSubscriptionArns: List[str]
+    StandardsSubscriptionArns: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
 
 
 class StandardsSubscriptionRequestTypeDef(BaseValidatorModel):
-    StandardsArn: str
+    StandardsArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     StandardsInput: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'batch_get_automation_rules' function.
 class BatchGetAutomationRulesRequestTypeDef(BaseValidatorModel):
-    AutomationRulesArns: List[str]
+    AutomationRulesArns: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
 
 
 class ConfigurationPolicyAssociationSummaryTypeDef(BaseValidatorModel):
-    ConfigurationPolicyId: Optional[str] = None
-    TargetId: Optional[str] = None
+    ConfigurationPolicyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     TargetType: Optional[TargetTypeType] = None
     AssociationType: Optional[AssociationTypeType] = None
     UpdatedAt: Optional[datetime] = None
     AssociationStatus: Optional[ConfigurationPolicyAssociationStatusType] = None
-    AssociationStatusMessage: Optional[str] = None
+    AssociationStatusMessage: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'batch_get_security_controls' function.
 class BatchGetSecurityControlsRequestTypeDef(BaseValidatorModel):
-    SecurityControlIds: List[str]
+    SecurityControlIds: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
 
 
 class UnprocessedSecurityControlTypeDef(BaseValidatorModel):
-    SecurityControlId: str
+    SecurityControlId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ErrorCode: UnprocessedErrorCodeType
-    ErrorReason: Optional[str] = None
+    ErrorReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class StandardsControlAssociationIdTypeDef(BaseValidatorModel):
-    SecurityControlId: str
-    StandardsArn: str
+    SecurityControlId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    StandardsArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class StandardsControlAssociationDetailTypeDef(BaseValidatorModel):
-    StandardsArn: str
-    SecurityControlId: str
-    SecurityControlArn: str
+    StandardsArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    SecurityControlId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    SecurityControlArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     AssociationStatus: AssociationStatusType
-    RelatedRequirements: Optional[List[str]] = None
+    RelatedRequirements: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     UpdatedAt: Optional[datetime] = None
-    UpdatedReason: Optional[str] = None
-    StandardsControlTitle: Optional[str] = None
-    StandardsControlDescription: Optional[str] = None
-    StandardsControlArns: Optional[List[str]] = None
+    UpdatedReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StandardsControlTitle: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StandardsControlDescription: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StandardsControlArns: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class ImportFindingsErrorTypeDef(BaseValidatorModel):
-    Id: str
-    ErrorCode: str
-    ErrorMessage: str
+    Id: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ErrorCode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ErrorMessage: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class OcsfFindingIdentifierTypeDef(BaseValidatorModel):
-    CloudAccountUid: str
-    FindingInfoUid: str
-    MetadataProductUid: str
+    CloudAccountUid: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    FindingInfoUid: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    MetadataProductUid: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class StandardsControlAssociationUpdateTypeDef(BaseValidatorModel):
-    StandardsArn: str
-    SecurityControlId: str
+    StandardsArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    SecurityControlId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     AssociationStatus: AssociationStatusType
-    UpdatedReason: Optional[str] = None
+    UpdatedReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class BooleanConfigurationOptionsTypeDef(BaseValidatorModel):
@@ -2472,25 +2482,25 @@ class BooleanConfigurationOptionsTypeDef(BaseValidatorModel):
 class CellTypeDef(BaseValidatorModel):
     Column: Optional[int] = None
     Row: Optional[int] = None
-    ColumnName: Optional[str] = None
-    CellReference: Optional[str] = None
+    ColumnName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CellReference: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ClassificationStatusTypeDef(BaseValidatorModel):
-    Code: Optional[str] = None
-    Reason: Optional[str] = None
+    Code: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Reason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class CodeRepositoryDetailsTypeDef(BaseValidatorModel):
-    ProviderType: Optional[str] = None
-    ProjectName: Optional[str] = None
-    CodeSecurityIntegrationArn: Optional[str] = None
+    ProviderType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ProjectName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CodeSecurityIntegrationArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class CodeVulnerabilitiesFilePathTypeDef(BaseValidatorModel):
     EndLine: Optional[int] = None
-    FileName: Optional[str] = None
-    FilePath: Optional[str] = None
+    FileName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FilePath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     StartLine: Optional[int] = None
 
 
@@ -2500,8 +2510,8 @@ class SecurityControlParameterOutputTypeDef(BaseValidatorModel):
 
 
 class StatusReasonTypeDef(BaseValidatorModel):
-    ReasonCode: str
-    Description: Optional[str] = None
+    ReasonCode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class DoubleConfigurationOptionsTypeDef(BaseValidatorModel):
@@ -2511,14 +2521,14 @@ class DoubleConfigurationOptionsTypeDef(BaseValidatorModel):
 
 
 class EnumConfigurationOptionsTypeDef(BaseValidatorModel):
-    DefaultValue: Optional[str] = None
-    AllowedValues: Optional[List[str]] = None
+    DefaultValue: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AllowedValues: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class EnumListConfigurationOptionsTypeDef(BaseValidatorModel):
-    DefaultValue: Optional[List[str]] = None
+    DefaultValue: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     MaxItems: Optional[int] = None
-    AllowedValues: Optional[List[str]] = None
+    AllowedValues: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class IntegerConfigurationOptionsTypeDef(BaseValidatorModel):
@@ -2535,29 +2545,29 @@ class IntegerListConfigurationOptionsTypeDef(BaseValidatorModel):
 
 
 class StringConfigurationOptionsTypeDef(BaseValidatorModel):
-    DefaultValue: Optional[str] = None
-    Re2Expression: Optional[str] = None
-    ExpressionDescription: Optional[str] = None
+    DefaultValue: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Re2Expression: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ExpressionDescription: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class StringListConfigurationOptionsTypeDef(BaseValidatorModel):
-    DefaultValue: Optional[List[str]] = None
-    Re2Expression: Optional[str] = None
+    DefaultValue: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    Re2Expression: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     MaxItems: Optional[int] = None
-    ExpressionDescription: Optional[str] = None
+    ExpressionDescription: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class TargetTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    OrganizationalUnitId: Optional[str] = None
-    RootId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OrganizationalUnitId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RootId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ConfigurationPolicySummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Id: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     UpdatedAt: Optional[datetime] = None
     ServiceEnabled: Optional[bool] = None
 
@@ -2568,92 +2578,93 @@ class ProviderSummaryTypeDef(BaseValidatorModel):
 
 
 class VolumeMountTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    MountPath: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MountPath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'create_action_target' function.
 class CreateActionTargetRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Description: str
-    Id: str
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Id: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 # This class is the input for the 'create_aggregator_v2' function.
 class CreateAggregatorV2RequestTypeDef(BaseValidatorModel):
-    RegionLinkingMode: str
-    LinkedRegions: Optional[List[str]] = None
+    RegionLinkingMode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    LinkedRegions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Tags: Optional[Dict[str, str]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Securityhub", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_finding_aggregator' function.
 class CreateFindingAggregatorRequestTypeDef(BaseValidatorModel):
-    RegionLinkingMode: str
-    Regions: Optional[List[str]] = None
+    RegionLinkingMode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Regions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class ResultTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
-    ProcessingResult: Optional[str] = None
+    ProcessingResult: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'create_ticket_v2' function.
 class CreateTicketV2RequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
-    FindingMetadataUid: str
-    ClientToken: Optional[str] = None
+    ConnectorId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    FindingMetadataUid: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Securityhub", "ClientToken")]] = None
     Mode: Optional[Literal["DRYRUN"]] = None
 
 
 class DateRangeTypeDef(BaseValidatorModel):
     Value: Optional[int] = None
     Unit: Optional[Literal["DAYS"]] = None
+    Comparison: Optional[DateRangeComparisonType] = None
 
 
 # This class is the input for the 'decline_invitations' function.
 class DeclineInvitationsRequestTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
 
 
 # This class is the input for the 'delete_action_target' function.
 class DeleteActionTargetRequestTypeDef(BaseValidatorModel):
-    ActionTargetArn: str
+    ActionTargetArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class DeleteAggregatorV2RequestTypeDef(BaseValidatorModel):
-    AggregatorV2Arn: str
+    AggregatorV2Arn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class DeleteAutomationRuleV2RequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class DeleteConfigurationPolicyRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class DeleteConnectorV2RequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
+    ConnectorId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class DeleteFindingAggregatorRequestTypeDef(BaseValidatorModel):
-    FindingAggregatorArn: str
+    FindingAggregatorArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_insight' function.
 class DeleteInsightRequestTypeDef(BaseValidatorModel):
-    InsightArn: str
+    InsightArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_invitations' function.
 class DeleteInvitationsRequestTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
 
 
 # This class is the input for the 'delete_members' function.
 class DeleteMembersRequestTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -2664,39 +2675,39 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_action_targets' function.
 class DescribeActionTargetsRequestTypeDef(BaseValidatorModel):
-    ActionTargetArns: Optional[List[str]] = None
+    ActionTargetArns: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_hub' function.
 class DescribeHubRequestTypeDef(BaseValidatorModel):
-    HubArn: Optional[str] = None
+    HubArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class OrganizationConfigurationTypeDef(BaseValidatorModel):
     ConfigurationType: Optional[OrganizationConfigurationConfigurationTypeType] = None
     Status: Optional[OrganizationConfigurationStatusType] = None
-    StatusMessage: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'describe_products' function.
 class DescribeProductsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    ProductArn: Optional[str] = None
+    ProductArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ProductTypeDef(BaseValidatorModel):
-    ProductArn: str
-    ProductName: Optional[str] = None
-    CompanyName: Optional[str] = None
-    Description: Optional[str] = None
-    Categories: Optional[List[str]] = None
+    ProductArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ProductName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CompanyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Categories: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     IntegrationTypes: Optional[List[IntegrationTypeType]] = None
-    MarketplaceUrl: Optional[str] = None
-    ActivationUrl: Optional[str] = None
-    ProductSubscriptionResourcePolicy: Optional[str] = None
+    MarketplaceUrl: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ActivationUrl: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ProductSubscriptionResourcePolicy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'describe_products_v2' function.
@@ -2706,34 +2717,34 @@ class DescribeProductsV2RequestTypeDef(BaseValidatorModel):
 
 
 class ProductV2TypeDef(BaseValidatorModel):
-    ProductV2Name: Optional[str] = None
-    CompanyName: Optional[str] = None
-    Description: Optional[str] = None
-    Categories: Optional[List[str]] = None
+    ProductV2Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CompanyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Categories: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     IntegrationV2Types: Optional[List[IntegrationV2TypeType]] = None
-    MarketplaceUrl: Optional[str] = None
-    ActivationUrl: Optional[str] = None
-    MarketplaceProductId: Optional[str] = None
+    MarketplaceUrl: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ActivationUrl: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MarketplaceProductId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'describe_standards_controls' function.
 class DescribeStandardsControlsRequestTypeDef(BaseValidatorModel):
-    StandardsSubscriptionArn: str
+    StandardsSubscriptionArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class StandardsControlTypeDef(BaseValidatorModel):
-    StandardsControlArn: Optional[str] = None
+    StandardsControlArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ControlStatus: Optional[ControlStatusType] = None
-    DisabledReason: Optional[str] = None
+    DisabledReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ControlStatusUpdatedAt: Optional[datetime] = None
-    ControlId: Optional[str] = None
-    Title: Optional[str] = None
-    Description: Optional[str] = None
-    RemediationUrl: Optional[str] = None
+    ControlId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Title: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RemediationUrl: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SeverityRating: Optional[SeverityRatingType] = None
-    RelatedRequirements: Optional[List[str]] = None
+    RelatedRequirements: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 # This class is the input for the 'describe_standards' function.
@@ -2743,26 +2754,26 @@ class DescribeStandardsRequestTypeDef(BaseValidatorModel):
 
 
 class DisableImportFindingsForProductRequestTypeDef(BaseValidatorModel):
-    ProductSubscriptionArn: str
+    ProductSubscriptionArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class DisableOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
-    AdminAccountId: str
+    AdminAccountId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Feature: Optional[SecurityHubFeatureType] = None
 
 
 class DisassociateMembersRequestTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
 
 
 # This class is the input for the 'enable_import_findings_for_product' function.
 class EnableImportFindingsForProductRequestTypeDef(BaseValidatorModel):
-    ProductArn: str
+    ProductArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 # This class is the input for the 'enable_organization_admin_account' function.
 class EnableOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
-    AdminAccountId: str
+    AdminAccountId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Feature: Optional[SecurityHubFeatureType] = None
 
 
@@ -2778,134 +2789,150 @@ class EnableSecurityHubV2RequestTypeDef(BaseValidatorModel):
 
 
 class FilePathsTypeDef(BaseValidatorModel):
-    FilePath: Optional[str] = None
-    FileName: Optional[str] = None
-    ResourceId: Optional[str] = None
-    Hash: Optional[str] = None
+    FilePath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FileName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Hash: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class FindingAggregatorTypeDef(BaseValidatorModel):
-    FindingAggregatorArn: Optional[str] = None
+    FindingAggregatorArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class FindingHistoryUpdateSourceTypeDef(BaseValidatorModel):
     Type: Optional[FindingHistoryUpdateSourceTypeType] = None
-    Identity: Optional[str] = None
+    Identity: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class FindingHistoryUpdateTypeDef(BaseValidatorModel):
-    UpdatedField: Optional[str] = None
-    OldValue: Optional[str] = None
-    NewValue: Optional[str] = None
+    UpdatedField: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OldValue: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NewValue: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class FindingProviderSeverityTypeDef(BaseValidatorModel):
     Label: Optional[SeverityLabelType] = None
-    Original: Optional[str] = None
+    Original: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef(BaseValidatorModel):
     Priority: Optional[int] = None
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+
+
+class GenerateRecommendedPolicyV2RequestTypeDef(BaseValidatorModel):
+    MetadataUid: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class GeneratorDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    Labels: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Labels: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class InvitationTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
-    InvitationId: Optional[str] = None
+    InvitationId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     InvitedAt: Optional[datetime] = None
-    MemberStatus: Optional[str] = None
+    MemberStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'get_aggregator_v2' function.
 class GetAggregatorV2RequestTypeDef(BaseValidatorModel):
-    AggregatorV2Arn: str
+    AggregatorV2Arn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 # This class is the input for the 'get_automation_rule_v2' function.
 class GetAutomationRuleV2RequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 # This class is the input for the 'get_configuration_policy' function.
 class GetConfigurationPolicyRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 # This class is the input for the 'get_connector_v2' function.
 class GetConnectorV2RequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
+    ConnectorId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class HealthCheckTypeDef(BaseValidatorModel):
     ConnectorStatus: ConnectorStatusType
     LastCheckedAt: datetime
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'get_enabled_standards' function.
 class GetEnabledStandardsRequestTypeDef(BaseValidatorModel):
-    StandardsSubscriptionArns: Optional[List[str]] = None
+    StandardsSubscriptionArns: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_finding_aggregator' function.
 class GetFindingAggregatorRequestTypeDef(BaseValidatorModel):
-    FindingAggregatorArn: str
+    FindingAggregatorArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class SortCriterionTypeDef(BaseValidatorModel):
-    Field: Optional[str] = None
+    Field: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SortOrder: Optional[SortOrderType] = None
 
 
 # This class is the input for the 'get_insight_results' function.
 class GetInsightResultsRequestTypeDef(BaseValidatorModel):
-    InsightArn: str
+    InsightArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 # This class is the input for the 'get_insights' function.
 class GetInsightsRequestTypeDef(BaseValidatorModel):
-    InsightArns: Optional[List[str]] = None
+    InsightArns: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_members' function.
 class GetMembersRequestTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
 
 
 class MemberTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
-    Email: Optional[str] = None
-    MasterId: Optional[str] = None
-    AdministratorId: Optional[str] = None
-    MemberStatus: Optional[str] = None
+    Email: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MasterId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AdministratorId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MemberStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     InvitedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'get_recommended_policy_v2' function.
+class GetRecommendedPolicyV2RequestTypeDef(BaseValidatorModel):
+    MetadataUid: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    NextToken: Optional[str] = None
+    MaxResults: Optional[int] = None
+
+
+class RecommendationErrorTypeDef(BaseValidatorModel):
+    Code: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Message: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+
+
 # This class is the input for the 'get_security_control_definition' function.
 class GetSecurityControlDefinitionRequestTypeDef(BaseValidatorModel):
-    SecurityControlId: str
+    SecurityControlId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class GroupByValueTypeDef(BaseValidatorModel):
-    FieldValue: Optional[str] = None
+    FieldValue: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Count: Optional[int] = None
 
 
@@ -2917,36 +2944,36 @@ class IndicatorOutputTypeDef(BaseValidatorModel):
 
 
 class IndicatorTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Values: Optional[List[str]] = None
-    Title: Optional[str] = None
-    Type: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    Title: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class InsightResultValueTypeDef(BaseValidatorModel):
-    GroupByAttributeValue: str
+    GroupByAttributeValue: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Count: int
 
 
 # This class is the input for the 'invite_members' function.
 class InviteMembersRequestTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
 
 
 class JiraCloudDetailTypeDef(BaseValidatorModel):
-    CloudId: Optional[str] = None
-    ProjectKey: Optional[str] = None
-    Domain: Optional[str] = None
-    AuthUrl: Optional[str] = None
+    CloudId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ProjectKey: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AuthUrl: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AuthStatus: Optional[ConnectorAuthStatusType] = None
 
 
 class JiraCloudProviderConfigurationTypeDef(BaseValidatorModel):
-    ProjectKey: Optional[str] = None
+    ProjectKey: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class JiraCloudUpdateConfigurationTypeDef(BaseValidatorModel):
-    ProjectKey: Optional[str] = None
+    ProjectKey: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'list_aggregators_v2' function.
@@ -3015,37 +3042,37 @@ class ListOrganizationAdminAccountsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_security_control_definitions' function.
 class ListSecurityControlDefinitionsRequestTypeDef(BaseValidatorModel):
-    StandardsArn: Optional[str] = None
+    StandardsArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_standards_control_associations' function.
 class ListStandardsControlAssociationsRequestTypeDef(BaseValidatorModel):
-    SecurityControlId: str
+    SecurityControlId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class StandardsControlAssociationSummaryTypeDef(BaseValidatorModel):
-    StandardsArn: str
-    SecurityControlId: str
-    SecurityControlArn: str
+    StandardsArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    SecurityControlId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    SecurityControlArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     AssociationStatus: AssociationStatusType
-    RelatedRequirements: Optional[List[str]] = None
+    RelatedRequirements: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     UpdatedAt: Optional[datetime] = None
-    UpdatedReason: Optional[str] = None
-    StandardsControlTitle: Optional[str] = None
-    StandardsControlDescription: Optional[str] = None
+    UpdatedReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StandardsControlTitle: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StandardsControlDescription: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Securityhub", "ResourceArn")]
 
 
 class NetworkAutonomousSystemTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Number: Optional[int] = None
 
 
@@ -3054,8 +3081,8 @@ class NetworkConnectionTypeDef(BaseValidatorModel):
 
 
 class NetworkGeoLocationTypeDef(BaseValidatorModel):
-    City: Optional[str] = None
-    Country: Optional[str] = None
+    City: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Country: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Lat: Optional[float] = None
     Lon: Optional[float] = None
 
@@ -3072,7 +3099,7 @@ class RangeTypeDef(BaseValidatorModel):
 
 
 class RecordTypeDef(BaseValidatorModel):
-    JsonPath: Optional[str] = None
+    JsonPath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RecordIndex: Optional[int] = None
 
 
@@ -3091,37 +3118,45 @@ class ParameterValueTypeDef(BaseValidatorModel):
     Integer: Optional[int] = None
     IntegerList: Optional[List[int]] = None
     Double: Optional[float] = None
-    String: Optional[str] = None
-    StringList: Optional[List[str]] = None
+    String: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StringList: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Boolean: Optional[bool] = None
-    Enum: Optional[str] = None
-    EnumList: Optional[List[str]] = None
+    Enum: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EnumList: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class ServiceNowProviderConfigurationTypeDef(BaseValidatorModel):
-    InstanceName: str
-    SecretArn: str
+    InstanceName: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    SecretArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class ServiceNowDetailTypeDef(BaseValidatorModel):
-    SecretArn: str
+    SecretArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     AuthStatus: ConnectorAuthStatusType
-    InstanceName: Optional[str] = None
+    InstanceName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ServiceNowUpdateConfigurationTypeDef(BaseValidatorModel):
-    SecretArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+
+
+class UnusedPermissionsRecommendationStepTypeDef(BaseValidatorModel):
+    RecommendedAction: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ExistingPolicy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ExistingPolicyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PolicyUpdatedAt: Optional[datetime] = None
+    RecommendedPolicy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class RecommendationTypeDef(BaseValidatorModel):
-    Text: Optional[str] = None
-    Url: Optional[str] = None
+    Text: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Url: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'register_connector_v2' function.
 class RegisterConnectorV2RequestTypeDef(BaseValidatorModel):
-    AuthCode: str
-    AuthState: str
+    AuthCode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    AuthState: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class ResourceSeverityBreakdownTypeDef(BaseValidatorModel):
@@ -3136,8 +3171,8 @@ class ResourceSeverityBreakdownTypeDef(BaseValidatorModel):
 
 
 class ResourceTagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Value: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class ResourcesCountTypeDef(BaseValidatorModel):
@@ -3151,18 +3186,18 @@ class RuleGroupSourceListDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class RuleGroupSourceListDetailsTypeDef(BaseValidatorModel):
-    GeneratedRulesType: Optional[str] = None
-    TargetTypes: Optional[List[str]] = None
-    Targets: Optional[List[str]] = None
+    GeneratedRulesType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TargetTypes: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    Targets: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class RuleGroupSourceStatefulRulesHeaderDetailsTypeDef(BaseValidatorModel):
-    Destination: Optional[str] = None
-    DestinationPort: Optional[str] = None
-    Direction: Optional[str] = None
-    Protocol: Optional[str] = None
-    Source: Optional[str] = None
-    SourcePort: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DestinationPort: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Direction: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Source: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SourcePort: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class RuleGroupSourceStatefulRulesOptionsDetailsOutputTypeDef(BaseValidatorModel):
@@ -3171,8 +3206,8 @@ class RuleGroupSourceStatefulRulesOptionsDetailsOutputTypeDef(BaseValidatorModel
 
 
 class RuleGroupSourceStatefulRulesOptionsDetailsTypeDef(BaseValidatorModel):
-    Keyword: Optional[str] = None
-    Settings: Optional[List[str]] = None
+    Keyword: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Settings: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef(BaseValidatorModel):
@@ -3181,7 +3216,7 @@ class RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef(BaseVal
 
 
 class RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef(BaseValidatorModel):
-    AddressDefinition: Optional[str] = None
+    AddressDefinition: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef(BaseValidatorModel):
@@ -3190,7 +3225,7 @@ class RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef(BaseValidato
 
 
 class RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef(BaseValidatorModel):
-    AddressDefinition: Optional[str] = None
+    AddressDefinition: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutputTypeDef(BaseValidatorModel):
@@ -3199,8 +3234,8 @@ class RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutputTypeDef(BaseValid
 
 
 class RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef(BaseValidatorModel):
-    Flags: Optional[List[str]] = None
-    Masks: Optional[List[str]] = None
+    Flags: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    Masks: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class RuleGroupVariablesIpSetsDetailsOutputTypeDef(BaseValidatorModel):
@@ -3208,7 +3243,7 @@ class RuleGroupVariablesIpSetsDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class RuleGroupVariablesIpSetsDetailsTypeDef(BaseValidatorModel):
-    Definition: Optional[List[str]] = None
+    Definition: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class RuleGroupVariablesPortSetsDetailsOutputTypeDef(BaseValidatorModel):
@@ -3216,12 +3251,12 @@ class RuleGroupVariablesPortSetsDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class RuleGroupVariablesPortSetsDetailsTypeDef(BaseValidatorModel):
-    Definition: Optional[List[str]] = None
+    Definition: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class SecurityControlParameterTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Value: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Value: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class SeverityTrendsCountTypeDef(BaseValidatorModel):
@@ -3236,22 +3271,22 @@ class SeverityTrendsCountTypeDef(BaseValidatorModel):
 
 
 class SoftwarePackageTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Version: Optional[str] = None
-    Epoch: Optional[str] = None
-    Release: Optional[str] = None
-    Architecture: Optional[str] = None
-    PackageManager: Optional[str] = None
-    FilePath: Optional[str] = None
-    FixedInVersion: Optional[str] = None
-    Remediation: Optional[str] = None
-    SourceLayerHash: Optional[str] = None
-    SourceLayerArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Epoch: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Release: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Architecture: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PackageManager: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FilePath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FixedInVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Remediation: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SourceLayerHash: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SourceLayerArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class StandardsManagedByTypeDef(BaseValidatorModel):
-    Company: Optional[str] = None
-    Product: Optional[str] = None
+    Company: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Product: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class StandardsStatusReasonTypeDef(BaseValidatorModel):
@@ -3259,37 +3294,37 @@ class StandardsStatusReasonTypeDef(BaseValidatorModel):
 
 
 class StatelessCustomPublishMetricActionDimensionTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Securityhub", "ResourceArn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Securityhub", "ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Securityhub", "TagKey")]]
 
 
 class UpdateActionTargetRequestTypeDef(BaseValidatorModel):
-    ActionTargetArn: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    ActionTargetArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'update_aggregator_v2' function.
 class UpdateAggregatorV2RequestTypeDef(BaseValidatorModel):
-    AggregatorV2Arn: str
-    RegionLinkingMode: str
-    LinkedRegions: Optional[List[str]] = None
+    AggregatorV2Arn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RegionLinkingMode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    LinkedRegions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 # This class is the input for the 'update_finding_aggregator' function.
 class UpdateFindingAggregatorRequestTypeDef(BaseValidatorModel):
-    FindingAggregatorArn: str
-    RegionLinkingMode: str
-    Regions: Optional[List[str]] = None
+    FindingAggregatorArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RegionLinkingMode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Regions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class UpdateSecurityHubConfigurationRequestTypeDef(BaseValidatorModel):
@@ -3298,17 +3333,17 @@ class UpdateSecurityHubConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateStandardsControlRequestTypeDef(BaseValidatorModel):
-    StandardsControlArn: str
+    StandardsControlArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ControlStatus: Optional[ControlStatusType] = None
-    DisabledReason: Optional[str] = None
+    DisabledReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class VulnerabilityVendorTypeDef(BaseValidatorModel):
-    Name: str
-    Url: Optional[str] = None
-    VendorSeverity: Optional[str] = None
-    VendorCreatedAt: Optional[str] = None
-    VendorUpdatedAt: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Url: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VendorSeverity: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VendorCreatedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VendorUpdatedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'create_members' function.
@@ -3317,7 +3352,7 @@ class CreateMembersRequestTypeDef(BaseValidatorModel):
 
 
 class ActionRemoteIpDetailsTypeDef(BaseValidatorModel):
-    IpAddressV4: Optional[str] = None
+    IpAddressV4: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Organization: Optional[IpOrganizationDetailsTypeDef] = None
     Country: Optional[CountryTypeDef] = None
     City: Optional[CityTypeDef] = None
@@ -3325,10 +3360,10 @@ class ActionRemoteIpDetailsTypeDef(BaseValidatorModel):
 
 
 class ActorUserTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Uid: Optional[str] = None
-    Type: Optional[str] = None
-    CredentialUid: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Uid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CredentialUid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Account: Optional[UserAccountTypeDef] = None
 
 
@@ -3341,10 +3376,10 @@ class CvssOutputTypeDef(BaseValidatorModel):
 
 
 class CvssTypeDef(BaseValidatorModel):
-    Version: Optional[str] = None
+    Version: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     BaseScore: Optional[float] = None
-    BaseVector: Optional[str] = None
-    Source: Optional[str] = None
+    BaseVector: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Source: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Adjustments: Optional[List[AdjustmentTypeDef]] = None
 
 
@@ -3357,20 +3392,20 @@ class ListConfigurationPolicyAssociationsRequestTypeDef(BaseValidatorModel):
 
 class AssociationSetDetailsTypeDef(BaseValidatorModel):
     AssociationState: Optional[AssociationStateDetailsTypeDef] = None
-    GatewayId: Optional[str] = None
+    GatewayId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Main: Optional[bool] = None
-    RouteTableAssociationId: Optional[str] = None
-    RouteTableId: Optional[str] = None
-    SubnetId: Optional[str] = None
+    RouteTableAssociationId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RouteTableId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AutomationRulesMetadataV2TypeDef(BaseValidatorModel):
-    RuleArn: Optional[str] = None
-    RuleId: Optional[str] = None
+    RuleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RuleOrder: Optional[float] = None
-    RuleName: Optional[str] = None
+    RuleName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RuleStatus: Optional[RuleStatusV2Type] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Actions: Optional[List[AutomationRulesActionTypeObjectV2TypeDef]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
@@ -3400,7 +3435,7 @@ class AutomationRulesFindingFieldsUpdateTypeDef(BaseValidatorModel):
     VerificationState: Optional[VerificationStateType] = None
     Confidence: Optional[int] = None
     Criticality: Optional[int] = None
-    Types: Optional[List[str]] = None
+    Types: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     UserDefinedFields: Optional[Dict[str, str]] = None
     Workflow: Optional[WorkflowUpdateTypeDef] = None
     RelatedFindings: Optional[List[RelatedFindingTypeDef]] = None
@@ -3454,8 +3489,8 @@ AwsAmazonMqBrokerLdapServerMetadataDetailsUnionTypeDef = Union[
 class AwsAmazonMqBrokerLogsDetailsTypeDef(BaseValidatorModel):
     Audit: Optional[bool] = None
     General: Optional[bool] = None
-    AuditLogGroup: Optional[str] = None
-    GeneralLogGroup: Optional[str] = None
+    AuditLogGroup: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    GeneralLogGroup: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Pending: Optional[AwsAmazonMqBrokerLogsPendingDetailsTypeDef] = None
 
 
@@ -3530,23 +3565,23 @@ class AwsApiGatewayV2StageDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsApiGatewayV2StageDetailsTypeDef(BaseValidatorModel):
-    ClientCertificateId: Optional[str] = None
-    CreatedDate: Optional[str] = None
-    Description: Optional[str] = None
+    ClientCertificateId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CreatedDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DefaultRouteSettings: Optional[AwsApiGatewayV2RouteSettingsTypeDef] = None
-    DeploymentId: Optional[str] = None
-    LastUpdatedDate: Optional[str] = None
+    DeploymentId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastUpdatedDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RouteSettings: Optional[AwsApiGatewayV2RouteSettingsTypeDef] = None
-    StageName: Optional[str] = None
+    StageName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     StageVariables: Optional[Dict[str, str]] = None
     AccessLogSettings: Optional[AwsApiGatewayAccessLogSettingsTypeDef] = None
     AutoDeploy: Optional[bool] = None
-    LastDeploymentStatusMessage: Optional[str] = None
+    LastDeploymentStatusMessage: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ApiGatewayManaged: Optional[bool] = None
 
 
 class AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef(BaseValidatorModel):
-    AuthenticationType: Optional[str] = None
+    AuthenticationType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LambdaAuthorizerConfig: Optional[AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef] = None
     OpenIdConnectConfig: Optional[AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef] = None
     UserPoolConfig: Optional[AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef] = None
@@ -3577,10 +3612,10 @@ class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTyp
 
 
 class AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef(BaseValidatorModel):
-    DeviceName: Optional[str] = None
+    DeviceName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Ebs: Optional[AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef] = None
     NoDevice: Optional[bool] = None
-    VirtualName: Optional[str] = None
+    VirtualName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnionTypeDef = Union[
@@ -3590,7 +3625,7 @@ AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnionTypeDef = Union[
 
 
 class AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef(BaseValidatorModel):
-    DestinationBackupVaultArn: Optional[str] = None
+    DestinationBackupVaultArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Lifecycle: Optional[AwsBackupBackupPlanLifecycleDetailsTypeDef] = None
 
 
@@ -3609,24 +3644,24 @@ AwsBackupBackupVaultNotificationsDetailsUnionTypeDef = Union[
 
 class AwsBackupRecoveryPointDetailsTypeDef(BaseValidatorModel):
     BackupSizeInBytes: Optional[int] = None
-    BackupVaultArn: Optional[str] = None
-    BackupVaultName: Optional[str] = None
+    BackupVaultArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    BackupVaultName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CalculatedLifecycle: Optional[AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef] = None
-    CompletionDate: Optional[str] = None
+    CompletionDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CreatedBy: Optional[AwsBackupRecoveryPointCreatedByDetailsTypeDef] = None
-    CreationDate: Optional[str] = None
-    EncryptionKeyArn: Optional[str] = None
-    IamRoleArn: Optional[str] = None
+    CreationDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IsEncrypted: Optional[bool] = None
-    LastRestoreTime: Optional[str] = None
+    LastRestoreTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Lifecycle: Optional[AwsBackupRecoveryPointLifecycleDetailsTypeDef] = None
-    RecoveryPointArn: Optional[str] = None
-    ResourceArn: Optional[str] = None
-    ResourceType: Optional[str] = None
-    SourceBackupVaultArn: Optional[str] = None
-    Status: Optional[str] = None
-    StatusMessage: Optional[str] = None
-    StorageClass: Optional[str] = None
+    RecoveryPointArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SourceBackupVaultArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StorageClass: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCertificateManagerCertificateDomainValidationOptionOutputTypeDef(BaseValidatorModel):
@@ -3639,12 +3674,12 @@ class AwsCertificateManagerCertificateDomainValidationOptionOutputTypeDef(BaseVa
 
 
 class AwsCertificateManagerCertificateDomainValidationOptionTypeDef(BaseValidatorModel):
-    DomainName: Optional[str] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ResourceRecord: Optional[AwsCertificateManagerCertificateResourceRecordTypeDef] = None
-    ValidationDomain: Optional[str] = None
-    ValidationEmails: Optional[List[str]] = None
-    ValidationMethod: Optional[str] = None
-    ValidationStatus: Optional[str] = None
+    ValidationDomain: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ValidationEmails: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    ValidationMethod: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ValidationStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudFormationStackDetailsOutputTypeDef(BaseValidatorModel):
@@ -3666,20 +3701,20 @@ class AwsCloudFormationStackDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsCloudFormationStackDetailsTypeDef(BaseValidatorModel):
-    Capabilities: Optional[List[str]] = None
-    CreationTime: Optional[str] = None
-    Description: Optional[str] = None
+    Capabilities: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    CreationTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DisableRollback: Optional[bool] = None
     DriftInformation: Optional[AwsCloudFormationStackDriftInformationDetailsTypeDef] = None
     EnableTerminationProtection: Optional[bool] = None
-    LastUpdatedTime: Optional[str] = None
-    NotificationArns: Optional[List[str]] = None
+    LastUpdatedTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NotificationArns: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Outputs: Optional[List[AwsCloudFormationStackOutputsDetailsTypeDef]] = None
-    RoleArn: Optional[str] = None
-    StackId: Optional[str] = None
-    StackName: Optional[str] = None
-    StackStatus: Optional[str] = None
-    StackStatusReason: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StackId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StackName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StackStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StackStatusReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     TimeoutInMinutes: Optional[int] = None
 
 
@@ -3741,27 +3776,27 @@ class AwsCloudWatchAlarmDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsCloudWatchAlarmDetailsTypeDef(BaseValidatorModel):
     ActionsEnabled: Optional[bool] = None
-    AlarmActions: Optional[List[str]] = None
-    AlarmArn: Optional[str] = None
-    AlarmConfigurationUpdatedTimestamp: Optional[str] = None
-    AlarmDescription: Optional[str] = None
-    AlarmName: Optional[str] = None
-    ComparisonOperator: Optional[str] = None
+    AlarmActions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    AlarmArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AlarmConfigurationUpdatedTimestamp: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AlarmDescription: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AlarmName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ComparisonOperator: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DatapointsToAlarm: Optional[int] = None
     Dimensions: Optional[List[AwsCloudWatchAlarmDimensionsDetailsTypeDef]] = None
-    EvaluateLowSampleCountPercentile: Optional[str] = None
+    EvaluateLowSampleCountPercentile: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EvaluationPeriods: Optional[int] = None
-    ExtendedStatistic: Optional[str] = None
-    InsufficientDataActions: Optional[List[str]] = None
-    MetricName: Optional[str] = None
-    Namespace: Optional[str] = None
-    OkActions: Optional[List[str]] = None
+    ExtendedStatistic: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    InsufficientDataActions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OkActions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Period: Optional[int] = None
-    Statistic: Optional[str] = None
+    Statistic: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Threshold: Optional[float] = None
-    ThresholdMetricId: Optional[str] = None
-    TreatMissingData: Optional[str] = None
-    Unit: Optional[str] = None
+    ThresholdMetricId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TreatMissingData: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Unit: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCodeBuildProjectEnvironmentOutputTypeDef(BaseValidatorModel):
@@ -3774,12 +3809,12 @@ class AwsCodeBuildProjectEnvironmentOutputTypeDef(BaseValidatorModel):
 
 
 class AwsCodeBuildProjectEnvironmentTypeDef(BaseValidatorModel):
-    Certificate: Optional[str] = None
+    Certificate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EnvironmentVariables: Optional[List[AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsTypeDef]] = None
     PrivilegedMode: Optional[bool] = None
-    ImagePullCredentialsType: Optional[str] = None
+    ImagePullCredentialsType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RegistryCredential: Optional[AwsCodeBuildProjectEnvironmentRegistryCredentialTypeDef] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCodeBuildProjectLogsConfigDetailsTypeDef(BaseValidatorModel):
@@ -3812,14 +3847,14 @@ class AwsDmsReplicationInstanceDetailsOutputTypeDef(BaseValidatorModel):
 class AwsDmsReplicationInstanceDetailsTypeDef(BaseValidatorModel):
     AllocatedStorage: Optional[int] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
-    AvailabilityZone: Optional[str] = None
-    EngineVersion: Optional[str] = None
-    KmsKeyId: Optional[str] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     MultiAZ: Optional[bool] = None
-    PreferredMaintenanceWindow: Optional[str] = None
+    PreferredMaintenanceWindow: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PubliclyAccessible: Optional[bool] = None
-    ReplicationInstanceClass: Optional[str] = None
-    ReplicationInstanceIdentifier: Optional[str] = None
+    ReplicationInstanceClass: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ReplicationInstanceIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ReplicationSubnetGroup: Optional[AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef] = None
     VpcSecurityGroups: Optional[List[AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef]] = None
 
@@ -3849,12 +3884,12 @@ AwsDynamoDbTableProjectionUnionTypeDef = Union[
 
 
 class AwsDynamoDbTableReplicaGlobalSecondaryIndexTypeDef(BaseValidatorModel):
-    IndexName: Optional[str] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ProvisionedThroughputOverride: Optional[AwsDynamoDbTableProvisionedThroughputOverrideTypeDef] = None
 
 
 class AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ActiveDirectory: Optional[AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef] = None
     MutualAuthentication: Optional[AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef] = (
         None
@@ -3866,7 +3901,7 @@ class AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef(BaseValidatorMo
 
 class AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    LambdaFunctionArn: Optional[str] = None
+    LambdaFunctionArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Status: Optional[AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef] = None
 
 
@@ -3887,37 +3922,37 @@ class AwsEc2InstanceDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEc2InstanceDetailsTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
-    ImageId: Optional[str] = None
-    IpV4Addresses: Optional[List[str]] = None
-    IpV6Addresses: Optional[List[str]] = None
-    KeyName: Optional[str] = None
-    IamInstanceProfileArn: Optional[str] = None
-    VpcId: Optional[str] = None
-    SubnetId: Optional[str] = None
-    LaunchedAt: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    IpV4Addresses: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    IpV6Addresses: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    KeyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    IamInstanceProfileArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LaunchedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     NetworkInterfaces: Optional[List[AwsEc2InstanceNetworkInterfacesDetailsTypeDef]] = None
-    VirtualizationType: Optional[str] = None
+    VirtualizationType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     MetadataOptions: Optional[AwsEc2InstanceMetadataOptionsTypeDef] = None
     Monitoring: Optional[AwsEc2InstanceMonitoringDetailsTypeDef] = None
 
 
 class AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef(BaseValidatorModel):
-    DeviceName: Optional[str] = None
+    DeviceName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Ebs: Optional[AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef] = None
-    NoDevice: Optional[str] = None
-    VirtualName: Optional[str] = None
+    NoDevice: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VirtualName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef(BaseValidatorModel):
-    CapacityReservationPreference: Optional[str] = None
+    CapacityReservationPreference: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CapacityReservationTarget: Optional[
         AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef
     ] = None
 
 
 class AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef(BaseValidatorModel):
-    MarketType: Optional[str] = None
+    MarketType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SpotOptions: Optional[AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef] = None
 
 
@@ -3953,22 +3988,22 @@ class AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutputTypeDef(BaseValid
 
 class AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef(BaseValidatorModel):
     AcceleratorCount: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef] = None
-    AcceleratorManufacturers: Optional[List[str]] = None
-    AcceleratorNames: Optional[List[str]] = None
+    AcceleratorManufacturers: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    AcceleratorNames: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     AcceleratorTotalMemoryMiB: Optional[
         AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef
     ] = None
-    AcceleratorTypes: Optional[List[str]] = None
-    BareMetal: Optional[str] = None
+    AcceleratorTypes: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    BareMetal: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     BaselineEbsBandwidthMbps: Optional[
         AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef
     ] = None
-    BurstablePerformance: Optional[str] = None
-    CpuManufacturers: Optional[List[str]] = None
-    ExcludedInstanceTypes: Optional[List[str]] = None
-    InstanceGenerations: Optional[List[str]] = None
-    LocalStorage: Optional[str] = None
-    LocalStorageTypes: Optional[List[str]] = None
+    BurstablePerformance: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CpuManufacturers: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    ExcludedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    InstanceGenerations: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    LocalStorage: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LocalStorageTypes: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     MemoryGiBPerVCpu: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef] = None
     MemoryMiB: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef] = None
     NetworkInterfaceCount: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef] = (
@@ -4009,10 +4044,10 @@ class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef(BaseValidatorMod
     AssociateCarrierIpAddress: Optional[bool] = None
     AssociatePublicIpAddress: Optional[bool] = None
     DeleteOnTermination: Optional[bool] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DeviceIndex: Optional[int] = None
-    Groups: Optional[List[str]] = None
-    InterfaceType: Optional[str] = None
+    Groups: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    InterfaceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Ipv4PrefixCount: Optional[int] = None
     Ipv4Prefixes: Optional[List[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef]] = None
     Ipv6AddressCount: Optional[int] = None
@@ -4020,23 +4055,23 @@ class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef(BaseValidatorMod
     Ipv6PrefixCount: Optional[int] = None
     Ipv6Prefixes: Optional[List[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef]] = None
     NetworkCardIndex: Optional[int] = None
-    NetworkInterfaceId: Optional[str] = None
-    PrivateIpAddress: Optional[str] = None
+    NetworkInterfaceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PrivateIpAddress: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PrivateIpAddresses: Optional[List[AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef]] = (
         None
     )
     SecondaryPrivateIpAddressCount: Optional[int] = None
-    SubnetId: Optional[str] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2NetworkAclEntryTypeDef(BaseValidatorModel):
-    CidrBlock: Optional[str] = None
+    CidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Egress: Optional[bool] = None
     IcmpTypeCode: Optional[IcmpTypeCodeTypeDef] = None
-    Ipv6CidrBlock: Optional[str] = None
+    Ipv6CidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PortRange: Optional[PortRangeFromToTypeDef] = None
-    Protocol: Optional[str] = None
-    RuleAction: Optional[str] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RuleAction: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RuleNumber: Optional[int] = None
 
 
@@ -4053,13 +4088,13 @@ class AwsEc2NetworkInterfaceDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsEc2NetworkInterfaceDetailsTypeDef(BaseValidatorModel):
     Attachment: Optional[AwsEc2NetworkInterfaceAttachmentTypeDef] = None
-    NetworkInterfaceId: Optional[str] = None
+    NetworkInterfaceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SecurityGroups: Optional[List[AwsEc2NetworkInterfaceSecurityGroupTypeDef]] = None
     SourceDestCheck: Optional[bool] = None
     IpV6Addresses: Optional[List[AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef]] = None
     PrivateIpAddresses: Optional[List[AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef]] = None
-    PublicDnsName: Optional[str] = None
-    PublicIp: Optional[str] = None
+    PublicDnsName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PublicIp: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2SecurityGroupIpPermissionOutputTypeDef(BaseValidatorModel):
@@ -4073,7 +4108,7 @@ class AwsEc2SecurityGroupIpPermissionOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEc2SecurityGroupIpPermissionTypeDef(BaseValidatorModel):
-    IpProtocol: Optional[str] = None
+    IpProtocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
     UserIdGroupPairs: Optional[List[AwsEc2SecurityGroupUserIdGroupPairTypeDef]] = None
@@ -4100,17 +4135,17 @@ class AwsEc2SubnetDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsEc2SubnetDetailsTypeDef(BaseValidatorModel):
     AssignIpv6AddressOnCreation: Optional[bool] = None
-    AvailabilityZone: Optional[str] = None
-    AvailabilityZoneId: Optional[str] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AvailabilityZoneId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AvailableIpAddressCount: Optional[int] = None
-    CidrBlock: Optional[str] = None
+    CidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DefaultForAz: Optional[bool] = None
     MapPublicIpOnLaunch: Optional[bool] = None
-    OwnerId: Optional[str] = None
-    State: Optional[str] = None
-    SubnetArn: Optional[str] = None
-    SubnetId: Optional[str] = None
-    VpcId: Optional[str] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    State: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SubnetArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Ipv6CidrBlockAssociationSet: Optional[List[Ipv6CidrBlockAssociationTypeDef]] = None
 
 
@@ -4134,17 +4169,17 @@ class AwsEc2VolumeDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEc2VolumeDetailsTypeDef(BaseValidatorModel):
-    CreateTime: Optional[str] = None
-    DeviceName: Optional[str] = None
+    CreateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DeviceName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Encrypted: Optional[bool] = None
     Size: Optional[int] = None
-    SnapshotId: Optional[str] = None
-    Status: Optional[str] = None
-    KmsKeyId: Optional[str] = None
+    SnapshotId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Attachments: Optional[List[AwsEc2VolumeAttachmentTypeDef]] = None
-    VolumeId: Optional[str] = None
-    VolumeType: Optional[str] = None
-    VolumeScanStatus: Optional[str] = None
+    VolumeId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VolumeType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VolumeScanStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2VpcDetailsOutputTypeDef(BaseValidatorModel):
@@ -4157,8 +4192,8 @@ class AwsEc2VpcDetailsOutputTypeDef(BaseValidatorModel):
 class AwsEc2VpcDetailsTypeDef(BaseValidatorModel):
     CidrBlockAssociationSet: Optional[List[CidrBlockAssociationTypeDef]] = None
     Ipv6CidrBlockAssociationSet: Optional[List[Ipv6CidrBlockAssociationTypeDef]] = None
-    DhcpOptionsId: Optional[str] = None
-    State: Optional[str] = None
+    DhcpOptionsId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    State: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2VpcEndpointServiceDetailsOutputTypeDef(BaseValidatorModel):
@@ -4177,15 +4212,15 @@ class AwsEc2VpcEndpointServiceDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsEc2VpcEndpointServiceDetailsTypeDef(BaseValidatorModel):
     AcceptanceRequired: Optional[bool] = None
-    AvailabilityZones: Optional[List[str]] = None
-    BaseEndpointDnsNames: Optional[List[str]] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    BaseEndpointDnsNames: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     ManagesVpcEndpoints: Optional[bool] = None
-    GatewayLoadBalancerArns: Optional[List[str]] = None
-    NetworkLoadBalancerArns: Optional[List[str]] = None
-    PrivateDnsName: Optional[str] = None
-    ServiceId: Optional[str] = None
-    ServiceName: Optional[str] = None
-    ServiceState: Optional[str] = None
+    GatewayLoadBalancerArns: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    NetworkLoadBalancerArns: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    PrivateDnsName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ServiceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ServiceName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ServiceState: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ServiceType: Optional[List[AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef]] = None
 
 
@@ -4200,13 +4235,13 @@ class AwsEc2VpcPeeringConnectionVpcInfoDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef(BaseValidatorModel):
-    CidrBlock: Optional[str] = None
+    CidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CidrBlockSet: Optional[List[VpcInfoCidrBlockSetDetailsTypeDef]] = None
     Ipv6CidrBlockSet: Optional[List[VpcInfoIpv6CidrBlockSetDetailsTypeDef]] = None
-    OwnerId: Optional[str] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PeeringOptions: Optional[VpcInfoPeeringOptionsDetailsTypeDef] = None
-    Region: Optional[str] = None
-    VpcId: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2VpnConnectionOptionsDetailsOutputTypeDef(BaseValidatorModel):
@@ -4224,20 +4259,20 @@ AwsEcrContainerImageDetailsUnionTypeDef = Union[
 
 
 class AwsEcrRepositoryDetailsTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ImageScanningConfiguration: Optional[AwsEcrRepositoryImageScanningConfigurationDetailsTypeDef] = None
-    ImageTagMutability: Optional[str] = None
+    ImageTagMutability: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LifecyclePolicy: Optional[AwsEcrRepositoryLifecyclePolicyDetailsTypeDef] = None
-    RepositoryName: Optional[str] = None
-    RepositoryPolicyText: Optional[str] = None
+    RepositoryName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RepositoryPolicyText: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsClusterConfigurationExecuteCommandConfigurationDetailsTypeDef(BaseValidatorModel):
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LogConfiguration: Optional[AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsTypeDef] = (
         None
     )
-    Logging: Optional[str] = None
+    Logging: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsContainerDetailsOutputTypeDef(BaseValidatorModel):
@@ -4248,8 +4283,8 @@ class AwsEcsContainerDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEcsContainerDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Image: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Image: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     MountPoints: Optional[List[AwsMountPointTypeDef]] = None
     Privileged: Optional[bool] = None
 
@@ -4319,7 +4354,7 @@ class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutputTypeD
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsTypeDef(BaseValidatorModel):
-    LogDriver: Optional[str] = None
+    LogDriver: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Options: Optional[Dict[str, str]] = None
     SecretOptions: Optional[
         List[AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef]
@@ -4335,11 +4370,11 @@ class AwsEcsTaskDefinitionProxyConfigurationDetailsOutputTypeDef(BaseValidatorMo
 
 
 class AwsEcsTaskDefinitionProxyConfigurationDetailsTypeDef(BaseValidatorModel):
-    ContainerName: Optional[str] = None
+    ContainerName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ProxyConfigurationProperties: Optional[
         List[AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsTypeDef]
     ] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsUnionTypeDef = Union[
@@ -4352,14 +4387,14 @@ class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef(BaseValida
     AuthorizationConfig: Optional[
         AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsTypeDef
     ] = None
-    FilesystemId: Optional[str] = None
-    RootDirectory: Optional[str] = None
-    TransitEncryption: Optional[str] = None
+    FilesystemId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RootDirectory: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TransitEncryption: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     TransitEncryptionPort: Optional[int] = None
 
 
 class AwsEcsTaskVolumeDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Host: Optional[AwsEcsTaskVolumeHostDetailsTypeDef] = None
 
 
@@ -4370,7 +4405,7 @@ AwsEfsAccessPointPosixUserDetailsUnionTypeDef = Union[
 
 class AwsEfsAccessPointRootDirectoryDetailsTypeDef(BaseValidatorModel):
     CreationInfo: Optional[AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef] = None
-    Path: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEksClusterLoggingDetailsOutputTypeDef(BaseValidatorModel):
@@ -4406,30 +4441,30 @@ class AwsElasticBeanstalkEnvironmentDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsElasticBeanstalkEnvironmentDetailsTypeDef(BaseValidatorModel):
-    ApplicationName: Optional[str] = None
-    Cname: Optional[str] = None
-    DateCreated: Optional[str] = None
-    DateUpdated: Optional[str] = None
-    Description: Optional[str] = None
-    EndpointUrl: Optional[str] = None
-    EnvironmentArn: Optional[str] = None
-    EnvironmentId: Optional[str] = None
+    ApplicationName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Cname: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DateCreated: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DateUpdated: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EndpointUrl: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EnvironmentArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EnvironmentId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EnvironmentLinks: Optional[List[AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef]] = None
-    EnvironmentName: Optional[str] = None
+    EnvironmentName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     OptionSettings: Optional[List[AwsElasticBeanstalkEnvironmentOptionSettingTypeDef]] = None
-    PlatformArn: Optional[str] = None
-    SolutionStackName: Optional[str] = None
-    Status: Optional[str] = None
+    PlatformArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SolutionStackName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Tier: Optional[AwsElasticBeanstalkEnvironmentTierTypeDef] = None
-    VersionLabel: Optional[str] = None
+    VersionLabel: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef(BaseValidatorModel):
     DedicatedMasterCount: Optional[int] = None
     DedicatedMasterEnabled: Optional[bool] = None
-    DedicatedMasterType: Optional[str] = None
+    DedicatedMasterType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     InstanceCount: Optional[int] = None
-    InstanceType: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ZoneAwarenessConfig: Optional[AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetailsTypeDef] = (
         None
     )
@@ -4456,7 +4491,7 @@ class AwsElbLoadBalancerPoliciesOutputTypeDef(BaseValidatorModel):
 class AwsElbLoadBalancerPoliciesTypeDef(BaseValidatorModel):
     AppCookieStickinessPolicies: Optional[List[AwsElbAppCookieStickinessPolicyTypeDef]] = None
     LbCookieStickinessPolicies: Optional[List[AwsElbLbCookieStickinessPolicyTypeDef]] = None
-    OtherPolicies: Optional[List[str]] = None
+    OtherPolicies: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsElbLoadBalancerAttributesOutputTypeDef(BaseValidatorModel):
@@ -4487,7 +4522,7 @@ class AwsElbLoadBalancerListenerDescriptionOutputTypeDef(BaseValidatorModel):
 
 class AwsElbLoadBalancerListenerDescriptionTypeDef(BaseValidatorModel):
     Listener: Optional[AwsElbLoadBalancerListenerTypeDef] = None
-    PolicyNames: Optional[List[str]] = None
+    PolicyNames: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class AwsElbv2LoadBalancerDetailsOutputTypeDef(BaseValidatorModel):
@@ -4506,15 +4541,15 @@ class AwsElbv2LoadBalancerDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsElbv2LoadBalancerDetailsTypeDef(BaseValidatorModel):
     AvailabilityZones: Optional[List[AvailabilityZoneTypeDef]] = None
-    CanonicalHostedZoneId: Optional[str] = None
-    CreatedTime: Optional[str] = None
-    DNSName: Optional[str] = None
-    IpAddressType: Optional[str] = None
-    Scheme: Optional[str] = None
-    SecurityGroups: Optional[List[str]] = None
+    CanonicalHostedZoneId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CreatedTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DNSName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    IpAddressType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Scheme: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     State: Optional[LoadBalancerStateTypeDef] = None
-    Type: Optional[str] = None
-    VpcId: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LoadBalancerAttributes: Optional[List[AwsElbv2LoadBalancerAttributeTypeDef]] = None
 
 
@@ -4549,11 +4584,11 @@ class AwsIamGroupDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsIamGroupDetailsTypeDef(BaseValidatorModel):
     AttachedManagedPolicies: Optional[List[AwsIamAttachedManagedPolicyTypeDef]] = None
-    CreateDate: Optional[str] = None
-    GroupId: Optional[str] = None
-    GroupName: Optional[str] = None
+    CreateDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    GroupId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     GroupPolicyList: Optional[List[AwsIamGroupPolicyTypeDef]] = None
-    Path: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamInstanceProfileOutputTypeDef(BaseValidatorModel):
@@ -4566,11 +4601,11 @@ class AwsIamInstanceProfileOutputTypeDef(BaseValidatorModel):
 
 
 class AwsIamInstanceProfileTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    CreateDate: Optional[str] = None
-    InstanceProfileId: Optional[str] = None
-    InstanceProfileName: Optional[str] = None
-    Path: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CreateDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    InstanceProfileId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    InstanceProfileName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Path: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Roles: Optional[List[AwsIamInstanceProfileRoleTypeDef]] = None
 
 
@@ -4590,16 +4625,16 @@ class AwsIamPolicyDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsIamPolicyDetailsTypeDef(BaseValidatorModel):
     AttachmentCount: Optional[int] = None
-    CreateDate: Optional[str] = None
-    DefaultVersionId: Optional[str] = None
-    Description: Optional[str] = None
+    CreateDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DefaultVersionId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IsAttachable: Optional[bool] = None
-    Path: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PermissionsBoundaryUsageCount: Optional[int] = None
-    PolicyId: Optional[str] = None
-    PolicyName: Optional[str] = None
+    PolicyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PolicyVersionList: Optional[List[AwsIamPolicyVersionTypeDef]] = None
-    UpdateDate: Optional[str] = None
+    UpdateDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamUserDetailsOutputTypeDef(BaseValidatorModel):
@@ -4615,18 +4650,18 @@ class AwsIamUserDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsIamUserDetailsTypeDef(BaseValidatorModel):
     AttachedManagedPolicies: Optional[List[AwsIamAttachedManagedPolicyTypeDef]] = None
-    CreateDate: Optional[str] = None
-    GroupList: Optional[List[str]] = None
-    Path: Optional[str] = None
+    CreateDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    GroupList: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    Path: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PermissionsBoundary: Optional[AwsIamPermissionsBoundaryTypeDef] = None
-    UserId: Optional[str] = None
-    UserName: Optional[str] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     UserPolicyList: Optional[List[AwsIamUserPolicyTypeDef]] = None
 
 
 class AwsKinesisStreamDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     StreamEncryption: Optional[AwsKinesisStreamStreamEncryptionDetailsTypeDef] = None
     ShardCount: Optional[int] = None
     RetentionPeriodHours: Optional[int] = None
@@ -4682,15 +4717,15 @@ class AwsNetworkFirewallFirewallDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsNetworkFirewallFirewallDetailsTypeDef(BaseValidatorModel):
     DeleteProtection: Optional[bool] = None
-    Description: Optional[str] = None
-    FirewallArn: Optional[str] = None
-    FirewallId: Optional[str] = None
-    FirewallName: Optional[str] = None
-    FirewallPolicyArn: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FirewallArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FirewallId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FirewallName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FirewallPolicyArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     FirewallPolicyChangeProtection: Optional[bool] = None
     SubnetChangeProtection: Optional[bool] = None
     SubnetMappings: Optional[List[AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef]] = None
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef(BaseValidatorModel):
@@ -4706,10 +4741,10 @@ class AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef(BaseValidatorModel):
     DedicatedMasterEnabled: Optional[bool] = None
     ZoneAwarenessConfig: Optional[AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef] = None
     DedicatedMasterCount: Optional[int] = None
-    InstanceType: Optional[str] = None
-    WarmType: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    WarmType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ZoneAwarenessEnabled: Optional[bool] = None
-    DedicatedMasterType: Optional[str] = None
+    DedicatedMasterType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef(BaseValidatorModel):
@@ -4774,40 +4809,40 @@ class AwsRdsDbClusterDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsRdsDbClusterDetailsTypeDef(BaseValidatorModel):
     AllocatedStorage: Optional[int] = None
-    AvailabilityZones: Optional[List[str]] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     BackupRetentionPeriod: Optional[int] = None
-    DatabaseName: Optional[str] = None
-    Status: Optional[str] = None
-    Endpoint: Optional[str] = None
-    ReaderEndpoint: Optional[str] = None
-    CustomEndpoints: Optional[List[str]] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Endpoint: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ReaderEndpoint: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CustomEndpoints: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     MultiAz: Optional[bool] = None
-    Engine: Optional[str] = None
-    EngineVersion: Optional[str] = None
+    Engine: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Port: Optional[int] = None
-    MasterUsername: Optional[str] = None
-    PreferredBackupWindow: Optional[str] = None
-    PreferredMaintenanceWindow: Optional[str] = None
-    ReadReplicaIdentifiers: Optional[List[str]] = None
+    MasterUsername: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PreferredBackupWindow: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PreferredMaintenanceWindow: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ReadReplicaIdentifiers: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     VpcSecurityGroups: Optional[List[AwsRdsDbInstanceVpcSecurityGroupTypeDef]] = None
-    HostedZoneId: Optional[str] = None
+    HostedZoneId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     StorageEncrypted: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
-    DbClusterResourceId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DbClusterResourceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AssociatedRoles: Optional[List[AwsRdsDbClusterAssociatedRoleTypeDef]] = None
-    ClusterCreateTime: Optional[str] = None
-    EnabledCloudWatchLogsExports: Optional[List[str]] = None
-    EngineMode: Optional[str] = None
+    ClusterCreateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EnabledCloudWatchLogsExports: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    EngineMode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DeletionProtection: Optional[bool] = None
     HttpEndpointEnabled: Optional[bool] = None
-    ActivityStreamStatus: Optional[str] = None
+    ActivityStreamStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CopyTagsToSnapshot: Optional[bool] = None
     CrossAccountClone: Optional[bool] = None
     DomainMemberships: Optional[List[AwsRdsDbDomainMembershipTypeDef]] = None
-    DbClusterParameterGroup: Optional[str] = None
-    DbSubnetGroup: Optional[str] = None
+    DbClusterParameterGroup: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DbSubnetGroup: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DbClusterOptionGroupMemberships: Optional[List[AwsRdsDbClusterOptionGroupMembershipTypeDef]] = None
-    DbClusterIdentifier: Optional[str] = None
+    DbClusterIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DbClusterMembers: Optional[List[AwsRdsDbClusterMemberTypeDef]] = None
     IamDatabaseAuthenticationEnabled: Optional[bool] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
@@ -4872,33 +4907,33 @@ class AwsRdsDbSnapshotDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsRdsDbSnapshotDetailsTypeDef(BaseValidatorModel):
-    DbSnapshotIdentifier: Optional[str] = None
-    DbInstanceIdentifier: Optional[str] = None
-    SnapshotCreateTime: Optional[str] = None
-    Engine: Optional[str] = None
+    DbSnapshotIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DbInstanceIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SnapshotCreateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Engine: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AllocatedStorage: Optional[int] = None
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Port: Optional[int] = None
-    AvailabilityZone: Optional[str] = None
-    VpcId: Optional[str] = None
-    InstanceCreateTime: Optional[str] = None
-    MasterUsername: Optional[str] = None
-    EngineVersion: Optional[str] = None
-    LicenseModel: Optional[str] = None
-    SnapshotType: Optional[str] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    InstanceCreateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MasterUsername: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LicenseModel: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SnapshotType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Iops: Optional[int] = None
-    OptionGroupName: Optional[str] = None
+    OptionGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PercentProgress: Optional[int] = None
-    SourceRegion: Optional[str] = None
-    SourceDbSnapshotIdentifier: Optional[str] = None
-    StorageType: Optional[str] = None
-    TdeCredentialArn: Optional[str] = None
+    SourceRegion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SourceDbSnapshotIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StorageType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TdeCredentialArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Encrypted: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
-    Timezone: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Timezone: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IamDatabaseAuthenticationEnabled: Optional[bool] = None
     ProcessorFeatures: Optional[List[AwsRdsDbProcessorFeatureTypeDef]] = None
-    DbiResourceId: Optional[str] = None
+    DbiResourceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbPendingModifiedValuesOutputTypeDef(BaseValidatorModel):
@@ -4930,19 +4965,19 @@ class AwsRdsDbSecurityGroupDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsRdsDbSecurityGroupDetailsTypeDef(BaseValidatorModel):
-    DbSecurityGroupArn: Optional[str] = None
-    DbSecurityGroupDescription: Optional[str] = None
-    DbSecurityGroupName: Optional[str] = None
+    DbSecurityGroupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DbSecurityGroupDescription: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DbSecurityGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Ec2SecurityGroups: Optional[List[AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef]] = None
     IpRanges: Optional[List[AwsRdsDbSecurityGroupIpRangeTypeDef]] = None
-    OwnerId: Optional[str] = None
-    VpcId: Optional[str] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbSubnetGroupSubnetTypeDef(BaseValidatorModel):
-    SubnetIdentifier: Optional[str] = None
+    SubnetIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SubnetAvailabilityZone: Optional[AwsRdsDbSubnetGroupSubnetAvailabilityZoneTypeDef] = None
-    SubnetStatus: Optional[str] = None
+    SubnetStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsRdsEventSubscriptionDetailsUnionTypeDef = Union[
@@ -4962,13 +4997,13 @@ class AwsRedshiftClusterClusterParameterGroupOutputTypeDef(BaseValidatorModel):
 
 class AwsRedshiftClusterClusterParameterGroupTypeDef(BaseValidatorModel):
     ClusterParameterStatusList: Optional[List[AwsRedshiftClusterClusterParameterStatusTypeDef]] = None
-    ParameterApplyStatus: Optional[str] = None
-    ParameterGroupName: Optional[str] = None
+    ParameterApplyStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ParameterGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRoute53HostedZoneObjectDetailsTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Config: Optional[AwsRoute53HostedZoneConfigDetailsTypeDef] = None
 
 
@@ -4977,20 +5012,20 @@ class AwsRoute53QueryLoggingConfigDetailsTypeDef(BaseValidatorModel):
 
 
 class AwsS3AccessPointDetailsTypeDef(BaseValidatorModel):
-    AccessPointArn: Optional[str] = None
-    Alias: Optional[str] = None
-    Bucket: Optional[str] = None
-    BucketAccountId: Optional[str] = None
-    Name: Optional[str] = None
-    NetworkOrigin: Optional[str] = None
+    AccessPointArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Alias: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    BucketAccountId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NetworkOrigin: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PublicAccessBlockConfiguration: Optional[AwsS3AccountPublicAccessBlockDetailsTypeDef] = None
     VpcConfiguration: Optional[AwsS3AccessPointVpcConfigurationDetailsTypeDef] = None
 
 
 class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsTypeDef(BaseValidatorModel):
-    Prefix: Optional[str] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Tag: Optional[AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetailsTypeDef] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketNotificationConfigurationS3KeyFilterOutputTypeDef(BaseValidatorModel):
@@ -5040,39 +5075,39 @@ class AwsSageMakerNotebookInstanceDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsSageMakerNotebookInstanceDetailsTypeDef(BaseValidatorModel):
-    AcceleratorTypes: Optional[List[str]] = None
-    AdditionalCodeRepositories: Optional[List[str]] = None
-    DefaultCodeRepository: Optional[str] = None
-    DirectInternetAccess: Optional[str] = None
-    FailureReason: Optional[str] = None
+    AcceleratorTypes: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    AdditionalCodeRepositories: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    DefaultCodeRepository: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DirectInternetAccess: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FailureReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     InstanceMetadataServiceConfiguration: Optional[
         AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef
     ] = None
-    InstanceType: Optional[str] = None
-    KmsKeyId: Optional[str] = None
-    NetworkInterfaceId: Optional[str] = None
-    NotebookInstanceArn: Optional[str] = None
-    NotebookInstanceLifecycleConfigName: Optional[str] = None
-    NotebookInstanceName: Optional[str] = None
-    NotebookInstanceStatus: Optional[str] = None
-    PlatformIdentifier: Optional[str] = None
-    RoleArn: Optional[str] = None
-    RootAccess: Optional[str] = None
-    SecurityGroups: Optional[List[str]] = None
-    SubnetId: Optional[str] = None
-    Url: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NetworkInterfaceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NotebookInstanceArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NotebookInstanceLifecycleConfigName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NotebookInstanceName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NotebookInstanceStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PlatformIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RootAccess: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Url: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     VolumeSizeInGB: Optional[int] = None
 
 
 class AwsSecretsManagerSecretDetailsTypeDef(BaseValidatorModel):
     RotationRules: Optional[AwsSecretsManagerSecretRotationRulesTypeDef] = None
     RotationOccurredWithinFrequency: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RotationEnabled: Optional[bool] = None
-    RotationLambdaArn: Optional[str] = None
+    RotationLambdaArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Deleted: Optional[bool] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class OcsfBooleanFilterTypeDef(BaseValidatorModel):
@@ -5093,7 +5128,7 @@ class BatchUpdateFindingsRequestTypeDef(BaseValidatorModel):
     VerificationState: Optional[VerificationStateType] = None
     Confidence: Optional[int] = None
     Criticality: Optional[int] = None
-    Types: Optional[List[str]] = None
+    Types: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     UserDefinedFields: Optional[Dict[str, str]] = None
     Workflow: Optional[WorkflowUpdateTypeDef] = None
     RelatedFindings: Optional[List[RelatedFindingTypeDef]] = None
@@ -5101,8 +5136,8 @@ class BatchUpdateFindingsRequestTypeDef(BaseValidatorModel):
 
 class BatchUpdateFindingsUnprocessedFindingTypeDef(BaseValidatorModel):
     FindingIdentifier: AwsSecurityFindingIdentifierTypeDef
-    ErrorCode: str
-    ErrorMessage: str
+    ErrorCode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ErrorMessage: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class AwsSnsTopicDetailsOutputTypeDef(BaseValidatorModel):
@@ -5120,17 +5155,17 @@ class AwsSnsTopicDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsSnsTopicDetailsTypeDef(BaseValidatorModel):
-    KmsMasterKeyId: Optional[str] = None
+    KmsMasterKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Subscription: Optional[List[AwsSnsTopicSubscriptionTypeDef]] = None
-    TopicName: Optional[str] = None
-    Owner: Optional[str] = None
-    SqsSuccessFeedbackRoleArn: Optional[str] = None
-    SqsFailureFeedbackRoleArn: Optional[str] = None
-    ApplicationSuccessFeedbackRoleArn: Optional[str] = None
-    FirehoseSuccessFeedbackRoleArn: Optional[str] = None
-    FirehoseFailureFeedbackRoleArn: Optional[str] = None
-    HttpSuccessFeedbackRoleArn: Optional[str] = None
-    HttpFailureFeedbackRoleArn: Optional[str] = None
+    TopicName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SqsSuccessFeedbackRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SqsFailureFeedbackRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ApplicationSuccessFeedbackRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FirehoseSuccessFeedbackRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FirehoseFailureFeedbackRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HttpSuccessFeedbackRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HttpFailureFeedbackRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsSsmPatchTypeDef(BaseValidatorModel):
@@ -5153,11 +5188,11 @@ class AwsWafRateBasedRuleDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsWafRateBasedRuleDetailsTypeDef(BaseValidatorModel):
-    MetricName: Optional[str] = None
-    Name: Optional[str] = None
-    RateKey: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RateKey: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RateLimit: Optional[int] = None
-    RuleId: Optional[str] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     MatchPredicates: Optional[List[AwsWafRateBasedRuleMatchPredicateTypeDef]] = None
 
 
@@ -5171,11 +5206,11 @@ class AwsWafRegionalRateBasedRuleDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsWafRegionalRateBasedRuleDetailsTypeDef(BaseValidatorModel):
-    MetricName: Optional[str] = None
-    Name: Optional[str] = None
-    RateKey: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RateKey: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RateLimit: Optional[int] = None
-    RuleId: Optional[str] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     MatchPredicates: Optional[List[AwsWafRegionalRateBasedRuleMatchPredicateTypeDef]] = None
 
 
@@ -5187,25 +5222,25 @@ class AwsWafRegionalRuleDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsWafRegionalRuleDetailsTypeDef(BaseValidatorModel):
-    MetricName: Optional[str] = None
-    Name: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PredicateList: Optional[List[AwsWafRegionalRulePredicateListDetailsTypeDef]] = None
-    RuleId: Optional[str] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRegionalRuleGroupRulesDetailsTypeDef(BaseValidatorModel):
     Action: Optional[AwsWafRegionalRuleGroupRulesActionDetailsTypeDef] = None
     Priority: Optional[int] = None
-    RuleId: Optional[str] = None
-    Type: Optional[str] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRegionalWebAclRulesListDetailsTypeDef(BaseValidatorModel):
     Action: Optional[AwsWafRegionalWebAclRulesListActionDetailsTypeDef] = None
     OverrideAction: Optional[AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef] = None
     Priority: Optional[int] = None
-    RuleId: Optional[str] = None
-    Type: Optional[str] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRuleDetailsOutputTypeDef(BaseValidatorModel):
@@ -5216,17 +5251,17 @@ class AwsWafRuleDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsWafRuleDetailsTypeDef(BaseValidatorModel):
-    MetricName: Optional[str] = None
-    Name: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PredicateList: Optional[List[AwsWafRulePredicateListDetailsTypeDef]] = None
-    RuleId: Optional[str] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafRuleGroupRulesDetailsTypeDef(BaseValidatorModel):
     Action: Optional[AwsWafRuleGroupRulesActionDetailsTypeDef] = None
     Priority: Optional[int] = None
-    RuleId: Optional[str] = None
-    Type: Optional[str] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafWebAclRuleOutputTypeDef(BaseValidatorModel):
@@ -5243,8 +5278,8 @@ class AwsWafWebAclRuleTypeDef(BaseValidatorModel):
     ExcludedRules: Optional[List[WafExcludedRuleTypeDef]] = None
     OverrideAction: Optional[WafOverrideActionTypeDef] = None
     Priority: Optional[int] = None
-    RuleId: Optional[str] = None
-    Type: Optional[str] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafv2CustomRequestHandlingDetailsOutputTypeDef(BaseValidatorModel):
@@ -5262,7 +5297,7 @@ class AwsWafv2CustomResponseDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsWafv2CustomResponseDetailsTypeDef(BaseValidatorModel):
-    CustomResponseBodyKey: Optional[str] = None
+    CustomResponseBodyKey: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ResponseCode: Optional[int] = None
     ResponseHeaders: Optional[List[AwsWafv2CustomHttpHeaderTypeDef]] = None
 
@@ -5273,72 +5308,72 @@ class AwsWafv2WebAclCaptchaConfigDetailsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_action_target' function.
 class CreateActionTargetResponseTypeDef(BaseValidatorModel):
-    ActionTargetArn: str
+    ActionTargetArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_aggregator_v2' function.
 class CreateAggregatorV2ResponseTypeDef(BaseValidatorModel):
-    AggregatorV2Arn: str
-    AggregationRegion: str
-    RegionLinkingMode: str
-    LinkedRegions: List[str]
+    AggregatorV2Arn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    AggregationRegion: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RegionLinkingMode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    LinkedRegions: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_automation_rule' function.
 class CreateAutomationRuleResponseTypeDef(BaseValidatorModel):
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_automation_rule_v2' function.
 class CreateAutomationRuleV2ResponseTypeDef(BaseValidatorModel):
-    RuleArn: str
-    RuleId: str
+    RuleArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RuleId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_connector_v2' function.
 class CreateConnectorV2ResponseTypeDef(BaseValidatorModel):
-    ConnectorArn: str
-    ConnectorId: str
-    AuthUrl: str
+    ConnectorArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ConnectorId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    AuthUrl: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ConnectorStatus: ConnectorStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_finding_aggregator' function.
 class CreateFindingAggregatorResponseTypeDef(BaseValidatorModel):
-    FindingAggregatorArn: str
-    FindingAggregationRegion: str
-    RegionLinkingMode: str
-    Regions: List[str]
+    FindingAggregatorArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    FindingAggregationRegion: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RegionLinkingMode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Regions: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_insight' function.
 class CreateInsightResponseTypeDef(BaseValidatorModel):
-    InsightArn: str
+    InsightArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ticket_v2' function.
 class CreateTicketV2ResponseTypeDef(BaseValidatorModel):
-    TicketId: str
-    TicketSrcUrl: str
+    TicketId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    TicketSrcUrl: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_action_target' function.
 class DeleteActionTargetResponseTypeDef(BaseValidatorModel):
-    ActionTargetArn: str
+    ActionTargetArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_insight' function.
 class DeleteInsightResponseTypeDef(BaseValidatorModel):
-    InsightArn: str
+    InsightArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -5351,65 +5386,65 @@ class DescribeActionTargetsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_hub' function.
 class DescribeHubResponseTypeDef(BaseValidatorModel):
-    HubArn: str
-    SubscribedAt: str
+    HubArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    SubscribedAt: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     AutoEnableControls: bool
     ControlFindingGenerator: ControlFindingGeneratorType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DescribeSecurityHubV2ResponseTypeDef(BaseValidatorModel):
-    HubV2Arn: str
-    SubscribedAt: str
+    HubV2Arn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    SubscribedAt: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'enable_import_findings_for_product' function.
 class EnableImportFindingsForProductResponseTypeDef(BaseValidatorModel):
-    ProductSubscriptionArn: str
+    ProductSubscriptionArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'enable_organization_admin_account' function.
 class EnableOrganizationAdminAccountResponseTypeDef(BaseValidatorModel):
-    AdminAccountId: str
+    AdminAccountId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Feature: SecurityHubFeatureType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'enable_security_hub_v2' function.
 class EnableSecurityHubV2ResponseTypeDef(BaseValidatorModel):
-    HubV2Arn: str
+    HubV2Arn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_aggregator_v2' function.
 class GetAggregatorV2ResponseTypeDef(BaseValidatorModel):
-    AggregatorV2Arn: str
-    AggregationRegion: str
-    RegionLinkingMode: str
-    LinkedRegions: List[str]
+    AggregatorV2Arn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    AggregationRegion: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RegionLinkingMode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    LinkedRegions: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_configuration_policy_association' function.
 class GetConfigurationPolicyAssociationResponseTypeDef(BaseValidatorModel):
-    ConfigurationPolicyId: str
-    TargetId: str
+    ConfigurationPolicyId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    TargetId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     TargetType: TargetTypeType
     AssociationType: AssociationTypeType
     UpdatedAt: datetime
     AssociationStatus: ConfigurationPolicyAssociationStatusType
-    AssociationStatusMessage: str
+    AssociationStatusMessage: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_finding_aggregator' function.
 class GetFindingAggregatorResponseTypeDef(BaseValidatorModel):
-    FindingAggregatorArn: str
-    FindingAggregationRegion: str
-    RegionLinkingMode: str
-    Regions: List[str]
+    FindingAggregatorArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    FindingAggregationRegion: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RegionLinkingMode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Regions: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -5441,7 +5476,7 @@ class ListAutomationRulesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_enabled_products_for_import' function.
 class ListEnabledProductsForImportResponseTypeDef(BaseValidatorModel):
-    ProductSubscriptions: List[str]
+    ProductSubscriptions: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -5462,51 +5497,51 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'register_connector_v2' function.
 class RegisterConnectorV2ResponseTypeDef(BaseValidatorModel):
-    ConnectorArn: str
-    ConnectorId: str
+    ConnectorArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ConnectorId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_configuration_policy_association' function.
 class StartConfigurationPolicyAssociationResponseTypeDef(BaseValidatorModel):
-    ConfigurationPolicyId: str
-    TargetId: str
+    ConfigurationPolicyId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    TargetId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     TargetType: TargetTypeType
     AssociationType: AssociationTypeType
     UpdatedAt: datetime
     AssociationStatus: ConfigurationPolicyAssociationStatusType
-    AssociationStatusMessage: str
+    AssociationStatusMessage: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_aggregator_v2' function.
 class UpdateAggregatorV2ResponseTypeDef(BaseValidatorModel):
-    AggregatorV2Arn: str
-    AggregationRegion: str
-    RegionLinkingMode: str
-    LinkedRegions: List[str]
+    AggregatorV2Arn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    AggregationRegion: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RegionLinkingMode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    LinkedRegions: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_finding_aggregator' function.
 class UpdateFindingAggregatorResponseTypeDef(BaseValidatorModel):
-    FindingAggregatorArn: str
-    FindingAggregationRegion: str
-    RegionLinkingMode: str
-    Regions: List[str]
+    FindingAggregatorArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    FindingAggregationRegion: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RegionLinkingMode: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Regions: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'batch_delete_automation_rules' function.
 class BatchDeleteAutomationRulesResponseTypeDef(BaseValidatorModel):
-    ProcessedAutomationRules: List[str]
+    ProcessedAutomationRules: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
     UnprocessedAutomationRules: List[UnprocessedAutomationRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'batch_update_automation_rules' function.
 class BatchUpdateAutomationRulesResponseTypeDef(BaseValidatorModel):
-    ProcessedAutomationRules: List[str]
+    ProcessedAutomationRules: List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
     UnprocessedAutomationRules: List[UnprocessedAutomationRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -5531,7 +5566,7 @@ class BatchGetStandardsControlAssociationsRequestTypeDef(BaseValidatorModel):
 class UnprocessedStandardsControlAssociationTypeDef(BaseValidatorModel):
     StandardsControlAssociationId: StandardsControlAssociationIdTypeDef
     ErrorCode: UnprocessedErrorCodeType
-    ErrorReason: Optional[str] = None
+    ErrorReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the output for the 'batch_import_findings' function.
@@ -5544,23 +5579,23 @@ class BatchImportFindingsResponseTypeDef(BaseValidatorModel):
 
 class BatchUpdateFindingsV2ProcessedFindingTypeDef(BaseValidatorModel):
     FindingIdentifier: Optional[OcsfFindingIdentifierTypeDef] = None
-    MetadataUid: Optional[str] = None
+    MetadataUid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'batch_update_findings_v2' function.
 class BatchUpdateFindingsV2RequestTypeDef(BaseValidatorModel):
-    MetadataUids: Optional[List[str]] = None
+    MetadataUids: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     FindingIdentifiers: Optional[List[OcsfFindingIdentifierTypeDef]] = None
-    Comment: Optional[str] = None
+    Comment: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SeverityId: Optional[int] = None
     StatusId: Optional[int] = None
 
 
 class BatchUpdateFindingsV2UnprocessedFindingTypeDef(BaseValidatorModel):
     FindingIdentifier: Optional[OcsfFindingIdentifierTypeDef] = None
-    MetadataUid: Optional[str] = None
+    MetadataUid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ErrorCode: Optional[BatchUpdateFindingsV2UnprocessedFindingErrorCodeType] = None
-    ErrorMessage: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'batch_update_standards_control_associations' function.
@@ -5571,7 +5606,7 @@ class BatchUpdateStandardsControlAssociationsRequestTypeDef(BaseValidatorModel):
 class UnprocessedStandardsControlAssociationUpdateTypeDef(BaseValidatorModel):
     StandardsControlAssociationUpdate: StandardsControlAssociationUpdateTypeDef
     ErrorCode: UnprocessedErrorCodeType
-    ErrorReason: Optional[str] = None
+    ErrorReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class VulnerabilityCodeVulnerabilitiesOutputTypeDef(BaseValidatorModel):
@@ -5581,9 +5616,9 @@ class VulnerabilityCodeVulnerabilitiesOutputTypeDef(BaseValidatorModel):
 
 
 class VulnerabilityCodeVulnerabilitiesTypeDef(BaseValidatorModel):
-    Cwes: Optional[List[str]] = None
+    Cwes: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     FilePath: Optional[CodeVulnerabilitiesFilePathTypeDef] = None
-    SourceArn: Optional[str] = None
+    SourceArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ComplianceOutputTypeDef(BaseValidatorModel):
@@ -5617,12 +5652,12 @@ class GetConfigurationPolicyAssociationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_configuration_policy_association' function.
 class StartConfigurationPolicyAssociationRequestTypeDef(BaseValidatorModel):
-    ConfigurationPolicyIdentifier: str
+    ConfigurationPolicyIdentifier: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Target: TargetTypeDef
 
 
 class StartConfigurationPolicyDisassociationRequestTypeDef(BaseValidatorModel):
-    ConfigurationPolicyIdentifier: str
+    ConfigurationPolicyIdentifier: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Target: Optional[TargetTypeDef] = None
 
 
@@ -5634,12 +5669,12 @@ class ListConfigurationPoliciesResponseTypeDef(BaseValidatorModel):
 
 
 class ConnectorSummaryTypeDef(BaseValidatorModel):
-    ConnectorId: str
-    Name: str
+    ConnectorId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ProviderSummary: ProviderSummaryTypeDef
     CreatedAt: datetime
-    ConnectorArn: Optional[str] = None
-    Description: Optional[str] = None
+    ConnectorArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class ContainerDetailsOutputTypeDef(BaseValidatorModel):
@@ -5653,11 +5688,11 @@ class ContainerDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class ContainerDetailsTypeDef(BaseValidatorModel):
-    ContainerRuntime: Optional[str] = None
-    Name: Optional[str] = None
-    ImageId: Optional[str] = None
-    ImageName: Optional[str] = None
-    LaunchedAt: Optional[str] = None
+    ContainerRuntime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ImageName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LaunchedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     VolumeMounts: Optional[List[VolumeMountTypeDef]] = None
     Privileged: Optional[bool] = None
 
@@ -5693,8 +5728,8 @@ class InviteMembersResponseTypeDef(BaseValidatorModel):
 
 
 class DateFilterTypeDef(BaseValidatorModel):
-    Start: Optional[str] = None
-    End: Optional[str] = None
+    Start: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    End: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DateRange: Optional[DateRangeTypeDef] = None
 
 
@@ -5728,6 +5763,11 @@ class GetEnabledStandardsRequestPaginateTypeDef(BaseValidatorModel):
 
 class GetInsightsRequestPaginateTypeDef(BaseValidatorModel):
     InsightArns: Optional[List[str]] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class GetRecommendedPolicyV2RequestPaginateTypeDef(BaseValidatorModel):
+    MetadataUid: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
@@ -5819,8 +5859,8 @@ class ThreatOutputTypeDef(BaseValidatorModel):
 
 
 class ThreatTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Severity: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Severity: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ItemCount: Optional[int] = None
     FilePaths: Optional[List[FilePathsTypeDef]] = None
 
@@ -5854,7 +5894,7 @@ class FindingProviderFieldsTypeDef(BaseValidatorModel):
     Criticality: Optional[int] = None
     RelatedFindings: Optional[List[RelatedFindingTypeDef]] = None
     Severity: Optional[FindingProviderSeverityTypeDef] = None
-    Types: Optional[List[str]] = None
+    Types: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 GeneratorDetailsUnionTypeDef = Union[GeneratorDetailsOutputTypeDef, GeneratorDetailsTypeDef]
@@ -5874,7 +5914,7 @@ class GetMasterAccountResponseTypeDef(BaseValidatorModel):
 class ListInvitationsResponseTypeDef(BaseValidatorModel):
     Invitations: List[InvitationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class GetFindingHistoryRequestPaginateTypeDef(BaseValidatorModel):
@@ -5904,11 +5944,11 @@ class GetMembersResponseTypeDef(BaseValidatorModel):
 class ListMembersResponseTypeDef(BaseValidatorModel):
     Members: List[MemberTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class GroupByResultTypeDef(BaseValidatorModel):
-    GroupByField: Optional[str] = None
+    GroupByField: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     GroupByValues: Optional[List[GroupByValueTypeDef]] = None
 
 
@@ -5934,26 +5974,26 @@ IndicatorUnionTypeDef = Union[IndicatorOutputTypeDef, IndicatorTypeDef]
 
 
 class SignalTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
-    Id: Optional[str] = None
-    Title: Optional[str] = None
-    ProductArn: Optional[str] = None
-    ResourceIds: Optional[List[str]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Title: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ProductArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ResourceIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     SignalIndicators: Optional[List[IndicatorTypeDef]] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CreatedAt: Optional[int] = None
     UpdatedAt: Optional[int] = None
     FirstSeenAt: Optional[int] = None
     LastSeenAt: Optional[int] = None
     Severity: Optional[float] = None
     Count: Optional[int] = None
-    ActorIds: Optional[List[str]] = None
-    EndpointIds: Optional[List[str]] = None
+    ActorIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    EndpointIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
 
 
 class InsightResultsTypeDef(BaseValidatorModel):
-    InsightArn: str
-    GroupByAttribute: str
+    InsightArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    GroupByAttribute: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResultValues: List[InsightResultValueTypeDef]
 
 
@@ -5965,9 +6005,9 @@ class ListStandardsControlAssociationsResponseTypeDef(BaseValidatorModel):
 
 
 class NetworkEndpointTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Ip: Optional[str] = None
-    Domain: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Ip: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Port: Optional[int] = None
     Location: Optional[NetworkGeoLocationTypeDef] = None
     AutonomousSystem: Optional[NetworkAutonomousSystemTypeDef] = None
@@ -5980,23 +6020,23 @@ class NetworkPathComponentDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class NetworkPathComponentDetailsTypeDef(BaseValidatorModel):
-    Address: Optional[List[str]] = None
+    Address: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     PortRanges: Optional[List[PortRangeTypeDef]] = None
 
 
 class NetworkTypeDef(BaseValidatorModel):
     Direction: Optional[NetworkDirectionType] = None
-    Protocol: Optional[str] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     OpenPortRange: Optional[PortRangeTypeDef] = None
-    SourceIpV4: Optional[str] = None
-    SourceIpV6: Optional[str] = None
+    SourceIpV4: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SourceIpV6: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SourcePort: Optional[int] = None
-    SourceDomain: Optional[str] = None
-    SourceMac: Optional[str] = None
-    DestinationIpV4: Optional[str] = None
-    DestinationIpV6: Optional[str] = None
+    SourceDomain: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SourceMac: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DestinationIpV4: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DestinationIpV6: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DestinationPort: Optional[int] = None
-    DestinationDomain: Optional[str] = None
+    DestinationDomain: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class PageTypeDef(BaseValidatorModel):
@@ -6028,13 +6068,17 @@ class ProviderUpdateConfigurationTypeDef(BaseValidatorModel):
     ServiceNow: Optional[ServiceNowUpdateConfigurationTypeDef] = None
 
 
+class RecommendationStepTypeDef(BaseValidatorModel):
+    UnusedPermissions: Optional[UnusedPermissionsRecommendationStepTypeDef] = None
+
+
 class RemediationTypeDef(BaseValidatorModel):
     Recommendation: Optional[RecommendationTypeDef] = None
 
 
 class ResourceFindingsSummaryTypeDef(BaseValidatorModel):
-    FindingType: str
-    ProductName: str
+    FindingType: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ProductName: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     TotalFindings: int
     Severities: Optional[ResourceSeverityBreakdownTypeDef] = None
 
@@ -6095,16 +6139,16 @@ class TrendsValuesTypeDef(BaseValidatorModel):
 
 
 class StandardTypeDef(BaseValidatorModel):
-    StandardsArn: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    StandardsArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EnabledByDefault: Optional[bool] = None
     StandardsManagedBy: Optional[StandardsManagedByTypeDef] = None
 
 
 class StandardsSubscriptionTypeDef(BaseValidatorModel):
-    StandardsSubscriptionArn: str
-    StandardsArn: str
+    StandardsSubscriptionArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    StandardsArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     StandardsInput: Dict[str, str]
     StandardsStatus: StandardsStatusType
     StandardsControlsUpdatable: Optional[StandardsControlsUpdatableType] = None
@@ -6131,22 +6175,22 @@ class AwsApiCallActionOutputTypeDef(BaseValidatorModel):
 
 
 class AwsApiCallActionTypeDef(BaseValidatorModel):
-    Api: Optional[str] = None
-    ServiceName: Optional[str] = None
-    CallerType: Optional[str] = None
+    Api: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ServiceName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CallerType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RemoteIpDetails: Optional[ActionRemoteIpDetailsTypeDef] = None
     DomainDetails: Optional[AwsApiCallActionDomainDetailsTypeDef] = None
     AffectedResources: Optional[Dict[str, str]] = None
-    FirstSeen: Optional[str] = None
-    LastSeen: Optional[str] = None
+    FirstSeen: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastSeen: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class NetworkConnectionActionTypeDef(BaseValidatorModel):
-    ConnectionDirection: Optional[str] = None
+    ConnectionDirection: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RemoteIpDetails: Optional[ActionRemoteIpDetailsTypeDef] = None
     RemotePortDetails: Optional[ActionRemotePortDetailsTypeDef] = None
     LocalPortDetails: Optional[ActionLocalPortDetailsTypeDef] = None
-    Protocol: Optional[str] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Blocked: Optional[bool] = None
 
 
@@ -6157,7 +6201,7 @@ class PortProbeDetailTypeDef(BaseValidatorModel):
 
 
 class ActorTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     User: Optional[ActorUserTypeDef] = None
     Session: Optional[ActorSessionTypeDef] = None
 
@@ -6176,11 +6220,11 @@ class AwsEc2RouteTableDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsEc2RouteTableDetailsTypeDef(BaseValidatorModel):
     AssociationSet: Optional[List[AssociationSetDetailsTypeDef]] = None
-    OwnerId: Optional[str] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PropagatingVgwSet: Optional[List[PropagatingVgwSetDetailsTypeDef]] = None
-    RouteTableId: Optional[str] = None
+    RouteTableId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RouteSet: Optional[List[RouteSetDetailsTypeDef]] = None
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the output for the 'list_automation_rules_v2' function.
@@ -6246,54 +6290,54 @@ class AwsAmazonMqBrokerDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsAmazonMqBrokerDetailsTypeDef(BaseValidatorModel):
-    AuthenticationStrategy: Optional[str] = None
+    AuthenticationStrategy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
-    BrokerArn: Optional[str] = None
-    BrokerName: Optional[str] = None
-    DeploymentMode: Optional[str] = None
+    BrokerArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    BrokerName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DeploymentMode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EncryptionOptions: Optional[AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef] = None
-    EngineType: Optional[str] = None
-    EngineVersion: Optional[str] = None
-    HostInstanceType: Optional[str] = None
-    BrokerId: Optional[str] = None
+    EngineType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    HostInstanceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    BrokerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LdapServerMetadata: Optional[AwsAmazonMqBrokerLdapServerMetadataDetailsUnionTypeDef] = None
     Logs: Optional[AwsAmazonMqBrokerLogsDetailsTypeDef] = None
     MaintenanceWindowStartTime: Optional[AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef] = None
     PubliclyAccessible: Optional[bool] = None
-    SecurityGroups: Optional[List[str]] = None
-    StorageType: Optional[str] = None
-    SubnetIds: Optional[List[str]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    StorageType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Users: Optional[List[AwsAmazonMqBrokerUsersDetailsTypeDef]] = None
 
 
 class AwsApiGatewayStageDetailsTypeDef(BaseValidatorModel):
-    DeploymentId: Optional[str] = None
-    ClientCertificateId: Optional[str] = None
-    StageName: Optional[str] = None
-    Description: Optional[str] = None
+    DeploymentId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClientCertificateId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StageName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CacheClusterEnabled: Optional[bool] = None
-    CacheClusterSize: Optional[str] = None
-    CacheClusterStatus: Optional[str] = None
+    CacheClusterSize: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CacheClusterStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     MethodSettings: Optional[List[AwsApiGatewayMethodSettingsTypeDef]] = None
     Variables: Optional[Dict[str, str]] = None
-    DocumentationVersion: Optional[str] = None
+    DocumentationVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AccessLogSettings: Optional[AwsApiGatewayAccessLogSettingsTypeDef] = None
     CanarySettings: Optional[AwsApiGatewayCanarySettingsUnionTypeDef] = None
     TracingEnabled: Optional[bool] = None
-    CreatedDate: Optional[str] = None
-    LastUpdatedDate: Optional[str] = None
-    WebAclArn: Optional[str] = None
+    CreatedDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastUpdatedDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    WebAclArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsApiGatewayRestApiDetailsTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    CreatedDate: Optional[str] = None
-    Version: Optional[str] = None
-    BinaryMediaTypes: Optional[List[str]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CreatedDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    BinaryMediaTypes: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     MinimumCompressionSize: Optional[int] = None
-    ApiKeySource: Optional[str] = None
+    ApiKeySource: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EndpointConfiguration: Optional[AwsApiGatewayEndpointConfigurationUnionTypeDef] = None
 
 
@@ -6320,20 +6364,20 @@ class AwsAppSyncGraphQlApiDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsAppSyncGraphQlApiDetailsTypeDef(BaseValidatorModel):
-    ApiId: Optional[str] = None
-    Id: Optional[str] = None
+    ApiId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     OpenIdConnectConfig: Optional[AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LambdaAuthorizerConfig: Optional[AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef] = None
     XrayEnabled: Optional[bool] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     UserPoolConfig: Optional[AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef] = None
-    AuthenticationType: Optional[str] = None
+    AuthenticationType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LogConfig: Optional[AwsAppSyncGraphQlApiLogConfigDetailsTypeDef] = None
     AdditionalAuthenticationProviders: Optional[
         List[AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef]
     ] = None
-    WafWebAclArn: Optional[str] = None
+    WafWebAclArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsAthenaWorkGroupConfigurationDetailsTypeDef(BaseValidatorModel):
@@ -6380,22 +6424,22 @@ class AwsAutoScalingLaunchConfigurationDetailsOutputTypeDef(BaseValidatorModel):
 class AwsAutoScalingLaunchConfigurationDetailsTypeDef(BaseValidatorModel):
     AssociatePublicIpAddress: Optional[bool] = None
     BlockDeviceMappings: Optional[List[AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef]] = None
-    ClassicLinkVpcId: Optional[str] = None
-    ClassicLinkVpcSecurityGroups: Optional[List[str]] = None
-    CreatedTime: Optional[str] = None
+    ClassicLinkVpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClassicLinkVpcSecurityGroups: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    CreatedTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EbsOptimized: Optional[bool] = None
-    IamInstanceProfile: Optional[str] = None
-    ImageId: Optional[str] = None
+    IamInstanceProfile: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     InstanceMonitoring: Optional[AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef] = None
-    InstanceType: Optional[str] = None
-    KernelId: Optional[str] = None
-    KeyName: Optional[str] = None
-    LaunchConfigurationName: Optional[str] = None
-    PlacementTenancy: Optional[str] = None
-    RamdiskId: Optional[str] = None
-    SecurityGroups: Optional[List[str]] = None
-    SpotPrice: Optional[str] = None
-    UserData: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KernelId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KeyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LaunchConfigurationName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PlacementTenancy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RamdiskId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SpotPrice: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    UserData: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     MetadataOptions: Optional[AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef] = None
 
 
@@ -6412,11 +6456,11 @@ class AwsBackupBackupPlanRuleDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsBackupBackupPlanRuleDetailsTypeDef(BaseValidatorModel):
-    TargetBackupVault: Optional[str] = None
+    TargetBackupVault: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     StartWindowMinutes: Optional[int] = None
-    ScheduleExpression: Optional[str] = None
-    RuleName: Optional[str] = None
-    RuleId: Optional[str] = None
+    ScheduleExpression: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RuleName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RuleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EnableContinuousBackup: Optional[bool] = None
     CompletionWindowMinutes: Optional[int] = None
     CopyActions: Optional[List[AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef]] = None
@@ -6424,11 +6468,11 @@ class AwsBackupBackupPlanRuleDetailsTypeDef(BaseValidatorModel):
 
 
 class AwsBackupBackupVaultDetailsTypeDef(BaseValidatorModel):
-    BackupVaultArn: Optional[str] = None
-    BackupVaultName: Optional[str] = None
-    EncryptionKeyArn: Optional[str] = None
+    BackupVaultArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    BackupVaultName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Notifications: Optional[AwsBackupBackupVaultNotificationsDetailsUnionTypeDef] = None
-    AccessPolicy: Optional[str] = None
+    AccessPolicy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCertificateManagerCertificateRenewalSummaryOutputTypeDef(BaseValidatorModel):
@@ -6446,9 +6490,9 @@ AwsCertificateManagerCertificateDomainValidationOptionUnionTypeDef = Union[
 
 class AwsCertificateManagerCertificateRenewalSummaryTypeDef(BaseValidatorModel):
     DomainValidationOptions: Optional[List[AwsCertificateManagerCertificateDomainValidationOptionTypeDef]] = None
-    RenewalStatus: Optional[str] = None
-    RenewalStatusReason: Optional[str] = None
-    UpdatedAt: Optional[str] = None
+    RenewalStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RenewalStatusReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    UpdatedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsCloudFormationStackDetailsUnionTypeDef = Union[
@@ -6480,7 +6524,7 @@ class AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef(BaseValidatorMode
     HttpPort: Optional[int] = None
     HttpsPort: Optional[int] = None
     OriginKeepaliveTimeout: Optional[int] = None
-    OriginProtocolPolicy: Optional[str] = None
+    OriginProtocolPolicy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     OriginReadTimeout: Optional[int] = None
     OriginSslProtocols: Optional[AwsCloudFrontDistributionOriginSslProtocolsUnionTypeDef] = None
 
@@ -6505,15 +6549,15 @@ class AwsCodeBuildProjectDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsApiGatewayV2ApiDetailsTypeDef(BaseValidatorModel):
-    ApiEndpoint: Optional[str] = None
-    ApiId: Optional[str] = None
-    ApiKeySelectionExpression: Optional[str] = None
-    CreatedDate: Optional[str] = None
-    Description: Optional[str] = None
-    Version: Optional[str] = None
-    Name: Optional[str] = None
-    ProtocolType: Optional[str] = None
-    RouteSelectionExpression: Optional[str] = None
+    ApiEndpoint: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ApiId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ApiKeySelectionExpression: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CreatedDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ProtocolType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RouteSelectionExpression: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CorsConfiguration: Optional[AwsCorsConfigurationUnionTypeDef] = None
 
 
@@ -6524,10 +6568,10 @@ AwsDmsReplicationInstanceDetailsUnionTypeDef = Union[
 
 class AwsDynamoDbTableGlobalSecondaryIndexTypeDef(BaseValidatorModel):
     Backfilling: Optional[bool] = None
-    IndexArn: Optional[str] = None
-    IndexName: Optional[str] = None
+    IndexArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IndexSizeBytes: Optional[int] = None
-    IndexStatus: Optional[str] = None
+    IndexStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ItemCount: Optional[int] = None
     KeySchema: Optional[List[AwsDynamoDbTableKeySchemaTypeDef]] = None
     Projection: Optional[AwsDynamoDbTableProjectionUnionTypeDef] = None
@@ -6535,8 +6579,8 @@ class AwsDynamoDbTableGlobalSecondaryIndexTypeDef(BaseValidatorModel):
 
 
 class AwsDynamoDbTableLocalSecondaryIndexTypeDef(BaseValidatorModel):
-    IndexArn: Optional[str] = None
-    IndexName: Optional[str] = None
+    IndexArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    IndexName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     KeySchema: Optional[List[AwsDynamoDbTableKeySchemaTypeDef]] = None
     Projection: Optional[AwsDynamoDbTableProjectionUnionTypeDef] = None
 
@@ -6552,11 +6596,11 @@ class AwsDynamoDbTableReplicaOutputTypeDef(BaseValidatorModel):
 
 class AwsDynamoDbTableReplicaTypeDef(BaseValidatorModel):
     GlobalSecondaryIndexes: Optional[List[AwsDynamoDbTableReplicaGlobalSecondaryIndexTypeDef]] = None
-    KmsMasterKeyId: Optional[str] = None
+    KmsMasterKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ProvisionedThroughputOverride: Optional[AwsDynamoDbTableProvisionedThroughputOverrideTypeDef] = None
-    RegionName: Optional[str] = None
-    ReplicaStatus: Optional[str] = None
-    ReplicaStatusDescription: Optional[str] = None
+    RegionName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ReplicaStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ReplicaStatusDescription: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEc2ClientVpnEndpointDetailsOutputTypeDef(BaseValidatorModel):
@@ -6579,19 +6623,19 @@ class AwsEc2ClientVpnEndpointDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEc2ClientVpnEndpointDetailsTypeDef(BaseValidatorModel):
-    ClientVpnEndpointId: Optional[str] = None
-    Description: Optional[str] = None
-    ClientCidrBlock: Optional[str] = None
-    DnsServer: Optional[List[str]] = None
+    ClientVpnEndpointId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClientCidrBlock: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DnsServer: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     SplitTunnel: Optional[bool] = None
-    TransportProtocol: Optional[str] = None
+    TransportProtocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     VpnPort: Optional[int] = None
-    ServerCertificateArn: Optional[str] = None
+    ServerCertificateArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AuthenticationOptions: Optional[List[AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef]] = None
     ConnectionLogOptions: Optional[AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef] = None
-    SecurityGroupIdSet: Optional[List[str]] = None
-    VpcId: Optional[str] = None
-    SelfServicePortalUrl: Optional[str] = None
+    SecurityGroupIdSet: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SelfServicePortalUrl: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ClientConnectOptions: Optional[AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef] = None
     SessionTimeoutHours: Optional[int] = None
     ClientLoginBannerOptions: Optional[AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef] = None
@@ -6659,9 +6703,9 @@ class AwsEc2NetworkAclDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsEc2NetworkAclDetailsTypeDef(BaseValidatorModel):
     IsDefault: Optional[bool] = None
-    NetworkAclId: Optional[str] = None
-    OwnerId: Optional[str] = None
-    VpcId: Optional[str] = None
+    NetworkAclId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Associations: Optional[List[AwsEc2NetworkAclAssociationTypeDef]] = None
     Entries: Optional[List[AwsEc2NetworkAclEntryTypeDef]] = None
 
@@ -6842,7 +6886,7 @@ class AwsEcsTaskDefinitionVolumesDetailsTypeDef(BaseValidatorModel):
     DockerVolumeConfiguration: Optional[AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsUnionTypeDef] = None
     EfsVolumeConfiguration: Optional[AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef] = None
     Host: Optional[AwsEcsTaskDefinitionVolumesHostDetailsTypeDef] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDetailsOutputTypeDef(BaseValidatorModel):
@@ -6867,10 +6911,10 @@ class AwsEfsAccessPointDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEfsAccessPointDetailsTypeDef(BaseValidatorModel):
-    AccessPointId: Optional[str] = None
-    Arn: Optional[str] = None
-    ClientToken: Optional[str] = None
-    FileSystemId: Optional[str] = None
+    AccessPointId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FileSystemId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PosixUser: Optional[AwsEfsAccessPointPosixUserDetailsUnionTypeDef] = None
     RootDirectory: Optional[AwsEfsAccessPointRootDirectoryDetailsTypeDef] = None
 
@@ -6913,13 +6957,13 @@ class AwsElasticsearchDomainDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsElasticsearchDomainDetailsTypeDef(BaseValidatorModel):
-    AccessPolicies: Optional[str] = None
+    AccessPolicies: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DomainEndpointOptions: Optional[AwsElasticsearchDomainDomainEndpointOptionsTypeDef] = None
-    DomainId: Optional[str] = None
-    DomainName: Optional[str] = None
-    Endpoint: Optional[str] = None
+    DomainId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Endpoint: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Endpoints: Optional[Dict[str, str]] = None
-    ElasticsearchVersion: Optional[str] = None
+    ElasticsearchVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ElasticsearchClusterConfig: Optional[AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef] = None
     EncryptionAtRestOptions: Optional[AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef] = None
     LogPublishingOptions: Optional[AwsElasticsearchDomainLogPublishingOptionsTypeDef] = None
@@ -6974,18 +7018,18 @@ class AwsGuardDutyDetectorDataSourcesMalwareProtectionDetailsTypeDef(BaseValidat
     ScanEc2InstanceWithFindings: Optional[
         AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetailsTypeDef
     ] = None
-    ServiceRole: Optional[str] = None
+    ServiceRole: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsIamAccessKeyDetailsTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Status: Optional[AwsIamAccessKeyStatusType] = None
-    CreatedAt: Optional[str] = None
-    PrincipalId: Optional[str] = None
-    PrincipalType: Optional[str] = None
-    PrincipalName: Optional[str] = None
-    AccountId: Optional[str] = None
-    AccessKeyId: Optional[str] = None
+    CreatedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PrincipalId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PrincipalType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PrincipalName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AccessKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SessionContext: Optional[AwsIamAccessKeySessionContextTypeDef] = None
 
 
@@ -7076,12 +7120,12 @@ class AwsOpenSearchServiceDomainDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsOpenSearchServiceDomainDetailsTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    AccessPolicies: Optional[str] = None
-    DomainName: Optional[str] = None
-    Id: Optional[str] = None
-    DomainEndpoint: Optional[str] = None
-    EngineVersion: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AccessPolicies: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DomainEndpoint: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EncryptionAtRestOptions: Optional[AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef] = None
     NodeToNodeEncryptionOptions: Optional[AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef] = None
     ServiceSoftwareOptions: Optional[AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef] = None
@@ -7097,23 +7141,23 @@ AwsRdsDbClusterDetailsUnionTypeDef = Union[AwsRdsDbClusterDetailsOutputTypeDef, 
 
 
 class AwsRdsDbClusterSnapshotDetailsTypeDef(BaseValidatorModel):
-    AvailabilityZones: Optional[List[str]] = None
-    SnapshotCreateTime: Optional[str] = None
-    Engine: Optional[str] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SnapshotCreateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Engine: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AllocatedStorage: Optional[int] = None
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Port: Optional[int] = None
-    VpcId: Optional[str] = None
-    ClusterCreateTime: Optional[str] = None
-    MasterUsername: Optional[str] = None
-    EngineVersion: Optional[str] = None
-    LicenseModel: Optional[str] = None
-    SnapshotType: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClusterCreateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MasterUsername: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LicenseModel: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SnapshotType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PercentProgress: Optional[int] = None
     StorageEncrypted: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
-    DbClusterIdentifier: Optional[str] = None
-    DbClusterSnapshotIdentifier: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DbClusterIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DbClusterSnapshotIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IamDatabaseAuthenticationEnabled: Optional[bool] = None
     DbClusterSnapshotAttributes: Optional[List[AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeUnionTypeDef]] = None
 
@@ -7135,28 +7179,28 @@ class AwsRdsDbSubnetGroupOutputTypeDef(BaseValidatorModel):
 
 
 class AwsRdsDbSubnetGroupTypeDef(BaseValidatorModel):
-    DbSubnetGroupName: Optional[str] = None
-    DbSubnetGroupDescription: Optional[str] = None
-    VpcId: Optional[str] = None
-    SubnetGroupStatus: Optional[str] = None
+    DbSubnetGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DbSubnetGroupDescription: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SubnetGroupStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Subnets: Optional[List[AwsRdsDbSubnetGroupSubnetTypeDef]] = None
-    DbSubnetGroupArn: Optional[str] = None
+    DbSubnetGroupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbPendingModifiedValuesTypeDef(BaseValidatorModel):
-    DbInstanceClass: Optional[str] = None
+    DbInstanceClass: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AllocatedStorage: Optional[int] = None
-    MasterUserPassword: Optional[str] = None
+    MasterUserPassword: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Port: Optional[int] = None
     BackupRetentionPeriod: Optional[int] = None
     MultiAZ: Optional[bool] = None
-    EngineVersion: Optional[str] = None
-    LicenseModel: Optional[str] = None
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LicenseModel: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Iops: Optional[int] = None
-    DbInstanceIdentifier: Optional[str] = None
-    StorageType: Optional[str] = None
-    CaCertificateIdentifier: Optional[str] = None
-    DbSubnetGroupName: Optional[str] = None
+    DbInstanceIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StorageType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CaCertificateIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DbSubnetGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PendingCloudWatchLogsExports: Optional[AwsRdsPendingCloudWatchLogsExportsUnionTypeDef] = None
     ProcessorFeatures: Optional[List[AwsRdsDbProcessorFeatureTypeDef]] = None
 
@@ -7223,7 +7267,7 @@ class AwsRoute53HostedZoneDetailsOutputTypeDef(BaseValidatorModel):
 class AwsRoute53HostedZoneDetailsTypeDef(BaseValidatorModel):
     HostedZone: Optional[AwsRoute53HostedZoneObjectDetailsTypeDef] = None
     Vpcs: Optional[List[AwsRoute53HostedZoneVpcDetailsTypeDef]] = None
-    NameServers: Optional[List[str]] = None
+    NameServers: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     QueryLoggingConfig: Optional[AwsRoute53QueryLoggingConfigDetailsTypeDef] = None
 
 
@@ -7236,9 +7280,9 @@ class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutputTy
 
 class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsTypeDef(BaseValidatorModel):
     Operands: Optional[List[AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsTypeDef]] = None
-    Prefix: Optional[str] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Tag: Optional[AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsTypeDef] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketNotificationConfigurationFilterOutputTypeDef(BaseValidatorModel):
@@ -7251,7 +7295,7 @@ AwsS3BucketNotificationConfigurationS3KeyFilterUnionTypeDef = Union[
 
 
 class AwsS3BucketObjectLockConfigurationTypeDef(BaseValidatorModel):
-    ObjectLockEnabled: Optional[str] = None
+    ObjectLockEnabled: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Rule: Optional[AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef] = None
 
 
@@ -7271,8 +7315,8 @@ class AwsS3BucketWebsiteConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class AwsS3BucketWebsiteConfigurationTypeDef(BaseValidatorModel):
-    ErrorDocument: Optional[str] = None
-    IndexDocumentSuffix: Optional[str] = None
+    ErrorDocument: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    IndexDocumentSuffix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RedirectAllRequestsTo: Optional[AwsS3BucketWebsiteConfigurationRedirectToTypeDef] = None
     RoutingRules: Optional[List[AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef]] = None
 
@@ -7305,7 +7349,7 @@ class AwsStepFunctionStateMachineLoggingConfigurationDetailsOutputTypeDef(BaseVa
 class AwsStepFunctionStateMachineLoggingConfigurationDetailsTypeDef(BaseValidatorModel):
     Destinations: Optional[List[AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetailsTypeDef]] = None
     IncludeExecutionData: Optional[bool] = None
-    Level: Optional[str] = None
+    Level: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsWafRateBasedRuleDetailsUnionTypeDef = Union[
@@ -7327,9 +7371,9 @@ class AwsWafRegionalRuleGroupDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsWafRegionalRuleGroupDetailsTypeDef(BaseValidatorModel):
-    MetricName: Optional[str] = None
-    Name: Optional[str] = None
-    RuleGroupId: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RuleGroupId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Rules: Optional[List[AwsWafRegionalRuleGroupRulesDetailsTypeDef]] = None
 
 
@@ -7342,11 +7386,11 @@ class AwsWafRegionalWebAclDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsWafRegionalWebAclDetailsTypeDef(BaseValidatorModel):
-    DefaultAction: Optional[str] = None
-    MetricName: Optional[str] = None
-    Name: Optional[str] = None
+    DefaultAction: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RulesList: Optional[List[AwsWafRegionalWebAclRulesListDetailsTypeDef]] = None
-    WebAclId: Optional[str] = None
+    WebAclId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsWafRuleDetailsUnionTypeDef = Union[AwsWafRuleDetailsOutputTypeDef, AwsWafRuleDetailsTypeDef]
@@ -7360,9 +7404,9 @@ class AwsWafRuleGroupDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsWafRuleGroupDetailsTypeDef(BaseValidatorModel):
-    MetricName: Optional[str] = None
-    Name: Optional[str] = None
-    RuleGroupId: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RuleGroupId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Rules: Optional[List[AwsWafRuleGroupRulesDetailsTypeDef]] = None
 
 
@@ -7442,7 +7486,7 @@ VulnerabilityCodeVulnerabilitiesUnionTypeDef = Union[
 
 
 class ParameterDefinitionTypeDef(BaseValidatorModel):
-    Description: str
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ConfigurationOptions: ConfigurationOptionsTypeDef
 
 
@@ -7453,8 +7497,8 @@ class BatchGetConfigurationPolicyAssociationsRequestTypeDef(BaseValidatorModel):
 
 class UnprocessedConfigurationPolicyAssociationTypeDef(BaseValidatorModel):
     ConfigurationPolicyAssociationIdentifiers: Optional[ConfigurationPolicyAssociationTypeDef] = None
-    ErrorCode: Optional[str] = None
-    ErrorReason: Optional[str] = None
+    ErrorCode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ErrorReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 # This class is the output for the 'list_connectors_v2' function.
@@ -7840,16 +7884,16 @@ class SecurityControlCustomParameterOutputTypeDef(BaseValidatorModel):
 
 
 class SecurityControlTypeDef(BaseValidatorModel):
-    SecurityControlId: str
-    SecurityControlArn: str
-    Title: str
-    Description: str
-    RemediationUrl: str
+    SecurityControlId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    SecurityControlArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Title: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RemediationUrl: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     SeverityRating: SeverityRatingType
     SecurityControlStatus: ControlStatusType
     UpdateStatus: Optional[UpdateStatusType] = None
     Parameters: Optional[Dict[str, ParameterConfigurationOutputTypeDef]] = None
-    LastUpdateReason: Optional[str] = None
+    LastUpdateReason: Optional[Annotated[str, _aws_pattern("Securityhub", "AlphaNumericNonEmptyString")]] = None
 
 
 class ParameterConfigurationTypeDef(BaseValidatorModel):
@@ -7859,21 +7903,21 @@ class ParameterConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_connector_v2' function.
 class CreateConnectorV2RequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Provider: ProviderConfigurationTypeDef
-    Description: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Tags: Optional[Dict[str, str]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Securityhub", "ClientToken")]] = None
 
 
 # This class is the output for the 'get_connector_v2' function.
 class GetConnectorV2ResponseTypeDef(BaseValidatorModel):
-    ConnectorArn: str
-    ConnectorId: str
-    Name: str
-    Description: str
-    KmsKeyArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ConnectorId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    KmsKeyArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Health: HealthCheckTypeDef
@@ -7882,22 +7926,33 @@ class GetConnectorV2ResponseTypeDef(BaseValidatorModel):
 
 
 class UpdateConnectorV2RequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
-    Description: Optional[str] = None
+    ConnectorId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Provider: Optional[ProviderUpdateConfigurationTypeDef] = None
 
 
+# This class is the output for the 'get_recommended_policy_v2' function.
+class GetRecommendedPolicyV2ResponseTypeDef(BaseValidatorModel):
+    RecommendationType: Literal["UNUSED_PERMISSION_RECOMMENDATION"]
+    RecommendationSteps: List[RecommendationStepTypeDef]
+    Error: RecommendationErrorTypeDef
+    Status: RecommendationStatusType
+    ResourceArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
 class ResourceResultTypeDef(BaseValidatorModel):
-    ResourceId: str
-    AccountId: str
-    Region: str
-    ResourceDetailCaptureTimeDt: str
+    ResourceId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    AccountId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Region: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ResourceDetailCaptureTimeDt: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ResourceConfig: Dict[str, Any]
-    ResourceGuid: Optional[str] = None
+    ResourceGuid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ResourceCategory: Optional[ResourceCategoryType] = None
-    ResourceType: Optional[str] = None
-    ResourceName: Optional[str] = None
-    ResourceCreationTimeDt: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ResourceName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ResourceCreationTimeDt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     FindingsSummary: Optional[List[ResourceFindingsSummaryTypeDef]] = None
     ResourceTags: Optional[List[ResourceTagTypeDef]] = None
 
@@ -7908,7 +7963,7 @@ class ResourcesTrendsMetricsResultTypeDef(BaseValidatorModel):
 
 
 class RuleGroupSourceStatefulRulesDetailsTypeDef(BaseValidatorModel):
-    Action: Optional[str] = None
+    Action: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Header: Optional[RuleGroupSourceStatefulRulesHeaderDetailsTypeDef] = None
     RuleOptions: Optional[List[RuleGroupSourceStatefulRulesOptionsDetailsUnionTypeDef]] = None
 
@@ -7934,9 +7989,9 @@ class RuleGroupVariablesTypeDef(BaseValidatorModel):
 
 class ComplianceTypeDef(BaseValidatorModel):
     Status: Optional[ComplianceStatusType] = None
-    RelatedRequirements: Optional[List[str]] = None
+    RelatedRequirements: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     StatusReasons: Optional[List[StatusReasonTypeDef]] = None
-    SecurityControlId: Optional[str] = None
+    SecurityControlId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AssociatedStandards: Optional[List[AssociatedStandardTypeDef]] = None
     SecurityControlParameters: Optional[List[SecurityControlParameterUnionTypeDef]] = None
 
@@ -8043,9 +8098,9 @@ AwsAppSyncGraphQlApiDetailsUnionTypeDef = Union[
 
 
 class AwsAthenaWorkGroupDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    State: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    State: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Configuration: Optional[AwsAthenaWorkGroupConfigurationDetailsTypeDef] = None
 
 
@@ -8138,12 +8193,12 @@ AwsCloudFrontDistributionOriginCustomOriginConfigUnionTypeDef = Union[
 
 
 class AwsCodeBuildProjectDetailsTypeDef(BaseValidatorModel):
-    EncryptionKey: Optional[str] = None
+    EncryptionKey: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Artifacts: Optional[List[AwsCodeBuildProjectArtifactsDetailsTypeDef]] = None
     Environment: Optional[AwsCodeBuildProjectEnvironmentUnionTypeDef] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Source: Optional[AwsCodeBuildProjectSourceTypeDef] = None
-    ServiceRole: Optional[str] = None
+    ServiceRole: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LogsConfig: Optional[AwsCodeBuildProjectLogsConfigDetailsTypeDef] = None
     VpcConfig: Optional[AwsCodeBuildProjectVpcConfigUnionTypeDef] = None
     SecondaryArtifacts: Optional[List[AwsCodeBuildProjectArtifactsDetailsTypeDef]] = None
@@ -8215,13 +8270,13 @@ class AwsEc2LaunchTemplateDataDetailsTypeDef(BaseValidatorModel):
     EnclaveOptions: Optional[AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef] = None
     HibernationOptions: Optional[AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef] = None
     IamInstanceProfile: Optional[AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef] = None
-    ImageId: Optional[str] = None
-    InstanceInitiatedShutdownBehavior: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    InstanceInitiatedShutdownBehavior: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     InstanceMarketOptions: Optional[AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef] = None
     InstanceRequirements: Optional[AwsEc2LaunchTemplateDataInstanceRequirementsDetailsUnionTypeDef] = None
-    InstanceType: Optional[str] = None
-    KernelId: Optional[str] = None
-    KeyName: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KernelId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KeyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LicenseSet: Optional[List[AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef]] = None
     MaintenanceOptions: Optional[AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef] = None
     MetadataOptions: Optional[AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef] = None
@@ -8229,30 +8284,30 @@ class AwsEc2LaunchTemplateDataDetailsTypeDef(BaseValidatorModel):
     NetworkInterfaceSet: Optional[List[AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsUnionTypeDef]] = None
     Placement: Optional[AwsEc2LaunchTemplateDataPlacementDetailsTypeDef] = None
     PrivateDnsNameOptions: Optional[AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef] = None
-    RamDiskId: Optional[str] = None
-    SecurityGroupIdSet: Optional[List[str]] = None
-    SecurityGroupSet: Optional[List[str]] = None
-    UserData: Optional[str] = None
+    RamDiskId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SecurityGroupIdSet: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    SecurityGroupSet: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    UserData: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsEc2NetworkAclDetailsUnionTypeDef = Union[AwsEc2NetworkAclDetailsOutputTypeDef, AwsEc2NetworkAclDetailsTypeDef]
 
 
 class AwsEc2SecurityGroupDetailsTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    GroupId: Optional[str] = None
-    OwnerId: Optional[str] = None
-    VpcId: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    GroupId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IpPermissions: Optional[List[AwsEc2SecurityGroupIpPermissionUnionTypeDef]] = None
     IpPermissionsEgress: Optional[List[AwsEc2SecurityGroupIpPermissionTypeDef]] = None
 
 
 class AwsEc2VpcPeeringConnectionDetailsTypeDef(BaseValidatorModel):
     AccepterVpcInfo: Optional[AwsEc2VpcPeeringConnectionVpcInfoDetailsUnionTypeDef] = None
-    ExpirationTime: Optional[str] = None
+    ExpirationTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RequesterVpcInfo: Optional[AwsEc2VpcPeeringConnectionVpcInfoDetailsUnionTypeDef] = None
     Status: Optional[AwsEc2VpcPeeringConnectionStatusDetailsTypeDef] = None
-    VpcPeeringConnectionId: Optional[str] = None
+    VpcPeeringConnectionId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsEc2VpnConnectionOptionsDetailsUnionTypeDef = Union[
@@ -8274,26 +8329,26 @@ class AwsEcsClusterDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEcsClusterDetailsTypeDef(BaseValidatorModel):
-    ClusterArn: Optional[str] = None
+    ClusterArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ActiveServicesCount: Optional[int] = None
-    CapacityProviders: Optional[List[str]] = None
+    CapacityProviders: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     ClusterSettings: Optional[List[AwsEcsClusterClusterSettingsDetailsTypeDef]] = None
     Configuration: Optional[AwsEcsClusterConfigurationDetailsTypeDef] = None
     DefaultCapacityProviderStrategy: Optional[List[AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef]] = None
-    ClusterName: Optional[str] = None
+    ClusterName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RegisteredContainerInstancesCount: Optional[int] = None
     RunningTasksCount: Optional[int] = None
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDetailsTypeDef(BaseValidatorModel):
-    ClusterArn: Optional[str] = None
-    TaskDefinitionArn: Optional[str] = None
-    Version: Optional[str] = None
-    CreatedAt: Optional[str] = None
-    StartedAt: Optional[str] = None
-    StartedBy: Optional[str] = None
-    Group: Optional[str] = None
+    ClusterArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TaskDefinitionArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CreatedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StartedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StartedBy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Group: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Volumes: Optional[List[AwsEcsTaskVolumeDetailsTypeDef]] = None
     Containers: Optional[List[AwsEcsContainerDetailsUnionTypeDef]] = None
 
@@ -8342,23 +8397,23 @@ AwsElasticsearchDomainDetailsUnionTypeDef = Union[
 
 
 class AwsElbLoadBalancerDetailsTypeDef(BaseValidatorModel):
-    AvailabilityZones: Optional[List[str]] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     BackendServerDescriptions: Optional[List[AwsElbLoadBalancerBackendServerDescriptionUnionTypeDef]] = None
-    CanonicalHostedZoneName: Optional[str] = None
-    CanonicalHostedZoneNameID: Optional[str] = None
-    CreatedTime: Optional[str] = None
-    DnsName: Optional[str] = None
+    CanonicalHostedZoneName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CanonicalHostedZoneNameID: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CreatedTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DnsName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     HealthCheck: Optional[AwsElbLoadBalancerHealthCheckTypeDef] = None
     Instances: Optional[List[AwsElbLoadBalancerInstanceTypeDef]] = None
     ListenerDescriptions: Optional[List[AwsElbLoadBalancerListenerDescriptionUnionTypeDef]] = None
     LoadBalancerAttributes: Optional[AwsElbLoadBalancerAttributesUnionTypeDef] = None
-    LoadBalancerName: Optional[str] = None
+    LoadBalancerName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Policies: Optional[AwsElbLoadBalancerPoliciesUnionTypeDef] = None
-    Scheme: Optional[str] = None
-    SecurityGroups: Optional[List[str]] = None
+    Scheme: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     SourceSecurityGroup: Optional[AwsElbLoadBalancerSourceSecurityGroupTypeDef] = None
-    Subnets: Optional[List[str]] = None
-    VpcId: Optional[str] = None
+    Subnets: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEventsEndpointDetailsOutputTypeDef(BaseValidatorModel):
@@ -8376,17 +8431,17 @@ class AwsEventsEndpointDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsEventsEndpointDetailsTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Description: Optional[str] = None
-    EndpointId: Optional[str] = None
-    EndpointUrl: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EndpointId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EndpointUrl: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     EventBuses: Optional[List[AwsEventsEndpointEventBusesDetailsTypeDef]] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ReplicationConfig: Optional[AwsEventsEndpointReplicationConfigDetailsTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RoutingConfig: Optional[AwsEventsEndpointRoutingConfigDetailsTypeDef] = None
-    State: Optional[str] = None
-    StateReason: Optional[str] = None
+    State: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StateReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsGuardDutyDetectorDataSourcesDetailsTypeDef(BaseValidatorModel):
@@ -8399,39 +8454,41 @@ class AwsGuardDutyDetectorDataSourcesDetailsTypeDef(BaseValidatorModel):
 
 
 class AwsIamRoleDetailsTypeDef(BaseValidatorModel):
-    AssumeRolePolicyDocument: Optional[str] = None
+    AssumeRolePolicyDocument: Optional[
+        Annotated[str, _aws_pattern("Securityhub", "AwsIamRoleAssumeRolePolicyDocument")]
+    ] = None
     AttachedManagedPolicies: Optional[List[AwsIamAttachedManagedPolicyTypeDef]] = None
-    CreateDate: Optional[str] = None
+    CreateDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     InstanceProfileList: Optional[List[AwsIamInstanceProfileUnionTypeDef]] = None
     PermissionsBoundary: Optional[AwsIamPermissionsBoundaryTypeDef] = None
-    RoleId: Optional[str] = None
-    RoleName: Optional[str] = None
+    RoleId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RoleName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RolePolicyList: Optional[List[AwsIamRolePolicyTypeDef]] = None
     MaxSessionDuration: Optional[int] = None
-    Path: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsLambdaFunctionDetailsTypeDef(BaseValidatorModel):
     Code: Optional[AwsLambdaFunctionCodeTypeDef] = None
-    CodeSha256: Optional[str] = None
+    CodeSha256: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DeadLetterConfig: Optional[AwsLambdaFunctionDeadLetterConfigTypeDef] = None
     Environment: Optional[AwsLambdaFunctionEnvironmentUnionTypeDef] = None
-    FunctionName: Optional[str] = None
-    Handler: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
-    LastModified: Optional[str] = None
+    FunctionName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Handler: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastModified: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Layers: Optional[List[AwsLambdaFunctionLayerTypeDef]] = None
-    MasterArn: Optional[str] = None
+    MasterArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     MemorySize: Optional[int] = None
-    RevisionId: Optional[str] = None
-    Role: Optional[str] = None
-    Runtime: Optional[str] = None
+    RevisionId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Role: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Runtime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Timeout: Optional[int] = None
     TracingConfig: Optional[AwsLambdaFunctionTracingConfigTypeDef] = None
     VpcConfig: Optional[AwsLambdaFunctionVpcConfigUnionTypeDef] = None
-    Version: Optional[str] = None
-    Architectures: Optional[List[str]] = None
-    PackageType: Optional[str] = None
+    Version: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Architectures: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    PackageType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsMskClusterClusterInfoDetailsOutputTypeDef(BaseValidatorModel):
@@ -8527,46 +8584,48 @@ AwsRdsDbPendingModifiedValuesUnionTypeDef = Union[
 class AwsRedshiftClusterDetailsTypeDef(BaseValidatorModel):
     AllowVersionUpgrade: Optional[bool] = None
     AutomatedSnapshotRetentionPeriod: Optional[int] = None
-    AvailabilityZone: Optional[str] = None
-    ClusterAvailabilityStatus: Optional[str] = None
-    ClusterCreateTime: Optional[str] = None
-    ClusterIdentifier: Optional[str] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClusterAvailabilityStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClusterCreateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClusterIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ClusterNodes: Optional[List[AwsRedshiftClusterClusterNodeTypeDef]] = None
     ClusterParameterGroups: Optional[List[AwsRedshiftClusterClusterParameterGroupUnionTypeDef]] = None
-    ClusterPublicKey: Optional[str] = None
-    ClusterRevisionNumber: Optional[str] = None
+    ClusterPublicKey: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClusterRevisionNumber: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ClusterSecurityGroups: Optional[List[AwsRedshiftClusterClusterSecurityGroupTypeDef]] = None
     ClusterSnapshotCopyStatus: Optional[AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef] = None
-    ClusterStatus: Optional[str] = None
-    ClusterSubnetGroupName: Optional[str] = None
-    ClusterVersion: Optional[str] = None
-    DBName: Optional[str] = None
+    ClusterStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClusterSubnetGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClusterVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DBName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DeferredMaintenanceWindows: Optional[List[AwsRedshiftClusterDeferredMaintenanceWindowTypeDef]] = None
     ElasticIpStatus: Optional[AwsRedshiftClusterElasticIpStatusTypeDef] = None
-    ElasticResizeNumberOfNodeOptions: Optional[str] = None
+    ElasticResizeNumberOfNodeOptions: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Encrypted: Optional[bool] = None
     Endpoint: Optional[AwsRedshiftClusterEndpointTypeDef] = None
     EnhancedVpcRouting: Optional[bool] = None
-    ExpectedNextSnapshotScheduleTime: Optional[str] = None
-    ExpectedNextSnapshotScheduleTimeStatus: Optional[str] = None
+    ExpectedNextSnapshotScheduleTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ExpectedNextSnapshotScheduleTimeStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = (
+        None
+    )
     HsmStatus: Optional[AwsRedshiftClusterHsmStatusTypeDef] = None
     IamRoles: Optional[List[AwsRedshiftClusterIamRoleTypeDef]] = None
-    KmsKeyId: Optional[str] = None
-    MaintenanceTrackName: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MaintenanceTrackName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ManualSnapshotRetentionPeriod: Optional[int] = None
-    MasterUsername: Optional[str] = None
-    NextMaintenanceWindowStartTime: Optional[str] = None
-    NodeType: Optional[str] = None
+    MasterUsername: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NextMaintenanceWindowStartTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NodeType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     NumberOfNodes: Optional[int] = None
-    PendingActions: Optional[List[str]] = None
+    PendingActions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     PendingModifiedValues: Optional[AwsRedshiftClusterPendingModifiedValuesTypeDef] = None
-    PreferredMaintenanceWindow: Optional[str] = None
+    PreferredMaintenanceWindow: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PubliclyAccessible: Optional[bool] = None
     ResizeInfo: Optional[AwsRedshiftClusterResizeInfoTypeDef] = None
     RestoreStatus: Optional[AwsRedshiftClusterRestoreStatusTypeDef] = None
-    SnapshotScheduleIdentifier: Optional[str] = None
-    SnapshotScheduleState: Optional[str] = None
-    VpcId: Optional[str] = None
+    SnapshotScheduleIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SnapshotScheduleState: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     VpcSecurityGroups: Optional[List[AwsRedshiftClusterVpcSecurityGroupTypeDef]] = None
     LoggingStatus: Optional[AwsRedshiftClusterLoggingStatusTypeDef] = None
 
@@ -8634,10 +8693,10 @@ AwsWafRuleGroupDetailsUnionTypeDef = Union[AwsWafRuleGroupDetailsOutputTypeDef, 
 
 
 class AwsWafWebAclDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    DefaultAction: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DefaultAction: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Rules: Optional[List[AwsWafWebAclRuleUnionTypeDef]] = None
-    WebAclId: Optional[str] = None
+    WebAclId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsWafv2ActionAllowDetailsTypeDef(BaseValidatorModel):
@@ -8669,24 +8728,24 @@ class AwsWafv2ActionBlockDetailsTypeDef(BaseValidatorModel):
 
 
 class VulnerabilityTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     VulnerablePackages: Optional[List[SoftwarePackageTypeDef]] = None
     Cvss: Optional[List[CvssUnionTypeDef]] = None
-    RelatedVulnerabilities: Optional[List[str]] = None
+    RelatedVulnerabilities: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Vendor: Optional[VulnerabilityVendorTypeDef] = None
-    ReferenceUrls: Optional[List[str]] = None
+    ReferenceUrls: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     FixAvailable: Optional[VulnerabilityFixAvailableType] = None
     EpssScore: Optional[float] = None
     ExploitAvailable: Optional[VulnerabilityExploitAvailableType] = None
-    LastKnownExploitAt: Optional[str] = None
+    LastKnownExploitAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     CodeVulnerabilities: Optional[List[VulnerabilityCodeVulnerabilitiesUnionTypeDef]] = None
 
 
 class SecurityControlDefinitionTypeDef(BaseValidatorModel):
-    SecurityControlId: str
-    Title: str
-    Description: str
-    RemediationUrl: str
+    SecurityControlId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Title: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RemediationUrl: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     SeverityRating: SeverityRatingType
     CurrentRegionAvailability: RegionAvailabilityStatusType
     CustomizableProperties: Optional[List[Literal["Parameters"]]] = None
@@ -8701,17 +8760,17 @@ class BatchGetConfigurationPolicyAssociationsResponseTypeDef(BaseValidatorModel)
 
 
 class AutomationRulesConfigTypeDef(BaseValidatorModel):
-    RuleArn: Optional[str] = None
+    RuleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RuleStatus: Optional[RuleStatusType] = None
     RuleOrder: Optional[int] = None
-    RuleName: Optional[str] = None
-    Description: Optional[str] = None
+    RuleName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IsTerminal: Optional[bool] = None
     Criteria: Optional[AutomationRulesFindingFiltersOutputTypeDef] = None
     Actions: Optional[List[AutomationRulesActionOutputTypeDef]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
-    CreatedBy: Optional[str] = None
+    CreatedBy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AutomationRulesFindingFiltersUnionTypeDef = Union[
@@ -8720,10 +8779,10 @@ AutomationRulesFindingFiltersUnionTypeDef = Union[
 
 
 class InsightTypeDef(BaseValidatorModel):
-    InsightArn: str
-    Name: str
+    InsightArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Filters: AwsSecurityFindingFiltersOutputTypeDef
-    GroupByAttribute: str
+    GroupByAttribute: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 AwsSecurityFindingFiltersUnionTypeDef = Union[AwsSecurityFindingFiltersOutputTypeDef, AwsSecurityFindingFiltersTypeDef]
@@ -8781,7 +8840,7 @@ class ResourcesCompositeFilterTypeDef(BaseValidatorModel):
 
 
 class SequenceTypeDef(BaseValidatorModel):
-    Uid: Optional[str] = None
+    Uid: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Actors: Optional[List[ActorTypeDef]] = None
     Endpoints: Optional[List[NetworkEndpointTypeDef]] = None
     Signals: Optional[List[SignalUnionTypeDef]] = None
@@ -8796,7 +8855,7 @@ class NetworkPathComponentOutputTypeDef(BaseValidatorModel):
 
 
 class NetworkHeaderTypeDef(BaseValidatorModel):
-    Protocol: Optional[str] = None
+    Protocol: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Destination: Optional[NetworkPathComponentDetailsUnionTypeDef] = None
     Source: Optional[NetworkPathComponentDetailsUnionTypeDef] = None
 
@@ -8834,7 +8893,7 @@ ParameterConfigurationUnionTypeDef = Union[ParameterConfigurationOutputTypeDef, 
 
 
 class SecurityControlCustomParameterTypeDef(BaseValidatorModel):
-    SecurityControlId: Optional[str] = None
+    SecurityControlId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Parameters: Optional[Dict[str, ParameterConfigurationTypeDef]] = None
 
 
@@ -8958,35 +9017,35 @@ class AwsBackupBackupPlanDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class AwsBackupBackupPlanBackupPlanDetailsTypeDef(BaseValidatorModel):
-    BackupPlanName: Optional[str] = None
+    BackupPlanName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AdvancedBackupSettings: Optional[List[AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnionTypeDef]] = None
     BackupPlanRule: Optional[List[AwsBackupBackupPlanRuleDetailsUnionTypeDef]] = None
 
 
 class AwsCertificateManagerCertificateDetailsTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: Optional[str] = None
-    CreatedAt: Optional[str] = None
-    DomainName: Optional[str] = None
+    CertificateAuthorityArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CreatedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DomainValidationOptions: Optional[List[AwsCertificateManagerCertificateDomainValidationOptionUnionTypeDef]] = None
     ExtendedKeyUsages: Optional[List[AwsCertificateManagerCertificateExtendedKeyUsageTypeDef]] = None
-    FailureReason: Optional[str] = None
-    ImportedAt: Optional[str] = None
-    InUseBy: Optional[List[str]] = None
-    IssuedAt: Optional[str] = None
-    Issuer: Optional[str] = None
-    KeyAlgorithm: Optional[str] = None
+    FailureReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ImportedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    InUseBy: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    IssuedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Issuer: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KeyAlgorithm: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     KeyUsages: Optional[List[AwsCertificateManagerCertificateKeyUsageTypeDef]] = None
-    NotAfter: Optional[str] = None
-    NotBefore: Optional[str] = None
+    NotAfter: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NotBefore: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Options: Optional[AwsCertificateManagerCertificateOptionsTypeDef] = None
-    RenewalEligibility: Optional[str] = None
+    RenewalEligibility: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RenewalSummary: Optional[AwsCertificateManagerCertificateRenewalSummaryUnionTypeDef] = None
-    Serial: Optional[str] = None
-    SignatureAlgorithm: Optional[str] = None
-    Status: Optional[str] = None
-    Subject: Optional[str] = None
-    SubjectAlternativeNames: Optional[List[str]] = None
-    Type: Optional[str] = None
+    Serial: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SignatureAlgorithm: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Subject: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SubjectAlternativeNames: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudFrontDistributionDetailsOutputTypeDef(BaseValidatorModel):
@@ -9009,9 +9068,9 @@ class AwsCloudFrontDistributionOriginGroupTypeDef(BaseValidatorModel):
 
 
 class AwsCloudFrontDistributionOriginItemTypeDef(BaseValidatorModel):
-    DomainName: Optional[str] = None
-    Id: Optional[str] = None
-    OriginPath: Optional[str] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OriginPath: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     S3OriginConfig: Optional[AwsCloudFrontDistributionOriginS3OriginConfigTypeDef] = None
     CustomOriginConfig: Optional[AwsCloudFrontDistributionOriginCustomOriginConfigUnionTypeDef] = None
 
@@ -9024,23 +9083,23 @@ AwsCodeBuildProjectDetailsUnionTypeDef = Union[
 class AwsDynamoDbTableDetailsTypeDef(BaseValidatorModel):
     AttributeDefinitions: Optional[List[AwsDynamoDbTableAttributeDefinitionTypeDef]] = None
     BillingModeSummary: Optional[AwsDynamoDbTableBillingModeSummaryTypeDef] = None
-    CreationDateTime: Optional[str] = None
+    CreationDateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     GlobalSecondaryIndexes: Optional[List[AwsDynamoDbTableGlobalSecondaryIndexUnionTypeDef]] = None
-    GlobalTableVersion: Optional[str] = None
+    GlobalTableVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ItemCount: Optional[int] = None
     KeySchema: Optional[List[AwsDynamoDbTableKeySchemaTypeDef]] = None
-    LatestStreamArn: Optional[str] = None
-    LatestStreamLabel: Optional[str] = None
+    LatestStreamArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LatestStreamLabel: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LocalSecondaryIndexes: Optional[List[AwsDynamoDbTableLocalSecondaryIndexUnionTypeDef]] = None
     ProvisionedThroughput: Optional[AwsDynamoDbTableProvisionedThroughputTypeDef] = None
     Replicas: Optional[List[AwsDynamoDbTableReplicaUnionTypeDef]] = None
     RestoreSummary: Optional[AwsDynamoDbTableRestoreSummaryTypeDef] = None
     SseDescription: Optional[AwsDynamoDbTableSseDescriptionTypeDef] = None
     StreamSpecification: Optional[AwsDynamoDbTableStreamSpecificationTypeDef] = None
-    TableId: Optional[str] = None
-    TableName: Optional[str] = None
+    TableId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     TableSizeBytes: Optional[int] = None
-    TableStatus: Optional[str] = None
+    TableStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DeletionProtectionEnabled: Optional[bool] = None
 
 
@@ -9058,17 +9117,17 @@ AwsEc2VpcPeeringConnectionDetailsUnionTypeDef = Union[
 
 
 class AwsEc2VpnConnectionDetailsTypeDef(BaseValidatorModel):
-    VpnConnectionId: Optional[str] = None
-    State: Optional[str] = None
-    CustomerGatewayId: Optional[str] = None
-    CustomerGatewayConfiguration: Optional[str] = None
-    Type: Optional[str] = None
-    VpnGatewayId: Optional[str] = None
-    Category: Optional[str] = None
+    VpnConnectionId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    State: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CustomerGatewayId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CustomerGatewayConfiguration: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VpnGatewayId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Category: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     VgwTelemetry: Optional[List[AwsEc2VpnConnectionVgwTelemetryDetailsTypeDef]] = None
     Options: Optional[AwsEc2VpnConnectionOptionsDetailsUnionTypeDef] = None
     Routes: Optional[List[AwsEc2VpnConnectionRoutesDetailsTypeDef]] = None
-    TransitGatewayId: Optional[str] = None
+    TransitGatewayId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsEcsClusterDetailsUnionTypeDef = Union[AwsEcsClusterDetailsOutputTypeDef, AwsEcsClusterDetailsTypeDef]
@@ -9078,39 +9137,39 @@ AwsEcsTaskDetailsUnionTypeDef = Union[AwsEcsTaskDetailsOutputTypeDef, AwsEcsTask
 
 class AwsEcsServiceDetailsTypeDef(BaseValidatorModel):
     CapacityProviderStrategy: Optional[List[AwsEcsServiceCapacityProviderStrategyDetailsTypeDef]] = None
-    Cluster: Optional[str] = None
+    Cluster: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DeploymentConfiguration: Optional[AwsEcsServiceDeploymentConfigurationDetailsTypeDef] = None
     DeploymentController: Optional[AwsEcsServiceDeploymentControllerDetailsTypeDef] = None
     DesiredCount: Optional[int] = None
     EnableEcsManagedTags: Optional[bool] = None
     EnableExecuteCommand: Optional[bool] = None
     HealthCheckGracePeriodSeconds: Optional[int] = None
-    LaunchType: Optional[str] = None
+    LaunchType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LoadBalancers: Optional[List[AwsEcsServiceLoadBalancersDetailsTypeDef]] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     NetworkConfiguration: Optional[AwsEcsServiceNetworkConfigurationDetailsUnionTypeDef] = None
     PlacementConstraints: Optional[List[AwsEcsServicePlacementConstraintsDetailsTypeDef]] = None
     PlacementStrategies: Optional[List[AwsEcsServicePlacementStrategiesDetailsTypeDef]] = None
-    PlatformVersion: Optional[str] = None
-    PropagateTags: Optional[str] = None
-    Role: Optional[str] = None
-    SchedulingStrategy: Optional[str] = None
-    ServiceArn: Optional[str] = None
-    ServiceName: Optional[str] = None
+    PlatformVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PropagateTags: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Role: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SchedulingStrategy: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ServiceArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ServiceName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ServiceRegistries: Optional[List[AwsEcsServiceServiceRegistriesDetailsTypeDef]] = None
-    TaskDefinition: Optional[str] = None
+    TaskDefinition: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEcsTaskDefinitionContainerDefinitionsDetailsTypeDef(BaseValidatorModel):
-    Command: Optional[List[str]] = None
+    Command: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Cpu: Optional[int] = None
     DependsOn: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef]] = None
     DisableNetworking: Optional[bool] = None
-    DnsSearchDomains: Optional[List[str]] = None
-    DnsServers: Optional[List[str]] = None
+    DnsSearchDomains: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    DnsServers: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     DockerLabels: Optional[Dict[str, str]] = None
-    DockerSecurityOptions: Optional[List[str]] = None
-    EntryPoint: Optional[List[str]] = None
+    DockerSecurityOptions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    EntryPoint: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Environment: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef]] = None
     EnvironmentFiles: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef]] = None
     Essential: Optional[bool] = None
@@ -9119,16 +9178,16 @@ class AwsEcsTaskDefinitionContainerDefinitionsDetailsTypeDef(BaseValidatorModel)
         AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsUnionTypeDef
     ] = None
     HealthCheck: Optional[AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsUnionTypeDef] = None
-    Hostname: Optional[str] = None
-    Image: Optional[str] = None
+    Hostname: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Image: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Interactive: Optional[bool] = None
-    Links: Optional[List[str]] = None
+    Links: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     LinuxParameters: Optional[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsUnionTypeDef] = None
     LogConfiguration: Optional[AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsUnionTypeDef] = None
     Memory: Optional[int] = None
     MemoryReservation: Optional[int] = None
     MountPoints: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef]] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PortMappings: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef]] = None
     Privileged: Optional[bool] = None
     PseudoTerminal: Optional[bool] = None
@@ -9142,20 +9201,20 @@ class AwsEcsTaskDefinitionContainerDefinitionsDetailsTypeDef(BaseValidatorModel)
     StopTimeout: Optional[int] = None
     SystemControls: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef]] = None
     Ulimits: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef]] = None
-    User: Optional[str] = None
+    User: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     VolumesFrom: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef]] = None
-    WorkingDirectory: Optional[str] = None
+    WorkingDirectory: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsEksClusterDetailsTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    CertificateAuthorityData: Optional[str] = None
-    ClusterStatus: Optional[str] = None
-    Endpoint: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CertificateAuthorityData: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ClusterStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Endpoint: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ResourcesVpcConfig: Optional[AwsEksClusterResourcesVpcConfigDetailsUnionTypeDef] = None
-    RoleArn: Optional[str] = None
-    Version: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Logging: Optional[AwsEksClusterLoggingDetailsUnionTypeDef] = None
 
 
@@ -9175,9 +9234,9 @@ class AwsGuardDutyDetectorDetailsOutputTypeDef(BaseValidatorModel):
 class AwsGuardDutyDetectorDetailsTypeDef(BaseValidatorModel):
     DataSources: Optional[AwsGuardDutyDetectorDataSourcesDetailsTypeDef] = None
     Features: Optional[List[AwsGuardDutyDetectorFeaturesDetailsTypeDef]] = None
-    FindingPublishingFrequency: Optional[str] = None
-    ServiceRole: Optional[str] = None
-    Status: Optional[str] = None
+    FindingPublishingFrequency: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ServiceRole: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsIamRoleDetailsUnionTypeDef = Union[AwsIamRoleDetailsOutputTypeDef, AwsIamRoleDetailsTypeDef]
@@ -9191,68 +9250,74 @@ class AwsMskClusterDetailsOutputTypeDef(BaseValidatorModel):
 
 class AwsMskClusterClusterInfoDetailsTypeDef(BaseValidatorModel):
     EncryptionInfo: Optional[AwsMskClusterClusterInfoEncryptionInfoDetailsTypeDef] = None
-    CurrentVersion: Optional[str] = None
+    CurrentVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     NumberOfBrokerNodes: Optional[int] = None
-    ClusterName: Optional[str] = None
+    ClusterName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ClientAuthentication: Optional[AwsMskClusterClusterInfoClientAuthenticationDetailsUnionTypeDef] = None
-    EnhancedMonitoring: Optional[str] = None
+    EnhancedMonitoring: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsRdsDbInstanceDetailsTypeDef(BaseValidatorModel):
     AssociatedRoles: Optional[List[AwsRdsDbInstanceAssociatedRoleTypeDef]] = None
-    CACertificateIdentifier: Optional[str] = None
-    DBClusterIdentifier: Optional[str] = None
-    DBInstanceIdentifier: Optional[str] = None
-    DBInstanceClass: Optional[str] = None
+    CACertificateIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DBClusterIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DBInstanceIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DBInstanceClass: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DbInstancePort: Optional[int] = None
-    DbiResourceId: Optional[str] = None
-    DBName: Optional[str] = None
+    DbiResourceId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DBName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DeletionProtection: Optional[bool] = None
     Endpoint: Optional[AwsRdsDbInstanceEndpointTypeDef] = None
-    Engine: Optional[str] = None
-    EngineVersion: Optional[str] = None
+    Engine: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    EngineVersion: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IAMDatabaseAuthenticationEnabled: Optional[bool] = None
-    InstanceCreateTime: Optional[str] = None
-    KmsKeyId: Optional[str] = None
+    InstanceCreateTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PubliclyAccessible: Optional[bool] = None
     StorageEncrypted: Optional[bool] = None
-    TdeCredentialArn: Optional[str] = None
+    TdeCredentialArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     VpcSecurityGroups: Optional[List[AwsRdsDbInstanceVpcSecurityGroupTypeDef]] = None
     MultiAz: Optional[bool] = None
-    EnhancedMonitoringResourceArn: Optional[str] = None
-    DbInstanceStatus: Optional[str] = None
-    MasterUsername: Optional[str] = None
+    EnhancedMonitoringResourceArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DbInstanceStatus: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    MasterUsername: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AllocatedStorage: Optional[int] = None
-    PreferredBackupWindow: Optional[str] = None
+    PreferredBackupWindow: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     BackupRetentionPeriod: Optional[int] = None
-    DbSecurityGroups: Optional[List[str]] = None
+    DbSecurityGroups: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     DbParameterGroups: Optional[List[AwsRdsDbParameterGroupTypeDef]] = None
-    AvailabilityZone: Optional[str] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DbSubnetGroup: Optional[AwsRdsDbSubnetGroupUnionTypeDef] = None
-    PreferredMaintenanceWindow: Optional[str] = None
+    PreferredMaintenanceWindow: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PendingModifiedValues: Optional[AwsRdsDbPendingModifiedValuesUnionTypeDef] = None
-    LatestRestorableTime: Optional[str] = None
+    LatestRestorableTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
-    ReadReplicaSourceDBInstanceIdentifier: Optional[str] = None
-    ReadReplicaDBInstanceIdentifiers: Optional[List[str]] = None
-    ReadReplicaDBClusterIdentifiers: Optional[List[str]] = None
-    LicenseModel: Optional[str] = None
+    ReadReplicaSourceDBInstanceIdentifier: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = (
+        None
+    )
+    ReadReplicaDBInstanceIdentifiers: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = (
+        None
+    )
+    ReadReplicaDBClusterIdentifiers: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = (
+        None
+    )
+    LicenseModel: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Iops: Optional[int] = None
     OptionGroupMemberships: Optional[List[AwsRdsDbOptionGroupMembershipTypeDef]] = None
-    CharacterSetName: Optional[str] = None
-    SecondaryAvailabilityZone: Optional[str] = None
+    CharacterSetName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    SecondaryAvailabilityZone: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     StatusInfos: Optional[List[AwsRdsDbStatusInfoTypeDef]] = None
-    StorageType: Optional[str] = None
+    StorageType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     DomainMemberships: Optional[List[AwsRdsDbDomainMembershipTypeDef]] = None
     CopyTagsToSnapshot: Optional[bool] = None
     MonitoringInterval: Optional[int] = None
-    MonitoringRoleArn: Optional[str] = None
+    MonitoringRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PromotionTier: Optional[int] = None
-    Timezone: Optional[str] = None
+    Timezone: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PerformanceInsightsEnabled: Optional[bool] = None
-    PerformanceInsightsKmsKeyId: Optional[str] = None
+    PerformanceInsightsKmsKeyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PerformanceInsightsRetentionPeriod: Optional[int] = None
-    EnabledCloudWatchLogsExports: Optional[List[str]] = None
+    EnabledCloudWatchLogsExports: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     ProcessorFeatures: Optional[List[AwsRdsDbProcessorFeatureTypeDef]] = None
     ListenerEndpoint: Optional[AwsRdsDbInstanceEndpointTypeDef] = None
     MaxAllocatedStorage: Optional[int] = None
@@ -9293,14 +9358,14 @@ AwsS3BucketNotificationConfigurationFilterUnionTypeDef = Union[
 
 
 class AwsStepFunctionStateMachineDetailsTypeDef(BaseValidatorModel):
-    Label: Optional[str] = None
+    Label: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LoggingConfiguration: Optional[AwsStepFunctionStateMachineLoggingConfigurationDetailsUnionTypeDef] = None
-    Name: Optional[str] = None
-    RoleArn: Optional[str] = None
-    StateMachineArn: Optional[str] = None
-    Status: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    StateMachineArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     TracingConfiguration: Optional[AwsStepFunctionStateMachineTracingConfigurationDetailsTypeDef] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsWafWebAclDetailsUnionTypeDef = Union[AwsWafWebAclDetailsOutputTypeDef, AwsWafWebAclDetailsTypeDef]
@@ -9362,9 +9427,9 @@ class GetInsightsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_insight' function.
 class CreateInsightRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Filters: AwsSecurityFindingFiltersUnionTypeDef
-    GroupByAttribute: str
+    GroupByAttribute: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
 
 
 class GetFindingsRequestPaginateTypeDef(BaseValidatorModel):
@@ -9388,10 +9453,10 @@ class UpdateFindingsRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateInsightRequestTypeDef(BaseValidatorModel):
-    InsightArn: str
-    Name: Optional[str] = None
+    InsightArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Filters: Optional[AwsSecurityFindingFiltersUnionTypeDef] = None
-    GroupByAttribute: Optional[str] = None
+    GroupByAttribute: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class OcsfFindingFiltersOutputTypeDef(BaseValidatorModel):
@@ -9435,14 +9500,14 @@ class SensitiveDataResultOutputTypeDef(BaseValidatorModel):
 
 class CustomDataIdentifiersDetectionsTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Occurrences: Optional[OccurrencesUnionTypeDef] = None
 
 
 class SensitiveDataDetectionsTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Occurrences: Optional[OccurrencesUnionTypeDef] = None
 
 
@@ -9453,19 +9518,23 @@ class SecurityHubPolicyOutputTypeDef(BaseValidatorModel):
 
 
 class UpdateSecurityControlRequestTypeDef(BaseValidatorModel):
-    SecurityControlId: str
+    SecurityControlId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Parameters: Dict[str, ParameterConfigurationUnionTypeDef]
-    LastUpdateReason: Optional[str] = None
+    LastUpdateReason: Optional[Annotated[str, _aws_pattern("Securityhub", "AlphaNumericNonEmptyString")]] = None
 
 
 class SecurityControlsConfigurationTypeDef(BaseValidatorModel):
-    EnabledSecurityControlIdentifiers: Optional[List[str]] = None
-    DisabledSecurityControlIdentifiers: Optional[List[str]] = None
+    EnabledSecurityControlIdentifiers: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = (
+        None
+    )
+    DisabledSecurityControlIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]
+    ] = None
     SecurityControlCustomParameters: Optional[List[SecurityControlCustomParameterTypeDef]] = None
 
 
 class RuleGroupSourceStatelessRuleDefinitionTypeDef(BaseValidatorModel):
-    Actions: Optional[List[str]] = None
+    Actions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     MatchAttributes: Optional[RuleGroupSourceStatelessRuleMatchAttributesUnionTypeDef] = None
 
 
@@ -9488,7 +9557,7 @@ StatelessCustomActionDefinitionUnionTypeDef = Union[
 
 
 class ActionTypeDef(BaseValidatorModel):
-    ActionType: Optional[str] = None
+    ActionType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     NetworkConnectionAction: Optional[NetworkConnectionActionTypeDef] = None
     AwsApiCallAction: Optional[AwsApiCallActionUnionTypeDef] = None
     DnsRequestAction: Optional[DnsRequestActionTypeDef] = None
@@ -9498,8 +9567,8 @@ class ActionTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_automation_rule' function.
 class CreateAutomationRuleRequestTypeDef(BaseValidatorModel):
     RuleOrder: int
-    RuleName: str
-    Description: str
+    RuleName: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Criteria: AutomationRulesFindingFiltersUnionTypeDef
     Actions: List[AutomationRulesActionUnionTypeDef]
     Tags: Optional[Dict[str, str]] = None
@@ -9508,22 +9577,22 @@ class CreateAutomationRuleRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateAutomationRulesRequestItemTypeDef(BaseValidatorModel):
-    RuleArn: str
+    RuleArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     RuleStatus: Optional[RuleStatusType] = None
     RuleOrder: Optional[int] = None
-    Description: Optional[str] = None
-    RuleName: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RuleName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     IsTerminal: Optional[bool] = None
     Criteria: Optional[AutomationRulesFindingFiltersUnionTypeDef] = None
     Actions: Optional[List[AutomationRulesActionUnionTypeDef]] = None
 
 
 class AwsAutoScalingAutoScalingGroupDetailsTypeDef(BaseValidatorModel):
-    LaunchConfigurationName: Optional[str] = None
-    LoadBalancerNames: Optional[List[str]] = None
-    HealthCheckType: Optional[str] = None
+    LaunchConfigurationName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LoadBalancerNames: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    HealthCheckType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     HealthCheckGracePeriod: Optional[int] = None
-    CreatedTime: Optional[str] = None
+    CreatedTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     MixedInstancesPolicy: Optional[AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsUnionTypeDef] = None
     AvailabilityZones: Optional[List[AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef]] = None
     LaunchTemplate: Optional[AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef] = None
@@ -9550,8 +9619,8 @@ AwsDynamoDbTableDetailsUnionTypeDef = Union[AwsDynamoDbTableDetailsOutputTypeDef
 
 
 class AwsEc2LaunchTemplateDetailsTypeDef(BaseValidatorModel):
-    LaunchTemplateName: Optional[str] = None
-    Id: Optional[str] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     LaunchTemplateData: Optional[AwsEc2LaunchTemplateDataDetailsUnionTypeDef] = None
     DefaultVersionNumber: Optional[int] = None
     LatestVersionNumber: Optional[int] = None
@@ -9591,10 +9660,10 @@ AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsUnionTypeDef = Union[
 
 
 class AwsS3BucketNotificationConfigurationDetailTypeDef(BaseValidatorModel):
-    Events: Optional[List[str]] = None
+    Events: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     Filter: Optional[AwsS3BucketNotificationConfigurationFilterUnionTypeDef] = None
-    Destination: Optional[str] = None
-    Type: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsStepFunctionStateMachineDetailsUnionTypeDef = Union[
@@ -9680,8 +9749,8 @@ class DetectionTypeDef(BaseValidatorModel):
 
 
 class NetworkPathComponentTypeDef(BaseValidatorModel):
-    ComponentId: Optional[str] = None
-    ComponentType: Optional[str] = None
+    ComponentId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ComponentType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Egress: Optional[NetworkHeaderUnionTypeDef] = None
     Ingress: Optional[NetworkHeaderUnionTypeDef] = None
 
@@ -9708,7 +9777,7 @@ class PolicyOutputTypeDef(BaseValidatorModel):
 
 class SecurityHubPolicyTypeDef(BaseValidatorModel):
     ServiceEnabled: Optional[bool] = None
-    EnabledStandardIdentifiers: Optional[List[str]] = None
+    EnabledStandardIdentifiers: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
     SecurityControlsConfiguration: Optional[SecurityControlsConfigurationTypeDef] = None
 
 
@@ -9734,12 +9803,12 @@ class RuleGroupSourceOutputTypeDef(BaseValidatorModel):
 
 class FirewallPolicyStatelessCustomActionsDetailsTypeDef(BaseValidatorModel):
     ActionDefinition: Optional[StatelessCustomActionDefinitionUnionTypeDef] = None
-    ActionName: Optional[str] = None
+    ActionName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class RuleGroupSourceCustomActionsDetailsTypeDef(BaseValidatorModel):
     ActionDefinition: Optional[StatelessCustomActionDefinitionUnionTypeDef] = None
-    ActionName: Optional[str] = None
+    ActionName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 ActionUnionTypeDef = Union[ActionOutputTypeDef, ActionTypeDef]
@@ -9757,9 +9826,9 @@ AwsAutoScalingAutoScalingGroupDetailsUnionTypeDef = Union[
 
 class AwsBackupBackupPlanDetailsTypeDef(BaseValidatorModel):
     BackupPlan: Optional[AwsBackupBackupPlanBackupPlanDetailsUnionTypeDef] = None
-    BackupPlanArn: Optional[str] = None
-    BackupPlanId: Optional[str] = None
-    VersionId: Optional[str] = None
+    BackupPlanArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    BackupPlanId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsCloudFrontDistributionOriginGroupsTypeDef(BaseValidatorModel):
@@ -9777,20 +9846,20 @@ AwsEc2LaunchTemplateDetailsUnionTypeDef = Union[
 
 class AwsEcsTaskDefinitionDetailsTypeDef(BaseValidatorModel):
     ContainerDefinitions: Optional[List[AwsEcsTaskDefinitionContainerDefinitionsDetailsUnionTypeDef]] = None
-    Cpu: Optional[str] = None
-    ExecutionRoleArn: Optional[str] = None
-    Family: Optional[str] = None
+    Cpu: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Family: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     InferenceAccelerators: Optional[List[AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef]] = None
-    IpcMode: Optional[str] = None
-    Memory: Optional[str] = None
-    NetworkMode: Optional[str] = None
-    PidMode: Optional[str] = None
+    IpcMode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Memory: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    NetworkMode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    PidMode: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     PlacementConstraints: Optional[List[AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef]] = None
     ProxyConfiguration: Optional[AwsEcsTaskDefinitionProxyConfigurationDetailsUnionTypeDef] = None
-    RequiresCompatibilities: Optional[List[str]] = None
-    TaskRoleArn: Optional[str] = None
+    RequiresCompatibilities: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    TaskRoleArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Volumes: Optional[List[AwsEcsTaskDefinitionVolumesDetailsUnionTypeDef]] = None
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsMskClusterDetailsTypeDef(BaseValidatorModel):
@@ -9818,17 +9887,17 @@ class AwsS3BucketBucketLifecycleConfigurationRulesDetailsTypeDef(BaseValidatorMo
     AbortIncompleteMultipartUpload: Optional[
         AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef
     ] = None
-    ExpirationDate: Optional[str] = None
+    ExpirationDate: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ExpirationInDays: Optional[int] = None
     ExpiredObjectDeleteMarker: Optional[bool] = None
     Filter: Optional[AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsUnionTypeDef] = None
-    ID: Optional[str] = None
+    ID: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     NoncurrentVersionExpirationInDays: Optional[int] = None
     NoncurrentVersionTransitions: Optional[
         List[AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef]
     ] = None
-    Prefix: Optional[str] = None
-    Status: Optional[str] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Transitions: Optional[List[AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef]] = None
 
 
@@ -9847,12 +9916,12 @@ AwsWafv2WebAclActionDetailsUnionTypeDef = Union[
 
 # This class is the output for the 'get_automation_rule_v2' function.
 class GetAutomationRuleV2ResponseTypeDef(BaseValidatorModel):
-    RuleArn: str
-    RuleId: str
+    RuleArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    RuleId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     RuleOrder: float
-    RuleName: str
+    RuleName: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     RuleStatus: RuleStatusV2Type
-    Description: str
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Criteria: CriteriaOutputTypeDef
     Actions: List[AutomationRulesActionV2TypeDef]
     CreatedAt: datetime
@@ -9891,17 +9960,17 @@ class CustomDataIdentifiersResultTypeDef(BaseValidatorModel):
 
 
 class SensitiveDataResultTypeDef(BaseValidatorModel):
-    Category: Optional[str] = None
+    Category: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Detections: Optional[List[SensitiveDataDetectionsUnionTypeDef]] = None
     TotalCount: Optional[int] = None
 
 
 # This class is the output for the 'create_configuration_policy' function.
 class CreateConfigurationPolicyResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Id: str
-    Name: str
-    Description: str
+    Arn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Id: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     UpdatedAt: datetime
     CreatedAt: datetime
     ConfigurationPolicy: PolicyOutputTypeDef
@@ -9910,10 +9979,10 @@ class CreateConfigurationPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_configuration_policy' function.
 class GetConfigurationPolicyResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Id: str
-    Name: str
-    Description: str
+    Arn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Id: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     UpdatedAt: datetime
     CreatedAt: datetime
     ConfigurationPolicy: PolicyOutputTypeDef
@@ -9922,10 +9991,10 @@ class GetConfigurationPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_configuration_policy' function.
 class UpdateConfigurationPolicyResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Id: str
-    Name: str
-    Description: str
+    Arn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Id: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     UpdatedAt: datetime
     CreatedAt: datetime
     ConfigurationPolicy: PolicyOutputTypeDef
@@ -9984,8 +10053,8 @@ class AwsS3BucketNotificationConfigurationTypeDef(BaseValidatorModel):
 
 class AwsWafv2RulesDetailsTypeDef(BaseValidatorModel):
     Action: Optional[AwsWafv2RulesActionDetailsUnionTypeDef] = None
-    Name: Optional[str] = None
-    OverrideAction: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OverrideAction: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Priority: Optional[int] = None
     VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetailsTypeDef] = None
 
@@ -10033,24 +10102,26 @@ class AwsNetworkFirewallRuleGroupDetailsOutputTypeDef(BaseValidatorModel):
 class FirewallPolicyDetailsTypeDef(BaseValidatorModel):
     StatefulRuleGroupReferences: Optional[List[FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef]] = None
     StatelessCustomActions: Optional[List[FirewallPolicyStatelessCustomActionsDetailsUnionTypeDef]] = None
-    StatelessDefaultActions: Optional[List[str]] = None
-    StatelessFragmentDefaultActions: Optional[List[str]] = None
+    StatelessDefaultActions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    StatelessFragmentDefaultActions: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = (
+        None
+    )
     StatelessRuleGroupReferences: Optional[List[FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef]] = None
 
 
 class AwsCloudFrontDistributionDetailsTypeDef(BaseValidatorModel):
     CacheBehaviors: Optional[AwsCloudFrontDistributionCacheBehaviorsUnionTypeDef] = None
     DefaultCacheBehavior: Optional[AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef] = None
-    DefaultRootObject: Optional[str] = None
-    DomainName: Optional[str] = None
-    ETag: Optional[str] = None
-    LastModifiedTime: Optional[str] = None
+    DefaultRootObject: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ETag: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastModifiedTime: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Logging: Optional[AwsCloudFrontDistributionLoggingTypeDef] = None
     Origins: Optional[AwsCloudFrontDistributionOriginsUnionTypeDef] = None
     OriginGroups: Optional[AwsCloudFrontDistributionOriginGroupsUnionTypeDef] = None
     ViewerCertificate: Optional[AwsCloudFrontDistributionViewerCertificateTypeDef] = None
-    Status: Optional[str] = None
-    WebAclId: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    WebAclId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketBucketLifecycleConfigurationDetailsTypeDef(BaseValidatorModel):
@@ -10065,36 +10136,36 @@ AwsWafv2RulesDetailsUnionTypeDef = Union[AwsWafv2RulesDetailsOutputTypeDef, AwsW
 
 
 class AwsWafv2WebAclDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ManagedbyFirewallManager: Optional[bool] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Capacity: Optional[int] = None
     CaptchaConfig: Optional[AwsWafv2WebAclCaptchaConfigDetailsTypeDef] = None
     DefaultAction: Optional[AwsWafv2WebAclActionDetailsUnionTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Rules: Optional[List[AwsWafv2RulesDetailsTypeDef]] = None
     VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetailsTypeDef] = None
 
 
 # This class is the input for the 'create_automation_rule_v2' function.
 class CreateAutomationRuleV2RequestTypeDef(BaseValidatorModel):
-    RuleName: str
-    Description: str
+    RuleName: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     RuleOrder: float
     Criteria: CriteriaUnionTypeDef
     Actions: List[AutomationRulesActionV2TypeDef]
     RuleStatus: Optional[RuleStatusV2Type] = None
     Tags: Optional[Dict[str, str]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Securityhub", "ClientToken")]] = None
 
 
 class UpdateAutomationRuleV2RequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     RuleStatus: Optional[RuleStatusV2Type] = None
     RuleOrder: Optional[float] = None
-    Description: Optional[str] = None
-    RuleName: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RuleName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Criteria: Optional[CriteriaUnionTypeDef] = None
     Actions: Optional[List[AutomationRulesActionV2TypeDef]] = None
 
@@ -10108,7 +10179,7 @@ class GetFindingStatisticsV2RequestTypeDef(BaseValidatorModel):
 
 
 class ClassificationResultTypeDef(BaseValidatorModel):
-    MimeType: Optional[str] = None
+    MimeType: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     SizeClassified: Optional[int] = None
     AdditionalOccurrences: Optional[bool] = None
     Status: Optional[ClassificationStatusTypeDef] = None
@@ -10118,18 +10189,18 @@ class ClassificationResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_configuration_policy' function.
 class CreateConfigurationPolicyRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     ConfigurationPolicy: PolicyUnionTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_configuration_policy' function.
 class UpdateConfigurationPolicyRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    UpdatedReason: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    UpdatedReason: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ConfigurationPolicy: Optional[PolicyUnionTypeDef] = None
 
 
@@ -10254,12 +10325,12 @@ AwsS3BucketBucketLifecycleConfigurationDetailsUnionTypeDef = Union[
 
 class AwsWafv2RuleGroupDetailsTypeDef(BaseValidatorModel):
     Capacity: Optional[int] = None
-    Description: Optional[str] = None
-    Id: Optional[str] = None
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Rules: Optional[List[AwsWafv2RulesDetailsUnionTypeDef]] = None
-    Scope: Optional[str] = None
+    Scope: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     VisibilityConfig: Optional[AwsWafv2VisibilityConfigDetailsTypeDef] = None
 
 
@@ -10288,40 +10359,40 @@ class ResourceOutputTypeDef(BaseValidatorModel):
 
 class AwsNetworkFirewallFirewallPolicyDetailsTypeDef(BaseValidatorModel):
     FirewallPolicy: Optional[FirewallPolicyDetailsUnionTypeDef] = None
-    FirewallPolicyArn: Optional[str] = None
-    FirewallPolicyId: Optional[str] = None
-    FirewallPolicyName: Optional[str] = None
-    Description: Optional[str] = None
+    FirewallPolicyArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FirewallPolicyId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    FirewallPolicyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 class AwsS3BucketDetailsTypeDef(BaseValidatorModel):
-    OwnerId: Optional[str] = None
-    OwnerName: Optional[str] = None
-    OwnerAccountId: Optional[str] = None
-    CreatedAt: Optional[str] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OwnerName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CreatedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ServerSideEncryptionConfiguration: Optional[AwsS3BucketServerSideEncryptionConfigurationUnionTypeDef] = None
     BucketLifecycleConfiguration: Optional[AwsS3BucketBucketLifecycleConfigurationDetailsUnionTypeDef] = None
     PublicAccessBlockConfiguration: Optional[AwsS3AccountPublicAccessBlockDetailsTypeDef] = None
-    AccessControlList: Optional[str] = None
+    AccessControlList: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     BucketLoggingConfiguration: Optional[AwsS3BucketLoggingConfigurationTypeDef] = None
     BucketWebsiteConfiguration: Optional[AwsS3BucketWebsiteConfigurationUnionTypeDef] = None
     BucketNotificationConfiguration: Optional[AwsS3BucketNotificationConfigurationUnionTypeDef] = None
     BucketVersioningConfiguration: Optional[AwsS3BucketBucketVersioningConfigurationTypeDef] = None
     ObjectLockConfiguration: Optional[AwsS3BucketObjectLockConfigurationTypeDef] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsWafv2RuleGroupDetailsUnionTypeDef = Union[AwsWafv2RuleGroupDetailsOutputTypeDef, AwsWafv2RuleGroupDetailsTypeDef]
 
 
 class DataClassificationDetailsTypeDef(BaseValidatorModel):
-    DetailedResultsLocation: Optional[str] = None
+    DetailedResultsLocation: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Result: Optional[ClassificationResultUnionTypeDef] = None
 
 
 class RuleGroupSourceTypeDef(BaseValidatorModel):
     RulesSourceList: Optional[RuleGroupSourceListDetailsUnionTypeDef] = None
-    RulesString: Optional[str] = None
+    RulesString: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     StatefulRules: Optional[List[RuleGroupSourceStatefulRulesDetailsUnionTypeDef]] = None
     StatelessRulesAndCustomActions: Optional[RuleGroupSourceStatelessRulesAndCustomActionsDetailsUnionTypeDef] = None
 
@@ -10402,12 +10473,12 @@ RuleGroupDetailsUnionTypeDef = Union[RuleGroupDetailsOutputTypeDef, RuleGroupDet
 
 class AwsNetworkFirewallRuleGroupDetailsTypeDef(BaseValidatorModel):
     Capacity: Optional[int] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     RuleGroup: Optional[RuleGroupDetailsUnionTypeDef] = None
-    RuleGroupArn: Optional[str] = None
-    RuleGroupId: Optional[str] = None
-    RuleGroupName: Optional[str] = None
-    Type: Optional[str] = None
+    RuleGroupArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RuleGroupId: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    RuleGroupName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 AwsNetworkFirewallRuleGroupDetailsUnionTypeDef = Union[
@@ -10522,43 +10593,43 @@ ResourceDetailsUnionTypeDef = Union[ResourceDetailsOutputTypeDef, ResourceDetail
 
 
 class ResourceTypeDef(BaseValidatorModel):
-    Type: str
-    Id: str
+    Type: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Id: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Partition: Optional[PartitionType] = None
-    Region: Optional[str] = None
-    ResourceRole: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ResourceRole: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Tags: Optional[Dict[str, str]] = None
     DataClassification: Optional[DataClassificationDetailsUnionTypeDef] = None
     Details: Optional[ResourceDetailsUnionTypeDef] = None
-    ApplicationName: Optional[str] = None
-    ApplicationArn: Optional[str] = None
+    ApplicationName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
 
 
 ResourceUnionTypeDef = Union[ResourceOutputTypeDef, ResourceTypeDef]
 
 
 class AwsSecurityFindingTypeDef(BaseValidatorModel):
-    SchemaVersion: str
-    Id: str
-    ProductArn: str
-    GeneratorId: str
-    AwsAccountId: str
-    CreatedAt: str
-    UpdatedAt: str
-    Title: str
-    Description: str
+    SchemaVersion: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Id: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    ProductArn: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    GeneratorId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    AwsAccountId: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    CreatedAt: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    UpdatedAt: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Title: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
+    Description: Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]
     Resources: List[ResourceUnionTypeDef]
-    ProductName: Optional[str] = None
-    CompanyName: Optional[str] = None
-    Region: Optional[str] = None
-    Types: Optional[List[str]] = None
-    FirstObservedAt: Optional[str] = None
-    LastObservedAt: Optional[str] = None
+    ProductName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    CompanyName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    Types: Optional[List[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]]] = None
+    FirstObservedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    LastObservedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Severity: Optional[SeverityTypeDef] = None
     Confidence: Optional[int] = None
     Criticality: Optional[int] = None
     Remediation: Optional[RemediationTypeDef] = None
-    SourceUrl: Optional[str] = None
+    SourceUrl: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     ProductFields: Optional[Dict[str, str]] = None
     UserDefinedFields: Optional[Dict[str, str]] = None
     Malware: Optional[List[MalwareTypeDef]] = None
@@ -10580,8 +10651,8 @@ class AwsSecurityFindingTypeDef(BaseValidatorModel):
     FindingProviderFields: Optional[FindingProviderFieldsUnionTypeDef] = None
     Sample: Optional[bool] = None
     GeneratorDetails: Optional[GeneratorDetailsUnionTypeDef] = None
-    ProcessedAt: Optional[str] = None
-    AwsAccountName: Optional[str] = None
+    ProcessedAt: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
+    AwsAccountName: Optional[Annotated[str, _aws_pattern("Securityhub", "NonEmptyString")]] = None
     Detection: Optional[DetectionUnionTypeDef] = None
 
 

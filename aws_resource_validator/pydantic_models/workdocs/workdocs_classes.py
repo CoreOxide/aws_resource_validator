@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.workdocs.workdocs_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,14 +42,14 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'abort_document_version_upload' function.
 class AbortDocumentVersionUploadRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
-    VersionId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
+    VersionId: Annotated[str, _aws_pattern("Workdocs", "DocumentVersionIdType")]
     AuthenticationToken: Optional[str] = None
 
 
 # This class is the input for the 'activate_user' function.
 class ActivateUserRequestTypeDef(BaseValidatorModel):
-    UserId: str
+    UserId: Annotated[str, _aws_pattern("Workdocs", "IdType")]
     AuthenticationToken: Optional[str] = None
 
 
@@ -60,11 +62,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class UserMetadataTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Username: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    Username: Optional[Annotated[str, _aws_pattern("Workdocs", "UsernameType")]] = None
     GivenName: Optional[str] = None
     Surname: Optional[str] = None
-    EmailAddress: Optional[str] = None
+    EmailAddress: Optional[Annotated[str, _aws_pattern("Workdocs", "EmailAddressType")]] = None
 
 
 class NotificationOptionsTypeDef(BaseValidatorModel):
@@ -73,76 +75,76 @@ class NotificationOptionsTypeDef(BaseValidatorModel):
 
 
 class SharePrincipalTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Workdocs", "IdType")]
     Type: PrincipalTypeType
     Role: RoleTypeType
 
 
 class ShareResultTypeDef(BaseValidatorModel):
-    PrincipalId: Optional[str] = None
-    InviteePrincipalId: Optional[str] = None
+    PrincipalId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    InviteePrincipalId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
     Role: Optional[RoleTypeType] = None
     Status: Optional[ShareStatusTypeType] = None
-    ShareId: Optional[str] = None
+    ShareId: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
     StatusMessage: Optional[str] = None
 
 
 # This class is the input for the 'create_comment' function.
 class CreateCommentRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
-    VersionId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
+    VersionId: Annotated[str, _aws_pattern("Workdocs", "DocumentVersionIdType")]
     Text: str
     AuthenticationToken: Optional[str] = None
-    ParentId: Optional[str] = None
-    ThreadId: Optional[str] = None
+    ParentId: Optional[Annotated[str, _aws_pattern("Workdocs", "CommentIdType")]] = None
+    ThreadId: Optional[Annotated[str, _aws_pattern("Workdocs", "CommentIdType")]] = None
     Visibility: Optional[CommentVisibilityTypeType] = None
     NotifyCollaborators: Optional[bool] = None
 
 
 class CreateCustomMetadataRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     CustomMetadata: Dict[str, str]
     AuthenticationToken: Optional[str] = None
-    VersionId: Optional[str] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Workdocs", "DocumentVersionIdType")]] = None
 
 
 # This class is the input for the 'create_folder' function.
 class CreateFolderRequestTypeDef(BaseValidatorModel):
-    ParentFolderId: str
+    ParentFolderId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceNameType")]] = None
 
 
 class FolderMetadataTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
-    CreatorId: Optional[str] = None
-    ParentFolderId: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceNameType")]] = None
+    CreatorId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    ParentFolderId: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
     CreatedTimestamp: Optional[datetime] = None
     ModifiedTimestamp: Optional[datetime] = None
     ResourceState: Optional[ResourceStateTypeType] = None
-    Signature: Optional[str] = None
-    Labels: Optional[List[str]] = None
+    Signature: Optional[Annotated[str, _aws_pattern("Workdocs", "HashType")]] = None
+    Labels: Optional[List[Annotated[str, _aws_pattern("Workdocs", "SharedLabel")]]] = None
     Size: Optional[int] = None
     LatestVersionSize: Optional[int] = None
 
 
 class CreateLabelsRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
-    Labels: List[str]
+    ResourceId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
+    Labels: List[Annotated[str, _aws_pattern("Workdocs", "SharedLabel")]]
     AuthenticationToken: Optional[str] = None
 
 
 # This class is the input for the 'create_notification_subscription' function.
 class CreateNotificationSubscriptionRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workdocs", "IdType")]
     Endpoint: str
     Protocol: SubscriptionProtocolTypeType
     SubscriptionType: Literal["ALL"]
 
 
 class SubscriptionTypeDef(BaseValidatorModel):
-    SubscriptionId: Optional[str] = None
+    SubscriptionId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
     EndPoint: Optional[str] = None
     Protocol: Optional[SubscriptionProtocolTypeType] = None
 
@@ -157,68 +159,68 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'deactivate_user' function.
 class DeactivateUserRequestTypeDef(BaseValidatorModel):
-    UserId: str
+    UserId: Annotated[str, _aws_pattern("Workdocs", "IdType")]
     AuthenticationToken: Optional[str] = None
 
 
 # This class is the input for the 'delete_comment' function.
 class DeleteCommentRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
-    VersionId: str
-    CommentId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
+    VersionId: Annotated[str, _aws_pattern("Workdocs", "DocumentVersionIdType")]
+    CommentId: Annotated[str, _aws_pattern("Workdocs", "CommentIdType")]
     AuthenticationToken: Optional[str] = None
 
 
 class DeleteCustomMetadataRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
-    VersionId: Optional[str] = None
-    Keys: Optional[List[str]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Workdocs", "DocumentVersionIdType")]] = None
+    Keys: Optional[List[Annotated[str, _aws_pattern("Workdocs", "CustomMetadataKeyType")]]] = None
     DeleteAll: Optional[bool] = None
 
 
 # This class is the input for the 'delete_document' function.
 class DeleteDocumentRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
 
 
 # This class is the input for the 'delete_document_version' function.
 class DeleteDocumentVersionRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
-    VersionId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
+    VersionId: Annotated[str, _aws_pattern("Workdocs", "DocumentVersionIdType")]
     DeletePriorVersions: bool
     AuthenticationToken: Optional[str] = None
 
 
 # This class is the input for the 'delete_folder_contents' function.
 class DeleteFolderContentsRequestTypeDef(BaseValidatorModel):
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
 
 
 # This class is the input for the 'delete_folder' function.
 class DeleteFolderRequestTypeDef(BaseValidatorModel):
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
 
 
 class DeleteLabelsRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
-    Labels: Optional[List[str]] = None
+    Labels: Optional[List[Annotated[str, _aws_pattern("Workdocs", "SharedLabel")]]] = None
     DeleteAll: Optional[bool] = None
 
 
 # This class is the input for the 'delete_notification_subscription' function.
 class DeleteNotificationSubscriptionRequestTypeDef(BaseValidatorModel):
-    SubscriptionId: str
-    OrganizationId: str
+    SubscriptionId: Annotated[str, _aws_pattern("Workdocs", "IdType")]
+    OrganizationId: Annotated[str, _aws_pattern("Workdocs", "IdType")]
 
 
 # This class is the input for the 'delete_user' function.
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    UserId: str
+    UserId: Annotated[str, _aws_pattern("Workdocs", "IdType")]
     AuthenticationToken: Optional[str] = None
 
 
@@ -230,77 +232,77 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_comments' function.
 class DescribeCommentsRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
-    VersionId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
+    VersionId: Annotated[str, _aws_pattern("Workdocs", "DocumentVersionIdType")]
     AuthenticationToken: Optional[str] = None
     Limit: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Workdocs", "MarkerType")]] = None
 
 
 # This class is the input for the 'describe_document_versions' function.
 class DescribeDocumentVersionsRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
-    Include: Optional[str] = None
-    Fields: Optional[str] = None
+    Include: Optional[Annotated[str, _aws_pattern("Workdocs", "FieldNamesType")]] = None
+    Fields: Optional[Annotated[str, _aws_pattern("Workdocs", "FieldNamesType")]] = None
 
 
 class DocumentVersionMetadataTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Workdocs", "DocumentVersionIdType")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceNameType")]] = None
     ContentType: Optional[str] = None
     Size: Optional[int] = None
-    Signature: Optional[str] = None
+    Signature: Optional[Annotated[str, _aws_pattern("Workdocs", "HashType")]] = None
     Status: Optional[DocumentStatusTypeType] = None
     CreatedTimestamp: Optional[datetime] = None
     ModifiedTimestamp: Optional[datetime] = None
     ContentCreatedTimestamp: Optional[datetime] = None
     ContentModifiedTimestamp: Optional[datetime] = None
-    CreatorId: Optional[str] = None
+    CreatorId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
     Thumbnail: Optional[Dict[DocumentThumbnailTypeType, str]] = None
     Source: Optional[Dict[DocumentSourceTypeType, str]] = None
 
 
 # This class is the input for the 'describe_folder_contents' function.
 class DescribeFolderContentsRequestTypeDef(BaseValidatorModel):
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
     Sort: Optional[ResourceSortTypeType] = None
     Order: Optional[OrderTypeType] = None
     Limit: Optional[int] = None
     Marker: Optional[str] = None
     Type: Optional[FolderContentTypeType] = None
-    Include: Optional[str] = None
+    Include: Optional[Annotated[str, _aws_pattern("Workdocs", "FieldNamesType")]] = None
 
 
 # This class is the input for the 'describe_groups' function.
 class DescribeGroupsRequestTypeDef(BaseValidatorModel):
-    SearchQuery: str
+    SearchQuery: Annotated[str, _aws_pattern("Workdocs", "SearchQueryType")]
     AuthenticationToken: Optional[str] = None
-    OrganizationId: Optional[str] = None
-    Marker: Optional[str] = None
+    OrganizationId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Workdocs", "MarkerType")]] = None
     Limit: Optional[int] = None
 
 
 class GroupMetadataTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
     Name: Optional[str] = None
 
 
 # This class is the input for the 'describe_notification_subscriptions' function.
 class DescribeNotificationSubscriptionsRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workdocs", "IdType")]
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'describe_resource_permissions' function.
 class DescribeResourcePermissionsRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
-    PrincipalId: Optional[str] = None
+    PrincipalId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
@@ -315,15 +317,15 @@ class DescribeRootFoldersRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_users' function.
 class DescribeUsersRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
-    OrganizationId: Optional[str] = None
-    UserIds: Optional[str] = None
-    Query: Optional[str] = None
+    OrganizationId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    UserIds: Optional[Annotated[str, _aws_pattern("Workdocs", "UserIdsType")]] = None
+    Query: Optional[Annotated[str, _aws_pattern("Workdocs", "SearchQueryType")]] = None
     Include: Optional[UserFilterTypeType] = None
     Order: Optional[OrderTypeType] = None
     Sort: Optional[UserSortTypeType] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
-    Fields: Optional[str] = None
+    Fields: Optional[Annotated[str, _aws_pattern("Workdocs", "FieldNamesType")]] = None
 
 
 class LongRangeTypeTypeDef(BaseValidatorModel):
@@ -332,7 +334,7 @@ class LongRangeTypeTypeDef(BaseValidatorModel):
 
 
 class SearchPrincipalTypeTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Workdocs", "IdType")]
     Roles: Optional[List[PrincipalRoleTypeType]] = None
 
 
@@ -343,41 +345,41 @@ class GetCurrentUserRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_document_path' function.
 class GetDocumentPathRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "IdType")]
     AuthenticationToken: Optional[str] = None
     Limit: Optional[int] = None
-    Fields: Optional[str] = None
+    Fields: Optional[Annotated[str, _aws_pattern("Workdocs", "FieldNamesType")]] = None
     Marker: Optional[str] = None
 
 
 # This class is the input for the 'get_document' function.
 class GetDocumentRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
     IncludeCustomMetadata: Optional[bool] = None
 
 
 # This class is the input for the 'get_document_version' function.
 class GetDocumentVersionRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
-    VersionId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
+    VersionId: Annotated[str, _aws_pattern("Workdocs", "DocumentVersionIdType")]
     AuthenticationToken: Optional[str] = None
-    Fields: Optional[str] = None
+    Fields: Optional[Annotated[str, _aws_pattern("Workdocs", "FieldNamesType")]] = None
     IncludeCustomMetadata: Optional[bool] = None
 
 
 # This class is the input for the 'get_folder_path' function.
 class GetFolderPathRequestTypeDef(BaseValidatorModel):
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Workdocs", "IdType")]
     AuthenticationToken: Optional[str] = None
     Limit: Optional[int] = None
-    Fields: Optional[str] = None
+    Fields: Optional[Annotated[str, _aws_pattern("Workdocs", "FieldNamesType")]] = None
     Marker: Optional[str] = None
 
 
 # This class is the input for the 'get_folder' function.
 class GetFolderRequestTypeDef(BaseValidatorModel):
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
     IncludeCustomMetadata: Optional[bool] = None
 
@@ -385,7 +387,7 @@ class GetFolderRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_resources' function.
 class GetResourcesRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
-    UserId: Optional[str] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
     CollectionType: Optional[Literal["SHARED_WITH_ME"]] = None
     Limit: Optional[int] = None
     Marker: Optional[str] = None
@@ -403,26 +405,26 @@ class PermissionInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'remove_all_resource_permissions' function.
 class RemoveAllResourcePermissionsRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
 
 
 # This class is the input for the 'remove_resource_permission' function.
 class RemoveResourcePermissionRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
-    PrincipalId: str
+    ResourceId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
+    PrincipalId: Annotated[str, _aws_pattern("Workdocs", "IdType")]
     AuthenticationToken: Optional[str] = None
     PrincipalType: Optional[PrincipalTypeType] = None
 
 
 class ResourcePathComponentTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceNameType")]] = None
 
 
 # This class is the input for the 'restore_document_versions' function.
 class RestoreDocumentVersionsRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
 
 
@@ -433,27 +435,27 @@ class SearchSortResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_document' function.
 class UpdateDocumentRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
-    Name: Optional[str] = None
-    ParentFolderId: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceNameType")]] = None
+    ParentFolderId: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
     ResourceState: Optional[ResourceStateTypeType] = None
 
 
 # This class is the input for the 'update_document_version' function.
 class UpdateDocumentVersionRequestTypeDef(BaseValidatorModel):
-    DocumentId: str
-    VersionId: str
+    DocumentId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
+    VersionId: Annotated[str, _aws_pattern("Workdocs", "DocumentVersionIdType")]
     AuthenticationToken: Optional[str] = None
     VersionStatus: Optional[Literal["ACTIVE"]] = None
 
 
 # This class is the input for the 'update_folder' function.
 class UpdateFolderRequestTypeDef(BaseValidatorModel):
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     AuthenticationToken: Optional[str] = None
-    Name: Optional[str] = None
-    ParentFolderId: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceNameType")]] = None
+    ParentFolderId: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
     ResourceState: Optional[ResourceStateTypeType] = None
 
 
@@ -464,17 +466,17 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 class ResourceMetadataTypeDef(BaseValidatorModel):
     Type: Optional[ResourceTypeType] = None
-    Name: Optional[str] = None
-    OriginalName: Optional[str] = None
-    Id: Optional[str] = None
-    VersionId: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceNameType")]] = None
+    OriginalName: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceNameType")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Workdocs", "DocumentVersionIdType")]] = None
     Owner: Optional[UserMetadataTypeDef] = None
-    ParentId: Optional[str] = None
+    ParentId: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
 
 
 # This class is the input for the 'add_resource_permissions' function.
 class AddResourcePermissionsRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]
     Principals: List[SharePrincipalTypeDef]
     AuthenticationToken: Optional[str] = None
     NotificationOptions: Optional[NotificationOptionsTypeDef] = None
@@ -521,12 +523,12 @@ class DescribeNotificationSubscriptionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user' function.
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    Username: str
+    Username: Annotated[str, _aws_pattern("Workdocs", "UsernameType")]
     GivenName: str
     Surname: str
-    Password: str
-    OrganizationId: Optional[str] = None
-    EmailAddress: Optional[str] = None
+    Password: Annotated[str, _aws_pattern("Workdocs", "PasswordType")]
+    OrganizationId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    EmailAddress: Optional[Annotated[str, _aws_pattern("Workdocs", "EmailAddressType")]] = None
     TimeZoneId: Optional[str] = None
     StorageRule: Optional[StorageRuleTypeTypeDef] = None
     AuthenticationToken: Optional[str] = None
@@ -534,7 +536,7 @@ class CreateUserRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_user' function.
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    UserId: str
+    UserId: Annotated[str, _aws_pattern("Workdocs", "IdType")]
     AuthenticationToken: Optional[str] = None
     GivenName: Optional[str] = None
     Surname: Optional[str] = None
@@ -560,25 +562,25 @@ class DescribeActivitiesRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
-    OrganizationId: Optional[str] = None
-    ActivityTypes: Optional[str] = None
-    ResourceId: Optional[str] = None
-    UserId: Optional[str] = None
+    OrganizationId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    ActivityTypes: Optional[Annotated[str, _aws_pattern("Workdocs", "ActivityNamesFilterType")]] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
     IncludeIndirectActivities: Optional[bool] = None
     Limit: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Workdocs", "SearchMarkerType")]] = None
 
 
 # This class is the input for the 'initiate_document_version_upload' function.
 class InitiateDocumentVersionUploadRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceNameType")]] = None
     ContentCreatedTimestamp: Optional[TimestampTypeDef] = None
     ContentModifiedTimestamp: Optional[TimestampTypeDef] = None
     ContentType: Optional[str] = None
     DocumentSizeInBytes: Optional[int] = None
-    ParentFolderId: Optional[str] = None
+    ParentFolderId: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
 
 
 class DescribeActivitiesRequestPaginateTypeDef(BaseValidatorModel):
@@ -662,14 +664,14 @@ class DescribeDocumentVersionsResponseTypeDef(BaseValidatorModel):
 
 
 class DocumentMetadataTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    CreatorId: Optional[str] = None
-    ParentFolderId: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
+    CreatorId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    ParentFolderId: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
     CreatedTimestamp: Optional[datetime] = None
     ModifiedTimestamp: Optional[datetime] = None
     LatestVersionMetadata: Optional[DocumentVersionMetadataTypeDef] = None
     ResourceState: Optional[ResourceStateTypeType] = None
-    Labels: Optional[List[str]] = None
+    Labels: Optional[List[Annotated[str, _aws_pattern("Workdocs", "SharedLabel")]]] = None
 
 
 # This class is the output for the 'get_document_version' function.
@@ -682,7 +684,7 @@ class GetDocumentVersionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_groups' function.
 class DescribeGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupMetadataTypeDef]
-    Marker: str
+    Marker: Annotated[str, _aws_pattern("Workdocs", "MarkerType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -692,7 +694,7 @@ class ParticipantsTypeDef(BaseValidatorModel):
 
 
 class PrincipalTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
     Type: Optional[PrincipalTypeType] = None
     Roles: Optional[List[PermissionInfoTypeDef]] = None
 
@@ -702,14 +704,14 @@ class ResourcePathTypeDef(BaseValidatorModel):
 
 
 class UserTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Username: Optional[str] = None
-    EmailAddress: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    Username: Optional[Annotated[str, _aws_pattern("Workdocs", "UsernameType")]] = None
+    EmailAddress: Optional[Annotated[str, _aws_pattern("Workdocs", "EmailAddressType")]] = None
     GivenName: Optional[str] = None
     Surname: Optional[str] = None
-    OrganizationId: Optional[str] = None
-    RootFolderId: Optional[str] = None
-    RecycleBinFolderId: Optional[str] = None
+    OrganizationId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    RootFolderId: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
+    RecycleBinFolderId: Optional[Annotated[str, _aws_pattern("Workdocs", "ResourceIdType")]] = None
     Status: Optional[UserStatusTypeType] = None
     Type: Optional[UserTypeType] = None
     CreatedTimestamp: Optional[datetime] = None
@@ -788,24 +790,24 @@ class ActivateUserResponseTypeDef(BaseValidatorModel):
 
 
 class CommentMetadataTypeDef(BaseValidatorModel):
-    CommentId: Optional[str] = None
+    CommentId: Optional[Annotated[str, _aws_pattern("Workdocs", "CommentIdType")]] = None
     Contributor: Optional[UserTypeDef] = None
     CreatedTimestamp: Optional[datetime] = None
     CommentStatus: Optional[CommentStatusTypeType] = None
-    RecipientId: Optional[str] = None
-    ContributorId: Optional[str] = None
+    RecipientId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
+    ContributorId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
 
 
 class CommentTypeDef(BaseValidatorModel):
-    CommentId: str
-    ParentId: Optional[str] = None
-    ThreadId: Optional[str] = None
+    CommentId: Annotated[str, _aws_pattern("Workdocs", "CommentIdType")]
+    ParentId: Optional[Annotated[str, _aws_pattern("Workdocs", "CommentIdType")]] = None
+    ThreadId: Optional[Annotated[str, _aws_pattern("Workdocs", "CommentIdType")]] = None
     Text: Optional[str] = None
     Contributor: Optional[UserTypeDef] = None
     CreatedTimestamp: Optional[datetime] = None
     Status: Optional[CommentStatusTypeType] = None
     Visibility: Optional[CommentVisibilityTypeType] = None
-    RecipientId: Optional[str] = None
+    RecipientId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
 
 
 # This class is the output for the 'create_user' function.
@@ -848,21 +850,21 @@ class SearchResourcesRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'search_resources' function.
 class SearchResourcesRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
-    QueryText: Optional[str] = None
+    QueryText: Optional[Annotated[str, _aws_pattern("Workdocs", "SearchQueryType")]] = None
     QueryScopes: Optional[List[SearchQueryScopeTypeType]] = None
-    OrganizationId: Optional[str] = None
+    OrganizationId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
     AdditionalResponseFields: Optional[List[Literal["WEBURL"]]] = None
     Filters: Optional[FiltersTypeDef] = None
     OrderBy: Optional[List[SearchSortResultTypeDef]] = None
     Limit: Optional[int] = None
-    Marker: Optional[str] = None
+    Marker: Optional[Annotated[str, _aws_pattern("Workdocs", "NextMarkerType")]] = None
 
 
 class ActivityTypeDef(BaseValidatorModel):
     Type: Optional[ActivityTypeType] = None
     TimeStamp: Optional[datetime] = None
     IsIndirectActivity: Optional[bool] = None
-    OrganizationId: Optional[str] = None
+    OrganizationId: Optional[Annotated[str, _aws_pattern("Workdocs", "IdType")]] = None
     Initiator: Optional[UserMetadataTypeDef] = None
     Participants: Optional[ParticipantsTypeDef] = None
     ResourceMetadata: Optional[ResourceMetadataTypeDef] = None
@@ -872,7 +874,7 @@ class ActivityTypeDef(BaseValidatorModel):
 
 class ResponseItemTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResponseItemTypeType] = None
-    WebUrl: Optional[str] = None
+    WebUrl: Optional[Annotated[str, _aws_pattern("Workdocs", "ResponseItemWebUrl")]] = None
     DocumentMetadata: Optional[DocumentMetadataTypeDef] = None
     FolderMetadata: Optional[FolderMetadataTypeDef] = None
     CommentMetadata: Optional[CommentMetadataTypeDef] = None
@@ -888,19 +890,19 @@ class CreateCommentResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_comments' function.
 class DescribeCommentsResponseTypeDef(BaseValidatorModel):
     Comments: List[CommentTypeDef]
-    Marker: str
+    Marker: Annotated[str, _aws_pattern("Workdocs", "MarkerType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_activities' function.
 class DescribeActivitiesResponseTypeDef(BaseValidatorModel):
     UserActivities: List[ActivityTypeDef]
-    Marker: str
+    Marker: Annotated[str, _aws_pattern("Workdocs", "SearchMarkerType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'search_resources' function.
 class SearchResourcesResponseTypeDef(BaseValidatorModel):
     Items: List[ResponseItemTypeDef]
-    Marker: str
+    Marker: Annotated[str, _aws_pattern("Workdocs", "NextMarkerType")]
     ResponseMetadata: ResponseMetadataTypeDef
