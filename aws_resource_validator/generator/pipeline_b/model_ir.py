@@ -14,6 +14,21 @@ Role = Literal["input", "output", "internal"]
 
 
 @dataclass(frozen=True, slots=True)
+class AwsPatternTarget:
+    """Where to insert the ``Annotated[str, _aws_pattern(...)]`` wrap for a field.
+
+    ``is_list_element`` distinguishes wrapping the field's value (``str``) from
+    wrapping the *element* of a list-valued field (``List[str]``). The two
+    wraps are mutually exclusive in v1 — a field is either a scalar string or
+    a list of strings.
+    """
+
+    service: str
+    shape_name: str
+    is_list_element: bool = False
+
+
+@dataclass(frozen=True, slots=True)
 class FieldIR:
     """A single Pydantic field.
 
@@ -27,6 +42,9 @@ class FieldIR:
         required: ``True`` if the dict key is required (no ``NotRequired``).
         default_expr: Python source for the default value. ``None`` means
             "no default"; ``"None"`` means "default of literal None".
+        aws_pattern: Optional :class:`AwsPatternTarget` telling the emitter
+            to wrap the field (or its list element) with an opt-in validator
+            that checks the value against an AWS-documented regex / length.
     """
 
     name: str
@@ -34,6 +52,7 @@ class FieldIR:
     annotation: str
     required: bool
     default_expr: str | None
+    aws_pattern: AwsPatternTarget | None = None
 
 
 @dataclass(frozen=True, slots=True)

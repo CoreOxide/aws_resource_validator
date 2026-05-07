@@ -6,6 +6,7 @@ import ast
 from pathlib import Path
 
 from aws_resource_validator.generator.pipeline_b.model_ir import (
+    AwsPatternTarget,
     ClassIR,
     FieldIR,
     LiteralAliasIR,
@@ -107,3 +108,64 @@ def test_emit_service_writes_four_files(tmp_path: Path) -> None:
     assert artifacts.constants_file.exists()
     assert artifacts.init_file.exists()
     assert artifacts.manifest_file.exists()
+
+
+def _ir_with_patterns() -> ServiceModelIR:
+    return ServiceModelIR(
+        service="acm_pca",
+        items=(
+            ClassIR(
+                name="SampleTypeDef",
+                fields=(
+                    FieldIR(
+                        name="Arn",
+                        py_name="Arn",
+                        annotation="Optional[str]",
+                        required=False,
+                        default_expr="None",
+                        aws_pattern=AwsPatternTarget("AcmPca", "Arn"),
+                    ),
+                    FieldIR(
+                        name="Arns",
+                        py_name="Arns",
+                        annotation="List[str]",
+                        required=True,
+                        default_expr=None,
+                        aws_pattern=AwsPatternTarget("AcmPca", "Arn", is_list_element=True),
+                    ),
+                    FieldIR(
+                        name="Count",
+                        py_name="Count",
+                        annotation="Optional[int]",
+                        required=False,
+                        default_expr="None",
+                    ),
+                ),
+            ),
+        ),
+    )
+
+
+def test_classes_output_includes_pattern_imports_and_wraps() -> None:
+    source = render_classes(_ir_with_patterns())
+    ast.parse(source)
+    # Black may wrap the long ``from typing import ...`` onto multiple lines;
+    # assert on the symbol presence, not on line layout.
+    assert "Annotated," in source or "import Annotated" in source
+    assert (
+        "from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern"
+        in source
+    )
+    # Scalar wrap on Optional[str] — the inner ``str`` becomes Annotated[str, ...].
+    assert 'Optional[Annotated[str, _aws_pattern("AcmPca", "Arn")]]' in source
+    # List wrap: the whole ``List[str]`` token is rewritten.
+    assert 'List[Annotated[str, _aws_pattern("AcmPca", "Arn")]]' in source
+    # Untouched field keeps the raw annotation.
+    assert "Count: Optional[int] = None" in source
+
+
+def test_pattern_metadata_does_not_affect_untagged_fields() -> None:
+    # Sanity: a field without ``aws_pattern`` must emit exactly the old
+    # annotation — no phantom ``Annotated`` wrap.
+    source = render_classes(_ir())
+    assert "Annotated[str" not in source

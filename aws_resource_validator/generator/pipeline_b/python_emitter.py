@@ -10,7 +10,12 @@ from aws_resource_validator.generator.common.formatter import format_python
 from aws_resource_validator.generator.common.io import ensure_package, write_text_atomic
 from aws_resource_validator.generator.common.logging import get_logger
 from aws_resource_validator.generator.common.templates import build_environment
-from aws_resource_validator.generator.pipeline_b.model_ir import ClassIR, ServiceModelIR, UnionAliasIR
+from aws_resource_validator.generator.pipeline_b.model_ir import (
+    ClassIR,
+    FieldIR,
+    ServiceModelIR,
+    UnionAliasIR,
+)
 
 _logger = get_logger(__name__)
 _TEMPLATE_DIR = Path(__file__).parent / "templates"
@@ -66,13 +71,40 @@ def _serialize_class(cls: ClassIR) -> dict[str, object]:
             {
                 "py_name": field.py_name,
                 "name_literal": repr(field.name),
-                "annotation": field.annotation,
+                "annotation": _decorate_annotation(field),
                 "default_expr": field.default_expr,
                 "needs_alias": field.py_name != field.name,
             }
             for field in cls.fields
         ],
     }
+
+
+def _decorate_annotation(field: FieldIR) -> str:
+    """Wrap the scalar string type with ``Annotated[str, _aws_pattern(...)]``.
+
+    Explicit dispatch over the four annotation shapes the extractor is allowed
+    to tag — any other value is an extractor bug, not an emitter one, so this
+    raises rather than silently emitting something wrong.
+    """
+    target = field.aws_pattern
+    if target is None:
+        return field.annotation
+    wrapped = f"Annotated[str, _aws_pattern({target.service!r}, {target.shape_name!r})]"
+    if target.is_list_element:
+        if field.annotation == "List[str]":
+            return f"List[{wrapped}]"
+        if field.annotation == "Optional[List[str]]":
+            return f"Optional[List[{wrapped}]]"
+    else:
+        if field.annotation == "str":
+            return wrapped
+        if field.annotation == "Optional[str]":
+            return f"Optional[{wrapped}]"
+    raise AssertionError(
+        f"aws_pattern tagged on unsupported annotation {field.annotation!r} "
+        f"(is_list_element={target.is_list_element}); extractor contract violated"
+    )
 
 
 def render_classes(ir: ServiceModelIR) -> str:
